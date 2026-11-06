@@ -149,7 +149,7 @@ jobs:
           rc=${PIPESTATUS[0]}
           set -e
           t1=$(date +%s); secs=$(( t1 - t0 )); first=$(cat "out/first-$i" 2>/dev/null || echo $t0)
-          steady=$(awk "BEGIN{n=$s1-$s0; printf \"%.2f\", n>0 ? ($t1-$first)/n : 0}")
+          steady=$(awk "BEGIN{n=$s1-$s0; printf \"%.2f\", (n > 0 ? ($t1-$first)/n : 0)}")  # parentheses: a bare > is a redirect in awk printf
           printf '{"index":"%s","start":%d,"end":%d,"seconds":%d,"steady_spf":%s,"startup":%d,"vcpu":%d,"exit":%d}\n' "$i" $s0 $s1 $secs $steady $(( first - t0 )) $(nproc) $rc > "out/chunk-$i.json"
           cat "out/chunk-$i.json"
           exit $rc
