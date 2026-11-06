@@ -36,4 +36,4 @@ Voice tip: paste the narration as ONE CapCut text block, speed 1.3×, export aud
 | 17 | Herschel spends years getting letters about bat-people he never saw, in four languages. | Herschel buried under piles of letters labelled English, Français, Italiano, Deutsch. | Afternoon |
 | 18 | And Locke? He starts signing his work: "author of the Moon hoax." | Close on Locke's pen signing "R. A. Locke — author of the Moon hoax". End on last word. | Warm sunrise through window |
 
-~215 words → ~58–62 s at CapCut 1.3×.
+205 words → ~53 s at CapCut 1.3× (use 1.2× for ~58 s).

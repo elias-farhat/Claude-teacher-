@@ -37,4 +37,4 @@ Voice tip: paste the narration as ONE CapCut text block, speed 1.3×, export aud
 | 20 | And the man who built those sewers, Paul Doumer, goes home… and later becomes President of France. | Doumer stepping onto a ship; dissolve-flight to him on a balcony, sash, crowd cheering. | Dawn gold |
 | 21 | The rats? They stayed. | Pull back from the balcony through a drain to a tailless rat lounging in the sewer, waving. End. | Cool sewer glow |
 
-~205 words → ~56–60 s at CapCut 1.3×.
+224 words → ~58 s at CapCut 1.3×.
