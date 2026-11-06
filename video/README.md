@@ -13,7 +13,13 @@ GitHub → **Actions → Render video → Run workflow**, then fill in:
 - **audio**: path to a WAV, relative to `video/`. It is muxed in, or a silent track is used if the file is missing.
 - **scale**: `1` for 1080x1920, `1.3333` for 2K.
 
-The finished MP4 is attached to a GitHub Release (`render-<comp>-<mode>-<run>`). The link is also in the run summary.
+The finished MP4 is attached to a GitHub Release (`render-<comp>-<mode>-<run>`).
+
+Every run ends with a **REPORT.md** to paste into another chat. It covers total time, per-chunk speed, frame check, loudness against the style bible, silences, errors and warnings, and frame QA.
+You can find it in:
+- the release notes (plus `REPORT.md` and `qa-sheets.zip` as assets);
+- the run summary;
+- the `REPORT` artifact, which is also kept when a run fails.
 
 ## Notes
 - Software GL (`--gl=swangle`) with Remotion's own Chrome Headless Shell, cached together with `node_modules`.
