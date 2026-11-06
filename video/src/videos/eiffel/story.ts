@@ -188,7 +188,7 @@ export const SHOTS: Shot[] = [
   ] },
   // 20 "André is too embarrassed to tell anyone he bought the Eiffel Tower." bill under the rug, the cat stares
   { at: wt(20), set: "andre", look: "cool", interior: true, keys: [
-    { pos: v(R.andre, 0.9, 1.5, 2.3), look: v(R.andre, 0.0, 0.95, 0.2), fov: 46, dof: 4 },
+    { pos: v(R.andre, 2.6, 1.6, 2.3), look: v(R.andre, 0.0, 0.9, 0.2), fov: 48, dof: 3 },
     { at: wt(20, "anyone"), pos: v(R.andre, -0.75, 0.95, 2.1), look: v(R.andre, -1.3, 0.4, 0.4), fov: 44, roll: 0.05, dof: 6 },
     { at: wt(20, "Eiffel"), pos: v(R.andre, 1.0, 1.35, 2.7), look: v(R.andre, 0.2, 0.85, 0.3), fov: 40, dof: 8 },
   ] },
