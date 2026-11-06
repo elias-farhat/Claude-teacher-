@@ -1,0 +1,161 @@
+# Chunked Remotion + three.js render on GitHub-hosted runners (CPU / SwiftShader).
+# Start it from the Actions tab (or the GitHub app): Actions → Render video → Run workflow.
+# The finished MP4 is attached to a GitHub Release named render-<composition>-<run number>.
+name: Render video
+
+on:
+  workflow_dispatch:
+    inputs:
+      composition:
+        description: Remotion composition id (registered in video/src/Root.tsx)
+        required: true
+        default: Test3D
+      chunks:
+        description: Number of parallel chunks (runners)
+        required: true
+        default: "20"
+      mode:
+        description: "full = whole video, final quality · preview = first 10 s, shadow map 1024, MSAA off"
+        type: choice
+        options: [full, preview]
+        default: full
+      audio:
+        description: Audio file to mux, relative to video/ (silent track if it does not exist)
+        required: false
+        default: public/audio/mix.wav
+      scale:
+        description: Output scale (1 = 1080x1920, 1.3333 = 2K 1440x2560)
+        required: false
+        default: "1"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: render-${{ github.ref }}-${{ inputs.composition }}
+  cancel-in-progress: false
+
+defaults:
+  run:
+    working-directory: video
+
+env:
+  PROPS: ${{ inputs.mode == 'preview' && '{"preview":true}' || '{}' }}
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+      frames: ${{ steps.plan.outputs.frames }}
+      fps: ${{ steps.plan.outputs.fps }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - id: deps
+        uses: actions/cache@v4
+        with:
+          path: video/node_modules
+          key: node-modules-${{ runner.os }}-${{ hashFiles('video/package-lock.json') }}
+      - if: steps.deps.outputs.cache-hit != 'true'
+        run: npm ci --no-audit --no-fund && npx remotion browser ensure
+      - id: plan
+        run: |
+          out="$(node scripts/plan-chunks.mjs "${{ inputs.composition }}" "${{ inputs.chunks }}" "${{ inputs.mode }}" | tail -1)"
+          echo "$out"
+          echo "matrix=$(jq -c '.matrix' <<<"$out")" >> "$GITHUB_OUTPUT"
+          echo "frames=$(jq -r '.frames' <<<"$out")" >> "$GITHUB_OUTPUT"
+          echo "fps=$(jq -r '.fps' <<<"$out")" >> "$GITHUB_OUTPUT"
+
+  render:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: true
+      matrix:
+        chunk: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    name: render ${{ matrix.chunk.index }} (${{ matrix.chunk.start }}-${{ matrix.chunk.end }})
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - id: deps
+        uses: actions/cache@v4
+        with:
+          path: video/node_modules
+          key: node-modules-${{ runner.os }}-${{ hashFiles('video/package-lock.json') }}
+      - if: steps.deps.outputs.cache-hit != 'true'
+        run: npm ci --no-audit --no-fund && npx remotion browser ensure
+      - uses: actions/cache@v4
+        with:
+          path: video/public/bridge/kenney
+          key: kenney-${{ hashFiles('video/scripts/fetch-kenney.sh') }}
+      - name: Kenney CC0 kits (fantasy town, nature, castle)
+        run: scripts/fetch-kenney.sh public/bridge/kenney
+      - name: Render frames ${{ matrix.chunk.start }}-${{ matrix.chunk.end }}
+        run: |
+          start=$(date +%s)
+          npx remotion render src/index.ts "${{ inputs.composition }}" "out/chunk-${{ matrix.chunk.index }}.mp4" \
+            --frames=${{ matrix.chunk.start }}-${{ matrix.chunk.end }} --codec h264 --crf 16 --muted \
+            --gl=swangle --scale "${{ inputs.scale }}" --props "$PROPS" --log=warn
+          n=$(( ${{ matrix.chunk.end }} - ${{ matrix.chunk.start }} + 1 )); s=$(( $(date +%s) - start ))
+          echo "### chunk ${{ matrix.chunk.index }}: $n frames in ${s}s ($(awk "BEGIN{printf \"%.2f\", $s/$n}") s/frame, $(nproc) vCPU)" >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chunk-${{ matrix.chunk.index }}
+          path: video/out/chunk-${{ matrix.chunk.index }}.mp4
+          retention-days: 1
+          compression-level: 0
+
+  publish:
+    needs: [plan, render]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: chunk-*
+          merge-multiple: true
+          path: video/out/chunks
+      - name: Install ffmpeg
+        run: command -v ffmpeg >/dev/null || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+      - name: Concatenate chunks (no re-encode) and mux audio
+        run: |
+          set -euo pipefail
+          cd out
+          ls chunks/chunk-*.mp4 | sort | sed "s|.*|file '$PWD/&'|" > list.txt
+          cat list.txt
+          ffmpeg -v error -y -f concat -safe 0 -i list.txt -c copy video_only.mp4
+          frames=${{ needs.plan.outputs.frames }}; fps=${{ needs.plan.outputs.fps }}
+          dur=$(awk "BEGIN{printf \"%.6f\", $frames/$fps}")
+          name="${{ inputs.composition }}-${{ inputs.mode }}-run${{ github.run_number }}.mp4"
+          audio="../${{ inputs.audio }}"
+          if [ -n "${{ inputs.audio }}" ] && [ -f "$audio" ]; then
+            ffmpeg -v error -y -i video_only.mp4 -i "$audio" -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -b:a 320k -t "$dur" "$name"
+            echo "AUDIO=${{ inputs.audio }}" >> "$GITHUB_ENV"
+          else
+            ffmpeg -v error -y -i video_only.mp4 -f lavfi -i anullsrc=r=48000:cl=stereo -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -t "$dur" "$name"
+            echo "AUDIO=silent (no ${{ inputs.audio }} in the repo)" >> "$GITHUB_ENV"
+          fi
+          got=$(ffprobe -v error -count_packets -select_streams v:0 -show_entries stream=nb_read_packets -of csv=p=0 "$name")
+          echo "frames: expected $frames, got $got"
+          [ "$got" = "$frames" ] || { echo "::error::frame count mismatch ($got != $frames)"; exit 1; }
+          echo "NAME=$name" >> "$GITHUB_ENV"
+          ls -la "$name"
+      - name: Upload as GitHub Release asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="render-${{ inputs.composition }}-${{ inputs.mode }}-${{ github.run_number }}"
+          gh release create "$tag" "out/$NAME" --target "${{ github.sha }}" \
+            --title "${{ inputs.composition }} (${{ inputs.mode }}) · run ${{ github.run_number }}" \
+            --notes "Rendered by run ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} · ${{ needs.plan.outputs.frames }} frames @ ${{ needs.plan.outputs.fps }} fps · ${{ inputs.chunks }} chunks · scale ${{ inputs.scale }} · audio: $AUDIO"
+          url="${{ github.server_url }}/${{ github.repository }}/releases/download/$tag/$NAME"
+          echo "Download: $url"
+          echo "## Download: [$NAME]($url)" >> "$GITHUB_STEP_SUMMARY"
