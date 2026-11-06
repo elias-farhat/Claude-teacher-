@@ -3,3 +3,4 @@ video/out/
 video/public/bridge/kenney/
 # Reference frames from another creator's channel: private study only, never commit.
 .claude/skills/**/references/
+__pycache__/
