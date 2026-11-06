@@ -51,7 +51,7 @@ export const trainX = (t: number) => {
 export const shipX = (t: number) => 380 + 4 * (t - wt(23));
 /** line 3: a rust flake falls from the painters' board onto the lady's hat, from "rusty" to "ugly" */
 export const flakeAt = (t: number) => {
-  const K = SHOTS[2].keys, D = moveDur(V(K[1].pos).distanceTo(V(K[2].pos))), m0 = wt(3, "half") - D, f0 = wt(3, "rusty") - 0.3, f1 = wt(3, "ugly") - 2 / 30;
+  const K = SHOTS[2].keys, D = moveDur(V(K[0].pos).distanceTo(V(K[1].pos))), m0 = wt(3, "half") - D, f0 = wt(3, "rusty") - 0.3, f1 = wt(3, "ugly") - 2 / 30;
   const P0 = new THREE.Vector3(PAINTERS[0], 30.4, PAINTERS[2]), P1 = new THREE.Vector3(PAINTERS[0], 29.2, PAINTERS[2]);
   const L1 = new THREE.Vector3(LADY[0] + 0.25, 3.0, LADY[2]), L2 = new THREE.Vector3(LADY[0], LADY[1] + 1.95, LADY[2]);
   const p = t < m0 ? P0.lerp(P1, clamp01((t - f0) / (m0 - f0))) : t < m0 + D ? P1.lerp(L1, ease((t - m0) / D)) : L1.lerp(L2, smooth(clamp01((t - m0 - D) / (f1 - m0 - D))));
@@ -114,8 +114,7 @@ export const SHOTS: Shot[] = [
   ] },
   // 3 "It's Paris, and the tower is rusty, expensive, and half the city thinks it's ugly."
   { at: wt(3), set: "tower", look: "morning", keys: [
-    { pos: [165, 48, 250], look: [0, 92, 0], fov: 46 },
-    { at: wt(3, "rusty"), pos: [PAINTERS[0] + 9, 33.5, PAINTERS[2] + 5.5], look: [PAINTERS[0], 30.6, PAINTERS[2]], fov: 36, dof: 10 },
+    { pos: [PAINTERS[0] + 14, 32.5, PAINTERS[2] + 2.5], look: [PAINTERS[0] + 0.3, 30.8, PAINTERS[2] - 0.2], fov: 34, dof: 8 },
     compose([LADY[0], 1.44, LADY[2]], null, { at: wt(3, "half"), away: [0.35, 0, 1], maxFace: 0.11, faceY: 0.5, fov: 48, roll: 0.06, dof: 4 }),
     compose([LADY[0], 1.44, LADY[2]], null, { at: wt(3, "ugly"), away: [0.25, 0, 1], maxFace: 0.17, faceY: 0.42, fov: 46, dof: 6 }),
   ] },
