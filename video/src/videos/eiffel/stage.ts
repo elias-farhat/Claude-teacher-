@@ -101,58 +101,84 @@ const forger = (t: number, s: Stage) => {
 const lobby = (t: number, s: Stage) => {
   const o = ROOM_AT.lobby;
   const tip = after(t, 6, "Paris");
-  s.places.push(P("lustigL", LUSTIG, { expr: tip ? "grin" : "smug", gest: tip ? "palm" : "hang", blink: blinkAt(t, 1) }, { monocle: true, coin: tip }, [o.x + 3.5, 0, o.z - 4.6]));
-  s.places.push(P("bellboy", BELLBOY, { expr: tip ? "grin" : "neutral", blink: blinkAt(t, 6) }, {}, [o.x + 2.3, 0, o.z - 4.0]));
+  s.places.push(P("lustigL", LUSTIG, { expr: tip ? "grin" : "smug", gest: tip ? "palm" : "hang", blink: blinkAt(t, 1) }, { monocle: true, coin: tip }, [o.x + 3.6, 0, o.z + 5.0]));
+  s.places.push(P("bellboy", BELLBOY, { expr: tip ? "grin" : "neutral", blink: blinkAt(t, 6) }, {}, [o.x + 2.3, 0, o.z + 4.6]));
   // line 7: five envelopes fly into the mailboxes
   const t0 = wt(7), t1 = wt(7, "secret");
   if (t > t0 - 0.2 && t < t1 + 0.3) for (let i = 0; i < 5; i++) {
-    const k = clamp01((t - t0 - i * 0.28) / 0.55), to = V(o.x + 3.75 + i * 1.4, 2.42 + (i % 2) * 0.62, o.z - 7.7);
-    const from = V(o.x + 3.2, 1.4, o.z - 3.2), p = from.lerp(to, smooth(k));
-    if (k > 0 && k < 1) s.fx.push(card("envelope", 300, 200, LB.envelope, [p.x, p.y + 0.35 * Math.sin(k * Math.PI), p.z], 0.3, 0.2, { rot: (1 - k) * 2 }));
+    const k = clamp01((t - t0 - i * 0.38) / 0.75), to = V(o.x + 3.05 + (i * 3 % 8) * 0.7, 1.8 + (i % 4) * 0.62, o.z + 7.6);
+    const from = V(o.x + 3.4, 1.5, o.z + 4.6), p = from.lerp(to, smooth(k));
+    if (k > 0 && k < 1) s.fx.push(card("envelope", 300, 200, LB.envelope, [p.x, p.y + 0.6 * Math.sin(k * Math.PI), p.z], 0.45, 0.3, { rot: (1 - k) * 2.5 }));
   }
 };
 
-const MEET_SEATS: V3[] = [[-1.4, 0, -1.25], [0, 0, -1.25], [1.4, 0, -1.25], [-1.4, 0, 1.25], [0, 0, 1.25]];
-const meeting = (t: number, s: Stage, si: number) => {
+const MEET_SEATS: V3[] = [-2.0, -1.2, -0.4, 0.4, 1.2].map((x) => [x, 0, 1.25] as V3); // one row on the far side (André at 2.0); the near side stays open to the camera
+const meeting = (t: number, s: Stage, si: number, cam: THREE.Camera) => {
   const o = ROOM_AT.meeting, at = (d: V3): V3 => [o.x + d[0], o.y + d[1], o.z + d[2]];
   const ln = lineOf(t), newFaces = t >= wt(21, "New") - 0.3;
   const lips = (ln === 9 && after(t, 9, "Not")) || (ln === 21 && after(t, 21, "Same"));
-  const palm = ln === 13, pocket = ln === 15, cool = ln === 11 || ln === 12;
+  const palm = ln === 13 || (t > wt(13) - 0.1 && t < wt(14) + 0.6), pocket = ln === 15, cool = ln === 11 || ln === 12;
   const lustigExpr = ln === 12 ? "smug" : palm ? "smug" : pocket ? (after(t, 15, "crooked") && !after(t, 15, "would") ? "wink" : "smug") : lips ? "smug" : "grin";
-  s.places.push(P("lustigM", LUSTIG, { expr: lustigExpr, gest: lips ? "lips" : palm ? "palm" : pocket ? "pocket" : ln === 8 ? "palm" : "hang", blink: lips || ln === 12 ? 0 : blinkAt(t, 1) }, { monocle: true }, at([-2.6, 0, 0])));
+  s.places.push(P("lustigM", LUSTIG, { expr: lustigExpr, gest: lips ? "lips" : palm ? "palm" : pocket ? "pocket" : ln === 8 ? "palm" : "hang", blink: lips || ln === 12 ? 0 : blinkAt(t, 1) }, { monocle: true }, at([-3.0, 0, 0])));
   // dealers (new faces on line 21): copy the finger-to-lips on "anyone"
   const copy = (ln === 9 && after(t, 9, "anyone")) || (ln === 21 && after(t, 21, "Same") && t > wt(21, "Same") + 0.4);
+  // line 7 "secret meeting" -> line 8: the dealers walk in through the CONFIDENTIAL doorway, one by one, and sit
+  const arrive0 = wt(7, "secret") - 0.2;
   MEET_SEATS.forEach((d, i) => {
     const out = newFaces ? townsfolk(i + 6) : DEALERS[i];
-    const spit = ln === 13 && i === 2;
+    const spit = i === 2 && t > wt(13) && t < wt(14) + 0.6;   // the dealer facing the camera across the table
+    const ta = arrive0 + i * 0.32, walking = t >= arrive0 - 1 && t < ta + 1.5 && ln <= 8;
+    if (walking) {
+      if (t < ta) return;                  // still in the corridor
+      const u = clamp01((t - ta) / 1.5), door = [-3.2, 0, 4.2], mid = [-3.0, 0, 2.3], seat = [d[0], 0, d[2] + 0.55];
+      const pth = u < 0.45 ? [door, mid, u / 0.45] : [mid, seat, (u - 0.45) / 0.55];
+      const a = pth[0] as number[], b = pth[1] as number[], k = smooth(pth[2] as number);
+      s.places.push(P(`dealerW${i}`, out, { mode: "stroll", expr: i % 2 ? "grin" : "smile_closed", phase: q((t * 2 + i * 0.3) % 1, 12), seed: 30 + i }, {}, at([a[0] + (b[0] - a[0]) * k, 0, a[2] + (b[2] - a[2]) * k]), { size: [300, 500, 0.5] }));
+      return;
+    }
     s.places.push(P(`dealer${newFaces ? "N" : ""}${i}`, out, { mode: "sit", expr: spit ? "shock" : copy ? "smug" : cool ? "neutral" : i % 2 ? "grin" : "smile_closed", gest: copy ? "lips" : "hang", seed: 30 + i, blink: copy ? 0 : blinkAt(t, 10 + i) }, {}, at(d), { size: [300, 500, 0.5] }));
-    if (spit) { const u = clamp01((t - wt(13, "bribe") + 0.1) / 0.5); if (u > 0 && u < 1) s.fx.push(card(`splash${q(u, 12)}`, 600, 600, (p) => fxSplash(p, q(u, 12)), at([d[0], 1.45, d[2] + 0.2]), 0.7, 0.7)); }
+    if (spit) { const u = clamp01((t - wt(13, "bribe") + 0.1) / 0.55); if (u > 0 && u < 1) s.fx.push(card(`splash${q(u, 12)}`, 600, 600, (p) => fxSplash(p, q(u, 12)), at([d[0], 1.3, d[2] - 0.35]), 0.75, 0.75)); }
   });
+  // line 13: Lustig's arm slides across the table, palm up, toward André (a stretchy cartoon arm)
+  if (t > wt(13) - 0.1 && t < wt(14) + 0.6) {
+    // upright card from Lustig's shoulder toward André, rotated to the on-screen direction, stretching with `reach`
+    const reach = q(smooth(clamp01((t - wt(13) + 0.05) / 0.7)), 12);
+    const sh = new THREE.Vector3(...at([-2.85, 1.2, 0.15])), tgt = new THREE.Vector3(...at([1.2, 0.88, 0.75]));  // palm lands on the baize in front of André
+    const hand = sh.clone().lerp(tgt, 0.1 + 0.9 * reach), mid = sh.clone().lerp(hand, 0.5);
+    const a2 = sh.clone().project(cam), b2 = hand.clone().project(cam);
+    const rot = -Math.atan2((b2.y - a2.y) * 16, (b2.x - a2.x) * 9);  // screen angle (portrait aspect; card rotation runs the other way)
+    const len = sh.distanceTo(hand);
+    if (reach > 0) s.fx.push(card(`arm${reach}`, Math.round(200 + 900 * reach), 160, (p) => {
+      const W = 200 + 900 * reach; p.line([[10, 80], [W - 70, 80]], "#6a3c8c", 26);           // purple sleeve
+      p.ell(W - 45, 86, 38, 22, "#ffe2c2", 9); p.stroke([[W - 80, 70], [W - 10, 70]], 7);       // palm up + thumb line
+    }, [mid.x, mid.y, mid.z], len, len * (160 / (200 + 900 * reach)), { rot }));
+  }
+  // the door sign while the dealers arrive
+  if (ln === 7 || ln === 8) s.fx.push(card("confidential", 640, 200, (p) => LB.sign(p, "CONFIDENTIAL", "#6a2a2a"), at([-3.2, 2.55, 3.95]), 0.8, 0.25, { yaw: Math.PI }));
   // André: clutches his cap (line 10), doubt (11), signs + pays (17)
   const andreLook: Look = ln === 10 ? { mode: "sit", expr: "smile", gest: "clutch", blink: blinkAt(t, 2) } : ln === 11 ? { mode: "sit", expr: "nervous", gest: "clutch" }
     : ln === 17 ? { mode: "sit", expr: "smile_closed", gest: "sign", k: t } : { mode: "sit", expr: "neutral", blink: blinkAt(t, 2) };
-  if (!newFaces) s.places.push(P("andreM", ln === 10 || ln === 11 ? ANDRE_BARE : ANDRE, andreLook, { glasses: true, sweat: ln === 11, capInHands: ln === 10 || ln === 11 ? ANDRE.cap : undefined, pen: ln === 17 }, at([1.4, 0, 1.25])));
+  if (!newFaces) s.places.push(P("andreM", ln === 10 || ln === 11 ? ANDRE_BARE : ANDRE, andreLook, { glasses: true, sweat: ln === 11, capInHands: ln === 10 || ln === 11 ? ANDRE.cap : undefined, pen: ln === 17 }, at([2.0, 0, 1.25])));
   // the blueprint, the scale model's 7,000 TONS tag, x-ray doubt, francs, bill of sale
   s.fx.push(card("blueprint", 640, 900, LB.blueprint, at([-0.55, 0.805, 0]), 0.62, 0.86, { flat: true, rot: 1.5 }));
   if (ln >= 9) s.fx.push(card("tons", 640, 320, LB.tonsStamp, at([0.2, 1.3, 0.2]), 0.5, 0.25, { rot: 0.05 * Math.sin(t * 2) }));
-  if (ln === 11) s.fx.push(card(`xray${q((t * 2) % (Math.PI * 2), 10)}`, 500, 500, (p) => LB.xrayDoubt(p, q((t * 2) % (Math.PI * 2), 10)), at([1.4, 1.72, 1.05]), 0.42, 0.42));
+  if (ln === 11) s.fx.push(card(`xray${q((t * 2) % (Math.PI * 2), 10)}`, 500, 500, (p) => LB.xrayDoubt(p, q((t * 2) % (Math.PI * 2), 10)), at([2.0, 1.72, 1.05]), 0.42, 0.42));
   if (ln === 17) {
     const u = smooth(clamp01((t - wt(17) - 0.1) / 0.8));
-    s.fx.push(card("francs", 300, 200, LB.francs, at([1.2 - 3.0 * u, 0.82, 0.8 - 0.8 * u]), 0.36, 0.24, { flat: true, rot: 0.4 }));
-    s.fx.push(card("bill", 520, 680, LB.billOfSale, at([1.25, 0.81, 0.62]), 0.34, 0.44, { flat: true, rot: Math.PI }));
+    s.fx.push(card("francs", 300, 200, LB.francs, at([1.8 - 3.9 * u, 0.82, 0.55 - 0.55 * u]), 0.36, 0.24, { flat: true, rot: 0.4 }));
+    s.fx.push(card("bill", 520, 680, LB.billOfSale, at([1.85, 0.81, 0.5]), 0.34, 0.44, { flat: true, rot: Math.PI }));
   }
-  if (ln === 7) s.fx.push(card("confidential", 640, 200, (p) => LB.sign(p, "CONFIDENTIAL", "#6a2a2a"), at([-3.2, 1.65, 3.92]), 0.62, 0.2, { yaw: Math.PI }));
   void si;
 };
 
 const studio = (t: number, s: Stage) => {
   const o = ROOM_AT.studio, at = (d: V3): V3 => [o.x + d[0], o.y + d[1], o.z + d[2]];
   const fake: Outfit = { ...DEALERS[0], jacket: "#4a6a9a" }, real: Outfit = { ...DEALERS[3], jacket: "#3a3a3a" };
-  s.places.push(P("fake", fake, { expr: "smile_closed", gest: "hang", blink: blinkAt(t, 5) }, {}, at([-0.75, 0, 0])));
-  s.places.push(P("real", real, { expr: "smug", gest: "palm", blink: blinkAt(t, 8) }, { coin: true }, at([0.75, 0, 0])));
-  s.fx.push(card("halo", 600, 600, (p) => fxRing(p, 0.5), at([-0.75, 2.55, 0]), 0.6, 0.2));
-  s.fx.push(card("plFake", 640, 160, (p) => LB.plaque(p, "FAKE", "#3f6fb5"), at([-0.75, 0.35, 0.4]), 0.7, 0.18));
-  s.fx.push(card("plReal", 640, 160, (p) => LB.plaque(p, "REAL", "#b8262e"), at([0.75, 0.35, 0.4]), 0.7, 0.18));
+  s.places.push(P("fake", fake, { expr: "smile_closed", gest: "hang", blink: blinkAt(t, 5) }, {}, at([-0.75, 0.4, 1.6])));
+  s.places.push(P("real", real, { expr: "smug", gest: "palm", blink: blinkAt(t, 8) }, { coin: true }, at([0.75, 0.4, 1.6])));
+  s.fx.push(card("halo", 600, 600, (p) => fxRing(p, 0.5), at([-0.75, 2.95, 1.6]), 0.6, 0.2));
+  s.fx.push(card("plFake", 640, 160, (p) => LB.plaque(p, "FAKE", "#3f6fb5"), at([-0.75, 0.62, 1.05]), 0.7, 0.18));
+  s.fx.push(card("plReal", 640, 160, (p) => LB.plaque(p, "REAL", "#b8262e"), at([0.75, 0.62, 1.05]), 0.7, 0.18));
 };
 
 const train = (t: number, s: Stage) => {
@@ -193,8 +219,8 @@ const river = (t: number, s: Stage) => {
 const hospital = (t: number, s: Stage) => {
   const o = ROOM_AT.hospital, at = (d: V3): V3 => [o.x + d[0], o.y + d[1], o.z + d[2]];
   const old: Outfit = { ...LUSTIG, hat: "hair", hair: "#d8d4cc", moustache: "#d8d4cc", jacket: "#e8eef0", pants: "#e8eef0" };
-  s.places.push(P("lustigOld", old, { mode: "sit", expr: "smile_closed" }, { monocle: true }, at([1.5, 0.55, -1.3]), { noSeat: true }));
-  s.fx.push(card("cert", 560, 760, LB.certificate, at([2.6, 0.755, -0.5]), 0.42, 0.57, { flat: true, rot: 0.06 }));
+  s.places.push(P("lustigOld", old, { mode: "sit", expr: "smile_closed" }, { monocle: true }, at([1.5, 0.55, 1.5]), { noSeat: true }));
+  s.fx.push(card("cert", 560, 760, LB.certificate, at([2.6, 0.755, 0.5]), 0.42, 0.57, { flat: true, rot: 0.06 }));
   if (lineOf(t) === 24) for (let i = 0; i < 10; i++) { // rain streaks on the window
     const y = 3.4 - ((t * 2.2 + i * 0.37) % 2.6);
     s.fx.push(card("rain", 64, 256, (p) => p.stroke([[32, 10], [28, 246]], 6, "rgba(220,235,255,0.55)"), at([-0.5 + i * 0.22, y, -3.45]), 0.04, 0.3, { soft: true, yaw: 0 }));
@@ -212,7 +238,7 @@ export const stage = (t: number, c: Cam, cam: THREE.Camera): Stage => {
     else if (set === "cafe") cafe(t, s);
     else if (set === "forger") forger(t, s);
     else if (set === "lobby") lobby(t, s);
-    else if (set === "meeting") meeting(t, s, c.shot);
+    else if (set === "meeting") meeting(t, s, c.shot, cam);
     else if (set === "studio") studio(t, s);
     else if (set === "train") train(t, s);
     else if (set === "andre") andre(t, s);

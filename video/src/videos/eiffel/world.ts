@@ -63,6 +63,8 @@ export class EiffelWorld {
   private lampDots: THREE.Mesh[] = []; private police: THREE.Mesh[] = [];
   private frustum = new THREE.Frustum(); private m4 = new THREE.Matrix4(); private sph = new THREE.Sphere(); private v = new THREE.Vector3();
   private sunCache = new Map<number, THREE.Vector3>();
+  /** what was on stage in the last update (for the QA probe) */
+  last: Stage | null = null;
 
   constructor(kit: Kit) {
     const R = this.root;
@@ -137,7 +139,7 @@ export class EiffelWorld {
   update(f: number, cam: THREE.PerspectiveCamera, scene: THREE.Scene): Cam {
     const t = f / FPS, c = camAt(t);
     cam.position.copy(c.pos); cam.up.set(0, 1, 0); cam.lookAt(c.look); cam.rotateZ(c.roll);
-    const interiorNow = !!SHOTS[c.shot].interior;
+    const interiorNow = c.interior;  // where the camera physically is (flights cross doors / windows)
     cam.fov = c.fov; cam.near = interiorNow ? 0.05 : 0.3; cam.far = 6000; cam.updateProjectionMatrix(); cam.updateMatrixWorld();
     cam.layers.enable(NOINK);
     // ---- look: the shot's preset, blended across a flight ----
@@ -178,6 +180,7 @@ export class EiffelWorld {
     // ---- practical lights: 8 nearest to the focus, gain from the look ----
     const glowK = lerpN(A.glowK, B.glowK, k);
     const st: Stage = stage(t, c, cam);
+    this.last = st;
     const lamps: (Lamp & { col: C3 })[] = [];
     for (const l of this.paris.lamps) lamps.push({ ...l, col: LAMP });
     for (const r of Object.values(this.rooms)) for (const l of r.lamps) lamps.push({ ...l, col: LAMP });

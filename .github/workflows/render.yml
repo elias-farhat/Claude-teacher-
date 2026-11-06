@@ -36,6 +36,10 @@ on:
         description: Frames to render as full-quality stills into the same release (comma-separated, e.g. 91,368,424)
         required: false
         default: ""
+      qa_every:
+        description: QA stills every N frames (15 = every 0.5 s; empty = no QA stills). Flags frames with nothing to look at.
+        required: false
+        default: "15"
 
 permissions:
   contents: write
@@ -64,6 +68,7 @@ jobs:
       fps: ${{ steps.plan.outputs.fps }}
       count: ${{ steps.plan.outputs.count }}
       stills: ${{ steps.plan.outputs.stills }}
+      qa: ${{ steps.plan.outputs.qa }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -108,6 +113,20 @@ jobs:
           echo "fps=$(jq -r '.fps' <<<"$out")" >> "$GITHUB_OUTPUT"
           echo "count=$(jq -r '.matrix | length' <<<"$out")" >> "$GITHUB_OUTPUT"
           echo "stills=$(jq -cn --arg s '${{ inputs.stills }}' '$s | split(",") | map(gsub(" "; "")) | map(select(length > 0) | tonumber)')" >> "$GITHUB_OUTPUT"
+          # QA stills: every N frames, in batches of 8 (one runner each)
+          n="${{ inputs.qa_every }}"; frames=$(jq -r '.frames' <<<"$out")
+          if [ -n "$n" ] && [ "$n" -gt 0 ]; then
+            echo "qa=$(seq 0 "$n" $((frames - 1)) | jq -cs '[range(0; length; 8) as $i | .[$i:$i+8] | map(tostring) | join(",")]')" >> "$GITHUB_OUTPUT"
+          else echo "qa=[]" >> "$GITHUB_OUTPUT"; fi
+      - name: Framing QA on every frame (analytic, no rendering)
+        if: inputs.composition == 'EiffelShort'
+        run: node scripts/frame-qa.mjs out/frame-qa.json | tee out/frame-qa.txt
+      - if: inputs.composition == 'EiffelShort'
+        uses: actions/upload-artifact@v4
+        with:
+          name: frame-qa
+          path: video/out/frame-qa.json
+          retention-days: 7
 
   render:
     needs: plan
@@ -209,9 +228,43 @@ jobs:
             video/out/still-*.json
           retention-days: 3
 
+  qa:
+    needs: plan
+    if: needs.plan.outputs.qa != '[]' && needs.plan.outputs.qa != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        frames: ${{ fromJSON(needs.plan.outputs.qa) }}
+    name: qa stills ${{ strategy.job-index }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - id: deps
+        uses: actions/cache@v4
+        with:
+          path: video/node_modules
+          key: node-modules-${{ runner.os }}-${{ hashFiles('video/package-lock.json') }}
+      - if: steps.deps.outputs.cache-hit != 'true'
+        run: npm ci --no-audit --no-fund && npx remotion browser ensure
+      - uses: actions/cache/restore@v4
+        with:
+          path: video/public/bridge/kenney
+          key: kenney-v3-${{ hashFiles('video/scripts/fetch-kenney.sh', 'video/scripts/kenney_flatten.py', 'video/assets/kenney/*.zip') }}
+      - name: QA stills (half size, probed)
+        run: node scripts/render-stills.mjs "${{ inputs.composition }}" "${{ matrix.frames }}" out/qa 0.5 2>&1 | grep -E "^still |rror" || true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qa-${{ strategy.job-index }}
+          path: video/out/qa/
+          retention-days: 7
+
   publish:
     # Runs even when chunks failed, so every run ends with a REPORT.md (run summary + release / artifact).
-    needs: [plan, render, stills]
+    needs: [plan, render, stills, qa]
     if: always() && needs.plan.result == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 30
@@ -256,6 +309,21 @@ jobs:
           pattern: still-*
           merge-multiple: true
           path: video/out/stills
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: qa-*
+          merge-multiple: true
+          path: video/out/qa
+      - uses: actions/download-artifact@v4
+        with:
+          name: frame-qa
+          path: video/out/fqa
+        continue-on-error: true
+      - name: QA sheet (stills every 0.5 s, flags)
+        run: |
+          ls out/qa/qa-*.json >/dev/null 2>&1 || { echo "no QA stills"; exit 0; }
+          python scripts/qa-sheet.py out/qa out/qa-sheet.jpg out/QA.md out/fqa/frame-qa.json
+          cat out/QA.md >> "$GITHUB_STEP_SUMMARY"
       - name: Stills contact sheet
         run: |
           ls out/stills/*.jpg >/dev/null 2>&1 || { echo "no stills"; exit 0; }
@@ -313,7 +381,8 @@ jobs:
       - name: Upload as GitHub Release (MP4 + REPORT.md + QA sheets)
         if: needs.render.result == 'success'
         run: |
-          extra=$(ls out/stills/*.jpg out/stills-sheet.jpg 2>/dev/null | tr '\n' ' ')
+          extra=$(ls out/stills/*.jpg out/stills-sheet.jpg out/qa-sheet.jpg out/QA.md 2>/dev/null | tr '\n' ' ')
+          [ -f out/QA.md ] && { echo; cat out/QA.md; } >> out/REPORT.md
           gh release create "$TAG" "out/$NAME" out/REPORT.md out/qa-sheets.zip $extra --target "$SHA" \
             --title "$COMP ($MODE) · run ${{ github.run_number }}" --notes-file out/REPORT.md
       - name: Keep REPORT.md as an artifact (also for failed runs)

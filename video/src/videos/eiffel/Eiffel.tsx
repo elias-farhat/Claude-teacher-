@@ -18,6 +18,41 @@ import { Kit } from "../bridge/build";
 import { EiffelWorld, loadEiffelKit } from "./world";
 import { TOTAL, FPS, SHOTS, captionAt } from "./story";
 import { LOOKS } from "./looks";
+import { trainX, wt } from "./story";
+import { RAIL } from "./layout";
+
+/** QA probe (inputProps { qa: true }): which characters / key props are really visible (in frame AND not hidden
+ *  behind world geometry, by a ray to each), where each visible face sits on screen and how big it is. One
+ *  "[qa] {...}" line per frame on the console (console.error: Remotion forwards it at the default log level). */
+const ray = new THREE.Raycaster();
+ray.layers.set(0); // world geometry only: character / label cards live on the NOINK layer
+const qaProbe = (f: number, world: EiffelWorld, cam: THREE.PerspectiveCamera, c: { mix: number; shot: number }) => {
+  const st = world.last;
+  if (!st) return;
+  const vis: string[] = [], faces: { who: string; y: number; size: number }[] = [];
+  const fwd = new THREE.Vector3(); cam.getWorldDirection(fwd);
+  const half = Math.tan((cam.fov * Math.PI) / 360);
+  const seen = (p: THREE.Vector3) => {
+    const v = p.clone().project(cam);
+    if (v.z > 1 || Math.abs(v.x) > 1 || Math.abs(v.y) > 1) return null;
+    const d = p.distanceTo(cam.position);
+    ray.set(cam.position, p.clone().sub(cam.position).normalize()); ray.far = d - 0.25; ray.near = 0;
+    return ray.intersectObject(world.root, true).length ? null : v;
+  };
+  for (const p of st.places) {
+    const parts = p.key.split("|"), up = parts[0] === "up", mode = up ? parts[2] : parts[1], sc = p.scale ?? 1;
+    const head = new THREE.Vector3(p.x, p.y + (mode === "sit" ? 0.86 : 1.44) * sc, p.z), v = seen(head);
+    if (!v) continue;
+    const who = up ? parts[1] : parts[0], size = (0.48 * sc) / (2 * head.clone().sub(cam.position).dot(fwd) * half);
+    vis.push(who); faces.push({ who, y: +((1 - v.y) / 2).toFixed(3), size: +size.toFixed(3) });
+  }
+  for (const p of st.fx) if (seen(new THREE.Vector3(p.x, p.y, p.z))) vis.push(p.key.split("|").pop()!.replace(/[0-9.]+$/, ""));
+  const t = f / FPS, marks: [string, number[]][] = [["tower", [0, 120, 0]], ["tower", [0, 260, 0]]];
+  if (t > wt(18) - 1 && t < wt(22)) marks.push(["train", [trainX(t) - 6, 2.5, RAIL.z]]);   // only while the story is about them
+  if (t > wt(23) - 1 && t < wt(24)) marks.push(["ship", [-56 + 4 * (t - wt(23)), 3, -263]]);
+  for (const [n, q] of marks) { const v = new THREE.Vector3(...q).project(cam); if (v.z < 1 && Math.abs(v.x) < 1 && Math.abs(v.y) < 1 && !vis.includes(n)) vis.push(n); }
+  console.error("[qa] " + JSON.stringify({ f, shot: c.shot, flight: c.mix > 0, vis, faces }));
+};
 
 export const EIFFEL_FRAMES = TOTAL;
 
@@ -71,6 +106,7 @@ const Inner: React.FC<{ kit: Kit }> = ({ kit }) => {
   ), [fx, on]);
   const cam = camera as THREE.PerspectiveCamera;
   const c = world.update(f, cam, scene);
+  if ((getInputProps() as { qa?: boolean }).qa) qaProbe(f, world, cam, c);
   noInkFallback(world.root);
   cam.getWorldDirection(fwd);
   fx.lens.focus = Math.max(0.3, c.look.clone().sub(cam.position).dot(fwd));

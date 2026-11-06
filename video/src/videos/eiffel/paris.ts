@@ -6,15 +6,14 @@ import * as THREE from "three";
 import { Batch, lam, quad, V, kitClone, Kit } from "../bridge/build";
 import { ctex, rep, grassHD, cobbleHD, stoneHD, roofHD, rng } from "../bridge/paint";
 
-export const RIVER = { z0: -200, z1: -330, y: -4 };
-export const CAFE = { x: 152, z: 196, face: -1 };          // café front on the east avenue, facing west (-x)
-export const HOTEL = { x: 430, z: -150, w: 110, h: 24 };   // grand hotel on the south quay, facade facing north (-z)
-export const RAIL = { z: -186, y: 0.15 };                  // railway along the south quay
+import { RIVER, CAFE, HOTEL, RAIL, HOTEL_FACADE_Z, HOTEL_HOLES, HOSTS, northHole } from "./layout";
+export { RIVER, CAFE, HOTEL, RAIL };
+type Hole = { x0: number; x1: number; y0: number; y1: number };
 export type Lamp = { p: THREE.Vector3; k: number };
 
 // ---------------- painted textures ----------------
 /** Haussmann facade: limestone courses, shop band, tall French windows, iron balconies on floors 2 and 5 */
-const hausFacade = (seed: number, wm: number, hm: number) => {
+export const hausFacade = (seed: number, wm: number, hm: number) => {
   const PX = 24, W = Math.round(wm * PX), H = Math.round(hm * PX), m = (v: number) => v * PX;
   return ctex(`haus${seed}_${wm}_${hm}`, W, H, (g) => {
     const r = rng(seed * 17 + 3);
@@ -80,14 +79,34 @@ const box = (b: Batch, mat: THREE.Material, x0: number, y0: number, z0: number, 
   const g = new THREE.BoxGeometry(x1 - x0, y1 - y0, z1 - z0);
   b.add(g, mat, new THREE.Matrix4().makeTranslation((x0 + x1) / 2, (y0 + y1) / 2, (z0 + z1) / 2));
 };
+/** facade facing -z on the plane z, spanning x0..x1 / y0..y1, minus holes; UVs by position (u = 0 at x1, as a -z quad) */
+const holedFacade = (b: Batch, mat: THREE.Material, x0: number, x1: number, y0: number, y1: number, z: number, holes: Hole[], uScale = 1, vScale = 1) => {
+  const W = x1 - x0, H = y1 - y0, xs = [x0, x1, ...holes.flatMap((h) => [h.x0, h.x1])].sort((a, b) => a - b);
+  const U = (x: number) => ((x1 - x) / W) * uScale, Vv = (y: number) => ((y - y0) / H) * vScale;
+  const rect = (a: number, c: number, lo: number, hi: number) => { if (c - a > 1e-3 && hi - lo > 1e-3) b.add(quad(V(c, lo, z), V(a, lo, z), V(a, hi, z), V(c, hi, z), U(a), Vv(hi), U(c), Vv(lo)), mat); };
+  for (let i = 0; i + 1 < xs.length; i++) {
+    const a = xs[i], c = xs[i + 1], cut = holes.filter((h) => h.x0 <= a + 1e-3 && h.x1 >= c - 1e-3).sort((p, q) => p.y0 - q.y0);
+    let lo = y0;
+    for (const h of cut) { rect(a, c, lo, h.y0); lo = h.y1; }
+    rect(a, c, lo, y1);
+  }
+};
+/** stone frame round a facade hole (on the street side) */
+const holeFrame = (b: Batch, h: Hole, z: number) => {
+  const m = lam("holeFrame", () => ({ color: "#f3ebda" })), t = 0.22;
+  box(b, m, h.x0 - t, h.y1, z - 0.18, h.x1 + t, h.y1 + t, z);
+  for (const x of [h.x0 - t, h.x1]) box(b, m, x, h.y0, z - 0.18, x + t, h.y1, z);
+  if (h.y0 > 0.1) box(b, m, h.x0 - t - 0.1, h.y0 - 0.12, z - 0.35, h.x1 + t + 0.1, h.y0, z);
+};
 /** Haussmann block: 4 facades + zinc mansard (inset 1.4 m, 4.5 m tall) + chimney stacks */
-export const building = (b: Batch, x: number, z: number, yaw: number, w: number, d: number, h: number, seed: number) => {
+export const building = (b: Batch, x: number, z: number, yaw: number, w: number, d: number, h: number, seed: number, holes: Hole[] = []) => {
   const M = new THREE.Matrix4().makeRotationY(yaw).setPosition(x, 0, z);
   const fr = lam(`hausF${seed % 6}_${w}_${h}`, () => ({ map: hausFacade(seed % 6, w, h) }));
   const sd = lam(`hausS${seed % 6}_${d}_${h}`, () => ({ map: hausFacade(seed % 6 + 10, d, h) }));
   const hw = w / 2, hd = d / 2;
   b.add(quad(V(-hw, 0, hd), V(hw, 0, hd), V(hw, h, hd), V(-hw, h, hd)), fr, M);
-  b.add(quad(V(hw, 0, -hd), V(-hw, 0, -hd), V(-hw, h, -hd), V(hw, h, -hd)), fr, M);
+  if (holes.length && yaw === 0) { holedFacade(b, fr, x - hw, x + hw, 0, h, z - hd, holes); holes.forEach((hh) => holeFrame(b, hh, z - hd)); }
+  else b.add(quad(V(hw, 0, -hd), V(-hw, 0, -hd), V(-hw, h, -hd), V(hw, h, -hd)), fr, M);
   b.add(quad(V(hw, 0, hd), V(hw, 0, -hd), V(hw, h, -hd), V(hw, h, hd)), sd, M);
   b.add(quad(V(-hw, 0, -hd), V(-hw, 0, hd), V(-hw, h, hd), V(-hw, h, -hd)), sd, M);
   const z1 = lam("zinc", () => ({ map: zinc() })), i = 1.4, mh = 4.5;
@@ -112,29 +131,37 @@ export const building = (b: Batch, x: number, z: number, yaw: number, w: number,
 
 /** grand hotel facade: colonnade over an arcade, 4 floors, balustrade, pavilions at the ends (faces -z) */
 const grandHotel = (b: Batch, kitRoot: THREE.Object3D, lamps: Lamp[]) => {
-  const { x, z, w, h } = HOTEL, d = 30;
+  const { x, z, w, h } = HOTEL, d = 30, zf = HOTEL_FACADE_Z, zs = z + d / 2;
   const stoneM = lam("hotelStone", () => ({ map: rep(stoneHD("hotelStoneHD", ["#efe6d2", "#e8dcc4", "#f3ebda", "#e3d6bb"], "#c5b79c"), 6, 3) }));
   const fac = lam("hotelFac", () => ({ map: hausFacade(7, w, h) }));
-  const M = new THREE.Matrix4().setPosition(x, 0, z);
-  b.add(quad(V(w / 2, 0, -d / 2), V(-w / 2, 0, -d / 2), V(-w / 2, h, -d / 2), V(w / 2, h, -d / 2)), fac, M);
-  box(b, stoneM, x - w / 2, 0, z - d / 2 + 0.2, x + w / 2, h, z + d / 2);
+  // hollow shell: the street facade (with holes for the lobby door / window and the first-floor rooms), sides, back
+  const zo = zf - 0.3;
+  holedFacade(b, fac, x - w / 2, x + w / 2, 0, h, zo, HOTEL_HOLES);
+  HOTEL_HOLES.slice(1).forEach((hh) => holeFrame(b, hh, zo));
+  b.add(quad(V(x - w / 2, 0, zs), V(x + w / 2, 0, zs), V(x + w / 2, h, zs), V(x - w / 2, h, zs), 6, 2), stoneM);
+  b.add(quad(V(x + w / 2, 0, zs), V(x + w / 2, 0, zo), V(x + w / 2, h, zo), V(x + w / 2, h, zs), 2, 2), stoneM);
+  b.add(quad(V(x - w / 2, 0, zo), V(x - w / 2, 0, zs), V(x - w / 2, h, zs), V(x - w / 2, h, zo), 2, 2), stoneM);
   // colonnade: 12 columns standing on the arcade, entablature + balustrade
   const col = lam("column", () => ({ color: "#f4ecdb" }));
   for (let k = 0; k < 12; k++) {
     const cx = x - 30 + k * (60 / 11);
-    const g = new THREE.CylinderGeometry(0.9, 1.0, 13, 12);
-    b.add(g, col, new THREE.Matrix4().makeTranslation(cx, 7 + 6.5, z - d / 2 - 2.6));
+    b.add(new THREE.CylinderGeometry(0.9, 1.0, 13, 12), col, new THREE.Matrix4().makeTranslation(cx, 7 + 6.5, zf - 2.6));
   }
-  box(b, col, x - 33, 20, z - d / 2 - 4.2, x + 33, 22.2, z - d / 2);
-  box(b, stoneM, x - 33, 0, z - d / 2 - 4.2, x + 33, 7, z - d / 2);
-  // arcade openings (dark) + the main door (warm light at night)
-  const dark = lam("arcadeDark", () => ({ color: "#2a2230" }));
-  for (let k = 0; k < 9; k++) box(b, dark, x - 28 + k * 7 - 2, 0, z - d / 2 - 4.3, x - 28 + k * 7 + 2, 5.2, z - d / 2 - 4.25);
-  for (const s of [-1, 1]) box(b, stoneM, x + s * (w / 2 - 8) - 8, 0, z - d / 2 - 2, x + s * (w / 2 - 8) + 8, h + 3, z - d / 2 + 2); // pavilions
+  box(b, col, x - 33, 20, zf - 4.2, x + 33, 22.2, zf - 0.3);
+  // arcade: 9 open bays (x - 28 + 7k, 4 m wide, 5.2 m tall) between piers, a beam on top; the gallery behind is open,
+  // so the camera can fly through the middle bay and the main door into the lobby
+  const bays = Array.from({ length: 9 }, (_, k) => x - 28 + k * 7);
+  const edges = [x - 33, ...bays.flatMap((c) => [c - 2, c + 2]), x + 33];
+  for (let i = 0; i + 1 < edges.length; i += 2) box(b, stoneM, edges[i], 0, zf - 4.2, edges[i + 1], 5.2, zf - 0.3);
+  box(b, stoneM, x - 33, 5.2, zf - 4.2, x + 33, 7, zf - 0.3);
+  for (const s2 of [-1, 1]) box(b, stoneM, x + s2 * (w / 2 - 8) - 8, 0, zf - 2, x + s2 * (w / 2 - 8) + 8, h + 3, zf - 0.3); // pavilions
   const roofM = lam("hotelRoof", () => ({ map: rep(zinc(), 10, 1) }));
-  b.add(quad(V(-w / 2, h, -d / 2), V(w / 2, h, -d / 2), V(w / 2 - 2, h + 6, -d / 2 + 3), V(-w / 2 + 2, h + 6, -d / 2 + 3), 14, 1), roofM, M);
-  box(b, roofM, x - w / 2 + 2, h, z - d / 2 + 3, x + w / 2 - 2, h + 6, z + d / 2 - 2);
-  for (let k = -4; k <= 4; k++) lamps.push({ p: V(x + k * 6.5, 4.6, z - d / 2 - 5.5), k: 0.8 });
+  b.add(quad(V(x - w / 2, h, zo), V(x + w / 2, h, zo), V(x + w / 2 - 2, h + 6, zo + 3), V(x - w / 2 + 2, h + 6, zo + 3), 14, 1), roofM);
+  box(b, roofM, x - w / 2 + 2, h, zo + 3, x + w / 2 - 2, h + 6, zs - 2);
+  // the main door: brass frame + a warm glow at night
+  const brass = lam("brassDoor", () => ({ color: "#c9a04a" })), dh = northHole("lobby", 0);
+  box(b, brass, dh.x0 - 0.25, dh.y1, zo - 0.1, dh.x1 + 0.25, dh.y1 + 0.3, zo); for (const xx of [dh.x0 - 0.25, dh.x1]) box(b, brass, xx, 0, zo - 0.1, xx + 0.25, dh.y1, zo);
+  for (let k = -4; k <= 4; k++) lamps.push({ p: V(x + k * 7, 4.6, zf - 5.0), k: 0.8 });
   void kitRoot;
 };
 
@@ -222,6 +249,7 @@ export const buildParis = (root: THREE.Object3D, kit: Kit): Paris => {
     if (Math.abs(cx) < 150 && cz > -190 && cz < 940) continue;              // tower + Champ de Mars
     if (cz > RIVER.z1 - 40 && cz < RIVER.z0 + 30) continue;                 // river + quays + railway
     if (Math.abs(cx - HOTEL.x) < 90 && Math.abs(cz - HOTEL.z) < 50) continue;
+    if (HOSTS.some((hh) => cx + 30 > hh.x0 - 12 && cx - 30 < hh.x1 + 12 && cz + 15 > hh.z0 - 24 && cz - 15 < hh.z1 + 12)) continue;
     if (Math.abs(cx - CAFE.x - 20) < 45 && Math.abs(cz - CAFE.z) < 40) continue;
     if (Math.hypot(cx, cz - 300) > 2100) continue;
     blockAt(cx, cz, 60, 30);
@@ -249,6 +277,12 @@ export const buildParis = (root: THREE.Object3D, kit: Kit): Paris => {
   // ---- grand hotel, railway on the south quay ----
   const hotelRoot = new THREE.Group(); root.add(hotelRoot);
   grandHotel(b, hotelRoot, lamps);
+  // buildings that hold the forger's workshop, André's flat and the prison ward (window on the street, -z side)
+  HOSTS.forEach((hh, i) => {
+    const hole = northHole(hh.room, 0);
+    building(b, (hh.x0 + hh.x1) / 2, (hh.z0 - 0.3 + hh.z1) / 2, 0, hh.x1 - hh.x0, hh.z1 - hh.z0 + 0.3, hh.h, 40 + i, [{ x0: hole.x0, x1: hole.x1, y0: hole.y0, y1: hole.y1 }]);
+    lamps.push({ p: V((hole.x0 + hole.x1) / 2 + 3, 3.4, hole.z - 2.5), k: 0.7 });
+  });
   const railM = lam("rail", () => ({ color: "#55505a" })), sleeperM = lam("sleeper", () => ({ color: "#6a4a36" }));
   for (const s of [-1, 1]) box(b, railM, -3000, RAIL.y, RAIL.z + s * 0.75 - 0.06, 3000, RAIL.y + 0.14, RAIL.z + s * 0.75 + 0.06);
   box(b, sleeperM, -3000, 0.02, RAIL.z - 1.3, 3000, RAIL.y, RAIL.z + 1.3);
