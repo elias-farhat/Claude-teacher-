@@ -1,4 +1,4 @@
-# "The Man Who Sold the Eiffel Tower" — script v1 (awaiting approval)
+# "The Man Who Sold the Eiffel Tower" — script v1 (APPROVED 2026-11-06)
 
 Style: see STYLE_BIBLE.md (2D cartoon characters in a 3D world, one-word captions, camera flights instead of cuts).
 Target: ~60 s at ~3.7 words/s (≈ 225 words). Voice starts on frame 0. Ends on the last word.
@@ -52,3 +52,7 @@ Word count = 249 → ~67 s at 3.7 w/s; at CapCut speed 1.1–1.15× it lands at 
 
 ## Originality
 Our own characters, story telling and shots. Real historical facts only. No reference-channel material.
+
+## Voice (final)
+`scripts/eiffel/voice.wav` — CapCut AI narrator, sped up 1.333× (pitch kept), leading silence trimmed, one 1.5 s pause cut to 0.55 s, mastered to −14 LUFS / −1.4 dBTP. Length 63.0 s, 48 kHz mono.
+Word timestamps still needed (forced alignment against the narration column).
