@@ -64,6 +64,29 @@ jobs:
           key: node-modules-${{ runner.os }}-${{ hashFiles('video/package-lock.json') }}
       - if: steps.deps.outputs.cache-hit != 'true'
         run: npm ci --no-audit --no-fund && npx remotion browser ensure
+      - id: kenney-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: video/public/bridge/kenney
+          key: kenney-v2-${{ hashFiles('video/scripts/fetch-kenney.sh') }}
+      - name: Kenney CC0 kits (fantasy town, nature, castle), once per run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p out
+          scripts/fetch-kenney.sh public/bridge/kenney 2>&1 | tee out/kenney-plan.txt
+          exit ${PIPESTATUS[0]}
+      - if: steps.kenney-cache.outputs.cache-hit != 'true' && hashFiles('video/public/bridge/kenney/.done') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: video/public/bridge/kenney
+          key: kenney-v2-${{ hashFiles('video/scripts/fetch-kenney.sh') }}
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: log-plan
+          path: video/out/kenney-plan.txt
+          if-no-files-found: ignore
       - id: plan
         run: |
           out="$(node scripts/plan-chunks.mjs "${{ inputs.composition }}" "${{ inputs.chunks }}" "${{ inputs.mode }}" | tail -1)"
@@ -94,15 +117,11 @@ jobs:
           key: node-modules-${{ runner.os }}-${{ hashFiles('video/package-lock.json') }}
       - if: steps.deps.outputs.cache-hit != 'true'
         run: npm ci --no-audit --no-fund && npx remotion browser ensure
-      - uses: actions/cache@v4
+      - name: Kenney kits from the cache (fetched once by the plan job; missing is allowed)
+        uses: actions/cache/restore@v4
         with:
           path: video/public/bridge/kenney
-          key: kenney-${{ hashFiles('video/scripts/fetch-kenney.sh') }}
-      - name: Kenney CC0 kits (fantasy town, nature, castle)
-        run: |
-          mkdir -p out
-          scripts/fetch-kenney.sh public/bridge/kenney 2>&1 | tee out/kenney-${{ matrix.chunk.index }}.txt
-          exit ${PIPESTATUS[0]}
+          key: kenney-v2-${{ hashFiles('video/scripts/fetch-kenney.sh') }}
       - name: Render frames ${{ matrix.chunk.start }}-${{ matrix.chunk.end }}
         run: |
           i=${{ matrix.chunk.index }}; s0=${{ matrix.chunk.start }}; s1=${{ matrix.chunk.end }}
@@ -130,7 +149,6 @@ jobs:
           path: |
             video/out/chunk-${{ matrix.chunk.index }}.json
             video/out/chunk-${{ matrix.chunk.index }}.log
-            video/out/kenney-${{ matrix.chunk.index }}.txt
           retention-days: 7
           if-no-files-found: ignore
 
@@ -202,7 +220,7 @@ jobs:
       - name: Write REPORT.md
         if: always()
         run: |
-          k=$(cat out/logs/kenney-*.txt 2>/dev/null | grep -E "models|cached|error" | sort -u | tr '\n' ';' || true)
+          k=$(cat out/logs/kenney-*.txt 2>/dev/null | grep -E "^kenney:" | sort -u | tr '\n' ';' || true)
           export KENNEY_NOTE="${k:-no log}"
           export DL_URL="${{ github.server_url }}/${{ github.repository }}/releases/download/$TAG/$NAME"
           [ -f "out/$NAME" ] || export RENDER_RESULT=failure

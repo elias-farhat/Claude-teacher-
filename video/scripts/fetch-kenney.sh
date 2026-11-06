@@ -1,25 +1,41 @@
 #!/usr/bin/env bash
-# Downloads the Kenney CC0 kits the bridge template uses (fantasy town, nature, castle) into
-# public/bridge/kenney/ as flat <name>.glb files. Skips any kit that is already there.
+# Puts the Kenney CC0 kits the bridge template uses (fantasy town, nature, castle) into public/bridge/kenney/
+# as flat <name>.glb files.
+#
+# Source: the zip assets of the GitHub Release "kenney-kits" in this repo. kenney.nl refuses automated
+# downloads (HTTP 403), so download the three kits once in a browser and attach the zips to that release:
+#   https://kenney.nl/assets/fantasy-town-kit  https://kenney.nl/assets/nature-kit  https://kenney.nl/assets/castle-kit
+# CC0 lets us redistribute them.
+#
+# usage: fetch-kenney.sh [dest]   (needs GH_TOKEN and GITHUB_REPOSITORY on Actions)
+# Exits 0 when the kits are missing (prints "kenney: MISSING ..."), unless KENNEY_STRICT=1.
 set -euo pipefail
 DEST="${1:-public/bridge/kenney}"
 mkdir -p "$DEST"
+if [ -f "$DEST/.done" ]; then echo "kenney: cached, $(ls "$DEST" | wc -l) models"; exit 0; fi
 TMP="$(mktemp -d)"; trap 'rm -rf "$TMP"' EXIT
-for kit in fantasy-town-kit nature-kit castle-kit; do
-  if [ -f "$DEST/.done-$kit" ]; then echo "$kit: cached"; continue; fi
-  page="$(curl -fsSL "https://kenney.nl/assets/$kit")"
-  url="$(grep -oE 'href="[^"]+\.zip"' <<<"$page" | head -1 | sed -E 's/^href="//; s/"$//')"
-  [ -n "$url" ] || { echo "::error::$kit: no .zip link found on its kenney.nl page"; exit 1; }
-  case "$url" in /*) url="https://kenney.nl$url" ;; esac
-  echo "$kit: $url"
-  curl -fsSL "$url" -o "$TMP/$kit.zip"
-  mkdir -p "$TMP/$kit" && unzip -q -o "$TMP/$kit.zip" -d "$TMP/$kit"
+
+missing() {
+  echo "kenney: MISSING ($1). Attach the 3 kit zips to a release named kenney-kits."
+  echo "::warning::Kenney kits missing: $1. Scenes that use them will render without those models."
+  [ "${KENNEY_STRICT:-0}" = 1 ] && exit 1
+  exit 0
+}
+
+gh release download kenney-kits --repo "${GITHUB_REPOSITORY:?}" --pattern '*.zip' --dir "$TMP" 2>"$TMP/err" \
+  || missing "no kenney-kits release or no zips on it: $(tr '\n' ' ' < "$TMP/err" | cut -c1-160)"
+for kit in fantasy-town nature castle; do
+  ls "$TMP"/*.zip | grep -qi "$kit" || echo "::warning::kenney-kits release has no zip matching '$kit'"
+done
+for z in "$TMP"/*.zip; do
+  d="$TMP/x_$(basename "$z" .zip)"; mkdir -p "$d" && unzip -q -o "$z" -d "$d"
   count=0
   while IFS= read -r -d '' f; do
     b="$(basename "$f")"; [ -e "$DEST/$b" ] || { cp "$f" "$DEST/$b"; count=$((count + 1)); }
-  done < <(find "$TMP/$kit" -name '*.glb' -print0)
-  [ "$count" -gt 0 ] || { echo "::error::$kit: zip has no .glb models"; exit 1; }
-  echo "$kit: $count models"
-  touch "$DEST/.done-$kit"
+  done < <(find "$d" -name '*.glb' -print0)
+  echo "kenney: $(basename "$z"): $count models"
 done
-ls "$DEST" | wc -l
+n=$(ls "$DEST"/*.glb 2>/dev/null | wc -l)
+[ "$n" -gt 0 ] || missing "the release zips contain no .glb models"
+touch "$DEST/.done"
+echo "kenney: $n models in $DEST"
