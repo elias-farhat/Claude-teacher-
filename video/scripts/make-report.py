@@ -32,6 +32,8 @@ for p in sorted(glob.glob(os.path.join(logs_dir, "**", "chunk-*.json"), recursiv
         chunks.append(json.load(open(p)))
     except Exception as e:  # noqa: BLE001
         problems.append(f"unreadable {os.path.basename(p)}: {e}")
+if E("ASSEMBLY_FAILED"):
+    problems.append("all chunks rendered, but joining / muxing / the frame-count check failed (see the publish job log)")
 expected = int(E("CHUNKS_PLANNED", "0"))
 seen = {c["index"] for c in chunks}
 for i in range(expected):

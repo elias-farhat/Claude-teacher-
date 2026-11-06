@@ -209,7 +209,7 @@ jobs:
             ffmpeg -v error -y -i video_only.mp4 -f lavfi -i anullsrc=r=48000:cl=stereo -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -t "$dur" "$NAME"
             echo "AUDIO_NOTE=silent track (no ${{ inputs.audio }} in the repo)" >> "$GITHUB_ENV"
           fi
-          got=$(ffprobe -v error -count_packets -select_streams v:0 -show_entries stream=nb_read_packets -of csv=p=0 "$NAME")
+          got=$(ffprobe -v error -count_packets -select_streams v:0 -show_entries stream=nb_read_packets -of default=nw=1:nk=1 "$NAME" | tr -cd '0-9')
           echo "frames: expected $FRAMES, got $got"
           [ "$got" = "$FRAMES" ] || { echo "::error::frame count mismatch ($got != $FRAMES)"; exit 1; }
       - name: Frame QA (skill's short_qa.py)
@@ -223,7 +223,7 @@ jobs:
           k=$(cat out/logs/kenney-*.txt 2>/dev/null | grep -E "^kenney:" | sort -u | tr '\n' ';' || true)
           export KENNEY_NOTE="${k:-no log}"
           export DL_URL="${{ github.server_url }}/${{ github.repository }}/releases/download/$TAG/$NAME"
-          [ -f "out/$NAME" ] || export RENDER_RESULT=failure
+          [ -f "out/$NAME" ] || { [ "$RENDER_RESULT" = success ] && export ASSEMBLY_FAILED=1; export RENDER_RESULT=failure; }
           python scripts/make-report.py out/logs out/REPORT.md "out/$NAME" out/qa/report.md
           cat out/REPORT.md >> "$GITHUB_STEP_SUMMARY"
       - name: Upload as GitHub Release (MP4 + REPORT.md + QA sheets)
