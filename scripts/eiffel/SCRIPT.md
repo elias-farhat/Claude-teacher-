@@ -53,6 +53,6 @@ Word count = 249 → ~67 s at 3.7 w/s; at CapCut speed 1.1–1.15× it lands at 
 ## Originality
 Our own characters, story telling and shots. Real historical facts only. No reference-channel material.
 
-## Voice (final, v2)
-`scripts/eiffel/voice.wav` — CapCut AI narrator. v2 fixes clipped sentence endings: natural pauses kept (only one 1.5 s gap shortened, with fades), sped up 1.3× (pitch kept), light room tail, mastered to −14 LUFS / −1.4 dBTP. Length 65.1 s, 48 kHz mono.
-Abrupt phrase endings: 92 in v1 → 1 in v2. Any words.json made from v1 is invalid: re-align.
+## Voice (final)
+`scripts/eiffel/voice.wav` — the v1 voice this video is being built with (63.0 s, −14 LUFS). Do not change it for this video.
+Known issue: sentence endings sound slightly clipped (pause trimming). `voice_v2_unused.wav` (65.1 s) fixes it but is NOT used here, so the timing stays in sync. For future videos: export the whole script as one CapCut text block at 1.3× speed.
