@@ -1,4 +1,4 @@
-# "The Rat Bounty That Backfired" — script v1 (awaiting approval)
+# "The Rat Bounty That Backfired" — script v1 (APPROVED 2026-11-06)
 
 Style: STYLE_BIBLE.md. Target ~60 s. Voice from frame 0, ends on the last word.
 Voice tip: paste the narration as ONE CapCut text block, speed 1.3×, export audio only.
@@ -38,3 +38,6 @@ Voice tip: paste the narration as ONE CapCut text block, speed 1.3×, export aud
 | 21 | The rats? They stayed. | Pull back from the balcony through a drain to a tailless rat lounging in the sewer, waving. End. | Cool sewer glow |
 
 224 words → ~58 s at CapCut 1.3×.
+
+## Voice (final)
+`scripts/rats/voice.wav`: CapCut AI narrator (same voice as Eiffel), all 20 lines verified in order. Natural pauses kept, sped up 1.35× (pitch kept), light room tail, −14 LUFS. Length 62.5 s, 48 kHz mono. Abrupt line endings: 0.
