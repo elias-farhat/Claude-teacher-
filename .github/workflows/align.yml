@@ -1,0 +1,49 @@
+# Word timestamps: force-aligns a short's approved narration (scripts/<short>/SCRIPT.md) to its voice
+# (scripts/<short>/voice.wav) with WhisperX on CPU, then commits scripts/<short>/words.json + align-report.md.
+name: Align words
+
+on:
+  workflow_dispatch:
+    inputs:
+      short:
+        description: Folder under scripts/ (e.g. eiffel)
+        required: true
+        default: eiffel
+
+permissions:
+  contents: write
+
+jobs:
+  align:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pip
+            ~/.cache/huggingface
+            ~/.cache/torch
+          key: whisperx-3.3.1-medium.en-v1
+      - name: Install WhisperX (CPU)
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          pip install -q torch==2.5.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cpu
+          pip install -q whisperx==3.3.1
+      - name: Align
+        run: |
+          d=scripts/${{ inputs.short }}
+          python video/scripts/align_words.py $d/SCRIPT.md $d/voice.wav $d/words.json $d/align-report.md
+          cat $d/align-report.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Commit words.json + report
+        run: |
+          d=scripts/${{ inputs.short }}
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add $d/words.json $d/align-report.md
+          git commit -m "Word timestamps for ${{ inputs.short }} (WhisperX forced alignment, run ${{ github.run_number }})" || exit 0
+          for i in 1 2 3; do git pull --rebase -q origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && break; sleep 5; done
