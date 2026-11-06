@@ -220,8 +220,8 @@ export const SHOTS: Shot[] = [
   // 21 "So Lustig comes back and does it all again. New dealers. Same speech." the train shoots past toward the
   // hotel, stops and reverses (Lustig waving), then in through the meeting window to the same table, new dealers
   { at: wt(21), set: "train", look: "night", land: wt(21, "comes"), carry: { prop: "ticket", to: (t) => new THREE.Vector3(trainX(t) - 6.3, 2.45, RAIL.z - 1.3) }, keys: [
-    { pos: [326.8, 2.7, RAIL.z - 13], look: [326.4, 2.35, RAIL.z - 1], fov: 50, dof: 3 },
-    { at: wt(21, "does"), pos: [325.9, 2.6, RAIL.z - 12.2], look: [325.9, 2.35, RAIL.z - 1], fov: 50, dof: 3 },
+    { pos: [326.6, 2.8, RAIL.z - 16], look: [326.3, 2.4, RAIL.z - 1], fov: 50, dof: 3 },
+    { at: wt(21, "does"), pos: [326.1, 2.7, RAIL.z - 15.2], look: [326.1, 2.4, RAIL.z - 1], fov: 50, dof: 3 },
   ] },
   { at: wt(21, "New"), set: "meeting", look: "nightwarm", interior: true, land: wt(21, "New"), carry: { prop: "envelope", to: () => new THREE.Vector3(ROOMS.meeting.o.x, ROOMS.meeting.o.y + 0.9, ROOMS.meeting.o.z + 0.3) }, keys: [
     { pos: v(R.meeting, 4.2, 2.3, -2.9), look: v(R.meeting, -0.6, 1.05, 0.7), fov: 50, dof: 3 },
