@@ -34,6 +34,9 @@ jobs:
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
           pip install -q torch==2.5.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cpu
           pip install -q whisperx==3.3.1
+          # ctranslate2 4.4.x needs an executable stack, which the current runner kernel refuses; 4.6 fixed it
+          pip install -q --no-deps ctranslate2==4.6.0
+          python -c "import ctranslate2, whisperx; print('ctranslate2', ctranslate2.__version__)"
       - name: Align
         run: |
           d=scripts/${{ inputs.short }}
