@@ -260,7 +260,7 @@ export const buildRooms = (root: THREE.Object3D): Record<RoomName, Room> => {
     }
     boxAt(b, wood, at(n, 2.6, 0.37, 0.5), [0.6, 0.74, 0.6]);
     frameOn(b, n, "w", 0, 2.2, 0.8, 0.6, 9);
-    const lamps: Lamp[] = [tableLamp(b, root, at(n, 2.85, 0.74, 0.7), "#e8eef0", 0.6), { p: at(n, -3, 3.8, 0), k: 0.5 }];
+    const lamps: Lamp[] = [tableLamp(b, root, at(n, 3.05, 0.74, 0.15), "#e8eef0", 0.6), { p: at(n, -3, 3.8, 0), k: 0.5 }];
     out.hospital = { ...ROOMS[n], lamps };
   }
   void brass;

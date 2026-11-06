@@ -8,6 +8,11 @@ export const CAFE = { x: 152, z: 196, face: -1 };          // café front on the
 export const HOTEL = { x: 430, z: -150, w: 110, h: 24 };   // grand hotel on the south quay, facade facing north (-z)
 export const HOTEL_FACADE_Z = HOTEL.z - 15;                // its front wall
 export const RAIL = { z: -186, y: 0.15 };                  // railway along the south quay
+/** second café (line 4) on the "story street" between the tower and the hotel; the first café (line 16-17) stays */
+export const CAFE4 = { x: 213, z: -60, face: -1 };
+/** the story street: forger, André, the prison ward and the second café sit here, so every camera flight between
+ *  scenes outside 15-36 s is at most ~200 m (flights are 20-30 frames with a capped speed) */
+export const STREET = { x0: 140, x1: 370, z0: -160, z1: -20 };
 
 export type RoomName = "forger" | "lobby" | "meeting" | "studio" | "andre" | "hospital";
 /** an opening in a room wall: wall n(-z) / s(+z) / e(+x) / w(-x); `at` = centre along the wall (local x for n/s, local z
@@ -24,9 +29,9 @@ export const ROOMS: Record<RoomName, RoomSpec> = {
   meeting: { o: V(HOTEL.x + 12, 8.5, fz + 4), w: 10, d: 8, h: 4.6, open: [{ wall: "n", at: -1, y: 1.0, w: 1.8, h: 2.6 }, { wall: "e", at: 0, y: 0, w: 1.3, h: 2.4, door: true }, { wall: "s", at: -3.2, y: 0, w: 1.1, h: 2.3, door: true }] },
   studio: { o: V(HOTEL.x + 22, 8.5, fz + 4), w: 10, d: 8, h: 4.6, open: [{ wall: "n", at: 0, y: 1.2, w: 1.6, h: 2.4 }, { wall: "w", at: 0, y: 0, w: 1.3, h: 2.4, door: true }] },
   // standalone buildings, each room's window on the street (north) side
-  forger: { o: V(300, 0, 152.5), w: 6, d: 5, h: 3.2, open: [{ wall: "n", at: 1.6, y: 1.1, w: 1.5, h: 1.4 }] },
-  andre: { o: V(-300, 4.2, 402.5), w: 6, d: 5, h: 3, open: [{ wall: "n", at: -1.2, y: 0.9, w: 1.4, h: 1.6 }] },
-  hospital: { o: V(-620, 0, 703.5), w: 12, d: 7, h: 4.2, open: [{ wall: "n", at: 0.5, y: 1.0, w: 2.4, h: 2.6 }] },
+  forger: { o: V(320, 0, -122.5), w: 6, d: 5, h: 3.2, open: [{ wall: "n", at: 1.6, y: 1.1, w: 1.5, h: 1.4 }] },
+  andre: { o: V(175, 4.2, -122.5), w: 6, d: 5, h: 3, open: [{ wall: "n", at: -1.2, y: 0.9, w: 1.4, h: 1.6 }] },
+  hospital: { o: V(270, 0, -121.5), w: 12, d: 7, h: 4.2, open: [{ wall: "n", at: 0.5, y: 1.0, w: 2.4, h: 2.6 }] },
 };
 export const ROOM_AT: Record<RoomName, THREE.Vector3> = Object.fromEntries(Object.entries(ROOMS).map(([k, r]) => [k, r.o])) as Record<RoomName, THREE.Vector3>;
 

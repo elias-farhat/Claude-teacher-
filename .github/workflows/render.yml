@@ -40,6 +40,14 @@ on:
         description: QA stills every N frames (15 = every 0.5 s; empty = no QA stills). Flags frames with nothing to look at.
         required: false
         default: "15"
+      splice_run:
+        description: "Splice: run id whose chunk artifacts fill every chunk not rendered here (empty = render all)"
+        required: false
+        default: ""
+      only_chunks:
+        description: "Splice: chunk indices to render (comma-separated, e.g. 2,3,22); the rest come from splice_run"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -108,6 +116,11 @@ jobs:
         run: |
           out="$(node scripts/plan-chunks.mjs "${{ inputs.composition }}" "${{ inputs.chunks }}" "${{ inputs.mode }}" | tail -1)"
           echo "$out"
+          only="${{ inputs.only_chunks }}"
+          if [ -n "$only" ]; then  # splice: render only the changed chunks
+            out="$(jq -c --arg o "$only" '($o | split(",") | map(gsub(" "; "") | select(length > 0) | tonumber)) as $k | .matrix |= map(select((.index | tonumber) as $i | $k | index($i)))' <<<"$out")"
+            echo "splice: rendering $(jq -c '[.matrix[].index]' <<<"$out")"
+          fi
           echo "matrix=$(jq -c '.matrix' <<<"$out")" >> "$GITHUB_OUTPUT"
           echo "frames=$(jq -r '.frames' <<<"$out")" >> "$GITHUB_OUTPUT"
           echo "fps=$(jq -r '.fps' <<<"$out")" >> "$GITHUB_OUTPUT"
@@ -298,12 +311,26 @@ jobs:
           pattern: log-*
           merge-multiple: true
           path: video/out/logs
-      - if: needs.render.result == 'success'
+      - name: Splice base (chunks of an earlier run)
+        if: needs.render.result == 'success' && inputs.splice_run != ''
         uses: actions/download-artifact@v4
         with:
           pattern: chunk-*
           merge-multiple: true
           path: video/out/chunks
+          run-id: ${{ inputs.splice_run }}
+          github-token: ${{ github.token }}
+      - name: This run's chunks (replace the spliced ones)
+        if: needs.render.result == 'success'
+        uses: actions/download-artifact@v4
+        with:
+          pattern: chunk-*
+          merge-multiple: true
+          path: video/out/new-chunks
+      - if: needs.render.result == 'success'
+        run: |
+          mkdir -p out/chunks && cp -f out/new-chunks/*.mp4 out/chunks/
+          echo "chunks: $(ls out/chunks | wc -l) total, $(ls out/new-chunks | wc -l) rendered in this run${{ inputs.splice_run != '' && format(', rest spliced from run {0}', inputs.splice_run) || '' }}"
       - uses: actions/download-artifact@v4
         with:
           pattern: still-*

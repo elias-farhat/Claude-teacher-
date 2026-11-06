@@ -15,7 +15,7 @@ import { buildTower, Tower } from "./tower";
 import { buildParis, Paris, Lamp, RAIL, buildShip } from "./paris";
 import { buildRooms, Room, RoomName, ROOM_AT } from "./rooms";
 import { LOOKS, Look, LAMP, POLICE } from "./looks";
-import { SHOTS, camAt, Cam, FPS, wt, trainX } from "./story";
+import { SHOTS, camAt, Cam, FPS, wt, trainX, shipX } from "./story";
 import { stage, Stage } from "./stage";
 
 const NAMES = ["lantern", "cart", "stall-red", "stall-green", "stall-bench", "fountain-round", "fence"];
@@ -198,7 +198,7 @@ export class EiffelWorld {
     this.police.forEach((m, i) => { const pl = st.lights.filter((l) => l.col === POLICE)[i]; m.visible = !!pl; if (pl) m.position.copy(pl.p); });
     // ---- moving props: the train ----
     this.paris.train.group.position.set(trainX(t), 0, RAIL.z);
-    this.ship.position.set(-60 + 4 * (t - wt(23)), 0, -263);
+    this.ship.position.set(shipX(t), 0, -263);
     // ---- cast + label cards ----
     this.frustum.setFromProjectionMatrix(this.m4.multiplyMatrices(cam.projectionMatrix, cam.matrixWorldInverse));
     let ai = 0;

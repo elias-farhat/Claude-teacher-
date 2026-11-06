@@ -18,7 +18,7 @@ import { Kit } from "../bridge/build";
 import { EiffelWorld, loadEiffelKit } from "./world";
 import { TOTAL, FPS, SHOTS, captionAt } from "./story";
 import { LOOKS } from "./looks";
-import { trainX, wt } from "./story";
+import { trainX, shipX, wt } from "./story";
 import { RAIL } from "./layout";
 
 /** QA probe (inputProps { qa: true }): which characters / key props are really visible (in frame AND not hidden
@@ -49,7 +49,7 @@ const qaProbe = (f: number, world: EiffelWorld, cam: THREE.PerspectiveCamera, c:
   for (const p of st.fx) if (seen(new THREE.Vector3(p.x, p.y, p.z))) vis.push(p.key.split("|").pop()!.replace(/[0-9.]+$/, ""));
   const t = f / FPS, marks: [string, number[]][] = [["tower", [0, 120, 0]], ["tower", [0, 260, 0]]];
   if (t > wt(18) - 1 && t < wt(22)) marks.push(["train", [trainX(t) - 6, 2.5, RAIL.z]]);   // only while the story is about them
-  if (t > wt(23) - 1 && t < wt(24)) marks.push(["ship", [-56 + 4 * (t - wt(23)), 3, -263]]);
+  if (t > wt(23) - 1 && t < wt(24)) marks.push(["ship", [shipX(t) + 4, 3, -263]]);
   for (const [n, q] of marks) { const v = new THREE.Vector3(...q).project(cam); if (v.z < 1 && Math.abs(v.x) < 1 && Math.abs(v.y) < 1 && !vis.includes(n)) vis.push(n); }
   console.error("[qa] " + JSON.stringify({ f, shot: c.shot, flight: c.mix > 0, vis, faces }));
 };

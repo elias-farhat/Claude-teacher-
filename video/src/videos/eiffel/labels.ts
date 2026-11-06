@@ -127,3 +127,14 @@ export const plaque = (p: Pen, text: string, col: string) => {
   p.poly(rect(20, 20, 620, 140), col, 10);
   sans(p, text, 320, 82, 76, "#fff8e8");
 };
+/** hotel room key on a brass tag "SUITE" (canvas 400 x 240) */
+export const roomKey = (p: Pen) => {
+  p.ell(70, 120, 46, 46, "#d9a83a", 9); p.ell(70, 120, 18, 18, "#f2e6c8", 6);
+  p.line([[112, 120], [220, 120]], "#d9a83a", 22); p.line([[190, 120], [190, 150]], "#d9a83a", 14);
+  p.poly(rect(230, 60, 390, 180), "#b8262e", 8); sans(p, "SUITE", 310, 122, 40, "#f2e6c8");
+};
+/** tear-off calendar page "1935" (canvas 300 x 360) */
+export const calendar = (p: Pen) => {
+  p.poly(rect(14, 14, 286, 346), "#f6f0e2", 8); p.poly(rect(14, 14, 286, 92), "#b8262e", 8);
+  sans(p, "YEARS", 150, 54, 44, "#f6f0e2"); serif(p, "1935", 150, 220, 96);
+};

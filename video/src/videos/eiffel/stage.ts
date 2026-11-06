@@ -4,9 +4,10 @@ import * as THREE from "three";
 import type { Place, FxPlace } from "../bridge/cast";
 import { Pen, townsfolk, fxSplash, fxRing } from "../bridge/toon";
 import { V } from "../bridge/build";
-import { wt, lineEnd, clamp01, smooth, Cam, SHOTS, LUSTIG_PLATFORM, PAINTERS, LADY, trainX, V3 } from "./story";
+import { wt, lineEnd, clamp01, smooth, Cam, SHOTS, LUSTIG_PLATFORM, PAINTERS, LADY, trainX, shipX, flakeAt, bagAt, BAG, carryAt, CarryProp, V3 } from "./story";
 export { trainX };
-import { CAFE, HOTEL, RAIL, Lamp } from "./paris";
+import { HOTEL, RAIL, Lamp, COMP } from "./paris";
+import { CAFE4, HOTEL_FACADE_Z } from "./layout";
 import { ROOM_AT } from "./rooms";
 import { POLICE as POLICE_COL } from "./looks";
 import {
@@ -51,17 +52,13 @@ const tower = (t: number, s: Stage) => {
   const wink = after(t, 2, "tried");
   s.places.push(P("lustig", LUSTIG, { expr: wink ? "wink" : "smug", gest: wink ? "tip" : "lean", k: wink ? clamp01((t - wt(2, "tried")) * 4) : 0, blink: wink ? 0 : blinkAt(t, 1) }, { monocle: true }, LUSTIG_PLATFORM));
   // painters on a board on the south-east leg
-  if (t > wt(2, "again") - 0.5) {
+  if (t > wt(2, "again") - 0.5 && t < lineEnd(3) + 1) {
     s.fx.push(card("board", 1000, 500, painterBoard, [PAINTERS[0] + 0.3, PAINTERS[1] + 0.9, PAINTERS[2]], 3.4, 1.7));
     s.places.push(P("painter1", PAINTER, { expr: "whistle", gest: "point", seed: 5 }, {}, [PAINTERS[0] + 0.5, PAINTERS[1] - 0.05, PAINTERS[2] - 0.7], { size: [300, 500, 0.5] }));
     s.places.push(P("painter2", PAINTER, { expr: "nervous", gest: "stamp", k: q(0.5 + 0.5 * Math.sin(t * 2.2), 20), seed: 9 }, { sweat: true }, [PAINTERS[0] + 0.5, PAINTERS[1] - 0.05, PAINTERS[2] + 0.8], { size: [300, 500, 0.5] }));
   }
   // rust flake: falls from the painters' leg onto the lady's hat by "ugly"
-  const f0 = wt(3, "expensive"), f1 = wt(3, "ugly") - 0.1;
-  if (t > f0 && t < lineEnd(3) + 2) {
-    const k = clamp01((t - f0) / (f1 - f0)), y = 30 + (LADY[1] + 2.25 - 30) * k;
-    s.fx.push(card("flake", 120, 120, flake, [PAINTERS[0] + (LADY[0] - PAINTERS[0]) * k + 0.3 * Math.sin(t * 5), y, PAINTERS[2] + (LADY[2] - PAINTERS[2]) * k], 0.35, 0.35, { rot: t * 4 }));
-  }
+  if (t > wt(3, "rusty") - 0.3 && t < lineEnd(3) + 2) { const p = flakeAt(t); s.fx.push(card("flake", 120, 120, flake, [p.x, p.y, p.z], 0.35, 0.35, { rot: t * 4 })); }
   if (t > wt(2) + 0.5) {
     const scowl = after(t, 3, "thinks");
     s.places.push(P("lady", LADY_O, { expr: scowl ? "stern" : "smile_closed", headTilt: scowl ? -8 : 0, blink: blinkAt(t, 4) }, {}, LADY));
@@ -73,21 +70,36 @@ const tower = (t: number, s: Stage) => {
   }
 };
 
+/** line 4 at the second café: Lustig behind the paper; it lowers on "morning", he smiles on "smiles" */
+const cafe4 = (t: number, s: Stage) => {
+  const o = CAFE4;
+  const low = smooth((t - (wt(4, "morning") - LEAD)) / 0.5), smiles = after(t, 4, "smiles");
+  s.places.push(P("lustigCafe", LUSTIG, { mode: "sit", expr: smiles ? "smug" : "neutral", gest: "paper", blink: smiles ? 0 : blinkAt(t, 1) }, { monocle: true }, [o.x + 3, 0, o.z]));
+  s.fx.push(card("paper", 640, 480, LB.newspaper, [o.x + 2.55, 1.2 - 0.42 * low, o.z], 0.64, 0.48, { rot: -0.25 * low }));
+  s.places.push(P("waiter", WAITER, { expr: "neutral", blink: blinkAt(t, 7) }, {}, [o.x + 6, 0, o.z - 6.5], { size: [300, 500, 0.5] }));
+  for (let i = 0; i < 2; i++) s.places.push(P(`diner${i}`, townsfolk(i + 2), { mode: "sit", expr: "smile_closed", seed: 20 + i }, {}, [o.x - 1.5, 0, o.z + (i ? 3.5 : -3.5)], { size: [300, 500, 0.5] }));
+};
+
 const cafe = (t: number, s: Stage) => {
-  const o = CAFE;
-  if (t < wt(16) - 1) {
-    // line 4: Lustig behind the paper; it lowers on "morning", he smiles on "smiles"
-    const low = smooth((t - (wt(4, "morning") - LEAD)) / 0.5), smiles = after(t, 4, "smiles");
-    s.places.push(P("lustigCafe", LUSTIG, { mode: "sit", expr: smiles ? "smug" : "neutral", gest: "paper", blink: smiles ? 0 : blinkAt(t, 1) }, { monocle: true }, [o.x + 3, 0, o.z]));
-    s.fx.push(card("paper", 640, 480, LB.newspaper, [o.x + 2.55, 1.2 - 0.42 * low, o.z], 0.64, 0.48, { rot: -0.25 * low }));
-    s.places.push(P("waiter", WAITER, { expr: "neutral", blink: blinkAt(t, 7) }, {}, [o.x + 6, 0, o.z - 6.5], { size: [300, 500, 0.5] }));
-    for (let i = 0; i < 2; i++) s.places.push(P(`diner${i}`, townsfolk(i + 2), { mode: "sit", expr: "smile_closed", seed: 20 + i }, {}, [o.x - 1.5, 0, o.z + (i ? 3.5 : -3.5)], { size: [300, 500, 0.5] }));
-  } else {
-    // line 16: the waiter whispers behind a menu; the diner nods
-    const nod = after(t, 16, "Suddenly");
+  if (t < wt(16) - 1) return cafe4(t, s);
+  const o = CAFE4;
+  for (let i = 0; i < 2; i++) s.places.push(P(`diner${i}`, townsfolk(i + 2), { mode: "sit", expr: "smile_closed", seed: 20 + i }, {}, [o.x - 1.5, 0, o.z + (i ? 3.5 : -3.5)], { size: [300, 500, 0.5] }));
+  // line 16: the waiter whispers behind a menu; André (the diner) nods; line 17: poof, the waiter was Lustig
+  const nod = after(t, 16, "Suddenly"), t17 = wt(17) - 0.15, z = o.z - 7;
+  if (t < t17) {
     s.places.push(P("waiterW", WAITER, { expr: "nervous", gest: "paper", facing: -1 }, {}, [o.x + 3.6, 0, o.z - 6.2]));
     s.fx.push(card("menu", 300, 400, (p) => { p.poly([[20, 20], [280, 20], [280, 380], [20, 380]], "#7a2e2e", 8); LB.sign(p, "MENU", "#7a2e2e"); }, [o.x + 3.3, 1.3, o.z - 6.4], 0.3, 0.4));
-    s.places.push(P("diner", DEALERS[1], { mode: "sit", expr: nod ? "smile" : "shock", headTilt: 5 * bumps(t, [wt(16, "trust") - LEAD, wt(16, "everything") - LEAD], 0.5) }, {}, [o.x + 3, 0, o.z - 7.6]));
+  } else s.places.push(P("lustigC17", LUSTIG, { mode: "sit", expr: "grin", gest: after(t, 17, "pays") ? "palm" : "hang", blink: blinkAt(t, 1) }, { monocle: true }, [o.x + 3, 0, z + 0.75]));
+  const poof = clamp01((t - t17) / 0.4);
+  if (poof > 0 && poof < 1) s.fx.push(card(`poof${q(poof, 12)}`, 600, 600, (p) => fxRing(p, q(poof, 12)), [o.x + 3.4, 1.3, z + 0.8], 1.2, 1.2));
+  const signing = t >= wt(17) - 0.3;
+  s.places.push(P("andreC", ANDRE, { mode: "sit", expr: signing ? "smile_closed" : nod ? "smile" : "shock", gest: signing ? "sign" : "hang", k: t,
+    headTilt: signing ? 0 : 5 * bumps(t, [wt(16, "trust") - LEAD, wt(16, "everything") - LEAD], 0.5), blink: blinkAt(t, 2) }, { glasses: true, pen: signing }, [o.x + 3, 0, z - 0.6]));
+  if (t > wt(17) - 0.3) {
+    const u = smooth(clamp01((t - wt(17, "pays") + 0.1) / 0.6));
+    s.fx.push(card("francs", 300, 200, LB.francs, [o.x + 3.1, 0.78, z - 0.3 + 0.55 * u], 0.36, 0.24, { flat: true, rot: 0.4 }));
+    s.fx.push(card("bill", 520, 680, LB.billOfSale, [o.x + 2.8, 0.775, z - 0.25], 0.3, 0.38, { flat: true, rot: Math.PI / 2 }));
+    if (t < BAG.t0) s.fx.push(card("bag", 300, 360, LB.moneyBag, [o.x + 3.25, 1.0, z + 0.35], 0.42, 0.5));
   }
 };
 
@@ -182,17 +194,27 @@ const studio = (t: number, s: Stage) => {
 };
 
 const train = (t: number, s: Stage) => {
-  const x = trainX(t), z = RAIL.z - 1.55, ln = lineOf(t);
-  if (ln === 18 && t < wt(18, "train")) { // the money bag flies from the hotel window onto the train
-    const u = smooth(clamp01((t - wt(18)) / (wt(18, "train") - wt(18)))), from = V(HOTEL.x - 30, 18, HOTEL.z - 15), to = V(x - 6, 3.4, RAIL.z);
-    const p = from.lerp(to, u); s.fx.push(card("bag", 300, 360, LB.moneyBag, [p.x, p.y + 8 * Math.sin(u * Math.PI), p.z], 0.9, 1.08, { rot: u * 6 }));
+  const x = trainX(t), ln = lineOf(t), win = RAIL.z - 1.0;
+  if (ln <= 18 && t >= BAG.t0 && t < BAG.t0 + BAG.dur) { // the money bag flies from the café table onto the train window
+    const p = bagAt(t); s.fx.push(card("bag", 300, 360, LB.moneyBag, [p.x, p.y, p.z], 0.9, 1.08, { rot: Math.sin(t * 5) * 0.4 }));
   }
-  const reading = ln === 19, flip = q((t * (2 + (t - wt(19)) * 3)) % 1, 4);
-  const l: Look = { expr: reading ? (after(t, 19, "Nothing") ? "dazed" : "neutral") : "grin", gest: reading ? "paper" : "tip", k: 0.6, blink: blinkAt(t, 1) };
-  s.places.push({ key: "up|" + personKey("lustigT", l, { monocle: true }), draw: upper(person(LUSTIG, l, { monocle: true }), 600), x: x - 6, y: 1.1, z, size: HI });
-  if (ln === 18 && t >= wt(18, "train")) s.fx.push(card("ticket", 640, 300, LB.ticket, [x - 5.55, 3.3, z - 0.1], 0.46, 0.22, { rot: -0.1 }));
-  if (ln === 18 && t >= wt(18, "seventy")) s.fx.push(card("bagT", 300, 360, LB.moneyBag, [x - 6.45, 2.95, z - 0.1], 0.36, 0.43));
-  if (reading) s.fx.push(card(`paperT${flip}`, 640, 480, (p) => { LB.newspaper(p); if (flip > 0.4) { p.g.fillStyle = "rgba(241,234,217,0.9)"; p.g.fillRect(40, 120, 560, 120); } }, [x - 5.7, 3.0, z - 0.15], 0.5, 0.38, { rot: 0.04 }));
+  // compartment lamp
+  s.lights.push({ p: V(x + (COMP.x0 + COMP.x1) / 2, 3.3, RAIL.z), k: 0.9, col: [1.0, 0.78, 0.5] });
+  if (t > wt(19) - 0.5 && t < wt(21) - 1.2) { // in his seat by the window, flipping the papers faster and faster; "Nothing" -> dazed
+    const r = clamp01((t - wt(19)) / (wt(19, "Nothing") - wt(19))), flip = q((t * (1.5 + 9 * r * r)) % 1, 4);
+    const l: Look = { mode: "sit", expr: after(t, 19, "Nothing") ? "dazed" : "neutral", gest: "paper", blink: blinkAt(t, 1) };
+    s.places.push(P("lustigSeat", LUSTIG, l, { monocle: true }, [x - 7.55, 1.05, RAIL.z - 0.55]));
+    s.fx.push(card(`paperT${flip}`, 640, 480, (p) => { LB.newspaper(p); if (flip > 0.4) { p.g.fillStyle = "rgba(241,234,217,0.9)"; p.g.fillRect(40, 120, 560, 120); } }, [x - 7.15, 1.95, RAIL.z - 0.4], 0.5, 0.38, { rot: 0.3 * Math.sin(flip * Math.PI * 2) }));
+    s.fx.push(card("pile", 640, 480, LB.newspaper, [x - 6.4, 1.84, RAIL.z - 1.05], 0.4, 0.3, { flat: true, rot: 0.3 }));
+    return;
+  }
+  // at the window: lines 18 (bag + ticket) and 21 (waving as the train reverses)
+  const wave = ln >= 20, l: Look = { expr: "grin", gest: "tip", k: wave ? q(0.5 + 0.5 * Math.sin(t * 9), 12) : 0.6, blink: blinkAt(t, 1) };
+  s.places.push({ key: "up|" + personKey("lustigT", l, { monocle: true }), draw: upper(person(LUSTIG, l, { monocle: true }), 600), x: x - 6.3, y: 1.05, z: win, size: HI });
+  if (ln === 18 && t >= BAG.t0 + BAG.dur) {
+    s.fx.push(card("bagT", 300, 360, LB.moneyBag, [x - 5.75, 2.25, win - 0.2], 0.42, 0.5));
+    s.fx.push(card("ticket", 640, 300, LB.ticket, [x - 6.85, 2.25, win - 0.2], 0.4, 0.19, { rot: -0.1 }));
+  }
 };
 
 const andre = (t: number, s: Stage) => {
@@ -203,17 +225,33 @@ const andre = (t: number, s: Stage) => {
   s.fx.push(card(`cat${q(stare, 4)}`, 600, 600, (p) => cat(p, q(stare, 4)), at([-1.3, 0.24, 0.4]), 0.48, 0.48));
 };
 
+const CARRY: Record<CarryProp, [number, number, number, (p: Pen) => void]> = {
+  paper: [640, 480, 0.62, LB.newspaper], francs: [300, 200, 0.46, LB.francs], key: [400, 240, 0.5, LB.roomKey], ticket: [640, 300, 0.5, LB.ticket],
+  envelope: [300, 200, 0.42, LB.envelope], bill: [520, 680, 0.36, LB.billOfSale], newyork: [640, 200, 0.8, (p) => LB.sign(p, "NEW YORK", "#1f4a7a")],
+  calendar: [300, 360, 0.36, LB.calendar],
+};
+
+/** line 6: Lustig strolls up to the hotel doors (the bellboy waits) */
+const hotelDay = (t: number, s: Stage) => {
+  const x0 = HOTEL.x, z0 = HOTEL_FACADE_Z, u = smooth(clamp01((t - (wt(6, "suite") - 0.6)) / 1.2));
+  s.places.push(P("lustigH", LUSTIG, { mode: "stroll", expr: "smug", phase: q((t * 2) % 1, 12), blink: blinkAt(t, 1) }, { monocle: true }, [x0 - 3.2 + 1.5 * u, 0, z0 - 7 + 4.4 * u]));
+  s.places.push(P("bellboyH", BELLBOY, { expr: "grin", blink: blinkAt(t, 6) }, {}, [x0 + 1.5, 0, z0 - 1.4]));
+};
+
 const hotelNight = (t: number, s: Stage) => {
-  const x0 = HOTEL.x, z0 = HOTEL.z - 24;
-  for (let i = 0; i < 3; i++) s.places.push(P(`police${i}`, POLICE, { expr: i === 1 ? "whistle" : "stern", gest: i === 0 ? "point" : "hang", blink: blinkAt(t, 40 + i), seed: 50 + i }, { whistle: i === 1 }, [x0 - 4 + i * 2.6, 0, z0 - (i % 2) * 1.2]));
-  s.places.push(P("andreP", ANDRE, { expr: "stern", gest: "point" }, { glasses: true }, [x0 + 4.2, 0, z0 + 0.6]));
+  const x0 = HOTEL.x, z0 = HOTEL_FACADE_Z;
+  const pos: V3[] = [[x0 - 1.4, 0, z0 - 10.2], [x0 + 0.9, 0, z0 - 9.6], [x0 + 2.1, 0, z0 - 6.2]];
+  for (let i = 0; i < 3; i++) s.places.push(P(`police${i}`, POLICE, { expr: i === 1 ? "whistle" : "stern", gest: i === 0 ? "point" : "hang", blink: blinkAt(t, 40 + i), seed: 50 + i }, { whistle: i === 1 }, pos[i]));
+  s.places.push(P("andreP", ANDRE, { expr: "stern", gest: "point" }, { glasses: true }, [x0 - 1.2, 0, z0 - 5.4]));
+  // blue lamps flood the lobby window
   const pulse = (k: number) => 0.55 + 0.45 * Math.max(0, Math.sin(t * 7 + k * 2.1));
-  s.lights.push({ p: V(x0 - 9, 2.4, z0 + 1), k: 2.2 * pulse(0), col: POLICE_COL }, { p: V(x0 + 8, 2.4, z0 + 1.5), k: 2.2 * pulse(1), col: POLICE_COL }, { p: V(x0 - 1, 3.4, z0 + 4), k: 1.6 * pulse(2), col: POLICE_COL });
+  s.lights.push({ p: V(x0 - 4, 2.4, z0 - 3), k: 2.4 * pulse(0), col: POLICE_COL }, { p: V(x0 + 4, 2.4, z0 - 3), k: 2.4 * pulse(1), col: POLICE_COL },
+    { p: V(x0, 2.6, z0 + 2.5), k: 2.6 * pulse(2), col: POLICE_COL }, { p: V(x0 + 1, 2.2, z0 - 8), k: 1.4 * pulse(3), col: POLICE_COL });
 };
 
 const river = (t: number, s: Stage) => {
-  const x = -60 + 4 * (t - wt(23));
-  s.places.push(P("lustigShip", LUSTIG, { expr: "grin", gest: "tip", k: q(0.5 + 0.5 * Math.sin(t * 3), 20) }, { monocle: true }, [x + 4, 0.5, -263]));
+  const x = shipX(t);
+  s.places.push(P("lustigShip", LUSTIG, { expr: "grin", gest: "tip", k: q(0.5 + 0.5 * Math.sin(t * 3), 20) }, { monocle: true }, [x + 11, 0.5, -261.6]));
 };
 
 const hospital = (t: number, s: Stage) => {
@@ -236,16 +274,20 @@ export const stage = (t: number, c: Cam, cam: THREE.Camera): Stage => {
   for (const set of sets) {
     if (set === "tower") tower(t, s);
     else if (set === "cafe") cafe(t, s);
+    else if (set === "cafe4") cafe(t, s);
     else if (set === "forger") forger(t, s);
     else if (set === "lobby") lobby(t, s);
     else if (set === "meeting") meeting(t, s, c.shot, cam);
     else if (set === "studio") studio(t, s);
     else if (set === "train") train(t, s);
     else if (set === "andre") andre(t, s);
-    else if (set === "hotelExt") { if (lineOf(t) >= 22) hotelNight(t, s); }
+    else if (set === "hotelExt") { if (lineOf(t) >= 22) hotelNight(t, s); else hotelDay(t, s); }
     else if (set === "river") river(t, s);
     else if (set === "hospital") hospital(t, s);
   }
+  // the carried prop of the current flight (see story.carryAt)
+  const cr = carryAt(t, c);
+  if (cr && cr.k > 0) { const [cw, ch, w, draw] = CARRY[cr.prop]; s.fx.push(card(`carry${cr.prop}`, cw, ch, draw, [cr.p.x, cr.p.y, cr.p.z], w * cr.k, (w * ch / cw) * cr.k, { rot: cr.spin })); }
   void cam;
   return s;
 };

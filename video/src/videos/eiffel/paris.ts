@@ -6,8 +6,8 @@ import * as THREE from "three";
 import { Batch, lam, quad, V, kitClone, Kit } from "../bridge/build";
 import { ctex, rep, grassHD, cobbleHD, stoneHD, roofHD, rng } from "../bridge/paint";
 
-import { RIVER, CAFE, HOTEL, RAIL, HOTEL_FACADE_Z, HOTEL_HOLES, HOSTS, northHole } from "./layout";
-export { RIVER, CAFE, HOTEL, RAIL };
+import { RIVER, CAFE, CAFE4, HOTEL, RAIL, HOTEL_FACADE_Z, HOTEL_HOLES, HOSTS, STREET, northHole } from "./layout";
+export { RIVER, CAFE, CAFE4, HOTEL, RAIL };
 type Hole = { x0: number; x1: number; y0: number; y1: number };
 export type Lamp = { p: THREE.Vector3; k: number };
 
@@ -166,6 +166,8 @@ const grandHotel = (b: Batch, kitRoot: THREE.Object3D, lamps: Lamp[]) => {
 };
 
 export type Train = { group: THREE.Group; length: number };
+/** the line-19 compartment inside the first carriage (train-local x) */
+export const COMP = { x0: -8.6, x1: -4.0 };
 /** steam locomotive + 3 carriages (Wagons-Lits blue with gold lining), built along +x, wheels at y = 0 */
 export const buildTrain = (): Train => {
   const b = new Batch(), g = new THREE.Group();
@@ -192,6 +194,19 @@ export const buildTrain = (): Train => {
     b.add(new THREE.CylinderGeometry(1.6, 1.6, 16, 16, 1, false, 0, Math.PI).rotateZ(Math.PI / 2).scale(1, 0.35, 1), roofM, new THREE.Matrix4().makeTranslation((x0 + x1) / 2, 4.0, 0));
     for (const wx of [x0 + 2, x0 + 3.6, x1 - 3.6, x1 - 2]) for (const s of [-1, 1]) b.add(new THREE.CylinderGeometry(0.5, 0.5, 0.25, 12).rotateX(Math.PI / 2), wheel, new THREE.Matrix4().makeTranslation(wx, 0.5, s * 1.35));
     x = x0;
+  }
+  // line 19: a compartment inside the first carriage (inward walls, two benches, a lamp), window on the north side
+  {
+    const X0 = COMP.x0, X1 = COMP.x1, Y0 = 1.05, Y1 = 3.6, Z = 1.33, wood = lam("compWood", () => ({ color: "#7a4a32" })), wall = lam("compWall", () => ({ color: "#8a3a3a" }));
+    const plush = lam("compPlush", () => ({ color: "#2f5a4a" })), win = { x0: -7.4, x1: -5.2, y0: 2.0, y1: 3.2 };
+    b.add(quad(V(X0, Y0, Z), V(X1, Y0, Z), V(X1, Y0, -Z), V(X0, Y0, -Z)), wood);                                    // floor
+    b.add(quad(V(X0, Y1, -Z), V(X1, Y1, -Z), V(X1, Y1, Z), V(X0, Y1, Z)), wall);                                    // ceiling
+    b.add(quad(V(X1, Y0, Z), V(X0, Y0, Z), V(X0, Y1, Z), V(X1, Y1, Z)), wall);                                      // south wall
+    b.add(quad(V(X0, Y0, -Z), V(X0, Y0, Z), V(X0, Y1, Z), V(X0, Y1, -Z)), wall); b.add(quad(V(X1, Y0, Z), V(X1, Y0, -Z), V(X1, Y1, -Z), V(X1, Y1, Z)), wall);
+    for (const [a0, a1, c0, c1] of [[X0, win.x0, Y0, Y1], [win.x1, X1, Y0, Y1], [win.x0, win.x1, Y0, win.y0], [win.x0, win.x1, win.y1, Y1]])   // north wall round the window
+      b.add(quad(V(a0, c0, -Z), V(a1, c0, -Z), V(a1, c1, -Z), V(a0, c1, -Z)), wall);
+    for (const xb of [X0 + 0.35, X1 - 0.35]) { box(b, plush, xb - 0.3, Y0, -Z, xb + 0.3, Y0 + 0.45, Z); box(b, plush, xb - (xb < -6 ? 0.3 : -0.2), Y0, -Z, xb - (xb < -6 ? 0.2 : -0.3), Y0 + 1.2, Z); }
+    box(b, wood, win.x0, win.y0 - 0.25, -Z, win.x1, win.y0 - 0.2, -Z + 0.35);                                   // window table
   }
   b.build(g);
   return { group: g, length: -x + 9.4 };
@@ -251,6 +266,7 @@ export const buildParis = (root: THREE.Object3D, kit: Kit): Paris => {
     if (Math.abs(cx - HOTEL.x) < 90 && Math.abs(cz - HOTEL.z) < 50) continue;
     if (HOSTS.some((hh) => cx + 30 > hh.x0 - 12 && cx - 30 < hh.x1 + 12 && cz + 15 > hh.z0 - 24 && cz - 15 < hh.z1 + 12)) continue;
     if (Math.abs(cx - CAFE.x - 20) < 45 && Math.abs(cz - CAFE.z) < 40) continue;
+    if (cx + 30 > STREET.x0 && cx - 30 < STREET.x1 && cz + 15 > STREET.z0 && cz - 15 < STREET.z1) continue;   // the story street
     if (Math.hypot(cx, cz - 300) > 2100) continue;
     blockAt(cx, cz, 60, 30);
   }
@@ -259,14 +275,15 @@ export const buildParis = (root: THREE.Object3D, kit: Kit): Paris => {
     if (s > 0 && Math.abs(zz - CAFE.z) < 30) continue;
     building(b, s * 172, zz, s > 0 ? -Math.PI / 2 : Math.PI / 2, 32, 22, 19 + (zz % 3) * 1.6, seed++);
   }
-  // ---- the café: corner building with a striped awning, tables on the pavement ----
-  building(b, CAFE.x + 20, CAFE.z, -Math.PI / 2, 30, 22, 19, 3);
+  // ---- the cafés: corner building with a striped awning, tables on the pavement (line 16-17 and line 4) ----
+  const cafeAt = (C: { x: number; z: number }, seed: number) => {
+  building(b, C.x + 20, C.z, -Math.PI / 2, 30, 22, 19, seed);
   const aw = lam("awningRW", () => ({ map: awningTex("#c8323a", "#f4ece0"), side: THREE.DoubleSide }));
-  const fx = CAFE.x + 9; // facade plane x
-  b.add(quad(V(fx, 3.4, CAFE.z - 12), V(fx, 3.4, CAFE.z + 12), V(fx - 3.6, 2.6, CAFE.z + 12), V(fx - 3.6, 2.6, CAFE.z - 12), 6, 1), aw);
-  b.add(quad(V(fx - 3.6, 2.6, CAFE.z - 12), V(fx - 3.6, 2.6, CAFE.z + 12), V(fx - 3.6, 2.2, CAFE.z + 12), V(fx - 3.6, 2.2, CAFE.z - 12), 6, 0.2), aw);
+  const fx = C.x + 9; // facade plane x
+  b.add(quad(V(fx, 3.4, C.z - 12), V(fx, 3.4, C.z + 12), V(fx - 3.6, 2.6, C.z + 12), V(fx - 3.6, 2.6, C.z - 12), 6, 1), aw);
+  b.add(quad(V(fx - 3.6, 2.6, C.z - 12), V(fx - 3.6, 2.6, C.z + 12), V(fx - 3.6, 2.2, C.z + 12), V(fx - 3.6, 2.2, C.z - 12), 6, 0.2), aw);
   const tableM = lam("cafeTable", () => ({ color: "#3a3540" })), topM = lam("cafeTop", () => ({ color: "#efe7d6" })), chairM = lam("cafeChair", () => ({ color: "#8a4a2e" }));
-  for (const [tx, tz] of [[CAFE.x + 3, CAFE.z - 7], [CAFE.x + 3, CAFE.z], [CAFE.x + 3, CAFE.z + 7], [CAFE.x - 1.5, CAFE.z - 3.5], [CAFE.x - 1.5, CAFE.z + 3.5]]) {
+  for (const [tx, tz] of [[C.x + 3, C.z - 7], [C.x + 3, C.z], [C.x + 3, C.z + 7], [C.x - 1.5, C.z - 3.5], [C.x - 1.5, C.z + 3.5]]) {
     b.add(new THREE.CylinderGeometry(0.06, 0.06, 0.72, 8), tableM, new THREE.Matrix4().makeTranslation(tx, 0.36, tz));
     b.add(new THREE.CylinderGeometry(0.42, 0.42, 0.05, 20), topM, new THREE.Matrix4().makeTranslation(tx, 0.74, tz));
     for (const s of [-1, 1]) {
@@ -274,6 +291,8 @@ export const buildParis = (root: THREE.Object3D, kit: Kit): Paris => {
       b.add(new THREE.BoxGeometry(0.42, 0.5, 0.05), chairM, new THREE.Matrix4().makeTranslation(tx, 0.72, tz + s * 0.96));
     }
   }
+  };
+  cafeAt(CAFE, 3); cafeAt(CAFE4, 5);
   // ---- grand hotel, railway on the south quay ----
   const hotelRoot = new THREE.Group(); root.add(hotelRoot);
   grandHotel(b, hotelRoot, lamps);
@@ -298,7 +317,7 @@ export const buildParis = (root: THREE.Object3D, kit: Kit): Paris => {
     if (o) { o.position.set(xx, 0, zz); o.updateMatrixWorld(true); b.addObject(o, new THREE.Matrix4()); }
     lamps.push({ p: V(xx, 3.6, zz), k: 1 });
   }
-  for (let k = -3; k <= 3; k++) lamps.push({ p: V(CAFE.x - 3.2, 3.2, CAFE.z + k * 4), k: 0.6 });
+  for (const C of [CAFE, CAFE4]) for (let k = -3; k <= 3; k++) lamps.push({ p: V(C.x - 3.2, 3.2, C.z + k * 4), k: 0.6 });
   b.build(root);
   const train = buildTrain();
   root.add(train.group);
