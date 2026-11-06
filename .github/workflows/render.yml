@@ -302,9 +302,11 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install ffmpeg + QA deps
+        timeout-minutes: 12   # run 12: a stalled apt mirror hung this step until the 30 min job timeout
         run: |
-          command -v ffmpeg >/dev/null || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
-          pip install -q numpy pillow
+          inst() { timeout 300 sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=30 update -qq && timeout 300 sudo apt-get -o Acquire::Retries=3 install -y -qq ffmpeg; }
+          command -v ffmpeg >/dev/null || inst || { sleep 20; inst; }
+          timeout 300 pip install -q numpy pillow
           echo "STARTED_AT=$(gh api repos/${{ github.repository }}/actions/runs/${{ github.run_id }} --jq .run_started_at)" >> "$GITHUB_ENV"
       - uses: actions/download-artifact@v4
         with:
