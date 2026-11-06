@@ -106,6 +106,18 @@ export class EiffelWorld {
   private actor(i: number) { while (this.actors.length <= i) this.actors.push(new Actor(this.root)); return this.actors[i]; }
   private fx(i: number) { while (this.fxs.length <= i) this.fxs.push(new Fx(this.root)); return this.fxs[i]; }
 
+  private shadowRCache = new Map<number, number>();
+  /** shadow half-size for a shot, from its widest key (frozen for the whole shot) */
+  private shadowR(si: number) {
+    let r = this.shadowRCache.get(si);
+    if (r === undefined) {
+      const d = Math.max(...SHOTS[si].keys.map((k) => Math.hypot(k.look[0] - k.pos[0], k.look[1] - k.pos[1], k.look[2] - k.pos[2])));
+      r = THREE.MathUtils.clamp(d * 1.3 + 10, 12, 420);
+      this.shadowRCache.set(si, r);
+    }
+    return r;
+  }
+
   /** sun direction (toward the sun) for a shot: camera-relative outdoors, through the back-wall window indoors */
   private sunFor(si: number, L: LightPreset) {
     let s = this.sunCache.get(si);
@@ -136,8 +148,14 @@ export class EiffelWorld {
     this.hemi.color.set(L.sky); this.hemi.groundColor.set(L.ground); this.hemi.intensity = L.hemiI;
     this.sun.color.set(L.sunCol); this.sun.intensity = L.sunI;
     const dist = c.pos.distanceTo(c.look);
-    const Rr = THREE.MathUtils.clamp(dist * 1.2 + 8, 10, 420);
-    this.sun.position.copy(c.look).addScaledVector(sunDir, 900); this.sun.target.position.copy(c.look);
+    // shadow frustum: size frozen per shot (a size that tracks the creeping camera re-samples every shadow edge each
+    // frame = crawling / shaking shadows) and its centre snapped to whole shadow texels
+    const Rr = Math.max(this.shadowR(c.shot), this.shadowR(c.next));
+    const texel = (2 * Rr) / this.sun.shadow.mapSize.x;
+    const lx = this.v.set(0, 1, 0).cross(sunDir).normalize().clone(), ly = sunDir.clone().cross(lx).normalize();
+    const cx = Math.round(c.look.dot(lx) / texel) * texel, cy = Math.round(c.look.dot(ly) / texel) * texel, cz = c.look.dot(sunDir);
+    const centre = lx.multiplyScalar(cx).addScaledVector(ly, cy).addScaledVector(sunDir, cz);
+    this.sun.position.copy(centre).addScaledVector(sunDir, 900); this.sun.target.position.copy(centre);
     const sc = this.sun.shadow.camera;
     sc.left = -Rr; sc.right = Rr; sc.top = Rr; sc.bottom = -Rr; sc.near = 50; sc.far = 1900; sc.updateProjectionMatrix();
     this.sun.shadow.bias = L.bias; this.sun.shadow.normalBias = L.normalBias * (Rr / 12);

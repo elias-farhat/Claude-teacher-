@@ -110,23 +110,23 @@ export const SHOTS: Shot[] = [
     { at: wt(9, "Not"), pos: v(R.meeting, -1.2, 1.55, 0.3), look: v(R.meeting, -2.6, 1.5, 0), fov: 32, dof: 13 },
     { at: wt(9, "anyone"), pos: v(R.meeting, 3.4, 2.0, 2.6), look: v(R.meeting, 0, 1.2, 0), fov: 44, dof: 6 },
   ] },
-  // 10 "One dealer, André, wants it more than anyone,"
+  // 10 "One dealer, André, wants it more than anyone," two-shot across the table, then a medium shot of André
   { at: wt(10), set: "meeting", look: "warm", interior: true, keys: [
-    { pos: v(R.meeting, 1.6, 1.4, -0.4), look: v(R.meeting, 1.4, 1.35, 1.25), fov: 34, dof: 12 },
-    { at: wt(10, "wants"), pos: v(R.meeting, 1.45, 1.42, 0.2), look: v(R.meeting, 1.4, 1.4, 1.25), fov: 30, roll: 0.05, dof: 14 },
+    { pos: v(R.meeting, 3.0, 2.1, 2.9), look: v(R.meeting, -0.8, 1.4, 0.3), fov: 46, dof: 4 },
+    { at: wt(10, "André"), pos: v(R.meeting, 3.0, 1.65, 2.7), look: v(R.meeting, 1.4, 1.35, 1.25), fov: 38, dof: 8 },
   ] },
-  // 11 "but something about this feels off." x-ray DOUBT gear, sweat drop; the light cools
+  // 11 "but something about this feels off." two-shot: x-ray DOUBT gear over André, Lustig across the table; light cools
   { at: wt(11), set: "meeting", look: "cool", interior: true, keys: [
-    { pos: v(R.meeting, 1.4, 1.45, 0.05), look: v(R.meeting, 1.4, 1.5, 1.25), fov: 30, dof: 14 },
+    { pos: v(R.meeting, 3.3, 2.05, 2.4), look: v(R.meeting, -1.0, 1.45, 0.2), fov: 44, dof: 4 },
   ] },
-  // 12 "So how do you calm down a suspicious buyer?" slow push into Lustig's monocle
+  // 12 "So how do you calm down a suspicious buyer?" stay wide, then a medium push on Lustig's monocle
   { at: wt(12), set: "meeting", look: "dim", interior: true, keys: [
-    { pos: v(R.meeting, -1.4, 1.6, 0.2), look: v(R.meeting, -2.6, 1.6, 0), fov: 30, dof: 13 },
-    { at: wt(12, "suspicious"), pos: v(R.meeting, -2.2, 1.62, 0.07), look: v(R.meeting, -2.6, 1.62, 0), fov: 26, dof: 16 },
+    { pos: v(R.meeting, 3.3, 2.05, 2.0), look: v(R.meeting, -1.6, 1.55, 0.1), fov: 42, dof: 4 },
+    { at: wt(12, "suspicious"), pos: v(R.meeting, -0.4, 1.75, 0.9), look: v(R.meeting, -2.6, 1.55, 0), fov: 38, dof: 8 },
   ] },
-  // 13 "You ask him for a bribe." palm up across the table, a dealer spits his drink
+  // 13 "You ask him for a bribe." two-shot: palm up across the table to André, a dealer spits his drink
   { at: wt(13), set: "meeting", look: "dim", interior: true, keys: [
-    { pos: v(R.meeting, -0.6, 1.5, -1.2), look: v(R.meeting, -1.6, 1.2, 0.2), fov: 38, roll: -0.06, dof: 10 },
+    { pos: v(R.meeting, 3.3, 2.05, 2.4), look: v(R.meeting, -1.0, 1.35, 0.3), fov: 42, roll: -0.04, dof: 4 },
   ] },
   // 14 "You see, a fake official would never ask for money under the table." FAKE vs REAL split gag
   { at: wt(14), set: "studio", look: "neutral", interior: true, keys: [
