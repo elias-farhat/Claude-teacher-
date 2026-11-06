@@ -40,4 +40,4 @@ Voice tip: paste the narration as ONE CapCut text block, speed 1.3×, export aud
 224 words → ~58 s at CapCut 1.3×.
 
 ## Voice (final)
-`scripts/rats/voice.wav`: CapCut AI narrator (same voice as Eiffel), all 20 lines verified in order. Natural pauses kept, sped up 1.35× (pitch kept), light room tail, −14 LUFS. Length 62.5 s, 48 kHz mono. Abrupt line endings: 0.
+`scripts/rats/voice.wav`: CapCut AI narrator (same voice as Eiffel), all 20 lines verified in order. Natural pauses kept, sped up 1.2× (pitch kept; 1.35× was too fast), light room tail, −14 LUFS. Length 70.1 s, 48 kHz mono. Abrupt line endings: 0.
