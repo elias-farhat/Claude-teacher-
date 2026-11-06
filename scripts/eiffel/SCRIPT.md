@@ -43,7 +43,7 @@ Target: ~60 s at ~3.7 words/s (≈ 225 words). Voice starts on frame 0. Ends on 
 | 24 | When he finally dies in a prison hospital, | Quiet hospital ward, rain on the window. | Grey dawn |
 | 25 | his death certificate lists his job as… apprentice salesman. | Close on certificate: "OCCUPATION: APPRENTICE SALESMAN". Hold 1 s. End on last word. | Soft sunrise through the window |
 
-Word count ≈ 232 → ~60–63 s at 3.7 w/s.
+Word count = 249 → ~67 s at 3.7 w/s; at CapCut speed 1.1–1.15× it lands at ~60 s.
 
 ## Voice (CapCut)
 - Text-to-speech, one confident male narrator voice (e.g. a "storyteller" or "narrator" style English voice). Speed 1.1–1.2×, so the full read lands around 60 s.
