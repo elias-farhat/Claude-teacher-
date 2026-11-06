@@ -2,7 +2,7 @@
 # Puts the Kenney CC0 kits the bridge template uses (fantasy town, nature, castle) into public/bridge/kenney/
 # as flat <name>.glb files.
 #
-# Source: the zip assets of the GitHub Release "kenney-kits" in this repo. kenney.nl refuses automated
+# Source: assets/kenney/*.zip in this repo, else the zip assets of the GitHub Release "kenney-kits" in this repo. kenney.nl refuses automated
 # downloads (HTTP 403), so download the three kits once in a browser and attach the zips to that release:
 #   https://kenney.nl/assets/fantasy-town-kit  https://kenney.nl/assets/nature-kit  https://kenney.nl/assets/castle-kit
 # CC0 lets us redistribute them.
@@ -22,8 +22,15 @@ missing() {
   exit 0
 }
 
-gh release download kenney-kits --repo "${GITHUB_REPOSITORY:?}" --pattern '*.zip' --dir "$TMP" 2>"$TMP/err" \
-  || missing "no kenney-kits release or no zips on it: $(tr '\n' ' ' < "$TMP/err" | cut -c1-160)"
+# Preferred source: zips committed to the repo in assets/kenney/ (relative to video/).
+LOCAL="$(cd "$(dirname "$0")/.." && pwd)/assets/kenney"
+if ls "$LOCAL"/*.zip >/dev/null 2>&1; then
+  cp "$LOCAL"/*.zip "$TMP"/
+  echo "kenney: using zips from assets/kenney"
+else
+  gh release download kenney-kits --repo "${GITHUB_REPOSITORY:?}" --pattern '*.zip' --dir "$TMP" 2>"$TMP/err" \
+    || missing "no zips in assets/kenney and no kenney-kits release: $(tr '\n' ' ' < "$TMP/err" | cut -c1-160)"
+fi
 for kit in fantasy-town nature castle; do
   ls "$TMP"/*.zip | grep -qi "$kit" || echo "::warning::kenney-kits release has no zip matching '$kit'"
 done

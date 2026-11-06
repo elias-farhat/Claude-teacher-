@@ -68,7 +68,7 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: video/public/bridge/kenney
-          key: kenney-v2-${{ hashFiles('video/scripts/fetch-kenney.sh') }}
+          key: kenney-v3-${{ hashFiles('video/scripts/fetch-kenney.sh', 'video/assets/kenney/*.zip') }}
       - name: Kenney CC0 kits (fantasy town, nature, castle), once per run
         env:
           GH_TOKEN: ${{ github.token }}
@@ -80,7 +80,7 @@ jobs:
         uses: actions/cache/save@v4
         with:
           path: video/public/bridge/kenney
-          key: kenney-v2-${{ hashFiles('video/scripts/fetch-kenney.sh') }}
+          key: kenney-v3-${{ hashFiles('video/scripts/fetch-kenney.sh', 'video/assets/kenney/*.zip') }}
       - if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -121,7 +121,7 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: video/public/bridge/kenney
-          key: kenney-v2-${{ hashFiles('video/scripts/fetch-kenney.sh') }}
+          key: kenney-v3-${{ hashFiles('video/scripts/fetch-kenney.sh', 'video/assets/kenney/*.zip') }}
       - name: Render frames ${{ matrix.chunk.start }}-${{ matrix.chunk.end }}
         run: |
           i=${{ matrix.chunk.index }}; s0=${{ matrix.chunk.start }}; s1=${{ matrix.chunk.end }}
