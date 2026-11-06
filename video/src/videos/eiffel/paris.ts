@@ -190,7 +190,18 @@ export const buildTrain = (): Train => {
   x = -1;
   for (let c = 0; c < 3; c++) {
     const x1 = x - 0.8, x0 = x1 - 16;
-    box(b, blue, x0, 1.0, -1.45, x1, 4.0, 1.45);
+    if (c > 0) box(b, blue, x0, 1.0, -1.45, x1, 4.0, 1.45);
+    else { // first carriage: hollow round the compartment, with a real window opening on the north side
+      const plain = lam("wagonPlain", () => ({ color: "#24386e" })), gold = lam("wagonGold", () => ({ color: "#d9b45a" }));
+      const A = COMP.x0 - 0.02, B = COMP.x1 + 0.02, wx0 = -7.4, wx1 = -5.2, wy0 = 2.0, wy1 = 3.2;
+      box(b, blue, x0, 1.0, -1.45, A, 4.0, 1.45); box(b, blue, B, 1.0, -1.45, x1, 4.0, 1.45);
+      box(b, plain, A, 1.0, -1.45, B, 1.03, 1.45); box(b, plain, A, 3.62, -1.45, B, 4.0, 1.45);       // under the floor, over the ceiling
+      box(b, plain, A, 1.03, 1.35, B, 3.62, 1.45);                                                      // south side
+      box(b, plain, A, 1.03, -1.45, wx0, 3.62, -1.35); box(b, plain, wx1, 1.03, -1.45, B, 3.62, -1.35);  // north side round the window
+      box(b, plain, wx0, 1.03, -1.45, wx1, wy0, -1.35); box(b, plain, wx0, wy1, -1.45, wx1, 3.62, -1.35);
+      for (const [a0, b0, a1, b1] of [[wx0 - 0.08, wy0 - 0.08, wx1 + 0.08, wy0], [wx0 - 0.08, wy1, wx1 + 0.08, wy1 + 0.08], [wx0 - 0.08, wy0, wx0, wy1], [wx1, wy0, wx1 + 0.08, wy1]])
+        box(b, gold, a0, b0, -1.5, a1, b1, -1.42);                                                     // brass window frame
+    }
     b.add(new THREE.CylinderGeometry(1.6, 1.6, 16, 16, 1, false, 0, Math.PI).rotateZ(Math.PI / 2).scale(1, 0.35, 1), roofM, new THREE.Matrix4().makeTranslation((x0 + x1) / 2, 4.0, 0));
     for (const wx of [x0 + 2, x0 + 3.6, x1 - 3.6, x1 - 2]) for (const s of [-1, 1]) b.add(new THREE.CylinderGeometry(0.5, 0.5, 0.25, 12).rotateX(Math.PI / 2), wheel, new THREE.Matrix4().makeTranslation(wx, 0.5, s * 1.35));
     x = x0;

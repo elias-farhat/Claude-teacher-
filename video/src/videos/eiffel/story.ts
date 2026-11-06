@@ -358,7 +358,8 @@ export const carryAt = (t: number, c: { pos: THREE.Vector3; look: THREE.Vector3;
   if (t >= f.t0 + f.dur) return { prop: sb.carry.prop, p: to, k: 1 - (t - f.t0 - f.dur) / 0.35, spin: 0 };
   const u = (t - f.t0) / f.dur, A = frame(f.a, f.t0);
   const fwd = c.look.clone().sub(c.pos).normalize(), ahead = c.pos.clone().addScaledVector(fwd, 4.5).add(new THREE.Vector3(0, -0.35, 0));
-  const p = A.look.clone().lerp(ahead, smooth(u / 0.3)).lerp(to, smooth((u - 0.7) / 0.3));
+  const from = A.look.clone().add(new THREE.Vector3(0, -1.0, 0)).lerp(A.pos, 0.25);   // from the subject's hands, not over the face
+  const p = from.lerp(ahead, smooth(u / 0.3)).lerp(to, smooth((u - 0.7) / 0.3));
   return { prop: sb.carry.prop, p, k: 1, spin: Math.sin(u * Math.PI * 3) * 0.5 };
 };
 
