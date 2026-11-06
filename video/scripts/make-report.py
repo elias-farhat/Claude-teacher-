@@ -58,7 +58,15 @@ kenney_loads = []
 for p in sorted(glob.glob(os.path.join(logs_dir, "**", "chunk-*.log"), recursive=True)):
     kenney_loads += re.findall(r"\[kenney\] loaded (\d+)/(\d+) models", open(p, errors="replace").read())
 
+stills = []
+for p in sorted(glob.glob(os.path.join("out", "stills", "still-*.json"))):
+    try:
+        stills.append(json.load(open(p)))
+    except Exception:  # noqa: BLE001
+        pass
 render_secs = [c["seconds"] for c in chunks if c.get("exit") == 0]
+steady = sorted(c["steady_spf"] for c in chunks if c.get("exit") == 0 and c.get("steady_spf"))
+startup = sorted(c["startup"] for c in chunks if c.get("exit") == 0 and "startup" in c)
 spf = [c["seconds"] / max(1, c["end"] - c["start"] + 1) for c in chunks if c.get("exit") == 0]
 failed = [c for c in chunks if c.get("exit") != 0]
 
@@ -99,6 +107,12 @@ if render_secs:
           f" (slowest chunk ≈ critical path)",
           f"- **Speed:** {sum(spf) / len(spf):.2f} s/frame per runner (median chunk), ~{sum(render_secs) / 60:.0f} runner-minutes of rendering in total",
           f"- **Runner:** {chunks[0].get('vcpu', '?')} vCPU each"]
+    if steady:
+        L += [f"- **Steady render speed** (after startup + bundling): median {steady[len(steady) // 2]:.2f} s/frame per runner "
+              f"(min {steady[0]:.2f}, max {steady[-1]:.2f}); startup + bundling median {startup[len(startup) // 2] if startup else '?'} s per chunk"]
+    res = E("RES", "1080")
+    L += [f"- **Resolution:** " + ("rendered 720x1280 (WebGL buffer too), Lanczos-upscaled to 1080x1920"
+          + (f" in {E('UPSCALE_SECS')} s" if E("UPSCALE_SECS") else "") if res == "720up" else "rendered at 1080x1920")]
 if kenney_loads:
     got = sorted({int(a) for a, _ in kenney_loads}); tot = int(kenney_loads[0][1])
     allok = got == [tot]
@@ -106,6 +120,9 @@ if kenney_loads:
           f" in {len(kenney_loads)} render tabs" + (" ✅" if allok else " ❌ (see warnings)")]
 else:
     L += ["- **Kenney models loaded in the browser:** no `[kenney]` line in the logs (this composition does not load them)"]
+if stills:
+    L += [f"- **Stills:** {len(stills)} at final quality (frames {', '.join(str(x['frame']) for x in stills)}), "
+          f"{min(x['seconds'] for x in stills)}-{max(x['seconds'] for x in stills)} s each incl. startup; attached with `stills-sheet.jpg`"]
 L += [f"- **Commit:** `{E('SHA')[:7]}` · audio: {E('AUDIO_NOTE', 'n/a')} · run log: {E('RUN_URL')}", ""]
 
 if spec:
@@ -120,10 +137,10 @@ if spec:
               + ("".join(f"\n  - {float(s):.2f} s for {float(d):.2f} s" for s, d in silences[:8]))]
     L += [""]
 
-L += ["## Chunks", "| chunk | frames | seconds | s/frame | exit |", "|---|---|---|---|---|"]
+L += ["## Chunks", "| chunk | frames | seconds | s/frame (all-in) | steady s/frame | exit |", "|---|---|---|---|---|---|"]
 for c in sorted(chunks, key=lambda c: c["index"]):
     n = c["end"] - c["start"] + 1
-    L += [f"| {c['index']} | {c['start']}-{c['end']} | {c['seconds']} | {c['seconds'] / n:.2f} | {c.get('exit')} |"]
+    L += [f"| {c['index']} | {c['start']}-{c['end']} | {c['seconds']} | {c['seconds'] / n:.2f} | {c.get('steady_spf', '?')} | {c.get('exit')} |"]
 L += [""]
 
 L += ["## Errors and warnings"]

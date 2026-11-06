@@ -9,6 +9,10 @@ export const TONE = {
   uShadeLift: { value: new THREE.Vector3() }, uLambert: { value: 0.35 }, uSideK: { value: 0.84 }, uTerm: { value: 0.2 },
   uBounce: { value: new THREE.Vector3() }, // warm bounce on shaded faces turned to the camera (golden only; day = 0)
   uSat: { value: 1 }, // world albedo saturation around its luminance (characters are not twoTone, so unaffected)
+  // Eiffel short: warm practical-light pools (lamps, windows, police lamps). View-space position + radius, linear colour.
+  // All zero by default, so the bridge renders exactly as before.
+  uGlowPos: { value: Array.from({ length: 8 }, () => new THREE.Vector4(0, 0, 0, 0)) },
+  uGlowCol: { value: Array.from({ length: 8 }, () => new THREE.Vector3(0, 0, 0)) },
 };
 /** character-card uniforms (lighting.md 9.2 cardShade); world.ts keeps them in sync with LIGHTS for cardshade.ts */
 export const CHAR = {
@@ -37,11 +41,18 @@ const TWO_TONE = /* glsl */ `
   vec3 alb = max( mix( vec3( dot( diffuseColor.rgb, vec3( 0.2126, 0.7152, 0.0722 ) ) ), diffuseColor.rgb, uSat ), 0.0 );
   reflectedLight.directDiffuse = alb * ( mix( uShadeCol, lit, sunTerm ) * skyK + uBounce * facing * clamp( 1.0 - dot( geometryNormal, upV ), 0.0, 1.0 ) * ( 1.0 - sunTerm ) )
     + uShadeLift * LIFT_K * ( 1.0 - sunTerm );
+  for ( int gi = 0; gi < 8; gi++ ) {                                          // practical-light pools (Eiffel)
+    vec4 gp = uGlowPos[ gi ];
+    if ( gp.w <= 0.0 ) continue;
+    vec3 gl = gp.xyz + vViewPosition; float gd = length( gl );
+    float att = pow( clamp( 1.0 - gd / gp.w, 0.0, 1.0 ), 2.0 );
+    reflectedLight.directDiffuse += alb * uGlowCol[ gi ] * att * ( 0.3 + 0.7 * max( dot( geometryNormal, gl / max( gd, 1e-3 ) ), 0.0 ) );
+  }
   reflectedLight.indirectDiffuse = vec3( 0.0 );                               // hemisphere/fill no longer used here
 }
 #endif
 `;
-const DECL = "#include <common>\nuniform vec3 uLitCol; uniform vec3 uShadeCol; uniform vec3 uShadeLift; uniform float uLambert; uniform float uSideK; uniform float uTerm; uniform vec3 uBounce; uniform float uSat;";
+const DECL = "#include <common>\nuniform vec3 uLitCol; uniform vec3 uShadeCol; uniform vec3 uShadeLift; uniform float uLambert; uniform float uSideK; uniform float uTerm; uniform vec3 uBounce; uniform float uSat; uniform vec4 uGlowPos[8]; uniform vec3 uGlowCol[8];";
 
 /** Lambert (or Phong: its specular term is kept, masked by the shadow) -> two-tone. Call once per material. */
 export function twoTone<T extends THREE.MeshLambertMaterial | THREE.MeshPhongMaterial>(m: T, liftK = 1): T {
@@ -52,7 +63,7 @@ export function twoTone<T extends THREE.MeshLambertMaterial | THREE.MeshPhongMat
       .replace("#include <lights_fragment_begin>", "float sunVis = 1.0;\n" + LFB)
       .replace("#include <lights_fragment_end>", "#include <lights_fragment_end>\n" + TWO_TONE);
   };
-  m.customProgramCacheKey = () => "twoTone5_" + liftK.toFixed(3);
+  m.customProgramCacheKey = () => "twoTone6_" + liftK.toFixed(3);
   return m;
 }
 

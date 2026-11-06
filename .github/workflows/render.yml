@@ -27,13 +27,22 @@ on:
         description: Output scale (1 = 1080x1920, 1.3333 = 2K 1440x2560)
         required: false
         default: "1"
+      res:
+        description: "1080 = render at the output size · 720up = render 720x1280 (WebGL buffer too), Lanczos-upscale to 1080x1920"
+        type: choice
+        options: ["1080", "720up"]
+        default: "1080"
+      stills:
+        description: Frames to render as full-quality stills into the same release (comma-separated, e.g. 91,368,424)
+        required: false
+        default: ""
 
 permissions:
   contents: write
   actions: read
 
 concurrency:
-  group: render-${{ github.ref }}-${{ inputs.composition }}
+  group: render-${{ github.ref }}-${{ inputs.composition }}-${{ inputs.mode }}-${{ inputs.res }}
   cancel-in-progress: false
 
 defaults:
@@ -41,7 +50,9 @@ defaults:
     working-directory: video
 
 env:
-  PROPS: ${{ inputs.mode == 'preview' && '{"preview":true}' || '{}' }}
+  # 720up: R3F clamps dpr >= 1, so the WebGL buffer is shrunk through the composition's "dpr" prop as well
+  PROPS: ${{ inputs.res == '720up' && (inputs.mode == 'preview' && '{"preview":true,"dpr":0.666667}' || '{"dpr":0.666667}') || (inputs.mode == 'preview' && '{"preview":true}' || '{}') }}
+  RSCALE: ${{ inputs.res == '720up' && '0.666667' || inputs.scale }}
 
 jobs:
   plan:
@@ -52,6 +63,7 @@ jobs:
       frames: ${{ steps.plan.outputs.frames }}
       fps: ${{ steps.plan.outputs.fps }}
       count: ${{ steps.plan.outputs.count }}
+      stills: ${{ steps.plan.outputs.stills }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -95,6 +107,7 @@ jobs:
           echo "frames=$(jq -r '.frames' <<<"$out")" >> "$GITHUB_OUTPUT"
           echo "fps=$(jq -r '.fps' <<<"$out")" >> "$GITHUB_OUTPUT"
           echo "count=$(jq -r '.matrix | length' <<<"$out")" >> "$GITHUB_OUTPUT"
+          echo "stills=$(jq -cn --arg s '${{ inputs.stills }}' '$s | split(",") | map(gsub(" "; "")) | map(select(length > 0) | tonumber)')" >> "$GITHUB_OUTPUT"
 
   render:
     needs: plan
@@ -127,14 +140,17 @@ jobs:
           i=${{ matrix.chunk.index }}; s0=${{ matrix.chunk.start }}; s1=${{ matrix.chunk.end }}
           mkdir -p out   # tee needs it before Remotion creates it, or the chunk log is silently lost
           t0=$(date +%s)
+          # steady-state speed: time from the first finished frame to the end (startup + bundling excluded)
+          ( until grep -q "Rendered 1/" "out/chunk-$i.log" 2>/dev/null; do sleep 0.5; done; date +%s > "out/first-$i" ) &
           set +e
           npx remotion render src/index.ts "${{ inputs.composition }}" "out/chunk-$i.mp4" \
             --frames=$s0-$s1 --codec h264 --crf 16 --muted \
-            --gl=swangle --timeout=300000 --scale "${{ inputs.scale }}" --props "$PROPS" 2>&1 | tee "out/chunk-$i.log"
+            --gl=swangle --timeout=300000 --scale "$RSCALE" --props "$PROPS" 2>&1 | tee "out/chunk-$i.log"
           rc=${PIPESTATUS[0]}
           set -e
-          secs=$(( $(date +%s) - t0 ))
-          printf '{"index":"%s","start":%d,"end":%d,"seconds":%d,"vcpu":%d,"exit":%d}\n' "$i" $s0 $s1 $secs $(nproc) $rc > "out/chunk-$i.json"
+          t1=$(date +%s); secs=$(( t1 - t0 )); first=$(cat "out/first-$i" 2>/dev/null || echo $t0)
+          steady=$(awk "BEGIN{n=$s1-$s0; printf \"%.2f\", n>0 ? ($t1-$first)/n : 0}")
+          printf '{"index":"%s","start":%d,"end":%d,"seconds":%d,"steady_spf":%s,"startup":%d,"vcpu":%d,"exit":%d}\n' "$i" $s0 $s1 $secs $steady $(( first - t0 )) $(nproc) $rc > "out/chunk-$i.json"
           cat "out/chunk-$i.json"
           exit $rc
       - uses: actions/upload-artifact@v4
@@ -153,9 +169,49 @@ jobs:
           retention-days: 7
           if-no-files-found: ignore
 
+  stills:
+    needs: plan
+    if: needs.plan.outputs.stills != '[]' && needs.plan.outputs.stills != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        frame: ${{ fromJSON(needs.plan.outputs.stills) }}
+    name: still ${{ matrix.frame }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - id: deps
+        uses: actions/cache@v4
+        with:
+          path: video/node_modules
+          key: node-modules-${{ runner.os }}-${{ hashFiles('video/package-lock.json') }}
+      - if: steps.deps.outputs.cache-hit != 'true'
+        run: npm ci --no-audit --no-fund && npx remotion browser ensure
+      - uses: actions/cache/restore@v4
+        with:
+          path: video/public/bridge/kenney
+          key: kenney-v3-${{ hashFiles('video/scripts/fetch-kenney.sh', 'video/scripts/kenney_flatten.py', 'video/assets/kenney/*.zip') }}
+      - name: Still at final quality (1080x1920, MSAA 4, full shadow map)
+        run: |
+          f=$(printf "%05d" ${{ matrix.frame }}); mkdir -p out; t0=$(date +%s)
+          npx remotion still src/index.ts "${{ inputs.composition }}" "out/still-$f.jpg" --frame=${{ matrix.frame }} \
+            --gl=swangle --timeout=400000 --jpeg-quality=92 --props '{}' 2>&1 | tee "out/still-$f.log"
+          echo "{\"frame\":${{ matrix.frame }},\"seconds\":$(( $(date +%s) - t0 ))}" > "out/still-$f.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: still-${{ matrix.frame }}
+          path: |
+            video/out/still-*.jpg
+            video/out/still-*.json
+          retention-days: 3
+
   publish:
     # Runs even when chunks failed, so every run ends with a REPORT.md (run summary + release / artifact).
-    needs: [plan, render]
+    needs: [plan, render, stills]
     if: always() && needs.plan.result == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 30
@@ -163,6 +219,7 @@ jobs:
       COMP: ${{ inputs.composition }}
       MODE: ${{ inputs.mode }}
       SCALE: ${{ inputs.scale }}
+      RES: ${{ inputs.res }}
       FRAMES: ${{ needs.plan.outputs.frames }}
       FPS: ${{ needs.plan.outputs.fps }}
       CHUNKS_PLANNED: ${{ needs.plan.outputs.count }}
@@ -170,8 +227,8 @@ jobs:
       RUN_NUMBER: ${{ github.run_number }}
       RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
       SHA: ${{ github.sha }}
-      TAG: render-${{ inputs.composition }}-${{ inputs.mode }}-${{ github.run_number }}
-      NAME: ${{ inputs.composition }}-${{ inputs.mode }}-run${{ github.run_number }}.mp4
+      TAG: render-${{ inputs.composition }}-${{ inputs.mode }}${{ inputs.res == '720up' && '-720up' || '' }}-${{ github.run_number }}
+      NAME: ${{ inputs.composition }}-${{ inputs.mode }}${{ inputs.res == '720up' && '-720up' || '' }}-run${{ github.run_number }}.mp4
       GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
@@ -194,6 +251,26 @@ jobs:
           pattern: chunk-*
           merge-multiple: true
           path: video/out/chunks
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: still-*
+          merge-multiple: true
+          path: video/out/stills
+      - name: Stills contact sheet
+        run: |
+          ls out/stills/*.jpg >/dev/null 2>&1 || { echo "no stills"; exit 0; }
+          python - <<'PY'
+          import glob
+          from PIL import Image, ImageDraw
+          fs = sorted(glob.glob("out/stills/still-*.jpg"))
+          ims = [Image.open(f).resize((360, 640), Image.LANCZOS) for f in fs]
+          cols = 4; rows = (len(ims) + cols - 1) // cols
+          S = Image.new("RGB", (cols * 368, rows * 648), "white"); d = ImageDraw.Draw(S)
+          for k, (f, im) in enumerate(zip(fs, ims)):
+              x, y = (k % cols) * 368, (k // cols) * 648; S.paste(im, (x, y))
+              d.rectangle([x, y, x + 86, y + 18], fill="black"); d.text((x + 4, y + 3), "f" + f.split("-")[-1][:-4].lstrip("0"), fill="yellow")
+          S.save("out/stills-sheet.jpg", quality=88)
+          PY
       - name: Concatenate chunks (no re-encode) and mux audio
         if: needs.render.result == 'success'
         run: |
@@ -201,6 +278,12 @@ jobs:
           cd out
           ls chunks/chunk-*.mp4 | sort | sed "s|.*|file '$PWD/&'|" > list.txt
           ffmpeg -v error -y -f concat -safe 0 -i list.txt -c copy video_only.mp4
+          if [ "$RES" = "720up" ]; then  # the speed trick: 720x1280 render, Lanczos upscale to 1080x1920 (one re-encode)
+            t0=$(date +%s)
+            ffmpeg -v error -y -i video_only.mp4 -vf scale=1080:1920:flags=lanczos -c:v libx264 -crf 16 -preset medium -pix_fmt yuv420p video_up.mp4
+            mv video_up.mp4 video_only.mp4
+            echo "UPSCALE_SECS=$(( $(date +%s) - t0 ))" >> "$GITHUB_ENV"
+          fi
           dur=$(awk "BEGIN{printf \"%.6f\", $FRAMES/$FPS}")
           audio="../${{ inputs.audio }}"
           if [ -n "${{ inputs.audio }}" ] && [ -f "$audio" ]; then
@@ -230,7 +313,8 @@ jobs:
       - name: Upload as GitHub Release (MP4 + REPORT.md + QA sheets)
         if: needs.render.result == 'success'
         run: |
-          gh release create "$TAG" "out/$NAME" out/REPORT.md out/qa-sheets.zip --target "$SHA" \
+          extra=$(ls out/stills/*.jpg out/stills-sheet.jpg 2>/dev/null | tr '\n' ' ')
+          gh release create "$TAG" "out/$NAME" out/REPORT.md out/qa-sheets.zip $extra --target "$SHA" \
             --title "$COMP ($MODE) · run ${{ github.run_number }}" --notes-file out/REPORT.md
       - name: Keep REPORT.md as an artifact (also for failed runs)
         if: always()
