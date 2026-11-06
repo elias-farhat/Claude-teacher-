@@ -43,7 +43,7 @@ for i in range(expected):
         tail = open(k[0]).read().strip().splitlines()[-5:] if k else []
         problems.append(f"chunk {idx}: no render result (job failed before rendering)" + ("\n      " + "\n      ".join(tail) if tail else ""))
 
-warn_re = re.compile(r"(error|warn|exception|failed|timeout|webgl|context lost)", re.I)
+warn_re = re.compile(r"(error|warn|exception|failed|timeout|webgl|context lost|couldn't load|missing)", re.I)
 noise_re = re.compile(r"(Rendered \d+/|Encoded \d+/|Stitched \d+/|Bundling \d+%)")
 warnings = {}
 for p in sorted(glob.glob(os.path.join(logs_dir, "**", "chunk-*.log"), recursive=True)):
@@ -52,6 +52,11 @@ for p in sorted(glob.glob(os.path.join(logs_dir, "**", "chunk-*.log"), recursive
     hits = [l.strip()[:220] for l in lines if warn_re.search(l) and not noise_re.search(l)]
     if hits:
         warnings[idx] = list(dict.fromkeys(hits))[:6]
+
+# Kenney load lines written by the scene itself ("[kenney] loaded 26/26 models[; missing: ...]"), one per render tab.
+kenney_loads = []
+for p in sorted(glob.glob(os.path.join(logs_dir, "**", "chunk-*.log"), recursive=True)):
+    kenney_loads += re.findall(r"\[kenney\] loaded (\d+)/(\d+) models", open(p, errors="replace").read())
 
 render_secs = [c["seconds"] for c in chunks if c.get("exit") == 0]
 spf = [c["seconds"] / max(1, c["end"] - c["start"] + 1) for c in chunks if c.get("exit") == 0]
@@ -94,6 +99,13 @@ if render_secs:
           f" (slowest chunk ≈ critical path)",
           f"- **Speed:** {sum(spf) / len(spf):.2f} s/frame per runner (median chunk), ~{sum(render_secs) / 60:.0f} runner-minutes of rendering in total",
           f"- **Runner:** {chunks[0].get('vcpu', '?')} vCPU each"]
+if kenney_loads:
+    got = sorted({int(a) for a, _ in kenney_loads}); tot = int(kenney_loads[0][1])
+    allok = got == [tot]
+    L += [f"- **Kenney models loaded in the browser:** {'all ' if allok else ''}{'/'.join(map(str, got))}/{tot}"
+          f" in {len(kenney_loads)} render tabs" + (" ✅" if allok else " ❌ (see warnings)")]
+else:
+    L += ["- **Kenney models loaded in the browser:** no `[kenney]` line in the logs (this composition does not load them)"]
 L += [f"- **Commit:** `{E('SHA')[:7]}` · audio: {E('AUDIO_NOTE', 'n/a')} · run log: {E('RUN_URL')}", ""]
 
 if spec:

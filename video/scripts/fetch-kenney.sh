@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Puts the Kenney CC0 kits the bridge template uses (fantasy town, nature, castle) into public/bridge/kenney/
-# as flat <name>.glb files.
+# as flat <name>.glb files, with each kit's textures in Textures/<kit>-*.png (see kenney_flatten.py).
 #
 # Source: assets/kenney/*.zip in this repo, else the zip assets of the GitHub Release "kenney-kits" in this repo. kenney.nl refuses automated
 # downloads (HTTP 403), so download the three kits once in a browser and attach the zips to that release:
@@ -34,15 +34,7 @@ fi
 for kit in fantasy-town nature castle; do
   ls "$TMP"/*.zip | grep -qi "$kit" || echo "::warning::kenney-kits release has no zip matching '$kit'"
 done
-for z in "$TMP"/*.zip; do
-  d="$TMP/x_$(basename "$z" .zip)"; mkdir -p "$d" && unzip -q -o "$z" -d "$d"
-  count=0
-  while IFS= read -r -d '' f; do
-    b="$(basename "$f")"; [ -e "$DEST/$b" ] || { cp "$f" "$DEST/$b"; count=$((count + 1)); }
-  done < <(find "$d" -name '*.glb' -print0)
-  echo "kenney: $(basename "$z"): $count models"
-done
+python3 -I "$(dirname "$0")/kenney_flatten.py" "$DEST" "$TMP"/*.zip
 n=$(ls "$DEST"/*.glb 2>/dev/null | wc -l)
 [ "$n" -gt 0 ] || missing "the release zips contain no .glb models"
 touch "$DEST/.done"
-echo "kenney: $n models in $DEST"

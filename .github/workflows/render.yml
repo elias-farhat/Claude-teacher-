@@ -68,7 +68,7 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: video/public/bridge/kenney
-          key: kenney-v3-${{ hashFiles('video/scripts/fetch-kenney.sh', 'video/assets/kenney/*.zip') }}
+          key: kenney-v3-${{ hashFiles('video/scripts/fetch-kenney.sh', 'video/scripts/kenney_flatten.py', 'video/assets/kenney/*.zip') }}
       - name: Kenney CC0 kits (fantasy town, nature, castle), once per run
         env:
           GH_TOKEN: ${{ github.token }}
@@ -80,7 +80,7 @@ jobs:
         uses: actions/cache/save@v4
         with:
           path: video/public/bridge/kenney
-          key: kenney-v3-${{ hashFiles('video/scripts/fetch-kenney.sh', 'video/assets/kenney/*.zip') }}
+          key: kenney-v3-${{ hashFiles('video/scripts/fetch-kenney.sh', 'video/scripts/kenney_flatten.py', 'video/assets/kenney/*.zip') }}
       - if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -121,7 +121,7 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: video/public/bridge/kenney
-          key: kenney-v3-${{ hashFiles('video/scripts/fetch-kenney.sh', 'video/assets/kenney/*.zip') }}
+          key: kenney-v3-${{ hashFiles('video/scripts/fetch-kenney.sh', 'video/scripts/kenney_flatten.py', 'video/assets/kenney/*.zip') }}
       - name: Render frames ${{ matrix.chunk.start }}-${{ matrix.chunk.end }}
         run: |
           i=${{ matrix.chunk.index }}; s0=${{ matrix.chunk.start }}; s1=${{ matrix.chunk.end }}
@@ -129,7 +129,7 @@ jobs:
           set +e
           npx remotion render src/index.ts "${{ inputs.composition }}" "out/chunk-$i.mp4" \
             --frames=$s0-$s1 --codec h264 --crf 16 --muted \
-            --gl=swangle --scale "${{ inputs.scale }}" --props "$PROPS" 2>&1 | tee "out/chunk-$i.log"
+            --gl=swangle --timeout=300000 --scale "${{ inputs.scale }}" --props "$PROPS" 2>&1 | tee "out/chunk-$i.log"
           rc=${PIPESTATUS[0]}
           set -e
           secs=$(( $(date +%s) - t0 ))
