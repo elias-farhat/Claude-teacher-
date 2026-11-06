@@ -162,7 +162,7 @@ export const buildRooms = (root: THREE.Object3D): Record<RoomName, Room> => {
   // ---- studio for the FAKE vs REAL gag: cyclorama + two spot pools ----
   {
     const o = ROOM_AT.studio, cyc = lam("cyc", () => ({ color: "#efe2c8" }));
-    b.add(quad(V(-8, 0, 6), V(8, 0, 6), V(8, 0, -3), V(-8, 0, -3)), cyc, new THREE.Matrix4().setPosition(o.x, 0, o.z));
+    b.add(quad(V(-8, 0, 12), V(8, 0, 12), V(8, 0, -3), V(-8, 0, -3)), cyc, new THREE.Matrix4().setPosition(o.x, 0, o.z));
     b.add(quad(V(-8, 0, -3), V(8, 0, -3), V(8, 6, -3.5), V(-8, 6, -3.5)), lam("cycBack", () => ({ color: "#e8d7b8" })), new THREE.Matrix4().setPosition(o.x, 0, o.z));
     for (const s2 of [-1, 1]) boxAt(b, lam("curtain", () => ({ color: "#8a1f2c" })), V(o.x + s2 * 3.6, 2.5, o.z - 1), [0.6, 5, 4]);
     out.studio = { o, w: 16, d: 9, h: 6, lamps: [{ p: V(o.x - 1.1, 3.2, o.z + 1), k: 1.2 }, { p: V(o.x + 1.1, 3.2, o.z + 1), k: 1.2 }], spots: {} };

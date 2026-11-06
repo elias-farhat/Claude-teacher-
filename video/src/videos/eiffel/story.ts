@@ -121,8 +121,8 @@ export const SHOTS: Shot[] = [
   ] },
   // 12 "So how do you calm down a suspicious buyer?" stay wide, then a medium push on Lustig's monocle
   { at: wt(12), set: "meeting", look: "dim", interior: true, keys: [
-    { pos: v(R.meeting, 3.3, 2.05, 2.0), look: v(R.meeting, -1.6, 1.55, 0.1), fov: 42, dof: 4 },
-    { at: wt(12, "suspicious"), pos: v(R.meeting, -0.4, 1.75, 0.9), look: v(R.meeting, -2.6, 1.55, 0), fov: 38, dof: 8 },
+    { pos: v(R.meeting, 3.8, 2.4, 2.6), look: v(R.meeting, -1.4, 1.35, 0.2), fov: 46, dof: 3 },
+    { at: wt(12, "suspicious"), pos: v(R.meeting, 2.6, 2.2, 0.6), look: v(R.meeting, -2.4, 1.3, 0), fov: 40, dof: 5 },
   ] },
   // 13 "You ask him for a bribe." two-shot: palm up across the table to André, a dealer spits his drink
   { at: wt(13), set: "meeting", look: "dim", interior: true, keys: [
@@ -130,13 +130,14 @@ export const SHOTS: Shot[] = [
   ] },
   // 14 "You see, a fake official would never ask for money under the table." FAKE vs REAL split gag
   { at: wt(14), set: "studio", look: "neutral", interior: true, keys: [
-    { pos: v(R.studio, 0, 1.6, 4.6), look: v(R.studio, 0, 1.3, 0), fov: 40 },
-    { at: wt(14, "never"), pos: v(R.studio, -1.0, 1.5, 2.8), look: v(R.studio, -1.1, 1.4, 0), fov: 34, dof: 9 },
-    { at: wt(14, "money"), pos: v(R.studio, 0.4, 1.55, 3.6), look: v(R.studio, 0, 1.35, 0), fov: 38 },
+    { pos: v(R.studio, 0, 1.45, 6.4), look: v(R.studio, 0, 1.25, 0), fov: 46 },
+    { at: wt(14, "never"), pos: v(R.studio, -0.55, 1.35, 4.4), look: v(R.studio, -0.6, 1.2, 0), fov: 46, dof: 5 },
+    { at: wt(14, "money"), pos: v(R.studio, 0.35, 1.4, 5.6), look: v(R.studio, 0.2, 1.25, 0), fov: 46 },
   ] },
   // 15 "But a real, crooked one would." Lustig pockets imaginary money, wiggles eyebrows
   { at: wt(15), set: "meeting", look: "warm", interior: true, keys: [
-    { pos: v(R.meeting, -1.5, 1.55, 0.6), look: v(R.meeting, -2.6, 1.45, 0), fov: 32, roll: 0.05, dof: 12 },
+    { pos: v(R.meeting, 3.3, 2.0, 1.4), look: v(R.meeting, -2.2, 1.25, 0), fov: 40, roll: 0.04, dof: 4 },
+    { at: wt(15, "crooked"), pos: v(R.meeting, 1.8, 1.95, 1.0), look: v(R.meeting, -2.4, 1.15, 0), fov: 44, dof: 5 },
   ] },
   // 16 "It's like a waiter whispering that the fish is bad tonight. Suddenly you trust everything else he says."
   { at: wt(16), set: "cafe", look: "cafe", keys: [
@@ -257,7 +258,7 @@ const frame = (si: number, t: number) => {
   }
   if (!s.glide) { // creep: push in 0.25 %/frame since the last move landed
     const since = Math.max(0, t - kt[j].t - MOVE / FPS) * FPS;
-    pos = lerp3(pos, look, Math.min(0.14, 0.0025 * since));
+    pos = lerp3(pos, look, Math.min(0.08, 0.0025 * since));  // capped: long holds must not creep into close-ups
   }
   return { pos, look, fov, roll, dof };
 };

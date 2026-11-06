@@ -148,11 +148,11 @@ const meeting = (t: number, s: Stage, si: number) => {
 const studio = (t: number, s: Stage) => {
   const o = ROOM_AT.studio, at = (d: V3): V3 => [o.x + d[0], o.y + d[1], o.z + d[2]];
   const fake: Outfit = { ...DEALERS[0], jacket: "#4a6a9a" }, real: Outfit = { ...DEALERS[3], jacket: "#3a3a3a" };
-  s.places.push(P("fake", fake, { expr: "smile_closed", gest: "hang", blink: blinkAt(t, 5) }, {}, at([-1.1, 0, 0])));
-  s.places.push(P("real", real, { expr: "smug", gest: "palm", blink: blinkAt(t, 8) }, { coin: true }, at([1.1, 0, 0])));
-  s.fx.push(card("halo", 600, 600, (p) => fxRing(p, 0.5), at([-1.1, 2.55, 0]), 0.6, 0.2));
-  s.fx.push(card("plFake", 640, 160, (p) => LB.plaque(p, "FAKE", "#3f6fb5"), at([-1.1, 0.35, 0.4]), 0.8, 0.2));
-  s.fx.push(card("plReal", 640, 160, (p) => LB.plaque(p, "REAL", "#b8262e"), at([1.1, 0.35, 0.4]), 0.8, 0.2));
+  s.places.push(P("fake", fake, { expr: "smile_closed", gest: "hang", blink: blinkAt(t, 5) }, {}, at([-0.75, 0, 0])));
+  s.places.push(P("real", real, { expr: "smug", gest: "palm", blink: blinkAt(t, 8) }, { coin: true }, at([0.75, 0, 0])));
+  s.fx.push(card("halo", 600, 600, (p) => fxRing(p, 0.5), at([-0.75, 2.55, 0]), 0.6, 0.2));
+  s.fx.push(card("plFake", 640, 160, (p) => LB.plaque(p, "FAKE", "#3f6fb5"), at([-0.75, 0.35, 0.4]), 0.7, 0.18));
+  s.fx.push(card("plReal", 640, 160, (p) => LB.plaque(p, "REAL", "#b8262e"), at([0.75, 0.35, 0.4]), 0.7, 0.18));
 };
 
 const train = (t: number, s: Stage) => {
