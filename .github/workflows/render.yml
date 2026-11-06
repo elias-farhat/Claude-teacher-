@@ -41,11 +41,11 @@ on:
         required: false
         default: "15"
       splice_run:
-        description: "Splice: run id whose chunk artifacts fill every chunk not rendered here (empty = render all)"
+        description: "Splice: run id(s) whose chunk artifacts fill every chunk not rendered here, comma-separated, later ids win (empty = render all)"
         required: false
         default: ""
       only_chunks:
-        description: "Splice: chunk indices to render (comma-separated, e.g. 2,3,22); the rest come from splice_run"
+        description: "Splice: chunk indices to render (comma-separated, e.g. 2,3,22; none = only assemble); the rest come from splice_run"
         required: false
         default: ""
 
@@ -117,7 +117,8 @@ jobs:
           out="$(node scripts/plan-chunks.mjs "${{ inputs.composition }}" "${{ inputs.chunks }}" "${{ inputs.mode }}" | tail -1)"
           echo "$out"
           only="${{ inputs.only_chunks }}"
-          if [ -n "$only" ]; then  # splice: render only the changed chunks
+          if [ "$only" = "none" ]; then out="$(jq -c '.matrix = []' <<<"$out")"; echo "splice: assemble only"
+          elif [ -n "$only" ]; then  # splice: render only the changed chunks
             out="$(jq -c --arg o "$only" '($o | split(",") | map(gsub(" "; "") | select(length > 0) | tonumber)) as $k | .matrix |= map(select((.index | tonumber) as $i | $k | index($i)))' <<<"$out")"
             echo "splice: rendering $(jq -c '[.matrix[].index]' <<<"$out")"
           fi
@@ -143,6 +144,7 @@ jobs:
 
   render:
     needs: plan
+    if: needs.plan.outputs.count != '0'
     runs-on: ubuntu-latest
     timeout-minutes: 300
     strategy:
@@ -289,7 +291,7 @@ jobs:
       FRAMES: ${{ needs.plan.outputs.frames }}
       FPS: ${{ needs.plan.outputs.fps }}
       CHUNKS_PLANNED: ${{ needs.plan.outputs.count }}
-      RENDER_RESULT: ${{ needs.render.result }}
+      RENDER_RESULT: ${{ needs.render.result == 'skipped' && 'success' || needs.render.result }}
       RUN_NUMBER: ${{ github.run_number }}
       RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
       SHA: ${{ github.sha }}
@@ -313,15 +315,18 @@ jobs:
           pattern: log-*
           merge-multiple: true
           path: video/out/logs
-      - name: Splice base (chunks of an earlier run)
-        if: needs.render.result == 'success' && inputs.splice_run != ''
-        uses: actions/download-artifact@v4
-        with:
-          pattern: chunk-*
-          merge-multiple: true
-          path: video/out/chunks
-          run-id: ${{ inputs.splice_run }}
-          github-token: ${{ github.token }}
+      - name: Splice base (chunks of earlier runs; later run ids win)
+        if: (needs.render.result == 'success' || needs.render.result == 'skipped') && inputs.splice_run != ''
+        run: |
+          set -euo pipefail
+          mkdir -p out/chunks out/stills out/qa
+          for id in $(echo "${{ inputs.splice_run }}" | tr ',' ' '); do
+            for a in $(gh api "repos/${{ github.repository }}/actions/runs/$id/artifacts?per_page=100" --paginate --jq '.artifacts[] | select(.expired | not) | .name' | grep -E '^(chunk|still|qa)-' || true); do
+              d=$(mktemp -d); gh run download "$id" -R "${{ github.repository }}" -n "$a" -D "$d"
+              case "$a" in chunk-*) cp -f "$d"/*.mp4 out/chunks/ ;; still-*) cp -f "$d"/* out/stills/ ;; qa-*) cp -rf "$d"/. out/qa/ ;; esac
+            done
+            echo "run $id: $(ls out/chunks | wc -l) chunks so far"
+          done
       - name: This run's chunks (replace the spliced ones)
         if: needs.render.result == 'success'
         uses: actions/download-artifact@v4
@@ -329,9 +334,9 @@ jobs:
           pattern: chunk-*
           merge-multiple: true
           path: video/out/new-chunks
-      - if: needs.render.result == 'success'
+      - if: needs.render.result == 'success' || needs.render.result == 'skipped'
         run: |
-          mkdir -p out/chunks && cp -f out/new-chunks/*.mp4 out/chunks/
+          mkdir -p out/chunks && cp -f out/new-chunks/*.mp4 out/chunks/ 2>/dev/null || true
           echo "chunks: $(ls out/chunks | wc -l) total, $(ls out/new-chunks | wc -l) rendered in this run${{ inputs.splice_run != '' && format(', rest spliced from run {0}', inputs.splice_run) || '' }}"
       - uses: actions/download-artifact@v4
         with:
@@ -369,7 +374,7 @@ jobs:
           S.save("out/stills-sheet.jpg", quality=88)
           PY
       - name: Concatenate chunks (no re-encode) and mux audio
-        if: needs.render.result == 'success'
+        if: needs.render.result == 'success' || needs.render.result == 'skipped'
         run: |
           set -euo pipefail
           cd out
@@ -394,7 +399,7 @@ jobs:
           echo "frames: expected $FRAMES, got $got"
           [ "$got" = "$FRAMES" ] || { echo "::error::frame count mismatch ($got != $FRAMES)"; exit 1; }
       - name: Frame QA (skill's short_qa.py)
-        if: needs.render.result == 'success'
+        if: needs.render.result == 'success' || needs.render.result == 'skipped'
         run: |
           python ../.claude/skills/claude-animated-shorts/templates/scripts/short_qa.py "out/$NAME" out/qa
           (cd out/qa && zip -q ../qa-sheets.zip sheet_*.jpg)
@@ -407,8 +412,21 @@ jobs:
           [ -f "out/$NAME" ] || { [ "$RENDER_RESULT" = success ] && export ASSEMBLY_FAILED=1; export RENDER_RESULT=failure; }
           python scripts/make-report.py out/logs out/REPORT.md "out/$NAME" out/qa/report.md
           cat out/REPORT.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Keep the MP4 as an artifact (download from the run page if the release is refused)
+        if: needs.render.result == 'success' || needs.render.result == 'skipped'
+        uses: actions/upload-artifact@v4
+        with:
+          name: VIDEO
+          path: |
+            video/out/${{ env.NAME }}
+            video/out/qa-sheet.jpg
+            video/out/stills-sheet.jpg
+          retention-days: 30
+          compression-level: 0
+          if-no-files-found: ignore
       - name: Upload as GitHub Release (MP4 + REPORT.md + QA sheets)
-        if: needs.render.result == 'success'
+        if: needs.render.result == 'success' || needs.render.result == 'skipped'
+        continue-on-error: true
         run: |
           extra=$(ls out/stills/*.jpg out/stills-sheet.jpg out/qa-sheet.jpg out/QA.md 2>/dev/null | tr '\n' ' ')
           [ -f out/QA.md ] && { echo; cat out/QA.md; } >> out/REPORT.md
@@ -422,5 +440,5 @@ jobs:
           path: video/out/REPORT.md
           if-no-files-found: ignore
       - name: Fail the run if a chunk failed
-        if: needs.render.result != 'success'
+        if: needs.render.result != 'success' && needs.render.result != 'skipped'
         run: exit 1
