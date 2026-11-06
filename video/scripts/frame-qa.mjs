@@ -15,7 +15,7 @@ writeFileSync(entry, `
 import * as THREE from "three";
 import { camAt, FPS, TOTAL, SHOTS } from "../src/videos/eiffel/story";
 import { stage } from "../src/videos/eiffel/stage";
-import { trainX, wt } from "../src/videos/eiffel/story";
+import { trainX, shipX, wt } from "../src/videos/eiffel/story";
 import { RAIL } from "../src/videos/eiffel/layout";
 const cam = new THREE.PerspectiveCamera(40, 1080 / 1920, 0.05, 6000);
 const v = new THREE.Vector3();
@@ -49,7 +49,7 @@ export const run = () => {
       if (Math.abs(v.x) < 1 && Math.abs(v.y) < 1) props.push(p.key.split("|").pop());
     }
     // hero landmarks count as key props: the tower, the train, the ship
-    const marks = { tower: [[0, 40, 0], [0, 120, 0], [0, 220, 0], [0, 300, 0], [45, 15, 45], [-45, 15, -45]], train: t > wt(18) - 1 && t < wt(22) ? [[trainX(t) - 6, 2.5, RAIL.z], [trainX(t) - 20, 2.5, RAIL.z]] : [], ship: t > wt(23) - 1 && t < wt(24) ? [[-56 + 4 * (t - wt(23)), 3, -263]] : [] };
+    const marks = { tower: [[0, 40, 0], [0, 120, 0], [0, 220, 0], [0, 300, 0], [45, 15, 45], [-45, 15, -45]], train: t > wt(18) - 1 && t < wt(22) ? [[trainX(t) - 6, 2.5, RAIL.z], [trainX(t) - 20, 2.5, RAIL.z]] : [], ship: t > wt(23) - 1 && t < wt(24) ? [[shipX(t) + 4, 3, -263]] : [] };
     for (const [name, pts] of Object.entries(marks)) for (const q of pts) {
       v.set(q[0], q[1], q[2]);
       if (v.clone().sub(cam.position).dot(fwd) <= 0.5) continue;
