@@ -125,6 +125,7 @@ jobs:
       - name: Render frames ${{ matrix.chunk.start }}-${{ matrix.chunk.end }}
         run: |
           i=${{ matrix.chunk.index }}; s0=${{ matrix.chunk.start }}; s1=${{ matrix.chunk.end }}
+          mkdir -p out   # tee needs it before Remotion creates it, or the chunk log is silently lost
           t0=$(date +%s)
           set +e
           npx remotion render src/index.ts "${{ inputs.composition }}" "out/chunk-$i.mp4" \
