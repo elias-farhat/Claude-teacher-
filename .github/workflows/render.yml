@@ -433,7 +433,9 @@ jobs:
         run: |
           extra=$(ls out/stills/*.jpg out/stills-sheet.jpg out/qa-sheet.jpg out/QA.md 2>/dev/null | tr '\n' ' ')
           [ -f out/QA.md ] && { echo; cat out/QA.md; } >> out/REPORT.md
-          gh release create "$TAG" "out/$NAME" out/REPORT.md out/qa-sheets.zip $extra --target "$SHA" \
+          # tag the branch head (tagging an older commit was refused with 403 when the branch moved during the run);
+          # the rendered commit is in REPORT.md
+          gh release create "$TAG" "out/$NAME" out/REPORT.md out/qa-sheets.zip $extra --target "${GITHUB_REF_NAME}" \
             --title "$COMP ($MODE) · run ${{ github.run_number }}" --notes-file out/REPORT.md
       - name: Keep REPORT.md as an artifact (also for failed runs)
         if: always()
