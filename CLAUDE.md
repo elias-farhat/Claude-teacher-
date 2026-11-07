@@ -13,3 +13,4 @@
 9. **Flight speed:** camera flights max ~6 m/frame; prefer 25–30 frame glides over shorter, faster ones.
 10. **Named character doing an action is on screen doing it:** when the narration names a character performing an action, that character must be in frame doing it (e.g. André paying, not just the money bag).
 11. **Night scenes:** the main character must be lit (practical/key light on them) and framed at least at medium-shot size.
+12. **One continuous world:** every shot has foreground/mid/background depth and haze; no visible set edges, bare ground planes or empty skies; interiors show the outside through windows.
