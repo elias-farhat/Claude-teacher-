@@ -10,8 +10,9 @@ import { insideRoom, EYEPIECE, TUBE_DIR, TUBE_END, MOON, MOON_TOP, EUROPE, SHIP_
 export const FPS = 30;
 type Word = { i: number; w: string; s: number; e: number; line: number };
 export const WORDLIST = WORDS as Word[];
-export const VOICE_LEN = 62.89;
-export const TOTAL = Math.ceil((VOICE_LEN + 0.5) * FPS);
+export const VOICE_LEN = 64.84;   // scripts/moon/voice.wav (CapCut Goofball, final)
+/** the last frame holds the signed page >= 1.2 s after the writing finishes (line 18) */
+export const TOTAL = Math.ceil(Math.max(VOICE_LEN + 0.5, (WORDS as Word[])[(WORDS as Word[]).length - 1].e + 1.5) * FPS);
 const norm = (w: string) => w.toLowerCase().replace(/[^a-z0-9']/g, "");
 /** start time of word `w` (first match, or the n-th word if a number) in narration line `ln` */
 export const wt = (ln: number, w: string | number = 0) => {
@@ -49,20 +50,21 @@ const SHIP0 = () => shipX(wt(13));
 
 export const SHOTS: Shot[] = [
   // 1 "In 1835, a newspaper told New York that bat-people were living on the Moon... and New York believed it."
-  //   from the huge full Moon down to the newsboy shouting with the paper (a winged figure on it); the crowd grabs papers
+  //   the newsboy shouting with the paper held high (a winged figure on it), then the street; the crowd grabs papers
   { name: "open", at: 0, look: "moonlit", keys: [
-    { pos: [50, 54, 4], look: [52, 50, -12], fov: 50 },
-    { at: wt(1, "told"), pos: [36, 17, 14], look: [22, 4, 0], fov: 48 },
+    // frame 0: medium shot of the newsboy waving The Sun over his head and shouting; the camera is already moving
+    { pos: [25.0, 1.8, 4.7], look: [22.0, 1.1, 1.2], fov: 46, dof: 3 },
+    { at: wt(1, "1835"), pos: [24.4, 1.75, 4.4], look: [22.0, 1.15, 1.2], fov: 46, dof: 3 },
+    // ...then back and up: the moonlit street, the crowd coming, papers fluttering down
+    { at: wt(1, "told"), pos: [29.0, 3.6, 9.4], look: [21.0, 1.6, -1.0], fov: 50, dof: 1 },
     { at: wt(1, "bat-people"), pos: [25.8, 1.9, 6.6], look: [22.1, 1.45, 1.2], fov: 46, dof: 4 },
     { at: wt(1, "believed"), pos: [27.2, 2.2, 8.0], look: [22.2, 1.3, 1.0], fov: 50, dof: 3 },
   ] },
   // 2 "The paper is called The Sun. It's two years old, it costs one penny, and it needs readers."
-  { name: "sign", at: land(2, "Sun"), look: "moonlit", keys: [
-    { pos: [24.6, 2.4, -1.4], look: [25.6, 2.9, -7.9], fov: 44, dof: 3 },
-  ] },
-  { name: "shop", at: land(2, "costs"), look: "lamp", via: [[23.2, 1.9, -6.8], [23.2, 1.9, -8.9]], keys: [
-    { pos: [23.7, 1.7, -9.6], look: [27.2, 1.45, -13.4], fov: 52, dof: 3 },
-    { at: wt(2, "readers"), pos: [24.4, 1.65, -10.2], look: [27.0, 1.6, -14.0], fov: 50, dof: 4 },
+  //   the shop front with its sign "THE SUN 1c", then in through the window: the editor stares at the empty sales chart
+  { name: "shop", at: land(2, "called"), look: "lamp", lk: [0.5, 0.95], via: [[23.3, 2.2, -4.2], [23.2, 1.9, -6.8], [23.2, 1.8, -8.9]], keys: [
+    { pos: [24.0, 1.55, -10.0], look: [25.8, 1.42, -14.3], fov: 50, dof: 3 },
+    { at: wt(2, "readers"), pos: [24.3, 1.55, -10.6], look: [25.8, 1.45, -14.3], fov: 48, dof: 4 },
   ] },
   // 3 "So a reporter named Richard Locke writes a story." Locke cracks his knuckles at his desk by the window
   { name: "locke", at: land(3, "reporter"), look: "lamp", keys: [
@@ -119,11 +121,11 @@ export const SHOTS: Shot[] = [
   // 14 "Nobody can check. It's like a rumor about a friend who's on vacation with no phone." Herschel on the beach, no
   //    signal, while a rumour cloud of gossip from back home grows over his head
   { name: "beach", at: land(14, "Nobody"), look: "seaday", carry: "letter", keys: [
-    { pos: [89.4, 1.6, 18.4], look: [90.6, 1.35, 24.0], fov: 48, dof: 3 },
-    { at: wt(14, "rumor"), pos: [88.8, 1.5, 17.4], look: [90.4, 1.55, 24.2], fov: 58 },
+    { pos: [93.8, 1.6, 22.4], look: [89.6, 1.3, 24.5], fov: 46, dof: 3 },
+    { at: wt(14, "rumor"), pos: [94.2, 1.75, 22.1], look: [89.8, 1.4, 24.6], fov: 52, dof: 2 },
   ] },
   // 15 "Weeks later, a rival paper exposes the whole thing." in through The Herald's window: HOAX! slapped on the counter
-  { name: "herald", at: land(15, "rival"), look: "neutral", via: [[50, 12, 3], [7.5, 2.0, 6.4], [7.5, 1.9, 8.9]], carry: "paper", keys: [
+  { name: "herald", at: land(15, "rival"), look: "neutral", via: [[46, 8, 9], [7.5, 2.0, 6.4], [7.5, 1.9, 8.9]], carry: "paper", keys: [
     { pos: [8.2, 1.6, 9.6], look: [9.2, 1.3, 12.6], fov: 52, dof: 3 },
     { at: wt(15, "exposes"), pos: [8.5, 1.55, 10.1], look: [9.1, 1.25, 12.4], fov: 50, dof: 4 },
   ] },
@@ -140,7 +142,8 @@ export const SHOTS: Shot[] = [
   // 18 "And Locke? He starts signing his work: "author of the Moon hoax."" Locke at his desk, sunrise through the window
   { name: "sign2", at: land(18, "Locke"), look: "sunrise", carry: "paper", via: [[88, 8, 2], [23.2, 2.3, -6.4], [23.2, 1.95, -8.9]], keys: [
     { pos: [21.0, 1.55, -13.4], look: [23.6, 1.2, -10.4], fov: 50, dof: 4 },
-    { at: wt(18, "signing"), pos: [21.4, 1.95, -12.6], look: [23.5, 1.0, -10.0], fov: 50, dof: 5 },
+    // close on the page: his pen writes "R. A. Locke, author of the Moon hoax", readable, held >= 1 s at the end
+    { at: wt(18, "signing"), pos: [23.335, 1.78, -8.82], look: [23.335, 0.84, -9.6], fov: 48, dof: 6 },
   ] },
 ];
 void SHIP0;

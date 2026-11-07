@@ -14,7 +14,7 @@ export const salesChart = (k: number) => (p: Pen) => {
   p.poly(rect(10, 10, 510, 390), "#f4ecd8", 8);
   serif(p, "SALES", 260, 48, 40, "#7a2e2e", "900");
   p.stroke([[60, 340], [480, 340]], 5); p.stroke([[60, 340], [60, 80]], 5);
-  const pts: P2[] = [[60, 330], [150, 332], [240, 331], [330, 333 - 40 * k], [400, 300 - 140 * k], [470, 330 - 240 * k]];
+  const pts: P2[] = [[60, 330], [150, 332], [240, 331], [330, 333 - 40 * k], [400, 332 - 172 * k], [470, 330 - 240 * k]];
   p.line(pts, k > 0.2 ? "#2f8a4a" : "#b8262e", 9);
 };
 /** the DAY 1 front page on a board (canvas 480 x 600) */
@@ -43,13 +43,38 @@ export const letter = (lang: string) => (p: Pen) => {
   serif(p, lang, 180, 196, 40, "#2a3a6a", "900");
 };
 /** Locke's line, written as k goes 0 -> 1 (canvas 900 x 300) */
+const SIG_LINES: [string, number, number, number][] = [["R. A. Locke,", 120, 84, 460], ["author of the", 255, 66, 430], ["Moon hoax", 380, 74, 360]]; // text, y, size, width
+const SIG_TOTAL = SIG_LINES.reduce((a, l) => a + l[3], 0);
+const SIG_FONT = "'Brush Script MT', 'Segoe Script', 'URW Chancery L', cursive, Georgia";
+/** Locke's signature on a sheet (canvas 700 x 500), written line by line up to k (0..1) */
 export const signature = (k: number) => (p: Pen) => {
-  p.poly(rect(10, 10, 890, 290), "#f4ecd8", 6);
-  for (let i = 0; i < 4; i++) p.stroke([[40, 60 + i * 40], [860, 60 + i * 40]], 2, "#d8ccb0");
-  const g = p.g; g.save(); g.beginPath(); g.rect(0, 0, 60 + 800 * k, 300); g.clip();
-  serif(p, "R. A. Locke", 450, 150, 64, "#1d2a55", "italic bold", "'Brush Script MT', 'Segoe Script', cursive, Georgia");
-  serif(p, "author of the Moon hoax", 450, 230, 50, "#1d2a55", "italic bold", "'Brush Script MT', 'Segoe Script', cursive, Georgia");
-  g.restore();
+  p.poly(rect(10, 10, 690, 490), "#f6efdc", 6);
+  for (let i = 0; i < 3; i++) p.stroke([[50, 150 + i * 130], [650, 150 + i * 130]], 2, "#d8ccb0");
+  let left = k * SIG_TOTAL;
+  for (const [text, y, size, w] of SIG_LINES) {
+    if (left <= 0) break;
+    const x0 = 350 - w / 2, g = p.g; g.save(); g.beginPath(); g.rect(x0 - 20, y - size, Math.min(w, left) + 20, size * 2); g.clip();
+    serif(p, text, 350, y, size, "#1d2a55", "italic bold", SIG_FONT); g.restore(); left -= w;
+  }
+};
+/** where the pen tip is on the sheet at progress k, as [u, v] (0..1 across / down the canvas) */
+export const signatureTip = (k: number): [number, number] => {
+  let left = Math.min(k, 0.999) * SIG_TOTAL;
+  for (const [, y, , w] of SIG_LINES) { if (left <= w) return [(350 - w / 2 + left) / 700, (y + 18) / 500]; left -= w; }
+  return [0.75, 0.8];
+};
+/** a quill pen, nib at the bottom (canvas 120 x 400) */
+export const quill = (p: Pen) => {
+  p.poly([[60, 395], [52, 330], [68, 330]], "#2a2a33", 3);
+  p.poly([[60, 340], [20, 200], [30, 60], [60, 6], [92, 70], [98, 200]], "#f4f1ea", 5);
+  p.stroke([[60, 345], [62, 20]], 3, "#b8a888");
+};
+/** "EXTRA! EXTRA!" shout bubble (canvas 520 x 300), f = 0 / 0.5 jiggle */
+export const shout = (f: number) => (p: Pen) => {
+  const j = f > 0.25 ? 6 : 0;
+  p.poly([[40 + j, 40], [480, 30 + j], [500 - j, 210], [190, 220], [90, 290], [120, 220], [30, 215 - j]], "#fff6c8", 8);
+  serif(p, "EXTRA!", 265, 95, 92, "#b8262e", "900");
+  serif(p, "BAT-PEOPLE!", 265, 175, 62, INK, "900");
 };
 /** a calendar page (canvas 240 x 300) */
 export const calendarPage = (month: string) => (p: Pen) => {
@@ -58,10 +83,11 @@ export const calendarPage = (month: string) => (p: Pen) => {
 };
 /** the rumour cloud over a gossiping crowd back home (canvas 640 x 420) */
 export const rumorCloud = (p: Pen) => {
-  for (const [x, y, r] of [[200, 200, 120], [330, 160, 130], [460, 210, 110], [320, 270, 120]] as const) p.ell(x, y, r, r * 0.8, "#f6f4ee", 6);
-  p.ell(150, 360, 20, 16, "#f6f4ee", 4); p.ell(110, 395, 12, 10, "#f6f4ee", 3);
-  for (let k = 0; k < 5; k++) { const x = 180 + k * 70, y = 250; p.ell(x, y, 22, 24, "#ffe2c2", 4); p.ell(x - 7, y - 4, 3, 3, INK, 0); p.ell(x + 7, y - 4, 3, 3, INK, 0); p.ell(x, y + 10, 6, k % 2 ? 6 : 3, "#3a1a1a", 0); }
-  serif(p, "Herschel? On the MOON?!", 330, 140, 34, INK, "900");
+  for (const [x, y, r] of [[170, 190, 140], [330, 150, 150], [480, 200, 130], [320, 280, 140]] as const) p.ell(x, y, r, r * 0.78, "#f6f4ee", 6);
+  p.ell(140, 370, 24, 18, "#f6f4ee", 4); p.ell(100, 404, 14, 11, "#f6f4ee", 3);
+  serif(p, "HERSCHEL?", 320, 120, 74, INK, "900");
+  serif(p, "ON THE MOON?!", 320, 195, 58, "#b8262e", "900");
+  for (let k = 0; k < 5; k++) { const x = 190 + k * 66, y = 280; p.ell(x, y, 24, 26, "#ffe2c2", 4); p.ell(x - 8, y - 5, 3.5, 3.5, INK, 0); p.ell(x + 8, y - 5, 3.5, 3.5, INK, 0); p.ell(x, y + 11, 7, k % 2 ? 7 : 3, "#3a1a1a", 0); }
 };
 /** "no signal" bubble (canvas 300 x 220) */
 export const noSignal = (p: Pen) => {

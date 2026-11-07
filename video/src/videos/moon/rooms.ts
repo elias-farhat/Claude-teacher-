@@ -178,7 +178,7 @@ export const buildRooms = (root: THREE.Object3D): Record<RoomName, Room> => {
     chair(b, darkWood, at(n, 2.6, 0, 0.3), -1);
     table(b, wood, darkWood, at(n, -1.6, 0, 1.9), 1.5, 0.8);                                       // Locke's desk by the window
     chair(b, darkWood, at(n, -1.6, 0, 1.15), 1);
-    boxAt(b, paper, at(n, -1.4, 0.8, 1.9), [0.35, 0.02, 0.45]);
+    boxAt(b, paper, at(n, -0.95, 0.8, 1.75), [0.3, 0.02, 0.4]);
     rug(b, at(n, 0.4, 0, 0.6), 3.4, 2.2, "sunRug", "#7a2e2e", "#d9b45a");
     boxAt(b, lam("frameGilt", () => ({ color: "#c9a04a" })), V(PORTRAIT.x + 0.02, PORTRAIT.y, PORTRAIT.z), [0.06, 1.1, 0.9]); // portrait frame (card inside)
     boxAt(b, lam("chartBoard", () => ({ color: "#6a4a32" })), V(CHART.x, CHART.y, CHART.z - 0.02), [1.3, 1.0, 0.04]);

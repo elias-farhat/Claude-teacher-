@@ -14,11 +14,12 @@ import { quality } from "../../quality";
 import type { Lamp } from "../rats/hanoi";
 import { buildDiorama, Diorama } from "./diorama";
 import { buildBackdrop } from "./backdrop";
+import { buildMoonExtras, buildBeach } from "./extras";
 import { buildRooms, Room, RoomName } from "./rooms";
 import { LOOKS, Look, LAMP } from "./looks";
 import { SHOTS, camAt, Cam, FPS, wt, shipX } from "./story";
 import { stage, Stage } from "./stage";
-import { SHIP_LINE, WATER } from "./layout";
+import { SHIP_LINE, WATER, MOON_TOP } from "./layout";
 
 const NAMES = ["lantern", "cart", "stall-red", "stall-green", "stall-bench", "fountain-round", "fence"];
 let kitP: Promise<Kit> | null = null;
@@ -54,7 +55,7 @@ const blendL = (A: LightPreset, B: LightPreset, t: number): LightPreset => {
 
 export class MoonWorld {
   root = new THREE.Group();
-  dio: Diorama; rooms: Record<RoomName, Room>;
+  dio: Diorama; rooms: Record<RoomName, Room>; moonX!: THREE.Group;
   private pool = new Pool();
   private actors: Actor[] = []; private fxs: Fx[] = [];
   private hemi = new THREE.HemisphereLight("#cfe6ff", "#6c5c8c", 1.0);
@@ -94,6 +95,7 @@ export class MoonWorld {
     }
     this.dio = buildDiorama(R);
     buildBackdrop(R);
+    this.moonX = buildMoonExtras(R); buildBeach(R);
     this.rooms = buildRooms(R);
     const dot = new THREE.MeshBasicMaterial({ color: new THREE.Color(4.5, 2.8, 1.1) });
     for (const l of this.dio.lamps) { const m = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 8), dot); m.position.copy(l.p); m.layers.set(NOINK); this.lampDots.push(m); R.add(m); }
@@ -198,6 +200,7 @@ export class MoonWorld {
     // stars at night, The Sun's sign lit from line 16, the slow letter ship on line 13
     const night = [LOOKS.moonlit, LOOKS.starry, LOOKS.silvery].includes(look);
     this.dio.stars.visible = night && !interiorNow;
+    this.moonX.visible = cam.position.y > MOON_TOP - 1;   // the wider Moon world only while we stand on it
     const lit = t >= wt(16, "Sun") - 2 / 30; this.dio.sunSign.lit.visible = lit; this.dio.sunSign.dark.visible = !lit;
     this.dio.ship.position.set(shipX(t), WATER.y + 0.4, SHIP_LINE.z);
     // ---- cast + label cards ----

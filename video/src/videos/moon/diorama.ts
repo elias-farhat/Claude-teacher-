@@ -164,7 +164,7 @@ export const buildDiorama = (root: THREE.Object3D): Diorama => {
   const sp: number[] = [], r = rng(1835);
   for (let i = 0; i < 900; i++) { const th = r() * Math.PI * 2, ph = 0.08 + r() * 1.3, R = 1800; sp.push(Math.cos(th) * Math.cos(ph) * R, Math.sin(ph) * R, Math.sin(th) * Math.cos(ph) * R); }
   const sg = new THREE.BufferGeometry(); sg.setAttribute("position", new THREE.Float32BufferAttribute(sp, 3));
-  const stars = new THREE.Points(sg, new THREE.PointsMaterial({ color: new THREE.Color(2.2, 2.2, 2.4), size: 2.2, sizeAttenuation: false, fog: false, depthWrite: false }));
+  const stars = new THREE.Points(sg, new THREE.PointsMaterial({ color: new THREE.Color(2.2, 2.2, 2.4), size: 3.4, sizeAttenuation: false, fog: false, depthWrite: false }));
   stars.layers.set(NOINK); stars.frustumCulled = false; g.add(stars);
   b.build(g);
   // ---- the slow sailing ship (line 13) ----

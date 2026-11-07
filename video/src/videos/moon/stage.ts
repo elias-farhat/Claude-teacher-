@@ -6,7 +6,7 @@ import * as THREE from "three";
 import type { Place, FxPlace } from "../bridge/cast";
 import { Pen } from "../bridge/toon";
 import { V } from "../bridge/build";
-import { wt, clamp01, smooth, Cam, V3, shipX, carryAt } from "./story";
+import { wt, clamp01, smooth, Cam, V3, shipX, carryAt, lineEnd as lineEndW } from "./story";
 import { EYEPIECE, MOON, MOON_TOP, EUROPE, GARDEN, BEACH, SHIP_LINE } from "./layout";
 import { PORTRAIT, CHART } from "./rooms";
 import { CHIMNEYS } from "./backdrop";
@@ -64,7 +64,9 @@ const life = (t: number, s: Stage, cam: THREE.Camera) => {
 const street = (t: number, s: Stage) => {
   if (t < wt(2, "Sun") - 0.5) { // line 1: the newsboy shouts the news; on "believed" New York grabs the papers
     const grab = after(t, 1, "believed");
-    s.places.push(P("newsboy", NEWSBOY, { expr: "laugh", gest: "hold", k: 0, blink: blinkAt(t, 3), headTilt: 6 * Math.sin(t * 5) }, { paper: "bat" }, [22.0, 0, 1.2]));
+    const high = t < wt(1, "bat-people") - 0.3;   // paper waved over his head while he shouts, then held out to show the bat-people
+    s.places.push(P("newsboy", NEWSBOY, { expr: "laugh", gest: high ? "cheer" : "hold", k: q((t * 2.5) % 1, 8), blink: blinkAt(t, 3), headTilt: 6 * Math.sin(t * 5) }, { paper: "bat" }, [22.0, 0, 1.2]));
+    if (t < wt(1, "told") + 0.4) s.fx.push(card(`shout${q((t * 4) % 1, 2)}`, 520, 300, LB.shout(q((t * 4) % 1, 2)), [22.2, 2.3, 1.6], 0.95, 0.55));
     for (let i = 0; i < 5; i++) {
       const a = -1.6 + i * 0.75, end = V(22 + Math.sin(a) * 1.9, 0, 1.2 + Math.cos(a) * 1.3 - 0.4), start = end.clone().add(V((i % 2 ? 1 : -1) * 5, 0, -2));
       const k = smooth((t - wt(1, "believed") + 0.9 + i * 0.08) / 0.8), p = start.lerp(end, k);
@@ -84,21 +86,25 @@ const street = (t: number, s: Stage) => {
   }
 };
 const shop = (t: number, s: Stage) => {
-  if (between(t, wt(2, "costs") - 0.95, wt(4, "Herschel"))) {
-    s.places.push(P("editor", EDITOR, { mode: "sit", expr: after(t, 2, "readers") ? "dazed" : "nervous", gest: "clutch", blink: blinkAt(t, 5) }, { sweat: true }, [27.6, 0, -10.75]));
+  if (between(t, wt(1, "believed"), wt(4, "Herschel"))) {
+    s.places.push(P("editor", EDITOR, { expr: after(t, 2, "readers") ? "dazed" : "nervous", gest: "clutch", look: 1, blink: blinkAt(t, 5) }, { sweat: true }, [24.9, 0, -13.4]));
     s.fx.push(card("chart0", 520, 400, LB.salesChart(0), [CHART.x, CHART.y, CHART.z + 0.05], 1.15, 0.88, { yaw: 0 }));
     const crack = after(t, 3, "writes");
-    s.places.push(P("locke", LOCKE, { mode: "sit", expr: crack ? "smug" : "grin", gest: crack ? "sign" : "clutch", k: q((t * 4) % 1, 8), blink: blinkAt(t, 7) }, { curls: true, inkCuffs: true, pen: crack }, [23.4, 0, -10.8]));
+    if (t > wt(2, "It's")) s.places.push(P("locke", LOCKE, { mode: "sit", expr: crack ? "smug" : "grin", gest: crack ? "sign" : "clutch", k: q((t * 4) % 1, 8), blink: blinkAt(t, 7) }, { curls: true, inkCuffs: true, pen: crack }, [23.4, 0, -10.8]));
   }
   if (between(t, wt(10, "Europe"), wt(12, "Herschel"))) { // line 11: the portrait, eyebrow up on "ask"
     const brow = smooth((t - wt(11, "ask") + LEAD) / 0.3);
     s.fx.push(card(`portrait${q(brow, 8)}`, 360, 440, LB.portrait(q(brow, 8)), [PORTRAIT.x + 0.06, PORTRAIT.y, PORTRAIT.z], 0.78, 0.95, { yaw: Math.PI / 2 }));
   }
-  if (t > wt(17, "languages")) { // line 18: Locke signs "author of the Moon hoax" at sunrise
-    const k = smooth((t - wt(18, "signing") + LEAD) / (wt(18, "hoax") - wt(18, "signing") + 0.3));
+  if (t > wt(17, "languages")) { // line 18: Locke signs; then close on the page: "R. A. Locke, author of the Moon hoax"
+    const k = smooth((t - wt(18, "signing") + LEAD) / (lineEndW(18) - wt(18, "signing") + 0.15));
     s.places.push(P("lockeS", LOCKE, { mode: "sit", expr: "smug", gest: "sign", k: q((t * 4) % 1, 8), blink: blinkAt(t, 7) }, { curls: true, inkCuffs: true, pen: true }, [23.4, 0, -10.8]));
-    s.fx.push(card(`sig${q(k, 24)}`, 900, 300, LB.signature(q(k, 24)), [23.35, 0.815, -9.6], 0.64, 0.21, { flat: true, rot: Math.PI }));
+    const pg = V(23.35, 0.818, -9.58);
+    s.fx.push(card(`sig${q(k, 30)}`, 700, 500, LB.signature(q(k, 30)), pg, 0.42, 0.3, { flat: true, rot: 0 }));
+    if (t > wt(18, "signing") - 0.6) { const tip = LB.signatureTip(q(k, 30)), done = smooth((t - lineEndW(18) - 0.2) / 0.4), wob = Math.sin(t * 22) * 0.004 * (1 - done);
+      s.fx.push(card("quill", 120, 400, LB.quill, [pg.x + (tip[0] - 0.5) * 0.42 + 0.06 * done, pg.y + 0.13 + 0.1 * done, pg.z + (tip[1] - 0.5) * 0.3 + wob], 0.07, 0.24, { rot: -0.35 })); }
     s.fx.push(card("chart1", 520, 400, LB.salesChart(1), [CHART.x, CHART.y, CHART.z + 0.05], 1.15, 0.88, { yaw: 0 }));
+    s.lights.push(warm(V(23.0, 1.5, -9.2), 0.9));
   }
 };
 const cape = (t: number, s: Stage) => {
@@ -113,8 +119,12 @@ const cape = (t: number, s: Stage) => {
   if (between(t, wt(13, "months") - 0.2, wt(15, "rival"))) { // line 14: on vacation, no signal; the rumour cloud grows
     const cloud = smooth((t - wt(14, "rumor") + LEAD) / 0.5), phone = after(t, 14, "phone");
     s.places.push(P("herschelB", HERSCHEL_BEACH, { expr: phone ? "nervous" : "smile_closed", gest: phone ? "tip" : "palm", k: 1, blink: blinkAt(t, 9) }, { sideburns: true, phone: true }, [BEACH.x, 0, BEACH.z]));
-    if (cloud > 0) s.fx.push(card("rumor", 640, 420, LB.rumorCloud, [BEACH.x - 0.4, 2.35 + 0.35 * cloud, BEACH.z - 0.6], 2.2 * cloud, 1.45 * cloud));
-    if (phone) s.fx.push(card("nosignal", 300, 220, LB.noSignal, [BEACH.x + 0.7, 2.35, BEACH.z + 0.1], 0.7, 0.51));
+    if (cloud > 0) s.fx.push(card("rumor", 640, 420, LB.rumorCloud, [BEACH.x - 0.25, 2.55 + 0.2 * cloud, BEACH.z + 0.45], 1.75 * cloud, 1.15 * cloud));
+    if (phone) s.fx.push(card("nosignal", 300, 220, LB.noSignal, [BEACH.x + 0.2, 1.95, BEACH.z - 0.75], 0.75, 0.55));
+    // beach life around him (background: never the subject)
+    s.places.push(P("bgBeach0", CITIZEN(5), { expr: "smile_closed", gest: "hold", seed: 140 }, {}, [BEACH.x - 2.4, 0, BEACH.z + 3.0], { size: LO }));
+    s.places.push(P("bgBeach1", KID(1), { mode: "stroll", phase: q((t * 1.6) % 1, 12), expr: "laugh", seed: 141 }, {}, [BEACH.x - 2.0 + Math.sin(t * 0.8) * 0.8, 0, BEACH.z - 2.8], { size: LO }));
+    s.places.push(P("bgBeach2", CITIZEN(9), { mode: "sit", expr: "smile_closed", gest: "hang", seed: 142 }, {}, [BEACH.x - 2.9, 0, BEACH.z - 1.4], { size: LO }));
   }
   if (between(t, wt(16, "everyone"), wt(18, "Locke"))) { // line 17: buried under letters in four languages
     const pile = smooth((t - wt(17, "letters") + 0.5) / 1.6);
