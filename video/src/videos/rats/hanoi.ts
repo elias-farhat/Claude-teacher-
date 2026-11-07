@@ -90,8 +90,8 @@ export const holedGround = (b: Batch, mat: THREE.Material, x0: number, x1: numbe
   }
 };
 /** vertical wall along x at plane z, facing +z (s = 1) or -z (s = -1), with holes; texture spans the whole wall */
-export const wallX = (b: Batch, mat: THREE.Material, x0: number, x1: number, y0: number, y1: number, z: number, s: 1 | -1, holes: Hole[] = []) => {
-  const W = x1 - x0, H = y1 - y0, xs = [x0, x1, ...holes.flatMap((h) => [h.x0, h.x1])].sort((a, c) => a - c);
+export const wallX = (b: Batch, mat: THREE.Material, x0: number, x1: number, y0: number, y1: number, z: number, s: 1 | -1, holes: Hole[] = [], tile = 0) => {
+  const W = tile || x1 - x0, H = tile || y1 - y0, xs = [x0, x1, ...holes.flatMap((h) => [h.x0, h.x1])].sort((a, c) => a - c);
   const U = (x: number) => (s > 0 ? (x - x0) / W : (x1 - x) / W), Vv = (y: number) => (y - y0) / H;
   const rect = (a: number, c: number, lo: number, hi: number) => {
     if (c - a < 1e-3 || hi - lo < 1e-3) return;
@@ -106,8 +106,8 @@ export const wallX = (b: Batch, mat: THREE.Material, x0: number, x1: number, y0:
   }
 };
 /** vertical wall along z at plane x, facing +x (s = 1) or -x (s = -1), with holes (x0/x1 of a hole = z range) */
-export const wallZ = (b: Batch, mat: THREE.Material, z0: number, z1: number, y0: number, y1: number, x: number, s: 1 | -1, holes: Hole[] = []) => {
-  const W = z1 - z0, H = y1 - y0, zs = [z0, z1, ...holes.flatMap((h) => [h.x0, h.x1])].sort((a, c) => a - c);
+export const wallZ = (b: Batch, mat: THREE.Material, z0: number, z1: number, y0: number, y1: number, x: number, s: 1 | -1, holes: Hole[] = [], tile = 0) => {
+  const W = tile || z1 - z0, H = tile || y1 - y0, zs = [z0, z1, ...holes.flatMap((h) => [h.x0, h.x1])].sort((a, c) => a - c);
   const U = (z: number) => (s > 0 ? (z1 - z) / W : (z - z0) / W), Vv = (y: number) => (y - y0) / H;
   const rect = (a: number, c: number, lo: number, hi: number) => {
     if (c - a < 1e-3 || hi - lo < 1e-3) return;
@@ -248,11 +248,11 @@ export const buildHanoi = (root: THREE.Object3D): Hanoi => {
     if ((x + 64) % 24 === 0) for (const z of [-7, 7]) streetLamp(b, g, x + 6, z, lamps);
   }
   // ---- quay: embankment wall, river, far bank + the Paris palace with Doumer's balcony ----
-  const quayStone = lam("quayStone", () => ({ map: stoneHD("quayStone", ["#c9bca6", "#bfb19a", "#d3c7b2", "#b5a68e"], "#8f8270") }));
-  wallX(b, quayStone, -70, 112, RIVER.y - 1, 0.05, QUAY.z1, 1);
+  const quayStone = lam("quayStone", () => ({ map: rep(stoneHD("quayStone", ["#c9bca6", "#bfb19a", "#d3c7b2", "#b5a68e"], "#8f8270"), 1, 1) }));
+  wallX(b, quayStone, -70, 112, RIVER.y - 1, 0.05, QUAY.z1, 1, [], 3);
   const water = new THREE.Mesh(new THREE.PlaneGeometry(200, RIVER.z0 - RIVER.z1 + 4).rotateX(-Math.PI / 2), new THREE.MeshLambertMaterial({ map: rep(waterTex(), 10, 2) }));
   water.position.set(20, RIVER.y, (RIVER.z0 + RIVER.z1) / 2); water.receiveShadow = true; g.add(water);
-  wallX(b, quayStone, -70, 112, RIVER.y - 1, 0, RIVER.z1, -1);
+  wallX(b, quayStone, -70, 112, RIVER.y - 1, 0, RIVER.z1, -1, [], 3);
   ground(b, walk, -70, 112, PALACE.z, RIVER.z1, 0, 3);
   const pal = lam("palace", () => ({ map: ctex("palaceF", 1104, 384, (gg) => {
     gg.fillStyle = "#efe6d2"; gg.fillRect(0, 0, 1104, 384);
@@ -275,7 +275,7 @@ export const buildHanoi = (root: THREE.Object3D): Hanoi => {
   { const H = FARM.house, wood = lam("farmWood", () => ({ map: rep(planksHD(), 2, 1) })), mud = lam("farmMud", () => ({ map: colonialFacade(31, 10, 5, true) }));
     wallX(b, mud, H.x - 5, H.x + 5, 0, 5, H.z - 4, -1); wallX(b, mud, H.x - 5, H.x + 5, 0, 5, H.z + 4, 1);
     wallZ(b, mud, H.z - 4, H.z + 4, 0, 5, H.x - 5, -1); wallZ(b, mud, H.z - 4, H.z + 4, 0, 5, H.x + 5, 1);
-    box(b, wood, H.x - 5.2, 5, H.z - 4.2, H.x + 5.2, 5.25, H.z + 4.2);                                      // flat roof terrace
+    box(b, lam("terraceWood", () => ({ map: rep(planksHD(), 4, 3) })), H.x - 5.2, 5, H.z - 4.2, H.x + 5.2, 5.25, H.z + 4.2); // flat roof terrace
     for (const [x0, z0, x1, z1] of [[H.x - 5.2, H.z - 4.2, H.x + 5.2, H.z - 4.0], [H.x - 5.2, H.z + 4.0, H.x + 5.2, H.z + 4.2], [H.x - 5.2, H.z - 4.2, H.x - 5.0, H.z + 4.2], [H.x + 5.0, H.z - 4.2, H.x + 5.2, H.z + 4.2]])
       box(b, mud, x0, 5.25, z0, x1, 5.9, z1);                                                              // parapet
     box(b, lam("farmDoor", () => ({ color: "#5a3b2a" })), H.x - 0.7, 0, H.z - 4.05, H.x + 0.7, 2.2, H.z - 4.0);

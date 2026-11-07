@@ -14,7 +14,7 @@ const Y = SEWER.y, Z0 = SEWER.z - SEWER.w / 2, Z1 = SEWER.z + SEWER.w / 2, WT = 
 export const RISER = { x: 7.5, z: -15.2, r: 0.7 };
 export const BRANCH = { x0: 6.5, x1: 8.5, z0: RISER.z - RISER.r, z1: Z0, top: Y + 2.4 };
 
-const brickWall = () => lam("sewerBrick", () => ({ map: rep(brick(), 1, 1) }));
+const brickWall = () => lam("sewerBrick", () => ({ map: rep(brick(), 1, 1), color: "#b39a90" }));
 /** inward-facing box room (floor, ceiling, 4 walls) with optional holes in the ceiling */
 const innerBox = (b: Batch, wall: THREE.Material, floor: THREE.Material, x0: number, x1: number, y0: number, y1: number, z0: number, z1: number, ceilHoles: { x0: number; x1: number; z0: number; z1: number }[] = [], skip: ("n" | "s" | "e" | "w")[] = []) => {
   b.add(quad(V(x0, y0, z1), V(x1, y0, z1), V(x1, y0, z0), V(x0, y0, z0), (x1 - x0) / 2, (z1 - z0) / 2), floor);
@@ -28,15 +28,15 @@ const innerBox = (b: Batch, wall: THREE.Material, floor: THREE.Material, x0: num
     for (const h of cut) { strip(lo, h.z0); lo = h.z1; }
     strip(lo, z1);
   }
-  if (!skip.includes("n")) wallX(b, wall, x0, x1, y0, y1, z0, 1);
-  if (!skip.includes("s")) wallX(b, wall, x0, x1, y0, y1, z1, -1);
-  if (!skip.includes("w")) wallZ(b, wall, z0, z1, y0, y1, x0, 1);
-  if (!skip.includes("e")) wallZ(b, wall, z0, z1, y0, y1, x1, -1);
+  if (!skip.includes("n")) wallX(b, wall, x0, x1, y0, y1, z0, 1, [], 2);
+  if (!skip.includes("s")) wallX(b, wall, x0, x1, y0, y1, z1, -1, [], 2);
+  if (!skip.includes("w")) wallZ(b, wall, z0, z1, y0, y1, x0, 1, [], 2);
+  if (!skip.includes("e")) wallZ(b, wall, z0, z1, y0, y1, x1, -1, [], 2);
 };
 /** square shaft (inward walls) from y0 up to y1 around a street hole */
 const shaft = (b: Batch, wall: THREE.Material, x: number, z: number, r: number, y0: number, y1: number) => {
-  wallX(b, wall, x - r, x + r, y0, y1, z - r, 1); wallX(b, wall, x - r, x + r, y0, y1, z + r, -1);
-  wallZ(b, wall, z - r, z + r, y0, y1, x - r, 1); wallZ(b, wall, z - r, z + r, y0, y1, x + r, -1);
+  wallX(b, wall, x - r, x + r, y0, y1, z - r, 1, [], 2); wallX(b, wall, x - r, x + r, y0, y1, z + r, -1, [], 2);
+  wallZ(b, wall, z - r, z + r, y0, y1, x - r, 1, [], 2); wallZ(b, wall, z - r, z + r, y0, y1, x + r, -1, [], 2);
 };
 const lantern = (b: Batch, root: THREE.Object3D, p: THREE.Vector3, lamps: Lamp[], k = 0.9) => {
   const iron = lam("lampIron", () => ({ color: "#2a2a33" }));
@@ -60,7 +60,7 @@ export const buildSewer = (root: THREE.Object3D): Sewer => {
   const b = new Batch(), g = new THREE.Group(), lamps: Lamp[] = [], shafts: THREE.Mesh[] = [];
   root.add(g);
   const wall = brickWall(), walk = lam("sewerWalk", () => ({ map: stoneHD("sewerWalk", ["#9a8f80", "#8f8474", "#a39886", "#877c6c"], "#5f574c") }));
-  const capM = lam("sewerCap", () => ({ map: rep(brick(), 1, 1), side: THREE.DoubleSide }));
+  const capM = lam("sewerCap", () => ({ map: rep(brick(), 1, 1), color: "#b39a90", side: THREE.DoubleSide }));
   const water = new THREE.MeshLambertMaterial({ map: rep(ctex("sewerWater", 256, 256, (gg, r) => {
     gg.fillStyle = "#4a6a5c"; gg.fillRect(0, 0, 256, 256);
     for (let i = 0; i < 60; i++) { gg.strokeStyle = r() > 0.5 ? "rgba(190,220,200,0.45)" : "rgba(20,40,30,0.35)"; gg.lineWidth = 2; const x = r() * 256, y = r() * 256; gg.beginPath(); gg.moveTo(x, y); gg.quadraticCurveTo(x + 10, y - 4, x + 22, y); gg.stroke(); }
@@ -70,19 +70,19 @@ export const buildSewer = (root: THREE.Object3D): Sewer => {
   const tunnelHoles = [{ x0: GRATE.x - 0.75, x1: GRATE.x + 0.75 }, { x0: MANHOLE.x - 0.6, x1: MANHOLE.x + 0.6 }];
   holedGround(b, walk, SEWER.x0, SEWER.x1, Z0, chan0, [], Y, 3);
   holedGround(b, walk, SEWER.x0, SEWER.x1, chan1, Z1, [], Y, 3);
-  wallX(b, walk, SEWER.x0, SEWER.x1, Y - 0.35, Y, chan0, 1); wallX(b, walk, SEWER.x0, SEWER.x1, Y - 0.35, Y, chan1, -1);
+  wallX(b, walk, SEWER.x0, SEWER.x1, Y - 0.35, Y, chan0, 1, [], 2); wallX(b, walk, SEWER.x0, SEWER.x1, Y - 0.35, Y, chan1, -1, [], 2);
   const wm = new THREE.Mesh(new THREE.PlaneGeometry(SEWER.x1 - SEWER.x0, 1.6).rotateX(-Math.PI / 2), water);
   wm.position.set((SEWER.x0 + SEWER.x1) / 2, Y - 0.25, SEWER.z); wm.receiveShadow = true; g.add(wm);
   // north wall with the branch opening, south wall with the nest niche opening
-  wallX(b, wall, SEWER.x0, SEWER.x1, Y, WT, Z0, 1, [{ x0: BRANCH.x0, x1: BRANCH.x1, y0: Y, y1: BRANCH.top }]);
-  wallX(b, wall, SEWER.x0, SEWER.x1, Y, WT, Z1, -1, [{ x0: NEST.x - 1.1, x1: NEST.x + 1.1, y0: Y, y1: Y + 1.8 }]);
-  wallZ(b, wall, Z0, Z1, Y - 0.4, TOP, SEWER.x0, 1); wallZ(b, wall, Z0, Z1, Y - 0.4, TOP, SEWER.x1, -1);
+  wallX(b, wall, SEWER.x0, SEWER.x1, Y, WT, Z0, 1, [{ x0: BRANCH.x0, x1: BRANCH.x1, y0: Y, y1: BRANCH.top }], 2);
+  wallX(b, wall, SEWER.x0, SEWER.x1, Y, WT, Z1, -1, [{ x0: NEST.x - 1.1, x1: NEST.x + 1.1, y0: Y, y1: Y + 1.8 }], 2);
+  wallZ(b, wall, Z0, Z1, Y - 0.4, TOP, SEWER.x0, 1, [], 2); wallZ(b, wall, Z0, Z1, Y - 0.4, TOP, SEWER.x1, -1, [], 2);
   // vault in segments between the shafts (half-cylinder, inward)
   const R = SEWER.w / 2, cuts = [SEWER.x0, ...tunnelHoles.flatMap((h) => [h.x0, h.x1]), SEWER.x1].sort((a, c) => a - c);
   for (let i = 0; i + 1 < cuts.length; i += 2) {
     const a = cuts[i], c = cuts[i + 1], len = c - a;
     const vg = new THREE.CylinderGeometry(R, R, len, 24, 1, true, 0, Math.PI).rotateZ(Math.PI / 2);
-    b.add(vg, lam("sewerVault", () => ({ map: rep(brick(), 1, 1), side: THREE.BackSide })), new THREE.Matrix4().makeTranslation((a + c) / 2, WT, SEWER.z));
+    b.add(vg, lam("sewerVault", () => ({ map: rep(brick(), Math.max(1, Math.round(len / 2)), 3), color: "#a8908a", side: THREE.BackSide })), new THREE.Matrix4().makeTranslation((a + c) / 2, WT, SEWER.z));
   }
   // gaps under the shafts: flat ceiling with the hole, arch caps, side walls up to the ceiling
   for (const h of tunnelHoles) {
@@ -90,7 +90,7 @@ export const buildSewer = (root: THREE.Object3D): Sewer => {
     const ceil = TOP;
     // ceiling (faces down) around the hole
     for (const [za, zb] of [[Z0, hz.z0], [hz.z1, Z1]]) b.add(quad(V(h.x0, ceil, za), V(h.x1, ceil, za), V(h.x1, ceil, zb), V(h.x0, ceil, zb)), wall);
-    wallX(b, wall, h.x0, h.x1, WT, ceil, Z0, 1); wallX(b, wall, h.x0, h.x1, WT, ceil, Z1, -1);
+    wallX(b, wall, h.x0, h.x1, WT, ceil, Z0, 1, [], 2); wallX(b, wall, h.x0, h.x1, WT, ceil, Z1, -1, [], 2);
     for (const x of [h.x0, h.x1]) {
       const s = new THREE.Shape(); s.moveTo(Z0, WT); s.lineTo(Z0, ceil); s.lineTo(Z1, ceil); s.lineTo(Z1, WT); s.absarc(SEWER.z, WT, R, 0, Math.PI, false);
       const cg = new THREE.ShapeGeometry(s, 16); const pos = cg.attributes.position as THREE.BufferAttribute;
@@ -110,7 +110,7 @@ export const buildSewer = (root: THREE.Object3D): Sewer => {
     b.add(new THREE.CylinderGeometry(r, r, SEWER.x1 - SEWER.x0, 12).rotateZ(Math.PI / 2), m, new THREE.Matrix4().makeTranslation((SEWER.x0 + SEWER.x1) / 2, y, z));
     for (let x = SEWER.x0 + 1.5; x < SEWER.x1; x += 3) b.add(new THREE.CylinderGeometry(r * 1.35, r * 1.35, 0.1, 12).rotateZ(Math.PI / 2), m, new THREE.Matrix4().makeTranslation(x, y, z));
   };
-  pipe(ironP, Y + 1.75, Z0 + 0.22, 0.14); pipe(copper, Y + 2.1, Z0 + 0.2, 0.08); pipe(ironP, Y + 1.9, Z1 - 0.3, 0.24);
+  pipe(ironP, Y + 1.75, Z0 + 0.22, 0.14); pipe(copper, Y + 2.1, Z0 + 0.2, 0.08); pipe(ironP, Y + 2.25, Z1 - 0.3, 0.2);
   for (let x = SEWER.x0 + 4; x < SEWER.x1; x += 9) lantern(b, g, V(x, Y + 2.0, Z0 + 0.45 + (Math.round(x) % 2 ? 0 : 3.1)), lamps);
   // ---- the plaque by the grate landing (unlit: always readable) ----
   { const m = new THREE.Mesh(new THREE.PlaneGeometry(2.0, 0.62), new THREE.MeshBasicMaterial({ map: signTex("newSewers", "NEW SEWERS 1902", "#1f4a7a", "#f2d58a", 768, 240) }));

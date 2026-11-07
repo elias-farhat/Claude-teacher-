@@ -250,12 +250,12 @@ export const buildRooms = (root: THREE.Object3D): Record<RoomName, Room> => {
     b.add(new THREE.CylinderGeometry(0.01, 0.01, 1.8, 4), darkWood, new THREE.Matrix4().makeTranslation(lp.x, lp.y + 0.95, lp.z));
     const lp2 = V(o.x + 6.2, 2.6, o.z + 3.2); lampMesh(root, lp2, 0.08);
     // exterior shell (barn red planks) with the same openings, gable roof, the RAT FARM sign over the door
-    const ext = lam("barnExt", () => ({ map: rep(planksHD(), 0.5, 0.5), color: "#c45a46" }));
+    const ext = lam("barnExt", () => ({ map: rep(planksHD(), 1, 1), color: "#c45a46" }));
     const ops = (wall: "n" | "s" | "e" | "w") => R0.open.filter((x) => x.wall === wall);
-    wallZ(b, ext, o.z - hd, o.z + hd, 0, R0.h, o.x - hw, -1, ops("w").map((x) => ({ x0: o.z + x.at - x.w / 2, x1: o.z + x.at + x.w / 2, y0: x.y, y1: x.y + x.h })));
-    wallZ(b, ext, o.z - hd, o.z + hd, 0, R0.h, o.x + hw, 1);
-    wallX(b, ext, o.x - hw, o.x + hw, 0, R0.h, o.z + hd, 1, ops("s").map((x) => ({ x0: o.x + x.at - x.w / 2, x1: o.x + x.at + x.w / 2, y0: x.y, y1: x.y + x.h })));
-    wallX(b, ext, o.x - hw, o.x + hw, 0, R0.h, o.z - hd, -1);
+    wallZ(b, ext, o.z - hd, o.z + hd, 0, R0.h, o.x - hw, -1, ops("w").map((x) => ({ x0: o.z + x.at - x.w / 2, x1: o.z + x.at + x.w / 2, y0: x.y, y1: x.y + x.h })), 3);
+    wallZ(b, ext, o.z - hd, o.z + hd, 0, R0.h, o.x + hw, 1, [], 3);
+    wallX(b, ext, o.x - hw, o.x + hw, 0, R0.h, o.z + hd, 1, ops("s").map((x) => ({ x0: o.x + x.at - x.w / 2, x1: o.x + x.at + x.w / 2, y0: x.y, y1: x.y + x.h })), 3);
+    wallX(b, ext, o.x - hw, o.x + hw, 0, R0.h, o.z - hd, -1, [], 3);
     gableRoof(b, lam("barnRoof", () => ({ color: "#6a4a3a" })), ext, o.x - hw, o.x + hw, o.z - hd, o.z + hd, R0.h, 3.0);
     const sm = new THREE.Mesh(new THREE.PlaneGeometry(4.2, 1.2), new THREE.MeshBasicMaterial({ map: signTex("ratFarm", "RAT FARM", "#f1e3c0", "#7a2e2e", 640, 180) }));
     sm.position.set(RAT_FARM_SIGN.x, RAT_FARM_SIGN.y, RAT_FARM_SIGN.z); sm.rotation.y = -Math.PI / 2; root.add(sm);

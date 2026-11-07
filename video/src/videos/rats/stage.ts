@@ -94,7 +94,7 @@ const kitchen = (t: number, s: Stage) => {
 const HUNT_DOWN = [0, 0.28, 0.56];
 const hunterAt = (t: number, i: number) => {
   const t0 = wt(6, "hunters") - 0.35 + HUNT_DOWN[i], u = smooth((t - t0) / 0.7);
-  const top = V(39.2 - i * 1.1, 0, 5.2 + (i % 2) * 0.4), hole = V(MANHOLE.x, 0, MANHOLE.z + 0.35), bottom = V(39.0 + i * 1.3, SEWER.y, i === 1 ? 1.6 : 4.3);
+  const top = V(39.2 - i * 1.1, 0, 5.2 + (i % 2) * 0.4), hole = V(MANHOLE.x, 0, MANHOLE.z + 0.35), bottom = [V(42.9, SEWER.y, 4.4), V(47.6, SEWER.y, 1.6), V(46.3, SEWER.y, 4.4)][i];
   if (t < t0) return { p: top.lerp(hole, smooth((t - (t0 - 0.6)) / 0.6)), climbing: false };
   if (u < 1) return { p: hole.clone().setY(-7 * u), climbing: true };
   return { p: hole.clone().setY(SEWER.y).lerp(bottom, smooth((t - t0 - 0.7) / 0.5)), climbing: false };
@@ -109,7 +109,7 @@ const hunters = (t: number, s: Stage, cam: THREE.Camera) => {
   }
   if (t > wt(7) - 0.6) {
     const k = smooth((t - wt(7, "day") + 0.3) / 0.8);
-    s.fx.push(card(`tally${q(k, 24)}`, 640, 360, LB.counterBoard(q(k, 24)), [44.6, -5.7, SEWER.z + SEWER.w / 2 - 0.04], 1.6, 0.9, { yaw: Math.PI }));
+    s.fx.push(card(`tally${q(k, 24)}`, 640, 360, LB.counterBoard(q(k, 24)), [44.6, -5.85, SEWER.z + SEWER.w / 2 - 0.04], 1.6, 0.9, { yaw: Math.PI }));
     // rats pouring past on both walkways, more on "not enough"
     const n = t > wt(7, "not") - 0.3 ? 14 : 6;
     for (let i = 0; i < n; i++) {
