@@ -39,4 +39,6 @@ Voice tip: paste the narration as ONE CapCut text block, speed 1.3×, export aud
 205 words → ~53 s at CapCut 1.3× (use 1.2× for ~58 s).
 
 ## Voice (final)
-`voice.wav`: Kokoro am_liam, speed 1.25, generated sentence by sentence (natural endings), 0.16 s pause inside a row / 0.24 s between rows. 62.8 s, −14 LUFS, 48 kHz mono. `sentences.json` has the start/end time of every sentence (use it to check forced alignment).
+`voice.wav`: CapCut **Goofball** (Elias's choice), recorded in 4 blocks with a throwaway "Okay." after every sentence; all 22 Okays removed with tools/strip_okays.py (whole sound islands, cuts in silence) and verified gone by re-transcription. 1.2× speed, 0.3 s between blocks, light room tail, −14 LUFS. 64.8 s, ~3.2 words/s.
+`words.json` must be re-aligned to this voice (the old one was for the Liam version, now `words_liam.json`).
+Liam (Kokoro) version kept as `voice_liam.wav` for reference.
