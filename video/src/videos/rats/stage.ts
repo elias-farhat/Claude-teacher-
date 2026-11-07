@@ -80,12 +80,12 @@ const bath = (t: number, s: Stage) => {
   if (!between(t, wt(4, "straight"), wt(5, "kitchen"))) return;
   const pop = smooth((t - wt(4, "nicest") + 0.35) / 0.3), scream = after(t, 4, "nicest");
   if (pop > 0) s.fx.push(card(`toiletRat${scream ? 1 : 0}`, 600, 600, ratHero(scream ? "wave" : "look", q((t * 2) % 1, 8)), [5.95, 0.42 + 0.3 * pop, -16.35], 0.55, 0.55));
-  s.places.push(P("lady", LADY, { expr: scream ? "shock" : "smile_closed", gest: scream ? "cheer" : "hang", k: q((t * 3) % 1, 8), blink: scream ? 0 : blinkAt(t, 9) }, {}, [8.5, 0, -14.6]));
+  s.places.push(P("lady", LADY, { expr: scream ? "shock" : "smile_closed", gest: scream ? "cheer" : "hang", k: q((t * 3) % 1, 8), blink: scream ? 0 : blinkAt(t, 9) }, {}, [6.6, 0, -13.4]));
 };
 const kitchen = (t: number, s: Stage) => {
   if (!between(t, wt(5) - 0.8, wt(6, "hunters"))) return;
   const k = smooth((t - wt(5, "plague") + 0.2) / (wt(5, "kitchen") - wt(5, "plague")));
-  s.fx.push(card(`plague${q(k, 20)}`, 720, 520, LB.plagueMap(q(k, 20)), [19.93, 1.9, -13.9], 1.75, 1.26, { yaw: -Math.PI / 2 }));
+  s.fx.push(card(`plague${q(k, 20)}`, 720, 520, LB.plagueMap(q(k, 20)), [19.86, 1.9, -13.9], 1.75, 1.26, { yaw: -Math.PI / 2 }));
   const danger = after(t, 5, "dangerous"), grow = smooth((t - wt(5, "dangerous") + 0.2) / 0.5);
   s.fx.push(card(`kitRat${danger ? 1 : 0}${blinkAt(t, 3) > 0.5 ? "b" : ""}`, 600, 600, ratHero(danger ? "smug" : "look", 0, blinkAt(t, 3)), [15.6, 0.76 + 0.28, -13.5], 0.56, 0.56));
   if (after(t, 5, "kitchen")) s.fx.push(card("skull", 400, 400, LB.skullShadow, [15.7, 1.6 + 0.25 * grow, -16.94], 1.0 + 0.8 * grow, 1.0 + 0.8 * grow, { yaw: 0, soft: true }));
@@ -130,7 +130,7 @@ const posterWall = (t: number, s: Stage) => {
     // the crowd gathers from "anyone": townsfolk and hunters walk in to a half circle
     const g = smooth((t - wt(8, "anyone") + 0.4) / 1.0), cheer = after(t, 8, "cent");
     for (let i = 0; i < 8; i++) {
-      const a = -1.2 + i * 0.34, end = V(POSTER.x + Math.sin(a) * 3.4, 0.12, POSTER.z + 1.9 + Math.cos(a) * 1.0), start = end.clone().add(V((i % 2 ? 1 : -1) * 9, 0, 3));
+      const side = i % 2 ? 1 : -1, end = V(POSTER.x + side * (1.3 + Math.floor(i / 2) * 0.85), 0.12, POSTER.z + 1.6 + Math.floor(i / 2) * 0.45), start = end.clone().add(V((i % 2 ? 1 : -1) * 9, 0, 3));
       const p = start.lerp(end, g), o = i % 3 === 0 ? HUNTER(i) : LOCAL(i + 7);
       s.places.push(P(`crowd${i}`, o, { mode: g < 1 ? "stroll" : "stand", phase: q((t * 1.8 + i * 0.3) % 1, 12), expr: cheer ? "grin" : "smile_closed", gest: cheer && i % 2 ? "cheer" : "hang", k: q((t * 2 + i * 0.2) % 1, 8), seed: 60 + i, blink: blinkAt(t, 60 + i) }, { net: i % 3 === 0 }, [p.x, p.y, p.z], { size: LO }));
     }
@@ -143,7 +143,7 @@ const posterWall = (t: number, s: Stage) => {
 };
 const office = (t: number, s: Stage) => {
   if (!between(t, wt(8, "cent"), wt(12, "something"))) return;
-  const ox = 76.3, oz = 15.85, faint = between(t, wt(9, "desk") - LEAD, wt(10, "just") - 0.1), nerv = between(t, wt(9, "mountain") - LEAD, wt(9, "desk"));
+  const ox = 76.3, oz = 15.3, faint = between(t, wt(9, "desk") - LEAD, wt(10, "just") - 0.1), nerv = between(t, wt(9, "mountain") - LEAD, wt(9, "desk"));
   const dance = after(t, 11, "thrilled") || between(t, wt(11, "officials") - 0.2, 99);
   const look: Look = dance ? { expr: "laugh", gest: "cheer", k: q((t * 2.2) % 1, 8), phase: q((t * 2.2) % 1, 8) }
     : faint ? { mode: "sit", expr: "dazed", tilt: 18, headTilt: -14 }
@@ -200,11 +200,11 @@ const table = (t: number, s: Stage) => {
 const nest = (t: number, s: Stage, cam: THREE.Camera) => {
   if (!between(t, wt(15, "pays"), wt(17, "egg"))) return;
   const c = V(NEST.x, SEWER.y, 6.9);
-  s.fx.push(card(`mom${blinkAt(t, 11) > 0.5 ? "b" : ""}`, 600, 600, ratMom(blinkAt(t, 11)), c.clone().add(V(0, 0.4, 0.3)), 0.8, 0.8));
+  s.fx.push(card(`mom${blinkAt(t, 11) > 0.5 ? "b" : ""}`, 600, 600, ratMom(blinkAt(t, 11)), c.clone().add(V(0, 0.5, 0.3)), 1.0, 1.0));
   const nb = Math.round(7 * smooth((t - wt(16, "keeps") + 0.2) / 1.3)), glint = after(t, 16, "brand-new");
   for (let i = 0; i < nb; i++) {
     const a = (i / 7) * Math.PI - 0.2, p = c.clone().add(V(Math.cos(a) * 0.75, 0.0, -0.35 + Math.sin(a) * 0.3));
-    s.fx.push(card(`baby${i}${glint ? "g" : ""}${q((t * 3 + i * 0.4) % 1, 4)}`, 300, 200, babyRat(glint ? 1 : 0, q((t * 3 + i * 0.4) % 1, 4)), p.add(V(0, 0.1, 0)), 0.36, 0.24));
+    s.fx.push(card(`baby${i}${glint ? "g" : ""}${q((t * 3 + i * 0.4) % 1, 4)}`, 300, 200, babyRat(glint ? 1 : 0, q((t * 3 + i * 0.4) % 1, 4)), p.add(V(0, 0.15, 0)), 0.52, 0.35));
   }
   if (glint) for (let i = 0; i < nb; i++) { const a = (i / 7) * Math.PI - 0.2; s.lights.push({ p: c.clone().add(V(Math.cos(a) * 0.9, 0.2, -0.2)), k: 0.25, col: [3.2, 2.6, 0.8] }); }
   s.lights.push(warm(c.clone().add(V(0.6, 1.2, -1.0)), 1.1));
@@ -224,12 +224,12 @@ const barn = (t: number, s: Stage, cam: THREE.Camera) => {
   // rats peering out of the barn door, cages full of rats inside, the farmer counting coins at his bench
   for (let i = 0; i < 3; i++) s.fx.push(card(`doorRat${i}`, 600, 600, ratHero(i === 1 ? "smug" : "look", 0, blinkAt(t, 80 + i)), [132.6, 0.3, -5.2 + i * 0.9], 0.55, 0.55));
   for (const row of [-3.6, 0.2]) for (let k = 0; k < 6; k++) for (let lvl = 0; lvl < 3; lvl++) {
-    const p = V(142 - 4.5 + k * 1.7, 0.2 + lvl * 0.85, -4 + row);
-    s.fx.push(card(`cageRat${(k + lvl) % 3}`, 600, 600, ratHero(["look", "smug", "look"][(k + lvl) % 3], 0, 0), p.add(V(0, 0.22, 0)), 0.42, 0.42));
+    const p = V(142 - 4.5 + k * 1.7, 0.2 + lvl * 0.85, -4 + row + 0.56);
+    s.fx.push(card(`cageRat${(k + lvl) % 3}`, 600, 600, ratHero(["look", "smug", "look"][(k + lvl) % 3], 0, 0), p.add(V(0, 0.2, 0)), 0.45, 0.45));
   }
   s.places.push(P("farmerB", FARMER, { expr: "grin", gest: "palm", blink: blinkAt(t, 5) }, { coin: true }, [148.2, 0, 0.6]));
   s.fx.push(card("barnCoins", 400, 260, LB.coinPile(14), [148.2, 0.84 + 0.1, -0.6], 0.7, 0.45));
-  s.lights.push(warm(V(147.6, 2.4, 0.9), 1.2));
+  s.lights.push(warm(V(147.6, 2.4, 0.9), 1.2), warm(V(140, 2.6, 0.2), 1.3), warm(V(144, 2.6, -2.0), 1.1));
   void cam;
 };
 const quay = (t: number, s: Stage) => {

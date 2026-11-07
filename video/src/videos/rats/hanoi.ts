@@ -245,7 +245,7 @@ export const buildHanoi = (root: THREE.Object3D): Hanoi => {
   // ---- trees + lamps along both sidewalks ----
   for (let x = -64; x < 110; x += 12) {
     for (const z of [-8, 8]) { if (Math.abs(x - POSTER.x) < 6 && z < 0) continue; if (Math.abs(x - DRAIN.x) < 3 && z > 0) continue; tree(b, x, z, 1.15, Math.round(x + z)); }
-    if ((x + 64) % 24 === 0) for (const z of [-7, 7]) streetLamp(b, g, x + 6, z, lamps);
+    if ((x + 64) % 24 === 0) for (const z of [-7, 7]) { if (z < 0 && Math.abs(x + 6 - POSTER.x) < 4) continue; streetLamp(b, g, x + 6, z, lamps); }
   }
   // ---- quay: embankment wall, river, far bank + the Paris palace with Doumer's balcony ----
   const quayStone = lam("quayStone", () => ({ map: rep(stoneHD("quayStone", ["#c9bca6", "#bfb19a", "#d3c7b2", "#b5a68e"], "#8f8270"), 1, 1) }));
@@ -284,7 +284,7 @@ export const buildHanoi = (root: THREE.Object3D): Hanoi => {
     const hay = lam("hay", () => ({ color: "#e0c068" }));
     for (const [x, z] of [[134, 12], [136, 13.5], [152, 12], [117, -6]]) box(b, hay, x - 0.8, 0, z - 0.5, x + 0.8, 0.9, z + 0.5);
     box(b, wood, 120, 0, 8, 122.5, 1.4, 10); gableRoof(b, lam("coopRoof", () => ({ color: "#8a5a3a" })), wood, 120, 122.5, 8, 10, 1.4, 0.7, 0.2); // chicken coop
-    tree(b, 118, 14, 1.3, 77); tree(b, 160, 18, 1.4, 78); tree(b, 158, -12, 1.2, 79); }
+    tree(b, 116, 27, 1.3, 77); tree(b, 160, 18, 1.4, 78); tree(b, 158, -12, 1.2, 79); }
   b.build(g);
   const tram = buildTram(); root.add(tram);
   return { group: g, lamps, tram, sewerHoles: [...holes, quayHole] };

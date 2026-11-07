@@ -71,12 +71,12 @@ export const SHOTS: Shot[] = [
   // 1 "In 1902, the French paid people in Hanoi to kill rats... so people started farming them."
   //   over the farmhouse roof: the official pays the farmer a cent on "paid", the farmer holds up his rat like a prize hen
   { name: "terrace", at: 0, look: "morning", keys: [
-    { pos: [113.5, 12.5, 6.0], look: [126.2, 6.0, 19.2], fov: 44 },
+    { pos: [119.0, 11.5, 9.5], look: [126.2, 6.0, 19.2], fov: 44 },
     { at: wt(1, "paid"), pos: [119.6, 8.9, 12.4], look: [126.3, 6.4, 19.2], fov: 42, dof: 4 },
     { at: wt(1, "farming"), pos: [123.3, 7.6, 14.0], look: [127.3, 6.5, 19.0], fov: 42, roll: 0.05, dof: 7 },
   ] },
   // 2 "Hanoi is the shiny new capital of French Indochina," up and west down the boulevard: tram, flags, people
-  { name: "boulevard", at: land(2, "shiny"), look: "morning", via: [[118, 12, 9]], keys: [
+  { name: "boulevard", at: land(2, "shiny"), look: "morning", via: [[118, 15, 4]], keys: [
     { pos: [106, 11.5, 2.5], look: [64, 5.5, -1], fov: 46 },
     { at: wt(2, "Indochina"), pos: [72, 7.2, 4.5], look: [30, 3.0, -1.0], fov: 46, roll: -0.04 },
   ] },
@@ -87,7 +87,7 @@ export const SHOTS: Shot[] = [
   ] },
   //   ...and dives through the grate into the clean new tunnel: the NEW SEWERS 1902 plaque on "sewer"
   { name: "plaque", at: land(3, "sewer"), look: "sewer", lk: [0.2, 0.6], via: [[-9.8, 1.6, 3.3], [-10, -1.2, 3.1], [-10, -4.6, 3.1]], keys: [
-    { pos: [-10.6, -5.35, 4.2], look: [-5.8, -5.5, 1.1], fov: 46, dof: 4 },
+    { pos: [-6.8, -5.4, 4.4], look: [-5.8, -5.45, 1.05], fov: 46, dof: 4 },
   ] },
   // 4 "The rats love it. It's a highway under every street, straight into the nicest houses."
   //   a convoy of rats races east along the walkway (the camera rides behind them)...
@@ -98,8 +98,8 @@ export const SHOTS: Shot[] = [
   ] },
   //   ...follows them into the branch, up the riser, out of the floor drain beside the toilet: a rat pops out, the lady screams
   { name: "bath", at: land(4, "into"), look: "bath", carry: "rat", lk: "ahead", via: [[6.9, -6.2, 2.3], [7.4, -6.1, -2], [7.5, -5.8, -14.4], [7.5, -3, -15.2], [7.5, -0.4, -15.2], [8.2, 1.0, -14.2]], keys: [
-    { pos: [9.55, 1.7, -10.7], look: [6.4, 0.9, -15.6], fov: 52, dof: 3 },
-    { at: wt(4, "houses"), pos: [9.45, 1.75, -10.9], look: [6.7, 1.0, -15.4], fov: 52, dof: 4 },
+    { pos: [9.55, 1.7, -10.7], look: [6.5, 0.95, -14.8], fov: 52, dof: 3 },
+    { at: wt(4, "houses"), pos: [9.45, 1.75, -10.9], look: [6.5, 1.05, -14.6], fov: 52, dof: 4 },
   ] },
   // 5 "And with plague spreading, a rat in your kitchen isn't just gross. It's dangerous." through the door into the
   //   kitchen: the plague map, then the rat on the table with a skull-shaped shadow (sickly green)
@@ -167,23 +167,23 @@ export const SHOTS: Shot[] = [
   // 16 "But a live rat without a tail keeps having babies, and every baby comes with a brand-new tail." down the drain
   //   into the warm nest: mother rat, more and more babies, their tails glint like coins
   { name: "nest", at: land(16, "live"), look: "nest", carry: "rat", lk: [0.2, 0.55], via: [[64, 2.4, 5.6], [57, 1.5, 7.6], [57, -2.5, 7.6], [57, -5.7, 7.4], [57, -6.0, 5.0]], keys: [
-    { pos: [57.0, -6.05, 3.4], look: [57.0, -6.55, 6.9], fov: 50, dof: 4 },
-    { at: wt(16, "babies"), pos: [56.3, -6.0, 3.1], look: [57.0, -6.6, 6.8], fov: 52, dof: 4 },
-    { at: wtn(16, "tail", 1), pos: [57.4, -6.1, 3.8], look: [57.0, -6.6, 6.9], fov: 48, dof: 5 },
+    { pos: [57.0, -6.1, 4.2], look: [57.0, -6.5, 6.9], fov: 50, dof: 4 },
+    { at: wt(16, "babies"), pos: [56.6, -6.05, 4.0], look: [57.0, -6.55, 6.8], fov: 52, dof: 4 },
+    { at: wtn(16, "tail", 1), pos: [57.3, -6.15, 4.5], look: [57.0, -6.55, 6.9], fov: 48, dof: 5 },
   ] },
   // 17 "It's like getting paid for every egg... and then killing the chicken. Nobody does that." up and out east to the
   //   farmyard: the farmer cashes eggs, the official raises an axe, the farmer shields the hen
   { name: "hen", at: land(17, "paid"), look: "golden", carry: "coin", via: [[57, -6.0, 5.0], [57, -5.7, 7.4], [57, -2.5, 7.6], [57.6, 2.0, 7.4], [94, 9, 4]], keys: [
-    { pos: [127.6, 1.85, 0.4], look: [129.9, 1.1, 6.0], fov: 46, dof: 3 },
-    { at: wt(17, "killing"), pos: [127.2, 1.9, 0.8], look: [129.6, 1.25, 6.0], fov: 48, dof: 3 },
-    { at: wt(17, "Nobody"), pos: [128.2, 1.8, 1.6], look: [130.2, 1.15, 6.0], fov: 46, roll: -0.04, dof: 4 },
+    { pos: [127.9, 1.85, -0.4], look: [129.45, 1.2, 6.2], fov: 48, dof: 3 },
+    { at: wt(17, "killing"), pos: [127.6, 1.9, 0.0], look: [129.45, 1.3, 6.2], fov: 50, dof: 3 },
+    { at: wt(17, "Nobody"), pos: [128.4, 1.8, 0.6], look: [129.9, 1.25, 6.0], fov: 48, roll: -0.04, dof: 4 },
   ] },
   // 18 "Soon, farms outside the city are breeding rats just for the reward." the RAT FARM sign, then inside: cages, the
   //   farmer counting coins
   { name: "barnSign", at: land(18, "farms"), look: "dusk", keys: [
     { pos: [125.4, 2.6, -2.4], look: [132.9, 3.6, -4.0], fov: 48 },
   ] },
-  { name: "barn", at: land(18, "breeding"), look: "dusk", via: [[131.0, 2.2, -3.8], [134.4, 2.1, -3.6]], keys: [
+  { name: "barn", at: land(18, "breeding"), look: "warm", via: [[131.0, 2.2, -3.8], [134.4, 2.1, -3.6]], keys: [
     { pos: [137.2, 2.3, 0.0], look: [143.6, 1.0, -3.2], fov: 52, dof: 2 },
     { at: wt(18, "rats"), pos: [144.4, 1.85, -0.9], look: [148.2, 1.1, -0.5], fov: 48, dof: 4 },
   ] },
@@ -195,13 +195,13 @@ export const SHOTS: Shot[] = [
   // 20 "And the man who built those sewers, Paul Doumer, goes home... and later becomes President of France."
   //    over the roofs to the quay at dawn: Doumer with his sewer plans boards the steamer...
   { name: "quay", at: land(20, "man"), look: "dawngold", carry: "poster", via: [[60.6, 6, -8], [59, 17, -20], [58.5, 6, -33]], keys: [
-    { pos: [58.4, 1.9, -37.0], look: [55.4, 1.35, -44.0], fov: 46, dof: 3 },
-    { at: wt(20, "Paul"), pos: [57.6, 1.8, -38.6], look: [55.2, 1.4, -44.2], fov: 44, dof: 5 },
+    { pos: [59.6, 3.2, -35.6], look: [55.2, 1.6, -45.0], fov: 50, dof: 3 },
+    { at: wt(20, "Paul"), pos: [58.4, 2.6, -37.6], look: [55.2, 1.5, -44.6], fov: 48, dof: 4 },
     { at: wt(20, "goes"), pos: [58.6, 2.4, -38.2], look: [53.6, 1.0, -47.0], fov: 46, dof: 3 },
   ] },
   //    ...and across the water: on the balcony in Paris, sash, crowd cheering
   { name: "balcony", at: land(20, "President"), look: "dawngold", via: [[57, 5, -48], [59, 9, -64]], keys: [
-    { pos: [60.8, 8.6, -76.8], look: [60.0, 8.3, -83.0], fov: 46, dof: 3 },
+    { pos: [60.8, 9.9, -77.2], look: [60.0, 8.5, -83.0], fov: 46, dof: 3 },
   ] },
   // 21 "The rats? They stayed." back across the river, down the quay grate: our tailless rat lounging in the sewer, waving
   { name: "stayed", at: land(21, "stayed"), look: "sewer", carry: "rat", lk: [0.3, 0.7], via: [[60, 8, -66], [64, 5, -45], [66, 1.6, -38.4], [66, -1.8, -38.2], [65.6, -3.6, -37.8]], keys: [

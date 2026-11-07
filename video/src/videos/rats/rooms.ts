@@ -258,7 +258,7 @@ export const buildRooms = (root: THREE.Object3D): Record<RoomName, Room> => {
     wallX(b, ext, o.x - hw, o.x + hw, 0, R0.h, o.z - hd, -1, [], 3);
     gableRoof(b, lam("barnRoof", () => ({ color: "#6a4a3a" })), ext, o.x - hw, o.x + hw, o.z - hd, o.z + hd, R0.h, 3.0);
     const sm = new THREE.Mesh(new THREE.PlaneGeometry(4.2, 1.2), new THREE.MeshBasicMaterial({ map: signTex("ratFarm", "RAT FARM", "#f1e3c0", "#7a2e2e", 640, 180) }));
-    sm.position.set(RAT_FARM_SIGN.x, RAT_FARM_SIGN.y, RAT_FARM_SIGN.z); sm.rotation.y = -Math.PI / 2; root.add(sm);
+    sm.position.set(RAT_FARM_SIGN.x - 0.08, RAT_FARM_SIGN.y, RAT_FARM_SIGN.z); sm.rotation.y = -Math.PI / 2; root.add(sm);
     boxAt(b, darkWood, V(RAT_FARM_SIGN.x - 0.02, RAT_FARM_SIGN.y, RAT_FARM_SIGN.z), [0.04, 1.35, 4.4]);
     out.barn = { ...ROOMS[n], lamps: [{ p: lp, k: 1.4 }, { p: lp2, k: 1.0 }] };
   }
