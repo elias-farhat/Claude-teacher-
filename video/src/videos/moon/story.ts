@@ -73,7 +73,7 @@ export const SHOTS: Shot[] = [
   //   out of the window, across the strait to the Cape: Herschel at the eyepiece; then down the length of the tube
   { name: "scope", at: land(4, "Herschel"), look: "starry", via: [[23.2, 1.9, -8.9], [23.2, 2.3, -6.4], [96, 13, -6]], carry: "paper", keys: [
     { pos: E(-2.4, 0.3, 5.6), look: E(1.0, -0.5, 0.8), fov: 46, dof: 3 },
-    { at: wt(4, "built"), pos: A3(TUBE_END.clone().add(new THREE.Vector3(3.5, 3.5, 5.5))), look: A3(EYEPIECE.clone().addScaledVector(TUBE_DIR, 8)), fov: 52 },
+    { at: wt(4, "built"), pos: A3(TUBE_END.clone().add(new THREE.Vector3(4, -9, 12))), look: A3(EYEPIECE.clone().add(new THREE.Vector3(0, 1, 0))), fov: 54 },
     { at: wt(4, "Africa"), pos: E(-2.6, 1.6, 7.6), look: E(0.9, 0.5, 0.8), fov: 52, dof: 2 },
   ] },
   // 5 "and through it, he can see the Moon up close." in through the eyepiece, up the tube, out onto the Moon
@@ -119,8 +119,8 @@ export const SHOTS: Shot[] = [
   // 14 "Nobody can check. It's like a rumor about a friend who's on vacation with no phone." Herschel on the beach, no
   //    signal, while a rumour cloud of gossip from back home grows over his head
   { name: "beach", at: land(14, "Nobody"), look: "seaday", carry: "letter", keys: [
-    { pos: [87.4, 1.6, 3.6], look: [90.6, 1.35, -2.0], fov: 48, dof: 3 },
-    { at: wt(14, "rumor"), pos: [86.8, 1.5, 5.0], look: [90.4, 1.8, -2.2], fov: 56 },
+    { pos: [89.4, 1.6, 18.4], look: [90.6, 1.35, 24.0], fov: 48, dof: 3 },
+    { at: wt(14, "rumor"), pos: [88.8, 1.5, 17.4], look: [90.4, 1.55, 24.2], fov: 58 },
   ] },
   // 15 "Weeks later, a rival paper exposes the whole thing." in through The Herald's window: HOAX! slapped on the counter
   { name: "herald", at: land(15, "rival"), look: "neutral", via: [[50, 12, 3], [7.5, 2.0, 6.4], [7.5, 1.9, 8.9]], carry: "paper", keys: [
