@@ -1,0 +1,106 @@
+# Narration voice with Kokoro TTS (Apache-2.0, ONNX, CPU) from the narration column of scripts/<name>/SCRIPT.md.
+#  mode = samples : 4 male English narrator voices read the first 3 lines (~3.7 words/s, natural sentence endings,
+#                   0.3 s between sentences) -> a GitHub Release with the MP3s, to listen on a phone
+#  mode = full    : the chosen voice reads the whole narration -> mastered to -14 LUFS (two-pass loudnorm), word-level
+#                   timestamps (forced alignment, same aligner as align.yml) -> commits scripts/<name>/voice.wav,
+#                   words.json, sentences.json, align-report.md + a Release with an MP3 preview
+name: Voice (Kokoro)
+
+on:
+  workflow_dispatch:
+    inputs:
+      script:
+        description: Folder under scripts/ (e.g. moon)
+        required: true
+      mode:
+        description: "samples = 4 voices x first 3 lines · full = whole narration with the chosen voice"
+        type: choice
+        options: [samples, full]
+        default: samples
+      voice:
+        description: "full mode: Kokoro voice (am_michael, am_liam, bm_george, bm_lewis, ...)"
+        required: false
+        default: am_michael
+      speed:
+        description: "full mode: speed, or auto (~3.7 words/s)"
+        required: false
+        default: auto
+
+permissions:
+  contents: write
+
+jobs:
+  voice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      D: scripts/${{ inputs.script }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pip
+            ~/.cache/huggingface
+            ~/.cache/torch
+            kokoro-v1.0.onnx
+            voices-v1.0.bin
+          key: voice-kokoro-v1.0-mmsfa-fw1.1.1-v1
+      - name: Install Kokoro (ONNX, CPU) + ffmpeg
+        timeout-minutes: 15
+        run: |
+          inst() { timeout 240 sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=20 update -qq && timeout 240 sudo apt-get -o Acquire::Retries=3 install -y -qq --no-install-recommends ffmpeg; }
+          other() { sudo sed -i 's|http://azure.archive.ubuntu.com|http://archive.ubuntu.com|g' /etc/apt/sources.list /etc/apt/sources.list.d/*.sources 2>/dev/null || true; inst; }
+          command -v ffmpeg >/dev/null || inst || other
+          pip install -q kokoro-onnx soundfile numpy
+          for f in kokoro-v1.0.onnx voices-v1.0.bin; do
+            [ -s "$f" ] || curl -fsSL --retry 3 -o "$f" "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/$f"
+          done
+      # ---------------- samples ----------------
+      - name: Samples (4 male voices x first 3 lines)
+        if: inputs.mode == 'samples'
+        run: |
+          mkdir -p out/samples
+          python tools/kokoro_tts.py samples "${{ inputs.script }}" out/samples | tee -a "$GITHUB_STEP_SUMMARY"
+          for f in out/samples/*.wav; do
+            ffmpeg -v error -y -i "$f" -af loudnorm=I=-14:TP=-1.5:LRA=7 -ar 48000 -ac 1 -c:a libmp3lame -b:a 192k "${f%.wav}.mp3"
+          done
+          tag="voice-samples-${{ inputs.script }}-${{ github.run_number }}"
+          gh release create "$tag" out/samples/*.mp3 out/samples/SAMPLES.md --target "${{ github.sha }}" \
+            --title "Voice samples: ${{ inputs.script }} (run ${{ github.run_number }})" --notes-file out/samples/SAMPLES.md
+          echo "Release: ${{ github.server_url }}/${{ github.repository }}/releases/tag/$tag" >> "$GITHUB_STEP_SUMMARY"
+      # ---------------- full narration ----------------
+      - name: Full narration (sentence by sentence, 0.3 s pauses)
+        if: inputs.mode == 'full'
+        run: python tools/kokoro_tts.py full "${{ inputs.script }}" "${{ inputs.voice }}" "${{ inputs.speed }}" | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Master to -14 LUFS (two-pass loudnorm, linear), 48 kHz mono
+        if: inputs.mode == 'full'
+        run: |
+          m=$(ffmpeg -hide_banner -i $D/voice_raw.wav -af loudnorm=I=-14:TP=-1.5:LRA=7:print_format=json -f null - 2>&1 | sed -n '/^{/,/^}/p')
+          g() { jq -r ".$1" <<<"$m"; }
+          ffmpeg -v error -y -i $D/voice_raw.wav -af "loudnorm=I=-14:TP=-1.5:LRA=7:measured_I=$(g input_i):measured_TP=$(g input_tp):measured_LRA=$(g input_lra):measured_thresh=$(g input_thresh):offset=$(g target_offset):linear=true" -ar 48000 -ac 1 -c:a pcm_s16le $D/voice.wav
+          ffmpeg -v error -y -i $D/voice.wav -c:a libmp3lame -b:a 192k $D/voice_preview.mp3
+          rm $D/voice_raw.wav
+          ffmpeg -hide_banner -i $D/voice.wav -af ebur128=peak=true -f null - 2>&1 | grep -E "^\s+(I|LRA|Peak):" | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Word-level timestamps (torchaudio MMS_FA forced alignment + faster-whisper check)
+        if: inputs.mode == 'full'
+        run: |
+          pip install -q torch==2.5.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cpu
+          pip install -q faster-whisper==1.1.1 requests
+          python video/scripts/align_words.py $D/SCRIPT.md $D/voice.wav $D/words.json $D/align-report.md
+          cat $D/align-report.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Commit voice.wav + words.json + sentences.json, release the MP3
+        if: inputs.mode == 'full'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add $D/voice.wav $D/voice_preview.mp3 $D/words.json $D/sentences.json $D/align-report.md
+          git commit -m "Kokoro voice for ${{ inputs.script }} (${{ inputs.voice }}, speed ${{ inputs.speed }}) + word timestamps, run ${{ github.run_number }}" || exit 0
+          for i in 1 2 3; do git pull --rebase -q origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && break; sleep 5; done
+          tag="voice-${{ inputs.script }}-${{ github.run_number }}"
+          gh release create "$tag" $D/voice_preview.mp3 $D/align-report.md --target "$(git rev-parse HEAD)" \
+            --title "Voice: ${{ inputs.script }} (${{ inputs.voice }}, run ${{ github.run_number }})" --notes-file $D/align-report.md
