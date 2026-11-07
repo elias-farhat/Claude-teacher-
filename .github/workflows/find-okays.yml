@@ -3,6 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       script: { description: "scripts/<name>", required: true, default: "moon" }
+      pattern: { description: "files to scan", required: true, default: "block*.wav" }
 permissions:
   contents: write
 jobs:
@@ -13,7 +14,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.11" }
       - run: pip install -q faster-whisper==1.1.1 requests
-      - run: python tools/find_okays.py "${{ inputs.script }}"
+      - run: python tools/find_okays.py "${{ inputs.script }}" "${{ inputs.pattern }}"
       - run: |
           git config user.name "github-actions" && git config user.email "actions@github.com"
-          git add scripts/${{ inputs.script }}/capcut/okays.json && git commit -m "Okay spans for ${{ inputs.script }}" && git pull --rebase && git push
+          git add scripts/${{ inputs.script }}/capcut/*.json && git commit -m "Okay spans for ${{ inputs.script }}" && git pull --rebase && git push
