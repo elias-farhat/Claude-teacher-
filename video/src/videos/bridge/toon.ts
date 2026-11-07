@@ -414,6 +414,23 @@ const hatOn = (p: Pen, o: Outfit, hp: P2[], H: Blob, cx: number, hc: number, lig
     p.poly(body, null, ow);
     const [bx, by] = R([[cx, yb + 1 * u]])[0];
     p.ell(bx, by, 0.45 * W, 0.05 * HH, "#1d1b22", ow, 0, 360, (a * 180) / Math.PI);
+  } else if (o.hat === "helmet") { // Rat Bounty short: colonial sun helmet (white dome, brim, band)
+    const col = o.cap ?? "#f1ece0", yb = crown + 0.2 * HH, wd = 0.4 * W, hd = 0.42 * HH;
+    const dome: P2[] = [];
+    for (let i = 0; i <= 20; i++) { const t = Math.PI * (i / 20); dome.push([cx - wd * Math.cos(t), yb - hd * Math.sin(t)]); }
+    const D = R(dome);
+    p.shadedFill(D, col, mul(col, SH_FELT), light, wd, 0.4);
+    p.clip(D, () => p.band(R([[cx - wd - 4 * u, yb - 0.07 * HH], [cx + wd + 4 * u, yb - 0.07 * HH]]), "#b9a982", 0.08 * HH, 0.8 * u));
+    p.poly(D, null, ow);
+    const [bx, by] = R([[cx, yb + 1 * u]])[0];
+    p.ell(bx, by, 0.52 * W, 0.07 * HH, mul(col, [0.93, 0.92, 0.88]), ow, 0, 360, (a * 180) / Math.PI);
+  } else if (o.hat === "conical") { // Rat Bounty short: woven conical straw hat (non la)
+    const col = o.cap ?? "#e3cf96", yb = crown + 0.24 * HH, wb = 0.66 * W, ap = crown - 0.42 * HH;
+    const cone = R([[cx - wb, yb], [cx, ap], [cx + wb, yb], [cx + wb * 0.5, yb + 0.04 * HH], [cx, yb + 0.05 * HH], [cx - wb * 0.5, yb + 0.04 * HH]]);
+    p.shadedFill(cone, col, mul(col, SH_FELT), light, wb, 0.4);
+    p.clip(cone, () => { for (let k = -3; k <= 3; k++) p.stroke(R([[cx, ap], [cx + k * wb * 0.3, yb + 0.05 * HH]]), 1.1 * u, mul(col, [0.72, 0.66, 0.55])); });
+    p.poly(cone, null, ow);
+    if (!side) p.stroke([[cx - 0.32 * W, hc + 0.3 * HH], [cx, hc + H.b * 1.02], [cx + 0.32 * W, hc + 0.3 * HH]], 1.2 * u, "#8a6a3a"); // chin strap
   } else if (o.hat === "bonnet") {
     const [bx, by] = R([[cx + (side ? 6 * u : 0), crown + 0.16 * HH]])[0];
     p.arc(bx, by, 0.5 * W, 0.2 * HH, 200, 340, 7 * u, BONNET_BRIM);
