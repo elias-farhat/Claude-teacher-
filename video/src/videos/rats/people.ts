@@ -10,7 +10,7 @@ type Arm = { pts: [P2, P2, P2]; front: boolean };
 export type Gesture = "hang" | "lips" | "palm" | "paper" | "pocket" | "stamp" | "clutch" | "sign" | "tip" | "point" | "lean" | "shrug" | "wave" | "hold" | "cheer" | "protect" | "axe" | "climb" | "paste" | "tear";
 
 /** custom arms per gesture (k = 0..1 animates stamp / sign / tip strokes) */
-const armsFor = (gest: Gesture, k: number) => (g: FrontGeo): Arm[] => {
+export const armsFor = (gest: Gesture, k: number) => (g: FrontGeo): Arm[] => {
   const { u, HH, tcx, Ta, chin, hc } = g, L = g.sh(-1), R = g.sh(1);
   const hangL: Arm = { pts: [L, [tcx - (1.12 * Ta + 4 * u), L[1] + 0.48 * HH], [tcx - (1.12 * Ta + 1 * u), chin + 1.04 * HH]], front: false };
   const hangR: Arm = { pts: [R, [tcx + 1.12 * Ta + 4 * u, R[1] + 0.48 * HH], [tcx + 1.12 * Ta + 1 * u, chin + 1.04 * HH]], front: false };
