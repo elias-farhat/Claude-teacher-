@@ -72,10 +72,10 @@ export const SHOTS: Shot[] = [
   // 1 "In 1902, the French paid people in Hanoi to kill rats... so people started farming them."
   //   over the farmhouse roof: the official pays the farmer a cent on "paid", the farmer holds up his rat like a prize hen
   { name: "terrace", at: 0, look: "morning", keys: [
-    { pos: [131.8, 7.1, 21.3], look: [127.2, 6.55, 19.0], fov: 46, dof: 3 },
-    { at: wt(1, "1902"), pos: [130.9, 6.95, 20.6], look: [127.3, 6.6, 19.0], fov: 46, dof: 4 },
-    { at: wt(1, "paid"), pos: [131.4, 7.0, 21.6], look: [126.3, 6.5, 19.2], fov: 48, dof: 3 },
-    { at: wt(1, "farming"), pos: [130.2, 6.95, 20.2], look: [127.3, 6.6, 19.0], fov: 46, roll: 0.05, dof: 5 },
+    { pos: [131.4, 7.4, 23.4], look: [127.1, 6.6, 19.0], fov: 46, dof: 3 },
+    { at: wt(1, "1902"), pos: [130.7, 7.25, 22.6], look: [127.2, 6.6, 19.0], fov: 46, dof: 4 },
+    { at: wt(1, "paid"), pos: [131.6, 7.4, 23.0], look: [126.3, 6.5, 19.1], fov: 48, dof: 3 },
+    { at: wt(1, "farming"), pos: [130.0, 7.1, 21.9], look: [127.3, 6.6, 19.0], fov: 46, roll: 0.05, dof: 5 },
   ] },
   // 2 "Hanoi is the shiny new capital of French Indochina," up and west down the boulevard: tram, flags, people
   { name: "boulevard", at: land(2, "shiny"), look: "morning", via: [[124, 13, 12], [116, 15, 4]], keys: [
