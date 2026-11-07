@@ -17,7 +17,7 @@ Voice tip: paste the narration as ONE CapCut text block, speed 1.3×, export aud
 
 | # | Narration | Shot / visual | Light |
 |---|---|---|---|
-| 1 | In 1835, a newspaper told New York that bat-people live on the Moon… and New York believed it. | Fly from a huge full Moon down to a newsboy shouting, holding a paper with a winged figure. | Night, moonlit blue |
+| 1 | In 1835, a newspaper told New York that bat-people were living on the Moon… and New York believed it. | Fly from a huge full Moon down to a newsboy shouting, holding a paper with a winged figure. | Night, moonlit blue |
 | 2 | The paper is called The Sun. It's two years old, it costs one penny, and it needs readers. | Tiny print shop, sign "THE SUN — 1¢", editor staring at an empty sales chart. | Lamp-lit night |
 | 3 | So a reporter named Richard Locke writes a story. | Locke (curly hair, ink-stained cuffs, sly grin) cracks knuckles at a desk. | Warm lamp |
 | 4 | The famous astronomer Sir John Herschel, he writes, has built a giant telescope in South Africa, | Camera flies down the length of an absurdly huge telescope on a hill. | Starry night |
