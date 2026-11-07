@@ -30,6 +30,7 @@ export const run = () => {
     const st = stage(t, c, cam), faces = [], props = [];
     const half = Math.tan((cam.fov * Math.PI) / 360);
     for (const p of st.places) {
+      if (p.key.startsWith("bg")) continue;
       const parts = p.key.split("|"), up = parts[0] === "up", mode = up ? parts[2] : parts[1];
       const sc = p.scale ?? 1, hy = (mode === "sit" ? 0.86 : 1.44) * sc;
       v.set(p.x, p.y + hy, p.z);
@@ -40,6 +41,7 @@ export const run = () => {
       if (Math.abs(v.x) < 1.05 && Math.abs(v.y) < 1.05) faces.push({ who: (up ? parts[1] : parts[0]), y: +((1 - v.y) / 2).toFixed(3), x: +((v.x + 1) / 2).toFixed(3), size: +size.toFixed(3) });
     }
     for (const p of st.fx) {
+      if (p.key.startsWith("bg")) continue;
       v.set(p.x, p.y, p.z);
       const dist = v.clone().sub(cam.position).dot(fwd);
       if (dist <= 0.1) continue;

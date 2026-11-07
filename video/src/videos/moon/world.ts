@@ -13,6 +13,7 @@ import { LightPreset } from "../bridge/lights";
 import { quality } from "../../quality";
 import type { Lamp } from "../rats/hanoi";
 import { buildDiorama, Diorama } from "./diorama";
+import { buildBackdrop } from "./backdrop";
 import { buildRooms, Room, RoomName } from "./rooms";
 import { LOOKS, Look, LAMP } from "./looks";
 import { SHOTS, camAt, Cam, FPS, wt, shipX } from "./story";
@@ -92,6 +93,7 @@ export class MoonWorld {
       this.clouds.push(m); R.add(m);
     }
     this.dio = buildDiorama(R);
+    buildBackdrop(R);
     this.rooms = buildRooms(R);
     const dot = new THREE.MeshBasicMaterial({ color: new THREE.Color(4.5, 2.8, 1.1) });
     for (const l of this.dio.lamps) { const m = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 8), dot); m.position.copy(l.p); m.layers.set(NOINK); this.lampDots.push(m); R.add(m); }

@@ -9,6 +9,7 @@ import { V } from "../bridge/build";
 import { wt, clamp01, smooth, Cam, V3, shipX, carryAt } from "./story";
 import { EYEPIECE, MOON, MOON_TOP, EUROPE, GARDEN, BEACH, SHIP_LINE } from "./layout";
 import { PORTRAIT, CHART } from "./rooms";
+import { CHIMNEYS } from "./backdrop";
 import type { Lamp } from "../rats/hanoi";
 import { LAMP } from "./looks";
 import { person, personKey, Look, Extra, NEWSBOY, EDITOR, LOCKE, HERSCHEL, HERSCHEL_BEACH, RIVAL, BATFOLK, KID, CITIZEN, goat } from "./people";
@@ -39,6 +40,25 @@ const between = (t: number, a: number, b: number) => t >= a && t < b;
 const warm = (p: THREE.Vector3, k: number) => ({ p, k, col: LAMP });
 const M = (dx: number, dy: number, dz: number) => V(MOON.c.x + dx, MOON_TOP + dy, MOON.c.z + dz);
 const HERSCHEL_AT = V(EYEPIECE.x + 1.2, 7.75, EYEPIECE.z + 0.9);
+
+// ---------------- constant background life (CLAUDE.md 12), named bg* so the QA never counts it ----------------
+const smokeCard = (p: Pen) => { for (const [x, y, r] of [[150, 160, 90], [90, 110, 60], [210, 100, 70], [150, 70, 55]] as const) p.ell(x, y, r, r * 0.85, "#e8e6ec", 0); };
+const birdCard = (flap: number) => (p: Pen) => { const a = Math.sin(flap * Math.PI * 2) * 22; p.line([[10, 60 - a], [60, 60], [110, 60 - a]], "#2a2a33", 9); };
+const life = (t: number, s: Stage, cam: THREE.Camera) => {
+  const cp = new THREE.Vector3().setFromMatrixPosition(cam.matrixWorld);
+  if (cp.y > 40) return;                                                                          // up on the Moon: none
+  for (let i = 0; i < 14; i++) {                                                                  // walkers along the street + the pier road
+    const dir = i % 2 ? 1 : -1, z = [-6.6, 6.6, -6.9, 6.9][i % 4], x = 46 - (((t * 1.1 * dir + i * 7.3) % 70) + 70) % 70;
+    if (Math.hypot(x - cp.x, z - cp.z) > 60) continue;
+    s.places.push(P(`bgWalker${i}`, CITIZEN(i + 20), { mode: "stroll", phase: q((t * 1.8 + i * 0.3) % 1, 12), seed: 120 + i }, {}, [x, 0.12, z], { size: LO }));
+  }
+  for (let i = 0; i < CHIMNEYS.length; i++) {
+    const c = CHIMNEYS[i]; if (c.distanceTo(cp) > 220) continue;
+    for (let k = 0; k < 3; k++) { const u = ((t * 0.35 + i * 0.37 + k / 3) % 1); s.fx.push(card("bgSmoke", 300, 260, smokeCard, [c.x + u * 2.5, c.y + 0.5 + u * 6, c.z], 1.2 + u * 3.2, 1.0 + u * 2.7, { soft: true })); }
+  }
+  for (let i = 0; i < 6; i++) { const a = t * 0.4 + i * 1.05, cx = cp.x + 30 * Math.cos(i * 1.7), cz = cp.z - 40 + 20 * Math.sin(i);
+    s.fx.push(card(`bgBird${q((t * 3 + i * 0.2) % 1, 4)}`, 120, 80, birdCard(q((t * 3 + i * 0.2) % 1, 4)), [cx + 12 * Math.cos(a), 24 + 4 * Math.sin(a * 1.3), cz + 12 * Math.sin(a)], 0.8, 0.53)); }
+};
 
 // ---------------- beats ----------------
 const street = (t: number, s: Stage) => {
@@ -154,7 +174,7 @@ const queue = (t: number, s: Stage) => {
 /** everything on stage at time t */
 export const stage = (t: number, c: Cam, cam: THREE.Camera): Stage => {
   const s: Stage = { places: [], fx: [], lights: [] };
-  street(t, s); shop(t, s); cape(t, s); moonWorld(t, s); pier(t, s); ship(t, s); herald(t, s); queue(t, s);
+  life(t, s, cam); street(t, s); shop(t, s); cape(t, s); moonWorld(t, s); pier(t, s); ship(t, s); herald(t, s); queue(t, s);
   const cr = carryAt(t, c);
   if (cr && cr.k > 0) {
     if (cr.kind === "paper") s.fx.push(card("carryPaper", 480, 600, LB.dayPage("DAY 1", "bats"), cr.p, 0.55 * cr.k, 0.69 * cr.k, { rot: cr.spin }));
