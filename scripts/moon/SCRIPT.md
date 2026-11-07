@@ -1,4 +1,4 @@
-# "The Newspaper That Found Bat-People on the Moon" — script v1 (awaiting approval)
+# "The Newspaper That Found Bat-People on the Moon" — script v1 (APPROVED 2026-11-07)
 
 Style: STYLE_BIBLE.md. Target ~60 s. Voice from frame 0, ends on the last word.
 Voice tip: paste the narration as ONE CapCut text block, speed 1.3×, export audio only.
@@ -37,3 +37,6 @@ Voice tip: paste the narration as ONE CapCut text block, speed 1.3×, export aud
 | 18 | And Locke? He starts signing his work: "author of the Moon hoax." | Close on Locke's pen signing "R. A. Locke — author of the Moon hoax". End on last word. | Warm sunrise through window |
 
 205 words → ~53 s at CapCut 1.3× (use 1.2× for ~58 s).
+
+## Voice (final)
+`voice.wav`: Kokoro am_liam, speed 1.25, generated sentence by sentence (natural endings), 0.16 s pause inside a row / 0.24 s between rows. 62.8 s, −14 LUFS, 48 kHz mono. `sentences.json` has the start/end time of every sentence (use it to check forced alignment).
