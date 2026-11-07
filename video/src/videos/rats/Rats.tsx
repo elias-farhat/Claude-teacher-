@@ -38,13 +38,14 @@ const qaProbe = (f: number, world: RatWorld, cam: THREE.PerspectiveCamera, c: { 
     return ray.intersectObject(world.root, true).length ? null : v;
   };
   for (const p of st.places) {
+    if (p.key.startsWith("bg")) continue; // background life is never the subject
     const parts = p.key.split("|"), up = parts[0] === "up", mode = up ? parts[2] : parts[1], sc = p.scale ?? 1;
     const head = new THREE.Vector3(p.x, p.y + (mode === "sit" ? 0.86 : 1.44) * sc, p.z), v = seen(head);
     if (!v) continue;
     const who = up ? parts[1] : parts[0], size = (0.48 * sc) / (2 * head.clone().sub(cam.position).dot(fwd) * half);
     vis.push(who); faces.push({ who, y: +((1 - v.y) / 2).toFixed(3), size: +size.toFixed(3) });
   }
-  for (const p of st.fx) if (seen(new THREE.Vector3(p.x, p.y, p.z))) vis.push(p.key.split("|").pop()!.replace(/[0-9.]+$/, ""));
+  for (const p of st.fx) if (!p.key.startsWith("bg") && seen(new THREE.Vector3(p.x, p.y, p.z))) vis.push(p.key.split("|").pop()!.replace(/[0-9.]+$/, ""));
   console.error("[qa] " + JSON.stringify({ f, shot: c.shot, flight: c.mix > 0, vis, faces }));
 };
 

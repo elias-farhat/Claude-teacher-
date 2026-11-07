@@ -205,7 +205,7 @@ export const buildHanoi = (root: THREE.Object3D): Hanoi => {
   ground(b, road, BLVD.x1, 175, -10, 10, 0, 10);                                   // dirt road on to the farm
   ground(b, grass, 112, 190, 10, 60, -0.02, 12); ground(b, grass, 112, 190, -60, -10, -0.02, 12);
   ground(b, grass, -140, BLVD.x0, -30, 40, -0.02, 12);
-  holedGround(b, walk, -70, 112, QUAY.z1, -24, [quayHole], 0.05, 3);              // quay promenade
+  ground(b, walk, -70, 112, QUAY.z1, -24, 0.05, 3);                               // quay promenade
   ground(b, road, -70, 112, 10, 30, -0.01, 10);                                    // behind the south row
   // tram rails
   for (const dz of [-0.72, 0.72]) box(b, iron, -80, 0.0, TRAM_Z + dz - 0.04, 180, 0.04, TRAM_Z + dz + 0.04);
@@ -253,7 +253,7 @@ export const buildHanoi = (root: THREE.Object3D): Hanoi => {
   const water = new THREE.Mesh(new THREE.PlaneGeometry(200, RIVER.z0 - RIVER.z1 + 4).rotateX(-Math.PI / 2), new THREE.MeshLambertMaterial({ map: rep(waterTex(), 10, 2) }));
   water.position.set(20, RIVER.y, (RIVER.z0 + RIVER.z1) / 2); water.receiveShadow = true; g.add(water);
   wallX(b, quayStone, -70, 112, RIVER.y - 1, 0, RIVER.z1, -1, [], 3);
-  ground(b, walk, -70, 112, PALACE.z, RIVER.z1, 0, 3);
+  holedGround(b, walk, -70, 112, PALACE.z, RIVER.z1, [quayHole], 0, 3);
   const pal = lam("palace", () => ({ map: ctex("palaceF", 1104, 384, (gg) => {
     gg.fillStyle = "#efe6d2"; gg.fillRect(0, 0, 1104, 384);
     for (let x = 24; x < 1104; x += 72) { gg.fillStyle = "#f8f3e6"; gg.fillRect(x, 40, 22, 344); gg.fillStyle = "rgba(120,100,70,0.2)"; gg.fillRect(x + 20, 40, 3, 344); }
@@ -266,7 +266,12 @@ export const buildHanoi = (root: THREE.Object3D): Hanoi => {
     box(b, white, x0, y - 0.3, z, x1, y, z + 1.8);                                                          // balcony slab
     for (let x = x0 + 0.1; x <= x1 - 0.05; x += 0.35) box(b, white, x - 0.05, y, z + 1.68, x + 0.05, y + 0.9, z + 1.78); // balusters
     box(b, white, x0, y + 0.9, z + 1.62, x1, y + 1.02, z + 1.82);
-    box(b, lam("balconyDoor", () => ({ color: "#3d3550" })), PALACE.x - 1.1, y, z + 0.01, PALACE.x + 1.1, y + 3, z + 0.05);
+    // lit French doors (warm glass, white mullions) with red curtains, instead of a dark rectangle
+    { const glass = new THREE.Mesh(new THREE.PlaneGeometry(2.2, 3.0), new THREE.MeshBasicMaterial({ color: new THREE.Color(1.6, 1.25, 0.8) })); glass.position.set(PALACE.x, y + 1.5, z + 0.03); g.add(glass);
+      for (const dx of [-1.1, 0, 1.1]) box(b, white, PALACE.x + dx - 0.06, y, z + 0.03, PALACE.x + dx + 0.06, y + 3, z + 0.1);
+      for (const yy of [1.2, 2.2]) box(b, white, PALACE.x - 1.1, y + yy - 0.05, z + 0.03, PALACE.x + 1.1, y + yy + 0.05, z + 0.1);
+      box(b, white, PALACE.x - 1.3, y + 3.0, z + 0.03, PALACE.x + 1.3, y + 3.25, z + 0.12);
+      for (const s of [-1, 1]) box(b, lam("palaceCurtain", () => ({ color: "#b8262e" })), PALACE.x + s * 1.45 - 0.25, y, z + 0.05, PALACE.x + s * 1.45 + 0.25, y + 3.1, z + 0.2); }
     const red = lam("drape", () => ({ color: "#b8262e" }));
     box(b, red, x0 + 0.2, y - 1.6, z + 1.84, x1 - 0.2, y - 0.3, z + 1.86);                                     // red drape under the rail
     flag(b, g, V(PALACE.x - 6, y + 2.5, z + 0.1), Math.PI / 2 + 0.4); flag(b, g, V(PALACE.x + 6, y + 2.5, z + 0.1), Math.PI / 2 - 0.4); }

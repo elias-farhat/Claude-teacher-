@@ -7,6 +7,7 @@ import { Pen, fxRing } from "../bridge/toon";
 import { V } from "../bridge/build";
 import { wt, wtn, lineEnd, clamp01, smooth, Cam, V3, RAT_STOP, runRatX, convoy, carryAt } from "./story";
 import { POSTER, MANHOLE, SEWER, NEST, OUTFLOW, QUAY, PALACE, GRATE } from "./layout";
+import { CHIMNEYS } from "./backdrop";
 import type { Lamp } from "./hanoi";
 import { LAMP } from "./looks";
 import {
@@ -52,17 +53,49 @@ const terrace = (t: number, s: Stage) => {
   const y = 5.25, paid = after(t, 1, "paid"), proud = after(t, 1, "farming");
   const give = smooth((t - wt(1, "paid") + 0.15) / 0.4) * (1 - smooth((t - wt(1, "rats")) / 0.5));
   s.places.push(P("official", OFFICIAL, { expr: paid ? "smug" : "neutral", gest: give > 0.05 ? "palm" : "hang", blink: blinkAt(t, 2) }, { glasses: true, coin: give > 0.05 }, [125.3, y, 19.4]));
-  s.places.push(P("farmer", FARMER, { expr: proud ? "grin" : paid ? "smile" : "neutral", gest: "hold", headTilt: proud ? 6 : 0, blink: proud ? 0 : blinkAt(t, 5) }, { ratHeld: true, coin: paid && !proud }, [127.4, y, 19.0]));
+  s.places.push(P("farmer", FARMER, { expr: "grin", gest: "hold", headTilt: proud ? 6 : 3 * Math.sin(t * 2), blink: proud ? 0 : blinkAt(t, 5) }, { ratHeld: true, coin: paid && !proud }, [127.4, y, 19.0]));
   for (let i = 0; i < 3; i++) s.fx.push(card(`yardHen${i}`, 600, 600, LB_HEN(q((t * 2 + i) % 1, 4)), [122 + i * 4.5, 0.4, 9 + i * 1.5], 0.7, 0.7));
 };
 import { hen as henCard } from "./people";
 const LB_HEN = (f: number) => henCard(f);
 
-const boulevard = (t: number, s: Stage) => {
-  if (!between(t, wt(1, "farming"), wt(4))) return;
-  for (let i = 0; i < 12; i++) {
-    const dir = i % 2 ? 1 : -1, z = (i % 4 < 2 ? -8.4 : 8.4) + (i % 3) * 0.3, x = 100 - ((t * 1.2 * dir + i * 13.7) % 160 + 160) % 160;
-    s.places.push(P(`walker${i}`, LOCAL(i), { mode: "stroll", phase: q((t * 1.8 + i * 0.3) % 1, 12), seed: 20 + i }, {}, [x, 0.12, z], { size: LO }));
+// ---------------- constant background life (CLAUDE.md 12): walkers, carts, smoke, leaves, birds ----------------
+// background cards are named "bg..." so the QA never counts them as the shot's subject
+const cartCard = (p: Pen) => {
+  p.poly([[60, 150], [520, 150], [500, 260], [80, 260]], "#a8703a", 8);
+  for (const x of [130, 200, 270, 340, 410]) p.ell(x, 130, 40, 30, "#d8c08a", 6);                    // sacks of rice
+  p.stroke([[520, 200], [590, 170]], 10, "#6b4a34");
+  for (const x of [150, 430]) { p.ell(x, 300, 60, 60, "#5a3b2a", 8); p.ell(x, 300, 14, 14, "#2a2020", 4); }
+};
+const smokeCard = (p: Pen) => { for (const [x, y, r] of [[150, 160, 90], [90, 110, 60], [210, 100, 70], [150, 70, 55]] as const) p.ell(x, y, r, r * 0.85, "#e8e6ec", 0); };
+const leafCard = (p: Pen) => { p.ell(30, 20, 26, 12, "#7fae4a", 4, 0, 360, 25); p.stroke([[8, 26], [52, 14]], 2, "#5a7a30"); };
+const birdCard = (flap: number) => (p: Pen) => { const a = Math.sin(flap * Math.PI * 2) * 22; p.line([[10, 60 - a], [60, 60], [110, 60 - a]], "#2a2a33", 9); };
+const life = (t: number, s: Stage, cam: THREE.Camera) => {
+  const cp = new THREE.Vector3().setFromMatrixPosition(cam.matrixWorld);
+  if (cp.y < -1) return;                                                                         // underground: none
+  for (let i = 0; i < 20; i++) {                                                                  // walkers on both sidewalks + the back lanes
+    const dir = i % 2 ? 1 : -1, lane = i % 5, z = [-8.4, 8.4, -8.9, 8.9, 26][lane] + (i % 3) * 0.25, x = 108 - (((t * 1.2 * dir + i * 9.1) % 176) + 176) % 176;
+    if (Math.hypot(x - cp.x, z - cp.z) > 70) continue;
+    s.places.push(P(`bgWalker${i}`, LOCAL(i), { mode: "stroll", phase: q((t * 1.8 + i * 0.3) % 1, 12), seed: 20 + i }, {}, [x, 0.12, z], { size: LO }));
+  }
+  for (let i = 0; i < 4; i++) {                                                                   // handcarts on the road
+    const dir = i % 2 ? 1 : -1, z = dir * 3.6, x = 108 - (((t * 1.6 * dir + i * 41) % 176) + 176) % 176;
+    if (Math.hypot(x - cp.x, z - cp.z) > 70) continue;
+    s.fx.push(card("bgCart", 600, 400, dir > 0 ? cartCard : flip(600, cartCard), [x, 0.75, z], 2.0, 1.33));
+    s.places.push(P(`bgPusher${i}`, LOCAL(i + 2), { mode: "stroll", phase: q((t * 1.8 + i * 0.5) % 1, 12), gest: "hold", seed: 70 + i }, {}, [x + dir * 1.4, 0, z], { size: LO }));
+  }
+  for (let i = 0; i < CHIMNEYS.length; i++) {                                                     // chimney smoke
+    const c = CHIMNEYS[i]; if (c.distanceTo(cp) > 260) continue;
+    for (let k = 0; k < 3; k++) { const u = ((t * 0.35 + i * 0.37 + k / 3) % 1); s.fx.push(card("bgSmoke", 300, 260, smokeCard, [c.x + u * 2.5, c.y + 0.5 + u * 6, c.z], 1.2 + u * 3.2, 1.0 + u * 2.7, { soft: true })); }
+  }
+  for (let i = 0; i < 10; i++) {                                                                  // leaves drifting down from the boulevard trees
+    const x0 = -60 + ((i * 37) % 170), z0 = i % 2 ? 8 : -8, u = (t * 0.25 + i * 0.13) % 1;
+    if (Math.hypot(x0 - cp.x, z0 - cp.z) > 40) continue;
+    s.fx.push(card("bgLeaf", 64, 40, leafCard, [x0 + Math.sin(t * 2 + i) * 1.2, 5.2 - 5 * u, z0 + Math.cos(t * 1.5 + i) * 0.8], 0.16, 0.1, { rot: t * 3 + i }));
+  }
+  for (let i = 0; i < 6; i++) {                                                                   // birds wheeling over the roofs
+    const a = t * 0.4 + i * 1.05, cx = cp.x + 30 * Math.cos(i * 1.7), cz = cp.z - 40 + 20 * Math.sin(i);
+    s.fx.push(card(`bgBird${q((t * 3 + i * 0.2) % 1, 4)}`, 120, 80, birdCard(q((t * 3 + i * 0.2) % 1, 4)), [cx + 12 * Math.cos(a), 28 + 4 * Math.sin(a * 1.3), cz + 12 * Math.sin(a)], 0.8, 0.53));
   }
 };
 const grate = (t: number, s: Stage) => {
@@ -74,7 +107,7 @@ const grate = (t: number, s: Stage) => {
 };
 const tunnel = (t: number, s: Stage, cam: THREE.Camera) => {
   if (!between(t, wt(4, "rats") - 0.9, wt(5))) return;
-  for (let i = 0; i < 9; i++) { const p = convoy(t, i), v = convoy(t + 0.05, i).sub(p); if (v.lengthSq() < 1e-6 || p.y > 0.4) continue; runner(s, `convoy${i}`, p, v, cam, t, true, 0.55); }
+  for (let i = 0; i < 14; i++) { const p = convoy(t, i), v = convoy(t + 0.05, i).sub(p); if (v.lengthSq() < 1e-6 || p.y > 0.4) continue; runner(s, `convoy${i}`, p, v, cam, t, true, 0.95); }
 };
 const bath = (t: number, s: Stage) => {
   if (!between(t, wt(4, "straight"), wt(5, "kitchen"))) return;
@@ -211,7 +244,7 @@ const nest = (t: number, s: Stage, cam: THREE.Camera) => {
   void cam;
 };
 const farmyard = (t: number, s: Stage) => {
-  if (!between(t, wt(16, "tail") , wt(18, "breeding"))) return;
+  if (!between(t, wt(16, "tail"), lineEnd(17))) return;
   const kill = after(t, 17, "killing"), nobody = after(t, 17, "Nobody"), raise = smooth((t - wt(17, "killing") + LEAD) / 0.3);
   s.places.push(P("farmerH", FARMER, { expr: nobody ? "stern" : kill ? "shock" : "grin", gest: kill ? "protect" : "hold", headTilt: nobody ? 10 * Math.sin(t * 9) : 0, blink: kill ? 0 : blinkAt(t, 5) }, { hen: true }, [130.4, 0, 6.0]));
   if (t > wt(17, "killing") - 0.6) s.places.push(P("officialH", OFFICIAL, { expr: nobody ? "nervous" : "smug", gest: "axe", k: nobody ? 1 : 1 - raise, blink: blinkAt(t, 2) }, { glasses: true, axe: true }, [128.5, 0, 6.5]));
@@ -223,6 +256,8 @@ const barn = (t: number, s: Stage, cam: THREE.Camera) => {
   if (!between(t, wt(17, "Nobody"), wt(19, "French") + 0.1)) return;
   // rats peering out of the barn door, cages full of rats inside, the farmer counting coins at his bench
   for (let i = 0; i < 3; i++) s.fx.push(card(`doorRat${i}`, 600, 600, ratHero(i === 1 ? "smug" : "look", 0, blinkAt(t, 80 + i)), [132.6, 0.3, -5.2 + i * 0.9], 0.55, 0.55));
+  // line 18 "farms": the farmer carries his hen over to the barn under the RAT FARM sign
+  if (t >= lineEnd(17) && t < wt(18, "breeding")) { const u = smooth((t - lineEnd(17)) / 1.2); s.places.push(P("farmerWalk", FARMER, { mode: u > 0 && u < 1 ? "stroll" : "stand", phase: q((t * 1.8) % 1, 12), expr: "grin", gest: "hold", blink: blinkAt(t, 5) }, { hen: true }, [130.4 + 1.6 * u, 0, 6.0 - 8.4 * u])); }
   for (const row of [-3.6, 0.2]) for (let k = 0; k < 6; k++) for (let lvl = 0; lvl < 3; lvl++) {
     const p = V(142 - 4.5 + k * 1.7, 0.2 + lvl * 0.85, -4 + row + 0.56);
     s.fx.push(card(`cageRat${(k + lvl) % 3}`, 600, 600, ratHero(["look", "smug", "look"][(k + lvl) % 3], 0, 0), p.add(V(0, 0.2, 0)), 0.45, 0.45));
@@ -237,10 +272,13 @@ const quay = (t: number, s: Stage) => {
   const board = smooth((t - wt(20, "goes") + LEAD) / 0.9), a = V(55.4, 0.05, -43.8), b = V(53.4, -0.1, -47.6), p = a.lerp(b, board);
   if (t < wt(20, "President") - 0.4) {
     s.places.push(P("doumerQ", DOUMER, { mode: board > 0 && board < 1 ? "stroll" : "stand", phase: q((t * 2) % 1, 12), expr: "smug", gest: board < 0.05 ? "hold" : "wave", k: q((t * 2) % 1, 8), blink: blinkAt(t, 3) }, { beard: true, blueprint: board < 0.05 }, [p.x, p.y, p.z]));
-    s.places.push(P("officialQ", OFFICIAL, { expr: "smile", gest: "wave", k: q((t * 2) % 1, 8), blink: blinkAt(t, 2) }, { glasses: true }, [58.4, 0.05, -42.4]));
+    s.places.push(P("officialQ", OFFICIAL, { expr: "smile", gest: "wave", k: q((t * 2) % 1, 8), blink: blinkAt(t, 2) }, { glasses: true }, [53.2, 0.05, -43.4]));
   }
   // the balcony in Paris: President Doumer with the sash; the crowd cheers on the square below
   if (t > wt(20, "later")) {
+    // dignitaries cheering on the balcony beside him, confetti in the air
+    for (let i = 0; i < 4; i++) s.places.push(P(`digni${i}`, i % 2 ? CLERK(i) : LOCAL(3 * i + 2), { expr: "laugh", gest: "cheer", k: q((t * 2 + i * 0.3) % 1, 8), seed: 110 + i }, {}, [PALACE.x + [-2.6, -1.4, 1.4, 2.6][i], PALACE.balconyY, PALACE.z + 0.8], { size: LO }));
+    for (let i = 0; i < 18; i++) { const u = (t * 0.4 + i * 0.13) % 1; s.fx.push(card(`confetti${i % 4}`, 40, 40, (p) => p.poly([[4, 4], [36, 8], [32, 36], [6, 30]], ["#c8313b", "#f4f1ea", "#2a4f9a", "#e8c45a"][i % 4], 3), [PALACE.x - 4 + ((i * 1.7) % 8), PALACE.balconyY + 4 - 6 * u, PALACE.z + 2.0 + ((i * 0.7) % 2)], 0.12, 0.12, { rot: t * 4 + i })); }
     s.places.push(P("doumerP", DOUMER_PRES, { expr: "grin", gest: "wave", k: q((t * 1.6) % 1, 8), blink: blinkAt(t, 3) }, { beard: true }, [PALACE.x, PALACE.balconyY, PALACE.z + 1.0]));
     for (let i = 0; i < 16; i++) {
       const x = PALACE.x - 9 + (i % 8) * 2.4 + (i > 7 ? 1.2 : 0), z = PALACE.z + 6 + (i > 7 ? 2.2 : 0);
@@ -260,12 +298,13 @@ const stayed = (t: number, s: Stage) => {
 /** everything on stage at time t */
 export const stage = (t: number, c: Cam, cam: THREE.Camera): Stage => {
   const s: Stage = { places: [], fx: [], lights: [] };
-  terrace(t, s); boulevard(t, s); grate(t, s); tunnel(t, s, cam); bath(t, s); kitchen(t, s); hunters(t, s, cam); posterWall(t, s);
+  life(t, s, cam); terrace(t, s); grate(t, s); tunnel(t, s, cam); bath(t, s); kitchen(t, s); hunters(t, s, cam); posterWall(t, s);
   office(t, s); street(t, s, cam); table(t, s); nest(t, s, cam); farmyard(t, s); barn(t, s, cam); quay(t, s); stayed(t, s);
   // the carried prop of the current glide (story.carryAt): the torn poster over the roofs, a coin to the farm / poster
   const cr = carryAt(t, c);
   if (cr && cr.k > 0) {
-    if (cr.kind === "poster") s.fx.push(card("carryPoster", 480, 640, LB.poster(0.35), cr.p, 0.7 * cr.k, 0.93 * cr.k, { rot: cr.spin }));
+    if (cr.kind === "ribbon") s.fx.push(card("carryRibbon", 800, 120, LB.ribbon(1), cr.p, 1.2 * cr.k, 0.18 * cr.k, { rot: cr.spin }));
+    else if (cr.kind === "poster") s.fx.push(card("carryPoster", 480, 640, LB.poster(0.35), cr.p, 0.7 * cr.k, 0.93 * cr.k, { rot: cr.spin }));
     else if (cr.kind === "lantern") { s.fx.push(card("carryLantern", 200, 300, lanternCard, cr.p, 0.3 * cr.k, 0.45 * cr.k)); s.lights.push(warm(cr.p.clone(), 1.2)); }
     else if (cr.kind === "rat") s.fx.push(card(`carryRat${q((t * 6) % 1, 6)}`, 600, 300, ratRun(true, q((t * 6) % 1, 6)), cr.p, 0.6 * cr.k, 0.3 * cr.k, { rot: cr.spin * 0.5 }));
     else s.fx.push(card("carryCoin", 200, 200, LB.coin, cr.p, 0.32 * cr.k, 0.32 * cr.k, { rot: cr.spin }));

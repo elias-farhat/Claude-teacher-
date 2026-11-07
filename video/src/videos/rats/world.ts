@@ -13,6 +13,7 @@ import { LightPreset } from "../bridge/lights";
 import { quality } from "../../quality";
 import { buildShip } from "../eiffel/paris";
 import { buildHanoi, Hanoi, Lamp } from "./hanoi";
+import { buildBackdrop } from "./backdrop";
 import { buildSewer, Sewer } from "./sewer";
 import { buildRooms, Room, RoomName } from "./rooms";
 import { LOOKS, Look, LAMP } from "./looks";
@@ -93,6 +94,7 @@ export class RatWorld {
       this.clouds.push(m); R.add(m);
     }
     this.hanoi = buildHanoi(R);
+    buildBackdrop(R);
     this.sewer = buildSewer(R);
     this.rooms = buildRooms(R);
     this.ship = buildShip(); this.ship.position.set(SHIP.x, -0.6, SHIP.z + 4.5); R.add(this.ship);

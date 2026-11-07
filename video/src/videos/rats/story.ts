@@ -9,7 +9,7 @@
 import * as THREE from "three";
 import WORDS from "./words.json";
 import { LookName } from "./looks";
-import { insideRoom } from "./layout";
+import { insideRoom, OUTFLOW } from "./layout";
 
 export const FPS = 30;
 type Word = { i: number; w: string; s: number; e: number; line: number };
@@ -43,7 +43,8 @@ const V = (a: V3 | THREE.Vector3) => (a instanceof THREE.Vector3 ? a.clone() : n
 export const RAT_STOP = new THREE.Vector3(58.5, 0.12, 8.0);
 export const runRatX = (t: number) => { const t0 = wt(12, "something") - 0.4, t1 = wt(13) - 0.05; const u = clamp01((t - t0) / (t1 - t0)); return 80 - (80 - RAT_STOP.x) * (1 - (1 - u) * (1 - u)); };
 /** the tram on line 2 (west along the boulevard) */
-export const tramX = (t: number) => 104 - 11 * Math.max(0, t - wt(2) + 0.6);
+/** the tram runs up and down the boulevard all film long (x -45..105), heading west past the camera on line 2 */
+export const tramX = (t: number) => 30 + 75 * Math.cos(0.13 * (t - wt(2) + 0.6));
 /** the rats racing through the tunnel on line 4: a convoy along the north walkway, then up the branch */
 export const convoy = (t: number, i: number) => {
   const t0 = wt(4, "rats") - 0.5 + i * 0.09, v = 9.0, d = Math.max(0, (t - t0) * v) - i * 0.6;
@@ -62,7 +63,7 @@ export type Shot = { name: string; at: number; look: LookName; keys: Key[]; via?
    *  down the path (following something that travels the same way, e.g. the rat convoy) */
   lk?: [number, number] | "ahead";
   /** a key prop that rides just ahead of the camera through the glide into this shot (CLAUDE.md 2: no empty flights) */
-  carry?: "poster" | "coin" | "lantern" | "rat" };
+  carry?: "poster" | "coin" | "lantern" | "rat" | "ribbon" };
 
 const ratTrack = (t: number) => new THREE.Vector3(runRatX(t) - RAT_STOP.x, 0, 0);
 const MG = 0.6; // manhole radius margin used by the dives
@@ -71,12 +72,13 @@ export const SHOTS: Shot[] = [
   // 1 "In 1902, the French paid people in Hanoi to kill rats... so people started farming them."
   //   over the farmhouse roof: the official pays the farmer a cent on "paid", the farmer holds up his rat like a prize hen
   { name: "terrace", at: 0, look: "morning", keys: [
-    { pos: [119.0, 11.5, 9.5], look: [126.2, 6.0, 19.2], fov: 44 },
-    { at: wt(1, "paid"), pos: [119.6, 8.9, 12.4], look: [126.3, 6.4, 19.2], fov: 42, dof: 4 },
-    { at: wt(1, "farming"), pos: [123.3, 7.6, 14.0], look: [127.3, 6.5, 19.0], fov: 42, roll: 0.05, dof: 7 },
+    { pos: [131.8, 7.1, 21.3], look: [127.2, 6.55, 19.0], fov: 46, dof: 3 },
+    { at: wt(1, "1902"), pos: [130.9, 6.95, 20.6], look: [127.3, 6.6, 19.0], fov: 46, dof: 4 },
+    { at: wt(1, "paid"), pos: [131.4, 7.0, 21.6], look: [126.3, 6.5, 19.2], fov: 48, dof: 3 },
+    { at: wt(1, "farming"), pos: [130.2, 6.95, 20.2], look: [127.3, 6.6, 19.0], fov: 46, roll: 0.05, dof: 5 },
   ] },
   // 2 "Hanoi is the shiny new capital of French Indochina," up and west down the boulevard: tram, flags, people
-  { name: "boulevard", at: land(2, "shiny"), look: "morning", via: [[118, 15, 4]], keys: [
+  { name: "boulevard", at: land(2, "shiny"), look: "morning", via: [[124, 13, 12], [116, 15, 4]], keys: [
     { pos: [106, 11.5, 2.5], look: [64, 5.5, -1], fov: 46 },
     { at: wt(2, "Indochina"), pos: [72, 7.2, 4.5], look: [30, 3.0, -1.0], fov: 46, roll: -0.04 },
   ] },
@@ -86,15 +88,15 @@ export const SHOTS: Shot[] = [
     { at: wt(3, "gave"), pos: [-5.0, 1.9, 6.8], look: [-9.8, 0.9, 3.0], fov: 42, dof: 6 },
   ] },
   //   ...and dives through the grate into the clean new tunnel: the NEW SEWERS 1902 plaque on "sewer"
-  { name: "plaque", at: land(3, "sewer"), look: "sewer", lk: [0.2, 0.6], via: [[-9.8, 1.6, 3.3], [-10, -1.2, 3.1], [-10, -4.6, 3.1]], keys: [
+  { name: "plaque", at: land(3, "sewer"), look: "sewer", carry: "ribbon", lk: [0.2, 0.6], via: [[-9.8, 1.6, 3.3], [-10, -1.2, 3.1], [-10, -4.6, 3.1]], keys: [
     { pos: [-6.8, -5.4, 4.4], look: [-5.8, -5.45, 1.05], fov: 46, dof: 4 },
   ] },
   // 4 "The rats love it. It's a highway under every street, straight into the nicest houses."
   //   a convoy of rats races east along the walkway (the camera rides behind them)...
   { name: "convoy", at: land(4, "rats"), look: "sewer", keys: [
-    { pos: [-12.5, -6.0, 3.9], look: [-6, -6.7, 2.0], fov: 50, dof: 3 },
-    { at: wt(4, "highway"), pos: [-6.5, -6.15, 3.6], look: [2, -6.75, 1.8], fov: 50, dof: 3 },
-    { at: wt(4, "street"), pos: [1.5, -6.2, 3.4], look: [7.5, -6.75, 1.4], fov: 50, dof: 3 },
+    { pos: [-11.6, -6.3, 2.9], look: [-6.5, -6.6, 1.7], fov: 50, dof: 3 },
+    { at: wt(4, "highway"), pos: [-5.0, -6.35, 2.6], look: [1.5, -6.65, 1.6], fov: 50, dof: 3 },
+    { at: wt(4, "street"), pos: [1.0, -6.4, 2.5], look: [7.2, -6.7, 1.3], fov: 50, dof: 3 },
   ] },
   //   ...follows them into the branch, up the riser, out of the floor drain beside the toilet: a rat pops out, the lady screams
   { name: "bath", at: land(4, "into"), look: "bath", carry: "rat", lk: "ahead", via: [[6.9, -6.2, 2.3], [7.4, -6.1, -2], [7.5, -5.8, -14.4], [7.5, -3, -15.2], [7.5, -0.4, -15.2], [8.2, 1.0, -14.2]], keys: [
@@ -149,7 +151,7 @@ export const SHOTS: Shot[] = [
   //   the camera drops to ankle height and races after a scurrying rat
   { name: "notice", at: land(12, "notices"), look: "lateaft", via: [[79.6, 1.7, 11.2], [79.6, 1.6, 9.2]], keys: [
     { pos: [77.4, 1.7, 4.6], look: [79.6, 1.15, 9.2], fov: 46, dof: 3 },
-    { at: wt(12, "running"), pos: [RAT_STOP.x + 2.4, 0.42, 6.0], look: [RAT_STOP.x - 0.8, 0.28, 8.0], fov: 50, dof: 5, track: ratTrack },
+    { at: wt(12, "something"), pos: [RAT_STOP.x + 2.4, 0.42, 6.0], look: [RAT_STOP.x - 0.8, 0.28, 8.0], fov: 50, dof: 5, track: ratTrack },
   ] },
   // 13 "A rat. With no tail." it stops, turns to us, shrugs
   { name: "hero", at: land(13, "rat"), look: "lateaft", keys: [
@@ -166,14 +168,14 @@ export const SHOTS: Shot[] = [
   ] },
   // 16 "But a live rat without a tail keeps having babies, and every baby comes with a brand-new tail." down the drain
   //   into the warm nest: mother rat, more and more babies, their tails glint like coins
-  { name: "nest", at: land(16, "live"), look: "nest", carry: "rat", lk: [0.2, 0.55], via: [[64, 2.4, 5.6], [57, 1.5, 7.6], [57, -2.5, 7.6], [57, -5.7, 7.4], [57, -6.0, 5.0]], keys: [
+  { name: "nest", at: land(16, "live"), look: "nest", carry: "rat", lk: "ahead", via: [[64, 2.4, 5.6], [57, 1.5, 7.6], [57, -2.5, 7.6], [57, -5.7, 7.4], [57, -6.0, 5.0]], keys: [
     { pos: [57.0, -6.1, 4.2], look: [57.0, -6.5, 6.9], fov: 50, dof: 4 },
     { at: wt(16, "babies"), pos: [56.6, -6.05, 4.0], look: [57.0, -6.55, 6.8], fov: 52, dof: 4 },
     { at: wtn(16, "tail", 1), pos: [57.3, -6.15, 4.5], look: [57.0, -6.55, 6.9], fov: 48, dof: 5 },
   ] },
   // 17 "It's like getting paid for every egg... and then killing the chicken. Nobody does that." up and out east to the
   //   farmyard: the farmer cashes eggs, the official raises an axe, the farmer shields the hen
-  { name: "hen", at: land(17, "paid"), look: "golden", carry: "coin", via: [[57, -6.0, 5.0], [57, -5.7, 7.4], [57, -2.5, 7.6], [57.6, 2.0, 7.4], [94, 9, 4]], keys: [
+  { name: "hen", at: land(17, "paid"), look: "golden", carry: "coin", lk: "ahead", via: [[57, -6.0, 5.0], [57, -5.7, 7.4], [57, -2.5, 7.6], [57.6, 2.0, 7.4], [94, 9, 4]], keys: [
     { pos: [127.9, 1.85, -0.4], look: [129.45, 1.2, 6.2], fov: 48, dof: 3 },
     { at: wt(17, "killing"), pos: [127.6, 1.9, 0.0], look: [129.45, 1.3, 6.2], fov: 50, dof: 3 },
     { at: wt(17, "Nobody"), pos: [128.4, 1.8, 0.6], look: [129.9, 1.25, 6.0], fov: 48, roll: -0.04, dof: 4 },
@@ -195,17 +197,17 @@ export const SHOTS: Shot[] = [
   // 20 "And the man who built those sewers, Paul Doumer, goes home... and later becomes President of France."
   //    over the roofs to the quay at dawn: Doumer with his sewer plans boards the steamer...
   { name: "quay", at: land(20, "man"), look: "dawngold", carry: "poster", via: [[60.6, 6, -8], [59, 17, -20], [58.5, 6, -33]], keys: [
-    { pos: [59.6, 3.2, -35.6], look: [55.2, 1.6, -45.0], fov: 50, dof: 3 },
-    { at: wt(20, "Paul"), pos: [58.4, 2.6, -37.6], look: [55.2, 1.5, -44.6], fov: 48, dof: 4 },
-    { at: wt(20, "goes"), pos: [58.6, 2.4, -38.2], look: [53.6, 1.0, -47.0], fov: 46, dof: 3 },
+    { pos: [62.0, 5.6, -34.6], look: [55.0, 1.5, -45.6], fov: 52, dof: 2 },
+    { at: wt(20, "Paul"), pos: [60.6, 4.4, -36.8], look: [55.2, 1.55, -44.6], fov: 50, dof: 3 },
+    { at: wt(20, "goes"), pos: [60.6, 3.6, -36.6], look: [53.8, 1.3, -47.0], fov: 52, dof: 2 },
   ] },
   //    ...and across the water: on the balcony in Paris, sash, crowd cheering
-  { name: "balcony", at: land(20, "President"), look: "dawngold", via: [[57, 5, -48], [59, 9, -64]], keys: [
-    { pos: [60.8, 9.9, -77.2], look: [60.0, 8.5, -83.0], fov: 46, dof: 3 },
+  { name: "balcony", at: land(20, "President"), look: "dawngold", via: [[58, 12, -44], [60, 11, -64]], keys: [
+    { pos: [60.4, 9.2, -77.8], look: [60.0, 8.55, -83.0], fov: 50, dof: 2 },
   ] },
   // 21 "The rats? They stayed." back across the river, down the quay grate: our tailless rat lounging in the sewer, waving
-  { name: "stayed", at: land(21, "stayed"), look: "sewer", carry: "rat", lk: [0.3, 0.7], via: [[60, 8, -66], [64, 5, -45], [66, 1.6, -38.4], [66, -1.8, -38.2], [65.6, -3.6, -37.8]], keys: [
-    { pos: [64.2, -4.9, -36.0], look: [67.0, -5.4, -38.0], fov: 48, dof: 5 },
+  { name: "stayed", at: land(21, "stayed"), look: "sewer", carry: "rat", lk: "ahead", via: [[63, 7, -77.6], [OUTFLOW.x, 2.2, OUTFLOW.z - 0.3], [OUTFLOW.x, -1.8, OUTFLOW.z - 0.2], [OUTFLOW.x - 0.4, -3.6, OUTFLOW.z + 0.2]], keys: [
+    { pos: [OUTFLOW.x - 1.8, -4.9, OUTFLOW.z + 2.0], look: [OUTFLOW.x + 1.0, -5.4, OUTFLOW.z], fov: 48, dof: 5 },
   ] },
 ];
 

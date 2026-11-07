@@ -33,5 +33,9 @@ export const LOOKS: Record<LookName, Look> = {
   nest: { L: interior([1.2, 0.85, 0.55], [0.14, 0.11, 0.18], [1.0, 0.86, 0.72], 70), sky: UNDER, skyE: UE, grade: GRADE_WARM, gradeK: 1, glowK: 2.0, window: "#3a3a5a", cloud: null, interior: true },
   dawngold: { L: P(G, { az: 10, el: 9, fogNear: 260, fogFar: 2400, lit: [1.7, 1.15, 0.72], shade: [0.2, 0.17, 0.33], charTint: [1.0, 0.9, 0.82] }), sky: ["#ffd29a", "#f9b98a", "#e6a08e", "#b98fa5", "#7f7fae"], skyE: UE, grade: GRADES.golden, gradeK: 0.9, glowK: 0.5, window: "#ffd7a0", cloud: EIFFEL.golden.cloud, interior: false },
 };
+// CLAUDE.md 12: atmospheric haze toward the horizon outdoors (the far city + the hill line fade into the sky)
+for (const k of ["morning", "golden", "sunset", "lateaft", "dawngold", "cafe"] as const) {
+  const L = LOOKS[k]; LOOKS[k] = { ...L, L: { ...L.L, fogNear: 70, fogFar: 1500 } };
+}
 export { LAMP, POLICE } from "../eiffel/looks";
 void D;
