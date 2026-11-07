@@ -66,15 +66,15 @@ export const SHOTS: Shot[] = [
   ] },
   // 3 "So a reporter named Richard Locke writes a story." Locke cracks his knuckles at his desk by the window
   { name: "locke", at: land(3, "reporter"), look: "lamp", keys: [
-    { pos: [21.4, 1.6, -13.2], look: [23.3, 1.25, -9.9], fov: 48, dof: 4 },
-    { at: wt(3, "writes"), pos: [21.7, 1.55, -12.8], look: [23.3, 1.25, -9.9], fov: 46, roll: 0.04, dof: 5 },
+    { pos: [21.0, 1.55, -13.4], look: [23.6, 1.25, -10.4], fov: 50, dof: 4 },
+    { at: wt(3, "writes"), pos: [21.3, 1.5, -13.0], look: [23.6, 1.25, -10.4], fov: 48, roll: 0.04, dof: 5 },
   ] },
   // 4 "The famous astronomer Sir John Herschel, he writes, has built a giant telescope in South Africa,"
   //   out of the window, across the strait to the Cape: Herschel at the eyepiece; then down the length of the tube
   { name: "scope", at: land(4, "Herschel"), look: "starry", via: [[23.2, 1.9, -8.9], [23.2, 2.3, -6.4], [96, 13, -6]], carry: "paper", keys: [
     { pos: E(-2.4, 0.3, 5.6), look: E(1.0, -0.5, 0.8), fov: 46, dof: 3 },
     { at: wt(4, "built"), pos: A3(TUBE_END.clone().add(new THREE.Vector3(3.5, 3.5, 5.5))), look: A3(EYEPIECE.clone().addScaledVector(TUBE_DIR, 8)), fov: 52 },
-    { at: wt(4, "Africa"), pos: E(-6, 4.5, 10), look: E(-2, 1, -1), fov: 52 },
+    { at: wt(4, "Africa"), pos: E(-2.6, 1.6, 7.6), look: E(0.9, 0.5, 0.8), fov: 52, dof: 2 },
   ] },
   // 5 "and through it, he can see the Moon up close." in through the eyepiece, up the tube, out onto the Moon
   { name: "moon", at: land(5, "Moon"), look: "silvery", lk: [0.15, 0.55], via: [A3(EYEPIECE.clone().addScaledVector(TUBE_DIR, -1.6)), A3(EYEPIECE.clone().addScaledVector(TUBE_DIR, 4)), A3(EYEPIECE.clone().addScaledVector(TUBE_DIR, 24)), A3(TUBE_END.clone().addScaledVector(TUBE_DIR, 2)), M(7, 3, 7)], keys: [
@@ -113,8 +113,8 @@ export const SHOTS: Shot[] = [
   ] },
   // 13 "But in 1835, a letter to South Africa takes months." the letter on a slow sailing ship; calendar pages fly off
   { name: "ship", at: land(13, "1835"), look: "seaday", carry: "letter", keys: [
-    { pos: [64.8, 1.45, 15.6], look: [66.8, 1.3, 8.4], fov: 48, dof: 2, track: shipTrack },
-    { at: wt(13, "months"), pos: [64.4, 2.2, 16.6], look: [66.6, 2.0, 8.2], fov: 50, track: shipTrack },
+    { pos: [62.6, 2.6, 19.8], look: [67.0, 1.0, 8.2], fov: 48, dof: 2, track: shipTrack },
+    { at: wt(13, "months"), pos: [62.4, 3.0, 20.4], look: [66.6, 1.8, 8.2], fov: 50, track: shipTrack },
   ] },
   // 14 "Nobody can check. It's like a rumor about a friend who's on vacation with no phone." Herschel on the beach, no
   //    signal, while a rumour cloud of gossip from back home grows over his head
@@ -139,8 +139,8 @@ export const SHOTS: Shot[] = [
   ] },
   // 18 "And Locke? He starts signing his work: "author of the Moon hoax."" Locke at his desk, sunrise through the window
   { name: "sign2", at: land(18, "Locke"), look: "sunrise", carry: "paper", via: [[88, 8, 2], [23.2, 2.3, -6.4], [23.2, 1.95, -8.9]], keys: [
-    { pos: [21.4, 1.6, -13.2], look: [23.3, 1.2, -9.9], fov: 48, dof: 4 },
-    { at: wt(18, "signing"), pos: [21.9, 1.95, -12.2], look: [23.4, 0.95, -9.6], fov: 48, dof: 6 },
+    { pos: [21.0, 1.55, -13.4], look: [23.6, 1.2, -10.4], fov: 50, dof: 4 },
+    { at: wt(18, "signing"), pos: [21.4, 1.95, -12.6], look: [23.5, 1.0, -10.0], fov: 50, dof: 5 },
   ] },
 ];
 void SHIP0;

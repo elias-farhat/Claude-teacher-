@@ -65,7 +65,7 @@ const street = (t: number, s: Stage) => {
 };
 const shop = (t: number, s: Stage) => {
   if (between(t, wt(2, "costs") - 0.95, wt(4, "Herschel"))) {
-    s.places.push(P("editor", EDITOR, { mode: "sit", expr: after(t, 2, "readers") ? "dazed" : "nervous", gest: "clutch", blink: blinkAt(t, 5) }, { sweat: true }, [27.6, 0, -11.2]));
+    s.places.push(P("editor", EDITOR, { mode: "sit", expr: after(t, 2, "readers") ? "dazed" : "nervous", gest: "clutch", blink: blinkAt(t, 5) }, { sweat: true }, [27.6, 0, -10.75]));
     s.fx.push(card("chart0", 520, 400, LB.salesChart(0), [CHART.x, CHART.y, CHART.z + 0.05], 1.15, 0.88, { yaw: 0 }));
     const crack = after(t, 3, "writes");
     s.places.push(P("locke", LOCKE, { mode: "sit", expr: crack ? "smug" : "grin", gest: crack ? "sign" : "clutch", k: q((t * 4) % 1, 8), blink: blinkAt(t, 7) }, { curls: true, inkCuffs: true, pen: crack }, [23.4, 0, -10.8]));
