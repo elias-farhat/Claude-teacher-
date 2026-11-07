@@ -5,7 +5,7 @@ import * as THREE from "three";
 import type { Place, FxPlace } from "../bridge/cast";
 import { Pen, fxRing } from "../bridge/toon";
 import { V } from "../bridge/build";
-import { wt, wtn, lineEnd, clamp01, smooth, Cam, V3, RAT_STOP, runRatX, convoy, carryAt } from "./story";
+import { wt, wtn, lineEnd, clamp01, smooth, Cam, V3, RAT_STOP, runRatX, convoy, carryAt, rickX } from "./story";
 import { POSTER, MANHOLE, SEWER, NEST, OUTFLOW, QUAY, PALACE, GRATE } from "./layout";
 import { CHIMNEYS } from "./backdrop";
 import type { Lamp } from "./hanoi";
@@ -98,6 +98,20 @@ const life = (t: number, s: Stage, cam: THREE.Camera) => {
     s.fx.push(card(`bgBird${q((t * 3 + i * 0.2) % 1, 4)}`, 120, 80, birdCard(q((t * 3 + i * 0.2) % 1, 4)), [cx + 12 * Math.cos(a), 28 + 4 * Math.sin(a * 1.3), cz + 12 * Math.sin(a)], 0.8, 0.53));
   }
 };
+// line 2: a rickshaw comes up the boulevard towards us, the puller trotting, a French lady waving from the seat
+const rickCard = (p: Pen) => {
+  p.ell(300, 170, 230, 150, "#2a2a33", 8, 180, 360);                                                // folded black hood
+  p.poly([[110, 300], [490, 300], [470, 420], [130, 420]], "#a33a2e", 8);                            // red seat box
+  for (const x of [70, 530]) { p.ell(x, 400, 34, 190, "#5a3b2a", 10); p.stroke([[x, 220], [x, 580]], 5, "#5a3b2a"); } // big wheels, edge-on
+  p.stroke([[200, 420], [150, 590]], 12, "#7a5a3a"); p.stroke([[400, 420], [450, 590]], 12, "#7a5a3a");  // shafts down to the puller
+};
+const rickshaw = (t: number, s: Stage) => {
+  if (!between(t, wt(2) - 0.6, wt(3, "gave"))) return;
+  const x = rickX(t), z = 2.0, ph = q((t * 2.2) % 1, 12);
+  s.fx.push(card("rickshaw", 600, 600, rickCard, [x - 0.35, 0.95, z], 1.7, 1.7));
+  s.places.push(P("rickLady", LADY, { mode: "sit", expr: "smile", gest: "wave", k: q((t * 2) % 1, 8), blink: blinkAt(t, 9) }, {}, [x - 0.1, 0.5, z - 0.3]));
+  s.places.push(P("rickPuller", LOCAL(4), { mode: "stroll", phase: ph, expr: "grin", gest: "hold", blink: blinkAt(t, 12), seed: 61 }, {}, [x + 0.9, 0, z + 0.55]));
+};
 const grate = (t: number, s: Stage) => {
   if (!between(t, wt(2, "Indochina") - 0.6, wt(4) + 0.2)) return;
   const cut = clamp01((t - wt(3, "gave") + LEAD) / 0.25);
@@ -106,6 +120,9 @@ const grate = (t: number, s: Stage) => {
   for (let i = 0; i < 3; i++) s.places.push(P(`onlook${i}`, LOCAL(i + 3), { expr: cut > 0 ? "grin" : "smile_closed", gest: cut > 0 && i !== 1 ? "cheer" : "hang", k: q((t * 2 + i * 0.3) % 1, 8), seed: 40 + i, blink: blinkAt(t, 40 + i) }, {}, [GRATE.x - 2.0 + i * 1.3, 0, GRATE.z - 1.6 - (i % 2) * 0.5], { size: LO }));
 };
 const tunnel = (t: number, s: Stage, cam: THREE.Camera) => {
+  // under the NEW SEWERS plaque, the first rats move in and look round their new home (then race off on line 4)
+  if (between(t, wt(3, "brand-new") - 0.3, wt(4, "rats") - 0.4))
+    for (let i = 0; i < 3; i++) s.fx.push(card(`plaqueRat${i}`, 600, 600, ratHero(i === 1 ? "smug" : "look", 0, blinkAt(t, 50 + i)), [-7.0 + i * 0.85, -6.86 + 0.38, 1.55 + (i % 2) * 0.35], 0.75, 0.75));
   if (!between(t, wt(4, "rats") - 0.9, wt(5))) return;
   for (let i = 0; i < 14; i++) { const p = convoy(t, i), v = convoy(t + 0.05, i).sub(p); if (v.lengthSq() < 1e-6 || p.y > 0.4) continue; runner(s, `convoy${i}`, p, v, cam, t, true, 0.95); }
 };
@@ -269,20 +286,20 @@ const barn = (t: number, s: Stage, cam: THREE.Camera) => {
 };
 const quay = (t: number, s: Stage) => {
   if (!between(t, wt(19, "cancel"), wt(21, "stayed"))) return;
-  const board = smooth((t - wt(20, "goes") + LEAD) / 0.9), a = V(55.4, 0.05, -43.8), b = V(53.4, -0.1, -47.6), p = a.lerp(b, board);
+  const board = smooth((t - wt(20, "goes") + LEAD) / 0.9), a = V(54.7, 0.05, -43.6), b = V(54.4, 0.0, -47.2), p = a.lerp(b, board);
   if (t < wt(20, "President") - 0.4) {
     s.places.push(P("doumerQ", DOUMER, { mode: board > 0 && board < 1 ? "stroll" : "stand", phase: q((t * 2) % 1, 12), expr: "smug", gest: board < 0.05 ? "hold" : "wave", k: q((t * 2) % 1, 8), blink: blinkAt(t, 3) }, { beard: true, blueprint: board < 0.05 }, [p.x, p.y, p.z]));
     s.places.push(P("officialQ", OFFICIAL, { expr: "smile", gest: "wave", k: q((t * 2) % 1, 8), blink: blinkAt(t, 2) }, { glasses: true }, [53.2, 0.05, -43.4]));
   }
   // the balcony in Paris: President Doumer with the sash; the crowd cheers on the square below
-  if (t > wt(20, "later")) {
+  if (t > wt(20, "home")) {
     // dignitaries cheering on the balcony beside him, confetti in the air
     for (let i = 0; i < 4; i++) s.places.push(P(`digni${i}`, i % 2 ? CLERK(i) : LOCAL(3 * i + 2), { expr: "laugh", gest: "cheer", k: q((t * 2 + i * 0.3) % 1, 8), seed: 110 + i }, {}, [PALACE.x + [-2.6, -1.4, 1.4, 2.6][i], PALACE.balconyY, PALACE.z + 0.8], { size: LO }));
     for (let i = 0; i < 18; i++) { const u = (t * 0.4 + i * 0.13) % 1; s.fx.push(card(`confetti${i % 4}`, 40, 40, (p) => p.poly([[4, 4], [36, 8], [32, 36], [6, 30]], ["#c8313b", "#f4f1ea", "#2a4f9a", "#e8c45a"][i % 4], 3), [PALACE.x - 4 + ((i * 1.7) % 8), PALACE.balconyY + 4 - 6 * u, PALACE.z + 2.0 + ((i * 0.7) % 2)], 0.12, 0.12, { rot: t * 4 + i })); }
     s.places.push(P("doumerP", DOUMER_PRES, { expr: "grin", gest: "wave", k: q((t * 1.6) % 1, 8), blink: blinkAt(t, 3) }, { beard: true }, [PALACE.x, PALACE.balconyY, PALACE.z + 1.0]));
-    for (let i = 0; i < 16; i++) {
-      const x = PALACE.x - 9 + (i % 8) * 2.4 + (i > 7 ? 1.2 : 0), z = PALACE.z + 6 + (i > 7 ? 2.2 : 0);
-      s.places.push(P(`fans${i}`, LOCAL(3 * i + 2), { expr: "grin", gest: i % 3 ? "cheer" : "wave", k: q((t * 2 + i * 0.27) % 1, 8), seed: 90 + i }, {}, [x, 0, z], { size: LO }));
+    for (let i = 0; i < 30; i++) {                                                  // the crowd fills the square below
+      const row = Math.floor(i / 10), x = PALACE.x - 11 + (i % 10) * 2.4 + (row % 2) * 1.2 + Math.sin(i * 7.1) * 0.3, z = PALACE.z + 5.5 + row * 2.0;
+      s.places.push(P(`bgFans${i}`, LOCAL(3 * i + 2), { expr: "grin", gest: i % 3 ? "cheer" : "wave", k: q((t * 2 + i * 0.27) % 1, 8), seed: 90 + i }, {}, [x, 0, z], { size: LO }));
     }
   }
 };
@@ -298,7 +315,7 @@ const stayed = (t: number, s: Stage) => {
 /** everything on stage at time t */
 export const stage = (t: number, c: Cam, cam: THREE.Camera): Stage => {
   const s: Stage = { places: [], fx: [], lights: [] };
-  life(t, s, cam); terrace(t, s); grate(t, s); tunnel(t, s, cam); bath(t, s); kitchen(t, s); hunters(t, s, cam); posterWall(t, s);
+  life(t, s, cam); terrace(t, s); rickshaw(t, s); grate(t, s); tunnel(t, s, cam); bath(t, s); kitchen(t, s); hunters(t, s, cam); posterWall(t, s);
   office(t, s); street(t, s, cam); table(t, s); nest(t, s, cam); farmyard(t, s); barn(t, s, cam); quay(t, s); stayed(t, s);
   // the carried prop of the current glide (story.carryAt): the torn poster over the roofs, a coin to the farm / poster
   const cr = carryAt(t, c);

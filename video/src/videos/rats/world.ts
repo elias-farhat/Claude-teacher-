@@ -11,9 +11,9 @@ import { cloudHD } from "../bridge/paint";
 import { Actor, Fx, Pool } from "../bridge/cast";
 import { LightPreset } from "../bridge/lights";
 import { quality } from "../../quality";
-import { buildShip } from "../eiffel/paris";
 import { buildHanoi, Hanoi, Lamp } from "./hanoi";
-import { buildBackdrop } from "./backdrop";
+import { buildBackdrop, CHIMNEYS } from "./backdrop";
+import { buildSteamer, buildGangway } from "./ship";
 import { buildSewer, Sewer } from "./sewer";
 import { buildRooms, Room, RoomName } from "./rooms";
 import { LOOKS, Look, LAMP } from "./looks";
@@ -97,7 +97,9 @@ export class RatWorld {
     buildBackdrop(R);
     this.sewer = buildSewer(R);
     this.rooms = buildRooms(R);
-    this.ship = buildShip(); this.ship.position.set(SHIP.x, -0.6, SHIP.z + 4.5); R.add(this.ship);
+    this.ship = buildSteamer(); this.ship.position.set(SHIP.x, -0.6, SHIP.z + 4.5); R.add(this.ship);
+    buildGangway(R, SHIP.x + 0.5, -44.5, -46.7, 0.06, -0.03);
+    for (const fx of [-3, 2]) CHIMNEYS.push(new THREE.Vector3(SHIP.x + fx, 9.4, SHIP.z + 4.5)); // funnel smoke
     // glowing lamp heads (bloom at night) on the street lamps
     const dot = new THREE.MeshBasicMaterial({ color: new THREE.Color(4.5, 2.8, 1.1) });
     for (const l of this.hanoi.lamps) { const m = new THREE.Mesh(new THREE.SphereGeometry(0.22, 10, 8), dot); m.position.copy(l.p); m.layers.set(NOINK); this.lampDots.push(m); R.add(m); }

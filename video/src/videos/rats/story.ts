@@ -42,6 +42,8 @@ const V = (a: V3 | THREE.Vector3) => (a instanceof THREE.Vector3 ? a.clone() : n
 /** the scurrying tailless rat of lines 12-13 (runs west along the south sidewalk, stops at x 58.5) */
 export const RAT_STOP = new THREE.Vector3(58.5, 0.12, 8.0);
 export const runRatX = (t: number) => { const t0 = wt(12, "something") - 0.4, t1 = wt(13) - 0.05; const u = clamp01((t - t0) / (t1 - t0)); return 80 - (80 - RAT_STOP.x) * (1 - (1 - u) * (1 - u)); };
+/** line 2: the rickshaw (puller + French lady) coming east up the boulevard towards the camera */
+export const rickX = (t: number) => 76 - 2.5 * (wt(2, "Indochina") - t);
 /** the tram on line 2 (west along the boulevard) */
 /** the tram runs up and down the boulevard all film long (x -45..105), heading west past the camera on line 2 */
 export const tramX = (t: number) => 30 + 75 * Math.cos(0.13 * (t - wt(2) + 0.6));
@@ -77,10 +79,11 @@ export const SHOTS: Shot[] = [
     { at: wt(1, "paid"), pos: [131.6, 7.4, 23.0], look: [126.3, 6.5, 19.1], fov: 48, dof: 3 },
     { at: wt(1, "farming"), pos: [130.0, 7.1, 21.9], look: [127.3, 6.6, 19.0], fov: 46, roll: 0.05, dof: 5 },
   ] },
-  // 2 "Hanoi is the shiny new capital of French Indochina," up and west down the boulevard: tram, flags, people
+  // 2 "Hanoi is the shiny new capital of French Indochina," down to street level on the boulevard: a rickshaw with a
+//   French lady comes towards us past the tram, flags and people
   { name: "boulevard", at: land(2, "shiny"), look: "morning", via: [[124, 13, 12], [116, 15, 4]], keys: [
-    { pos: [106, 11.5, 2.5], look: [64, 5.5, -1], fov: 46 },
-    { at: wt(2, "Indochina"), pos: [72, 7.2, 4.5], look: [30, 3.0, -1.0], fov: 46, roll: -0.04 },
+    { pos: [80, 2.1, 4.6], look: [60, 0.3, 0.8], fov: 48, dof: 2 },
+    { at: wt(2, "Indochina"), pos: [82.5, 2.0, 4.8], look: [58, 0.1, 0.0], fov: 48, roll: -0.03, dof: 3 },
   ] },
   // 3 "and the French just gave it a brand-new sewer system." the official cuts a tricolour ribbon at the open grate
   { name: "grate", at: land(3, "French"), look: "morning", keys: [
@@ -88,8 +91,8 @@ export const SHOTS: Shot[] = [
     { at: wt(3, "gave"), pos: [-5.0, 1.9, 6.8], look: [-9.8, 0.9, 3.0], fov: 42, dof: 6 },
   ] },
   //   ...and dives through the grate into the clean new tunnel: the NEW SEWERS 1902 plaque on "sewer"
-  { name: "plaque", at: land(3, "sewer"), look: "sewer", carry: "ribbon", lk: [0.2, 0.6], via: [[-9.8, 1.6, 3.3], [-10, -1.2, 3.1], [-10, -4.6, 3.1]], keys: [
-    { pos: [-6.8, -5.4, 4.4], look: [-5.8, -5.45, 1.05], fov: 46, dof: 4 },
+  { name: "plaque", at: land(3, "sewer"), look: "sewer", carry: "rat", lk: [0.2, 0.6], via: [[-9.8, 1.6, 3.3], [-10, -1.2, 3.1], [-10, -4.6, 3.1]], keys: [
+    { pos: [-10.6, -5.3, 4.3], look: [-6.3, -5.75, 1.1], fov: 54, dof: 4 },
   ] },
   // 4 "The rats love it. It's a highway under every street, straight into the nicest houses."
   //   a convoy of rats races east along the walkway (the camera rides behind them)...
@@ -197,16 +200,18 @@ export const SHOTS: Shot[] = [
   // 20 "And the man who built those sewers, Paul Doumer, goes home... and later becomes President of France."
   //    over the roofs to the quay at dawn: Doumer with his sewer plans boards the steamer...
   { name: "quay", at: land(20, "man"), look: "dawngold", carry: "poster", via: [[60.6, 6, -8], [59, 17, -20], [58.5, 6, -33]], keys: [
-    { pos: [62.0, 5.6, -34.6], look: [55.0, 1.5, -45.6], fov: 52, dof: 2 },
-    { at: wt(20, "Paul"), pos: [60.6, 4.4, -36.8], look: [55.2, 1.55, -44.6], fov: 50, dof: 3 },
-    { at: wt(20, "goes"), pos: [60.6, 3.6, -36.6], look: [53.8, 1.3, -47.0], fov: 52, dof: 2 },
+    { pos: [59.6, 1.5, -39.6], look: [53.0, 1.75, -45.4], fov: 58, dof: 2 },
+    { at: wt(20, "Paul"), pos: [59.2, 1.45, -40.0], look: [53.2, 1.7, -45.6], fov: 56, dof: 2 },
+    { at: wt(20, "goes"), pos: [58.8, 1.6, -40.6], look: [53.6, 1.4, -47.6], fov: 56, dof: 2 },
   ] },
   //    ...and across the water: on the balcony in Paris, sash, crowd cheering
-  { name: "balcony", at: land(20, "President"), look: "dawngold", via: [[58, 12, -44], [60, 11, -64]], keys: [
-    { pos: [60.4, 9.2, -77.8], look: [60.0, 8.55, -83.0], fov: 50, dof: 2 },
+  { name: "balcony", at: land(20, "President"), look: "dawngold", via: [[61.5, 7.8, -48], [62.6, 7.0, -60]], lk: [0.0, 0.4], keys: [
+    { pos: [62.8, 3.6, -69.5], look: [60.4, 6.8, -84.0], fov: 56, dof: 1 },
+    { at: wt(20, "France"), pos: [61.2, 6.2, -75.5], look: [60.2, 8.0, -84.0], fov: 52, dof: 1 },
   ] },
-  // 21 "The rats? They stayed." back across the river, down the quay grate: our tailless rat lounging in the sewer, waving
-  { name: "stayed", at: land(21, "stayed"), look: "sewer", carry: "rat", lk: "ahead", via: [[63, 7, -77.6], [OUTFLOW.x, 2.2, OUTFLOW.z - 0.3], [OUTFLOW.x, -1.8, OUTFLOW.z - 0.2], [OUTFLOW.x - 0.4, -3.6, OUTFLOW.z + 0.2]], keys: [
+  // 21 "The rats? They stayed." over the rats sunning by the plaza grate and down it: our tailless rat lounging in a
+//    deckchair in the sewer, waving
+  { name: "stayed", at: land(21, "stayed"), look: "sewer", carry: "rat", lk: [0.05, 0.55], via: [[70.4, 3.2, -74.6], [OUTFLOW.x, 2.2, OUTFLOW.z - 0.3], [OUTFLOW.x, -1.8, OUTFLOW.z - 0.2], [OUTFLOW.x - 0.4, -3.6, OUTFLOW.z + 0.2]], keys: [
     { pos: [OUTFLOW.x - 1.8, -4.9, OUTFLOW.z + 2.0], look: [OUTFLOW.x + 1.0, -5.4, OUTFLOW.z], fov: 48, dof: 5 },
   ] },
 ];

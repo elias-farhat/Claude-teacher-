@@ -68,7 +68,7 @@ const tileRoof = () => roofHD("#c0623a");
 /** painted sign board (unlit, so it stays readable whatever the light) */
 export const signTex = (key: string, text: string, bg: string, fg: string, w = 512, h = 160) => ctex("sign" + key, w, h, (g) => {
   g.fillStyle = bg; g.fillRect(0, 0, w, h); g.strokeStyle = fg; g.lineWidth = 8; g.strokeRect(12, 12, w - 24, h - 24);
-  g.fillStyle = fg; g.font = `900 ${Math.round(h * 0.42)}px Georgia, serif`; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText(text, w / 2, h / 2 + 4);
+  g.fillStyle = fg; g.font = `900 ${Math.round(h * 0.42)}px Georgia, serif`; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText(text, w / 2, h / 2 + 4, w - 64);
 });
 const flagTex = () => ctex("tricolore", 192, 128, (g) => { ["#2a4f9a", "#f4f1ea", "#c8313b"].forEach((c, i) => { g.fillStyle = c; g.fillRect(i * 64, 0, 64, 128); }); });
 
@@ -224,7 +224,7 @@ export const buildHanoi = (root: THREE.Object3D): Hanoi => {
   wallX(b, plain, POSTER.x - 4, POSTER.x + 4, 0, 4, BLVD.z0 + 0.05, 1);
   // ---- south row (front at z = +10, facing -z): city hall with the bounty office ----
   const offHoles = ROOMS.office.open.filter((o) => o.wall === "n").map((op) => ({ x0: ROOMS.office.o.x + op.at - op.w / 2, x1: ROOMS.office.o.x + op.at + op.w / 2, y0: op.y, y1: op.y + op.h }));
-  const south: [number, number, number, number, Hole[]][] = [[-70, -46, 10, 11, []], [-46, -20, 11.5, 12, []], [-20, 6, 10, 13, []], [6, 30, 12, 14, []], [30, 50, 10.5, 15, []], [50, 64, 11, 16, []], [64, 90, 13, 17, offHoles], [90, 112, 10, 18, []]];
+  const south: [number, number, number, number, Hole[]][] = [[-70, -46, 10, 11, []], [-46, -20, 11.5, 12, []], [-20, 6, 10, 13, []], [6, 30, 12, 14, []], [30, 50, 10.5, 15, []], [50, 56.6, 11, 16, []], [60.4, 64, 11.5, 19, []], [64, 90, 13, 17, offHoles], [90, 112, 10, 18, []]];
   for (const [x0, x1, h, seed, hs] of south) rowBlock(b, x0, x1, BLVD.z1, -1, 14, h, seed, hs);
   // city hall: pediment, clock, sign, flags, steps
   const white = lam("coloTrim", () => ({ color: "#f6efdc" })), sign = new THREE.MeshBasicMaterial({ map: signTex("mairie", "HÔTEL DE VILLE", "#f6efdc", "#3a2a28", 768, 128) });
@@ -242,6 +242,35 @@ export const buildHanoi = (root: THREE.Object3D): Hanoi => {
     box(b, cloth, 81.5, 0.12 + 0.74, 8.3, 83.3, 0.12 + 0.8, 9.1); box(b, cloth, 81.5, 0.5, 8.28, 83.3, 0.86, 8.3);
     for (const [x, z] of [[81.6, 8.4], [83.2, 8.4], [81.6, 9.0], [83.2, 9.0]]) box(b, wd, x - 0.04, 0.12, z - 0.04, x + 0.04, 0.86, z + 0.04);
     box(b, wd, 82.1, 0.12, 9.35, 82.7, 0.58, 9.85); }
+  // ---- the alley where the tailless rat stops (lines 13-14): a dressed Hanoi lane between two south-row blocks ----
+  { const x0 = 56.6, x1 = 60.4, z0 = BLVD.z1, z1 = 29;
+    ground(b, walk, x0, x1, z0, z1, 0.03, 2.2);
+    rowBlock(b, 53.5, 63.5, z1, -1, 1, 8, 23);                                                        // shophouse closing the lane
+    const pot = lam("alleyPot", () => ({ color: "#b5643c" })), leafA = lam("leaf1", () => ({ color: "#5c9645" })), crate = lam("alleyCrate", () => ({ color: "#9a6a42" }));
+    const awnM = lam("alleyAwn", () => ({ map: ctex("awnStripe", 256, 64, (gg) => { for (let i = 0; i < 8; i++) { gg.fillStyle = i % 2 ? "#f4efe4" : "#c8313b"; gg.fillRect(i * 32, 0, 32, 64); } }), side: THREE.DoubleSide }));
+    const glow = new THREE.MeshBasicMaterial({ color: new THREE.Color(1.5, 1.15, 0.65) }), lant = new THREE.MeshBasicMaterial({ color: new THREE.Color(1.6, 0.42, 0.22) });
+    const cord = lam("alleyCord", () => ({ color: "#3a3030" }));
+    // paper lanterns strung across, laundry on lines, shop signs, awnings, lit windows, pots, crates
+    for (const z of [12.5, 15.5, 18.5, 21.5]) {
+      box(b, cord, x0, 3.55, z - 0.015, x1, 3.58, z + 0.015);
+      for (const x of [x0 + 1.0, x1 - 1.0]) { const m = new THREE.Mesh(new THREE.SphereGeometry(0.26, 12, 8).scale(1, 1.25, 1), lant); m.position.set(x, 3.15, z); g.add(m); box(b, cord, x - 0.01, 3.45, z - 0.01, x + 0.01, 3.56, z + 0.01); }
+    }
+    const cloth = ["#3f6fb5", "#e8c45a", "#f4efe4", "#8c3b4a", "#5d7a3a"];
+    for (const z of [14, 20]) { box(b, cord, x0, 4.6, z - 0.01, x1, 4.62, z + 0.01);
+      for (let k = 0; k < 4; k++) { const m = new THREE.Mesh(new THREE.PlaneGeometry(0.55, 0.75), lam(`cloth${(k + z) % 5}`, () => ({ color: cloth[(k + z) % 5], side: THREE.DoubleSide }))); m.position.set(x0 + 0.6 + k * 0.85, 4.22, z); g.add(m); } }
+    const signs: [string, string, string, string, number, number][] = [["pho", "PHỞ", "#c8313b", "#f6e7b0", x0 + 0.04, 13.2], ["tra", "TRÀ", "#2f6a4a", "#f6e7b0", x1 - 0.04, 16.4], ["thuoc", "THUỐC", "#e8c45a", "#3a2a28", x0 + 0.04, 19.4]];
+    for (const [k, txt, bg, fg, x, z] of signs) { const m = new THREE.Mesh(new THREE.PlaneGeometry(1.4, 0.5), new THREE.MeshBasicMaterial({ map: signTex(k, txt, bg, fg, 448, 160) })); m.position.set(x + (x < 58 ? 0.02 : -0.02), 2.7, z); m.rotation.y = x < 58 ? Math.PI / 2 : -Math.PI / 2; g.add(m); }
+    for (const [x, z, dir] of [[x0, 14.6, 1], [x1, 18.0, -1], [x0, 22.0, 1]] as const) {
+      const aw = new THREE.Mesh(new THREE.PlaneGeometry(1.0, 1.8), awnM); aw.position.set(x + dir * 0.45, 2.3, z); aw.rotation.set(0, dir * Math.PI / 2, 0); aw.rotateX(-0.55); g.add(aw);
+      const win = new THREE.Mesh(new THREE.PlaneGeometry(1.2, 1.4), glow); win.position.set(x + dir * 0.03, 1.15, z); win.rotation.y = dir * Math.PI / 2; g.add(win);
+    }
+    for (const [x, z] of [[x0 + 0.4, 11.4], [x1 - 0.4, 12.2], [x0 + 0.4, 17.0], [x1 - 0.45, 20.5], [x1 - 0.4, 24.5]]) {
+      b.add(new THREE.CylinderGeometry(0.28, 0.2, 0.5, 10), pot, new THREE.Matrix4().makeTranslation(x, 0.28, z));
+      b.add(new THREE.IcosahedronGeometry(0.45, 1), leafA, new THREE.Matrix4().makeTranslation(x, 0.85, z));
+    }
+    box(b, crate, x1 - 1.0, 0.03, 13.6, x1 - 0.2, 0.6, 14.4); box(b, crate, x1 - 0.9, 0.6, 13.8, x1 - 0.35, 1.0, 14.3);
+    box(b, crate, x0 + 0.2, 0.03, 23.0, x0 + 1.0, 0.55, 23.7);
+    lamps.push({ p: V(58.5, 3.0, 15.5), k: 0.5 }); }
   // ---- trees + lamps along both sidewalks ----
   for (let x = -64; x < 110; x += 12) {
     for (const z of [-8, 8]) { if (Math.abs(x - POSTER.x) < 6 && z < 0) continue; if (Math.abs(x - DRAIN.x) < 3 && z > 0) continue; tree(b, x, z, 1.15, Math.round(x + z)); }
@@ -276,6 +305,12 @@ export const buildHanoi = (root: THREE.Object3D): Hanoi => {
     box(b, red, x0 + 0.2, y - 1.6, z + 1.84, x1 - 0.2, y - 0.3, z + 1.86);                                     // red drape under the rail
     flag(b, g, V(PALACE.x - 6, y + 2.5, z + 0.1), Math.PI / 2 + 0.4); flag(b, g, V(PALACE.x + 6, y + 2.5, z + 0.1), Math.PI / 2 - 0.4); }
   for (let x = PALACE.x - 22; x <= PALACE.x + 22; x += 11) streetLamp(b, g, x, RIVER.z1 - 2, lamps);
+  // tricolour bunting swagged across the palace front and tall flags on the square (Doumer's homecoming)
+  { const bc = ["#2a4f9a", "#f4efe4", "#c8313b"].map((c, i) => lam(`bunt${i}`, () => ({ color: c, side: THREE.DoubleSide })));
+    for (const [y, x0, x1] of [[12.6, PALACE.x - 22, PALACE.x + 22], [5.6, PALACE.x - 22, PALACE.x - 5], [5.6, PALACE.x + 5, PALACE.x + 22]] as const)
+      for (let x = x0; x < x1; x += 0.7) { const u = (x - x0) % 7 / 7, sag = 0.9 * Math.sin(u * Math.PI);
+        const tri = new THREE.BufferGeometry(); tri.setAttribute("position", new THREE.Float32BufferAttribute([x, y - sag, PALACE.z + 0.3, x + 0.55, y - sag, PALACE.z + 0.3, x + 0.27, y - sag - 0.5, PALACE.z + 0.3], 3)); tri.computeVertexNormals();
+        b.add(tri, bc[((Math.round(x / 0.7) % 3) + 3) % 3]); } }
   // ---- the rat farm (east of the city): farmhouse with a roof terrace, fence, coop, hay; the barn is in rooms.ts ----
   { const H = FARM.house, wood = lam("farmWood", () => ({ map: rep(planksHD(), 2, 1) })), mud = lam("farmMud", () => ({ map: colonialFacade(31, 10, 5, true) }));
     wallX(b, mud, H.x - 5, H.x + 5, 0, 5, H.z - 4, -1); wallX(b, mud, H.x - 5, H.x + 5, 0, 5, H.z + 4, 1);

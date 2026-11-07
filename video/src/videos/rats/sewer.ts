@@ -114,9 +114,9 @@ export const buildSewer = (root: THREE.Object3D): Sewer => {
   for (let x = SEWER.x0 + 4; x < SEWER.x1; x += 9) lantern(b, g, V(x, Y + 2.0, Z0 + 0.45 + (Math.round(x) % 2 ? 0 : 3.1)), lamps);
   // ---- the plaque by the grate landing (unlit: always readable) ----
   { const m = new THREE.Mesh(new THREE.PlaneGeometry(2.0, 0.62), new THREE.MeshBasicMaterial({ map: signTex("newSewers", "NEW SEWERS 1902", "#1f4a7a", "#f2d58a", 768, 240) }));
-    m.position.set(GRATE.x + 4.2, Y + 1.55, Z0 + 0.03); g.add(m);
+    m.position.set(GRATE.x + 4.2, Y + 1.2, Z0 + 0.03); g.add(m);
     const brass = lam("brassFrame", () => ({ color: "#c9a04a" }));
-    box(b, brass, GRATE.x + 3.1, Y + 1.2, Z0, GRATE.x + 5.3, Y + 1.25, Z0 + 0.06); box(b, brass, GRATE.x + 3.1, Y + 1.85, Z0, GRATE.x + 5.3, Y + 1.9, Z0 + 0.06); }
+    box(b, brass, GRATE.x + 3.1, Y + 0.85, Z0, GRATE.x + 5.3, Y + 0.9, Z0 + 0.06); box(b, brass, GRATE.x + 3.1, Y + 1.5, Z0, GRATE.x + 5.3, Y + 1.55, Z0 + 0.06); }
   // ---- branch north + riser up into the bathroom ----
   innerBox(b, wall, walk, BRANCH.x0, BRANCH.x1, Y, BRANCH.top, BRANCH.z0, BRANCH.z1, [{ x0: RISER.x - RISER.r, x1: RISER.x + RISER.r, z0: RISER.z - RISER.r, z1: RISER.z + RISER.r }], ["s"]);
   shaft(b, wall, RISER.x, RISER.z, RISER.r, BRANCH.top, ROOMS.bath.o.y);
@@ -136,8 +136,21 @@ export const buildSewer = (root: THREE.Object3D): Sewer => {
     lightShaft(g, QUAY.grate.x, QUAY.grate.z, 0.7, o.y, 0.05, shafts);
     b.add(new THREE.CylinderGeometry(0.7, 0.7, 0.4, 20).rotateX(Math.PI / 2), ironP, new THREE.Matrix4().makeTranslation(o.x - 1.4, o.y + 0.9, z0 + 0.15)); // outlet pipe
     lantern(b, g, V(x1 - 0.4, o.y + 2.2, z1 - 0.4), lamps, 0.8);
-    const crate = lam("crate", () => ({ color: "#8a5a3a" }));
-    box(b, crate, o.x + 0.6, o.y, o.z - 0.4, o.x + 1.4, o.y + 0.4, o.z + 0.4); }                 // the rat's sun lounger crate
+    // the rat's holiday corner: a striped deckchair, a cocktail parasol, a tin-can table with a drink, a cheese rind,
+    // and the green water channel the outlet pipe runs into
+    const stripe = lam("deckStripe", () => ({ map: ctex("deckStripeT", 128, 128, (gg) => { for (let i = 0; i < 8; i++) { gg.fillStyle = i % 2 ? "#f4efe4" : "#2f7ab5"; gg.fillRect(i * 16, 0, 16, 128); } }), side: THREE.DoubleSide }));
+    const wood = lam("deckWood", () => ({ color: "#9a6a42" })), tin = lam("tinCan", () => ({ color: "#a9b0b8" })), drink = lam("drinkRed", () => ({ color: "#d8443a" }));
+    const cx = o.x + 1.0, y0 = o.y;
+    const seat = new THREE.Mesh(new THREE.PlaneGeometry(0.62, 0.7).rotateX(-Math.PI / 2 + 0.25), stripe); seat.position.set(cx - 0.05, y0 + 0.32, o.z); seat.rotation.y = Math.PI / 2; g.add(seat);
+    const back = new THREE.Mesh(new THREE.PlaneGeometry(0.62, 0.8), stripe); back.position.set(cx + 0.42, y0 + 0.62, o.z); back.rotation.set(0, -Math.PI / 2, 0); back.rotateX(-0.55); g.add(back);
+    for (const dz of [-0.33, 0.33]) { box(b, wood, cx - 0.4, y0, o.z + dz - 0.03, cx - 0.34, y0 + 0.36, o.z + dz + 0.03); box(b, wood, cx + 0.3, y0, o.z + dz - 0.03, cx + 0.36, y0 + 0.95, o.z + dz + 0.03); }
+    b.add(new THREE.CylinderGeometry(0.02, 0.02, 1.5, 6), wood, new THREE.Matrix4().makeTranslation(cx + 0.7, y0 + 0.75, o.z - 0.55));
+    b.add(new THREE.ConeGeometry(0.75, 0.32, 12, 1, true), stripe, new THREE.Matrix4().makeTranslation(cx + 0.7, y0 + 1.55, o.z - 0.55));
+    b.add(new THREE.CylinderGeometry(0.16, 0.16, 0.34, 14), tin, new THREE.Matrix4().makeTranslation(cx - 0.75, y0 + 0.17, o.z + 0.55));
+    b.add(new THREE.CylinderGeometry(0.05, 0.035, 0.14, 10), drink, new THREE.Matrix4().makeTranslation(cx - 0.75, y0 + 0.41, o.z + 0.55));
+    b.add(new THREE.CylinderGeometry(0.18, 0.18, 0.1, 3, 1, false, 0, 1.1), lam("cheese", () => ({ color: "#f2c84a" })), new THREE.Matrix4().makeTranslation(cx - 0.6, y0 + 0.05, o.z - 0.6));
+    const ch = new THREE.Mesh(new THREE.PlaneGeometry(5.6, 0.9).rotateX(-Math.PI / 2), lam("chanWater", () => ({ color: "#4f8a7a" }))); ch.position.set(o.x, o.y + 0.03, z0 + 0.7); g.add(ch);
+    b.add(new THREE.CylinderGeometry(0.22, 0.22, 5.8, 10).rotateZ(Math.PI / 2), ironP, new THREE.Matrix4().makeTranslation(o.x, o.y + 2.5, z1 - 0.3)); } // pipe along the wall
   b.build(g);
   return { group: g, lamps, shafts };
 };
