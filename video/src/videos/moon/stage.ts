@@ -68,7 +68,7 @@ const shop = (t: number, s: Stage) => {
     s.places.push(P("editor", EDITOR, { mode: "sit", expr: after(t, 2, "readers") ? "dazed" : "nervous", gest: "clutch", blink: blinkAt(t, 5) }, { sweat: true }, [27.6, 0, -11.2]));
     s.fx.push(card("chart0", 520, 400, LB.salesChart(0), [CHART.x, CHART.y, CHART.z + 0.05], 1.15, 0.88, { yaw: 0 }));
     const crack = after(t, 3, "writes");
-    s.places.push(P("locke", LOCKE, { mode: "sit", expr: crack ? "smug" : "grin", gest: crack ? "sign" : "clutch", k: q((t * 4) % 1, 8), blink: blinkAt(t, 7) }, { curls: true, inkCuffs: true, pen: crack }, [23.4, 0, -10.35]));
+    s.places.push(P("locke", LOCKE, { mode: "sit", expr: crack ? "smug" : "grin", gest: crack ? "sign" : "clutch", k: q((t * 4) % 1, 8), blink: blinkAt(t, 7) }, { curls: true, inkCuffs: true, pen: crack }, [23.4, 0, -10.8]));
   }
   if (between(t, wt(10, "Europe"), wt(12, "Herschel"))) { // line 11: the portrait, eyebrow up on "ask"
     const brow = smooth((t - wt(11, "ask") + LEAD) / 0.3);
@@ -76,7 +76,7 @@ const shop = (t: number, s: Stage) => {
   }
   if (t > wt(17, "languages")) { // line 18: Locke signs "author of the Moon hoax" at sunrise
     const k = smooth((t - wt(18, "signing") + LEAD) / (wt(18, "hoax") - wt(18, "signing") + 0.3));
-    s.places.push(P("lockeS", LOCKE, { mode: "sit", expr: "smug", gest: "sign", k: q((t * 4) % 1, 8), blink: blinkAt(t, 7) }, { curls: true, inkCuffs: true, pen: true }, [23.4, 0, -10.35]));
+    s.places.push(P("lockeS", LOCKE, { mode: "sit", expr: "smug", gest: "sign", k: q((t * 4) % 1, 8), blink: blinkAt(t, 7) }, { curls: true, inkCuffs: true, pen: true }, [23.4, 0, -10.8]));
     s.fx.push(card(`sig${q(k, 24)}`, 900, 300, LB.signature(q(k, 24)), [23.35, 0.815, -9.6], 0.64, 0.21, { flat: true, rot: Math.PI }));
     s.fx.push(card("chart1", 520, 400, LB.salesChart(1), [CHART.x, CHART.y, CHART.z + 0.05], 1.15, 0.88, { yaw: 0 }));
   }
