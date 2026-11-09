@@ -132,6 +132,19 @@ jobs:
           if [ -n "$n" ] && [ "$n" -gt 0 ]; then
             echo "qa=$(seq 0 "$n" $((frames - 1)) | jq -cs '[range(0; length; 8) as $i | .[$i:$i+8] | map(tostring) | join(",")]')" >> "$GITHUB_OUTPUT"
           else echo "qa=[]" >> "$GITHUB_OUTPUT"; fi
+      # CLAUDE.md rule 13: no render starts unless the camera guard passes on every frame (math only, no pixels).
+      # A failure fails this job, so no render / stills job starts.
+      - name: Camera guard on every frame (subject, occlusion, clipping, empty, faces)
+        if: inputs.composition == 'EiffelShort' || inputs.composition == 'RatShort' || inputs.composition == 'MoonShort'
+        run: |
+          v=$(case "${{ inputs.composition }}" in EiffelShort) echo eiffel;; RatShort) echo rats;; MoonShort) echo moon;; esac)
+          node scripts/camera-guard.mjs "$v" | tee out/camera-guard.txt
+      - if: always() && (inputs.composition == 'EiffelShort' || inputs.composition == 'RatShort' || inputs.composition == 'MoonShort')
+        uses: actions/upload-artifact@v4
+        with:
+          name: camera-guard
+          path: qa/
+          retention-days: 14
       - name: Framing QA on every frame (analytic, no rendering)
         if: inputs.composition == 'EiffelShort' || inputs.composition == 'RatShort'
         run: node scripts/${{ inputs.composition == 'RatShort' && 'frame-qa-rats.mjs' || 'frame-qa.mjs' }} out/frame-qa.json | tee out/frame-qa.txt

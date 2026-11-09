@@ -14,3 +14,4 @@
 10. **Named character doing an action is on screen doing it:** when the narration names a character performing an action, that character must be in frame doing it (e.g. André paying, not just the money bag).
 11. **Night scenes:** the main character must be lit (practical/key light on them) and framed at least at medium-shot size.
 12. **One continuous world:** every shot has foreground/mid/background depth and haze; no visible set edges, bare ground planes or empty skies; interiors show the outside through windows.
+13. **Camera guard:** No render starts unless the camera guard passes on every frame. (`node video/scripts/camera-guard.mjs <eiffel|rats|moon>`: math only, before any pixels. It checks the declared subjects for safe margin and size, occlusion, clipping, empty frames and faces below 55 %, and render.yml stops the render if any frame fails. Each video declares its subjects in `src/videos/<video>/subjects.ts`.)

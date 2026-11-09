@@ -1,0 +1,307 @@
+1.87-2.50 s	f56-74	OCCLUSION	w:tower	5/5 rays blocked for 10 frames
+1.90-2.50 s	f57-74	EMPTY		none of w:tower in view
+3.70-3.73 s	f111-111	SUBJECT	f:tag	cut off bottom (1.01)
+3.73-3.77 s	f112-112	SUBJECT	f:tag	cut off right (0.98)
+3.73-3.77 s	f112-112	SUBJECT	f:tag	too small (1 % of frame height, needs 15 %)
+3.77-4.37 s	f113-130	SUBJECT	f:tag	out of frame (x -2.06..-1.75, y 2.97..3.22)
+3.77-4.37 s	f113-130	EMPTY		none of f:tag in view
+3.90-3.97 s	f117-118	CLIPPING		view filled by geometry within 1.5 m (88 % of the frame)
+5.33-5.50 s	f160-164	SUBJECT	c:painter1	behind the camera
+5.33-5.50 s	f160-164	SUBJECT	c:painter2	behind the camera
+5.33-6.23 s	f160-186	EMPTY		none of c:painter1, c:painter2 in view
+5.50-6.23 s	f165-186	SUBJECT	c:painter1	out of frame (x 0.62..0.76, y 2.84..2.95)
+5.50-6.27 s	f165-187	SUBJECT	c:painter2	out of frame (x 0.29..0.44, y 2.82..2.94)
+5.50-5.53 s	f165-165	CLIPPING		geometry 0.31 m from the lens
+5.53-5.57 s	f166-166	CLIPPING		view filled by geometry within 1.5 m (100 % of the frame)
+5.60-5.63 s	f168-168	CLIPPING		geometry 0.31 m from the lens
+5.70-5.83 s	f171-174	CLIPPING		view filled by geometry within 1.5 m (100 % of the frame)
+5.73-5.80 s	f172-173	CLIPPING		geometry 0.10 m from the lens
+5.77-5.80 s	f173-173	CLIPPING		camera inside a solid (5/6 rays hit back faces)
+6.23-6.30 s	f187-188	SUBJECT	c:painter1	cropped above the chest (0.95)
+6.23-7.20 s	f187-215	SUBJECT	c:painter1	too small (21 % of frame height, needs 30 %)
+6.27-6.43 s	f188-192	FACES	c:painter1	head centre at 70 % of the frame height
+6.27-6.30 s	f188-188	SUBJECT	c:painter2	cropped above the chest (0.98)
+6.27-7.27 s	f188-217	SUBJECT	c:painter2	too small (21 % of frame height, needs 30 %)
+6.27-6.43 s	f188-192	FACES	c:painter2	head centre at 71 % of the frame height
+7.17-7.20 s	f215-215	SUBJECT	c:painter1	cut off right (1.06)
+7.20-8.43 s	f216-252	SUBJECT	c:painter1	out of frame (x 3.77..4.41, y -3.89..-3.19)
+7.23-7.27 s	f217-217	SUBJECT	c:painter2	cut off right (1.15)
+7.27-8.43 s	f218-252	SUBJECT	c:painter2	out of frame (x 3.24..3.75, y -3.67..-3.06)
+7.27-8.43 s	f218-252	EMPTY		none of c:painter1, c:painter2 in view
+9.40-9.43 s	f282-282	SUBJECT	c:lady	cut off left (-0.20)
+9.43-9.57 s	f283-286	SUBJECT	c:lady	out of frame (x -9.85..-4.93, y 1.48..3.92)
+9.43-9.90 s	f283-296	EMPTY		none of c:lady in view
+9.57-9.90 s	f287-296	SUBJECT	c:lady	behind the camera
+9.90-9.97 s	f297-298	SUBJECT	c:lady	not on stage
+9.97-10.07 s	f299-301	SUBJECT	c:lustigCafe	too small (3 % of frame height, needs 30 %)
+9.97-10.07 s	f299-301	FACES	c:lustigCafe	head centre at 63 % of the frame height
+9.97-10.07 s	f299-301	SUBJECT	f:paper	too small (1 % of frame height, needs 15 %)
+10.07-10.37 s	f302-310	SUBJECT	c:lustigCafe	out of frame (x -1.35..-1.21, y 0.99..1.17)
+10.07-10.37 s	f302-310	SUBJECT	f:paper	out of frame (x -1.40..-1.28, y 1.03..1.08)
+10.07-10.37 s	f302-310	EMPTY		none of c:lustigCafe, f:paper in view
+10.37-10.43 s	f311-312	SUBJECT	c:lustigCafe	cut off left (-0.08)
+10.37-10.47 s	f311-313	SUBJECT	f:paper	cut off left (-0.18)
+12.20-12.27 s	f366-367	SUBJECT	f:paper	cut off right (1.45)
+12.23-12.27 s	f367-367	SUBJECT	c:lustigCafe	cut off right (1.25)
+12.27-12.33 s	f368-369	SUBJECT	c:lustigCafe	out of frame (x 8.51..38.05, y 2.86..21.41)
+12.27-12.30 s	f368-368	SUBJECT	f:paper	out of frame (x 2.31..3.32, y 1.25..1.68)
+12.27-12.53 s	f368-375	EMPTY		none of c:lustigCafe, f:paper in view
+12.30-12.53 s	f369-375	SUBJECT	f:paper	behind the camera
+12.33-12.53 s	f370-375	SUBJECT	c:lustigCafe	behind the camera
+12.53-12.57 s	f376-376	SUBJECT	c:lustigF	cropped above the chest (1.01)
+12.53-12.63 s	f376-378	SUBJECT	c:lustigF	too small (4 % of frame height, needs 30 %)
+12.53-12.63 s	f376-378	FACES	c:lustigF	head centre at 79 % of the frame height
+12.53-12.57 s	f376-376	SUBJECT	c:forger	cropped above the chest (1.01)
+12.53-12.63 s	f376-378	SUBJECT	c:forger	too small (4 % of frame height, needs 30 %)
+12.53-12.90 s	f376-386	EMPTY		none of c:lustigF, c:forger in view
+12.57-12.63 s	f377-378	FACES	c:forger	head centre at 69 % of the frame height
+12.60-12.63 s	f378-378	CLIPPING		view filled by geometry within 1.5 m (100 % of the frame)
+12.60-12.63 s	f378-378	CLIPPING		geometry 0.16 m from the lens
+12.60-12.63 s	f378-378	CLIPPING		camera inside a solid (5/6 rays hit back faces)
+12.63-12.73 s	f379-381	SUBJECT	c:lustigF	out of frame (x 2.65..2.88, y 0.91..1.06)
+12.63-12.73 s	f379-381	SUBJECT	c:forger	out of frame (x 2.49..2.71, y 0.91..1.07)
+12.73-12.87 s	f382-385	SUBJECT	c:lustigF	behind the camera
+12.73-12.87 s	f382-385	SUBJECT	c:forger	behind the camera
+12.87-12.90 s	f386-386	SUBJECT	c:lustigF	out of frame (x -10.12..-3.14, y -0.16..4.86)
+12.87-12.90 s	f386-386	SUBJECT	c:forger	out of frame (x -14.72..-2.66, y -0.24..3.90)
+12.90-12.93 s	f387-387	SUBJECT	c:lustigF	cut off right (1.75)
+12.90-12.93 s	f387-387	SUBJECT	c:forger	cut off left (-0.29)
+12.93-14.07 s	f388-421	SUBJECT	c:lustigF	out of frame (x 1.13..2.17, y 0.19..1.21)
+13.97-14.10 s	f419-422	SUBJECT	f:letterhead	too small (12 % of frame height, needs 15 %)
+14.07-14.13 s	f422-423	SUBJECT	c:lustigF	cut off right (1.23)
+14.07-14.10 s	f422-422	SUBJECT	f:letterhead	cut off left (-0.02)
+14.10-14.13 s	f423-423	SUBJECT	c:forger	cut off left (-0.82)
+14.10-14.13 s	f423-423	SUBJECT	f:letterhead	out of frame (x -1.35..-0.46, y 0.68..0.93)
+14.13-14.40 s	f424-431	SUBJECT	c:lustigF	behind the camera
+14.13-14.17 s	f424-424	SUBJECT	c:forger	out of frame (x -14.69..-2.77, y 3.00..16.35)
+14.13-14.40 s	f424-431	SUBJECT	f:letterhead	behind the camera
+14.13-14.40 s	f424-431	EMPTY		none of c:lustigF, c:forger, f:letterhead in view
+14.13-14.17 s	f424-424	CLIPPING		view filled by geometry within 1.5 m (94 % of the frame)
+14.13-14.17 s	f424-424	CLIPPING		geometry 0.18 m from the lens
+14.17-14.40 s	f425-431	SUBJECT	c:forger	behind the camera
+14.40-14.53 s	f432-435	SUBJECT	c:lustigF	not on stage
+14.40-14.53 s	f432-435	SUBJECT	c:forger	not on stage
+14.40-14.53 s	f432-435	SUBJECT	f:letterhead	not on stage
+14.53-14.63 s	f436-438	SUBJECT	c:lustigH	out of frame (x -5.67..-4.39, y 2.12..3.15)
+14.53-14.63 s	f436-438	EMPTY		none of c:lustigH in view
+14.63-14.67 s	f439-439	SUBJECT	c:lustigH	too small (26 % of frame height, needs 30 %)
+14.63-14.70 s	f439-440	FACES	c:lustigH	head centre at 63 % of the frame height
+14.67-14.70 s	f440-440	SUBJECT	c:lustigH	cut off right (1.05)
+14.70-14.93 s	f441-447	SUBJECT	c:lustigH	out of frame (x 1.10..1.26, y 0.48..0.74)
+14.70-14.93 s	f441-447	EMPTY		none of c:lustigH in view
+14.93-15.23 s	f448-456	SUBJECT	c:lustigH	cut off right (1.02)
+14.93-15.33 s	f448-459	SUBJECT	c:lustigH	too small (21 % of frame height, needs 30 %)
+15.33-15.37 s	f460-460	SUBJECT	c:lustigL	not on stage
+15.37-15.70 s	f461-470	SUBJECT	c:lustigL	too small (10 % of frame height, needs 30 %)
+15.37-15.53 s	f461-465	EMPTY		none of c:lustigL in view
+15.37-15.57 s	f461-466	OCCLUSION	c:lustigL	5/5 rays blocked for 4 frames
+15.53-15.70 s	f466-470	SUBJECT	c:lustigL	cut off left (-0.00)
+15.70-15.73 s	f471-471	SUBJECT	c:lustigL	out of frame (x -0.09..-0.00, y 0.49..0.63)
+15.70-15.73 s	f471-471	EMPTY		none of c:lustigL in view
+15.73-15.83 s	f472-474	SUBJECT	c:lustigL	cut off left (-0.05)
+15.73-15.97 s	f472-478	SUBJECT	c:lustigL	too small (20 % of frame height, needs 30 %)
+16.37-16.70 s	f491-500	SUBJECT	c:lustigL	cut off left (-0.02)
+17.87-18.23 s	f536-546	FACES	c:lustigL	head centre at 58 % of the frame height
+18.27-18.33 s	f548-549	SUBJECT	c:lustigL	out of frame (x 5.85..7.79, y 0.44..1.25)
+18.27-18.50 s	f548-554	EMPTY		none of c:lustigL in view
+18.33-18.50 s	f550-554	SUBJECT	c:lustigL	behind the camera
+18.50-18.60 s	f555-557	SUBJECT	c:lustigL	not on stage
+18.60-18.63 s	f558-558	SUBJECT	c:/^dealerW?\d$/	out of frame (x 3.29..3.97, y 1.37..1.75)
+18.60-18.63 s	f558-558	EMPTY		none of c:/^dealerW?\d$/ in view
+18.63-18.73 s	f559-561	SUBJECT	c:/^dealerW?\d$/	too small (18 % of frame height, needs 30 %)
+18.63-18.70 s	f559-560	FACES	c:/^dealerW?\d$/	head centre at 59 % of the frame height
+18.70-18.73 s	f561-561	SUBJECT	c:/^dealerW?\d$/	cut off left (-0.13)
+18.73-18.77 s	f562-562	SUBJECT	c:/^dealerW?\d$/	out of frame (x -0.25..-0.01, y 0.52..0.82)
+18.73-18.77 s	f562-562	EMPTY		none of c:/^dealerW?\d$/ in view
+18.77-18.83 s	f563-564	SUBJECT	c:/^dealerW?\d$/	cut off left (-0.03)
+18.87-19.00 s	f566-569	OCCLUSION	c:/^dealerW?\d$/	3/5 rays blocked (start of the run)
+19.10-19.30 s	f573-578	OCCLUSION	c:/^dealerW?\d$/	3/5 rays blocked for 4 frames
+19.30-19.90 s	f579-596	SUBJECT	c:/^dealer\d$/	not on stage
+19.30-19.63 s	f579-588	SUBJECT	c:lustigM	out of frame (x 1.18..1.47, y 0.42..0.77)
+19.30-19.63 s	f579-588	EMPTY		none of c:lustigM, c:/^dealer\d$/ in view
+19.63-20.57 s	f589-616	SUBJECT	c:lustigM	cut off right (1.10)
+19.63-20.53 s	f589-615	SUBJECT	c:lustigM	too small (25 % of frame height, needs 30 %)
+19.90-20.53 s	f597-615	SUBJECT	c:/^dealer\d$/	too small (23 % of frame height, needs 30 %)
+20.07-20.40 s	f602-611	OCCLUSION	c:/^dealer\d$/	3/5 rays blocked for 6 frames
+20.57-21.37 s	f617-640	SUBJECT	c:lustigM	out of frame (x 1.86..3.51, y 0.05..0.79)
+20.63-21.50 s	f619-644	SUBJECT	c:/^dealer\d$/	cut off left (-0.57)
+21.37-21.50 s	f641-644	SUBJECT	c:lustigM	cut off right (1.13)
+21.37-21.50 s	f641-644	OCCLUSION	c:/^dealer\d$/	3/5 rays blocked (start of the run)
+21.50-21.77 s	f645-652	SUBJECT	c:/^dealer\d$/	out of frame (x -55.06..-0.29, y 0.31..6.42)
+21.90-22.00 s	f657-659	SUBJECT	c:lustigM	cut off right (1.25)
+22.00-24.60 s	f660-737	SUBJECT	c:lustigM	out of frame (x 2.37..3.33, y 0.10..0.90)
+22.00-24.60 s	f660-737	EMPTY		none of c:lustigM in view
+24.60-24.73 s	f738-741	SUBJECT	c:lustigM	cut off right (1.15)
+25.30-25.57 s	f759-766	SUBJECT	c:lustigM	too small (24 % of frame height, needs 30 %)
+25.57-26.10 s	f767-782	SUBJECT	c:andreM	cut off right (1.16)
+25.57-25.63 s	f767-768	EMPTY		none of c:andreM in view
+25.57-25.63 s	f767-768	CLIPPING		view filled by geometry within 1.5 m (100 % of the frame)
+25.57-25.63 s	f767-768	CLIPPING		geometry 0.00 m from the lens
+26.07-26.20 s	f782-785	FACES	c:andreM	head centre at 69 % of the frame height
+26.17-26.40 s	f785-791	SUBJECT	c:andreM	cut off left (-0.54)
+27.33-27.53 s	f820-825	SUBJECT	c:andreM	cut off left (-0.67)
+27.50-27.67 s	f825-829	FACES	c:andreM	head centre at 66 % of the frame height
+27.60-28.83 s	f828-864	SUBJECT	c:andreM	cut off right (1.23)
+28.83-30.23 s	f865-906	SUBJECT	c:lustigM	too small (24 % of frame height, needs 30 %)
+28.83-28.97 s	f865-868	OCCLUSION	c:lustigM	3/5 rays blocked (start of the run)
+29.20-30.07 s	f876-901	EMPTY		none of c:lustigM in view
+29.20-30.07 s	f876-901	CLIPPING		view filled by geometry within 1.5 m (100 % of the frame)
+29.20-30.07 s	f876-901	CLIPPING		geometry 0.14 m from the lens
+29.20-30.07 s	f876-901	OCCLUSION	c:lustigM	5/5 rays blocked for 14 frames
+31.00-31.10 s	f930-932	SUBJECT	c:lustigM	cut off right (1.36)
+31.10-31.20 s	f933-935	SUBJECT	c:lustigM	out of frame (x 1.16..3.04, y 0.57..1.33)
+31.10-31.20 s	f933-935	EMPTY		none of c:lustigM in view
+31.20-31.70 s	f936-950	SUBJECT	c:lustigM	cut off right (1.08)
+31.30-31.37 s	f939-940	FACES	c:lustigM	head centre at 55 % of the frame height
+31.70-31.73 s	f951-951	SUBJECT	c:lustigM	out of frame (x 3.18..4.50, y 0.12..3.77)
+31.70-31.90 s	f951-956	EMPTY		none of c:lustigM in view
+31.73-31.90 s	f952-956	SUBJECT	c:lustigM	behind the camera
+31.90-31.93 s	f957-957	SUBJECT	c:lustigM	not on stage
+31.93-32.03 s	f958-960	SUBJECT	c:fake	out of frame (x 1.64..2.34, y 0.17..1.12)
+31.93-32.00 s	f958-959	SUBJECT	c:real	out of frame (x 1.08..1.44, y 0.30..0.85)
+31.93-32.00 s	f958-959	EMPTY		none of c:fake, c:real in view
+32.03-32.10 s	f961-962	SUBJECT	c:fake	cut off right (0.99)
+32.03-33.33 s	f961-999	SUBJECT	c:real	cut off left (-0.01)
+32.17-33.17 s	f965-994	SUBJECT	c:fake	cut off right (1.01)
+33.33-33.67 s	f1000-1009	SUBJECT	c:real	out of frame (x -0.51..-0.08, y 0.23..0.84)
+33.67-34.07 s	f1010-1021	SUBJECT	c:real	cut off left (-0.06)
+33.73-34.20 s	f1012-1025	SUBJECT	c:fake	cut off right (1.14)
+34.13-34.20 s	f1024-1025	SUBJECT	c:real	cut off left (-0.18)
+34.20-34.27 s	f1026-1027	SUBJECT	c:real	out of frame (x -4.97..-2.82, y -0.03..1.53)
+34.23-34.30 s	f1027-1028	SUBJECT	c:fake	out of frame (x -26.61..-5.67, y -2.57..5.75)
+34.23-34.40 s	f1027-1031	EMPTY		none of c:fake, c:real in view
+34.27-34.40 s	f1028-1031	SUBJECT	c:real	behind the camera
+34.30-34.40 s	f1029-1031	SUBJECT	c:fake	behind the camera
+34.40-34.47 s	f1032-1033	SUBJECT	c:fake	not on stage
+34.40-34.47 s	f1032-1033	SUBJECT	c:real	not on stage
+34.47-34.50 s	f1034-1034	SUBJECT	c:lustigM	out of frame (x -0.69..-0.40, y 0.39..0.80)
+34.47-34.50 s	f1034-1034	EMPTY		none of c:lustigM in view
+34.50-34.53 s	f1035-1035	SUBJECT	c:lustigM	cut off left (-0.22)
+35.17-35.20 s	f1055-1055	FACES	c:lustigM	head centre at 60 % of the frame height
+35.20-35.30 s	f1056-1058	SUBJECT	c:lustigM	cut off left (-0.11)
+35.23-35.30 s	f1057-1058	SUBJECT	c:lustigM	too small (16 % of frame height, needs 30 %)
+35.23-35.83 s	f1057-1074	EMPTY		none of c:lustigM in view
+35.23-35.27 s	f1057-1057	CLIPPING		view filled by geometry within 1.5 m (100 % of the frame)
+35.23-35.27 s	f1057-1057	CLIPPING		geometry 0.28 m from the lens
+35.30-35.43 s	f1059-1062	SUBJECT	c:lustigM	out of frame (x -3.76..-3.04, y 0.61..1.10)
+35.43-35.83 s	f1063-1074	SUBJECT	c:lustigM	behind the camera
+35.47-35.50 s	f1064-1064	CLIPPING		view filled by geometry within 1.5 m (100 % of the frame)
+35.63-35.70 s	f1069-1070	CLIPPING		camera inside a solid (5/6 rays hit back faces)
+35.83-36.27 s	f1075-1087	SUBJECT	c:lustigM	not on stage
+36.27-36.33 s	f1088-1089	SUBJECT	c:waiterW	behind the camera
+36.27-36.43 s	f1088-1092	EMPTY		none of c:waiterW in view
+36.27-36.30 s	f1088-1088	CLIPPING		view filled by geometry within 1.5 m (100 % of the frame)
+36.33-36.43 s	f1090-1092	SUBJECT	c:waiterW	out of frame (x 1.54..2.98, y 1.01..2.83)
+36.43-40.90 s	f1093-1226	SUBJECT	c:waiterW	cut off right (1.09)
+40.90-41.03 s	f1227-1230	SUBJECT	c:waiterW	not on stage
+41.03-41.23 s	f1231-1236	SUBJECT	c:andreC	cut off left (-0.10)
+41.03-42.67 s	f1231-1279	SUBJECT	f:francs	too small (2 % of frame height, needs 15 %)
+41.60-42.67 s	f1248-1279	SUBJECT	f:francs	cut off right (1.07)
+42.67-42.83 s	f1280-1284	SUBJECT	f:francs	out of frame (x 1.47..1.87, y 0.86..0.97)
+42.70-42.77 s	f1281-1282	SUBJECT	c:andreC	cut off right (1.34)
+42.77-42.87 s	f1283-1285	SUBJECT	c:andreC	out of frame (x 1.59..3.18, y 1.29..2.63)
+42.77-43.17 s	f1283-1294	EMPTY		none of c:andreC, f:francs in view
+42.83-43.17 s	f1285-1294	SUBJECT	f:francs	behind the camera
+42.87-43.17 s	f1286-1294	SUBJECT	c:andreC	behind the camera
+43.83-44.07 s	f1315-1321	SUBJECT	c:lustigT	out of frame (x -0.93..-0.80, y 1.27..1.38)
+43.83-44.07 s	f1315-1321	EMPTY		none of c:lustigT in view
+44.07-44.17 s	f1322-1324	SUBJECT	c:lustigT	cropped above the chest (0.99)
+44.07-44.37 s	f1322-1330	SUBJECT	c:lustigT	too small (12 % of frame height, needs 30 %)
+44.07-44.30 s	f1322-1328	FACES	c:lustigT	head centre at 89 % of the frame height
+44.23-44.37 s	f1327-1330	SUBJECT	c:lustigT	cut off right (1.10)
+44.37-44.47 s	f1331-1333	SUBJECT	c:lustigT	out of frame (x 1.04..1.34, y 0.46..0.71)
+44.37-44.47 s	f1331-1333	EMPTY		none of c:lustigT in view
+44.47-44.53 s	f1334-1335	SUBJECT	c:lustigT	cut off right (1.17)
+44.53-44.70 s	f1336-1340	SUBJECT	c:lustigT	too small (29 % of frame height, needs 30 %)
+45.43-45.93 s	f1363-1377	SUBJECT	c:lustigT	not on stage
+45.93-45.97 s	f1378-1378	SUBJECT	c:lustigSeat	out of frame (x 1.11..1.46, y 0.35..0.84)
+45.93-45.97 s	f1378-1378	EMPTY		none of c:lustigSeat in view
+45.97-46.07 s	f1379-1381	SUBJECT	c:lustigSeat	cut off right (1.15)
+45.97-46.17 s	f1379-1384	OCCLUSION	c:lustigSeat	4/5 rays blocked for 4 frames
+46.13-46.43 s	f1384-1392	SUBJECT	c:lustigSeat	cut off left (-0.55)
+46.83-46.97 s	f1405-1408	SUBJECT	c:lustigSeat	cut off right (1.03)
+47.17-47.60 s	f1415-1427	SUBJECT	c:lustigSeat	cut off left (0.01)
+47.67-47.77 s	f1430-1432	SUBJECT	c:andreH	behind the camera
+47.67-48.17 s	f1430-1444	EMPTY		none of c:andreH in view
+47.77-47.87 s	f1433-1435	SUBJECT	c:andreH	out of frame (x -2.14..-2.07, y 0.69..0.74)
+47.87-47.90 s	f1436-1436	SUBJECT	c:andreH	cropped above the chest (0.99)
+47.87-47.97 s	f1436-1438	SUBJECT	c:andreH	too small (5 % of frame height, needs 30 %)
+47.87-47.97 s	f1436-1438	FACES	c:andreH	head centre at 83 % of the frame height
+47.97-48.03 s	f1439-1440	SUBJECT	c:andreH	out of frame (x -3.07..-2.59, y 0.41..0.62)
+48.03-48.17 s	f1441-1444	SUBJECT	c:andreH	behind the camera
+48.10-48.13 s	f1443-1443	CLIPPING		view filled by geometry within 1.5 m (100 % of the frame)
+48.10-48.13 s	f1443-1443	CLIPPING		geometry 0.11 m from the lens
+48.17-48.20 s	f1445-1445	SUBJECT	c:andreH	cut off right (1.02)
+48.20-48.53 s	f1446-1455	CLIPPING		geometry 0.27 m from the lens
+48.23-48.50 s	f1447-1454	OCCLUSION	c:andreH	3/5 rays blocked for 5 frames
+48.57-48.73 s	f1457-1461	SUBJECT	c:andreH	cut off right (1.32)
+48.73-49.40 s	f1462-1481	SUBJECT	c:andreH	out of frame (x 1.95..4.74, y -0.96..1.06)
+48.73-49.40 s	f1462-1481	EMPTY		none of c:andreH in view
+49.40-49.63 s	f1482-1488	SUBJECT	c:andreH	cut off right (1.34)
+49.63-49.93 s	f1489-1497	SUBJECT	c:andreH	cut off top (0.05)
+49.93-49.97 s	f1498-1498	SUBJECT	c:andreH	cut off right (1.57)
+49.97-50.00 s	f1499-1499	SUBJECT	c:andreH	out of frame (x 5.09..5.09, y 5.14..5.14)
+49.97-50.40 s	f1499-1511	EMPTY		none of c:andreH in view
+50.00-50.40 s	f1500-1511	SUBJECT	c:andreH	behind the camera
+50.00-50.03 s	f1500-1500	CLIPPING		view filled by geometry within 1.5 m (100 % of the frame)
+50.00-50.03 s	f1500-1500	CLIPPING		geometry 0.37 m from the lens
+50.40-50.53 s	f1512-1515	SUBJECT	c:andreH	not on stage
+50.53-50.73 s	f1516-1521	SUBJECT	c:lustigT	out of frame (x -2.20..-1.96, y 1.16..1.31)
+50.53-50.73 s	f1516-1521	EMPTY		none of c:lustigT in view
+50.73-50.77 s	f1522-1522	SUBJECT	c:lustigT	cut off left (-0.04)
+50.73-51.90 s	f1522-1556	SUBJECT	c:lustigT	too small (7 % of frame height, needs 30 %)
+50.73-50.80 s	f1522-1523	FACES	c:lustigT	head centre at 56 % of the frame height
+51.83-51.90 s	f1555-1556	FACES	c:lustigT	head centre at 66 % of the frame height
+51.90-51.97 s	f1557-1558	SUBJECT	c:lustigT	out of frame (x 4.43..4.95, y 1.59..1.87)
+51.90-52.13 s	f1557-1563	EMPTY		none of c:lustigT in view
+51.97-52.13 s	f1559-1563	SUBJECT	c:lustigT	behind the camera
+52.13-52.60 s	f1564-1577	SUBJECT	c:lustigT	not on stage
+52.33-52.37 s	f1570-1570	CLIPPING		view filled by geometry within 1.5 m (100 % of the frame)
+52.33-52.37 s	f1570-1570	CLIPPING		geometry 0.21 m from the lens
+52.60-53.00 s	f1578-1589	SUBJECT	c:lustigM	cut off right (1.09)
+52.60-52.93 s	f1578-1587	SUBJECT	c:lustigM	too small (25 % of frame height, needs 30 %)
+53.83-53.87 s	f1615-1615	SUBJECT	c:lustigM	cut off left (-0.04)
+53.83-53.87 s	f1615-1615	FACES	c:lustigM	head centre at 57 % of the frame height
+53.87-53.93 s	f1616-1617	SUBJECT	c:lustigM	out of frame (x -3.59..-2.31, y 0.76..1.89)
+53.87-53.97 s	f1616-1618	EMPTY		none of c:lustigM in view
+53.93-53.97 s	f1618-1618	SUBJECT	c:lustigM	behind the camera
+53.97-54.17 s	f1619-1624	SUBJECT	c:andreP	out of frame (x -2.16..-1.67, y 0.99..1.20)
+53.97-54.13 s	f1619-1623	SUBJECT	c:/^police\d$/	out of frame (x -1.59..-0.55, y 0.75..1.49)
+53.97-54.13 s	f1619-1623	EMPTY		none of c:andreP, c:/^police\d$/ in view
+54.13-54.20 s	f1624-1625	SUBJECT	c:/^police\d$/	cut off left (-0.29)
+54.17-55.37 s	f1625-1660	SUBJECT	c:andreP	too small (19 % of frame height, needs 30 %)
+54.20-54.27 s	f1626-1627	SUBJECT	c:andreP	cut off right (1.01)
+54.20-54.30 s	f1626-1628	FACES	c:andreP	head centre at 60 % of the frame height
+54.20-54.37 s	f1626-1630	SUBJECT	c:/^police\d$/	cut off right (1.40)
+54.37-55.37 s	f1631-1660	SUBJECT	c:/^police\d$/	cut off left (-0.01)
+55.27-55.37 s	f1658-1660	FACES	c:andreP	head centre at 61 % of the frame height
+55.30-55.37 s	f1659-1660	SUBJECT	c:/^police\d$/	too small (24 % of frame height, needs 30 %)
+55.37-55.40 s	f1661-1661	SUBJECT	c:andreP	out of frame (x -0.93..-0.74, y 1.23..1.42)
+55.37-55.40 s	f1661-1661	SUBJECT	c:/^police\d$/	out of frame (x -1.83..-0.87, y 1.26..1.67)
+55.37-55.53 s	f1661-1665	EMPTY		none of c:andreP, c:/^police\d$/ in view
+55.40-55.53 s	f1662-1665	SUBJECT	c:andreP	behind the camera
+55.40-55.53 s	f1662-1665	SUBJECT	c:/^police\d$/	behind the camera
+55.53-55.77 s	f1666-1672	SUBJECT	c:lustigShip	too small (10 % of frame height, needs 30 %)
+55.53-55.77 s	f1666-1672	FACES	c:lustigShip	head centre at 64 % of the frame height
+57.83-57.90 s	f1735-1736	FACES	c:lustigShip	head centre at 59 % of the frame height
+57.87-57.93 s	f1736-1737	SUBJECT	c:lustigShip	cut off right (1.12)
+57.87-57.93 s	f1736-1737	SUBJECT	c:lustigShip	too small (24 % of frame height, needs 30 %)
+57.93-58.10 s	f1738-1742	SUBJECT	c:lustigShip	out of frame (x 2.04..2.15, y 1.04..1.20)
+57.93-58.30 s	f1738-1748	EMPTY		none of c:lustigShip in view
+58.10-58.30 s	f1743-1748	SUBJECT	c:lustigShip	behind the camera
+58.30-58.37 s	f1749-1750	SUBJECT	c:lustigShip	not on stage
+58.37-58.43 s	f1751-1752	SUBJECT	c:lustigOld	too small (4 % of frame height, needs 30 %)
+58.37-58.67 s	f1751-1759	EMPTY		none of c:lustigOld in view
+58.43-58.63 s	f1753-1758	SUBJECT	c:lustigOld	out of frame (x 3.88..4.26, y 0.68..0.88)
+58.63-58.67 s	f1759-1759	SUBJECT	c:lustigOld	cut off top (0.04)
+58.63-58.67 s	f1759-1759	SUBJECT	c:lustigOld	too small (27 % of frame height, needs 30 %)
+58.63-58.67 s	f1759-1759	CLIPPING		view filled by geometry within 1.5 m (100 % of the frame)
+58.67-58.70 s	f1760-1760	SUBJECT	c:lustigOld	cut off right (1.33)
+58.70-58.73 s	f1761-1761	SUBJECT	c:lustigOld	out of frame (x 1.44..2.02, y 0.47..1.09)
+58.70-58.73 s	f1761-1761	EMPTY		none of c:lustigOld in view
+58.80-58.90 s	f1764-1766	SUBJECT	c:lustigOld	too small (29 % of frame height, needs 30 %)
+60.13-60.30 s	f1804-1808	SUBJECT	f:cert	out of frame (x -0.83..-0.21, y 0.58..0.74)
+60.13-60.30 s	f1804-1808	EMPTY		none of f:cert in view
+60.30-60.47 s	f1809-1813	SUBJECT	f:cert	cut off left (-0.45)
+60.47-60.57 s	f1814-1816	SUBJECT	f:cert	cut off right (1.03)
+60.67-63.23 s	f1820-1896	SUBJECT	f:cert	cut off left (-0.22)
