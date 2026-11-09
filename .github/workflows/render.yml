@@ -134,11 +134,23 @@ jobs:
           else echo "qa=[]" >> "$GITHUB_OUTPUT"; fi
       # CLAUDE.md rule 13: no render starts unless the camera guard passes on every frame (math only, no pixels).
       # A failure fails this job, so no render / stills job starts.
-      - name: Camera guard on every frame (subject, occlusion, clipping, empty, faces)
+      # Rats / Moon are auto-framed: shots.ts -> solve -> guard -> re-solve the failing shots (up to 5 rounds), then
+      # the 4 x 4 sheet of the worst frames; the solved camtrack.json goes to every render job as an artifact.
+      - name: Camera guard on every frame (subject, occlusion, clipping, empty, faces); auto-frame Rats / Moon first
         if: inputs.composition == 'EiffelShort' || inputs.composition == 'RatShort' || inputs.composition == 'MoonShort'
         run: |
           v=$(case "${{ inputs.composition }}" in EiffelShort) echo eiffel;; RatShort) echo rats;; MoonShort) echo moon;; esac)
-          node scripts/camera-guard.mjs "$v" | tee out/camera-guard.txt
+          if [ "$v" = eiffel ]; then node scripts/camera-guard.mjs "$v" | tee out/camera-guard.txt; exit "${PIPESTATUS[0]}"; fi
+          timeout 300 pip install -q pillow || true
+          set -o pipefail
+          node scripts/camera-guard.mjs "$v" --solve --sheet | tee out/camera-guard.txt
+          cat ../qa/$v/summary.txt >> "$GITHUB_STEP_SUMMARY"
+      - if: always() && (inputs.composition == 'RatShort' || inputs.composition == 'MoonShort')
+        uses: actions/upload-artifact@v4
+        with:
+          name: camtrack
+          path: video/src/videos/*/camtrack.json
+          retention-days: 14
       - if: always() && (inputs.composition == 'EiffelShort' || inputs.composition == 'RatShort' || inputs.composition == 'MoonShort')
         uses: actions/upload-artifact@v4
         with:
@@ -167,6 +179,12 @@ jobs:
     name: render ${{ matrix.chunk.index }} (${{ matrix.chunk.start }}-${{ matrix.chunk.end }})
     steps:
       - uses: actions/checkout@v4
+      # the auto-framed camera solved by the plan job (rule 13)
+      - if: inputs.composition == 'RatShort' || inputs.composition == 'MoonShort'
+        uses: actions/download-artifact@v4
+        with:
+          name: camtrack
+          path: video/src/videos
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -228,6 +246,12 @@ jobs:
     name: still ${{ matrix.frame }}
     steps:
       - uses: actions/checkout@v4
+      # the auto-framed camera solved by the plan job (rule 13)
+      - if: inputs.composition == 'RatShort' || inputs.composition == 'MoonShort'
+        uses: actions/download-artifact@v4
+        with:
+          name: camtrack
+          path: video/src/videos
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -268,6 +292,12 @@ jobs:
     name: qa stills ${{ strategy.job-index }}
     steps:
       - uses: actions/checkout@v4
+      # the auto-framed camera solved by the plan job (rule 13)
+      - if: inputs.composition == 'RatShort' || inputs.composition == 'MoonShort'
+        uses: actions/download-artifact@v4
+        with:
+          name: camtrack
+          path: video/src/videos
       - uses: actions/setup-node@v4
         with:
           node-version: 22

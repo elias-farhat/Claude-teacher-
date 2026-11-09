@@ -1,0 +1,102 @@
+Decisions (auto-framer + camera guard, made without asking):
+- CRITICAL = any guard failure on a held frame. During a flight between two shots only CLIPPING and EMPTY are
+  CRITICAL (EMPTY = none of the subjects of either shot, nor the prop the camera carries across, is visible: every one
+  is out of frame or fully blocked); SUBJECT (size / margin), FACES and the OCCLUSION of one of them are warnings,
+  because the camera is travelling from one subject to the next.
+- Shots shorter than ~1.2 s were merged into their neighbour (a 25-30 frame flight needs the room): Rats "farming",
+  "the rat pops out" (now an optional subject of "into the nicest houses") and "it's not enough"; the convoy shot
+  lands on "love" and the scurrying rat on "strange".
+- Subject boxes: characters are their full card figure (feet to hat, 0.62 m wide; seated: legs to head). So "close" =
+  the full figure at 75 % of the frame height, never a face close-up (CLAUDE.md 3). Groups ("c:/re/") are one union box.
+- The solver's base direction is the old hand-placed camera's direction to the subject (it knows the rooms, windows
+  and streets), turned by the spec's angle; flights try a straight line, then the hand camera's own route (through the
+  doors, windows and grates it used), then an arc over the top, each smoothed and ray-checked.
+- Lighting looks, carried props and the sun direction still follow the old SHOTS timeline (story.ts), so the light
+  arc and every on-screen action keep their exact voice timing; only the camera comes from shots.ts.
+- Shot times land 2 frames before their word (voice.wav untouched). Where a subject is only on stage from a later
+  moment, the shot starts then (e.g. Rats line 18 starts at the end of line 17 with the farmer walking to the barn).
+- Re-solve loop: a failing shot drops the candidate that failed; "too small" moves 15 % closer, "cut off" 15 % farther.
+
+CRITICAL: 14 frames in 7 ranges
+   11.70- 11.83 s  f351-354  SUBJECT   f:convoy6            cut off left (-0.02)
+   13.30- 13.37 s  f399-400  SUBJECT   f:convoy6            cut off right (1.10)
+   39.53- 39.63 s  f1186-1188  EMPTY                          none of c:officialS, f:scurry, ?f:carry in view
+   39.67- 39.73 s  f1190-1191  SUBJECT   f:scurry             cut off left (-0.01)
+   40.40- 40.43 s  f1212-1212  SUBJECT   f:scurry             cut off right (1.00)
+   40.40- 40.43 s  f1212-1212  SUBJECT   f:scurry             too small (15 % of frame height, needs 15 %)
+   47.40- 47.47 s  f1422-1423  EMPTY                          none of c:officialB, ?f:tailOne, f:mom, ?f:carry in view
+warnings: 768 frames in 226 ranges (list in camera_report.txt)
+
+Loop:
+  round 1: 117 frames with CRITICAL failures in 11 shots (2, 4, 5, 6, 9, 18, 19, 22, 23, 28, 30)
+  round 2: 64 frames with CRITICAL failures in 6 shots (5, 6, 9, 18, 22, 28)
+  round 3: 68 frames with CRITICAL failures in 5 shots (5, 6, 18, 22, 28)
+  round 4: 82 frames with CRITICAL failures in 5 shots (5, 18, 22, 23, 28)
+  round 5: 201 frames with CRITICAL failures in 5 shots (5, 18, 19, 22, 23)
+  assembled the best round of every shot: 14 frames with CRITICAL failures
+  kept the assembled track (14 CRITICAL frames)
+
+Shots (candidate chosen, score):
+  shot  0    0.00-  1.55 s  medium base (score 0)
+  shot  1    1.55-  5.09 s  medium lower (score 2)
+  shot  2    5.09-  8.30 s  wide   track closer (score 3)
+  shot  3    8.30- 10.30 s  medium base (score 0)
+  shot  4   10.30- 11.68 s  insert lower (score 2)
+  shot  5   11.68- 14.28 s  insert track az+30 (score 3)
+  shot  6   14.28- 15.44 s  close  az+30 (score 3)
+  shot  7   15.44- 17.16 s  insert base (score 0)
+  shot  8   17.16- 19.62 s  insert base (score 3)
+  shot  9   19.62- 20.64 s  close  az+30 (score 3)
+  shot 10   20.64- 22.06 s  medium az+30 (score 3)
+  shot 11   22.06- 25.16 s  insert closer 0.45 (score 5)
+  shot 12   25.16- 26.46 s  medium base (score 0)
+  shot 13   26.46- 28.78 s  medium base (score 0)
+  shot 14   28.78- 32.30 s  medium base (score 0)
+  shot 15   32.30- 34.16 s  insert base (score 0)
+  shot 16   34.16- 38.38 s  medium az-30 (score 3)
+  shot 17   38.38- 39.66 s  medium base (score 0)
+  shot 18   39.66- 41.34 s  insert track higher (score 47: 2/5 blocked)
+  shot 19   41.34- 43.16 s  insert higher (score 3)
+  shot 20   43.16- 45.00 s  wide   base (score 0)
+  shot 21   45.00- 47.50 s  medium az-60 (score 6)
+  shot 22   47.50- 52.68 s  insert higher (score 3)
+  shot 23   52.68- 54.80 s  medium lower (score 2)
+  shot 24   54.80- 56.77 s  medium lower (score 2)
+  shot 25   56.77- 58.63 s  medium track base (score 0)
+  shot 26   58.63- 60.49 s  medium base (score 0)
+  shot 27   60.49- 62.71 s  medium base (score 0)
+  shot 28   62.71- 67.20 s  close  track closer (score 3)
+  shot 29   67.20- 68.71 s  medium az-90 (score 9)
+  shot 30   68.71- 70.80 s  insert base (score 0)
+
+Flights:
+  -> shot 1: 0.62-1.55 s, 28 f, hand route (reversed), peak 0.23 m/f
+  -> shot 2: 4.16-5.09 s, 28 f, hand waypoints, peak 4.71 m/f
+  -> shot 3: 7.36-8.30 s, 28 f, straight, peak 5.73 m/f
+  -> shot 4: 9.36-10.30 s, 28 f, hand waypoints, peak 0.96 m/f
+  -> shot 5: 10.74-11.68 s, 28 f, hand waypoints, peak 1.14 m/f
+  -> shot 6: 13.34-14.28 s, 28 f, hand waypoints, peak 2.37 m/f
+  -> shot 7: 14.60-15.44 s, 25 f, hand waypoints, peak 0.58 m/f
+  -> shot 8: 16.22-17.16 s, 28 f, hand waypoints, peak 0.73 m/f
+  -> shot 9: 18.68-19.62 s, 28 f, hand waypoints, peak 2.13 m/f
+  -> shot 10: 19.94-20.64 s, 21 f, hand waypoints, peak 5.01 m/f
+  -> shot 11: 21.12-22.06 s, 28 f, hand waypoints, peak 0.93 m/f
+  -> shot 12: 24.23-25.16 s, 28 f, hand waypoints, peak 2.2 m/f
+  -> shot 13: 25.52-26.46 s, 28 f, straight, peak 0.21 m/f
+  -> shot 14: 27.85-28.78 s, 28 f, hand waypoints, peak 1.52 m/f
+  -> shot 15: 31.37-32.30 s, 28 f, straight, peak 0.08 m/f
+  -> shot 16: 33.23-34.16 s, 28 f, hand route (reversed), peak 0.11 m/f
+  -> shot 17: 37.45-38.38 s, 28 f, hand waypoints, peak 0.72 m/f
+  -> shot 18: 38.73-39.66 s, 28 f, hand waypoints, peak 1.15 m/f
+  -> shot 19: 40.41-41.34 s, 28 f, hand route, peak 0.56 m/f
+  -> shot 20: 42.23-43.16 s, 28 f, hand route, peak 0.64 m/f
+  -> shot 21: 44.07-45.00 s, 28 f, hand waypoints, peak 1.39 m/f
+  -> shot 22: 46.57-47.50 s, 28 f, hand waypoints, peak 2.23 m/f
+  -> shot 23: 51.75-52.68 s, 28 f, hand waypoints, peak 5.66 m/f
+  -> shot 24: 53.87-54.80 s, 28 f, hand route (reversed), peak 0.39 m/f
+  -> shot 25: 55.84-56.77 s, 28 f, hand route (reversed), peak 0.39 m/f
+  -> shot 26: 57.69-58.63 s, 28 f, hand waypoints, peak 1.07 m/f
+  -> shot 27: 59.55-60.49 s, 28 f, hand waypoints, peak 5.75 m/f
+  -> shot 28: 61.77-62.71 s, 28 f, arc over, peak 3.64 m/f
+  -> shot 29: 66.27-67.20 s, 28 f, hand waypoints, peak 3.06 m/f
+  -> shot 30: 67.77-68.71 s, 28 f, hand waypoints, peak 1.51 m/f

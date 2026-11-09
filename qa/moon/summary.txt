@@ -1,0 +1,106 @@
+Decisions (auto-framer + camera guard, made without asking):
+- CRITICAL = any guard failure on a held frame. During a flight between two shots only CLIPPING and EMPTY are
+  CRITICAL (EMPTY = none of the subjects of either shot, nor the prop the camera carries across, is visible: every one
+  is out of frame or fully blocked); SUBJECT (size / margin), FACES and the OCCLUSION of one of them are warnings,
+  because the camera is travelling from one subject to the next.
+- Shots shorter than ~1.2 s were merged into their neighbour (a 25-30 frame flight needs the room): Rats "farming",
+  "the rat pops out" (now an optional subject of "into the nicest houses") and "it's not enough"; the convoy shot
+  lands on "love" and the scurrying rat on "strange".
+- Subject boxes: characters are their full card figure (feet to hat, 0.62 m wide; seated: legs to head). So "close" =
+  the full figure at 75 % of the frame height, never a face close-up (CLAUDE.md 3). Groups ("c:/re/") are one union box.
+- The solver's base direction is the old hand-placed camera's direction to the subject (it knows the rooms, windows
+  and streets), turned by the spec's angle; flights try a straight line, then the hand camera's own route (through the
+  doors, windows and grates it used), then an arc over the top, each smoothed and ray-checked.
+- Lighting looks, carried props and the sun direction still follow the old SHOTS timeline (story.ts), so the light
+  arc and every on-screen action keep their exact voice timing; only the camera comes from shots.ts.
+- Shot times land 2 frames before their word (voice.wav untouched). Where a subject is only on stage from a later
+  moment, the shot starts then (e.g. Rats line 18 starts at the end of line 17 with the farmer walking to the barn).
+- Re-solve loop: a failing shot drops the candidate that failed; "too small" moves 15 % closer, "cut off" 15 % farther.
+
+CRITICAL: 192 frames in 23 ranges
+   18.67- 18.77 s  f560-562  CLIPPING                       camera inside a solid
+   18.70- 18.73 s  f561-561  CLIPPING                       view filled by geometry within 1.5 m (100 % of the frame)
+   21.03- 21.17 s  f631-634  CLIPPING                       camera inside a solid
+   31.97- 32.57 s  f959-976  SUBJECT   c:/^town\d$/         too small (28 % of frame height, needs 30 %)
+   31.97- 32.77 s  f959-982  SUBJECT   c:fainter            too small (4 % of frame height, needs 30 %)
+   33.70- 34.03 s  f1011-1020  SUBJECT   f:bird               not on stage
+   33.70- 34.50 s  f1011-1034  EMPTY                          none of f:bird in view
+   34.03- 34.50 s  f1021-1034  SUBJECT   f:bird               out of frame (x 1.27..1.63, y 0.33..0.35)
+   34.50- 35.67 s  f1035-1069  SUBJECT   f:bird               cut off right (1.47)
+   34.50- 35.13 s  f1035-1053  SUBJECT   f:bird               too small (10 % of frame height, needs 15 %)
+   35.17- 35.30 s  f1055-1058  SUBJECT   f:bird               too small (11 % of frame height, needs 15 %)
+   35.33- 36.33 s  f1060-1089  SUBJECT   f:bird               too small (12 % of frame height, needs 15 %)
+   49.10- 49.47 s  f1473-1483  SUBJECT   f:rumor              too small (10 % of frame height, needs 15 %)
+   49.17- 49.50 s  f1475-1484  SUBJECT   f:rumor              cut off top (-0.03)
+   49.50- 49.67 s  f1485-1489  SUBJECT   f:rumor              cut off left (0.03)
+   49.67- 50.37 s  f1490-1510  SUBJECT   f:rumor              cut off top (-0.00)
+   51.47- 51.50 s  f1544-1544  EMPTY                          none of c:herschelB, f:rumor, c:rival, ?f:carry in view
+   51.47- 51.50 s  f1544-1544  CLIPPING                       view filled by geometry within 1.5 m (100 % of the frame)
+   51.47- 51.50 s  f1544-1544  CLIPPING                       geometry 0.19 m from the lens
+   54.47- 54.90 s  f1634-1646  SUBJECT   c:/^cust\d$/         too small (29 % of frame height, needs 30 %)
+   55.30- 56.27 s  f1659-1687  OCCLUSION c:/^cust\d$/         3/5 rays blocked for 15 frames
+   55.53- 56.27 s  f1666-1687  SUBJECT   c:/^cust\d$/         cut off left (0.01)
+   62.40- 62.43 s  f1872-1872  EMPTY                          none of c:lockeS, f:sig, ?f:carry in view
+warnings: 652 frames in 199 ranges (list in camera_report.txt)
+
+Loop:
+  round 1: 251 frames with CRITICAL failures in 12 shots (3, 8, 9, 10, 11, 12, 13, 14, 19, 20, 21, 24)
+  round 2: 212 frames with CRITICAL failures in 10 shots (3, 8, 9, 10, 13, 14, 19, 20, 21, 24)
+  round 3: 206 frames with CRITICAL failures in 8 shots (8, 9, 13, 14, 19, 20, 21, 24)
+  round 4: 216 frames with CRITICAL failures in 8 shots (8, 9, 13, 14, 19, 20, 21, 24)
+  round 5: 220 frames with CRITICAL failures in 8 shots (8, 9, 13, 14, 19, 20, 21, 24)
+  assembled the best round of every shot: 192 frames with CRITICAL failures
+  kept the assembled track (192 CRITICAL frames)
+
+Shots (candidate chosen, score):
+  shot  0    0.00-  1.99 s  medium base (score 0)
+  shot  1    1.99-  5.22 s  wide   base (score 0)
+  shot  2    5.22-  6.50 s  wide   az-30 high (score 6)
+  shot  3    6.50-  9.20 s  close  lower (score 2)
+  shot  4    9.20- 11.58 s  medium az+30 (score 3)
+  shot  5   11.58- 14.50 s  medium higher (score 3)
+  shot  6   14.50- 17.40 s  medium az-30 (score 3)
+  shot  7   17.40- 19.58 s  wide   base (score 0)
+  shot  8   19.58- 21.88 s  wide   az+30 (score 3)
+  shot  9   21.88- 23.26 s  insert lower (score 2)
+  shot 10   23.26- 23.96 s  insert overhead (score 52: cut off right)
+  shot 11   23.96- 26.50 s  insert lower (score 2)
+  shot 12   26.50- 31.95 s  medium az-30 (score 3)
+  shot 13   31.95- 33.69 s  wide   overhead (score 92: too small)
+  shot 14   33.69- 37.25 s  insert hand (no subject on stage) (score 999: no subject)
+  shot 15   37.25- 39.55 s  insert base (score 0)
+  shot 16   39.55- 43.63 s  medium base (score 0)
+  shot 17   43.63- 47.47 s  wide   track base (score 0)
+  shot 18   47.47- 49.07 s  medium base (score 0)
+  shot 19   49.07- 51.69 s  medium lower (score 42: too small)
+  shot 20   51.69- 54.45 s  close  az-60 (score 31: 1/5 blocked)
+  shot 21   54.45- 57.18 s  medium az-90 (score 115: too small, 2/5 blocked, cut off left, 3/5 blocked)
+  shot 22   57.18- 61.38 s  medium base (score 0)
+  shot 23   61.38- 62.50 s  medium higher (score 3)
+  shot 24   62.50- 66.00 s  insert az+30 (score 6)
+
+Flights:
+  -> shot 1: 1.06-1.99 s, 28 f, straight, peak 0.13 m/f
+  -> shot 2: 4.28-5.22 s, 28 f, hand waypoints, peak 2.11 m/f
+  -> shot 3: 5.56-6.50 s, 28 f, hand waypoints, peak 1.21 m/f
+  -> shot 4: 8.26-9.20 s, 28 f, hand route (reversed), peak 0.31 m/f
+  -> shot 5: 10.64-11.58 s, 28 f, hand route, peak 0.44 m/f
+  -> shot 6: 13.50-14.50 s, 30 f, hand route (1 blocked segments), peak 5.91 m/f
+  -> shot 7: 16.47-17.40 s, 28 f, hand route (reversed), peak 5.75 m/f
+  -> shot 8: 17.71-19.58 s, 56 f, hand waypoints, peak 8.13 m/f
+  -> shot 9: 20.11-21.88 s, 53 f, hand waypoints, peak 5.95 m/f
+  -> shot 10: 22.33-23.26 s, 28 f, straight, peak 0.87 m/f
+  -> shot 11: 23.36-23.96 s, 18 f, hand route, peak 1.15 m/f
+  -> shot 12: 25.57-26.50 s, 28 f, hand route (reversed), peak 0.17 m/f
+  -> shot 13: 30.64-31.95 s, 39 f, arc over, peak 6 m/f
+  -> shot 14: 32.75-33.69 s, 28 f, hand waypoints, peak 2.39 m/f
+  -> shot 15: 36.31-37.25 s, 28 f, hand route (1 blocked segments), peak 3.15 m/f
+  -> shot 16: 38.62-39.55 s, 28 f, hand route (1 blocked segments), peak 5.54 m/f
+  -> shot 17: 42.70-43.63 s, 28 f, hand route, peak 3.96 m/f
+  -> shot 18: 46.54-47.47 s, 28 f, hand route, peak 3.6 m/f
+  -> shot 19: 48.14-49.07 s, 28 f, hand route, peak 0.08 m/f
+  -> shot 20: 50.73-51.69 s, 29 f, straight (1 blocked segments), peak 5.91 m/f
+  -> shot 21: 53.52-54.45 s, 28 f, hand route, peak 2.94 m/f
+  -> shot 22: 56.24-57.18 s, 28 f, hand waypoints, peak 4.54 m/f
+  -> shot 23: 60.44-61.38 s, 28 f, hand waypoints (1 blocked segments), peak 5.58 m/f
+  -> shot 24: 61.70-62.50 s, 24 f, hand route, peak 0.57 m/f

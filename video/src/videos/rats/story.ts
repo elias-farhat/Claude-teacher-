@@ -8,6 +8,8 @@
 //  - subjects lit + medium-sized at night / underground (stage.ts lights, looks.ts)
 import * as THREE from "three";
 import WORDS from "./words.json";
+import TRACK0 from "./camtrack.json";
+import { trackCam, holdPose, Track } from "../../guard/track";
 import { LookName } from "./looks";
 import { insideRoom, OUTFLOW } from "./layout";
 
@@ -325,7 +327,7 @@ const glide = (g: Glide, t: number): Cam => {
 };
 /** the carried prop of the glide in progress (null when none): starts at the previous subject, rides ~4 m ahead of
  *  the camera, lands on the new subject, then shrinks away */
-export const carryAt = (t: number, c: Cam) => {
+export const carryAtHand = (t: number, c: Cam) => {
   const sb = SHOTS[c.mix > 0 ? c.next : c.shot]; if (!sb?.carry) return null;
   const b = SHOTS.indexOf(sb), g = glideTo(b); if (!g || t < g.t0 || t > g.t1 + 0.3) return null;
   const B = keyPose(sb.keys[0], g.t1).look;
@@ -336,8 +338,8 @@ export const carryAt = (t: number, c: Cam) => {
   return { kind: sb.carry, p, k: 1, spin: Math.sin(u * Math.PI * 3) * 0.5 };
 };
 export const shotAt = (t: number) => { let i = 0; while (i + 1 < SHOTS.length && (glideTo(i + 1)!.t0 <= t)) i++; return i; };
-/** camera at time t */
-export const camAt = (t: number): Cam => {
+/** the hand-placed camera at time t (the auto-framer's direction prior and flight routes) */
+export const camAtHand = (t: number): Cam => {
   const i = shotAt(t), g = i > 0 ? glideTo(i) : null;
   if (g && t < g.t1) return glide(g, t);
   const f = frame(i, t);
@@ -355,3 +357,32 @@ export const captionAt = (t: number) => {
   return w;
 };
 void MG;
+
+// ---------------- auto-framed camera (CLAUDE.md rule 13: shots.ts -> guard/solve.ts -> camtrack.json) ----------------
+let TRACK: Track | null = (TRACK0 as unknown as Track).shots?.length ? (TRACK0 as unknown as Track) : null;
+/** the auto-framer swaps in each new solution while it iterates */
+export const setTrack = (tr: Track | null) => { TRACK = tr; };
+export const getTrack = () => TRACK;
+/** camera at time t: the solved track when there is one; lighting / looks still follow SHOTS (the old timeline),
+ *  blending into the next SHOTS look over the 0.5 s before its landing */
+export const camAt = (t: number): Cam => {
+  if (!TRACK) return camAtHand(t);
+  const p = trackCam(TRACK, t);
+  let b = 0; while (b + 1 < SHOTS.length && SHOTS[b + 1].at <= t) b++;
+  const nb = b + 1 < SHOTS.length && t > SHOTS[b + 1].at - 0.5 ? b + 1 : b, mix = nb !== b ? (t - (SHOTS[nb].at - 0.5)) / 0.5 : 0;
+  return { pos: p.pos, look: p.look, fov: p.fov, roll: 0, dof: p.dof, shot: b, mix, next: nb, interior: !!insideRoom(p.pos) };
+};
+/** the carried prop (CLAUDE.md 2: no empty flights): with the auto-framed track it rides ahead of the camera through
+ *  every flight, from the outgoing subject to the incoming one (the old shot's prop, else a "rat") */
+export const carryAt = (t: number, c: Cam) => {
+  if (!TRACK) return carryAtHand(t, c);
+  const fl = TRACK.flights.find((g) => t >= g.t0 && t <= g.t1 + 0.3); if (!fl) return null;
+  let b = 0; while (b + 1 < SHOTS.length && SHOTS[b + 1].at <= fl.t1 + 0.05) b++;
+  const kind = SHOTS[b].carry ?? "rat";
+  const S = TRACK.shots[fl.to - 1], N = TRACK.shots[fl.to], B = new THREE.Vector3(...N.keys[0].look);
+  if (t >= fl.t1) return { kind, p: B, k: 1 - (t - fl.t1) / 0.3, spin: 0 };
+  const u = (t - fl.t0) / (fl.t1 - fl.t0), A = holdPose(S, fl.t0, fl.t0).look;
+  const fwd = c.look.clone().sub(c.pos).normalize(), ahead = c.pos.clone().addScaledVector(fwd, 1.8).add(new THREE.Vector3(0, -0.15, 0));
+  const p = A.lerp(ahead, smoother(u / 0.25)).lerp(B, smoother((u - 0.85) / 0.15));
+  return { kind, p, k: 1, spin: Math.sin(u * Math.PI * 3) * 0.5 };
+};

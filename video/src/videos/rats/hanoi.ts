@@ -85,7 +85,7 @@ export const holedGround = (b: Batch, mat: THREE.Material, x0: number, x1: numbe
     const a = xs[i], c = xs[i + 1]; if (c - a < 1e-3) continue;
     const cut = holes.filter((h) => h.x0 <= a + 1e-3 && h.x1 >= c - 1e-3).sort((p, q) => p.z0 - q.z0);
     let lo = z0;
-    for (const h of cut) { if (h.z0 - lo > 1e-3) b.add(quad(V(a, y, h.z0), V(c, y, h.z0), V(c, y, lo), V(a, y, lo), (c - a) / tile, (h.z0 - lo) / tile), mat); lo = h.z1; }
+    for (const h of cut) { if (h.z0 - lo > 1e-3) b.add(quad(V(a, y, h.z0), V(c, y, h.z0), V(c, y, lo), V(a, y, lo), (c - a) / tile, (h.z0 - lo) / tile), mat); lo = Math.max(lo, h.z1); } // overlapping holes never move the cursor back
     if (z1 - lo > 1e-3) b.add(quad(V(a, y, z1), V(c, y, z1), V(c, y, lo), V(a, y, lo), (c - a) / tile, (z1 - lo) / tile), mat);
   }
 };

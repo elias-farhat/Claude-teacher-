@@ -1,63 +1,103 @@
-// Camera guard runner (CLAUDE.md rule 13). Math only, no pixels: bundles src/guard/<video>.ts and runs it in Node with
-// a stub 2D canvas (the painted textures are irrelevant to the maths), checks every frame and writes
-//   qa/<video>/camera_report.json   every failing frame + the failing ranges with their reasons
-// and prints the ranges. Exit code 1 if any frame fails: render.yml refuses to render then.
-// usage: node scripts/camera-guard.mjs <eiffel|rats|moon> [--sheet]
-//   --sheet  also renders the 16 worst frames (one per failing range, worst first) into qa/<video>/worst_frames.jpg
+// Camera guard runner (CLAUDE.md rule 13) and auto-framer loop. Math only, no pixels: bundles src/guard/<video>.ts and
+// runs it in Node with a stub 2D canvas.
+// usage: node scripts/camera-guard.mjs <eiffel|rats|moon> [--solve] [--sheet]
+//   (default)  guard the current camera (eiffel: hand-placed; rats / moon: the committed camtrack.json)
+//   --solve    rats / moon: auto-frame from shots.ts: solve -> guard -> re-solve failing shots, up to 5 rounds;
+//              writes src/videos/<video>/camtrack.json
+//   --sheet    render the 16 worst frames into qa/<video>/worst_frames.jpg (4 x 4)
+// writes qa/<video>/camera_report.json, camera_report.txt, summary.txt ("CRITICAL: 0" or the remaining list).
+// Exit code 1 if any frame has a CRITICAL failure: render.yml refuses to render then.
 import { build } from "esbuild";
-import { pathToFileURL } from "node:url";
 import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
+import { pathToFileURL } from "node:url";
 
 const video = process.argv[2];
-const sheet = process.argv.includes("--sheet");
+const doSolve = process.argv.includes("--solve"), sheet = process.argv.includes("--sheet");
 const COMP = { eiffel: "EiffelShort", rats: "RatShort", moon: "MoonShort" };
-if (!COMP[video]) { console.error("usage: node scripts/camera-guard.mjs <eiffel|rats|moon> [--sheet]"); process.exit(2); }
+if (!COMP[video]) { console.error("usage: node scripts/camera-guard.mjs <eiffel|rats|moon> [--solve] [--sheet]"); process.exit(2); }
 const qa = path.resolve("..", "qa", video); fs.mkdirSync(qa, { recursive: true });
 const work = path.resolve("out", "guard"); fs.mkdirSync(work, { recursive: true });
 await build({ entryPoints: [path.resolve(`src/guard/${video}.ts`)], bundle: true, platform: "node", format: "esm", outfile: path.join(work, `${video}.mjs`),
   inject: [path.resolve("src/guard/shim.js")], loader: { ".json": "json", ".css": "empty", ".woff": "empty", ".woff2": "empty" }, define: { "process.env.NODE_ENV": '"production"' }, logLevel: "error" });
 const t0 = Date.now();
-const { guard } = await import(pathToFileURL(path.join(work, `${video}.mjs`)).href + "?" + Date.now());
+const mod = await import(pathToFileURL(path.join(work, `${video}.mjs`)).href + "?" + Date.now());
 if (process.env.GUARD_DEBUG) globalThis.GUARD_DEBUG = +process.env.GUARD_DEBUG;
-const rows = guard();
+let rows, history = [], track = null;
+if (doSolve) {
+  if (!mod.autoframe) { console.error(`${video} has no shot spec (only rats / moon are auto-framed)`); process.exit(2); }
+  ({ rows, history, track } = mod.autoframe(5));
+  fs.writeFileSync(path.resolve(`src/videos/${video}/camtrack.json`), JSON.stringify(track) + "\n");
+} else {
+  const out = mod.guard(); rows = Array.isArray(out) ? out : out.rows;
+}
 
-// ---- ranges: consecutive frames failing the same rule on the same subject ----
-const ranges = [];
-const open = new Map();
+// ---- ranges: consecutive frames failing the same rule on the same subject for the same kind of reason ----
+const ranges = [], open = new Map();
 for (const r of rows) {
   const seen = new Set();
   for (const q of r.fails) {
-    const k = q.rule + "|" + (q.subject ?? "") + "|" + q.detail.replace(/[(\d].*$/, "").trim();   // same reason category
-    if (seen.has(k)) continue;
-    seen.add(k);
+    const k = q.rule + "|" + (q.subject ?? "") + "|" + q.detail.replace(/[(\d].*$/, "").trim() + "|" + q.critical;
+    if (seen.has(k)) continue; seen.add(k);
     const o = open.get(k);
-    if (o && o.to === r.f - 1) { o.to = r.f; o.dets.push(q.detail); o.worst = r.score > o.worstScore ? r.f : o.worst; o.worstScore = Math.max(o.worstScore, r.score); }
-    else { const n = { rule: q.rule, subject: q.subject ?? null, from: r.f, to: r.f, detail: q.detail, dets: [q.detail], worst: r.f, worstScore: r.score }; ranges.push(n); open.set(k, n); }
+    if (o && o.to === r.f - 1) { o.to = r.f; o.dets.push(q.detail); if (r.score > o.worstScore) { o.worst = r.f; o.worstScore = r.score; } }
+    else { const n = { rule: q.rule, critical: q.critical, subject: q.subject ?? null, shot: r.shot, from: r.f, to: r.f, dets: [q.detail], worst: r.f, worstScore: r.score }; ranges.push(n); open.set(k, n); }
   }
 }
 for (const g of ranges) { g.detail = g.dets[Math.floor(g.dets.length / 2)]; delete g.dets; g.t0 = +(g.from / 30).toFixed(2); g.t1 = +((g.to + 1) / 30).toFixed(2); }
-const failing = rows.filter((r) => r.fails.length);
-const report = { video, frames: rows.length, pass: failing.length === 0, failingFrames: failing.length, seconds: (Date.now() - t0) / 1000,
-  rules: ["SUBJECT", "OCCLUSION", "CLIPPING", "EMPTY", "FACES"].map((k) => ({ rule: k, frames: rows.filter((r) => r.fails.some((q) => q.rule === k)).length })),
-  ranges: ranges.map(({ worstScore, ...g }) => g), frames_failing: failing };
+const critRows = rows.filter((r) => r.fails.some((q) => q.critical)), crit = ranges.filter((g) => g.critical), warn = ranges.filter((g) => !g.critical);
+const report = { video, frames: rows.length, pass: critRows.length === 0, criticalFrames: critRows.length, warningFrames: rows.filter((r) => r.fails.length).length - critRows.length,
+  seconds: (Date.now() - t0) / 1000, history, rules: ["SUBJECT", "OCCLUSION", "CLIPPING", "EMPTY", "FACES"].map((k) => ({ rule: k, critical: rows.filter((r) => r.fails.some((q) => q.rule === k && q.critical)).length, warning: rows.filter((r) => r.fails.some((q) => q.rule === k && !q.critical)).length })),
+  ranges: ranges.map(({ worstScore, ...g }) => g), frames_failing: rows.filter((r) => r.fails.length) };
 fs.writeFileSync(path.join(qa, "camera_report.json"), JSON.stringify(report, null, 1));
-const fmtT = (s) => s.toFixed(2).padStart(6);
-console.log(`camera guard ${video}: ${rows.length} frames, ${failing.length} failing, ${ranges.length} ranges (${report.seconds.toFixed(0)} s)`);
-for (const g of ranges) console.log(`  ${fmtT(g.t0)}-${fmtT(g.t1)} s  f${g.from}-${g.to}  ${g.rule.padEnd(9)} ${(g.subject ?? "").padEnd(18)} ${g.detail}`);
-fs.writeFileSync(path.join(qa, "camera_report.txt"), ranges.map((g) => `${g.t0.toFixed(2)}-${g.t1.toFixed(2)} s\tf${g.from}-${g.to}\t${g.rule}\t${g.subject ?? ""}\t${g.detail}`).join("\n") + "\n");
+const line = (g) => `${g.t0.toFixed(2).padStart(6)}-${g.t1.toFixed(2).padStart(6)} s  f${g.from}-${g.to}  ${g.rule.padEnd(9)} ${(g.subject ?? "").padEnd(20)} ${g.detail}`;
+fs.writeFileSync(path.join(qa, "camera_report.txt"), ranges.map((g) => (g.critical ? "CRITICAL " : "warning  ") + line(g)).join("\n") + "\n");
+
+// ---- summary.txt: decisions first, then the verdict ----
+const DECISIONS = `Decisions (auto-framer + camera guard, made without asking):
+- CRITICAL = any guard failure on a held frame. During a flight between two shots only CLIPPING and EMPTY are
+  CRITICAL (EMPTY = none of the subjects of either shot, nor the prop the camera carries across, is visible: every one
+  is out of frame or fully blocked); SUBJECT (size / margin), FACES and the OCCLUSION of one of them are warnings,
+  because the camera is travelling from one subject to the next.
+- Shots shorter than ~1.2 s were merged into their neighbour (a 25-30 frame flight needs the room): Rats "farming",
+  "the rat pops out" (now an optional subject of "into the nicest houses") and "it's not enough"; the convoy shot
+  lands on "love" and the scurrying rat on "strange".
+- Subject boxes: characters are their full card figure (feet to hat, 0.62 m wide; seated: legs to head). So "close" =
+  the full figure at 75 % of the frame height, never a face close-up (CLAUDE.md 3). Groups ("c:/re/") are one union box.
+- The solver's base direction is the old hand-placed camera's direction to the subject (it knows the rooms, windows
+  and streets), turned by the spec's angle; flights try a straight line, then the hand camera's own route (through the
+  doors, windows and grates it used), then an arc over the top, each smoothed and ray-checked.
+- Lighting looks, carried props and the sun direction still follow the old SHOTS timeline (story.ts), so the light
+  arc and every on-screen action keep their exact voice timing; only the camera comes from shots.ts.
+- Shot times land 2 frames before their word (voice.wav untouched). Where a subject is only on stage from a later
+  moment, the shot starts then (e.g. Rats line 18 starts at the end of line 17 with the farmer walking to the barn).
+- Re-solve loop: a failing shot drops the candidate that failed; "too small" moves 15 % closer, "cut off" 15 % farther.
+`;
+const shotsTxt = track ? track.shots.map((s, i) => `  shot ${String(i).padStart(2)}  ${s.t0.toFixed(2).padStart(6)}-${s.t1.toFixed(2).padStart(6)} s  ${s.size.padEnd(6)} ${s.cand}`).join("\n") : "";
+const flTxt = track ? track.flights.map((g) => `  -> shot ${g.to}: ${g.t0.toFixed(2)}-${g.t1.toFixed(2)} s, ${Math.round((g.t1 - g.t0) * 30)} f, ${g.route}${g.blocked ? ` (${g.blocked} blocked segments)` : ""}, peak ${g.peak} m/f`).join("\n") : "";
+fs.writeFileSync(path.join(qa, "summary.txt"), (video === "eiffel" ? "" : DECISIONS + "\n") +
+  `CRITICAL: ${critRows.length}${critRows.length ? ` frames in ${crit.length} ranges` : ""}\n` +
+  (crit.length ? crit.map((g) => "  " + line(g)).join("\n") + "\n" : "") +
+  `warnings: ${report.warningFrames} frames in ${warn.length} ranges (list in camera_report.txt)\n` +
+  (history.length ? `\nLoop:\n${history.map((h) => "  " + h).join("\n")}\n` : "") +
+  (shotsTxt ? `\nShots (candidate chosen, score):\n${shotsTxt}\n\nFlights:\n${flTxt}\n` : ""));
+console.log(`camera guard ${video}: ${rows.length} frames, CRITICAL ${critRows.length} frames (${crit.length} ranges), warnings ${report.warningFrames} frames (${report.seconds.toFixed(0)} s)`);
+for (const h of history) console.log("  " + h);
+for (const g of crit) console.log("  " + line(g));
 
 // ---- contact sheet of the worst frames ----
-if (sheet && ranges.length) {
+if (sheet) {
   const w = { CLIPPING: 5, EMPTY: 4, OCCLUSION: 3, SUBJECT: 2, FACES: 1 };
-  const pick = [...ranges].sort((a, b) => (w[b.rule] * Math.sqrt(b.to - b.from + 1)) - (w[a.rule] * Math.sqrt(a.to - a.from + 1)));
+  const pool = crit.length ? crit : warn.length ? warn : [];
+  const pick = [...pool].sort((a, b) => (w[b.rule] * Math.sqrt(b.to - b.from + 1)) - (w[a.rule] * Math.sqrt(a.to - a.from + 1)));
   const frames = []; for (const g of pick) { const f = Math.round((g.from + g.to) / 2); if (!frames.some((x) => Math.abs(x - f) < 8)) frames.push(f); if (frames.length === 16) break; }
+  for (let f = 15; frames.length < 16 && f < rows.length; f += Math.floor(rows.length / 16)) if (!frames.some((x) => Math.abs(x - f) < 8)) frames.push(f);   // fill with an even spread
   frames.sort((a, b) => a - b);
   const sd = path.join(work, `${video}-sheet`); fs.rmSync(sd, { recursive: true, force: true });
   execFileSync("node", ["scripts/render-stills.mjs", COMP[video], frames.join(","), sd, "0.3"], { stdio: "inherit" });
-  const notes = frames.map((f) => ({ f, lines: (rows[f]?.fails ?? []).map((q) => `${q.rule} ${q.subject ?? ""}: ${q.detail}`) }));
-  fs.writeFileSync(path.join(sd, "notes.json"), JSON.stringify(notes));
+  const byF = new Map(rows.map((r) => [r.f, r]));
+  fs.writeFileSync(path.join(sd, "notes.json"), JSON.stringify(frames.map((f) => ({ f, lines: (byF.get(f)?.fails ?? []).map((q) => `${q.critical ? "CRIT" : "warn"} ${q.rule} ${q.subject ?? ""}: ${q.detail}`) }))));
   execFileSync("python3", ["scripts/guard-sheet.py", sd, path.join(qa, "worst_frames.jpg")], { stdio: "inherit" });
 }
 process.exit(report.pass ? 0 : 1);
