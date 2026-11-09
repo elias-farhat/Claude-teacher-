@@ -1,29 +1,30 @@
 {
  "video": "rats",
  "frames": 2124,
- "pass": false,
- "criticalFrames": 14,
- "warningFrames": 768,
- "seconds": 78.044,
+ "pass": true,
+ "criticalFrames": 0,
+ "warningFrames": 761,
+ "seconds": 94.459,
  "history": [
-  "round 1: 117 frames with CRITICAL failures in 11 shots (2, 4, 5, 6, 9, 18, 19, 22, 23, 28, 30)",
-  "round 2: 64 frames with CRITICAL failures in 6 shots (5, 6, 9, 18, 22, 28)",
-  "round 3: 68 frames with CRITICAL failures in 5 shots (5, 6, 18, 22, 28)",
-  "round 4: 82 frames with CRITICAL failures in 5 shots (5, 18, 22, 23, 28)",
-  "round 5: 201 frames with CRITICAL failures in 5 shots (5, 18, 19, 22, 23)",
-  "assembled the best round of every shot: 14 frames with CRITICAL failures",
-  "kept the assembled track (14 CRITICAL frames)"
+  "round 1: 105 frames with CRITICAL failures in 8 shots (2, 12, 19, 22, 23, 28, 29, 30)",
+  "round 2: 10 frames with CRITICAL failures in 4 shots (12, 19, 22, 28)",
+  "round 3: 13 frames with CRITICAL failures in 5 shots (12, 19, 20, 23, 28)",
+  "round 4: 35 frames with CRITICAL failures in 3 shots (12, 19, 23)",
+  "round 5: 7 frames with CRITICAL failures in 3 shots (12, 19, 23)",
+  "assembled the best round of every shot: 7 frames with CRITICAL failures",
+  "flight polish (look timing per failing flight): 0 frames with CRITICAL failures (3 flights cleared)",
+  "kept the polished track (0 CRITICAL frames)"
  ],
  "rules": [
   {
    "rule": "SUBJECT",
-   "critical": 9,
-   "warning": 773
+   "critical": 0,
+   "warning": 761
   },
   {
    "rule": "OCCLUSION",
    "critical": 0,
-   "warning": 5
+   "warning": 0
   },
   {
    "rule": "CLIPPING",
@@ -32,13 +33,13 @@
   },
   {
    "rule": "EMPTY",
-   "critical": 5,
+   "critical": 0,
    "warning": 0
   },
   {
    "rule": "FACES",
    "critical": 0,
-   "warning": 21
+   "warning": 16
   }
  ],
  "ranges": [
@@ -110,7 +111,7 @@
    "from": 132,
    "to": 134,
    "worst": 132,
-   "detail": "out of frame (x -9.83..-2.94, y 4.00..9.18)",
+   "detail": "out of frame (x -9.91..-2.96, y 4.00..9.22)",
    "t0": 4.4,
    "t1": 4.5
   },
@@ -122,7 +123,7 @@
    "from": 132,
    "to": 134,
    "worst": 132,
-   "detail": "out of frame (x -2.76..-1.47, y 1.73..2.32)",
+   "detail": "out of frame (x -2.77..-1.48, y 1.73..2.33)",
    "t0": 4.4,
    "t1": 4.5
   },
@@ -182,7 +183,7 @@
    "from": 221,
    "to": 226,
    "worst": 225,
-   "detail": "out of frame (x -0.76..-0.73, y 0.15..0.18)",
+   "detail": "out of frame (x -0.71..-0.69, y 0.15..0.18)",
    "t0": 7.37,
    "t1": 7.57
   },
@@ -192,11 +193,11 @@
    "subject": "c:rickLady",
    "shot": 3,
    "from": 224,
-   "to": 225,
+   "to": 226,
    "worst": 225,
    "detail": "cut off top (-0.15)",
    "t0": 7.47,
-   "t1": 7.53
+   "t1": 7.57
   },
   {
    "rule": "SUBJECT",
@@ -204,57 +205,21 @@
    "subject": "c:rickPuller",
    "shot": 3,
    "from": 225,
-   "to": 225,
-   "worst": 225,
-   "detail": "cut off right (1.22)",
-   "t0": 7.5,
-   "t1": 7.53
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:rickLady",
-   "shot": 3,
-   "from": 226,
-   "to": 226,
-   "worst": 226,
-   "detail": "cut off right (0.95)",
-   "t0": 7.53,
-   "t1": 7.57
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:rickPuller",
-   "shot": 3,
-   "from": 226,
-   "to": 226,
-   "worst": 226,
-   "detail": "out of frame (x 1.06..2.48, y -0.33..0.86)",
-   "t0": 7.53,
-   "t1": 7.57
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:rickLady",
-   "shot": 3,
-   "from": 227,
    "to": 227,
-   "worst": 227,
-   "detail": "cut off top (-0.21)",
-   "t0": 7.57,
+   "worst": 225,
+   "detail": "cut off right (2.24)",
+   "t0": 7.5,
    "t1": 7.6
   },
   {
    "rule": "SUBJECT",
    "critical": false,
-   "subject": "c:rickPuller",
+   "subject": "c:rickLady",
    "shot": 3,
    "from": 227,
    "to": 227,
    "worst": 227,
-   "detail": "cut off right (1.48)",
+   "detail": "cut off left (0.01)",
    "t0": 7.57,
    "t1": 7.6
   },
@@ -314,7 +279,7 @@
    "from": 232,
    "to": 234,
    "worst": 232,
-   "detail": "out of frame (x 1.96..2.06, y 0.11..0.20)",
+   "detail": "out of frame (x 1.95..2.06, y 0.10..0.20)",
    "t0": 7.73,
    "t1": 7.83
   },
@@ -326,7 +291,7 @@
    "from": 233,
    "to": 235,
    "worst": 233,
-   "detail": "out of frame (x 4.21..4.53, y -0.09..0.04)",
+   "detail": "out of frame (x 4.21..4.54, y -0.10..0.04)",
    "t0": 7.77,
    "t1": 7.87
   },
@@ -350,7 +315,7 @@
    "from": 235,
    "to": 237,
    "worst": 235,
-   "detail": "out of frame (x -2.51..-2.33, y -0.00..0.10)",
+   "detail": "out of frame (x -2.51..-2.33, y -0.01..0.09)",
    "t0": 7.83,
    "t1": 7.93
   },
@@ -410,7 +375,7 @@
    "from": 285,
    "to": 300,
    "worst": 291,
-   "detail": "out of frame (x 4.17..20.89, y 6.19..22.48)",
+   "detail": "out of frame (x 63.91..81.28, y 101.37..111.14)",
    "t0": 9.5,
    "t1": 10.03
   },
@@ -422,7 +387,7 @@
    "from": 286,
    "to": 288,
    "worst": 286,
-   "detail": "cut off top (-0.05)",
+   "detail": "cut off top (-0.04)",
    "t0": 9.53,
    "t1": 9.63
   },
@@ -434,7 +399,7 @@
    "from": 289,
    "to": 290,
    "worst": 289,
-   "detail": "cut off left (-0.63)",
+   "detail": "cut off left (-0.46)",
    "t0": 9.63,
    "t1": 9.7
   },
@@ -458,7 +423,7 @@
    "from": 291,
    "to": 291,
    "worst": 291,
-   "detail": "too small (1 % of frame height, needs 30 %)",
+   "detail": "too small (0 % of frame height, needs 30 %)",
    "t0": 9.7,
    "t1": 9.73
   },
@@ -480,22 +445,22 @@
    "subject": "c:officialG",
    "shot": 4,
    "from": 294,
-   "to": 294,
+   "to": 295,
    "worst": 294,
-   "detail": "out of frame (x 0.20..2.13, y 3.83..3.99)",
+   "detail": "out of frame (x -3.04..17.86, y 35.90..41.00)",
    "t0": 9.8,
-   "t1": 9.83
+   "t1": 9.87
   },
   {
    "rule": "SUBJECT",
    "critical": false,
    "subject": "c:officialG",
    "shot": 4,
-   "from": 295,
+   "from": 296,
    "to": 302,
-   "worst": 295,
+   "worst": 296,
    "detail": "behind the camera",
-   "t0": 9.83,
+   "t0": 9.87,
    "t1": 10.1
   },
   {
@@ -518,7 +483,7 @@
    "from": 303,
    "to": 308,
    "worst": 303,
-   "detail": "out of frame (x 2.73..10.61, y -31.36..-8.49)",
+   "detail": "out of frame (x 6.49..36.80, y -78.26..-20.84)",
    "t0": 10.1,
    "t1": 10.3
   },
@@ -528,10 +493,22 @@
    "subject": "f:plaqueRat",
    "shot": 4,
    "from": 303,
-   "to": 305,
+   "to": 303,
    "worst": 303,
-   "detail": "cut off left (-0.05)",
+   "detail": "out of frame (x -1.06..-0.15, y 0.57..0.98)",
    "t0": 10.1,
+   "t1": 10.13
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "f:plaqueRat",
+   "shot": 4,
+   "from": 304,
+   "to": 305,
+   "worst": 304,
+   "detail": "cut off left (0.01)",
+   "t0": 10.13,
    "t1": 10.2
   },
   {
@@ -554,7 +531,7 @@
    "from": 326,
    "to": 328,
    "worst": 326,
-   "detail": "cut off right (1.05)",
+   "detail": "cut off right (1.04)",
    "t0": 10.87,
    "t1": 10.97
   },
@@ -576,47 +553,23 @@
    "subject": "f:convoy6",
    "shot": 5,
    "from": 341,
-   "to": 347,
+   "to": 346,
    "worst": 341,
-   "detail": "out of frame (x -2.65..-1.51, y 0.56..0.88)",
+   "detail": "out of frame (x -2.20..-1.12, y 0.36..0.66)",
    "t0": 11.37,
-   "t1": 11.6
+   "t1": 11.57
   },
   {
    "rule": "SUBJECT",
    "critical": false,
    "subject": "f:convoy6",
    "shot": 5,
-   "from": 348,
-   "to": 350,
-   "worst": 348,
-   "detail": "cut off left (-0.56)",
-   "t0": 11.6,
-   "t1": 11.7
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": true,
-   "subject": "f:convoy6",
-   "shot": 5,
-   "from": 351,
-   "to": 354,
-   "worst": 351,
-   "detail": "cut off left (-0.02)",
-   "t0": 11.7,
-   "t1": 11.83
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": true,
-   "subject": "f:convoy6",
-   "shot": 5,
-   "from": 399,
-   "to": 400,
-   "worst": 399,
-   "detail": "cut off right (1.10)",
-   "t0": 13.3,
-   "t1": 13.37
+   "from": 347,
+   "to": 349,
+   "worst": 347,
+   "detail": "cut off left (-0.43)",
+   "t0": 11.57,
+   "t1": 11.67
   },
   {
    "rule": "SUBJECT",
@@ -625,7 +578,7 @@
    "shot": 6,
    "from": 401,
    "to": 419,
-   "worst": 401,
+   "worst": 402,
    "detail": "not on stage",
    "t0": 13.37,
    "t1": 14
@@ -635,23 +588,11 @@
    "critical": false,
    "subject": "f:convoy6",
    "shot": 6,
-   "from": 401,
-   "to": 403,
-   "worst": 401,
-   "detail": "cut off right (1.36)",
-   "t0": 13.37,
-   "t1": 13.47
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "f:convoy6",
-   "shot": 6,
-   "from": 404,
+   "from": 402,
    "to": 404,
-   "worst": 404,
-   "detail": "out of frame (x 1.21..1.91, y 0.03..0.22)",
-   "t0": 13.47,
+   "worst": 402,
+   "detail": "cut off right (1.28)",
+   "t0": 13.4,
    "t1": 13.5
   },
   {
@@ -660,22 +601,10 @@
    "subject": "f:convoy6",
    "shot": 6,
    "from": 405,
-   "to": 405,
-   "worst": 405,
-   "detail": "cut off right (1.66)",
-   "t0": 13.5,
-   "t1": 13.53
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "f:convoy6",
-   "shot": 6,
-   "from": 406,
    "to": 408,
-   "worst": 406,
-   "detail": "out of frame (x -1.77..-0.46, y 0.72..1.09)",
-   "t0": 13.53,
+   "worst": 405,
+   "detail": "out of frame (x -2.25..-0.74, y 0.77..1.19)",
+   "t0": 13.5,
    "t1": 13.63
   },
   {
@@ -684,23 +613,11 @@
    "subject": "f:convoy6",
    "shot": 6,
    "from": 409,
-   "to": 419,
+   "to": 420,
    "worst": 409,
    "detail": "behind the camera",
    "t0": 13.63,
-   "t1": 14
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "f:convoy6",
-   "shot": 6,
-   "from": 420,
-   "to": 423,
-   "worst": 420,
-   "detail": "out of frame (x 0.26..0.50, y 1.77..1.83)",
-   "t0": 14,
-   "t1": 14.13
+   "t1": 14.03
   },
   {
    "rule": "SUBJECT",
@@ -710,9 +627,21 @@
    "from": 420,
    "to": 421,
    "worst": 420,
-   "detail": "out of frame (x 4.74..25.78, y -1.78..11.81)",
+   "detail": "out of frame (x 7.86..7.86, y -0.79..-0.79)",
    "t0": 14,
    "t1": 14.07
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "f:convoy6",
+   "shot": 6,
+   "from": 421,
+   "to": 424,
+   "worst": 421,
+   "detail": "out of frame (x 2.20..2.49, y 2.11..2.19)",
+   "t0": 14.03,
+   "t1": 14.17
   },
   {
    "rule": "SUBJECT",
@@ -720,35 +649,23 @@
    "subject": "c:lady",
    "shot": 6,
    "from": 422,
-   "to": 423,
+   "to": 424,
    "worst": 422,
    "detail": "behind the camera",
    "t0": 14.07,
-   "t1": 14.13
+   "t1": 14.17
   },
   {
    "rule": "SUBJECT",
    "critical": false,
    "subject": "f:convoy6",
    "shot": 6,
-   "from": 424,
+   "from": 425,
    "to": 428,
-   "worst": 424,
+   "worst": 425,
    "detail": "behind the camera",
-   "t0": 14.13,
+   "t0": 14.17,
    "t1": 14.3
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:lady",
-   "shot": 6,
-   "from": 424,
-   "to": 424,
-   "worst": 424,
-   "detail": "cut off top (-0.01)",
-   "t0": 14.13,
-   "t1": 14.17
   },
   {
    "rule": "SUBJECT",
@@ -768,23 +685,35 @@
    "subject": "f:plague",
    "shot": 7,
    "from": 442,
-   "to": 455,
-   "worst": 444,
+   "to": 454,
+   "worst": 453,
    "detail": "behind the camera",
    "t0": 14.73,
-   "t1": 15.2
+   "t1": 15.17
   },
   {
    "rule": "SUBJECT",
    "critical": false,
    "subject": "c:lady",
    "shot": 7,
-   "from": 444,
+   "from": 445,
    "to": 449,
-   "worst": 444,
+   "worst": 445,
    "detail": "cut off top (-0.03)",
-   "t0": 14.8,
+   "t0": 14.83,
    "t1": 15
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:lady",
+   "shot": 7,
+   "from": 452,
+   "to": 452,
+   "worst": 452,
+   "detail": "cut off top (-0.01)",
+   "t0": 15.07,
+   "t1": 15.1
   },
   {
    "rule": "SUBJECT",
@@ -794,7 +723,19 @@
    "from": 453,
    "to": 453,
    "worst": 453,
-   "detail": "cut off left (-0.11)",
+   "detail": "cut off left (-0.26)",
+   "t0": 15.1,
+   "t1": 15.13
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:lady",
+   "shot": 7,
+   "from": 453,
+   "to": 453,
+   "worst": 453,
+   "detail": "too small (17 % of frame height, needs 30 %)",
    "t0": 15.1,
    "t1": 15.13
   },
@@ -804,34 +745,34 @@
    "subject": "c:lady",
    "shot": 7,
    "from": 454,
-   "to": 456,
+   "to": 455,
    "worst": 454,
-   "detail": "out of frame (x -6.25..-2.55, y -2.00..-0.44)",
+   "detail": "out of frame (x -31.88..-5.73, y -2.44..0.36)",
    "t0": 15.13,
-   "t1": 15.23
+   "t1": 15.2
   },
   {
    "rule": "SUBJECT",
    "critical": false,
    "subject": "f:plague",
    "shot": 7,
-   "from": 456,
-   "to": 458,
-   "worst": 456,
-   "detail": "out of frame (x 1.06..2.32, y -1.28..-0.68)",
-   "t0": 15.2,
-   "t1": 15.3
+   "from": 455,
+   "to": 457,
+   "worst": 455,
+   "detail": "out of frame (x 2.10..4.61, y -2.47..-1.31)",
+   "t0": 15.17,
+   "t1": 15.27
   },
   {
    "rule": "SUBJECT",
    "critical": false,
    "subject": "c:lady",
    "shot": 7,
-   "from": 457,
+   "from": 456,
    "to": 463,
-   "worst": 457,
+   "worst": 456,
    "detail": "behind the camera",
-   "t0": 15.23,
+   "t0": 15.2,
    "t1": 15.47
   },
   {
@@ -839,12 +780,12 @@
    "critical": false,
    "subject": "f:plague",
    "shot": 7,
-   "from": 459,
-   "to": 459,
-   "worst": 459,
-   "detail": "cut off top (-0.00)",
-   "t0": 15.3,
-   "t1": 15.33
+   "from": 458,
+   "to": 458,
+   "worst": 458,
+   "detail": "cut off right (1.03)",
+   "t0": 15.27,
+   "t1": 15.3
   },
   {
    "rule": "SUBJECT",
@@ -962,7 +903,7 @@
    "from": 567,
    "to": 569,
    "worst": 567,
-   "detail": "out of frame (x -2.35..-1.93, y 0.27..0.51)",
+   "detail": "out of frame (x -2.29..-1.87, y 0.26..0.50)",
    "t0": 18.9,
    "t1": 19
   },
@@ -974,7 +915,7 @@
    "from": 569,
    "to": 571,
    "worst": 569,
-   "detail": "out of frame (x 2.88..3.06, y 0.11..0.25)",
+   "detail": "out of frame (x 2.81..2.99, y 0.10..0.24)",
    "t0": 18.97,
    "t1": 19.07
   },
@@ -998,7 +939,7 @@
    "from": 572,
    "to": 572,
    "worst": 572,
-   "detail": "cut off right (1.01)",
+   "detail": "cut off right (0.99)",
    "t0": 19.07,
    "t1": 19.1
   },
@@ -1008,22 +949,22 @@
    "subject": "c:officialM",
    "shot": 9,
    "from": 572,
-   "to": 580,
+   "to": 581,
    "worst": 572,
    "detail": "too small (16 % of frame height, needs 30 %)",
    "t0": 19.07,
-   "t1": 19.37
+   "t1": 19.4
   },
   {
    "rule": "SUBJECT",
    "critical": false,
    "subject": "c:officialM",
    "shot": 10,
-   "from": 604,
+   "from": 603,
    "to": 614,
-   "worst": 604,
-   "detail": "too small (9 % of frame height, needs 30 %)",
-   "t0": 20.13,
+   "worst": 603,
+   "detail": "too small (8 % of frame height, needs 30 %)",
+   "t0": 20.1,
    "t1": 20.5
   },
   {
@@ -1056,11 +997,11 @@
    "subject": "c:officialM",
    "shot": 11,
    "from": 646,
-   "to": 652,
+   "to": 651,
    "worst": 646,
    "detail": "behind the camera",
    "t0": 21.53,
-   "t1": 21.77
+   "t1": 21.73
   },
   {
    "rule": "SUBJECT",
@@ -1068,23 +1009,35 @@
    "subject": "f:tally",
    "shot": 11,
    "from": 646,
-   "to": 652,
+   "to": 651,
    "worst": 646,
    "detail": "out of frame (x -5.93..-2.81, y -0.96..-0.53)",
    "t0": 21.53,
-   "t1": 21.77
+   "t1": 21.73
   },
   {
    "rule": "SUBJECT",
    "critical": false,
    "subject": "c:officialM",
    "shot": 11,
-   "from": 653,
+   "from": 652,
    "to": 654,
-   "worst": 653,
-   "detail": "out of frame (x 12.77..12.77, y -22.29..-22.29)",
-   "t0": 21.77,
+   "worst": 652,
+   "detail": "out of frame (x 4.60..22.45, y -43.36..-7.59)",
+   "t0": 21.73,
    "t1": 21.83
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "f:tally",
+   "shot": 11,
+   "from": 652,
+   "to": 652,
+   "worst": 652,
+   "detail": "cut off right (1.00)",
+   "t0": 21.73,
+   "t1": 21.77
   },
   {
    "rule": "SUBJECT",
@@ -1142,21 +1095,9 @@
    "from": 731,
    "to": 731,
    "worst": 731,
-   "detail": "cut off left (-0.01)",
+   "detail": "cut off left (-0.00)",
    "t0": 24.37,
    "t1": 24.4
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "f:tally",
-   "shot": 12,
-   "from": 732,
-   "to": 738,
-   "worst": 732,
-   "detail": "behind the camera",
-   "t0": 24.4,
-   "t1": 24.63
   },
   {
    "rule": "SUBJECT",
@@ -1164,59 +1105,23 @@
    "subject": "c:officialP",
    "shot": 12,
    "from": 737,
-   "to": 738,
-   "worst": 737,
-   "detail": "out of frame (x -0.28..-0.09, y 2.68..3.06)",
+   "to": 740,
+   "worst": 738,
+   "detail": "out of frame (x -0.69..-0.54, y -0.55..-0.39)",
    "t0": 24.57,
-   "t1": 24.63
+   "t1": 24.7
   },
   {
    "rule": "SUBJECT",
    "critical": false,
    "subject": "f:tally",
    "shot": 12,
-   "from": 739,
+   "from": 738,
    "to": 740,
-   "worst": 739,
-   "detail": "out of frame (x 14.39..14.68, y 15.60..17.72)",
-   "t0": 24.63,
+   "worst": 738,
+   "detail": "out of frame (x 1.70..1.99, y 1.37..1.85)",
+   "t0": 24.6,
    "t1": 24.7
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:officialP",
-   "shot": 12,
-   "from": 739,
-   "to": 740,
-   "worst": 739,
-   "detail": "cut off left (-0.07)",
-   "t0": 24.63,
-   "t1": 24.7
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:officialP",
-   "shot": 12,
-   "from": 739,
-   "to": 740,
-   "worst": 739,
-   "detail": "too small (12 % of frame height, needs 30 %)",
-   "t0": 24.63,
-   "t1": 24.7
-  },
-  {
-   "rule": "FACES",
-   "critical": false,
-   "subject": "c:officialP",
-   "shot": 12,
-   "from": 739,
-   "to": 739,
-   "worst": 739,
-   "detail": "head centre at 56 % of the frame height",
-   "t0": 24.63,
-   "t1": 24.67
   },
   {
    "rule": "SUBJECT",
@@ -1236,23 +1141,11 @@
    "subject": "c:officialP",
    "shot": 12,
    "from": 741,
-   "to": 741,
+   "to": 746,
    "worst": 741,
-   "detail": "out of frame (x -0.11..-0.03, y 0.53..0.66)",
-   "t0": 24.7,
-   "t1": 24.73
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:officialP",
-   "shot": 12,
-   "from": 742,
-   "to": 747,
-   "worst": 742,
    "detail": "too small (20 % of frame height, needs 30 %)",
-   "t0": 24.73,
-   "t1": 24.93
+   "t0": 24.7,
+   "t1": 24.9
   },
   {
    "rule": "SUBJECT",
@@ -1500,22 +1393,22 @@
    "subject": "c:clerk0",
    "shot": 17,
    "from": 1133,
-   "to": 1133,
+   "to": 1134,
    "worst": 1133,
-   "detail": "out of frame (x 1.04..2.09, y -2.28..-0.83)",
+   "detail": "out of frame (x -12.79..-10.81, y 2.28..3.42)",
    "t0": 37.77,
-   "t1": 37.8
+   "t1": 37.83
   },
   {
    "rule": "SUBJECT",
    "critical": false,
    "subject": "c:clerk0",
    "shot": 17,
-   "from": 1134,
+   "from": 1135,
    "to": 1143,
-   "worst": 1134,
+   "worst": 1135,
    "detail": "behind the camera",
-   "t0": 37.8,
+   "t0": 37.83,
    "t1": 38.13
   },
   {
@@ -1572,34 +1465,10 @@
    "subject": "c:officialS",
    "shot": 17,
    "from": 1144,
-   "to": 1144,
-   "worst": 1144,
-   "detail": "cut off right (1.22)",
-   "t0": 38.13,
-   "t1": 38.17
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:officialS",
-   "shot": 17,
-   "from": 1144,
-   "to": 1144,
-   "worst": 1144,
-   "detail": "too small (1 % of frame height, needs 30 %)",
-   "t0": 38.13,
-   "t1": 38.17
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:officialS",
-   "shot": 17,
-   "from": 1145,
    "to": 1145,
-   "worst": 1145,
+   "worst": 1144,
    "detail": "cut off top (0.02)",
-   "t0": 38.17,
+   "t0": 38.13,
    "t1": 38.2
   },
   {
@@ -1609,7 +1478,7 @@
    "shot": 18,
    "from": 1162,
    "to": 1169,
-   "worst": 1162,
+   "worst": 1169,
    "detail": "not on stage",
    "t0": 38.73,
    "t1": 39
@@ -1619,12 +1488,12 @@
    "critical": false,
    "subject": "c:officialS",
    "shot": 18,
-   "from": 1170,
-   "to": 1171,
+   "from": 1169,
+   "to": 1170,
    "worst": 1170,
-   "detail": "cut off left (-1.51)",
-   "t0": 39,
-   "t1": 39.07
+   "detail": "cut off left (-0.36)",
+   "t0": 38.97,
+   "t1": 39.03
   },
   {
    "rule": "FACES",
@@ -1632,11 +1501,11 @@
    "subject": "c:officialS",
    "shot": 18,
    "from": 1170,
-   "to": 1171,
+   "to": 1170,
    "worst": 1170,
-   "detail": "head centre at 66 % of the frame height",
+   "detail": "head centre at 58 % of the frame height",
    "t0": 39,
-   "t1": 39.07
+   "t1": 39.03
   },
   {
    "rule": "SUBJECT",
@@ -1646,9 +1515,21 @@
    "from": 1170,
    "to": 1170,
    "worst": 1170,
-   "detail": "out of frame (x -2.61..-0.52, y 2.97..3.56)",
+   "detail": "out of frame (x -4.45..-1.12, y 4.43..5.37)",
    "t0": 39,
    "t1": 39.03
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:officialS",
+   "shot": 18,
+   "from": 1171,
+   "to": 1171,
+   "worst": 1171,
+   "detail": "reaches behind the camera",
+   "t0": 39.03,
+   "t1": 39.07
   },
   {
    "rule": "SUBJECT",
@@ -1668,11 +1549,23 @@
    "subject": "c:officialS",
    "shot": 18,
    "from": 1172,
-   "to": 1189,
-   "worst": 1186,
+   "to": 1173,
+   "worst": 1172,
    "detail": "behind the camera",
    "t0": 39.07,
-   "t1": 39.67
+   "t1": 39.13
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:officialS",
+   "shot": 18,
+   "from": 1174,
+   "to": 1175,
+   "worst": 1174,
+   "detail": "out of frame (x 6.54..10.35, y -2.03..7.41)",
+   "t0": 39.13,
+   "t1": 39.2
   },
   {
    "rule": "SUBJECT",
@@ -1680,59 +1573,71 @@
    "subject": "f:scurry",
    "shot": 18,
    "from": 1174,
-   "to": 1177,
+   "to": 1175,
    "worst": 1174,
-   "detail": "out of frame (x 7.42..9.03, y 2.15..2.60)",
+   "detail": "out of frame (x -2.26..-1.38, y 1.33..1.58)",
    "t0": 39.13,
-   "t1": 39.27
+   "t1": 39.2
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:officialS",
+   "shot": 18,
+   "from": 1176,
+   "to": 1176,
+   "worst": 1176,
+   "detail": "cut off left (-0.19)",
+   "t0": 39.2,
+   "t1": 39.23
   },
   {
    "rule": "SUBJECT",
    "critical": false,
    "subject": "f:scurry",
    "shot": 18,
-   "from": 1178,
-   "to": 1178,
-   "worst": 1178,
+   "from": 1176,
+   "to": 1176,
+   "worst": 1176,
    "detail": "behind the camera",
-   "t0": 39.27,
-   "t1": 39.3
+   "t0": 39.2,
+   "t1": 39.23
   },
   {
    "rule": "SUBJECT",
    "critical": false,
-   "subject": "f:scurry",
+   "subject": "c:officialS",
    "shot": 18,
-   "from": 1179,
-   "to": 1181,
-   "worst": 1179,
-   "detail": "out of frame (x 3.73..5.34, y 1.87..2.33)",
-   "t0": 39.3,
-   "t1": 39.4
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "f:scurry",
-   "shot": 18,
-   "from": 1182,
-   "to": 1187,
-   "worst": 1186,
-   "detail": "behind the camera",
-   "t0": 39.4,
-   "t1": 39.6
-  },
-  {
-   "rule": "EMPTY",
-   "critical": true,
-   "subject": null,
-   "shot": 18,
-   "from": 1186,
+   "from": 1177,
    "to": 1188,
-   "worst": 1186,
-   "detail": "none of c:officialS, f:scurry, ?f:carry in view",
-   "t0": 39.53,
+   "worst": 1177,
+   "detail": "behind the camera",
+   "t0": 39.23,
    "t1": 39.63
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "f:scurry",
+   "shot": 18,
+   "from": 1177,
+   "to": 1180,
+   "worst": 1177,
+   "detail": "out of frame (x 1.43..4.53, y 2.95..3.82)",
+   "t0": 39.23,
+   "t1": 39.37
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "f:scurry",
+   "shot": 18,
+   "from": 1181,
+   "to": 1187,
+   "worst": 1181,
+   "detail": "behind the camera",
+   "t0": 39.37,
+   "t1": 39.6
   },
   {
    "rule": "SUBJECT",
@@ -1742,9 +1647,21 @@
    "from": 1188,
    "to": 1188,
    "worst": 1188,
-   "detail": "out of frame (x -1.99..-1.08, y 0.47..0.73)",
+   "detail": "out of frame (x -3.16..-2.01, y 0.38..0.71)",
    "t0": 39.6,
    "t1": 39.63
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:officialS",
+   "shot": 18,
+   "from": 1189,
+   "to": 1189,
+   "worst": 1189,
+   "detail": "out of frame (x -95.39..-95.39, y 4.80..4.80)",
+   "t0": 39.63,
+   "t1": 39.67
   },
   {
    "rule": "SUBJECT",
@@ -1754,45 +1671,9 @@
    "from": 1189,
    "to": 1189,
    "worst": 1189,
-   "detail": "cut off left (-0.44)",
+   "detail": "cut off left (-0.33)",
    "t0": 39.63,
    "t1": 39.67
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": true,
-   "subject": "f:scurry",
-   "shot": 18,
-   "from": 1190,
-   "to": 1191,
-   "worst": 1190,
-   "detail": "cut off left (-0.01)",
-   "t0": 39.67,
-   "t1": 39.73
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": true,
-   "subject": "f:scurry",
-   "shot": 18,
-   "from": 1212,
-   "to": 1212,
-   "worst": 1212,
-   "detail": "cut off right (1.00)",
-   "t0": 40.4,
-   "t1": 40.43
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": true,
-   "subject": "f:scurry",
-   "shot": 18,
-   "from": 1212,
-   "to": 1212,
-   "worst": 1212,
-   "detail": "too small (15 % of frame height, needs 15 %)",
-   "t0": 40.4,
-   "t1": 40.43
   },
   {
    "rule": "SUBJECT",
@@ -1814,7 +1695,7 @@
    "from": 1213,
    "to": 1215,
    "worst": 1213,
-   "detail": "cut off right (1.10)",
+   "detail": "cut off right (1.27)",
    "t0": 40.43,
    "t1": 40.53
   },
@@ -1823,12 +1704,12 @@
    "critical": false,
    "subject": "f:scurry",
    "shot": 19,
-   "from": 1213,
-   "to": 1224,
-   "worst": 1213,
-   "detail": "too small (10 % of frame height, needs 15 %)",
-   "t0": 40.43,
-   "t1": 40.83
+   "from": 1216,
+   "to": 1218,
+   "worst": 1216,
+   "detail": "out of frame (x 1.13..1.78, y 0.09..0.27)",
+   "t0": 40.53,
+   "t1": 40.63
   },
   {
    "rule": "SUBJECT",
@@ -1836,11 +1717,23 @@
    "subject": "f:scurry",
    "shot": 19,
    "from": 1219,
-   "to": 1235,
+   "to": 1221,
    "worst": 1219,
-   "detail": "cut off left (-0.55)",
+   "detail": "cut off right (1.35)",
    "t0": 40.63,
-   "t1": 41.2
+   "t1": 40.73
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "f:scurry",
+   "shot": 19,
+   "from": 1223,
+   "to": 1233,
+   "worst": 1223,
+   "detail": "cut off left (-0.18)",
+   "t0": 40.77,
+   "t1": 41.13
   },
   {
    "rule": "SUBJECT",
@@ -1849,34 +1742,10 @@
    "shot": 20,
    "from": 1267,
    "to": 1281,
-   "worst": 1272,
+   "worst": 1267,
    "detail": "not on stage",
    "t0": 42.23,
    "t1": 42.73
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "f:hero",
-   "shot": 20,
-   "from": 1272,
-   "to": 1274,
-   "worst": 1272,
-   "detail": "cut off right (1.00)",
-   "t0": 42.4,
-   "t1": 42.5
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "f:hero",
-   "shot": 20,
-   "from": 1281,
-   "to": 1294,
-   "worst": 1281,
-   "detail": "cut off left (-0.08)",
-   "t0": 42.7,
-   "t1": 43.17
   },
   {
    "rule": "SUBJECT",
@@ -1896,23 +1765,11 @@
    "subject": "c:officialR",
    "shot": 21,
    "from": 1328,
-   "to": 1328,
+   "to": 1331,
    "worst": 1328,
-   "detail": "cut off right (0.95)",
+   "detail": "out of frame (x 3.14..3.90, y 0.16..0.61)",
    "t0": 44.27,
-   "t1": 44.3
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:officialR",
-   "shot": 21,
-   "from": 1329,
-   "to": 1332,
-   "worst": 1329,
-   "detail": "out of frame (x 3.71..4.72, y 0.22..0.76)",
-   "t0": 44.3,
-   "t1": 44.43
+   "t1": 44.4
   },
   {
    "rule": "SUBJECT",
@@ -1920,10 +1777,22 @@
    "subject": "c:officialB",
    "shot": 21,
    "from": 1329,
-   "to": 1333,
+   "to": 1329,
    "worst": 1329,
-   "detail": "out of frame (x -2.96..-2.63, y 0.26..0.44)",
+   "detail": "behind the camera",
    "t0": 44.3,
+   "t1": 44.33
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:officialB",
+   "shot": 21,
+   "from": 1330,
+   "to": 1333,
+   "worst": 1330,
+   "detail": "out of frame (x -0.91..-0.77, y 0.26..0.40)",
+   "t0": 44.33,
    "t1": 44.47
   },
   {
@@ -1931,11 +1800,11 @@
    "critical": false,
    "subject": "c:officialR",
    "shot": 21,
-   "from": 1333,
+   "from": 1332,
    "to": 1350,
-   "worst": 1333,
+   "worst": 1332,
    "detail": "behind the camera",
-   "t0": 44.43,
+   "t0": 44.4,
    "t1": 45.03
   },
   {
@@ -1944,11 +1813,11 @@
    "subject": "c:officialB",
    "shot": 21,
    "from": 1334,
-   "to": 1342,
+   "to": 1341,
    "worst": 1334,
-   "detail": "too small (17 % of frame height, needs 30 %)",
+   "detail": "too small (19 % of frame height, needs 30 %)",
    "t0": 44.47,
-   "t1": 44.77
+   "t1": 44.73
   },
   {
    "rule": "SUBJECT",
@@ -1980,11 +1849,11 @@
    "subject": "c:officialB",
    "shot": 22,
    "from": 1411,
-   "to": 1423,
-   "worst": 1422,
+   "to": 1422,
+   "worst": 1414,
    "detail": "behind the camera",
    "t0": 47.03,
-   "t1": 47.47
+   "t1": 47.43
   },
   {
    "rule": "SUBJECT",
@@ -1994,7 +1863,7 @@
    "from": 1411,
    "to": 1413,
    "worst": 1411,
-   "detail": "out of frame (x 0.44..0.98, y 2.78..3.09)",
+   "detail": "out of frame (x 0.44..0.97, y 2.74..3.05)",
    "t0": 47.03,
    "t1": 47.13
   },
@@ -2006,7 +1875,7 @@
    "from": 1414,
    "to": 1414,
    "worst": 1414,
-   "detail": "cut off bottom (1.09)",
+   "detail": "cut off bottom (1.17)",
    "t0": 47.13,
    "t1": 47.17
   },
@@ -2018,7 +1887,7 @@
    "from": 1414,
    "to": 1414,
    "worst": 1414,
-   "detail": "too small (11 % of frame height, needs 15 %)",
+   "detail": "too small (3 % of frame height, needs 15 %)",
    "t0": 47.13,
    "t1": 47.17
   },
@@ -2030,7 +1899,7 @@
    "from": 1417,
    "to": 1417,
    "worst": 1417,
-   "detail": "cut off left (-0.14)",
+   "detail": "cut off left (-0.11)",
    "t0": 47.23,
    "t1": 47.27
   },
@@ -2041,22 +1910,22 @@
    "shot": 22,
    "from": 1419,
    "to": 1422,
-   "worst": 1422,
+   "worst": 1419,
    "detail": "behind the camera",
    "t0": 47.3,
    "t1": 47.43
   },
   {
-   "rule": "EMPTY",
-   "critical": true,
-   "subject": null,
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:officialB",
    "shot": 22,
-   "from": 1422,
-   "to": 1423,
-   "worst": 1422,
-   "detail": "none of c:officialB, ?f:tailOne, f:mom, ?f:carry in view",
-   "t0": 47.4,
-   "t1": 47.47
+   "from": 1423,
+   "to": 1425,
+   "worst": 1423,
+   "detail": "out of frame (x -6.87..-6.23, y -1.04..-0.67)",
+   "t0": 47.43,
+   "t1": 47.53
   },
   {
    "rule": "SUBJECT",
@@ -2066,33 +1935,9 @@
    "from": 1423,
    "to": 1423,
    "worst": 1423,
-   "detail": "out of frame (x -10.80..-7.34, y 2.95..4.90)",
+   "detail": "cut off left (0.05)",
    "t0": 47.43,
    "t1": 47.47
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:officialB",
-   "shot": 22,
-   "from": 1424,
-   "to": 1425,
-   "worst": 1424,
-   "detail": "out of frame (x -13.40..-10.15, y -2.89..-1.85)",
-   "t0": 47.47,
-   "t1": 47.53
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "f:mom",
-   "shot": 23,
-   "from": 1553,
-   "to": 1554,
-   "worst": 1553,
-   "detail": "cut off bottom (1.01)",
-   "t0": 51.77,
-   "t1": 51.83
   },
   {
    "rule": "SUBJECT",
@@ -2100,11 +1945,11 @@
    "subject": "c:farmerH",
    "shot": 23,
    "from": 1553,
-   "to": 1560,
-   "worst": 1553,
-   "detail": "out of frame (x -26.48..-22.23, y -0.41..-0.07)",
+   "to": 1555,
+   "worst": 1555,
+   "detail": "out of frame (x -28.43..-25.18, y -1.53..-0.96)",
    "t0": 51.77,
-   "t1": 52.03
+   "t1": 51.87
   },
   {
    "rule": "SUBJECT",
@@ -2114,21 +1959,21 @@
    "from": 1555,
    "to": 1556,
    "worst": 1555,
-   "detail": "cut off right (1.28)",
+   "detail": "cut off left (-0.09)",
    "t0": 51.83,
    "t1": 51.9
   },
   {
    "rule": "SUBJECT",
    "critical": false,
-   "subject": "f:mom",
+   "subject": "c:farmerH",
    "shot": 23,
-   "from": 1557,
-   "to": 1557,
-   "worst": 1557,
-   "detail": "out of frame (x -1.46..3.10, y 1.74..4.30)",
-   "t0": 51.9,
-   "t1": 51.93
+   "from": 1556,
+   "to": 1559,
+   "worst": 1556,
+   "detail": "behind the camera",
+   "t0": 51.87,
+   "t1": 52
   },
   {
    "rule": "SUBJECT",
@@ -2136,45 +1981,45 @@
    "subject": "f:mom",
    "shot": 23,
    "from": 1558,
+   "to": 1558,
+   "worst": 1558,
+   "detail": "cut off left (-0.28)",
+   "t0": 51.93,
+   "t1": 51.97
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:farmerH",
+   "shot": 23,
+   "from": 1560,
+   "to": 1560,
+   "worst": 1560,
+   "detail": "out of frame (x 217.31..223.02, y -6.02..-5.13)",
+   "t0": 52,
+   "t1": 52.03
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "f:mom",
+   "shot": 23,
+   "from": 1561,
+   "to": 1561,
+   "worst": 1561,
+   "detail": "cut off top (0.03)",
+   "t0": 52.03,
+   "t1": 52.07
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:farmerH",
+   "shot": 23,
+   "from": 1561,
    "to": 1561,
    "worst": 1561,
    "detail": "behind the camera",
-   "t0": 51.93,
-   "t1": 52.07
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:farmerH",
-   "shot": 23,
-   "from": 1561,
-   "to": 1561,
-   "worst": 1561,
-   "detail": "cropped above the chest (1.00)",
-   "t0": 52.03,
-   "t1": 52.07
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:farmerH",
-   "shot": 23,
-   "from": 1561,
-   "to": 1561,
-   "worst": 1561,
-   "detail": "too small (1 % of frame height, needs 30 %)",
-   "t0": 52.03,
-   "t1": 52.07
-  },
-  {
-   "rule": "FACES",
-   "critical": false,
-   "subject": "c:farmerH",
-   "shot": 23,
-   "from": 1561,
-   "to": 1561,
-   "worst": 1561,
-   "detail": "head centre at 99 % of the frame height",
    "t0": 52.03,
    "t1": 52.07
   },
@@ -2186,7 +2031,7 @@
    "from": 1562,
    "to": 1563,
    "worst": 1562,
-   "detail": "out of frame (x 2.68..3.22, y 4.86..5.16)",
+   "detail": "out of frame (x 2.83..3.40, y 4.95..5.27)",
    "t0": 52.07,
    "t1": 52.13
   },
@@ -2198,7 +2043,7 @@
    "from": 1562,
    "to": 1564,
    "worst": 1562,
-   "detail": "out of frame (x -0.82..-0.70, y -2.05..-1.88)",
+   "detail": "out of frame (x -0.95..-0.82, y -2.07..-1.90)",
    "t0": 52.07,
    "t1": 52.17
   },
@@ -2222,7 +2067,7 @@
    "from": 1565,
    "to": 1574,
    "worst": 1565,
-   "detail": "too small (9 % of frame height, needs 30 %)",
+   "detail": "too small (10 % of frame height, needs 30 %)",
    "t0": 52.17,
    "t1": 52.5
   },
@@ -2244,22 +2089,22 @@
    "subject": "c:officialH",
    "shot": 24,
    "from": 1629,
-   "to": 1632,
+   "to": 1633,
    "worst": 1629,
-   "detail": "out of frame (x 1.05..1.30, y 0.27..0.62)",
+   "detail": "out of frame (x 1.12..1.41, y 0.30..0.70)",
    "t0": 54.3,
-   "t1": 54.43
+   "t1": 54.47
   },
   {
    "rule": "SUBJECT",
    "critical": false,
    "subject": "c:officialH",
    "shot": 24,
-   "from": 1633,
+   "from": 1634,
    "to": 1638,
-   "worst": 1633,
-   "detail": "cut off right (1.06)",
-   "t0": 54.43,
+   "worst": 1634,
+   "detail": "cut off right (1.08)",
+   "t0": 54.47,
    "t1": 54.63
   },
   {
@@ -2294,21 +2139,9 @@
    "from": 1687,
    "to": 1703,
    "worst": 1687,
-   "detail": "out of frame (x 1.30..1.79, y 0.17..0.73)",
+   "detail": "out of frame (x 1.30..1.78, y 0.17..0.73)",
    "t0": 56.23,
    "t1": 56.8
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:farmerWalk",
-   "shot": 26,
-   "from": 1731,
-   "to": 1734,
-   "worst": 1731,
-   "detail": "cut off left (-0.34)",
-   "t0": 57.7,
-   "t1": 57.83
   },
   {
    "rule": "SUBJECT",
@@ -2317,8 +2150,8 @@
    "shot": 26,
    "from": 1731,
    "to": 1741,
-   "worst": 1731,
-   "detail": "out of frame (x -1.58..-1.37, y 0.05..0.22)",
+   "worst": 1733,
+   "detail": "out of frame (x -1.35..-1.16, y 0.04..0.20)",
    "t0": 57.7,
    "t1": 58.07
   },
@@ -2327,24 +2160,12 @@
    "critical": false,
    "subject": "c:farmerWalk",
    "shot": 26,
-   "from": 1735,
-   "to": 1735,
-   "worst": 1735,
-   "detail": "out of frame (x -0.65..-0.00, y 0.10..0.85)",
-   "t0": 57.83,
-   "t1": 57.87
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:farmerWalk",
-   "shot": 26,
-   "from": 1736,
-   "to": 1738,
-   "worst": 1736,
-   "detail": "cut off left (-0.56)",
-   "t0": 57.87,
-   "t1": 57.97
+   "from": 1733,
+   "to": 1737,
+   "worst": 1733,
+   "detail": "cut off left (-0.21)",
+   "t0": 57.77,
+   "t1": 57.93
   },
   {
    "rule": "SUBJECT",
@@ -2354,7 +2175,7 @@
    "from": 1739,
    "to": 1739,
    "worst": 1739,
-   "detail": "cut off right (1.62)",
+   "detail": "cut off right (1.72)",
    "t0": 57.97,
    "t1": 58
   },
@@ -2366,7 +2187,7 @@
    "from": 1740,
    "to": 1741,
    "worst": 1740,
-   "detail": "out of frame (x 5.64..27.33, y 1.79..20.96)",
+   "detail": "out of frame (x 5.21..18.59, y 1.70..14.37)",
    "t0": 58,
    "t1": 58.07
   },
@@ -2402,7 +2223,7 @@
    "from": 1742,
    "to": 1749,
    "worst": 1742,
-   "detail": "too small (22 % of frame height, needs 30 %)",
+   "detail": "too small (21 % of frame height, needs 30 %)",
    "t0": 58.07,
    "t1": 58.33
   },
@@ -2496,83 +2317,35 @@
    "subject": "c:doumerQ",
    "shot": 28,
    "from": 1854,
-   "to": 1858,
-   "worst": 1858,
-   "detail": "out of frame (x -0.59..-0.53, y 0.05..0.12)",
+   "to": 1866,
+   "worst": 1860,
+   "detail": "out of frame (x -0.41..-0.27, y 2.53..2.77)",
    "t0": 61.8,
-   "t1": 61.97
+   "t1": 62.23
   },
   {
    "rule": "SUBJECT",
    "critical": false,
    "subject": "c:officialT",
    "shot": 28,
-   "from": 1858,
-   "to": 1858,
-   "worst": 1858,
-   "detail": "out of frame (x 0.28..0.72, y 1.45..2.26)",
-   "t0": 61.93,
-   "t1": 61.97
+   "from": 1860,
+   "to": 1866,
+   "worst": 1860,
+   "detail": "behind the camera",
+   "t0": 62,
+   "t1": 62.23
   },
   {
    "rule": "SUBJECT",
    "critical": false,
    "subject": "c:officialT",
    "shot": 28,
-   "from": 1859,
-   "to": 1881,
-   "worst": 1866,
-   "detail": "behind the camera",
-   "t0": 61.97,
-   "t1": 62.73
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:doumerQ",
-   "shot": 28,
-   "from": 1859,
-   "to": 1860,
-   "worst": 1859,
-   "detail": "behind the camera",
-   "t0": 61.97,
-   "t1": 62.03
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:doumerQ",
-   "shot": 28,
-   "from": 1861,
-   "to": 1865,
-   "worst": 1861,
-   "detail": "out of frame (x 0.26..0.31, y 1.40..1.50)",
-   "t0": 62.03,
-   "t1": 62.2
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:doumerQ",
-   "shot": 28,
-   "from": 1866,
-   "to": 1866,
-   "worst": 1866,
-   "detail": "too small (8 % of frame height, needs 30 %)",
-   "t0": 62.2,
-   "t1": 62.23
-  },
-  {
-   "rule": "FACES",
-   "critical": false,
-   "subject": "c:doumerQ",
-   "shot": 28,
-   "from": 1866,
-   "to": 1866,
-   "worst": 1866,
-   "detail": "head centre at 65 % of the frame height",
-   "t0": 62.2,
-   "t1": 62.23
+   "from": 1867,
+   "to": 1867,
+   "worst": 1867,
+   "detail": "out of frame (x 15.26..16.87, y 87.35..110.87)",
+   "t0": 62.23,
+   "t1": 62.27
   },
   {
    "rule": "SUBJECT",
@@ -2580,47 +2353,23 @@
    "subject": "c:doumerQ",
    "shot": 28,
    "from": 1867,
-   "to": 1870,
+   "to": 1873,
    "worst": 1867,
-   "detail": "out of frame (x 0.04..0.14, y 1.34..1.50)",
-   "t0": 62.23,
-   "t1": 62.37
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:doumerQ",
-   "shot": 28,
-   "from": 1871,
-   "to": 1875,
-   "worst": 1871,
    "detail": "too small (12 % of frame height, needs 30 %)",
-   "t0": 62.37,
-   "t1": 62.53
-  },
-  {
-   "rule": "FACES",
-   "critical": false,
-   "subject": "c:doumerQ",
-   "shot": 28,
-   "from": 1871,
-   "to": 1871,
-   "worst": 1871,
-   "detail": "head centre at 58 % of the frame height",
-   "t0": 62.37,
-   "t1": 62.4
+   "t0": 62.23,
+   "t1": 62.47
   },
   {
    "rule": "SUBJECT",
    "critical": false,
-   "subject": "c:doumerQ",
-   "shot": 29,
-   "from": 1989,
-   "to": 1992,
-   "worst": 1989,
-   "detail": "cut off right (1.22)",
-   "t0": 66.3,
-   "t1": 66.43
+   "subject": "c:officialT",
+   "shot": 28,
+   "from": 1868,
+   "to": 1881,
+   "worst": 1868,
+   "detail": "behind the camera",
+   "t0": 62.27,
+   "t1": 62.73
   },
   {
    "rule": "SUBJECT",
@@ -2628,94 +2377,70 @@
    "subject": "c:doumerP",
    "shot": 29,
    "from": 1989,
-   "to": 1994,
-   "worst": 1989,
-   "detail": "out of frame (x 6.74..7.27, y -0.73..-0.49)",
+   "to": 2005,
+   "worst": 1991,
+   "detail": "out of frame (x 9.62..11.58, y -1.27..-0.82)",
    "t0": 66.3,
-   "t1": 66.5
+   "t1": 66.87
   },
   {
    "rule": "SUBJECT",
    "critical": false,
    "subject": "c:doumerQ",
    "shot": 29,
-   "from": 1993,
+   "from": 1991,
+   "to": 1993,
+   "worst": 1991,
+   "detail": "cut off right (1.02)",
+   "t0": 66.37,
+   "t1": 66.47
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:doumerQ",
+   "shot": 29,
+   "from": 1996,
    "to": 1996,
-   "worst": 1993,
-   "detail": "out of frame (x 1.08..1.52, y 0.29..0.68)",
-   "t0": 66.43,
+   "worst": 1996,
+   "detail": "cut off left (-0.03)",
+   "t0": 66.53,
    "t1": 66.57
   },
   {
    "rule": "SUBJECT",
    "critical": false,
+   "subject": "c:doumerQ",
+   "shot": 29,
+   "from": 1997,
+   "to": 2002,
+   "worst": 1997,
+   "detail": "out of frame (x -3.63..-2.73, y 1.04..1.37)",
+   "t0": 66.57,
+   "t1": 66.77
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:doumerQ",
+   "shot": 29,
+   "from": 2003,
+   "to": 2016,
+   "worst": 2006,
+   "detail": "behind the camera",
+   "t0": 66.77,
+   "t1": 67.23
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
    "subject": "c:doumerP",
    "shot": 29,
-   "from": 1995,
-   "to": 2003,
-   "worst": 1997,
-   "detail": "behind the camera",
-   "t0": 66.5,
-   "t1": 66.8
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:doumerQ",
-   "shot": 29,
-   "from": 1997,
-   "to": 1998,
-   "worst": 1997,
-   "detail": "cut off right (1.04)",
-   "t0": 66.57,
-   "t1": 66.63
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:doumerQ",
-   "shot": 29,
-   "from": 1997,
-   "to": 2001,
-   "worst": 1997,
-   "detail": "too small (19 % of frame height, needs 30 %)",
-   "t0": 66.57,
-   "t1": 66.73
-  },
-  {
-   "rule": "OCCLUSION",
-   "critical": false,
-   "subject": "c:doumerQ",
-   "shot": 29,
-   "from": 1997,
-   "to": 2001,
-   "worst": 1997,
-   "detail": "5/5 rays blocked (start of the run)",
-   "t0": 66.57,
-   "t1": 66.73
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:doumerQ",
-   "shot": 29,
-   "from": 2001,
-   "to": 2001,
-   "worst": 2001,
-   "detail": "cut off left (-0.10)",
-   "t0": 66.7,
-   "t1": 66.73
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:doumerQ",
-   "shot": 29,
-   "from": 2002,
+   "from": 2006,
    "to": 2006,
-   "worst": 2002,
-   "detail": "out of frame (x -3.19..-2.79, y 0.52..0.72)",
-   "t0": 66.73,
+   "worst": 2006,
+   "detail": "cut off right (1.05)",
+   "t0": 66.87,
    "t1": 66.9
   },
   {
@@ -2723,48 +2448,12 @@
    "critical": false,
    "subject": "c:doumerP",
    "shot": 29,
-   "from": 2004,
+   "from": 2006,
    "to": 2008,
-   "worst": 2004,
-   "detail": "out of frame (x 3.52..4.17, y -0.20..0.21)",
-   "t0": 66.8,
+   "worst": 2006,
+   "detail": "too small (24 % of frame height, needs 30 %)",
+   "t0": 66.87,
    "t1": 66.97
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:doumerQ",
-   "shot": 29,
-   "from": 2007,
-   "to": 2010,
-   "worst": 2007,
-   "detail": "behind the camera",
-   "t0": 66.9,
-   "t1": 67.03
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:doumerP",
-   "shot": 29,
-   "from": 2009,
-   "to": 2009,
-   "worst": 2009,
-   "detail": "cut off right (1.25)",
-   "t0": 66.97,
-   "t1": 67
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:doumerQ",
-   "shot": 29,
-   "from": 2011,
-   "to": 2016,
-   "worst": 2011,
-   "detail": "out of frame (x -4.44..-4.19, y 0.87..1.02)",
-   "t0": 67.03,
-   "t1": 67.23
   },
   {
    "rule": "SUBJECT",
@@ -2783,11 +2472,23 @@
    "critical": false,
    "subject": "c:doumerP",
    "shot": 30,
-   "from": 2041,
+   "from": 2038,
+   "to": 2041,
+   "worst": 2038,
+   "detail": "cut off top (-0.02)",
+   "t0": 67.93,
+   "t1": 68.07
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:doumerP",
+   "shot": 30,
+   "from": 2042,
    "to": 2042,
    "worst": 2042,
-   "detail": "cut off top (-0.32)",
-   "t0": 68.03,
+   "detail": "cut off left (0.02)",
+   "t0": 68.07,
    "t1": 68.1
   },
   {
@@ -2798,7 +2499,7 @@
    "from": 2042,
    "to": 2042,
    "worst": 2042,
-   "detail": "too small (9 % of frame height, needs 30 %)",
+   "detail": "too small (30 % of frame height, needs 30 %)",
    "t0": 68.07,
    "t1": 68.1
   },
@@ -2808,22 +2509,22 @@
    "subject": "c:doumerP",
    "shot": 30,
    "from": 2043,
-   "to": 2045,
+   "to": 2046,
    "worst": 2043,
-   "detail": "out of frame (x -0.13..0.33, y -2.65..-1.49)",
+   "detail": "out of frame (x -4.28..-2.05, y -3.68..-1.70)",
    "t0": 68.1,
-   "t1": 68.2
+   "t1": 68.23
   },
   {
    "rule": "SUBJECT",
    "critical": false,
    "subject": "c:doumerP",
    "shot": 30,
-   "from": 2046,
+   "from": 2047,
    "to": 2061,
-   "worst": 2046,
+   "worst": 2047,
    "detail": "behind the camera",
-   "t0": 68.2,
+   "t0": 68.23,
    "t1": 68.73
   },
   {
@@ -2832,11 +2533,23 @@
    "subject": "f:lounge",
    "shot": 30,
    "from": 2048,
-   "to": 2050,
+   "to": 2048,
    "worst": 2048,
-   "detail": "too small (12 % of frame height, needs 15 %)",
+   "detail": "out of frame (x 1.04..1.23, y 0.46..0.57)",
    "t0": 68.27,
-   "t1": 68.37
+   "t1": 68.3
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "f:lounge",
+   "shot": 30,
+   "from": 2049,
+   "to": 2051,
+   "worst": 2049,
+   "detail": "too small (13 % of frame height, needs 15 %)",
+   "t0": 68.3,
+   "t1": 68.4
   }
  ],
  "frames_failing": [
@@ -3534,13 +3247,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:farmer",
-     "detail": "out of frame (x -0.64..0.11, y 1.74..2.39)",
+     "detail": "out of frame (x -0.65..0.11, y 1.74..2.40)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:official",
-     "detail": "out of frame (x -0.61..-0.03, y 0.81..1.25)",
+     "detail": "out of frame (x -0.61..-0.04, y 0.81..1.25)",
      "critical": false
     }
    ],
@@ -3574,13 +3287,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:farmer",
-     "detail": "out of frame (x -9.83..-2.94, y 4.00..9.18)",
+     "detail": "out of frame (x -9.91..-2.96, y 4.00..9.22)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:official",
-     "detail": "out of frame (x -2.76..-1.47, y 1.73..2.32)",
+     "detail": "out of frame (x -2.77..-1.48, y 1.73..2.33)",
      "critical": false
     }
    ],
@@ -3614,13 +3327,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:farmer",
-     "detail": "out of frame (x -71.57..-71.57, y 55.15..55.15)",
+     "detail": "out of frame (x -73.50..-73.50, y 56.51..56.51)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:official",
-     "detail": "out of frame (x -14.75..-5.91, y 4.53..8.20)",
+     "detail": "out of frame (x -14.84..-5.93, y 4.54..8.25)",
      "critical": false
     }
    ],
@@ -4180,7 +3893,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:rickPuller",
-     "detail": "too small (26 % of frame height, needs 30 %)",
+     "detail": "too small (27 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -4248,7 +3961,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:rickLady",
-     "detail": "too small (29 % of frame height, needs 30 %)",
+     "detail": "too small (30 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -4325,7 +4038,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialG",
-     "detail": "out of frame (x -0.45..-0.42, y 0.22..0.24)",
+     "detail": "out of frame (x -0.41..-0.39, y 0.22..0.24)",
      "critical": false
     }
    ],
@@ -4346,7 +4059,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialG",
-     "detail": "out of frame (x -0.46..-0.44, y 0.21..0.24)",
+     "detail": "out of frame (x -0.43..-0.40, y 0.21..0.24)",
      "critical": false
     }
    ],
@@ -4367,7 +4080,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialG",
-     "detail": "out of frame (x -0.53..-0.51, y 0.20..0.22)",
+     "detail": "out of frame (x -0.50..-0.47, y 0.20..0.22)",
      "critical": false
     }
    ],
@@ -4394,7 +4107,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialG",
-     "detail": "out of frame (x -0.76..-0.73, y 0.15..0.18)",
+     "detail": "out of frame (x -0.71..-0.69, y 0.15..0.18)",
      "critical": false
     }
    ],
@@ -4421,13 +4134,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:rickPuller",
-     "detail": "cut off right (1.22)",
+     "detail": "cut off right (1.06)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:officialG",
-     "detail": "out of frame (x -1.49..-1.44, y 0.05..0.08)",
+     "detail": "out of frame (x -1.42..-1.37, y 0.04..0.08)",
      "critical": false
     }
    ],
@@ -4448,19 +4161,19 @@
     {
      "rule": "SUBJECT",
      "subject": "c:rickLady",
-     "detail": "cut off right (0.95)",
+     "detail": "cut off top (-0.46)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:rickPuller",
-     "detail": "out of frame (x 1.06..2.48, y -0.33..0.86)",
+     "detail": "cut off right (2.24)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:officialG",
-     "detail": "out of frame (x -8.62..-7.95, y -0.14..-0.02)",
+     "detail": "out of frame (x -8.17..-7.56, y -0.16..-0.04)",
      "critical": false
     }
    ],
@@ -4481,13 +4194,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:rickLady",
-     "detail": "cut off top (-0.21)",
+     "detail": "cut off left (0.01)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:rickPuller",
-     "detail": "cut off right (1.48)",
+     "detail": "cut off right (1.43)",
      "critical": false
     },
     {
@@ -4568,7 +4281,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:rickLady",
-     "detail": "too small (14 % of frame height, needs 30 %)",
+     "detail": "too small (15 % of frame height, needs 30 %)",
      "critical": false
     },
     {
@@ -4646,7 +4359,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:rickPuller",
-     "detail": "out of frame (x 1.09..1.15, y 0.27..0.36)",
+     "detail": "out of frame (x 1.08..1.15, y 0.26..0.36)",
      "critical": false
     },
     {
@@ -4673,13 +4386,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:rickLady",
-     "detail": "out of frame (x 1.86..1.96, y 0.09..0.18)",
+     "detail": "out of frame (x 1.86..1.96, y 0.08..0.17)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:rickPuller",
-     "detail": "out of frame (x 1.96..2.06, y 0.11..0.20)",
+     "detail": "out of frame (x 1.95..2.06, y 0.10..0.20)",
      "critical": false
     },
     {
@@ -4706,13 +4419,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:rickLady",
-     "detail": "out of frame (x 4.21..4.53, y -0.09..0.04)",
+     "detail": "out of frame (x 4.21..4.54, y -0.10..0.04)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:rickPuller",
-     "detail": "out of frame (x 4.40..4.76, y -0.06..0.08)",
+     "detail": "out of frame (x 4.40..4.76, y -0.07..0.07)",
      "critical": false
     },
     {
@@ -4739,7 +4452,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:rickLady",
-     "detail": "out of frame (x 219.24..219.24, y 4.23..4.23)",
+     "detail": "out of frame (x 229.77..229.77, y 4.46..4.46)",
      "critical": false
     },
     {
@@ -4751,7 +4464,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialG",
-     "detail": "out of frame (x -17.43..-13.80, y -0.13..0.26)",
+     "detail": "out of frame (x -17.56..-13.88, y -0.14..0.26)",
      "critical": false
     }
    ],
@@ -4784,7 +4497,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialG",
-     "detail": "out of frame (x -2.51..-2.33, y -0.00..0.10)",
+     "detail": "out of frame (x -2.51..-2.33, y -0.01..0.09)",
      "critical": false
     }
    ],
@@ -4817,7 +4530,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialG",
-     "detail": "out of frame (x -0.71..-0.64, y 0.18..0.26)",
+     "detail": "out of frame (x -0.71..-0.64, y 0.18..0.25)",
      "critical": false
     }
    ],
@@ -5276,13 +4989,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialG",
-     "detail": "cut off top (0.02)",
+     "detail": "cut off top (0.03)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:plaqueRat",
-     "detail": "out of frame (x 1.49..2.56, y 1.75..2.36)",
+     "detail": "out of frame (x 1.49..2.55, y 1.75..2.35)",
      "critical": false
     }
    ],
@@ -5302,7 +5015,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialG",
-     "detail": "cut off top (-0.05)",
+     "detail": "cut off top (-0.04)",
      "critical": false
     },
     {
@@ -5328,13 +5041,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialG",
-     "detail": "cut off top (-0.17)",
+     "detail": "cut off top (-0.16)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:plaqueRat",
-     "detail": "out of frame (x 1.53..2.61, y 1.71..2.35)",
+     "detail": "out of frame (x 1.53..2.62, y 1.72..2.36)",
      "critical": false
     }
    ],
@@ -5354,13 +5067,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialG",
-     "detail": "cut off left (-0.01)",
+     "detail": "cut off left (0.02)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:plaqueRat",
-     "detail": "out of frame (x 1.50..2.52, y 1.58..2.18)",
+     "detail": "out of frame (x 1.51..2.54, y 1.61..2.21)",
      "critical": false
     }
    ],
@@ -5380,13 +5093,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialG",
-     "detail": "cut off left (-0.63)",
+     "detail": "cut off left (-0.46)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:plaqueRat",
-     "detail": "out of frame (x 1.41..2.23, y 1.24..1.72)",
+     "detail": "out of frame (x 1.42..2.28, y 1.31..1.81)",
      "critical": false
     }
    ],
@@ -5412,13 +5125,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialG",
-     "detail": "too small (1 % of frame height, needs 30 %)",
+     "detail": "too small (0 % of frame height, needs 30 %)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:plaqueRat",
-     "detail": "out of frame (x 1.31..1.93, y 0.72..1.09)",
+     "detail": "out of frame (x 1.30..1.91, y 0.68..1.04)",
      "critical": false
     }
    ],
@@ -5444,7 +5157,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:plaqueRat",
-     "detail": "out of frame (x 21.52..27.28, y 33.90..37.14)",
+     "detail": "out of frame (x 13.70..17.32, y 21.47..23.51)",
      "critical": false
     }
    ],
@@ -5470,7 +5183,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:plaqueRat",
-     "detail": "out of frame (x 4.17..20.89, y 6.19..22.48)",
+     "detail": "out of frame (x 63.91..81.28, y 101.37..111.14)",
      "critical": false
     }
    ],
@@ -5490,13 +5203,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialG",
-     "detail": "out of frame (x 0.20..2.13, y 3.83..3.99)",
+     "detail": "out of frame (x -0.22..1.83, y 4.26..4.35)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:plaqueRat",
-     "detail": "out of frame (x 1.44..2.12, y 0.72..1.09)",
+     "detail": "out of frame (x 1.43..2.13, y 0.94..1.35)",
      "critical": false
     }
    ],
@@ -5516,13 +5229,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialG",
-     "detail": "behind the camera",
+     "detail": "out of frame (x -3.04..17.86, y 35.90..41.00)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:plaqueRat",
-     "detail": "out of frame (x 1.59..2.38, y 0.75..1.19)",
+     "detail": "out of frame (x 1.55..2.30, y 0.74..1.16)",
      "critical": false
     }
    ],
@@ -5548,7 +5261,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:plaqueRat",
-     "detail": "out of frame (x 1.78..2.70, y 0.76..1.27)",
+     "detail": "out of frame (x 1.73..2.62, y 0.79..1.27)",
      "critical": false
     }
    ],
@@ -5574,7 +5287,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:plaqueRat",
-     "detail": "out of frame (x 1.91..3.23, y -0.08..0.25)",
+     "detail": "out of frame (x 1.94..2.93, y 0.71..1.27)",
      "critical": false
     }
    ],
@@ -5600,7 +5313,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:plaqueRat",
-     "detail": "out of frame (x 2.26..3.91, y -0.23..0.19)",
+     "detail": "out of frame (x 2.11..3.61, y -0.16..0.22)",
      "critical": false
     }
    ],
@@ -5626,7 +5339,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:plaqueRat",
-     "detail": "out of frame (x 2.79..4.92, y -0.44..0.10)",
+     "detail": "out of frame (x 2.52..4.40, y -0.33..0.14)",
      "critical": false
     }
    ],
@@ -5652,7 +5365,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:plaqueRat",
-     "detail": "out of frame (x -7.58..-2.21, y 3.53..6.02)",
+     "detail": "out of frame (x 3.12..5.56, y -0.58..0.04)",
      "critical": false
     }
    ],
@@ -5724,13 +5437,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialG",
-     "detail": "out of frame (x 1.53..2.59, y -5.96..-3.56)",
+     "detail": "out of frame (x 1.29..3.82, y -12.80..-5.52)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:plaqueRat",
-     "detail": "cut off left (-0.37)",
+     "detail": "out of frame (x -1.06..-0.15, y 0.57..0.98)",
      "critical": false
     }
    ],
@@ -5750,13 +5463,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialG",
-     "detail": "out of frame (x 1.76..3.09, y -7.20..-4.09)",
+     "detail": "out of frame (x 2.43..6.53, y -15.94..-5.75)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:plaqueRat",
-     "detail": "cut off left (-0.05)",
+     "detail": "cut off left (-0.09)",
      "critical": false
     }
    ],
@@ -5776,13 +5489,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialG",
-     "detail": "out of frame (x 2.17..5.04, y -13.53..-6.01)",
+     "detail": "out of frame (x 3.63..9.36, y -39.71..-10.34)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:plaqueRat",
-     "detail": "cut off left (0.03)",
+     "detail": "cut off left (0.01)",
      "critical": false
     }
    ],
@@ -5802,7 +5515,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialG",
-     "detail": "out of frame (x 2.73..10.61, y -31.36..-8.49)",
+     "detail": "out of frame (x 6.49..36.80, y -78.26..-20.84)",
      "critical": false
     }
    ],
@@ -5822,7 +5535,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialG",
-     "detail": "out of frame (x 3.30..38.28, y -119.44..-10.98)",
+     "detail": "out of frame (x 13.79..13.79, y -47.40..-47.40)",
      "critical": false
     }
    ],
@@ -5842,7 +5555,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialG",
-     "detail": "out of frame (x 3.63..9.29, y -45.28..-12.40)",
+     "detail": "out of frame (x 26.70..26.70, y -94.16..-94.16)",
      "critical": false
     }
    ],
@@ -5932,7 +5645,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:plaqueRat",
-     "detail": "cut off right (0.98)",
+     "detail": "cut off right (0.97)",
      "critical": false
     }
    ],
@@ -5959,7 +5672,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:plaqueRat",
-     "detail": "cut off right (1.05)",
+     "detail": "cut off right (1.04)",
      "critical": false
     }
    ],
@@ -5986,7 +5699,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:plaqueRat",
-     "detail": "cut off right (1.16)",
+     "detail": "cut off right (1.14)",
      "critical": false
     }
    ],
@@ -6337,7 +6050,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:convoy6",
-     "detail": "out of frame (x -2.40..-1.72, y 0.46..0.65)",
+     "detail": "out of frame (x -2.33..-1.62, y 0.08..0.28)",
      "critical": false
     }
    ],
@@ -6364,7 +6077,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:convoy6",
-     "detail": "out of frame (x -2.75..-1.91, y 0.58..0.81)",
+     "detail": "out of frame (x -2.65..-1.79, y 0.26..0.51)",
      "critical": false
     }
    ],
@@ -6391,7 +6104,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:convoy6",
-     "detail": "out of frame (x -2.80..-1.80, y 0.61..0.90)",
+     "detail": "out of frame (x -2.57..-1.56, y 0.36..0.65)",
      "critical": false
     }
    ],
@@ -6418,7 +6131,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:convoy6",
-     "detail": "out of frame (x -2.65..-1.51, y 0.56..0.88)",
+     "detail": "out of frame (x -2.20..-1.12, y 0.36..0.66)",
      "critical": false
     }
    ],
@@ -6445,7 +6158,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:convoy6",
-     "detail": "out of frame (x -2.27..-1.09, y 0.44..0.78)",
+     "detail": "out of frame (x -1.68..-0.62, y 0.30..0.59)",
      "critical": false
     }
    ],
@@ -6472,7 +6185,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:convoy6",
-     "detail": "out of frame (x -1.78..-0.63, y 0.33..0.66)",
+     "detail": "out of frame (x -1.17..-0.18, y 0.23..0.51)",
      "critical": false
     }
    ],
@@ -6499,7 +6212,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:convoy6",
-     "detail": "out of frame (x -1.30..-0.22, y 0.25..0.56)",
+     "detail": "cut off left (-0.75)",
      "critical": false
     }
    ],
@@ -6526,7 +6239,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:convoy6",
-     "detail": "cut off left (-0.90)",
+     "detail": "cut off left (-0.43)",
      "critical": false
     }
    ],
@@ -6553,7 +6266,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:convoy6",
-     "detail": "cut off left (-0.56)",
+     "detail": "cut off left (-0.17)",
      "critical": false
     }
    ],
@@ -6576,129 +6289,9 @@
      "subject": "f:plaqueRat",
      "detail": "not on stage",
      "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:convoy6",
-     "detail": "cut off left (-0.28)",
-     "critical": false
     }
    ],
-   "score": 0.8
-  },
-  {
-   "f": 351,
-   "t": 11.7,
-   "shot": 5,
-   "flight": false,
-   "subjects": [
-    "f:convoy6",
-    "?f:convoy7"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "f:convoy6",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    }
-   ],
-   "score": 2
-  },
-  {
-   "f": 352,
-   "t": 11.733,
-   "shot": 5,
-   "flight": false,
-   "subjects": [
-    "f:convoy6",
-    "?f:convoy7"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "f:convoy6",
-     "detail": "cut off left (-0.09)",
-     "critical": true
-    }
-   ],
-   "score": 2
-  },
-  {
-   "f": 353,
-   "t": 11.767,
-   "shot": 5,
-   "flight": false,
-   "subjects": [
-    "f:convoy6",
-    "?f:convoy7"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "f:convoy6",
-     "detail": "cut off left (-0.02)",
-     "critical": true
-    }
-   ],
-   "score": 2
-  },
-  {
-   "f": 354,
-   "t": 11.8,
-   "shot": 5,
-   "flight": false,
-   "subjects": [
-    "f:convoy6",
-    "?f:convoy7"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "f:convoy6",
-     "detail": "cut off left (0.05)",
-     "critical": true
-    }
-   ],
-   "score": 2
-  },
-  {
-   "f": 399,
-   "t": 13.3,
-   "shot": 5,
-   "flight": false,
-   "subjects": [
-    "f:convoy6",
-    "?f:convoy7"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "f:convoy6",
-     "detail": "cut off right (0.97)",
-     "critical": true
-    }
-   ],
-   "score": 2
-  },
-  {
-   "f": 400,
-   "t": 13.333,
-   "shot": 5,
-   "flight": false,
-   "subjects": [
-    "f:convoy6",
-    "?f:convoy7"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "f:convoy6",
-     "detail": "cut off right (1.10)",
-     "critical": true
-    }
-   ],
-   "score": 2
+   "score": 0.4
   },
   {
    "f": 401,
@@ -6718,15 +6311,9 @@
      "subject": "c:lady",
      "detail": "not on stage",
      "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:convoy6",
-     "detail": "cut off right (1.23)",
-     "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 402,
@@ -6750,7 +6337,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:convoy6",
-     "detail": "cut off right (1.36)",
+     "detail": "cut off right (1.09)",
      "critical": false
     }
    ],
@@ -6778,7 +6365,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:convoy6",
-     "detail": "cut off right (1.56)",
+     "detail": "cut off right (1.28)",
      "critical": false
     }
    ],
@@ -6806,7 +6393,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:convoy6",
-     "detail": "out of frame (x 1.21..1.91, y 0.03..0.22)",
+     "detail": "cut off right (1.56)",
      "critical": false
     }
    ],
@@ -6834,7 +6421,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:convoy6",
-     "detail": "cut off right (1.66)",
+     "detail": "out of frame (x 1.24..2.06, y 0.02..0.25)",
      "critical": false
     }
    ],
@@ -6862,7 +6449,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:convoy6",
-     "detail": "out of frame (x -1.13..-0.22, y 0.66..0.91)",
+     "detail": "out of frame (x -1.42..-0.41, y 0.69..0.97)",
      "critical": false
     }
    ],
@@ -6890,7 +6477,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:convoy6",
-     "detail": "out of frame (x -1.77..-0.46, y 0.72..1.09)",
+     "detail": "out of frame (x -2.25..-0.74, y 0.77..1.19)",
      "critical": false
     }
    ],
@@ -6918,7 +6505,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:convoy6",
-     "detail": "out of frame (x -4.74..-1.59, y 0.99..1.88)",
+     "detail": "out of frame (x -7.31..-2.82, y 1.25..2.51)",
      "critical": false
     }
    ],
@@ -7248,13 +6835,13 @@
     {
      "rule": "SUBJECT",
      "subject": "f:convoy6",
-     "detail": "out of frame (x 45.46..51.08, y 45.93..47.51)",
+     "detail": "behind the camera",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:lady",
-     "detail": "out of frame (x 2.58..27.70, y 0.05..3.58)",
+     "detail": "out of frame (x 2.35..17.79, y 0.15..2.62)",
      "critical": false
     }
    ],
@@ -7276,13 +6863,13 @@
     {
      "rule": "SUBJECT",
      "subject": "f:convoy6",
-     "detail": "out of frame (x 1.12..1.41, y 2.64..2.72)",
+     "detail": "out of frame (x 3.00..3.35, y 3.00..3.10)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:lady",
-     "detail": "out of frame (x 4.74..25.78, y -1.78..11.81)",
+     "detail": "out of frame (x 7.86..7.86, y -0.79..-0.79)",
      "critical": false
     }
    ],
@@ -7304,7 +6891,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:convoy6",
-     "detail": "out of frame (x 0.26..0.50, y 1.77..1.83)",
+     "detail": "out of frame (x 2.04..2.29, y 1.95..2.02)",
      "critical": false
     },
     {
@@ -7332,7 +6919,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:convoy6",
-     "detail": "out of frame (x -0.27..-0.01, y 1.87..1.94)",
+     "detail": "out of frame (x 2.20..2.49, y 2.11..2.19)",
      "critical": false
     },
     {
@@ -7360,13 +6947,13 @@
     {
      "rule": "SUBJECT",
      "subject": "f:convoy6",
-     "detail": "behind the camera",
+     "detail": "out of frame (x -0.04..0.17, y 1.46..1.52)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:lady",
-     "detail": "cut off top (-0.01)",
+     "detail": "behind the camera",
      "critical": false
     }
    ],
@@ -7579,18 +7166,12 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:lady",
-     "detail": "cut off top (0.03)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "f:plague",
      "detail": "behind the camera",
      "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 445,
@@ -7607,7 +7188,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:lady",
-     "detail": "cut off top (0.01)",
+     "detail": "cut off top (0.03)",
      "critical": false
     },
     {
@@ -7634,7 +7215,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:lady",
-     "detail": "cut off top (-0.01)",
+     "detail": "cut off top (0.00)",
      "critical": false
     },
     {
@@ -7688,7 +7269,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:lady",
-     "detail": "cut off top (-0.02)",
+     "detail": "cut off top (-0.06)",
      "critical": false
     },
     {
@@ -7715,7 +7296,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:lady",
-     "detail": "cut off top (0.00)",
+     "detail": "cut off top (0.01)",
      "critical": false
     },
     {
@@ -7783,12 +7364,18 @@
    "fails": [
     {
      "rule": "SUBJECT",
+     "subject": "c:lady",
+     "detail": "cut off top (-0.01)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
      "subject": "f:plague",
      "detail": "behind the camera",
      "critical": false
     }
    ],
-   "score": 0.4
+   "score": 0.8
   },
   {
    "f": 453,
@@ -7805,7 +7392,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:lady",
-     "detail": "cut off left (-0.11)",
+     "detail": "cut off left (-0.26)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:lady",
+     "detail": "too small (17 % of frame height, needs 30 %)",
      "critical": false
     },
     {
@@ -7815,7 +7408,7 @@
      "critical": false
     }
    ],
-   "score": 0.8
+   "score": 1.2000000000000002
   },
   {
    "f": 454,
@@ -7832,7 +7425,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:lady",
-     "detail": "out of frame (x -1.02..-0.32, y -0.73..-0.03)",
+     "detail": "out of frame (x -1.87..-0.74, y -1.31..-0.38)",
      "critical": false
     },
     {
@@ -7859,13 +7452,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:lady",
-     "detail": "out of frame (x -6.25..-2.55, y -2.00..-0.44)",
+     "detail": "out of frame (x -31.88..-5.73, y -2.44..0.36)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:plague",
-     "detail": "behind the camera",
+     "detail": "out of frame (x 25.57..101.58, y 0.33..12.69)",
      "critical": false
     }
    ],
@@ -7886,13 +7479,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:lady",
-     "detail": "out of frame (x -32.51..-22.14, y 8.43..14.52)",
+     "detail": "behind the camera",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:plague",
-     "detail": "out of frame (x 5.39..16.62, y -4.70..-1.54)",
+     "detail": "out of frame (x 2.10..4.61, y -2.47..-1.31)",
      "critical": false
     }
    ],
@@ -7919,7 +7512,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:plague",
-     "detail": "out of frame (x 1.06..2.32, y -1.28..-0.68)",
+     "detail": "out of frame (x 0.61..1.53, y -0.78..-0.34)",
      "critical": false
     }
    ],
@@ -7946,7 +7539,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:plague",
-     "detail": "out of frame (x 0.40..1.21, y -0.38..-0.02)",
+     "detail": "cut off right (1.03)",
      "critical": false
     }
    ],
@@ -7969,15 +7562,9 @@
      "subject": "c:lady",
      "detail": "behind the camera",
      "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:plague",
-     "detail": "cut off top (-0.00)",
-     "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 460,
@@ -8665,7 +8252,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:kitRat",
-     "detail": "out of frame (x -0.96..-0.53, y 0.19..0.43)",
+     "detail": "out of frame (x -0.96..-0.52, y 0.17..0.41)",
      "critical": false
     }
    ],
@@ -8691,7 +8278,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:kitRat",
-     "detail": "out of frame (x -2.35..-1.93, y 0.27..0.51)",
+     "detail": "out of frame (x -2.29..-1.87, y 0.26..0.50)",
      "critical": false
     }
    ],
@@ -8711,13 +8298,13 @@
     {
      "rule": "SUBJECT",
      "subject": "f:kitRat",
-     "detail": "out of frame (x -6.66..-6.00, y 0.59..0.96)",
+     "detail": "out of frame (x -6.43..-5.77, y 0.57..0.94)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:officialM",
-     "detail": "out of frame (x 5.85..6.48, y 0.02..0.26)",
+     "detail": "out of frame (x 5.71..6.32, y 0.01..0.24)",
      "critical": false
     }
    ],
@@ -8743,7 +8330,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialM",
-     "detail": "out of frame (x 2.88..3.06, y 0.11..0.25)",
+     "detail": "out of frame (x 2.81..2.99, y 0.10..0.24)",
      "critical": false
     }
    ],
@@ -8769,7 +8356,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialM",
-     "detail": "out of frame (x 1.62..1.71, y 0.24..0.36)",
+     "detail": "out of frame (x 1.58..1.67, y 0.22..0.34)",
      "critical": false
     }
    ],
@@ -8795,13 +8382,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialM",
-     "detail": "cut off right (1.01)",
+     "detail": "cut off right (0.99)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:officialM",
-     "detail": "too small (12 % of frame height, needs 30 %)",
+     "detail": "too small (11 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -8827,7 +8414,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialM",
-     "detail": "too small (12 % of frame height, needs 30 %)",
+     "detail": "too small (11 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -8853,7 +8440,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialM",
-     "detail": "too small (13 % of frame height, needs 30 %)",
+     "detail": "too small (12 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -8879,7 +8466,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialM",
-     "detail": "too small (14 % of frame height, needs 30 %)",
+     "detail": "too small (13 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -8905,7 +8492,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialM",
-     "detail": "too small (16 % of frame height, needs 30 %)",
+     "detail": "too small (14 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -8931,7 +8518,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialM",
-     "detail": "too small (18 % of frame height, needs 30 %)",
+     "detail": "too small (16 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -8957,7 +8544,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialM",
-     "detail": "too small (21 % of frame height, needs 30 %)",
+     "detail": "too small (18 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -8983,7 +8570,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialM",
-     "detail": "too small (25 % of frame height, needs 30 %)",
+     "detail": "too small (21 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -9009,7 +8596,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialM",
-     "detail": "too small (30 % of frame height, needs 30 %)",
+     "detail": "too small (24 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -9031,9 +8618,15 @@
      "subject": "f:kitRat",
      "detail": "behind the camera",
      "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:officialM",
+     "detail": "too small (28 % of frame height, needs 30 %)",
+     "critical": false
     }
    ],
-   "score": 0.4
+   "score": 0.8
   },
   {
    "f": 582,
@@ -9176,6 +8769,26 @@
    "score": 0.4
   },
   {
+   "f": 603,
+   "t": 20.1,
+   "shot": 10,
+   "flight": true,
+   "subjects": [
+    "c:officialM",
+    "?c:/^hunter\\d$/",
+    "?f:carry"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:officialM",
+     "detail": "too small (26 % of frame height, needs 30 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.4
+  },
+  {
    "f": 604,
    "t": 20.133,
    "shot": 10,
@@ -9189,7 +8802,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialM",
-     "detail": "too small (23 % of frame height, needs 30 %)",
+     "detail": "too small (20 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -9209,7 +8822,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialM",
-     "detail": "too small (17 % of frame height, needs 30 %)",
+     "detail": "too small (15 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -9229,7 +8842,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialM",
-     "detail": "too small (13 % of frame height, needs 30 %)",
+     "detail": "too small (12 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -9249,7 +8862,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialM",
-     "detail": "too small (11 % of frame height, needs 30 %)",
+     "detail": "too small (10 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -9269,7 +8882,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialM",
-     "detail": "too small (9 % of frame height, needs 30 %)",
+     "detail": "too small (8 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -9289,7 +8902,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialM",
-     "detail": "too small (9 % of frame height, needs 30 %)",
+     "detail": "too small (8 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -9584,7 +9197,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialM",
-     "detail": "out of frame (x 12.24..100.97, y 0.90..6.96)",
+     "detail": "out of frame (x 11.27..58.53, y 0.88..6.01)",
      "critical": false
     }
    ],
@@ -9848,13 +9461,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialM",
-     "detail": "behind the camera",
+     "detail": "out of frame (x 5.13..45.31, y -80.51..-7.74)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:tally",
-     "detail": "out of frame (x 1.12..1.72, y -0.20..0.17)",
+     "detail": "cut off right (1.00)",
      "critical": false
     }
    ],
@@ -9875,7 +9488,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialM",
-     "detail": "out of frame (x 4.53..19.37, y -36.88..-7.33)",
+     "detail": "out of frame (x 4.60..22.45, y -43.36..-7.59)",
      "critical": false
     }
    ],
@@ -10167,7 +9780,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:tally",
-     "detail": "cut off left (-0.01)",
+     "detail": "cut off left (-0.00)",
      "critical": false
     }
    ],
@@ -10189,15 +9802,9 @@
      "subject": "c:officialP",
      "detail": "not on stage",
      "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:tally",
-     "detail": "behind the camera",
-     "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 733,
@@ -10215,15 +9822,9 @@
      "subject": "c:officialP",
      "detail": "not on stage",
      "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:tally",
-     "detail": "behind the camera",
-     "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 734,
@@ -10241,15 +9842,9 @@
      "subject": "c:officialP",
      "detail": "not on stage",
      "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:tally",
-     "detail": "behind the camera",
-     "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 735,
@@ -10267,15 +9862,9 @@
      "subject": "c:officialP",
      "detail": "not on stage",
      "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:tally",
-     "detail": "behind the camera",
-     "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 736,
@@ -10293,15 +9882,9 @@
      "subject": "c:officialP",
      "detail": "not on stage",
      "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:tally",
-     "detail": "behind the camera",
-     "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 737,
@@ -10316,18 +9899,12 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "f:tally",
-     "detail": "behind the camera",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:officialP",
-     "detail": "out of frame (x 4.07..8.18, y 10.06..18.99)",
+     "detail": "out of frame (x -3.22..-2.72, y -1.21..-0.91)",
      "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 738,
@@ -10343,13 +9920,13 @@
     {
      "rule": "SUBJECT",
      "subject": "f:tally",
-     "detail": "behind the camera",
+     "detail": "out of frame (x 1.09..1.24, y 0.75..1.05)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:officialP",
-     "detail": "out of frame (x -0.28..-0.09, y 2.68..3.06)",
+     "detail": "out of frame (x -1.48..-1.25, y -0.83..-0.64)",
      "critical": false
     }
    ],
@@ -10369,29 +9946,17 @@
     {
      "rule": "SUBJECT",
      "subject": "f:tally",
-     "detail": "out of frame (x 3.93..7.20, y 4.23..9.60)",
+     "detail": "out of frame (x 1.70..1.99, y 1.37..1.85)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:officialP",
-     "detail": "cut off left (-0.02)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:officialP",
-     "detail": "too small (11 % of frame height, needs 30 %)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:officialP",
-     "detail": "head centre at 56 % of the frame height",
+     "detail": "out of frame (x -0.69..-0.54, y -0.55..-0.39)",
      "critical": false
     }
    ],
-   "score": 1.4000000000000001
+   "score": 0.8
   },
   {
    "f": 740,
@@ -10407,23 +9972,17 @@
     {
      "rule": "SUBJECT",
      "subject": "f:tally",
-     "detail": "out of frame (x 14.39..14.68, y 15.60..17.72)",
+     "detail": "out of frame (x 3.11..4.66, y 3.29..5.50)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:officialP",
-     "detail": "cut off left (-0.07)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:officialP",
-     "detail": "too small (12 % of frame height, needs 30 %)",
+     "detail": "out of frame (x -0.06..0.04, y -0.17..-0.03)",
      "critical": false
     }
    ],
-   "score": 1.2000000000000002
+   "score": 0.8
   },
   {
    "f": 741,
@@ -10445,7 +10004,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialP",
-     "detail": "out of frame (x -0.11..-0.03, y 0.53..0.66)",
+     "detail": "too small (14 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -10471,7 +10030,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialP",
-     "detail": "too small (14 % of frame height, needs 30 %)",
+     "detail": "too small (15 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -10497,7 +10056,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialP",
-     "detail": "too small (15 % of frame height, needs 30 %)",
+     "detail": "too small (17 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -10523,7 +10082,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialP",
-     "detail": "too small (17 % of frame height, needs 30 %)",
+     "detail": "too small (20 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -10549,7 +10108,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialP",
-     "detail": "too small (20 % of frame height, needs 30 %)",
+     "detail": "too small (23 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -10575,7 +10134,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialP",
-     "detail": "too small (23 % of frame height, needs 30 %)",
+     "detail": "too small (27 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -10597,15 +10156,9 @@
      "subject": "f:tally",
      "detail": "behind the camera",
      "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:officialP",
-     "detail": "too small (27 % of frame height, needs 30 %)",
-     "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 748,
@@ -13050,7 +12603,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:clerk0",
-     "detail": "behind the camera",
+     "detail": "out of frame (x -12.79..-10.81, y 2.28..3.42)",
      "critical": false
     }
    ],
@@ -13314,23 +12867,17 @@
     {
      "rule": "SUBJECT",
      "subject": "c:clerk0",
-     "detail": "out of frame (x 4.07..6.12, y -1.21..-0.42)",
+     "detail": "out of frame (x 2.98..3.65, y -0.06..0.32)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:officialS",
-     "detail": "cut off right (1.22)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:officialS",
-     "detail": "too small (1 % of frame height, needs 30 %)",
+     "detail": "cut off top (-0.05)",
      "critical": false
     }
    ],
-   "score": 1.2000000000000002
+   "score": 0.8
   },
   {
    "f": 1145,
@@ -13641,9 +13188,15 @@
      "subject": "f:scurry",
      "detail": "not on stage",
      "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:officialS",
+     "detail": "cut off left (0.02)",
+     "critical": false
     }
    ],
-   "score": 0.4
+   "score": 0.8
   },
   {
    "f": 1170,
@@ -13659,19 +13212,19 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialS",
-     "detail": "cut off left (-0.19)",
+     "detail": "cut off left (-0.36)",
      "critical": false
     },
     {
      "rule": "FACES",
      "subject": "c:officialS",
-     "detail": "head centre at 56 % of the frame height",
+     "detail": "head centre at 58 % of the frame height",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "out of frame (x -2.61..-0.52, y 2.97..3.56)",
+     "detail": "out of frame (x -4.45..-1.12, y 4.43..5.37)",
      "critical": false
     }
    ],
@@ -13691,13 +13244,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialS",
-     "detail": "cut off left (-1.51)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:officialS",
-     "detail": "head centre at 66 % of the frame height",
+     "detail": "reaches behind the camera",
      "critical": false
     },
     {
@@ -13707,7 +13254,7 @@
      "critical": false
     }
    ],
-   "score": 1
+   "score": 0.8
   },
   {
    "f": 1172,
@@ -13775,13 +13322,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialS",
-     "detail": "behind the camera",
+     "detail": "out of frame (x 1.20..2.85, y 0.07..2.42)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "out of frame (x 9.00..10.62, y 2.32..2.78)",
+     "detail": "out of frame (x -0.71..-0.18, y 1.02..1.17)",
      "critical": false
     }
    ],
@@ -13801,13 +13348,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialS",
-     "detail": "behind the camera",
+     "detail": "out of frame (x 6.54..10.35, y -2.03..7.41)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "out of frame (x 4.76..5.75, y 1.52..1.80)",
+     "detail": "out of frame (x -2.26..-1.38, y 1.33..1.58)",
      "critical": false
     }
    ],
@@ -13827,13 +13374,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialS",
-     "detail": "behind the camera",
+     "detail": "cut off left (-0.19)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "out of frame (x 7.42..9.03, y 2.15..2.60)",
+     "detail": "behind the camera",
      "critical": false
     }
    ],
@@ -13859,7 +13406,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "out of frame (x 19.51..24.02, y 5.00..6.27)",
+     "detail": "out of frame (x 0.55..1.44, y 1.26..1.51)",
      "critical": false
     }
    ],
@@ -13885,7 +13432,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "behind the camera",
+     "detail": "out of frame (x 0.90..2.43, y 1.77..2.20)",
      "critical": false
     }
    ],
@@ -13911,7 +13458,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "out of frame (x 4.07..5.22, y 1.51..1.83)",
+     "detail": "out of frame (x 1.43..4.53, y 2.95..3.82)",
      "critical": false
     }
    ],
@@ -13937,7 +13484,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "out of frame (x 3.73..5.34, y 1.87..2.33)",
+     "detail": "out of frame (x -4.46..11.76, y 12.59..17.15)",
      "critical": false
     }
    ],
@@ -13963,7 +13510,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "out of frame (x 6.67..11.36, y 4.48..5.80)",
+     "detail": "behind the camera",
      "critical": false
     }
    ],
@@ -14095,14 +13642,9 @@
      "subject": "f:scurry",
      "detail": "behind the camera",
      "critical": false
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of c:officialS, f:scurry, ?f:carry in view",
-     "critical": true
     }
    ],
-   "score": 4.8
+   "score": 0.8
   },
   {
    "f": 1187,
@@ -14126,14 +13668,9 @@
      "subject": "f:scurry",
      "detail": "behind the camera",
      "critical": false
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of c:officialS, f:scurry, ?f:carry in view",
-     "critical": true
     }
    ],
-   "score": 4.8
+   "score": 0.8
   },
   {
    "f": 1188,
@@ -14155,16 +13692,11 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "out of frame (x -1.99..-1.08, y 0.47..0.73)",
+     "detail": "out of frame (x -3.16..-2.01, y 0.38..0.71)",
      "critical": false
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of c:officialS, f:scurry, ?f:carry in view",
-     "critical": true
     }
    ],
-   "score": 4.8
+   "score": 0.8
   },
   {
    "f": 1189,
@@ -14180,77 +13712,17 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialS",
-     "detail": "behind the camera",
+     "detail": "out of frame (x -95.39..-95.39, y 4.80..4.80)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "cut off left (-0.44)",
+     "detail": "cut off left (-0.33)",
      "critical": false
     }
    ],
    "score": 0.8
-  },
-  {
-   "f": 1190,
-   "t": 39.667,
-   "shot": 18,
-   "flight": false,
-   "subjects": [
-    "f:scurry"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "f:scurry",
-     "detail": "cut off left (-0.11)",
-     "critical": true
-    }
-   ],
-   "score": 2
-  },
-  {
-   "f": 1191,
-   "t": 39.7,
-   "shot": 18,
-   "flight": false,
-   "subjects": [
-    "f:scurry"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "f:scurry",
-     "detail": "cut off left (-0.01)",
-     "critical": true
-    }
-   ],
-   "score": 2
-  },
-  {
-   "f": 1212,
-   "t": 40.4,
-   "shot": 18,
-   "flight": false,
-   "subjects": [
-    "f:scurry"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "f:scurry",
-     "detail": "cut off right (1.00)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:scurry",
-     "detail": "too small (15 % of frame height, needs 15 %)",
-     "critical": true
-    }
-   ],
-   "score": 4
   },
   {
    "f": 1213,
@@ -14272,17 +13744,11 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "cut off right (1.09)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:scurry",
-     "detail": "too small (14 % of frame height, needs 15 %)",
+     "detail": "cut off right (1.04)",
      "critical": false
     }
    ],
-   "score": 1.2000000000000002
+   "score": 0.8
   },
   {
    "f": 1214,
@@ -14304,17 +13770,11 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "cut off right (1.10)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:scurry",
-     "detail": "too small (13 % of frame height, needs 15 %)",
+     "detail": "cut off right (1.27)",
      "critical": false
     }
    ],
-   "score": 1.2000000000000002
+   "score": 0.8
   },
   {
    "f": 1215,
@@ -14336,17 +13796,11 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "cut off right (0.99)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:scurry",
-     "detail": "too small (12 % of frame height, needs 15 %)",
+     "detail": "cut off right (1.48)",
      "critical": false
     }
    ],
-   "score": 1.2000000000000002
+   "score": 0.8
   },
   {
    "f": 1216,
@@ -14368,7 +13822,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "too small (12 % of frame height, needs 15 %)",
+     "detail": "out of frame (x 1.01..1.67, y 0.09..0.27)",
      "critical": false
     }
    ],
@@ -14394,7 +13848,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "too small (11 % of frame height, needs 15 %)",
+     "detail": "out of frame (x 1.13..1.78, y 0.09..0.27)",
      "critical": false
     }
    ],
@@ -14420,7 +13874,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "too small (11 % of frame height, needs 15 %)",
+     "detail": "out of frame (x 1.13..1.76, y 0.10..0.28)",
      "critical": false
     }
    ],
@@ -14446,17 +13900,11 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "cut off left (-0.02)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:scurry",
-     "detail": "too small (10 % of frame height, needs 15 %)",
+     "detail": "cut off right (1.60)",
      "critical": false
     }
    ],
-   "score": 1.2000000000000002
+   "score": 0.8
   },
   {
    "f": 1220,
@@ -14478,17 +13926,11 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "cut off left (-0.09)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:scurry",
-     "detail": "too small (11 % of frame height, needs 15 %)",
+     "detail": "cut off right (1.35)",
      "critical": false
     }
    ],
-   "score": 1.2000000000000002
+   "score": 0.8
   },
   {
    "f": 1221,
@@ -14510,17 +13952,11 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "cut off left (-0.11)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:scurry",
-     "detail": "too small (11 % of frame height, needs 15 %)",
+     "detail": "cut off right (1.06)",
      "critical": false
     }
    ],
-   "score": 1.2000000000000002
+   "score": 0.8
   },
   {
    "f": 1222,
@@ -14538,21 +13974,9 @@
      "subject": "f:hero",
      "detail": "not on stage",
      "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:scurry",
-     "detail": "cut off left (-0.13)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:scurry",
-     "detail": "too small (12 % of frame height, needs 15 %)",
-     "critical": false
     }
    ],
-   "score": 1.2000000000000002
+   "score": 0.4
   },
   {
    "f": 1223,
@@ -14574,17 +13998,11 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "cut off left (-0.18)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:scurry",
-     "detail": "too small (13 % of frame height, needs 15 %)",
+     "detail": "cut off left (-0.02)",
      "critical": false
     }
    ],
-   "score": 1.2000000000000002
+   "score": 0.8
   },
   {
    "f": 1224,
@@ -14606,17 +14024,11 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "cut off left (-0.23)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:scurry",
-     "detail": "too small (14 % of frame height, needs 15 %)",
+     "detail": "cut off left (-0.19)",
      "critical": false
     }
    ],
-   "score": 1.2000000000000002
+   "score": 0.8
   },
   {
    "f": 1225,
@@ -14638,7 +14050,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "cut off left (-0.31)",
+     "detail": "cut off left (-0.27)",
      "critical": false
     }
    ],
@@ -14664,7 +14076,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "cut off left (-0.42)",
+     "detail": "cut off left (-0.26)",
      "critical": false
     }
    ],
@@ -14690,7 +14102,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "cut off left (-0.55)",
+     "detail": "cut off left (-0.22)",
      "critical": false
     }
    ],
@@ -14716,7 +14128,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "cut off left (-0.68)",
+     "detail": "cut off left (-0.18)",
      "critical": false
     }
    ],
@@ -14742,7 +14154,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "cut off left (-0.78)",
+     "detail": "cut off left (-0.14)",
      "critical": false
     }
    ],
@@ -14768,7 +14180,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "cut off left (-0.77)",
+     "detail": "cut off left (-0.10)",
      "critical": false
     }
    ],
@@ -14794,7 +14206,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "cut off left (-0.67)",
+     "detail": "cut off left (-0.06)",
      "critical": false
     }
    ],
@@ -14820,7 +14232,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "cut off left (-0.37)",
+     "detail": "cut off left (-0.01)",
      "critical": false
     }
    ],
@@ -14846,7 +14258,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "cut off left (-0.16)",
+     "detail": "cut off left (0.03)",
      "critical": false
     }
    ],
@@ -14868,15 +14280,9 @@
      "subject": "f:hero",
      "detail": "not on stage",
      "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:scurry",
-     "detail": "cut off left (-0.05)",
-     "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 1235,
@@ -14894,15 +14300,9 @@
      "subject": "f:hero",
      "detail": "not on stage",
      "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:scurry",
-     "detail": "cut off left (0.03)",
-     "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 1236,
@@ -15126,15 +14526,9 @@
      "subject": "c:officialR",
      "detail": "not on stage",
      "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:hero",
-     "detail": "cut off right (0.96)",
-     "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 1273,
@@ -15153,15 +14547,9 @@
      "subject": "c:officialR",
      "detail": "not on stage",
      "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:hero",
-     "detail": "cut off right (1.00)",
-     "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 1274,
@@ -15180,15 +14568,9 @@
      "subject": "c:officialR",
      "detail": "not on stage",
      "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:hero",
-     "detail": "cut off right (0.99)",
-     "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 1275,
@@ -15333,285 +14715,6 @@
      "subject": "c:officialR",
      "detail": "not on stage",
      "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:hero",
-     "detail": "cut off left (0.05)",
-     "critical": false
-    }
-   ],
-   "score": 0.8
-  },
-  {
-   "f": 1282,
-   "t": 42.733,
-   "shot": 20,
-   "flight": true,
-   "subjects": [
-    "f:hero",
-    "c:officialR",
-    "?f:march",
-    "?f:carry"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "f:hero",
-     "detail": "cut off left (-0.07)",
-     "critical": false
-    }
-   ],
-   "score": 0.4
-  },
-  {
-   "f": 1283,
-   "t": 42.767,
-   "shot": 20,
-   "flight": true,
-   "subjects": [
-    "f:hero",
-    "c:officialR",
-    "?f:march",
-    "?f:carry"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "f:hero",
-     "detail": "cut off left (-0.17)",
-     "critical": false
-    }
-   ],
-   "score": 0.4
-  },
-  {
-   "f": 1284,
-   "t": 42.8,
-   "shot": 20,
-   "flight": true,
-   "subjects": [
-    "f:hero",
-    "c:officialR",
-    "?f:march",
-    "?f:carry"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "f:hero",
-     "detail": "cut off left (-0.22)",
-     "critical": false
-    }
-   ],
-   "score": 0.4
-  },
-  {
-   "f": 1285,
-   "t": 42.833,
-   "shot": 20,
-   "flight": true,
-   "subjects": [
-    "f:hero",
-    "c:officialR",
-    "?f:march",
-    "?f:carry"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "f:hero",
-     "detail": "cut off left (-0.22)",
-     "critical": false
-    }
-   ],
-   "score": 0.4
-  },
-  {
-   "f": 1286,
-   "t": 42.867,
-   "shot": 20,
-   "flight": true,
-   "subjects": [
-    "f:hero",
-    "c:officialR",
-    "?f:march",
-    "?f:carry"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "f:hero",
-     "detail": "cut off left (-0.18)",
-     "critical": false
-    }
-   ],
-   "score": 0.4
-  },
-  {
-   "f": 1287,
-   "t": 42.9,
-   "shot": 20,
-   "flight": true,
-   "subjects": [
-    "f:hero",
-    "c:officialR",
-    "?f:march",
-    "?f:carry"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "f:hero",
-     "detail": "cut off left (-0.13)",
-     "critical": false
-    }
-   ],
-   "score": 0.4
-  },
-  {
-   "f": 1288,
-   "t": 42.933,
-   "shot": 20,
-   "flight": true,
-   "subjects": [
-    "f:hero",
-    "c:officialR",
-    "?f:march",
-    "?f:carry"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "f:hero",
-     "detail": "cut off left (-0.08)",
-     "critical": false
-    }
-   ],
-   "score": 0.4
-  },
-  {
-   "f": 1289,
-   "t": 42.967,
-   "shot": 20,
-   "flight": true,
-   "subjects": [
-    "f:hero",
-    "c:officialR",
-    "?f:march",
-    "?f:carry"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "f:hero",
-     "detail": "cut off left (-0.04)",
-     "critical": false
-    }
-   ],
-   "score": 0.4
-  },
-  {
-   "f": 1290,
-   "t": 43,
-   "shot": 20,
-   "flight": true,
-   "subjects": [
-    "f:hero",
-    "c:officialR",
-    "?f:march",
-    "?f:carry"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "f:hero",
-     "detail": "cut off left (-0.03)",
-     "critical": false
-    }
-   ],
-   "score": 0.4
-  },
-  {
-   "f": 1291,
-   "t": 43.033,
-   "shot": 20,
-   "flight": true,
-   "subjects": [
-    "f:hero",
-    "c:officialR",
-    "?f:march",
-    "?f:carry"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "f:hero",
-     "detail": "cut off left (-0.04)",
-     "critical": false
-    }
-   ],
-   "score": 0.4
-  },
-  {
-   "f": 1292,
-   "t": 43.067,
-   "shot": 20,
-   "flight": true,
-   "subjects": [
-    "f:hero",
-    "c:officialR",
-    "?f:march",
-    "?f:carry"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "f:hero",
-     "detail": "cut off left (-0.04)",
-     "critical": false
-    }
-   ],
-   "score": 0.4
-  },
-  {
-   "f": 1293,
-   "t": 43.1,
-   "shot": 20,
-   "flight": true,
-   "subjects": [
-    "f:hero",
-    "c:officialR",
-    "?f:march",
-    "?f:carry"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "f:hero",
-     "detail": "cut off left (-0.04)",
-     "critical": false
-    }
-   ],
-   "score": 0.4
-  },
-  {
-   "f": 1294,
-   "t": 43.133,
-   "shot": 20,
-   "flight": true,
-   "subjects": [
-    "f:hero",
-    "c:officialR",
-    "?f:march",
-    "?f:carry"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "f:hero",
-     "detail": "cut off left (-0.05)",
-     "critical": false
     }
    ],
    "score": 0.4
@@ -15748,7 +14851,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialR",
-     "detail": "cut off right (0.95)",
+     "detail": "out of frame (x 1.04..1.27, y 0.21..0.52)",
      "critical": false
     }
    ],
@@ -15770,13 +14873,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialR",
-     "detail": "out of frame (x 1.20..1.45, y 0.23..0.55)",
+     "detail": "out of frame (x 1.75..2.09, y 0.18..0.51)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:officialB",
-     "detail": "out of frame (x -107.17..-33.20, y -0.19..2.72)",
+     "detail": "behind the camera",
      "critical": false
     }
    ],
@@ -15798,13 +14901,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialR",
-     "detail": "out of frame (x 2.01..2.40, y 0.22..0.58)",
+     "detail": "out of frame (x 3.14..3.90, y 0.16..0.61)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:officialB",
-     "detail": "out of frame (x -7.70..-6.39, y 0.25..0.61)",
+     "detail": "out of frame (x -8.39..-6.60, y 0.21..0.63)",
      "critical": false
     }
    ],
@@ -15826,13 +14929,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialR",
-     "detail": "out of frame (x 3.71..4.72, y 0.22..0.76)",
+     "detail": "out of frame (x 7.71..12.93, y 0.22..1.31)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:officialB",
-     "detail": "out of frame (x -2.96..-2.63, y 0.26..0.44)",
+     "detail": "out of frame (x -2.45..-2.14, y 0.21..0.40)",
      "critical": false
     }
    ],
@@ -15854,13 +14957,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialR",
-     "detail": "out of frame (x 11.39..26.87, y 0.35..2.35)",
+     "detail": "behind the camera",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:officialB",
-     "detail": "out of frame (x -1.30..-1.14, y 0.27..0.41)",
+     "detail": "out of frame (x -0.91..-0.77, y 0.26..0.40)",
      "critical": false
     }
    ],
@@ -15888,7 +14991,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialB",
-     "detail": "out of frame (x -0.42..-0.32, y 0.31..0.43)",
+     "detail": "out of frame (x -0.16..-0.06, y 0.32..0.45)",
      "critical": false
     }
    ],
@@ -15916,7 +15019,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialB",
-     "detail": "too small (12 % of frame height, needs 30 %)",
+     "detail": "too small (13 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -15944,7 +15047,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialB",
-     "detail": "too small (13 % of frame height, needs 30 %)",
+     "detail": "too small (14 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -15972,7 +15075,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialB",
-     "detail": "too small (14 % of frame height, needs 30 %)",
+     "detail": "too small (15 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -16000,7 +15103,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialB",
-     "detail": "too small (16 % of frame height, needs 30 %)",
+     "detail": "too small (17 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -16028,7 +15131,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialB",
-     "detail": "too small (17 % of frame height, needs 30 %)",
+     "detail": "too small (19 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -16056,7 +15159,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialB",
-     "detail": "too small (20 % of frame height, needs 30 %)",
+     "detail": "too small (21 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -16084,7 +15187,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialB",
-     "detail": "too small (23 % of frame height, needs 30 %)",
+     "detail": "too small (24 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -16112,7 +15215,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialB",
-     "detail": "too small (26 % of frame height, needs 30 %)",
+     "detail": "too small (28 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -16136,15 +15239,9 @@
      "subject": "c:officialR",
      "detail": "behind the camera",
      "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:officialB",
-     "detail": "too small (30 % of frame height, needs 30 %)",
-     "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 1343,
@@ -16517,7 +15614,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialB",
-     "detail": "too small (21 % of frame height, needs 30 %)",
+     "detail": "too small (22 % of frame height, needs 30 %)",
      "critical": false
     },
     {
@@ -16625,7 +15722,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialB",
-     "detail": "too small (13 % of frame height, needs 30 %)",
+     "detail": "too small (12 % of frame height, needs 30 %)",
      "critical": false
     },
     {
@@ -16658,7 +15755,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:mom",
-     "detail": "out of frame (x 0.47..0.84, y 2.01..2.21)",
+     "detail": "out of frame (x 0.51..0.87, y 1.97..2.17)",
      "critical": false
     }
    ],
@@ -16685,7 +15782,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:mom",
-     "detail": "out of frame (x 0.44..0.98, y 2.78..3.09)",
+     "detail": "out of frame (x 0.44..0.97, y 2.74..3.05)",
      "critical": false
     }
    ],
@@ -16712,7 +15809,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:mom",
-     "detail": "out of frame (x 0.38..1.44, y 4.95..5.55)",
+     "detail": "out of frame (x 0.38..1.41, y 4.80..5.38)",
      "critical": false
     }
    ],
@@ -16739,13 +15836,13 @@
     {
      "rule": "SUBJECT",
      "subject": "f:mom",
-     "detail": "cut off bottom (1.09)",
+     "detail": "cut off bottom (1.17)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:mom",
-     "detail": "too small (11 % of frame height, needs 15 %)",
+     "detail": "too small (3 % of frame height, needs 15 %)",
      "critical": false
     }
    ],
@@ -16814,7 +15911,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:mom",
-     "detail": "cut off left (-0.14)",
+     "detail": "cut off left (-0.11)",
      "critical": false
     }
    ],
@@ -16945,14 +16042,9 @@
      "subject": "f:mom",
      "detail": "behind the camera",
      "critical": false
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of c:officialB, ?f:tailOne, f:mom, ?f:carry in view",
-     "critical": true
     }
    ],
-   "score": 4.8
+   "score": 0.8
   },
   {
    "f": 1423,
@@ -16969,22 +16061,17 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialB",
-     "detail": "behind the camera",
+     "detail": "out of frame (x -8.20..-7.26, y -1.35..-0.90)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:mom",
-     "detail": "out of frame (x -10.80..-7.34, y 2.95..4.90)",
+     "detail": "cut off left (0.05)",
      "critical": false
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of c:officialB, ?f:tailOne, f:mom, ?f:carry in view",
-     "critical": true
     }
    ],
-   "score": 4.8
+   "score": 0.8
   },
   {
    "f": 1424,
@@ -17001,7 +16088,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialB",
-     "detail": "out of frame (x -13.53..-10.23, y -2.91..-1.86)",
+     "detail": "out of frame (x -6.87..-6.23, y -1.04..-0.67)",
      "critical": false
     }
    ],
@@ -17022,7 +16109,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialB",
-     "detail": "out of frame (x -13.40..-10.15, y -2.89..-1.85)",
+     "detail": "out of frame (x -6.80..-6.18, y -1.02..-0.66)",
      "critical": false
     }
    ],
@@ -17041,18 +16128,12 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "f:mom",
-     "detail": "cut off bottom (1.00)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:farmerH",
-     "detail": "out of frame (x -28.12..-24.35, y -1.37..-0.82)",
+     "detail": "out of frame (x -25.95..-23.29, y -1.35..-0.85)",
      "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 1554,
@@ -17067,18 +16148,12 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "f:mom",
-     "detail": "cut off bottom (1.01)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:farmerH",
-     "detail": "out of frame (x -29.10..-25.16, y -1.42..-0.85)",
+     "detail": "out of frame (x -28.43..-25.18, y -1.53..-0.96)",
      "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 1555,
@@ -17094,13 +16169,13 @@
     {
      "rule": "SUBJECT",
      "subject": "f:mom",
-     "detail": "cut off right (0.98)",
+     "detail": "cut off left (0.05)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:farmerH",
-     "detail": "out of frame (x -31.35..-27.18, y -1.51..-0.90)",
+     "detail": "out of frame (x -45.99..-37.22, y -2.73..-1.65)",
      "critical": false
     }
    ],
@@ -17120,13 +16195,13 @@
     {
      "rule": "SUBJECT",
      "subject": "f:mom",
-     "detail": "cut off right (1.28)",
+     "detail": "cut off left (-0.09)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:farmerH",
-     "detail": "out of frame (x -26.76..-24.04, y -0.98..-0.53)",
+     "detail": "behind the camera",
      "critical": false
     }
    ],
@@ -17145,18 +16220,12 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "f:mom",
-     "detail": "out of frame (x -1.46..3.10, y 1.74..4.30)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:farmerH",
-     "detail": "out of frame (x -26.48..-22.23, y -0.41..-0.07)",
+     "detail": "behind the camera",
      "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 1558,
@@ -17172,13 +16241,13 @@
     {
      "rule": "SUBJECT",
      "subject": "f:mom",
-     "detail": "behind the camera",
+     "detail": "cut off left (-0.28)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:farmerH",
-     "detail": "out of frame (x -33.32..-24.91, y 0.25..0.55)",
+     "detail": "behind the camera",
      "critical": false
     }
    ],
@@ -17197,18 +16266,12 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "f:mom",
-     "detail": "behind the camera",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:farmerH",
-     "detail": "out of frame (x -4.35..-3.24, y 11.69..14.41)",
+     "detail": "behind the camera",
      "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 1560,
@@ -17223,18 +16286,12 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "f:mom",
-     "detail": "behind the camera",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:farmerH",
-     "detail": "out of frame (x 1.39..1.48, y 3.02..3.17)",
+     "detail": "out of frame (x 217.31..223.02, y -6.02..-5.13)",
      "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 1561,
@@ -17250,29 +16307,17 @@
     {
      "rule": "SUBJECT",
      "subject": "f:mom",
+     "detail": "cut off top (0.03)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:farmerH",
      "detail": "behind the camera",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:farmerH",
-     "detail": "cropped above the chest (1.00)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:farmerH",
-     "detail": "too small (1 % of frame height, needs 30 %)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:farmerH",
-     "detail": "head centre at 99 % of the frame height",
      "critical": false
     }
    ],
-   "score": 1.4000000000000001
+   "score": 0.8
   },
   {
    "f": 1562,
@@ -17288,13 +16333,13 @@
     {
      "rule": "SUBJECT",
      "subject": "f:mom",
-     "detail": "out of frame (x 0.96..1.28, y 2.03..2.21)",
+     "detail": "out of frame (x 1.81..2.09, y 1.37..1.53)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:farmerH",
-     "detail": "out of frame (x -1.15..-0.91, y -4.93..-4.39)",
+     "detail": "out of frame (x -14.53..-11.42, y -9.43..-7.46)",
      "critical": false
     }
    ],
@@ -17314,13 +16359,13 @@
     {
      "rule": "SUBJECT",
      "subject": "f:mom",
-     "detail": "out of frame (x 2.68..3.22, y 4.86..5.16)",
+     "detail": "out of frame (x 2.83..3.40, y 4.95..5.27)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:farmerH",
-     "detail": "out of frame (x -0.82..-0.70, y -2.05..-1.88)",
+     "detail": "out of frame (x -0.95..-0.82, y -2.07..-1.90)",
      "critical": false
     }
    ],
@@ -17346,7 +16391,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:farmerH",
-     "detail": "out of frame (x 0.07..0.11, y -0.48..-0.41)",
+     "detail": "out of frame (x 0.03..0.08, y -0.50..-0.43)",
      "critical": false
     }
    ],
@@ -17502,7 +16547,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:farmerH",
-     "detail": "too small (9 % of frame height, needs 30 %)",
+     "detail": "too small (10 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -17528,7 +16573,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:farmerH",
-     "detail": "too small (11 % of frame height, needs 30 %)",
+     "detail": "too small (12 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -17554,7 +16599,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:farmerH",
-     "detail": "too small (14 % of frame height, needs 30 %)",
+     "detail": "too small (15 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -17580,7 +16625,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:farmerH",
-     "detail": "too small (18 % of frame height, needs 30 %)",
+     "detail": "too small (19 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -17986,7 +17031,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "out of frame (x 1.11..1.41, y 0.25..0.64)",
+     "detail": "out of frame (x 1.23..1.59, y 0.26..0.73)",
      "critical": false
     }
    ],
@@ -18006,7 +17051,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "out of frame (x 1.08..1.35, y 0.26..0.63)",
+     "detail": "out of frame (x 1.17..1.49, y 0.28..0.71)",
      "critical": false
     }
    ],
@@ -18026,7 +17071,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "out of frame (x 1.05..1.30, y 0.27..0.62)",
+     "detail": "out of frame (x 1.12..1.41, y 0.30..0.70)",
      "critical": false
     }
    ],
@@ -18046,7 +17091,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "out of frame (x 1.03..1.28, y 0.27..0.62)",
+     "detail": "out of frame (x 1.06..1.33, y 0.31..0.67)",
      "critical": false
     }
    ],
@@ -18066,7 +17111,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "cut off right (1.24)",
+     "detail": "out of frame (x 1.02..1.27, y 0.30..0.65)",
      "critical": false
     }
    ],
@@ -18086,7 +17131,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "cut off right (1.19)",
+     "detail": "cut off right (1.22)",
      "critical": false
     }
    ],
@@ -18106,7 +17151,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "cut off right (1.13)",
+     "detail": "cut off right (1.15)",
      "critical": false
     }
    ],
@@ -18126,7 +17171,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "cut off right (1.06)",
+     "detail": "cut off right (1.08)",
      "critical": false
     }
    ],
@@ -18146,7 +17191,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "cut off right (1.01)",
+     "detail": "cut off right (1.02)",
      "critical": false
     }
    ],
@@ -18166,7 +17211,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "cut off right (0.96)",
+     "detail": "cut off right (0.97)",
      "critical": false
     }
    ],
@@ -18319,7 +17364,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "cut off right (0.99)",
+     "detail": "cut off right (0.98)",
      "critical": false
     }
    ],
@@ -18346,7 +17391,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "cut off right (1.04)",
+     "detail": "cut off right (1.03)",
      "critical": false
     }
    ],
@@ -18427,7 +17472,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "cut off right (1.22)",
+     "detail": "cut off right (1.21)",
      "critical": false
     }
    ],
@@ -18454,7 +17499,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "out of frame (x 1.03..1.29, y 0.27..0.62)",
+     "detail": "out of frame (x 1.02..1.28, y 0.27..0.62)",
      "critical": false
     }
    ],
@@ -18481,7 +17526,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "out of frame (x 1.07..1.35, y 0.26..0.63)",
+     "detail": "out of frame (x 1.06..1.34, y 0.26..0.63)",
      "critical": false
     }
    ],
@@ -18508,7 +17553,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "out of frame (x 1.10..1.40, y 0.25..0.64)",
+     "detail": "out of frame (x 1.10..1.39, y 0.25..0.64)",
      "critical": false
     }
    ],
@@ -18535,7 +17580,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "out of frame (x 1.14..1.45, y 0.24..0.64)",
+     "detail": "out of frame (x 1.13..1.45, y 0.24..0.65)",
      "critical": false
     }
    ],
@@ -18562,7 +17607,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "out of frame (x 1.17..1.52, y 0.22..0.65)",
+     "detail": "out of frame (x 1.17..1.51, y 0.22..0.66)",
      "critical": false
     }
    ],
@@ -18589,7 +17634,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "out of frame (x 1.21..1.59, y 0.21..0.67)",
+     "detail": "out of frame (x 1.20..1.58, y 0.21..0.67)",
      "critical": false
     }
    ],
@@ -18616,7 +17661,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "out of frame (x 1.25..1.66, y 0.19..0.69)",
+     "detail": "out of frame (x 1.24..1.65, y 0.19..0.69)",
      "critical": false
     }
    ],
@@ -18643,7 +17688,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "out of frame (x 1.28..1.73, y 0.18..0.71)",
+     "detail": "out of frame (x 1.27..1.72, y 0.18..0.71)",
      "critical": false
     }
    ],
@@ -18670,7 +17715,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "out of frame (x 1.30..1.79, y 0.17..0.73)",
+     "detail": "out of frame (x 1.30..1.78, y 0.17..0.73)",
      "critical": false
     }
    ],
@@ -18697,7 +17742,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "out of frame (x 1.33..1.85, y 0.16..0.75)",
+     "detail": "out of frame (x 1.32..1.84, y 0.16..0.75)",
      "critical": false
     }
    ],
@@ -18724,7 +17769,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "out of frame (x 1.34..1.89, y 0.16..0.77)",
+     "detail": "out of frame (x 1.33..1.88, y 0.16..0.77)",
      "critical": false
     }
    ],
@@ -18751,7 +17796,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "out of frame (x 1.35..1.93, y 0.15..0.78)",
+     "detail": "out of frame (x 1.34..1.92, y 0.15..0.78)",
      "critical": false
     }
    ],
@@ -18778,7 +17823,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "out of frame (x 1.36..1.95, y 0.15..0.79)",
+     "detail": "out of frame (x 1.35..1.94, y 0.15..0.79)",
      "critical": false
     }
    ],
@@ -18805,7 +17850,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "out of frame (x 1.36..1.97, y 0.15..0.80)",
+     "detail": "out of frame (x 1.35..1.96, y 0.15..0.80)",
      "critical": false
     }
    ],
@@ -18832,7 +17877,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "out of frame (x 1.37..1.98, y 0.14..0.80)",
+     "detail": "out of frame (x 1.36..1.97, y 0.14..0.81)",
      "critical": false
     }
    ],
@@ -18859,7 +17904,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "out of frame (x 1.37..1.98, y 0.14..0.81)",
+     "detail": "out of frame (x 1.36..1.97, y 0.14..0.81)",
      "critical": false
     }
    ],
@@ -18886,7 +17931,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialH",
-     "detail": "out of frame (x 1.37..1.99, y 0.14..0.81)",
+     "detail": "out of frame (x 1.36..1.97, y 0.14..0.81)",
      "critical": false
     }
    ],
@@ -18906,18 +17951,12 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:farmerWalk",
-     "detail": "cut off left (-0.03)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:farmerB",
-     "detail": "out of frame (x -1.18..-1.02, y 0.11..0.26)",
+     "detail": "out of frame (x -1.07..-0.92, y 0.12..0.26)",
      "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 1732,
@@ -18933,18 +17972,12 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:farmerWalk",
-     "detail": "cut off left (-0.18)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:farmerB",
-     "detail": "out of frame (x -1.18..-1.03, y 0.11..0.26)",
+     "detail": "out of frame (x -1.07..-0.92, y 0.12..0.26)",
      "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 1733,
@@ -18961,13 +17994,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:farmerWalk",
-     "detail": "cut off left (-0.34)",
+     "detail": "cut off left (0.04)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:farmerB",
-     "detail": "out of frame (x -1.23..-1.06, y 0.11..0.26)",
+     "detail": "out of frame (x -1.10..-0.95, y 0.11..0.26)",
      "critical": false
     }
    ],
@@ -18988,13 +18021,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:farmerWalk",
-     "detail": "cut off left (-0.51)",
+     "detail": "cut off left (-0.09)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:farmerB",
-     "detail": "out of frame (x -1.32..-1.15, y 0.09..0.25)",
+     "detail": "out of frame (x -1.17..-1.01, y 0.09..0.24)",
      "critical": false
     }
    ],
@@ -19015,13 +18048,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:farmerWalk",
-     "detail": "out of frame (x -0.65..-0.00, y 0.10..0.85)",
+     "detail": "cut off left (-0.21)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:farmerB",
-     "detail": "out of frame (x -1.46..-1.27, y 0.07..0.23)",
+     "detail": "out of frame (x -1.27..-1.10, y 0.07..0.22)",
      "critical": false
     }
    ],
@@ -19042,13 +18075,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:farmerWalk",
-     "detail": "cut off left (-0.70)",
+     "detail": "cut off left (-0.25)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:farmerB",
-     "detail": "out of frame (x -1.58..-1.37, y 0.05..0.22)",
+     "detail": "out of frame (x -1.35..-1.16, y 0.04..0.20)",
      "critical": false
     }
    ],
@@ -19069,13 +18102,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:farmerWalk",
-     "detail": "cut off left (-0.56)",
+     "detail": "cut off left (-0.17)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:farmerB",
-     "detail": "out of frame (x -1.63..-1.40, y 0.03..0.21)",
+     "detail": "out of frame (x -1.36..-1.16, y 0.01..0.18)",
      "critical": false
     }
    ],
@@ -19095,18 +18128,12 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:farmerWalk",
-     "detail": "cut off left (-0.14)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:farmerB",
-     "detail": "out of frame (x -1.52..-1.30, y 0.03..0.21)",
+     "detail": "out of frame (x -1.28..-1.08, y -0.02..0.16)",
      "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 1739,
@@ -19123,13 +18150,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:farmerWalk",
-     "detail": "cut off right (1.62)",
+     "detail": "cut off right (1.72)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:farmerB",
-     "detail": "out of frame (x -1.23..-1.04, y 0.05..0.23)",
+     "detail": "out of frame (x -1.08..-0.89, y -0.01..0.17)",
      "critical": false
     }
    ],
@@ -19150,13 +18177,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:farmerWalk",
-     "detail": "out of frame (x 1.70..4.85, y 0.55..2.53)",
+     "detail": "out of frame (x 1.67..4.87, y 0.50..2.38)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:farmerB",
-     "detail": "out of frame (x -0.82..-0.66, y 0.12..0.28)",
+     "detail": "out of frame (x -0.76..-0.60, y 0.06..0.23)",
      "critical": false
     }
    ],
@@ -19177,13 +18204,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:farmerWalk",
-     "detail": "out of frame (x 5.64..27.33, y 1.79..20.96)",
+     "detail": "out of frame (x 5.21..18.59, y 1.70..14.37)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:farmerB",
-     "detail": "out of frame (x -0.36..-0.24, y 0.20..0.36)",
+     "detail": "out of frame (x -0.35..-0.22, y 0.16..0.32)",
      "critical": false
     }
    ],
@@ -19324,7 +18351,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:farmerB",
-     "detail": "too small (22 % of frame height, needs 30 %)",
+     "detail": "too small (21 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -19405,7 +18432,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:farmerB",
-     "detail": "too small (30 % of frame height, needs 30 %)",
+     "detail": "too small (29 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -20324,7 +19351,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "out of frame (x -0.57..-0.51, y 0.15..0.22)",
+     "detail": "out of frame (x -0.58..-0.52, y 0.15..0.22)",
      "critical": false
     }
    ],
@@ -20344,7 +19371,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "out of frame (x -0.59..-0.53, y 0.05..0.12)",
+     "detail": "out of frame (x -0.62..-0.56, y 0.06..0.13)",
      "critical": false
     }
    ],
@@ -20364,7 +19391,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "out of frame (x -0.65..-0.57, y -0.13..-0.05)",
+     "detail": "out of frame (x -0.73..-0.65, y -0.14..-0.06)",
      "critical": false
     }
    ],
@@ -20383,18 +19410,12 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:officialT",
-     "detail": "out of frame (x 0.28..0.72, y 1.45..2.26)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "out of frame (x -0.58..-0.52, y 0.83..0.90)",
+     "detail": "out of frame (x -1.02..-0.90, y -0.53..-0.42)",
      "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 1859,
@@ -20409,18 +19430,12 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:officialT",
-     "detail": "behind the camera",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "behind the camera",
+     "detail": "out of frame (x -1.29..-1.13, y -0.79..-0.66)",
      "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 1860,
@@ -20442,7 +19457,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "behind the camera",
+     "detail": "out of frame (x -0.41..-0.27, y 2.53..2.77)",
      "critical": false
     }
    ],
@@ -20468,7 +19483,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "out of frame (x -0.08..0.10, y 4.14..4.72)",
+     "detail": "out of frame (x 0.20..0.29, y 2.23..2.42)",
      "critical": false
     }
    ],
@@ -20494,7 +19509,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "out of frame (x 0.24..0.31, y 1.73..1.85)",
+     "detail": "out of frame (x 0.32..0.40, y 2.29..2.50)",
      "critical": false
     }
    ],
@@ -20520,7 +19535,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "out of frame (x 0.26..0.31, y 1.40..1.50)",
+     "detail": "out of frame (x 0.29..0.39, y 2.56..2.82)",
      "critical": false
     }
    ],
@@ -20546,7 +19561,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "out of frame (x 0.10..0.21, y 2.47..2.70)",
+     "detail": "out of frame (x 0.25..0.37, y 2.97..3.32)",
      "critical": false
     }
    ],
@@ -20572,7 +19587,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "out of frame (x 0.26..0.31, y 1.09..1.17)",
+     "detail": "out of frame (x 0.17..0.33, y 3.62..4.14)",
      "critical": false
     }
    ],
@@ -20598,17 +19613,11 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "too small (8 % of frame height, needs 30 %)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:doumerQ",
-     "detail": "head centre at 65 % of the frame height",
+     "detail": "out of frame (x 0.17..0.29, y 2.74..3.03)",
      "critical": false
     }
    ],
-   "score": 1
+   "score": 0.8
   },
   {
    "f": 1867,
@@ -20624,13 +19633,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialT",
-     "detail": "behind the camera",
+     "detail": "out of frame (x 15.26..16.87, y 87.35..110.87)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "out of frame (x 0.18..0.25, y 1.18..1.29)",
+     "detail": "too small (8 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -20656,7 +19665,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "out of frame (x 0.11..0.19, y 1.32..1.45)",
+     "detail": "too small (9 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -20682,7 +19691,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "out of frame (x 0.04..0.14, y 1.34..1.50)",
+     "detail": "too small (10 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -20708,7 +19717,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "out of frame (x -0.09..0.05, y 1.53..1.73)",
+     "detail": "too small (12 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -20734,17 +19743,11 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "too small (12 % of frame height, needs 30 %)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:doumerQ",
-     "detail": "head centre at 58 % of the frame height",
+     "detail": "too small (15 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
-   "score": 1
+   "score": 0.8
   },
   {
    "f": 1872,
@@ -20766,7 +19769,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "too small (11 % of frame height, needs 30 %)",
+     "detail": "too small (19 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -20792,7 +19795,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "too small (12 % of frame height, needs 30 %)",
+     "detail": "too small (24 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -20814,15 +19817,9 @@
      "subject": "c:officialT",
      "detail": "behind the camera",
      "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:doumerQ",
-     "detail": "too small (17 % of frame height, needs 30 %)",
-     "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 1875,
@@ -20840,15 +19837,9 @@
      "subject": "c:officialT",
      "detail": "behind the camera",
      "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:doumerQ",
-     "detail": "too small (28 % of frame height, needs 30 %)",
-     "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 1876,
@@ -20983,18 +19974,12 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:doumerQ",
-     "detail": "cut off right (1.01)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:doumerP",
-     "detail": "out of frame (x 4.00..4.15, y -0.15..-0.03)",
+     "detail": "out of frame (x 3.88..4.00, y 0.05..0.17)",
      "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 1990,
@@ -21009,18 +19994,12 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:doumerQ",
-     "detail": "cut off right (1.10)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:doumerP",
-     "detail": "out of frame (x 4.21..4.38, y -0.21..-0.08)",
+     "detail": "out of frame (x 4.02..4.14, y 0.01..0.13)",
      "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 1991,
@@ -21036,13 +20015,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "cut off right (1.22)",
+     "detail": "cut off right (0.96)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:doumerP",
-     "detail": "out of frame (x 4.89..5.13, y -0.36..-0.21)",
+     "detail": "out of frame (x 4.43..4.58, y -0.11..0.03)",
      "critical": false
     }
    ],
@@ -21062,13 +20041,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "cut off right (1.38)",
+     "detail": "cut off right (1.02)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:doumerP",
-     "detail": "out of frame (x 6.74..7.27, y -0.73..-0.49)",
+     "detail": "out of frame (x 5.36..5.62, y -0.34..-0.17)",
      "critical": false
     }
    ],
@@ -21088,13 +20067,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "out of frame (x 1.01..1.53, y 0.11..0.69)",
+     "detail": "cut off right (1.03)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:doumerP",
-     "detail": "out of frame (x 13.09..15.66, y -1.77..-1.14)",
+     "detail": "out of frame (x 7.32..7.94, y -0.76..-0.50)",
      "critical": false
     }
    ],
@@ -21113,18 +20092,12 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:doumerQ",
-     "detail": "out of frame (x 1.09..1.60, y 0.18..0.68)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:doumerP",
-     "detail": "out of frame (x 236.54..236.54, y -16.22..-16.22)",
+     "detail": "out of frame (x 10.95..12.73, y -1.42..-0.93)",
      "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 1995,
@@ -21139,18 +20112,12 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:doumerQ",
-     "detail": "out of frame (x 1.08..1.52, y 0.29..0.68)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:doumerP",
-     "detail": "behind the camera",
+     "detail": "out of frame (x 14.71..18.78, y -2.06..-1.24)",
      "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 1996,
@@ -21166,13 +20133,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "out of frame (x 1.02..1.36, y 0.38..0.68)",
+     "detail": "cut off left (-0.03)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:doumerP",
-     "detail": "behind the camera",
+     "detail": "out of frame (x 13.68..17.59, y -1.86..-1.10)",
      "critical": false
     }
    ],
@@ -21192,29 +20159,17 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "cut off right (1.19)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:doumerQ",
-     "detail": "too small (23 % of frame height, needs 30 %)",
+     "detail": "out of frame (x -0.44..-0.14, y 0.47..0.72)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:doumerP",
-     "detail": "behind the camera",
-     "critical": false
-    },
-    {
-     "rule": "OCCLUSION",
-     "subject": "c:doumerQ",
-     "detail": "5/5 rays blocked (start of the run)",
+     "detail": "out of frame (x 9.62..11.58, y -1.27..-0.82)",
      "critical": false
     }
    ],
-   "score": 4.2
+   "score": 0.8
   },
   {
    "f": 1998,
@@ -21230,29 +20185,17 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "cut off right (1.04)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:doumerQ",
-     "detail": "too small (20 % of frame height, needs 30 %)",
+     "detail": "out of frame (x -0.96..-0.61, y 0.59..0.82)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:doumerP",
-     "detail": "behind the camera",
-     "critical": false
-    },
-    {
-     "rule": "OCCLUSION",
-     "subject": "c:doumerQ",
-     "detail": "5/5 rays blocked (start of the run)",
+     "detail": "out of frame (x 7.28..8.44, y -0.97..-0.64)",
      "critical": false
     }
    ],
-   "score": 4.2
+   "score": 0.8
   },
   {
    "f": 1999,
@@ -21268,23 +20211,17 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "too small (19 % of frame height, needs 30 %)",
+     "detail": "out of frame (x -1.91..-1.40, y 0.73..0.99)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:doumerP",
-     "detail": "behind the camera",
-     "critical": false
-    },
-    {
-     "rule": "OCCLUSION",
-     "subject": "c:doumerQ",
-     "detail": "5/5 rays blocked (start of the run)",
+     "detail": "out of frame (x 6.62..7.63, y -0.86..-0.55)",
      "critical": false
     }
    ],
-   "score": 3.8
+   "score": 0.8
   },
   {
    "f": 2000,
@@ -21300,23 +20237,17 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "too small (17 % of frame height, needs 30 %)",
-     "critical": false
-    },
-    {
-     "rule": "OCCLUSION",
-     "subject": "c:doumerQ",
-     "detail": "5/5 rays blocked for 4 frames",
+     "detail": "out of frame (x -3.63..-2.73, y 1.04..1.37)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:doumerP",
-     "detail": "behind the camera",
+     "detail": "out of frame (x 5.28..5.96, y -0.67..-0.41)",
      "critical": false
     }
    ],
-   "score": 1.4
+   "score": 0.8
   },
   {
    "f": 2001,
@@ -21332,29 +20263,17 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "cut off left (-0.10)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:doumerQ",
-     "detail": "too small (16 % of frame height, needs 30 %)",
-     "critical": false
-    },
-    {
-     "rule": "OCCLUSION",
-     "subject": "c:doumerQ",
-     "detail": "5/5 rays blocked for 5 frames",
+     "detail": "out of frame (x -8.41..-5.83, y 1.89..2.39)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:doumerP",
-     "detail": "behind the camera",
+     "detail": "out of frame (x 3.99..4.40, y -0.46..-0.24)",
      "critical": false
     }
    ],
-   "score": 1.8000000000000003
+   "score": 0.8
   },
   {
    "f": 2002,
@@ -21370,13 +20289,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "out of frame (x -0.73..-0.56, y 0.31..0.47)",
+     "detail": "out of frame (x -690.65..-28.15, y 8.07..146.64)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:doumerP",
-     "detail": "behind the camera",
+     "detail": "out of frame (x 3.00..3.26, y -0.24..-0.06)",
      "critical": false
     }
    ],
@@ -21396,13 +20315,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "out of frame (x -1.65..-1.42, y 0.35..0.51)",
+     "detail": "behind the camera",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:doumerP",
-     "detail": "behind the camera",
+     "detail": "out of frame (x 2.23..2.42, y -0.14..0.03)",
      "critical": false
     }
    ],
@@ -21422,13 +20341,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "out of frame (x -3.19..-2.79, y 0.52..0.72)",
+     "detail": "behind the camera",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:doumerP",
-     "detail": "out of frame (x 27.72..287.74, y -17.72..0.13)",
+     "detail": "out of frame (x 1.65..1.81, y -0.06..0.12)",
      "critical": false
     }
    ],
@@ -21448,13 +20367,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "out of frame (x -6.74..-5.72, y 0.97..1.27)",
+     "detail": "behind the camera",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:doumerP",
-     "detail": "out of frame (x 6.63..8.69, y -0.58..0.08)",
+     "detail": "out of frame (x 1.22..1.36, y 0.03..0.21)",
      "critical": false
     }
    ],
@@ -21474,17 +20393,23 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "out of frame (x -28.30..-18.76, y 3.02..4.04)",
+     "detail": "behind the camera",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:doumerP",
-     "detail": "out of frame (x 3.52..4.17, y -0.20..0.21)",
+     "detail": "cut off right (1.05)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:doumerP",
+     "detail": "too small (21 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
-   "score": 0.8
+   "score": 1.2000000000000002
   },
   {
    "f": 2007,
@@ -21506,7 +20431,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerP",
-     "detail": "out of frame (x 2.22..2.58, y -0.02..0.34)",
+     "detail": "too small (24 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -21532,7 +20457,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerP",
-     "detail": "out of frame (x 1.46..1.75, y 0.08..0.46)",
+     "detail": "too small (30 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -21554,15 +20479,9 @@
      "subject": "c:doumerQ",
      "detail": "behind the camera",
      "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:doumerP",
-     "detail": "cut off right (1.25)",
-     "critical": false
     }
    ],
-   "score": 0.8
+   "score": 0.4
   },
   {
    "f": 2010,
@@ -21598,7 +20517,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "out of frame (x -28.16..-22.07, y 2.74..3.84)",
+     "detail": "behind the camera",
      "critical": false
     }
    ],
@@ -21618,7 +20537,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "out of frame (x -8.79..-8.01, y 1.25..1.54)",
+     "detail": "behind the camera",
      "critical": false
     }
    ],
@@ -21638,7 +20557,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "out of frame (x -5.54..-5.19, y 0.96..1.15)",
+     "detail": "behind the camera",
      "critical": false
     }
    ],
@@ -21658,7 +20577,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "out of frame (x -4.44..-4.19, y 0.87..1.02)",
+     "detail": "behind the camera",
      "critical": false
     }
    ],
@@ -21678,7 +20597,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "out of frame (x -4.08..-3.86, y 0.84..0.98)",
+     "detail": "behind the camera",
      "critical": false
     }
    ],
@@ -21698,7 +20617,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerQ",
-     "detail": "out of frame (x -4.02..-3.80, y 0.83..0.97)",
+     "detail": "behind the camera",
      "critical": false
     }
    ],
@@ -21800,9 +20719,15 @@
      "subject": "f:lounge",
      "detail": "not on stage",
      "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:doumerP",
+     "detail": "cut off top (0.04)",
+     "critical": false
     }
    ],
-   "score": 0.4
+   "score": 0.8
   },
   {
    "f": 2039,
@@ -21820,9 +20745,15 @@
      "subject": "f:lounge",
      "detail": "not on stage",
      "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:doumerP",
+     "detail": "cut off top (-0.00)",
+     "critical": false
     }
    ],
-   "score": 0.4
+   "score": 0.8
   },
   {
    "f": 2040,
@@ -21840,9 +20771,15 @@
      "subject": "f:lounge",
      "detail": "not on stage",
      "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:doumerP",
+     "detail": "cut off top (-0.02)",
+     "critical": false
     }
    ],
-   "score": 0.4
+   "score": 0.8
   },
   {
    "f": 2041,
@@ -21864,7 +20801,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerP",
-     "detail": "cut off top (0.01)",
+     "detail": "cut off top (-0.08)",
      "critical": false
     }
    ],
@@ -21890,13 +20827,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerP",
-     "detail": "cut off top (-0.32)",
+     "detail": "cut off left (0.02)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:doumerP",
-     "detail": "too small (9 % of frame height, needs 30 %)",
+     "detail": "too small (30 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
@@ -21922,7 +20859,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerP",
-     "detail": "out of frame (x 0.51..0.78, y -0.98..-0.45)",
+     "detail": "out of frame (x -0.29..0.11, y -0.64..-0.07)",
      "critical": false
     }
    ],
@@ -21948,7 +20885,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerP",
-     "detail": "out of frame (x -0.13..0.33, y -2.65..-1.49)",
+     "detail": "out of frame (x -1.11..-0.46, y -1.43..-0.64)",
      "critical": false
     }
    ],
@@ -21974,7 +20911,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerP",
-     "detail": "out of frame (x -11.39..-2.69, y -16.80..-4.60)",
+     "detail": "out of frame (x -4.28..-2.05, y -3.68..-1.70)",
      "critical": false
     }
    ],
@@ -22000,7 +20937,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:doumerP",
-     "detail": "behind the camera",
+     "detail": "out of frame (x -13.37..-10.72, y -5.89..-5.30)",
      "critical": false
     }
    ],
@@ -22052,7 +20989,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:lounge",
-     "detail": "too small (11 % of frame height, needs 15 %)",
+     "detail": "out of frame (x 1.04..1.23, y 0.46..0.57)",
      "critical": false
     }
    ],
@@ -22126,9 +21063,15 @@
      "subject": "c:doumerP",
      "detail": "behind the camera",
      "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:lounge",
+     "detail": "too small (15 % of frame height, needs 15 %)",
+     "critical": false
     }
    ],
-   "score": 0.4
+   "score": 0.8
   },
   {
    "f": 2052,

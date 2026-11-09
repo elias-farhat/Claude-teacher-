@@ -104,6 +104,7 @@ export const run = (A: Adapter, geo = new Geo(A.root), frames?: number[]): Row[]
     const fails: Fail[] = [];
     const add = (q: Omit<Fail, "critical">) => fails.push({ ...q, critical: !flight || q.rule === "CLIPPING" || q.rule === "EMPTY" });
     const { subj, missing } = subjectsAt(ids, st, cam.position, right, up, A.props, t);
+    if ((globalThis as unknown as { GUARD_DBG_OCC?: boolean }).GUARD_DBG_OCC) console.log("[subj]", f, ids.join(","), "found", subj.map((q) => q.id + "@" + q.centre.toArray().map((x) => +x.toFixed(1))).join(" "), "fx", st.fx.map((q) => q.key.split("|")[0]).filter((k) => !k.startsWith("bg")).join(","));
     for (const id of missing) add({ rule: "SUBJECT", subject: id, detail: "not on stage" });
     const chk = checkSubjects(cam, subj, geo, occRun);
     for (const q of chk.fails) add(q);

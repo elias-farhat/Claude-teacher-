@@ -99,7 +99,7 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
   };
   for (let i = 0; i < specs.length; i++) {
     const sp0 = specs[i], sp: ShotSpec = { ...sp0, size: hints[i]?.size ?? sp0.size }, t0 = sp.t0, t1 = sp.t1 ?? (i + 1 < specs.length ? specs[i + 1].t0 : END), hint = hints[i] ?? { reject: [], scale: 1 };
-    const tA = Math.min(t1 - 0.05, t0 + 0.04); let tB = Math.max(tA + 0.2, t1 - 1.0);
+    let tA = Math.min(t1 - 0.05, t0 + 0.04); let tB = Math.max(tA + 0.2, t1 - 1.0);
     // base direction from the hand camera at the middle of the shot, turned by the spec's angle
     const tm = (tA + tB) / 2, hc = I.hand(tm);
     const subs0 = subjAt(sp, tm, hc.pos);
@@ -111,7 +111,7 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
     // moving subjects: how far does the union centre travel during the hold?
     let subsB = subjAt(sp, tB, hc.pos);
     const travel = subs0.length && subsB.length ? subsB[0].centre.distanceTo(subjAt(sp, tA, hc.pos)[0]?.centre ?? subsB[0].centre) : 0;
-    if (travel > 1) { tB = Math.max(tA + 0.2, t1 - 0.45); subsB = subjAt(sp, tB, hc.pos); }   // tracking: keys reach the flight start
+    if (travel > 1) { tA = t0 + 0.001; tB = Math.max(tA + 0.2, t1 - 0.45); subsB = subjAt(sp, tB, hc.pos); }   // tracking: keys reach the flight start
     const nK = Math.max(3, Math.ceil((tB - tA) / (travel > 3 ? 0.1 : 0.2)) + 1);
     const times: number[] = travel > 1.0 ? Array.from({ length: nK }, (_, k) => tA + ((tB - tA) * k) / (nK - 1))
       : tB - tA > 2.4 ? [tA, (tA + tB) / 2, tB] : [tA, tB];
@@ -125,7 +125,7 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
         // the move: push in over the hold, or drift sideways / orbit a little (alternating), so the camera never freezes
         const u = times.length > 1 ? k / (times.length - 1) : 0, mv = sp.move ?? (i % 2 ? "drift" : "push");
         const azk = az + (mv === "orbit" ? (u - 0.5) * 0.2 : mv === "drift" ? (u - 0.5) * 0.08 : 0), kd = kk * hint.scale * (mv === "push" ? 1.04 - 0.08 * u : 1);
-        const p = compose(sp, t, azk, el, kd, travel > 1 ? 0.66 : 0.8);
+        const p = compose(sp, t, azk, el, kd, travel > 1 ? 0.6 : 0.8);
         if (!p) { ok = false; return; }
         const s = score({ ...p, t, sp }); sc = Math.max(sc, s.sc); why.push(...s.why);
         keys.push({ t: +t.toFixed(3), pos: A3(p.pos), look: A3(p.look), fov: p.fov });
@@ -240,13 +240,13 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
         return n / 45;
       };
       const raw: number[] = [];
-      for (let k = 0; k <= 20; k++) {
-        const t = tS + ((N.t0 - tS) * k) / 20, c = trackCam(tmp, Math.min(t, N.t0 - 1e-3));
-        const e = smoother(k / 20), tg = along(path, Math.min(1, e + 0.04)).sub(along(path, Math.max(0, e - 0.04)));
+      for (let k = 0; k <= 30; k++) {
+        const t = tS + ((N.t0 - tS) * k) / 30, c = trackCam(tmp, Math.min(t, N.t0 - 1e-3));
+        const e = smoother(k / 30), tg = along(path, Math.min(1, e + 0.04)).sub(along(path, Math.max(0, e - 0.04)));
         const w0 = walled(c.pos, c.look), w1 = tg.lengthSq() > 1e-8 ? walled(c.pos, c.pos.clone().add(tg.normalize())) : 1;
-        raw.push(w0 >= 0.5 && w1 < w0 - 0.15 ? 1 : 0);
+        raw.push(w0 >= 0.4 && w1 < w0 - 0.1 ? 1 : 0);
       }
-      for (let k = 0; k <= 20; k++) { let m = 0; for (let j = -3; j <= 3; j++) m = Math.max(m, raw[k + j] ?? 0); ahead.push(m); }   // widen
+      for (let k = 0; k <= 30; k++) { let m = 0; for (let j = -4; j <= 4; j++) m = Math.max(m, raw[k + j] ?? 0); ahead.push(m); }   // widen
     }
     flights.push({ t0: tS, t1: N.t0, to: i + 1, path, swing, ...(ahead.some((x) => x > 0) ? { ahead } : {}), ...({ route: pick.name, tried: tried.join(" "), blocked: bestBad, peak: +((len * 1.875) / frames).toFixed(2) } as object) });
   }

@@ -27,3 +27,8 @@ export const debugPath = (to: number) => {
     if (!geo.segmentFree(a, b, 0.1)) console.log("seg", k, "/", P.length - 1, a.toArray().map((x) => +x.toFixed(2)), "->", b.toArray().map((x) => +x.toFixed(2)), "centre hit", h ? h.point.toArray().map((x) => +x.toFixed(2)) : "none", h ? JSON.stringify({ name: h.object.name, mat: (h.object.material as THREE.Material).name, col: (h.object.material as THREE.MeshLambertMaterial).color?.getHexString(), map: !!(h.object.material as THREE.MeshLambertMaterial).map, tris: h.object.geometry.attributes.position.count / 3, bb: new THREE.Box3().setFromObject(h.object).min.toArray().concat(new THREE.Box3().setFromObject(h.object).max.toArray()).map((x) => +x.toFixed(2)) }) : "", "inside(a)", geo.inside(a), "inside(b)", geo.inside(b));
   }
 };
+export const debugCam = (f: number) => {
+  const c = cfg(), geo = new Geo(c.root), cm = camAt(f / FPS);
+  const d = cm.look.clone().sub(cm.pos).normalize(), h = geo.cast(cm.pos, d, 50);
+  console.log(f, "pos", cm.pos.toArray().map((x) => +x.toFixed(2)), "look", cm.look.toArray().map((x) => +x.toFixed(2)), "centre ray hits", h ? h.distance.toFixed(2) + " at " + h.point.toArray().map((x) => +x.toFixed(2)) + " " + JSON.stringify(new THREE.Box3().setFromObject(h.object).min.toArray().concat(new THREE.Box3().setFromObject(h.object).max.toArray()).map((x) => +x.toFixed(1))) : "none", "inside", geo.inside(cm.pos));
+};

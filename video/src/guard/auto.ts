@@ -77,7 +77,46 @@ export const loop = (C: AutoCfg, maxIter = 5) => {
     history.push(`assembled the best round of every shot: ${n} frames with CRITICAL failures`);
     if (!best || n < best.n) best = { track: tr, rows: rw, n, round: 0 };
   }
-  if (best && best.track !== track) { history.push(best.round ? `kept round ${best.round} (fewest CRITICAL frames: ${best.n})` : `kept the assembled track (${best.n} CRITICAL frames)`); track = best.track; rows = best.rows; C.setTrack(track); }
+  // flight polish: a flight with CRITICAL frames tries other look timings (swing earlier / later, looking down the
+  // path all the way or never) and an earlier start; each variant is guarded on that flight's frames only
+  if (best && best.n > 0) {
+    const tr: Track = JSON.parse(JSON.stringify(best.track));
+    C.setTrack(tr);
+    const critIn = (rw: Row[]) => rw.filter((r) => r.fails.some((q) => q.critical)).length;
+    let fixedN = 0;
+    for (const fl of tr.flights) {
+      const f0 = Math.floor(fl.t0 * C.fps) - 2, f1 = Math.ceil(fl.t1 * C.fps) + 2, frames = Array.from({ length: f1 - f0 + 1 }, (_, k) => f0 + k);
+      let cur = critIn(run(adapter(C, tr), geo, frames)); if (!cur) continue;
+      const base = JSON.parse(JSON.stringify(fl));
+      const variants: ((g: typeof fl) => void)[] = [
+        (g) => { g.swing = [Math.max(0, (base.swing?.[0] ?? 0.3) - 0.15), Math.max(0.2, (base.swing?.[1] ?? 0.7) - 0.15)]; },
+        (g) => { g.swing = [Math.min(0.8, (base.swing?.[0] ?? 0.3) + 0.15), Math.min(1, (base.swing?.[1] ?? 0.7) + 0.15)]; },
+        (g) => { g.ahead = Array(31).fill(1); },
+        (g) => { delete g.ahead; },
+        (g) => { g.swing = [0.05, 0.35]; },
+        (g) => { g.swing = [0.6, 0.95]; },
+        // bend the middle of the path (endpoints stay): up, down, either side
+        ...[[0, 0.6, 0], [0, -0.4, 0], [0.6, 0, 0], [-0.6, 0, 0], [0, 0, 0.6], [0, 0, -0.6], [0, 1.2, 0]].map((o) => (g: typeof fl) => {
+          const n = g.path.length - 1;
+          g.path = g.path.map((p, k) => { const w = Math.sin((Math.PI * k) / Math.max(1, n)); return [p[0] + o[0] * w, p[1] + o[1] * w, p[2] + o[2] * w] as [number, number, number]; });
+        }),
+      ];
+      let bestV = JSON.parse(JSON.stringify(base));
+      for (const v of variants) {
+        Object.assign(fl, JSON.parse(JSON.stringify(base))); if (!base.ahead) delete fl.ahead; v(fl);
+        const n = critIn(run(adapter(C, tr), geo, frames));
+        if (n < cur) { cur = n; bestV = JSON.parse(JSON.stringify(fl)); }
+        if (!cur) break;
+      }
+      for (const k of Object.keys(fl)) delete (fl as Record<string, unknown>)[k];
+      Object.assign(fl, bestV);
+      if (!cur) fixedN++;
+    }
+    const rw = run(adapter(C, tr), geo), n = critIn(rw);
+    history.push(`flight polish (look timing per failing flight): ${n} frames with CRITICAL failures (${fixedN} flights cleared)`);
+    if (n < best.n) best = { track: tr, rows: rw, n, round: -1 };
+  }
+  if (best && best.track !== track) { history.push(best.round > 0 ? `kept round ${best.round} (fewest CRITICAL frames: ${best.n})` : best.round === 0 ? `kept the assembled track (${best.n} CRITICAL frames)` : `kept the polished track (${best.n} CRITICAL frames)`); track = best.track; rows = best.rows; C.setTrack(track); }
   return { track: track!, rows, history };
 };
 /** debug: run the guard on a few frames of the committed track (prints occlusion hits when GUARD_DBG_OCC is set) */

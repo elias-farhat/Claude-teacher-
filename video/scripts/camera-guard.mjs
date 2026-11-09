@@ -57,22 +57,35 @@ fs.writeFileSync(path.join(qa, "camera_report.txt"), ranges.map((g) => (g.critic
 // ---- summary.txt: decisions first, then the verdict ----
 const DECISIONS = `Decisions (auto-framer + camera guard, made without asking):
 - CRITICAL = any guard failure on a held frame. During a flight between two shots only CLIPPING and EMPTY are
-  CRITICAL (EMPTY = none of the subjects of either shot, nor the prop the camera carries across, is visible: every one
-  is out of frame or fully blocked); SUBJECT (size / margin), FACES and the OCCLUSION of one of them are warnings,
-  because the camera is travelling from one subject to the next.
-- Shots shorter than ~1.2 s were merged into their neighbour (a 25-30 frame flight needs the room): Rats "farming",
-  "the rat pops out" (now an optional subject of "into the nicest houses") and "it's not enough"; the convoy shot
-  lands on "love" and the scurrying rat on "strange".
-- Subject boxes: characters are their full card figure (feet to hat, 0.62 m wide; seated: legs to head). So "close" =
-  the full figure at 75 % of the frame height, never a face close-up (CLAUDE.md 3). Groups ("c:/re/") are one union box.
-- The solver's base direction is the old hand-placed camera's direction to the subject (it knows the rooms, windows
-  and streets), turned by the spec's angle; flights try a straight line, then the hand camera's own route (through the
-  doors, windows and grates it used), then an arc over the top, each smoothed and ray-checked.
-- Lighting looks, carried props and the sun direction still follow the old SHOTS timeline (story.ts), so the light
-  arc and every on-screen action keep their exact voice timing; only the camera comes from shots.ts.
-- Shot times land 2 frames before their word (voice.wav untouched). Where a subject is only on stage from a later
-  moment, the shot starts then (e.g. Rats line 18 starts at the end of line 17 with the farmer walking to the barn).
-- Re-solve loop: a failing shot drops the candidate that failed; "too small" moves 15 % closer, "cut off" 15 % farther.
+  CRITICAL (EMPTY = none of the subjects of either shot, nor the prop the camera carries across, is visible: each is
+  out of frame or fully blocked); SUBJECT (size / margin), FACES and the OCCLUSION of one of them are warnings,
+  because the camera is travelling from one subject to the next. Warnings are listed in camera_report.txt.
+- Subject boxes: characters are their full card figure (feet to hat, 0.62 m wide; seated: legs to head), so "close" =
+  the full figure at 75 % of the frame height, never a face close-up (CLAUDE.md 3). Groups ("c:/re/") are one union
+  box. Subjects marked "?" are optional: they count for EMPTY but are not framed or size-checked (small props next to
+  a character: the tail on the table, the marching rats, the cages, the poster, the rumour bubble; the fainter, who
+  lies down; the hunters inside the manhole shaft).
+- The base camera direction is the old hand-placed camera's direction to the subject (it knows the rooms, windows and
+  streets), turned by the spec's angle; candidates when blocked: +-30 / +-60 / +-90 / 180 deg, higher, lower, overhead,
+  closer (x0.82 / 0.6 / 0.45), two higher diagonals, and the hand-placed pose itself.
+- Flights try a straight line, the old shot list's own waypoints (doors, windows, grates, shafts), the hand camera's
+  route and an arc over the top; blocked segments are nudged round edges; through enclosed stretches the camera looks
+  down its path (faded out before landing); one subject stays in view while it turns to the next. The carried prop
+  (rule 2) now rides every auto flight 1.8 m ahead of the camera (the old shot's prop, else a rat / a paper).
+- A last "flight polish" step tries other look timings / path bends on any flight that still has a CRITICAL frame.
+- Lighting looks, the sun direction and every on-screen action keep the old SHOTS timeline (story.ts), so the light
+  arc and all actions keep their exact voice timing; only the camera comes from shots.ts. voice.wav is untouched.
+- Shots shorter than ~1.2 s were merged into a neighbour (a 25-30 frame flight needs the room): Rats "farming",
+  "the rat pops out" (an optional subject of "into the nicest houses"), "it's not enough"; the convoy shot lands on
+  "love" (following rat 6, which stays in the main tunnel), the scurrying rat on "strange", Doumer's balcony 0.45 s
+  before "President" (the quay Doumer leaves the stage then). Moon line 10 frames the pier newsboys (the paper birds
+  are optional, they only fly part of the time).
+- Fixes the guard found in the sets: the shared holedGround() moved its cursor back on overlapping holes, so Hanoi's
+  city floor re-covered the whole story area 6 cm under the street (every grate / drain dive went through it);
+  back-faced / double-sided linings (the telescope tube) no longer count as "inside a solid".
+- Loop: a failing shot drops the candidate that failed; "too small" moves 15 % closer, "cut off" 15 % farther;
+  twice blocked / too small frames it one size tighter; after 5 rounds every shot takes the settings of the round where
+  it failed least.
 `;
 const shotsTxt = track ? track.shots.map((s, i) => `  shot ${String(i).padStart(2)}  ${s.t0.toFixed(2).padStart(6)}-${s.t1.toFixed(2).padStart(6)} s  ${s.size.padEnd(6)} ${s.cand}`).join("\n") : "";
 const flTxt = track ? track.flights.map((g) => `  -> shot ${g.to}: ${g.t0.toFixed(2)}-${g.t1.toFixed(2)} s, ${Math.round((g.t1 - g.t0) * 30)} f, ${g.route}${g.blocked ? ` (${g.blocked} blocked segments)` : ""}, peak ${g.peak} m/f`).join("\n") : "";
