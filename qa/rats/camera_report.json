@@ -3,7 +3,7 @@
  "frames": 2124,
  "pass": false,
  "failingFrames": 1384,
- "seconds": 9.1,
+ "seconds": 9.593,
  "rules": [
   {
    "rule": "SUBJECT",

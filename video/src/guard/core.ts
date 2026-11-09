@@ -36,7 +36,7 @@ export type Adapter = {
   props?: Record<string, (t: number) => THREE.Box3>;   // world-prop subjects
   windows: Window[];
 };
-type Subj = { id: string; kind: "char" | "prop"; pts: THREE.Vector3[]; head?: THREE.Vector3; chest?: number; bottom: number; top: number };
+type Subj = { id: string; kind: "char" | "prop"; pts: THREE.Vector3[]; own?: THREE.Box3; head?: THREE.Vector3; chest?: number; bottom: number; top: number };
 export type Fail = { rule: "SUBJECT" | "OCCLUSION" | "CLIPPING" | "EMPTY" | "FACES"; subject?: string; detail: string };
 export type Row = { f: number; t: number; shot: number; flight: boolean; subjects: string[]; fails: Fail[]; score: number };
 
@@ -127,7 +127,7 @@ export const run = (A: Adapter, onProgress?: (f: number) => void): Row[] => {
         const bx = A.props?.[s]?.(t); if (!bx) { missing.push(id); continue; }
         const pts: THREE.Vector3[] = [];
         for (const x of [bx.min.x, bx.max.x]) for (const y of [bx.min.y, bx.max.y]) for (const z of [bx.min.z, bx.max.z]) pts.push(new THREE.Vector3(x, y, z));
-        subj.push({ id, kind: "prop", pts, bottom: bx.min.y, top: bx.max.y });
+        subj.push({ id, kind: "prop", pts, bottom: bx.min.y, top: bx.max.y, own: bx.clone().expandByScalar(0.5) });
       }
     }
     for (const id of missing) fails.push({ rule: "SUBJECT", subject: id, detail: "not on stage" });
@@ -166,7 +166,7 @@ export const run = (A: Adapter, onProgress?: (f: number) => void): Row[] => {
         return { dir: nd, dist: Math.max(0.1, depth / Math.max(0.05, nd.dot(fwd))) };
       });
       let blocked = 0;
-      for (const p of probe) if (cast(cam.position, p.dir, Math.max(0.05, p.dist - 0.35), list)) blocked++;
+      for (const p of probe) { const h = cast(cam.position, p.dir, Math.max(0.05, p.dist - 0.35), list); if (h && !(s.own && s.own.containsPoint(h.point))) blocked++; }   // a landmark's own beams are not occluders
       if ((globalThis as unknown as { GUARD_DEBUG?: number }).GUARD_DEBUG === f) console.log("[dbg] blocked", s.id, blocked);
       const runN = blocked > 2 ? (occRun.get(s.id) ?? 0) + 1 : 0; occRun.set(s.id, runN);
       if (runN > 3) fails.push({ rule: "OCCLUSION", subject: s.id, detail: `${blocked}/5 rays blocked for ${runN} frames` });

@@ -1,5 +1,3 @@
-1.87-2.50 s	f56-74	OCCLUSION	w:tower	5/5 rays blocked for 10 frames
-1.90-2.50 s	f57-74	EMPTY		none of w:tower in view
 3.70-3.73 s	f111-111	SUBJECT	f:tag	cut off bottom (1.01)
 3.73-3.77 s	f112-112	SUBJECT	f:tag	cut off right (0.98)
 3.73-3.77 s	f112-112	SUBJECT	f:tag	too small (1 % of frame height, needs 15 %)

@@ -2,8 +2,8 @@
  "video": "moon",
  "frames": 1980,
  "pass": false,
- "failingFrames": 1148,
- "seconds": 5.546,
+ "failingFrames": 1106,
+ "seconds": 5.84,
  "rules": [
   {
    "rule": "SUBJECT",
@@ -11,7 +11,7 @@
   },
   {
    "rule": "OCCLUSION",
-   "frames": 137
+   "frames": 90
   },
   {
    "rule": "CLIPPING",
@@ -19,7 +19,7 @@
   },
   {
    "rule": "EMPTY",
-   "frames": 335
+   "frames": 292
   },
   {
    "rule": "FACES",
@@ -358,36 +358,6 @@
    "t1": 20.37
   },
   {
-   "rule": "EMPTY",
-   "subject": null,
-   "from": 612,
-   "to": 612,
-   "detail": "none of w:moon in view",
-   "worst": 612,
-   "t0": 20.4,
-   "t1": 20.43
-  },
-  {
-   "rule": "OCCLUSION",
-   "subject": "w:moon",
-   "from": 612,
-   "to": 658,
-   "detail": "5/5 rays blocked for 24 frames",
-   "worst": 650,
-   "t0": 20.4,
-   "t1": 21.97
-  },
-  {
-   "rule": "EMPTY",
-   "subject": null,
-   "from": 614,
-   "to": 618,
-   "detail": "none of w:moon in view",
-   "worst": 616,
-   "t0": 20.47,
-   "t1": 20.63
-  },
-  {
    "rule": "CLIPPING",
    "subject": null,
    "from": 616,
@@ -408,26 +378,6 @@
    "t1": 20.63
   },
   {
-   "rule": "EMPTY",
-   "subject": null,
-   "from": 620,
-   "to": 646,
-   "detail": "none of w:moon in view",
-   "worst": 620,
-   "t0": 20.67,
-   "t1": 21.57
-  },
-  {
-   "rule": "EMPTY",
-   "subject": null,
-   "from": 648,
-   "to": 652,
-   "detail": "none of w:moon in view",
-   "worst": 650,
-   "t0": 21.6,
-   "t1": 21.77
-  },
-  {
    "rule": "CLIPPING",
    "subject": null,
    "from": 650,
@@ -446,16 +396,6 @@
    "worst": 650,
    "t0": 21.67,
    "t1": 21.73
-  },
-  {
-   "rule": "EMPTY",
-   "subject": null,
-   "from": 654,
-   "to": 658,
-   "detail": "none of w:moon in view",
-   "worst": 654,
-   "t0": 21.8,
-   "t1": 21.97
   },
   {
    "rule": "SUBJECT",
@@ -7563,86 +7503,6 @@
    "score": 9
   },
   {
-   "f": 612,
-   "t": 20.4,
-   "shot": 3,
-   "flight": true,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    },
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked (start of the run)"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 613,
-   "t": 20.433,
-   "shot": 3,
-   "flight": true,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked (start of the run)"
-    }
-   ],
-   "score": 3
-  },
-  {
-   "f": 614,
-   "t": 20.467,
-   "shot": 3,
-   "flight": true,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    },
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked (start of the run)"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 615,
-   "t": 20.5,
-   "shot": 3,
-   "flight": true,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 4 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
    "f": 616,
    "t": 20.533,
    "shot": 3,
@@ -7652,20 +7512,11 @@
    ],
    "fails": [
     {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 5 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    },
-    {
      "rule": "CLIPPING",
      "detail": "view filled by geometry within 1.5 m (100 % of the frame)"
     }
    ],
-   "score": 12
+   "score": 5
   },
   {
    "f": 617,
@@ -7677,20 +7528,11 @@
    ],
    "fails": [
     {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 6 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    },
-    {
      "rule": "CLIPPING",
      "detail": "view filled by geometry within 1.5 m (98 % of the frame)"
     }
    ],
-   "score": 12
+   "score": 5
   },
   {
    "f": 618,
@@ -7702,663 +7544,11 @@
    ],
    "fails": [
     {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 7 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    },
-    {
      "rule": "CLIPPING",
      "detail": "camera inside a solid (5/6 rays hit back faces)"
     }
    ],
-   "score": 12
-  },
-  {
-   "f": 619,
-   "t": 20.633,
-   "shot": 3,
-   "flight": true,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "3/5 rays blocked for 8 frames"
-    }
-   ],
-   "score": 3
-  },
-  {
-   "f": 620,
-   "t": 20.667,
-   "shot": 3,
-   "flight": true,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 9 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 621,
-   "t": 20.7,
-   "shot": 3,
-   "flight": true,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 10 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 622,
-   "t": 20.733,
-   "shot": 3,
-   "flight": true,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 11 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 623,
-   "t": 20.767,
-   "shot": 3,
-   "flight": true,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 12 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 624,
-   "t": 20.8,
-   "shot": 3,
-   "flight": true,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 13 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 625,
-   "t": 20.833,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 14 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 626,
-   "t": 20.867,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 15 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 627,
-   "t": 20.9,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 16 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 628,
-   "t": 20.933,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 17 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 629,
-   "t": 20.967,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 18 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 630,
-   "t": 21,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 19 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 631,
-   "t": 21.033,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 20 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 632,
-   "t": 21.067,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 21 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 633,
-   "t": 21.1,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 22 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 634,
-   "t": 21.133,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 23 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 635,
-   "t": 21.167,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 24 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 636,
-   "t": 21.2,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 25 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 637,
-   "t": 21.233,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 26 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 638,
-   "t": 21.267,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 27 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 639,
-   "t": 21.3,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 28 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 640,
-   "t": 21.333,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 29 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 641,
-   "t": 21.367,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 30 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 642,
-   "t": 21.4,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 31 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 643,
-   "t": 21.433,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 32 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 644,
-   "t": 21.467,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 33 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 645,
-   "t": 21.5,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 34 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 646,
-   "t": 21.533,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 35 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 647,
-   "t": 21.567,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "3/5 rays blocked for 36 frames"
-    }
-   ],
-   "score": 3
-  },
-  {
-   "f": 648,
-   "t": 21.6,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 37 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 649,
-   "t": 21.633,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 38 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
+   "score": 5
   },
   {
    "f": 650,
@@ -8370,15 +7560,6 @@
    ],
    "fails": [
     {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 39 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    },
-    {
      "rule": "CLIPPING",
      "detail": "view filled by geometry within 1.5 m (100 % of the frame)"
     },
@@ -8387,7 +7568,7 @@
      "detail": "geometry 0.01 m from the lens"
     }
    ],
-   "score": 17
+   "score": 10
   },
   {
    "f": 651,
@@ -8399,163 +7580,11 @@
    ],
    "fails": [
     {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 40 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    },
-    {
      "rule": "CLIPPING",
      "detail": "geometry 0.26 m from the lens"
     }
    ],
-   "score": 12
-  },
-  {
-   "f": 652,
-   "t": 21.733,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 41 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 653,
-   "t": 21.767,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "3/5 rays blocked for 42 frames"
-    }
-   ],
-   "score": 3
-  },
-  {
-   "f": 654,
-   "t": 21.8,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 43 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 655,
-   "t": 21.833,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 44 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 656,
-   "t": 21.867,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 45 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 657,
-   "t": 21.9,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 46 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
-  },
-  {
-   "f": 658,
-   "t": 21.933,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "w:moon"
-   ],
-   "fails": [
-    {
-     "rule": "OCCLUSION",
-     "subject": "w:moon",
-     "detail": "5/5 rays blocked for 47 frames"
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:moon in view"
-    }
-   ],
-   "score": 7
+   "score": 5
   },
   {
    "f": 684,

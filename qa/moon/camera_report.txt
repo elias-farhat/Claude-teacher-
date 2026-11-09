@@ -31,16 +31,10 @@
 19.67-20.37 s	f590-610	EMPTY		none of w:moon in view
 20.20-20.30 s	f606-608	CLIPPING		view filled by geometry within 1.5 m (100 % of the frame)
 20.20-20.37 s	f606-610	CLIPPING		camera inside a solid (6/6 rays hit back faces)
-20.40-20.43 s	f612-612	EMPTY		none of w:moon in view
-20.40-21.97 s	f612-658	OCCLUSION	w:moon	5/5 rays blocked for 24 frames
-20.47-20.63 s	f614-618	EMPTY		none of w:moon in view
 20.53-20.60 s	f616-617	CLIPPING		view filled by geometry within 1.5 m (98 % of the frame)
 20.60-20.63 s	f618-618	CLIPPING		camera inside a solid (5/6 rays hit back faces)
-20.67-21.57 s	f620-646	EMPTY		none of w:moon in view
-21.60-21.77 s	f648-652	EMPTY		none of w:moon in view
 21.67-21.70 s	f650-650	CLIPPING		view filled by geometry within 1.5 m (100 % of the frame)
 21.67-21.73 s	f650-651	CLIPPING		geometry 0.26 m from the lens
-21.80-21.97 s	f654-658	EMPTY		none of w:moon in view
 22.80-22.90 s	f684-686	SUBJECT	f:day1	cut off left (-0.20)
 22.90-23.33 s	f687-699	SUBJECT	f:day1	out of frame (x -4.80..-3.78, y 0.39..1.11)
 22.90-23.33 s	f687-699	EMPTY		none of f:day1 in view
