@@ -1,0 +1,1928 @@
+{
+ "title": "What If Your Memory Held a Million Books?",
+ "audio": "voice.mp3",
+ "dur": 240.17,
+ "notes": "from/line = index into timing.json (one entry per spoken sentence). cam keys = [u 0..1 of the scene, cx, cy, zoom].",
+ "scenes": [
+  {
+   "id": "lecture",
+   "from": 0,
+   "set": "lecture",
+   "cam": [
+    [
+     0,
+     960,
+     540,
+     1.0
+    ],
+    [
+     0.4,
+     1080,
+     600,
+     1.12
+    ],
+    [
+     0.62,
+     1320,
+     620,
+     1.35
+    ],
+    [
+     1,
+     1360,
+     610,
+     1.42
+    ]
+   ],
+   "cast": [
+    {
+     "who": "prof",
+     "x": 1020,
+     "y": 990,
+     "pose": "teach",
+     "facing": "left",
+     "face": "smile",
+     "talk": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "who": "maya",
+     "x": 1290,
+     "y": 1010,
+     "pose": "sit",
+     "facing": "left",
+     "face": "smile"
+    },
+    {
+     "who": "ben",
+     "x": 1640,
+     "y": 1010,
+     "pose": "sit",
+     "facing": "left",
+     "face": "neutral"
+    }
+   ],
+   "beats": [
+    {
+     "line": 3,
+     "who": "prof",
+     "set": {
+      "face": "closed"
+     }
+    },
+    {
+     "line": 4,
+     "who": "prof",
+     "set": {
+      "face": "smile"
+     }
+    },
+    {
+     "line": 5,
+     "who": "ben",
+     "set": {
+      "face": "worry",
+      "talk": [
+       5
+      ]
+     }
+    },
+    {
+     "line": 6,
+     "who": "maya",
+     "set": {
+      "face": "happy",
+      "talk": [
+       6,
+       7
+      ]
+     }
+    },
+    {
+     "line": 6,
+     "who": "ben",
+     "set": {
+      "face": "shock"
+     }
+    }
+   ],
+   "fx": [
+    {
+     "type": "stream",
+     "kind": "page",
+     "x0": 600,
+     "y0": 380,
+     "x1": 1270,
+     "y1": 440,
+     "from": 1,
+     "to": 5,
+     "gap": 0.3,
+     "arc": 160
+    },
+    {
+     "type": "pages",
+     "x": 1290,
+     "y": 470,
+     "r": 190,
+     "n": 12,
+     "from": 6,
+     "grow": true
+    }
+   ]
+  },
+  {
+   "id": "door",
+   "from": 8,
+   "set": "door",
+   "cam": [
+    [
+     0,
+     820,
+     560,
+     1.05
+    ],
+    [
+     0.45,
+     760,
+     520,
+     1.25
+    ],
+    [
+     1,
+     720,
+     500,
+     1.5
+    ]
+   ],
+   "cast": [
+    {
+     "who": "maya",
+     "x": 300,
+     "y": 1000,
+     "pose": "walk",
+     "facing": "right",
+     "face": "neutral",
+     "path": [
+      [
+       0,
+       300
+      ],
+      [
+       0.25,
+       700
+      ],
+      [
+       1,
+       700
+      ]
+     ]
+    }
+   ],
+   "beats": [
+    {
+     "line": 9,
+     "who": "maya",
+     "set": {
+      "pose": "stand",
+      "face": "worry"
+     }
+    },
+    {
+     "line": 10,
+     "who": "maya",
+     "set": {
+      "pose": "keys",
+      "hold": "keys",
+      "face": "shock"
+     }
+    },
+    {
+     "line": 11,
+     "who": "maya",
+     "set": {
+      "face": "happy"
+     }
+    }
+   ],
+   "fx": [
+    {
+     "type": "glowHead",
+     "x": 780,
+     "y": 590,
+     "r": 60,
+     "a": 0.7,
+     "from": 10,
+     "to": 12,
+     "pulse": 6
+    }
+   ]
+  },
+  {
+   "id": "mind-orbs",
+   "from": 13,
+   "set": "mind",
+   "cam": [
+    [
+     0,
+     960,
+     520,
+     1.12
+    ],
+    [
+     0.35,
+     960,
+     500,
+     1.22
+    ],
+    [
+     0.5,
+     960,
+     520,
+     1.0
+    ],
+    [
+     1,
+     960,
+     470,
+     1.1
+    ]
+   ],
+   "cast": [
+    {
+     "who": "maya",
+     "x": 960,
+     "y": 990,
+     "pose": "stand",
+     "facing": "right",
+     "face": "neutral"
+    }
+   ],
+   "beats": [
+    {
+     "line": 16,
+     "who": "maya",
+     "set": {
+      "face": "worry"
+     }
+    },
+    {
+     "line": 17,
+     "who": "maya",
+     "set": {
+      "face": "shock"
+     }
+    },
+    {
+     "line": 18,
+     "who": "maya",
+     "set": {
+      "face": "happy"
+     }
+    },
+    {
+     "line": 20,
+     "who": "maya",
+     "set": {
+      "face": "neutral"
+     }
+    }
+   ],
+   "fx": [
+    {
+     "type": "orbs",
+     "x": 960,
+     "y": 300,
+     "n": 4,
+     "steps": [
+      [
+       14,
+       7
+      ]
+     ],
+     "shrinkAt": 16,
+     "from": 13,
+     "to": 17
+    },
+    {
+     "type": "fact",
+     "x": 1460,
+     "y": 330,
+     "text": "4 to 7\nthings in mind at once",
+     "from": 13,
+     "to": 17
+    },
+    {
+     "type": "pages",
+     "x": 960,
+     "y": 420,
+     "r": 330,
+     "n": 40,
+     "from": 18,
+     "grow": true
+    },
+    {
+     "type": "fact",
+     "x": 420,
+     "y": 300,
+     "text": "1,000,000 books",
+     "from": 18,
+     "to": 22,
+     "big": 54
+    },
+    {
+     "type": "fact",
+     "x": 1500,
+     "y": 300,
+     "text": "One rule:\nyou can never forget",
+     "from": 19,
+     "to": 22,
+     "big": 48
+    },
+    {
+     "type": "title",
+     "text": "What if your memory\nheld a million books?",
+     "from": 22,
+     "y": 150
+    }
+   ]
+  },
+  {
+   "id": "dayone",
+   "from": 23,
+   "set": "bedroom",
+   "cam": [
+    [
+     0,
+     900,
+     540,
+     1.1
+    ],
+    [
+     0.5,
+     900,
+     520,
+     1.25
+    ],
+    [
+     0.7,
+     1060,
+     540,
+     1.1
+    ],
+    [
+     1,
+     1100,
+     540,
+     1.15
+    ]
+   ],
+   "cast": [
+    {
+     "who": "maya",
+     "x": 860,
+     "y": 1000,
+     "pose": "keys",
+     "hold": "phone",
+     "facing": "right",
+     "face": "neutral"
+    },
+    {
+     "who": "ben",
+     "x": 1560,
+     "y": 1010,
+     "pose": "sit",
+     "facing": "left",
+     "face": "neutral",
+     "hide": true
+    }
+   ],
+   "beats": [
+    {
+     "line": 25,
+     "who": "maya",
+     "set": {
+      "face": "happy"
+     }
+    },
+    {
+     "line": 26,
+     "who": "maya",
+     "set": {
+      "pose": "read",
+      "hold": "book",
+      "face": "neutral"
+     }
+    },
+    {
+     "line": 27,
+     "who": "maya",
+     "set": {
+      "pose": "teach",
+      "hold": null,
+      "face": "smile",
+      "talk": [
+       27
+      ]
+     }
+    },
+    {
+     "line": 27,
+     "who": "ben",
+     "set": {
+      "hide": false,
+      "face": "shock"
+     }
+    }
+   ],
+   "fx": [
+    {
+     "type": "glowHead",
+     "x": 900,
+     "y": 400,
+     "r": 90,
+     "a": 0.3,
+     "from": 25,
+     "to": 26
+    },
+    {
+     "type": "stream",
+     "kind": "page",
+     "x0": 960,
+     "y0": 640,
+     "x1": 880,
+     "y1": 400,
+     "from": 26,
+     "to": 27,
+     "gap": 0.12,
+     "arc": 80,
+     "life": 1.2,
+     "spread": 60
+    }
+   ]
+  },
+  {
+   "id": "pizza",
+   "from": 28,
+   "set": "cafe",
+   "cam": [
+    [
+     0,
+     1000,
+     540,
+     1.08
+    ],
+    [
+     0.45,
+     1080,
+     520,
+     1.2
+    ],
+    [
+     1,
+     1260,
+     520,
+     1.3
+    ]
+   ],
+   "cast": [
+    {
+     "who": "ben",
+     "x": 760,
+     "y": 1000,
+     "pose": "recite",
+     "facing": "right",
+     "face": "smile",
+     "talk": [
+      28
+     ]
+    },
+    {
+     "who": "maya",
+     "x": 1120,
+     "y": 1000,
+     "pose": "stand",
+     "facing": "right",
+     "face": "neutral"
+    },
+    {
+     "who": "waiter",
+     "x": 1560,
+     "y": 1000,
+     "pose": "stand",
+     "facing": "left",
+     "face": "neutral"
+    }
+   ],
+   "beats": [
+    {
+     "line": 30,
+     "who": "maya",
+     "set": {
+      "pose": "recite",
+      "face": "smile",
+      "talk": [
+       30
+      ]
+     }
+    },
+    {
+     "line": 30,
+     "who": "waiter",
+     "set": {
+      "face": "shock"
+     }
+    },
+    {
+     "line": 31,
+     "who": "maya",
+     "set": {
+      "face": "happy"
+     }
+    },
+    {
+     "line": 32,
+     "who": "waiter",
+     "set": {
+      "pose": "clap",
+      "face": "happy"
+     }
+    }
+   ],
+   "fx": [
+    {
+     "type": "pages",
+     "x": 1130,
+     "y": 420,
+     "r": 130,
+     "n": 10,
+     "from": 30,
+     "to": 33
+    }
+   ]
+  },
+  {
+   "id": "exam",
+   "from": 33,
+   "set": "lecture",
+   "cam": [
+    [
+     0,
+     1400,
+     600,
+     1.35
+    ],
+    [
+     1,
+     1420,
+     600,
+     1.5
+    ]
+   ],
+   "cast": [
+    {
+     "who": "maya",
+     "x": 1290,
+     "y": 1010,
+     "pose": "sitwrite",
+     "facing": "right",
+     "face": "smile",
+     "hold": "pen"
+    },
+    {
+     "who": "ben",
+     "x": 1640,
+     "y": 1010,
+     "pose": "sitwrite",
+     "facing": "right",
+     "face": "worry",
+     "phase": 0.4,
+     "hold": "pen"
+    }
+   ],
+   "fx": [
+    {
+     "type": "stream",
+     "kind": "page",
+     "x0": 1330,
+     "y0": 520,
+     "x1": 1400,
+     "y1": 800,
+     "from": 33,
+     "gap": 0.18,
+     "arc": -60,
+     "life": 1.1,
+     "spread": 40
+    }
+   ]
+  },
+  {
+   "id": "mind-facts",
+   "from": 35,
+   "set": "mind",
+   "cam": [
+    [
+     0,
+     960,
+     520,
+     1.0
+    ],
+    [
+     0.5,
+     960,
+     500,
+     1.08
+    ],
+    [
+     1,
+     960,
+     480,
+     1.16
+    ]
+   ],
+   "cast": [
+    {
+     "who": "maya",
+     "x": 960,
+     "y": 990,
+     "pose": "stand",
+     "facing": "right",
+     "face": "neutral"
+    }
+   ],
+   "beats": [
+    {
+     "line": 36,
+     "who": "maya",
+     "set": {
+      "face": "shock"
+     }
+    },
+    {
+     "line": 39,
+     "who": "maya",
+     "set": {
+      "face": "smile"
+     }
+    },
+    {
+     "line": 40,
+     "who": "maya",
+     "set": {
+      "face": "neutral"
+     }
+    },
+    {
+     "line": 42,
+     "who": "maya",
+     "set": {
+      "face": "happy"
+     }
+    }
+   ],
+   "fx": [
+    {
+     "type": "stream",
+     "kind": "book",
+     "x0": -100,
+     "y0": 300,
+     "x1": 990,
+     "y1": 420,
+     "from": 35,
+     "to": 40,
+     "gap": 0.16,
+     "life": 2.0,
+     "arc": 120,
+     "spread": 40
+    },
+    {
+     "type": "fact",
+     "x": 450,
+     "y": 260,
+     "text": "80,000,000,000\nwords",
+     "from": 35,
+     "to": 40,
+     "big": 52
+    },
+    {
+     "type": "fact",
+     "x": 1470,
+     "y": 260,
+     "text": "≈ 600 years\nof reading, without sleep",
+     "from": 36,
+     "to": 40,
+     "big": 52
+    },
+    {
+     "type": "fact",
+     "x": 1460,
+     "y": 300,
+     "text": "1885 · Ebbinghaus\nthe forgetting curve",
+     "curve": true,
+     "from": 40,
+     "to": 43,
+     "big": 44,
+     "h": 300
+    },
+    {
+     "type": "pages",
+     "x": 960,
+     "y": 420,
+     "r": 200,
+     "n": 20,
+     "from": 42
+    }
+   ]
+  },
+  {
+   "id": "textbooks",
+   "from": 44,
+   "set": "bedroomNight",
+   "cam": [
+    [
+     0,
+     900,
+     560,
+     1.15
+    ],
+    [
+     0.55,
+     1000,
+     560,
+     1.2
+    ],
+    [
+     1,
+     1150,
+     560,
+     1.25
+    ]
+   ],
+   "cast": [
+    {
+     "who": "maya",
+     "x": 860,
+     "y": 1010,
+     "pose": "sitread",
+     "hold": "book",
+     "facing": "right",
+     "face": "neutral"
+    },
+    {
+     "who": "ben",
+     "x": 1450,
+     "y": 1000,
+     "pose": "stand",
+     "facing": "left",
+     "face": "shock"
+    }
+   ],
+   "beats": [
+    {
+     "line": 45,
+     "who": "ben",
+     "set": {
+      "pose": "recite",
+      "face": "smile",
+      "talk": [
+       45,
+       46,
+       47
+      ]
+     }
+    },
+    {
+     "line": 46,
+     "who": "maya",
+     "set": {
+      "face": "happy"
+     }
+    }
+   ],
+   "fx": [
+    {
+     "type": "stream",
+     "kind": "book",
+     "x0": 700,
+     "y0": 660,
+     "x1": 890,
+     "y1": 520,
+     "from": 44,
+     "to": 45,
+     "gap": 0.2,
+     "life": 1.3,
+     "arc": 150,
+     "spread": 30
+    },
+    {
+     "type": "fact",
+     "x": 520,
+     "y": 260,
+     "text": "3 medical textbooks\nin one week",
+     "from": 44,
+     "to": 46,
+     "big": 44
+    },
+    {
+     "type": "pages",
+     "x": 880,
+     "y": 520,
+     "r": 140,
+     "n": 14,
+     "from": 46
+    }
+   ]
+  },
+  {
+   "id": "offers",
+   "from": 48,
+   "set": "bedroom",
+   "cam": [
+    [
+     0,
+     960,
+     540,
+     1.05
+    ],
+    [
+     1,
+     960,
+     500,
+     1.2
+    ]
+   ],
+   "cast": [
+    {
+     "who": "maya",
+     "x": 940,
+     "y": 1000,
+     "pose": "clap",
+     "facing": "right",
+     "face": "happy"
+    }
+   ],
+   "fx": [
+    {
+     "type": "stream",
+     "kind": "letter",
+     "x0": 1500,
+     "y0": 300,
+     "x1": 960,
+     "y1": 420,
+     "from": 48,
+     "gap": 0.13,
+     "life": 1.6,
+     "arc": 120,
+     "spread": 160
+    },
+    {
+     "type": "fact",
+     "x": 450,
+     "y": 270,
+     "text": "30 offers\nin one month",
+     "from": 49,
+     "big": 54
+    }
+   ]
+  },
+  {
+   "id": "price",
+   "from": 50,
+   "set": "bedroomNight",
+   "cam": [
+    [
+     0,
+     1300,
+     560,
+     1.15
+    ],
+    [
+     0.6,
+     1400,
+     580,
+     1.35
+    ],
+    [
+     1,
+     1420,
+     600,
+     1.5
+    ]
+   ],
+   "cast": [
+    {
+     "who": "maya",
+     "x": 1400,
+     "y": 1010,
+     "pose": "sit",
+     "facing": "left",
+     "face": "neutral"
+    }
+   ],
+   "beats": [
+    {
+     "line": 51,
+     "who": "maya",
+     "set": {
+      "pose": "sitsad",
+      "face": "worry"
+     }
+    },
+    {
+     "line": 54,
+     "who": "maya",
+     "set": {
+      "pose": "sitcry",
+      "face": "cry"
+     }
+    },
+    {
+     "line": 56,
+     "who": "maya",
+     "set": {
+      "pose": "sit",
+      "face": "sad"
+     }
+    }
+   ],
+   "dim": [
+    {
+     "from": 51,
+     "a": 0.25,
+     "col": "40,10,50"
+    }
+   ],
+   "fx": [
+    {
+     "type": "pages",
+     "x": 1390,
+     "y": 560,
+     "r": 210,
+     "n": 26,
+     "from": 51,
+     "chaos": true,
+     "tint": "#d8c8f0",
+     "blue": true,
+     "grow": true
+    },
+    {
+     "type": "ghost",
+     "who": "ben",
+     "x": 1100,
+     "y": 700,
+     "s": 1.4,
+     "from": 52,
+     "to": 54
+    },
+    {
+     "type": "ghost",
+     "who": "prof",
+     "x": 1700,
+     "y": 700,
+     "s": 1.4,
+     "facing": "left",
+     "from": 54,
+     "to": 56
+    }
+   ]
+  },
+  {
+   "id": "energy",
+   "from": 57,
+   "set": "mind",
+   "cam": [
+    [
+     0,
+     960,
+     500,
+     1.05
+    ],
+    [
+     1,
+     960,
+     470,
+     1.18
+    ]
+   ],
+   "cast": [
+    {
+     "who": "maya",
+     "x": 960,
+     "y": 990,
+     "pose": "stand",
+     "facing": "right",
+     "face": "worry"
+    }
+   ],
+   "dim": [
+    {
+     "from": 57,
+     "a": 0.2,
+     "col": "40,10,30"
+    }
+   ],
+   "fx": [
+    {
+     "type": "glowHead",
+     "x": 970,
+     "y": 430,
+     "r": 200,
+     "a": 0.35,
+     "pulse": 9
+    },
+    {
+     "type": "fact",
+     "x": 450,
+     "y": 280,
+     "text": "2%\nof body weight",
+     "from": 57,
+     "big": 66
+    },
+    {
+     "type": "fact",
+     "x": 1470,
+     "y": 280,
+     "text": "≈ 20%\nof the body's energy",
+     "from": 58,
+     "big": 66
+    },
+    {
+     "type": "pages",
+     "x": 960,
+     "y": 430,
+     "r": 180,
+     "n": 18,
+     "from": 59,
+     "chaos": true
+    }
+   ]
+  },
+  {
+   "id": "luria",
+   "from": 60,
+   "set": "lab",
+   "cam": [
+    [
+     0,
+     960,
+     540,
+     1.05
+    ],
+    [
+     1,
+     1000,
+     520,
+     1.2
+    ]
+   ],
+   "cast": [
+    {
+     "who": "maya",
+     "x": 1040,
+     "y": 1000,
+     "pose": "stand",
+     "facing": "left",
+     "face": "worry"
+    }
+   ],
+   "beats": [
+    {
+     "line": 62,
+     "who": "maya",
+     "set": {
+      "pose": "cry",
+      "face": "sad"
+     }
+    }
+   ],
+   "fx": [
+    {
+     "type": "fact",
+     "x": 1500,
+     "y": 640,
+     "text": "Luria\nstudied one man ~30 years",
+     "from": 60,
+     "big": 54,
+     "rot": 0.03
+    },
+    {
+     "type": "pages",
+     "x": 1030,
+     "y": 400,
+     "r": 200,
+     "n": 34,
+     "from": 61,
+     "chaos": true,
+     "grow": true
+    }
+   ]
+  },
+  {
+   "id": "hale",
+   "from": 63,
+   "set": "lab",
+   "cam": [
+    [
+     0,
+     900,
+     540,
+     1.1
+    ],
+    [
+     0.4,
+     760,
+     500,
+     1.35
+    ],
+    [
+     0.75,
+     1000,
+     520,
+     1.25
+    ],
+    [
+     1,
+     1100,
+     500,
+     1.4
+    ]
+   ],
+   "cast": [
+    {
+     "who": "hale",
+     "x": 700,
+     "y": 1000,
+     "pose": "recite",
+     "facing": "right",
+     "face": "smile",
+     "talk": [
+      63,
+      64,
+      65
+     ]
+    },
+    {
+     "who": "maya",
+     "x": 1260,
+     "y": 1000,
+     "pose": "stand",
+     "facing": "left",
+     "face": "worry"
+    }
+   ],
+   "beats": [
+    {
+     "line": 65,
+     "who": "maya",
+     "set": {
+      "face": "neutral"
+     }
+    }
+   ]
+  },
+  {
+   "id": "balcony",
+   "from": 66,
+   "set": "balcony",
+   "cam": [
+    [
+     0,
+     960,
+     540,
+     1.0
+    ],
+    [
+     0.25,
+     900,
+     560,
+     1.07
+    ],
+    [
+     0.35,
+     1000,
+     520,
+     1.25
+    ],
+    [
+     0.7,
+     960,
+     520,
+     1.3
+    ],
+    [
+     1,
+     900,
+     520,
+     1.36
+    ]
+   ],
+   "cast": [
+    {
+     "who": "rose",
+     "x": 560,
+     "y": 1000,
+     "pose": "water",
+     "hold": "can",
+     "facing": "right",
+     "face": "closed"
+    },
+    {
+     "who": "maya",
+     "x": 1380,
+     "y": 1010,
+     "pose": "stand",
+     "facing": "left",
+     "face": "smile"
+    }
+   ],
+   "beats": [
+    {
+     "line": 69,
+     "who": "rose",
+     "set": {
+      "pose": "stand",
+      "hold": null,
+      "face": "worry"
+     }
+    },
+    {
+     "line": 70,
+     "who": "rose",
+     "set": {
+      "face": "neutral",
+      "talk": [
+       70
+      ]
+     }
+    },
+    {
+     "line": 70,
+     "who": "maya",
+     "set": {
+      "face": "sad"
+     }
+    },
+    {
+     "line": 71,
+     "who": "rose",
+     "set": {
+      "face": "worry",
+      "talk": [
+       71,
+       73
+      ]
+     }
+    },
+    {
+     "line": 72,
+     "who": "maya",
+     "set": {
+      "face": "smile",
+      "talk": [
+       72
+      ]
+     }
+    },
+    {
+     "line": 73,
+     "who": "maya",
+     "set": {
+      "face": "sad"
+     }
+    },
+    {
+     "line": 74,
+     "who": "maya",
+     "set": {
+      "face": "smile",
+      "talk": [
+       74
+      ]
+     }
+    },
+    {
+     "line": 75,
+     "who": "maya",
+     "set": {
+      "face": "sad"
+     }
+    }
+   ],
+   "dim": [
+    {
+     "from": 69,
+     "a": 0.18,
+     "col": "40,20,70",
+     "ramp": 3
+    }
+   ],
+   "fx": [
+    {
+     "type": "stream",
+     "kind": "note",
+     "x0": 650,
+     "y0": 480,
+     "x1": 1340,
+     "y1": 440,
+     "from": 67,
+     "to": 69,
+     "gap": 0.42,
+     "life": 3.6,
+     "arc": 220
+    },
+    {
+     "type": "bubble",
+     "text": "Who are you, dear?",
+     "x": 780,
+     "y": 300,
+     "from": 71,
+     "to": 72
+    },
+    {
+     "type": "bubble",
+     "text": "Who are you?",
+     "x": 760,
+     "y": 300,
+     "from": 73,
+     "to": 74
+    },
+    {
+     "type": "pages",
+     "x": 1370,
+     "y": 450,
+     "r": 140,
+     "n": 14,
+     "from": 74
+    },
+    {
+     "type": "stream",
+     "kind": "page",
+     "x0": 600,
+     "y0": 420,
+     "x1": 300,
+     "y1": -200,
+     "from": 76,
+     "gap": 0.2,
+     "life": 2.2,
+     "arc": 60,
+     "tint": "#c8c0d8"
+    }
+   ]
+  },
+  {
+   "id": "stage",
+   "from": 77,
+   "set": "stage",
+   "cam": [
+    [
+     0,
+     960,
+     520,
+     1.0
+    ],
+    [
+     0.35,
+     960,
+     520,
+     1.12
+    ],
+    [
+     0.7,
+     960,
+     480,
+     1.3
+    ],
+    [
+     1,
+     960,
+     460,
+     1.42
+    ]
+   ],
+   "cast": [
+    {
+     "who": "maya",
+     "x": 900,
+     "y": 960,
+     "pose": "stand",
+     "facing": "right",
+     "face": "neutral"
+    }
+   ],
+   "beats": [
+    {
+     "line": 81,
+     "who": "maya",
+     "set": {
+      "face": "worry"
+     }
+    },
+    {
+     "line": 83,
+     "who": "maya",
+     "set": {
+      "pose": "recite",
+      "face": "smile",
+      "talk": [
+       83,
+       84
+      ]
+     }
+    },
+    {
+     "line": 85,
+     "who": "maya",
+     "set": {
+      "pose": "phone",
+      "hold": "phone",
+      "face": "shock"
+     }
+    }
+   ],
+   "fx": [
+    {
+     "type": "timer",
+     "x": 1490,
+     "y": 380,
+     "from": 79,
+     "to": 85
+    },
+    {
+     "type": "pages",
+     "x": 910,
+     "y": 360,
+     "r": 230,
+     "n": 22,
+     "from": 83,
+     "to": 85,
+     "grow": true
+    },
+    {
+     "type": "buzz",
+     "x": 900,
+     "y": 300,
+     "from": 85,
+     "to": 87
+    }
+   ]
+  },
+  {
+   "id": "flood",
+   "from": 87,
+   "set": "stage",
+   "cam": [
+    [
+     0,
+     960,
+     460,
+     1.4
+    ],
+    [
+     0.5,
+     960,
+     480,
+     1.25
+    ],
+    [
+     1,
+     960,
+     460,
+     1.45
+    ]
+   ],
+   "cast": [
+    {
+     "who": "maya",
+     "x": 900,
+     "y": 960,
+     "pose": "phone",
+     "hold": "phone",
+     "facing": "right",
+     "face": "shock"
+    }
+   ],
+   "beats": [
+    {
+     "line": 88,
+     "who": "maya",
+     "set": {
+      "pose": "cry",
+      "hold": null,
+      "face": "cry"
+     }
+    },
+    {
+     "line": 96,
+     "who": "maya",
+     "set": {
+      "pose": "stand",
+      "face": "worry"
+     }
+    },
+    {
+     "line": 97,
+     "who": "maya",
+     "set": {
+      "facing": "left",
+      "face": "sad"
+     }
+    }
+   ],
+   "dim": [
+    {
+     "from": 87,
+     "a": 0.3,
+     "col": "20,10,50",
+     "ramp": 0.8
+    }
+   ],
+   "fx": [
+    {
+     "type": "ghost",
+     "who": "rose",
+     "x": 560,
+     "y": 560,
+     "s": 1.7,
+     "from": 88,
+     "to": 92
+    },
+    {
+     "type": "ghost",
+     "who": "rose",
+     "x": 1360,
+     "y": 560,
+     "s": 1.5,
+     "facing": "left",
+     "from": 89,
+     "to": 92
+    },
+    {
+     "type": "pages",
+     "x": 910,
+     "y": 400,
+     "r": 240,
+     "n": 34,
+     "from": 88,
+     "to": 96,
+     "chaos": true,
+     "blue": true,
+     "tint": "#d0d8f8"
+    }
+   ]
+  },
+  {
+   "id": "run",
+   "from": 98,
+   "set": "street",
+   "scroll": 900,
+   "cam": [
+    [
+     0,
+     960,
+     520,
+     1.1
+    ],
+    [
+     1,
+     960,
+     500,
+     1.2
+    ]
+   ],
+   "cast": [
+    {
+     "who": "maya",
+     "x": 960,
+     "y": 1000,
+     "pose": "run",
+     "facing": "right",
+     "face": "worry"
+    }
+   ]
+  },
+  {
+   "id": "hospital",
+   "from": 100,
+   "set": "hospital",
+   "cam": [
+    [
+     0,
+     1100,
+     680,
+     1.3
+    ],
+    [
+     0.3,
+     1040,
+     690,
+     1.42
+    ],
+    [
+     0.62,
+     1020,
+     680,
+     1.45
+    ],
+    [
+     0.8,
+     1060,
+     670,
+     1.3
+    ],
+    [
+     1,
+     1040,
+     660,
+     1.22
+    ]
+   ],
+   "cast": [
+    {
+     "who": "rose",
+     "x": 1260,
+     "y": 690,
+     "pose": "lie",
+     "rot": -1.5708,
+     "facing": "right",
+     "face": "closed",
+     "over": true
+    },
+    {
+     "who": "maya",
+     "x": 1440,
+     "y": 1010,
+     "pose": "hold",
+     "reach": [
+      170,
+      88
+     ],
+     "facing": "left",
+     "face": "sad",
+     "over": true
+    }
+   ],
+   "beats": [
+    {
+     "line": 101,
+     "who": "maya",
+     "set": {
+      "face": "closed",
+      "talk": [
+       101,
+       102
+      ]
+     }
+    },
+    {
+     "line": 103,
+     "who": "rose",
+     "set": {
+      "face": "smile"
+     }
+    },
+    {
+     "line": 103,
+     "who": "maya",
+     "set": {
+      "face": "smile"
+     }
+    },
+    {
+     "line": 104,
+     "who": "rose",
+     "set": {
+      "face": "happy",
+      "talk": [
+       105
+      ]
+     }
+    },
+    {
+     "line": 105,
+     "who": "maya",
+     "set": {
+      "face": "happy",
+      "tears": true
+     }
+    },
+    {
+     "line": 108,
+     "who": "maya",
+     "set": {
+      "face": "smile",
+      "tears": false
+     }
+    }
+   ],
+   "fx": [
+    {
+     "type": "blanket",
+     "layer": "front",
+     "fadeIn": 0
+    },
+    {
+     "type": "hand",
+     "who": "rose",
+     "x": 1258,
+     "y": 742,
+     "layer": "front",
+     "fadeIn": 0
+    },
+    {
+     "type": "stream",
+     "kind": "note",
+     "x0": 1380,
+     "y0": 520,
+     "x1": 760,
+     "y1": 560,
+     "from": 101,
+     "to": 103,
+     "gap": 0.4,
+     "life": 3.0,
+     "arc": 160,
+     "spread": 60
+    },
+    {
+     "type": "bubble",
+     "text": "Maya.",
+     "x": 820,
+     "y": 420,
+     "from": 105,
+     "to": 107
+    },
+    {
+     "type": "pages",
+     "x": 1060,
+     "y": 560,
+     "r": 300,
+     "n": 26,
+     "from": 108,
+     "grow": true
+    }
+   ]
+  },
+  {
+   "id": "real",
+   "from": 114,
+   "set": "mind",
+   "cam": [
+    [
+     0,
+     960,
+     520,
+     1.0
+    ],
+    [
+     1,
+     960,
+     480,
+     1.1
+    ]
+   ],
+   "cast": [
+    {
+     "who": "maya",
+     "x": 960,
+     "y": 990,
+     "pose": "stand",
+     "facing": "right",
+     "face": "neutral"
+    }
+   ],
+   "beats": [
+    {
+     "line": 116,
+     "who": "maya",
+     "set": {
+      "face": "shock"
+     }
+    },
+    {
+     "line": 118,
+     "who": "maya",
+     "set": {
+      "face": "neutral"
+     }
+    },
+    {
+     "line": 122,
+     "who": "maya",
+     "set": {
+      "face": "smile"
+     }
+    }
+   ],
+   "fx": [
+    {
+     "type": "fact",
+     "x": 450,
+     "y": 260,
+     "text": "2006\na real woman with rare life memory",
+     "from": 115,
+     "to": 118,
+     "big": 60,
+     "w": 600
+    },
+    {
+     "type": "fact",
+     "x": 1470,
+     "y": 260,
+     "text": "1,000,000 books?\nimpossible",
+     "cross": true,
+     "from": 116,
+     "to": 118,
+     "big": 48
+    },
+    {
+     "type": "fact",
+     "x": 450,
+     "y": 260,
+     "text": "1942 · Borges\n\"Funes the Memorious\"",
+     "from": 118,
+     "to": 120,
+     "big": 48
+    },
+    {
+     "type": "fact",
+     "x": 1470,
+     "y": 260,
+     "text": "Forgetting helps focus?\nstill debated",
+     "from": 120,
+     "to": 122,
+     "big": 40
+    },
+    {
+     "type": "fact",
+     "x": 450,
+     "y": 260,
+     "text": "Sleep\nlocks in what you learn",
+     "from": 122,
+     "to": 124,
+     "big": 60
+    }
+   ]
+  },
+  {
+   "id": "night",
+   "from": 124,
+   "set": "bedroomNight",
+   "cam": [
+    [
+     0,
+     1400,
+     600,
+     1.4
+    ],
+    [
+     0.4,
+     1300,
+     580,
+     1.2
+    ],
+    [
+     1,
+     1100,
+     540,
+     1.05
+    ]
+   ],
+   "cast": [
+    {
+     "who": "maya",
+     "x": 1400,
+     "y": 1010,
+     "pose": "sit",
+     "facing": "left",
+     "face": "shock"
+    }
+   ],
+   "beats": [
+    {
+     "line": 127,
+     "who": "maya",
+     "set": {
+      "face": "smile"
+     }
+    }
+   ],
+   "fx": [
+    {
+     "type": "title",
+     "text": "What if one hour of sleep\nfelt like eight?",
+     "from": 126,
+     "to": 127,
+     "y": 150,
+     "size": 70
+    },
+    {
+     "type": "endcard",
+     "from": 128
+    }
+   ]
+  }
+ ]
+}

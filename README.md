@@ -28,3 +28,10 @@ Needs Node 18+, Google Chrome, ffmpeg, and `npm i playwright-core`.
 ## Credits / licences
 - Fonts: Fredoka (SIL OFL, see engine/fonts/OFL.md).
 - No third-party art. The style rules were inspired by public descriptions only; all code and drawings are original.
+
+## Data-driven film (memory video)
+- `engine/index.html` now plays the film; the old balcony test is `engine/test_balcony.html`.
+- `engine/scenes.json`: scenes, cast, beats and fx keyed to sentence indices in `engine/timing.json`. Camera keys are `[u 0..1 of scene, cx, cy, zoom]`, so a new voice only needs new timing.
+- `engine/film/`: `core.js` (painter, camera), `sets.js` (lecture, door, mind, bedroom day/night, cafe, lab, balcony, stage, hospital, street), `cast.js` (Maya, Ben, Grandma Rose, Doctor Hale, waiter, professor; poses stand/walk/run/sit/sitwrite/sitread/sitsad/sitcry/phone/cry/hold/teach/recite/keys/read/clap/water/lie).
+- Timing: `python3 tools/align.py` aligns script sentences to the voice's pauses (ffmpeg silencedetect, no ASR needed).
+- Render without npm: `node engine/render_cdp.mjs engine out.mp4 30 [from] [to]` (also writes `*.faces.json` for the faces-in-upper-55% QA check). Split into two time ranges to use both CPU cores, then concat and mux the voice.

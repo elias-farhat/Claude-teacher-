@@ -1,0 +1,782 @@
+[
+{
+"i": 0,
+"t0": 0.29,
+"t1": 0.93,
+"text": "Monday morning."
+},
+{
+"i": 1,
+"t0": 0.93,
+"t1": 2.14,
+"text": "You sit through a lecture once."
+},
+{
+"i": 2,
+"t0": 2.46,
+"t1": 3.77,
+"text": "You keep every word."
+},
+{
+"i": 3,
+"t0": 4.24,
+"t1": 5.61,
+"text": "Even the professor’s cough..."
+},
+{
+"i": 4,
+"t0": 5.82,
+"t1": 6.68,
+"text": "at minute three."
+},
+{
+"i": 5,
+"t0": 7.46,
+"t1": 9.32,
+"text": "Your friend Ben asks about the notes."
+},
+{
+"i": 6,
+"t0": 9.77,
+"t1": 10.44,
+"text": "You recite them."
+},
+{
+"i": 7,
+"t0": 10.84,
+"t1": 11.74,
+"text": "Page by page."
+},
+{
+"i": 8,
+"t0": 11.74,
+"t1": 13.98,
+"text": "Then you reach your front door."
+},
+{
+"i": 9,
+"t0": 14.49,
+"t1": 15.68,
+"text": "Where are your keys?"
+},
+{
+"i": 10,
+"t0": 16.15,
+"t1": 16.72,
+"text": "In your hand."
+},
+{
+"i": 11,
+"t0": 17.19,
+"t1": 19.17,
+"text": "Where they’ve been..."
+},
+{
+"i": 12,
+"t0": 19.92,
+"t1": 20.6,
+"text": "for ten minutes."
+},
+{
+"i": 13,
+"t0": 20.6,
+"t1": 22.74,
+"text": "Most people hold about four things in mind at once."
+},
+{
+"i": 14,
+"t0": 23.16,
+"t1": 23.74,
+"text": "Maybe seven."
+},
+{
+"i": 15,
+"t0": 24.08,
+"t1": 25.64,
+"text": "Scientists still argue about which."
+},
+{
+"i": 16,
+"t0": 26.09,
+"t1": 26.68,
+"text": "That’s tiny."
+},
+{
+"i": 17,
+"t0": 26.68,
+"t1": 26.87,
+"text": "You?"
+},
+{
+"i": 18,
+"t0": 27.52,
+"t1": 30.3,
+"text": "A memory the size of one million books."
+},
+{
+"i": 19,
+"t0": 30.3,
+"t1": 31.19,
+"text": "And one rule."
+},
+{
+"i": 20,
+"t0": 31.52,
+"t1": 33.73,
+"text": "You can never forget..."
+},
+{
+"i": 21,
+"t0": 34.28,
+"t1": 34.72,
+"text": "anything."
+},
+{
+"i": 22,
+"t0": 35.25,
+"t1": 38.02,
+"text": "So what if your memory held a million books?"
+},
+{
+"i": 23,
+"t0": 38.76,
+"t1": 39.13,
+"text": "Day one."
+},
+{
+"i": 24,
+"t0": 39.5,
+"t1": 40.6,
+"text": "You glance at a phone number."
+},
+{
+"i": 25,
+"t0": 40.93,
+"t1": 41.59,
+"text": "It sticks."
+},
+{
+"i": 26,
+"t0": 42.14,
+"t1": 44.07,
+"text": "You skim a textbook in two minutes."
+},
+{
+"i": 27,
+"t0": 44.47,
+"t1": 45.54,
+"text": "Then you teach it."
+},
+{
+"i": 28,
+"t0": 45.76,
+"t1": 47.66,
+"text": "Ben orders pizza for twelve friends."
+},
+{
+"i": 29,
+"t0": 47.91,
+"t1": 48.5,
+"text": "One time."
+},
+{
+"i": 30,
+"t0": 48.86,
+"t1": 50.36,
+"text": "You repeat the whole order."
+},
+{
+"i": 31,
+"t0": 50.78,
+"t1": 51.3,
+"text": "Perfectly."
+},
+{
+"i": 32,
+"t0": 51.79,
+"t1": 52.77,
+"text": "The waiter applauds."
+},
+{
+"i": 33,
+"t0": 53.41,
+"t1": 55.69,
+"text": "In exams, you write every page you studied."
+},
+{
+"i": 34,
+"t0": 56.0,
+"t1": 57.32,
+"text": "Even where the commas sit."
+},
+{
+"i": 35,
+"t0": 57.89,
+"t1": 60.32,
+"text": "A million books is about eighty billion words."
+},
+{
+"i": 36,
+"t0": 60.81,
+"t1": 63.15,
+"text": "Reading that would take roughly six hundred years."
+},
+{
+"i": 37,
+"t0": 63.41,
+"t1": 64.19,
+"text": "Without sleep."
+},
+{
+"i": 38,
+"t0": 64.51,
+"t1": 65.58,
+"text": "That’s a rough estimate."
+},
+{
+"i": 39,
+"t0": 65.86,
+"t1": 67.0,
+"text": "Your head holds it all."
+},
+{
+"i": 40,
+"t0": 67.64,
+"t1": 71.14,
+"text": "Most people forget much of what they learn within days."
+},
+{
+"i": 41,
+"t0": 71.14,
+"t1": 74.02,
+"text": "Hermann Ebbinghaus showed that back in 1885."
+},
+{
+"i": 42,
+"t0": 74.02,
+"t1": 74.26,
+"text": "You?"
+},
+{
+"i": 43,
+"t0": 74.73,
+"t1": 75.52,
+"text": "Nothing slips."
+},
+{
+"i": 44,
+"t0": 75.91,
+"t1": 78.99,
+"text": "In one week, you memorize three medical textbooks."
+},
+{
+"i": 45,
+"t0": 79.32,
+"t1": 80.46,
+"text": "Ben says you’re not a person."
+},
+{
+"i": 46,
+"t0": 80.75,
+"t1": 81.9,
+"text": "You’re a library..."
+},
+{
+"i": 47,
+"t0": 81.9,
+"t1": 82.26,
+"text": "on legs."
+},
+{
+"i": 48,
+"t0": 82.79,
+"t1": 84.8,
+"text": "Universities start calling."
+},
+{
+"i": 49,
+"t0": 84.8,
+"t1": 86.65,
+"text": "Thirty offers in one month."
+},
+{
+"i": 50,
+"t0": 87.07,
+"t1": 88.91,
+"text": "But the price arrives quietly."
+},
+{
+"i": 51,
+"t0": 89.41,
+"t1": 90.91,
+"text": "Your mind never filters."
+},
+{
+"i": 52,
+"t0": 91.24,
+"t1": 93.17,
+"text": "Every old embarrassment returns..."
+},
+{
+"i": 53,
+"t0": 93.52,
+"t1": 94.92,
+"text": "as if it happened this morning."
+},
+{
+"i": 54,
+"t0": 95.18,
+"t1": 96.16,
+"text": "Every cruel word."
+},
+{
+"i": 55,
+"t0": 96.46,
+"t1": 97.25,
+"text": "Same tone."
+},
+{
+"i": 56,
+"t0": 97.61,
+"t1": 98.76,
+"text": "Sleep slips away."
+},
+{
+"i": 57,
+"t0": 99.26,
+"t1": 101.32,
+"text": "Your brain is two percent of your weight."
+},
+{
+"i": 58,
+"t0": 101.7,
+"t1": 104.47,
+"text": "Yet it burns about twenty percent of your energy."
+},
+{
+"i": 59,
+"t0": 104.7,
+"t1": 105.6,
+"text": "Now it never rests."
+},
+{
+"i": 60,
+"t0": 106.06,
+"t1": 111.03,
+"text": "Psychologist Alexander Luria once studied a man with a famous memory for about thirty years."
+},
+{
+"i": 61,
+"t0": 111.44,
+"t1": 113.07,
+"text": "His memories crowded each other."
+},
+{
+"i": 62,
+"t0": 113.5,
+"t1": 115.43,
+"text": "Abstract ideas got harder."
+},
+{
+"i": 63,
+"t0": 115.81,
+"t1": 119.81,
+"text": "Doctor Hale, your neuroscientist, says something you don’t yet understand."
+},
+{
+"i": 64,
+"t0": 120.34,
+"t1": 122.39,
+"text": "Forgetting isn’t a flaw in the mind..."
+},
+{
+"i": 65,
+"t0": 122.66,
+"t1": 123.38,
+"text": "it’s a mercy."
+},
+{
+"i": 66,
+"t0": 124.13,
+"t1": 126.77,
+"text": "Grandma Rose waters her mint on the balcony."
+},
+{
+"i": 67,
+"t0": 126.77,
+"t1": 128.01,
+"text": "She hums a short tune."
+},
+{
+"i": 68,
+"t0": 128.5,
+"t1": 129.89,
+"text": "You’ve known it since childhood."
+},
+{
+"i": 69,
+"t0": 130.33,
+"t1": 131.75,
+"text": "Lately she forgets names."
+},
+{
+"i": 70,
+"t0": 132.24,
+"t1": 134.11,
+"text": "She calls you by your mother’s name."
+},
+{
+"i": 71,
+"t0": 134.74,
+"t1": 136.52,
+"text": "One Friday she asks who you are."
+},
+{
+"i": 72,
+"t0": 137.15,
+"t1": 137.95,
+"text": "You answer gently."
+},
+{
+"i": 73,
+"t0": 138.7,
+"t1": 139.57,
+"text": "Then she asks again."
+},
+{
+"i": 74,
+"t0": 140.26,
+"t1": 142.26,
+"text": "You promise to remember everything for her."
+},
+{
+"i": 75,
+"t0": 142.91,
+"t1": 143.29,
+"text": "You do."
+},
+{
+"i": 76,
+"t0": 144.0,
+"t1": 144.56,
+"text": "She doesn’t."
+},
+{
+"i": 77,
+"t0": 145.23,
+"t1": 146.89,
+"text": "The National Memory Championship."
+},
+{
+"i": 78,
+"t0": 147.39,
+"t1": 148.19,
+"text": "You’re on stage."
+},
+{
+"i": 79,
+"t0": 148.59,
+"t1": 149.49,
+"text": "Three minutes left."
+},
+{
+"i": 80,
+"t0": 150.0,
+"t1": 150.91,
+"text": "Then thirty seconds."
+},
+{
+"i": 81,
+"t0": 151.44,
+"t1": 152.45,
+"text": "The lights are hot."
+},
+{
+"i": 82,
+"t0": 152.8,
+"t1": 153.76,
+"text": "The room is silent."
+},
+{
+"i": 83,
+"t0": 154.47,
+"t1": 156.25,
+"text": "You recite hundreds of lines."
+},
+{
+"i": 84,
+"t0": 156.9,
+"t1": 157.36,
+"text": "Easily."
+},
+{
+"i": 85,
+"t0": 157.82,
+"t1": 159.43,
+"text": "Then your phone buzzes..."
+},
+{
+"i": 86,
+"t0": 159.71,
+"t1": 159.97,
+"text": "Ben."
+},
+{
+"i": 87,
+"t0": 160.54,
+"t1": 161.77,
+"text": "Grandma is in hospital."
+},
+{
+"i": 88,
+"t0": 162.59,
+"t1": 163.71,
+"text": "Her fear floods back."
+},
+{
+"i": 89,
+"t0": 163.93,
+"t1": 164.6,
+"text": "Her confusion."
+},
+{
+"i": 90,
+"t0": 164.93,
+"t1": 166.09,
+"text": "Her shaking voice."
+},
+{
+"i": 91,
+"t0": 166.5,
+"t1": 167.39,
+"text": "You can’t forget it."
+},
+{
+"i": 92,
+"t0": 168.23,
+"t1": 169.7,
+"text": "Your power stores everything."
+},
+{
+"i": 93,
+"t0": 170.12,
+"t1": 170.87,
+"text": "It can’t calm."
+},
+{
+"i": 94,
+"t0": 171.11,
+"t1": 171.91,
+"text": "It can’t erase."
+},
+{
+"i": 95,
+"t0": 172.17,
+"t1": 174.11,
+"text": "It can’t rebuild someone else’s memory."
+},
+{
+"i": 96,
+"t0": 174.9,
+"t1": 175.63,
+"text": "Finish and win?"
+},
+{
+"i": 97,
+"t0": 176.25,
+"t1": 176.75,
+"text": "Or go to her?"
+},
+{
+"i": 98,
+"t0": 177.48,
+"t1": 178.84,
+"text": "You leave the stage."
+},
+{
+"i": 99,
+"t0": 178.84,
+"t1": 179.35,
+"text": "You run."
+},
+{
+"i": 100,
+"t0": 179.89,
+"t1": 181.66,
+"text": "At her bed, you hold her hand."
+},
+{
+"i": 101,
+"t0": 182.25,
+"t1": 183.46,
+"text": "You hum the mint tune..."
+},
+{
+"i": 102,
+"t0": 184.22,
+"t1": 185.25,
+"text": "exactly as you heard it."
+},
+{
+"i": 103,
+"t0": 185.85,
+"t1": 186.47,
+"text": "She smiles."
+},
+{
+"i": 104,
+"t0": 187.18,
+"t1": 188.77,
+"text": "Then she says your name."
+},
+{
+"i": 105,
+"t0": 188.77,
+"t1": 189.11,
+"text": "Maya."
+},
+{
+"i": 106,
+"t0": 189.62,
+"t1": 190.71,
+"text": "First time in months."
+},
+{
+"i": 107,
+"t0": 191.45,
+"t1": 192.56,
+"text": "That memory will stay."
+},
+{
+"i": 108,
+"t0": 193.33,
+"t1": 194.48,
+"text": "And you finally get it."
+},
+{
+"i": 109,
+"t0": 195.04,
+"t1": 196.18,
+"text": "Your memory isn’t a burden."
+},
+{
+"i": 110,
+"t0": 196.7,
+"t1": 197.96,
+"text": "It’s a gift..."
+},
+{
+"i": 111,
+"t0": 197.96,
+"t1": 198.59,
+"text": "to share."
+},
+{
+"i": 112,
+"t0": 199.19,
+"t1": 201.04,
+"text": "Forgetting isn’t a flaw in the mind..."
+},
+{
+"i": 113,
+"t0": 201.75,
+"t1": 202.39,
+"text": "it’s a mercy."
+},
+{
+"i": 114,
+"t0": 203.25,
+"t1": 203.89,
+"text": "So what’s real?"
+},
+{
+"i": 115,
+"t0": 204.58,
+"t1": 209.18,
+"text": "In 2006, scientists described a woman who recalls her life in rare detail."
+},
+{
+"i": 116,
+"t0": 209.44,
+"t1": 210.45,
+"text": "But a million books?"
+},
+{
+"i": 117,
+"t0": 210.83,
+"t1": 211.43,
+"text": "Impossible."
+},
+{
+"i": 118,
+"t0": 212.05,
+"t1": 215.83,
+"text": "In 1942, Jorge Luis Borges wrote about a man who couldn’t forget."
+},
+{
+"i": 119,
+"t0": 216.25,
+"t1": 217.67,
+"text": "He drowned in detail."
+},
+{
+"i": 120,
+"t0": 218.23,
+"t1": 220.38,
+"text": "Some researchers say forgetting helps us focus."
+},
+{
+"i": 121,
+"t0": 220.84,
+"t1": 221.51,
+"text": "That’s still debated."
+},
+{
+"i": 122,
+"t0": 222.19,
+"t1": 223.92,
+"text": "And sleep locks in what you learn."
+},
+{
+"i": 123,
+"t0": 224.4,
+"t1": 226.06,
+"text": "So never trade it for an exam."
+},
+{
+"i": 124,
+"t0": 226.06,
+"t1": 227.14,
+"text": "That night..."
+},
+{
+"i": 125,
+"t0": 227.75,
+"t1": 228.55,
+"text": "you can’t sleep."
+},
+{
+"i": 126,
+"t0": 229.26,
+"t1": 231.74,
+"text": "So what if one hour of sleep felt like eight?"
+},
+{
+"i": 127,
+"t0": 231.74,
+"t1": 232.73,
+"text": "What do you think?"
+},
+{
+"i": 128,
+"t0": 233.3,
+"t1": 236.61,
+"text": "Tell us in the comments, and tell us which human ability we should do next."
+},
+{
+"i": 129,
+"t0": 237.02,
+"t1": 238.66,
+"text": "Hit like, and subscribe for more."
+}
+]
