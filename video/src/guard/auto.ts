@@ -110,10 +110,13 @@ export const loop = (C: AutoCfg, maxIter = 5) => {
           g.path = g.path.map((p, k) => { const w = smootherW(Math.min(k / n, 1 - k / n) / 0.15); return [p[0] + o[0] * w, p[1] + o[1] * w, p[2] + o[2] * w] as [number, number, number]; });
         }),
         // start 1-3 frames earlier / later (shifts which frame falls inside a narrow opening)
-        ...[-3, -2, -1, 1, 2, 3].map((df) => (g: TFlight) => { g.t0 = +(base.t0 + df / C.fps).toFixed(4); const S = tr.shots[g.to - 1]; g.path = [A3(holdPose(S, g.t0, g.t0).pos), ...base.path.slice(1)]; }),
+        ...[-3, -2.5, -2, -1.5, -1, -0.5, 0.5, 1, 1.5, 2, 2.5, 3].map((df) => (g: TFlight) => { g.t0 = +(base.t0 + df / C.fps).toFixed(4); const S = tr.shots[g.to - 1]; g.path = [A3(holdPose(S, g.t0, g.t0).pos), ...base.path.slice(1)]; }),
       ];
       // last resort (rule 2): the carried prop rides this flight, alone or with every variant above
-      variants.push((g) => { g.carry = true; }, ...variants.map((v) => (g: TFlight) => { v(g); g.carry = true; }));
+      // pairs: every start shift with every look / route variant (a dive through a narrow opening needs both)
+      const shifts = variants.slice(-12), others = variants.slice(0, -12);
+      for (const sv of shifts) for (const ov of others) variants.push((g: TFlight) => { ov(g); sv(g); });
+      variants.push((g) => { g.carry = true; }, ...variants.slice(0, others.length + shifts.length).map((v) => (g: TFlight) => { v(g); g.carry = true; }));
       let bestV = JSON.parse(JSON.stringify(base));
       for (const v of variants) {
         Object.assign(fl, JSON.parse(JSON.stringify(base))); if (!base.ahead) delete fl.ahead; v(fl);

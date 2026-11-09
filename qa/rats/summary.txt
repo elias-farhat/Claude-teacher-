@@ -34,16 +34,16 @@ Decisions (auto-framer + camera guard, made without asking):
 CRITICAL: 1 frames in 2 ranges
    47.37- 47.40 s  f1421-1421  EMPTY                          none of c:officialB, ?f:tailOne, f:mom, ?f:carry in view
    47.37- 47.40 s  f1421-1421  CLIPPING                       view filled by geometry within 1.5 m (100 % of the frame)
-warnings: 781 frames in 226 ranges (list in camera_report.txt)
+warnings: 781 frames in 225 ranges (list in camera_report.txt)
 
 Loop:
   round 1: 299 frames with CRITICAL failures in 23 shots (2, 3, 4, 5, 6, 7, 9, 11, 12, 14, 16, 17, 18, 19, 20, 21, 22, 23, 26, 27, 28, 29, 30)
   round 2: 206 frames with CRITICAL failures in 23 shots (2, 3, 4, 5, 6, 7, 9, 11, 12, 14, 16, 17, 18, 19, 20, 21, 22, 23, 26, 27, 28, 29, 30)
   round 3: 280 frames with CRITICAL failures in 23 shots (2, 3, 4, 5, 6, 7, 9, 11, 12, 14, 16, 17, 18, 19, 20, 21, 22, 23, 26, 27, 28, 29, 30)
   round 4: 359 frames with CRITICAL failures in 22 shots (2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 14, 17, 18, 19, 21, 22, 23, 26, 27, 28, 29, 30)
-  round 5: 316 frames with CRITICAL failures in 21 shots (2, 3, 4, 5, 6, 7, 9, 11, 12, 14, 17, 18, 19, 21, 22, 23, 26, 27, 28, 29, 30)
-  assembled the best round of every shot: 177 frames with CRITICAL failures
-  flight polish (look timing per failing flight): 1 frames with CRITICAL failures (20 flights cleared)
+  round 5: 350 frames with CRITICAL failures in 21 shots (2, 3, 4, 5, 6, 7, 9, 11, 12, 14, 17, 18, 19, 21, 22, 23, 26, 27, 28, 29, 30)
+  assembled the best round of every shot: 200 frames with CRITICAL failures
+  flight polish (look timing per failing flight): 1 frames with CRITICAL failures (21 flights cleared)
   kept the polished track (1 CRITICAL frames)
 
 Shots (candidate chosen, score):
@@ -66,7 +66,7 @@ Shots (candidate chosen, score):
   shot 16   34.16- 38.38 s  close  az-30 high (score 6)
   shot 17   38.38- 39.66 s  close  higher (score 3)
   shot 18   39.66- 41.34 s  insert track az-30 high (score 11)
-  shot 19   41.34- 43.16 s  insert az+30 high (score 6)
+  shot 19   41.34- 43.16 s  insert closer 0.45 (score 11)
   shot 20   43.16- 45.00 s  close  lower (score 2)
   shot 21   45.00- 47.50 s  close  az+90 (score 31: 1/5 blocked)
   shot 22   47.50- 52.68 s  insert base (score 0)
@@ -98,8 +98,8 @@ Flights:
   -> shot 16: 33.23-34.16 s, 28 f, hand route (reversed), peak 0.14 m/f
   -> shot 17: 37.45-38.38 s, 28 f, hand waypoints, peak 0.68 m/f
   -> shot 18: 38.73-39.66 s, 28 f, hand waypoints, peak 1.18 m/f
-  -> shot 19: 40.41-41.34 s, 28 f, straight, peak 0.02 m/f
-  -> shot 20: 42.23-43.16 s, 28 f, hand route, peak 0.2 m/f
+  -> shot 19: 40.41-41.34 s, 28 f, hand route, peak 0.16 m/f
+  -> shot 20: 42.23-43.16 s, 28 f, hand route, peak 0.11 m/f
   -> shot 21: 44.07-45.00 s, 28 f, hand waypoints, peak 1.88 m/f
   -> shot 22: 46.57-47.50 s, 28 f, hand waypoints, peak 2.66 m/f
   -> shot 23: 51.75-52.68 s, 28 f, hand waypoints, peak 5.79 m/f

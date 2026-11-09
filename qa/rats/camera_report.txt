@@ -143,15 +143,14 @@ warning   39.60- 39.67 s  f1188-1189  SUBJECT   c:officialS          out of fram
 warning   39.63- 39.67 s  f1189-1189  SUBJECT   f:scurry             cut off left (-0.32)
 warning   40.43- 41.37 s  f1213-1240  SUBJECT   f:hero               not on stage
 warning   40.43- 40.53 s  f1213-1215  SUBJECT   f:scurry             cut off right (1.27)
-warning   40.53- 40.63 s  f1216-1218  SUBJECT   f:scurry             out of frame (x 1.13..1.78, y 0.09..0.27)
-warning   40.63- 40.73 s  f1219-1221  SUBJECT   f:scurry             cut off right (1.35)
-warning   40.77- 41.13 s  f1223-1233  SUBJECT   f:scurry             cut off left (-0.18)
+warning   40.53- 40.67 s  f1216-1219  SUBJECT   f:scurry             out of frame (x 1.18..1.84, y 0.09..0.28)
+warning   40.67- 40.73 s  f1220-1221  SUBJECT   f:scurry             cut off right (1.11)
+warning   40.77- 41.37 s  f1223-1240  SUBJECT   f:scurry             cut off left (-0.47)
 warning   42.23- 42.73 s  f1267-1281  SUBJECT   c:officialR          not on stage
-warning   42.53- 42.60 s  f1276-1277  SUBJECT   f:hero               cut off right (0.97)
-warning   42.60- 42.83 s  f1278-1284  SUBJECT   f:hero               cut off left (-0.40)
-warning   42.73- 42.80 s  f1282-1283  SUBJECT   c:officialR          cut off right (0.98)
-warning   42.80- 42.87 s  f1284-1285  SUBJECT   c:officialR          cut off top (0.05)
-warning   42.83- 43.17 s  f1285-1294  SUBJECT   f:hero               out of frame (x -1.13..-0.19, y 0.47..1.00)
+warning   42.47- 42.80 s  f1274-1283  SUBJECT   f:hero               cut off left (-0.34)
+warning   42.73- 42.80 s  f1282-1283  SUBJECT   c:officialR          cut off right (0.97)
+warning   42.80- 43.17 s  f1284-1294  SUBJECT   f:hero               out of frame (x -1.12..-0.19, y 0.47..1.00)
+warning   42.80- 42.83 s  f1284-1284  SUBJECT   c:officialR          cut off top (0.02)
 warning   44.10- 44.30 s  f1323-1328  SUBJECT   c:officialB          not on stage
 warning   44.30- 44.57 s  f1329-1336  SUBJECT   c:officialB          behind the camera
 warning   44.40- 44.57 s  f1332-1336  SUBJECT   c:officialR          too small (21 % of frame height, needs 30 %)
