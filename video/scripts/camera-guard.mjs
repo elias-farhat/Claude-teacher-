@@ -71,7 +71,8 @@ const DECISIONS = `Decisions (auto-framer + camera guard, made without asking):
 - Flights try a straight line, the old shot list's own waypoints (doors, windows, grates, shafts), the hand camera's
   route and an arc over the top; blocked segments are nudged round edges; through enclosed stretches the camera looks
   down its path (faded out before landing); one subject stays in view while it turns to the next. The carried prop
-  (rule 2) now rides every auto flight 1.8 m ahead of the camera (the old shot's prop, else a rat / a paper).
+  (rule 2) rides only the flights that would otherwise have an empty frame, 1.8 m ahead of the camera (the old
+  shot's prop, else a rat / a paper); a prop on every flight crossed the subjects (rule 5).
 - A last "flight polish" step tries other look timings / path bends on any flight that still has a CRITICAL frame.
 - Lighting looks, the sun direction and every on-screen action keep the old SHOTS timeline (story.ts), so the light
   arc and all actions keep their exact voice timing; only the camera comes from shots.ts. voice.wav is untouched.

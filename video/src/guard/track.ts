@@ -8,7 +8,7 @@ export type V3 = [number, number, number];
 export type Pose = { pos: V3; look: V3; fov: number };
 export type Key = Pose & { t: number };
 export type TShot = { t0: number; t1: number; keys: Key[]; dof: number; size: string; cand: string };
-export type TFlight = { t0: number; t1: number; to: number; path: V3[]; swing?: [number, number]; ahead?: number[] };
+export type TFlight = { t0: number; t1: number; to: number; path: V3[]; swing?: [number, number]; ahead?: number[]; carry?: boolean };
 export type Track = { video: string; shots: TShot[]; flights: TFlight[] };
 
 const V = (a: V3) => new THREE.Vector3(...a);

@@ -100,6 +100,11 @@ export const loop = (C: AutoCfg, maxIter = 5) => {
           const n = g.path.length - 1;
           g.path = g.path.map((p, k) => { const w = Math.sin((Math.PI * k) / Math.max(1, n)); return [p[0] + o[0] * w, p[1] + o[1] * w, p[2] + o[2] * w] as [number, number, number]; });
         }),
+        // last resort (rule 2): the carried prop rides this flight, alone or with the look-timing variants
+        (g) => { g.carry = true; },
+        (g) => { g.carry = true; g.swing = [0.05, 0.35]; },
+        (g) => { g.carry = true; g.swing = [0.6, 0.95]; },
+        (g) => { g.carry = true; g.ahead = Array(31).fill(1); },
       ];
       let bestV = JSON.parse(JSON.stringify(base));
       for (const v of variants) {

@@ -373,10 +373,10 @@ export const camAt = (t: number): Cam => {
   return { pos: p.pos, look: p.look, fov: p.fov, roll: 0, dof: p.dof, shot: b, mix, next: nb, interior: !!insideRoom(p.pos) };
 };
 /** the carried prop (CLAUDE.md 2: no empty flights): with the auto-framed track it rides ahead of the camera through
- *  every flight, from the outgoing subject to the incoming one (the old shot's prop, else a "rat") */
+ *  the flights that would otherwise show no subject (the auto-framer decides), from the outgoing subject to the incoming one (the old shot's prop, else a "rat") */
 export const carryAt = (t: number, c: Cam) => {
   if (!TRACK) return carryAtHand(t, c);
-  const fl = TRACK.flights.find((g) => t >= g.t0 && t <= g.t1 + 0.3); if (!fl) return null;
+  const fl = TRACK.flights.find((g) => g.carry && t >= g.t0 && t <= g.t1 + 0.3); if (!fl) return null;   // only flights that need it
   let b = 0; while (b + 1 < SHOTS.length && SHOTS[b + 1].at <= fl.t1 + 0.05) b++;
   const kind = SHOTS[b].carry ?? "rat";
   const S = TRACK.shots[fl.to - 1], N = TRACK.shots[fl.to], B = new THREE.Vector3(...N.keys[0].look);
