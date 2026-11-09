@@ -52,16 +52,16 @@ export class Geo {
     for (const o of [[0, 0], [1, 0], [-1, 0], [0, 1], [0, -1]]) if (this.cast(a.clone().addScaledVector(s, o[0] * clear).addScaledVector(u, o[1] * clear), d, L)) return false;
     return true;
   }
-  /** camera inside a solid: >= 5 of 6 axis rays first hit a back face */
+  /** camera inside a closed solid: the first hit in >= 24 of 26 directions is the back face of a single-sided
+   *  (FrontSide) surface (an open tube or a doorway leaves directions free) */
   inside(p: THREE.Vector3) {
     let back = 0;
-    for (const d of [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1]]) {
-      const dir = new THREE.Vector3(...(d as [number, number, number])), h = this.cast(p, dir, 60);
-      // a back face of a single-sided (FrontSide) surface = inside a closed solid; BackSide / DoubleSide surfaces are
-      // linings meant to be seen from inside (the telescope tube, room shells)
+    for (let x = -1; x <= 1; x++) for (let y = -1; y <= 1; y++) for (let z = -1; z <= 1; z++) {
+      if (!x && !y && !z) continue;
+      const dir = new THREE.Vector3(x, y, z).normalize(), h = this.cast(p, dir, 60);
       const side = (h?.object.material as THREE.Material | undefined)?.side;
       if (h && h.face && side === THREE.FrontSide && h.face.normal.clone().transformDirection(h.object.matrixWorld).dot(dir) > 0) back++;
     }
-    return back >= 5;
+    return back >= 24;
   }
 }

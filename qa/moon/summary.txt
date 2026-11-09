@@ -31,14 +31,13 @@ Decisions (auto-framer + camera guard, made without asking):
   twice blocked / too small frames it one size tighter; after 5 rounds every shot takes the settings of the round where
   it failed least.
 
-CRITICAL: 7 frames in 6 ranges
+CRITICAL: 2 frames in 5 ranges
    18.43- 18.47 s  f553-553  CLIPPING                       view filled by geometry within 1.5 m (97 % of the frame)
    18.43- 18.47 s  f553-553  CLIPPING                       geometry 0.29 m from the lens
    18.43- 18.47 s  f553-553  CLIPPING                       camera inside a solid
-   18.77- 18.83 s  f563-564  EMPTY                          none of w:telescope, w:moon, ?f:carry in view
+   18.80- 18.83 s  f564-564  EMPTY                          none of w:telescope, w:moon, ?f:carry in view
    18.80- 18.83 s  f564-564  CLIPPING                       view filled by geometry within 1.5 m (100 % of the frame)
-   53.57- 53.70 s  f1607-1610  EMPTY                          none of c:rival, c:cust0, ?c:/^cust\d$/, ?f:carry in view
-warnings: 658 frames in 170 ranges (list in camera_report.txt)
+warnings: 663 frames in 170 ranges (list in camera_report.txt)
 
 Loop:
   round 1: 163 frames with CRITICAL failures in 19 shots (3, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 24)
@@ -47,8 +46,8 @@ Loop:
   round 4: 124 frames with CRITICAL failures in 17 shots (3, 5, 6, 8, 9, 10, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 24)
   round 5: 126 frames with CRITICAL failures in 17 shots (3, 5, 6, 8, 9, 10, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 24)
   assembled the best round of every shot: 77 frames with CRITICAL failures
-  flight polish (look timing per failing flight): 7 frames with CRITICAL failures (14 flights cleared)
-  kept the polished track (7 CRITICAL frames)
+  flight polish (look timing per failing flight): 2 frames with CRITICAL failures (15 flights cleared)
+  kept the polished track (2 CRITICAL frames)
 
 Shots (candidate chosen, score):
   shot  0    0.00-  1.99 s  medium base (score 0)

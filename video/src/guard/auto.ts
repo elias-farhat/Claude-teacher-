@@ -4,7 +4,8 @@ import * as THREE from "three";
 import { Geo } from "./geo";
 import { run, Row, Cam, Place, FxCard } from "./core";
 import { solve, ShotSpec, Hint } from "./solve";
-import { Track, trackCam } from "./track";
+import { Track, TFlight, trackCam, holdPose } from "./track";
+const A3 = (v: THREE.Vector3): [number, number, number] => [+v.x.toFixed(3), +v.y.toFixed(3), +v.z.toFixed(3)];
 
 export type AutoCfg = {
   video: string; fps: number; total: number; root: THREE.Object3D; specs: ShotSpec[];
@@ -84,11 +85,11 @@ export const loop = (C: AutoCfg, maxIter = 5) => {
     C.setTrack(tr);
     const critIn = (rw: Row[]) => rw.filter((r) => r.fails.some((q) => q.critical)).length;
     let fixedN = 0;
-    for (const fl of tr.flights) {
+    for (let pass = 0; pass < 3; pass++) for (const fl of tr.flights) {
       const f0 = Math.floor(fl.t0 * C.fps) - 2, f1 = Math.ceil(fl.t1 * C.fps) + 2, frames = Array.from({ length: f1 - f0 + 1 }, (_, k) => f0 + k);
       let cur = critIn(run(adapter(C, tr), geo, frames)); if (!cur) continue;
       const base = JSON.parse(JSON.stringify(fl));
-      const variants: ((g: typeof fl) => void)[] = [
+      const variants: ((g: TFlight) => void)[] = [
         (g) => { g.swing = [Math.max(0, (base.swing?.[0] ?? 0.3) - 0.15), Math.max(0.2, (base.swing?.[1] ?? 0.7) - 0.15)]; },
         (g) => { g.swing = [Math.min(0.8, (base.swing?.[0] ?? 0.3) + 0.15), Math.min(1, (base.swing?.[1] ?? 0.7) + 0.15)]; },
         (g) => { g.ahead = Array(31).fill(1); },
@@ -96,16 +97,15 @@ export const loop = (C: AutoCfg, maxIter = 5) => {
         (g) => { g.swing = [0.05, 0.35]; },
         (g) => { g.swing = [0.6, 0.95]; },
         // bend the middle of the path (endpoints stay): up, down, either side
-        ...[[0, 0.6, 0], [0, -0.4, 0], [0.6, 0, 0], [-0.6, 0, 0], [0, 0, 0.6], [0, 0, -0.6], [0, 1.2, 0]].map((o) => (g: typeof fl) => {
+        ...[[0, 0.6, 0], [0, -0.4, 0], [0.6, 0, 0], [-0.6, 0, 0], [0, 0, 0.6], [0, 0, -0.6], [0, 1.2, 0]].map((o) => (g: TFlight) => {
           const n = g.path.length - 1;
           g.path = g.path.map((p, k) => { const w = Math.sin((Math.PI * k) / Math.max(1, n)); return [p[0] + o[0] * w, p[1] + o[1] * w, p[2] + o[2] * w] as [number, number, number]; });
         }),
-        // last resort (rule 2): the carried prop rides this flight, alone or with the look-timing variants
-        (g) => { g.carry = true; },
-        (g) => { g.carry = true; g.swing = [0.05, 0.35]; },
-        (g) => { g.carry = true; g.swing = [0.6, 0.95]; },
-        (g) => { g.carry = true; g.ahead = Array(31).fill(1); },
+        // start 1-3 frames earlier / later (shifts which frame falls inside a narrow opening)
+        ...[-3, -2, -1, 1, 2, 3].map((df) => (g: TFlight) => { g.t0 = +(base.t0 + df / C.fps).toFixed(4); const S = tr.shots[g.to - 1]; g.path = [A3(holdPose(S, g.t0, g.t0).pos), ...base.path.slice(1)]; }),
       ];
+      // last resort (rule 2): the carried prop rides this flight, alone or with every variant above
+      variants.push((g) => { g.carry = true; }, ...variants.map((v) => (g: TFlight) => { v(g); g.carry = true; }));
       let bestV = JSON.parse(JSON.stringify(base));
       for (const v of variants) {
         Object.assign(fl, JSON.parse(JSON.stringify(base))); if (!base.ahead) delete fl.ahead; v(fl);
