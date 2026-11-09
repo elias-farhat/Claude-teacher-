@@ -31,9 +31,7 @@ Decisions (auto-framer + camera guard, made without asking):
   twice blocked / too small frames it one size tighter; after 5 rounds every shot takes the settings of the round where
   it failed least.
 
-CRITICAL: 1 frames in 2 ranges
-   47.37- 47.40 s  f1421-1421  EMPTY                          none of c:officialB, ?f:tailOne, f:mom, ?f:carry in view
-   47.37- 47.40 s  f1421-1421  CLIPPING                       view filled by geometry within 1.5 m (100 % of the frame)
+CRITICAL: 0
 warnings: 781 frames in 225 ranges (list in camera_report.txt)
 
 Loop:
@@ -43,8 +41,8 @@ Loop:
   round 4: 359 frames with CRITICAL failures in 22 shots (2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 14, 17, 18, 19, 21, 22, 23, 26, 27, 28, 29, 30)
   round 5: 350 frames with CRITICAL failures in 21 shots (2, 3, 4, 5, 6, 7, 9, 11, 12, 14, 17, 18, 19, 21, 22, 23, 26, 27, 28, 29, 30)
   assembled the best round of every shot: 200 frames with CRITICAL failures
-  flight polish (look timing per failing flight): 1 frames with CRITICAL failures (21 flights cleared)
-  kept the polished track (1 CRITICAL frames)
+  flight polish (look timing per failing flight): 0 frames with CRITICAL failures (22 flights cleared)
+  kept the polished track (0 CRITICAL frames)
 
 Shots (candidate chosen, score):
   shot  0    0.00-  1.55 s  medium base (score 0)
@@ -98,10 +96,10 @@ Flights:
   -> shot 16: 33.23-34.16 s, 28 f, hand route (reversed), peak 0.14 m/f
   -> shot 17: 37.45-38.38 s, 28 f, hand waypoints, peak 0.68 m/f
   -> shot 18: 38.73-39.66 s, 28 f, hand waypoints, peak 1.18 m/f
-  -> shot 19: 40.41-41.34 s, 28 f, hand route, peak 0.16 m/f
+  -> shot 19: 40.49-41.34 s, 26 f, hand route, peak 0.16 m/f
   -> shot 20: 42.23-43.16 s, 28 f, hand route, peak 0.11 m/f
   -> shot 21: 44.07-45.00 s, 28 f, hand waypoints, peak 1.88 m/f
-  -> shot 22: 46.57-47.50 s, 28 f, hand waypoints, peak 2.66 m/f
+  -> shot 22: 46.54-47.50 s, 29 f, hand waypoints, peak 2.66 m/f
   -> shot 23: 51.75-52.68 s, 28 f, hand waypoints, peak 5.79 m/f
   -> shot 24: 53.87-54.80 s, 28 f, hand route (reversed), peak 0.48 m/f
   -> shot 25: 55.84-56.77 s, 28 f, hand route (reversed), peak 0.39 m/f

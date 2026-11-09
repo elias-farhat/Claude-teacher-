@@ -69,7 +69,7 @@ env:
 jobs:
   plan:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 90   # the auto-framer loop (~15-20 min for a short) + the worst-frames sheet
     outputs:
       matrix: ${{ steps.plan.outputs.matrix }}
       frames: ${{ steps.plan.outputs.frames }}
