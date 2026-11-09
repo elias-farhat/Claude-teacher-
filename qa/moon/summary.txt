@@ -31,13 +31,10 @@ Decisions (auto-framer + camera guard, made without asking):
   twice blocked / too small frames it one size tighter; after 5 rounds every shot takes the settings of the round where
   it failed least.
 
-CRITICAL: 2 frames in 5 ranges
-   18.43- 18.47 s  f553-553  CLIPPING                       view filled by geometry within 1.5 m (97 % of the frame)
-   18.43- 18.47 s  f553-553  CLIPPING                       geometry 0.29 m from the lens
-   18.43- 18.47 s  f553-553  CLIPPING                       camera inside a solid
-   18.80- 18.83 s  f564-564  EMPTY                          none of w:telescope, w:moon, ?f:carry in view
-   18.80- 18.83 s  f564-564  CLIPPING                       view filled by geometry within 1.5 m (100 % of the frame)
-warnings: 663 frames in 170 ranges (list in camera_report.txt)
+CRITICAL: 1 frames in 2 ranges
+   18.77- 18.80 s  f563-563  EMPTY                          none of w:telescope, w:moon, ?f:carry in view
+   18.77- 18.80 s  f563-563  CLIPPING                       view filled by geometry within 1.5 m (100 % of the frame)
+warnings: 668 frames in 173 ranges (list in camera_report.txt)
 
 Loop:
   round 1: 163 frames with CRITICAL failures in 19 shots (3, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 24)
@@ -46,8 +43,8 @@ Loop:
   round 4: 124 frames with CRITICAL failures in 17 shots (3, 5, 6, 8, 9, 10, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 24)
   round 5: 126 frames with CRITICAL failures in 17 shots (3, 5, 6, 8, 9, 10, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 24)
   assembled the best round of every shot: 77 frames with CRITICAL failures
-  flight polish (look timing per failing flight): 2 frames with CRITICAL failures (15 flights cleared)
-  kept the polished track (2 CRITICAL frames)
+  flight polish (look timing per failing flight): 1 frames with CRITICAL failures (15 flights cleared)
+  kept the polished track (1 CRITICAL frames)
 
 Shots (candidate chosen, score):
   shot  0    0.00-  1.99 s  medium base (score 0)
@@ -84,7 +81,7 @@ Flights:
   -> shot 5: 10.64-11.58 s, 28 f, hand route (reversed), peak 0.51 m/f
   -> shot 6: 13.43-14.50 s, 32 f, hand route (1 blocked segments), peak 5.91 m/f
   -> shot 7: 16.47-17.40 s, 28 f, hand route (reversed), peak 5.75 m/f
-  -> shot 8: 17.71-19.58 s, 56 f, hand waypoints, peak 8.23 m/f
+  -> shot 8: 17.61-19.58 s, 59 f, hand waypoints, peak 8.23 m/f
   -> shot 9: 19.98-21.88 s, 57 f, hand waypoints, peak 5.92 m/f
   -> shot 10: 22.33-23.26 s, 28 f, straight, peak 0.87 m/f
   -> shot 11: 23.36-23.96 s, 18 f, hand route, peak 1.15 m/f

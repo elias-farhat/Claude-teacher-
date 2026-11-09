@@ -5,6 +5,7 @@ import { Geo } from "./geo";
 import { run, Row, Cam, Place, FxCard } from "./core";
 import { solve, ShotSpec, Hint } from "./solve";
 import { Track, TFlight, trackCam, holdPose } from "./track";
+const smootherW = (x: number) => { const t = Math.min(1, Math.max(0, x)); return t * t * t * (t * (t * 6 - 15) + 10); };
 const A3 = (v: THREE.Vector3): [number, number, number] => [+v.x.toFixed(3), +v.y.toFixed(3), +v.z.toFixed(3)];
 
 export type AutoCfg = {
@@ -100,6 +101,13 @@ export const loop = (C: AutoCfg, maxIter = 5) => {
         ...[[0, 0.6, 0], [0, -0.4, 0], [0.6, 0, 0], [-0.6, 0, 0], [0, 0, 0.6], [0, 0, -0.6], [0, 1.2, 0]].map((o) => (g: TFlight) => {
           const n = g.path.length - 1;
           g.path = g.path.map((p, k) => { const w = Math.sin((Math.PI * k) / Math.max(1, n)); return [p[0] + o[0] * w, p[1] + o[1] * w, p[2] + o[2] * w] as [number, number, number]; });
+        }),
+        // fade the look-down-the-path out later / earlier before landing
+        (g) => { g.fade = 0.06; }, (g) => { g.fade = 0.3; },
+        // shift the whole route sideways / up (endpoints fixed): pass beside a narrow sleeve inside a wider opening
+        ...[[0.7, 0, 0], [-0.7, 0, 0], [0, 0.7, 0], [0, -0.7, 0], [0, 0, 0.7], [0, 0, -0.7]].map((o) => (g: TFlight) => {
+          const n = g.path.length - 1;
+          g.path = g.path.map((p, k) => { const w = smootherW(Math.min(k / n, 1 - k / n) / 0.15); return [p[0] + o[0] * w, p[1] + o[1] * w, p[2] + o[2] * w] as [number, number, number]; });
         }),
         // start 1-3 frames earlier / later (shifts which frame falls inside a narrow opening)
         ...[-3, -2, -1, 1, 2, 3].map((df) => (g: TFlight) => { g.t0 = +(base.t0 + df / C.fps).toFixed(4); const S = tr.shots[g.to - 1]; g.path = [A3(holdPose(S, g.t0, g.t0).pos), ...base.path.slice(1)]; }),

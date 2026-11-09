@@ -8,7 +8,7 @@ export type V3 = [number, number, number];
 export type Pose = { pos: V3; look: V3; fov: number };
 export type Key = Pose & { t: number };
 export type TShot = { t0: number; t1: number; keys: Key[]; dof: number; size: string; cand: string };
-export type TFlight = { t0: number; t1: number; to: number; path: V3[]; swing?: [number, number]; ahead?: number[]; carry?: boolean };
+export type TFlight = { t0: number; t1: number; to: number; path: V3[]; swing?: [number, number]; ahead?: number[]; carry?: boolean; fade?: number };
 export type Track = { video: string; shots: TShot[]; flights: TFlight[] };
 
 const V = (a: V3) => new THREE.Vector3(...a);
@@ -59,7 +59,7 @@ export const trackCam = (T: Track, t: number) => {
     if (fl.ahead) {
       const n = fl.ahead.length - 1, x = Math.min(n, Math.max(0, u * n)), k = Math.min(n - 1, Math.floor(x));
       // never at the very start or the landing: the flight leaves and lands exactly on the shots' own framings
-      const w = (fl.ahead[k] + (fl.ahead[k + 1] - fl.ahead[k]) * (x - k)) * smoother(u / 0.1) * smoother((1 - u) / 0.15);
+      const w = (fl.ahead[k] + (fl.ahead[k + 1] - fl.ahead[k]) * (x - k)) * smoother(u / 0.1) * smoother((1 - u) / (fl.fade ?? 0.15));
       if (w > 0) { const tg = along(fl.path, Math.min(1, e + 0.04)).sub(along(fl.path, Math.max(0, e - 0.04))); if (tg.lengthSq() > 1e-8) dir = slerpDir(dir, tg.normalize(), smoother(w)); }
     }
     return { pos, look: pos.clone().addScaledVector(dir, dist), fov: A.fov + (B.fov - A.fov) * e, dof: Math.min(S[i].dof, S[i + 1].dof) * Math.abs(1 - 2 * e) ** 2, shot: i, next: i + 1, flying: u };
