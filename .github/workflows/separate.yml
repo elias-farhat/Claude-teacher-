@@ -1,0 +1,35 @@
+name: separate-vocals
+on:
+  push:
+    branches: [painted-whatif]
+    paths: ["separate/input.*", ".github/workflows/separate.yml"]
+  workflow_dispatch:
+permissions: { contents: write }
+concurrency: { group: separate, cancel-in-progress: false }
+jobs:
+  demucs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: pip install -q torch torchaudio --index-url https://download.pytorch.org/whl/cpu && pip install -q demucs soundfile
+      - name: Separate (voice vs everything else)
+        run: |
+          ffmpeg -loglevel error -y -i separate/input.* -ar 44100 -ac 2 in.wav
+          python -m demucs --two-stems=vocals -n htdemucs_ft --shifts 2 -o sep in.wav
+          ls -R sep
+      - name: Master voice to -14 LUFS
+        run: |
+          mkdir -p separate/out
+          V=$(find sep -name vocals.wav); M=$(find sep -name no_vocals.wav)
+          ffmpeg -loglevel error -y -i "$V" -af "highpass=f=70,loudnorm=I=-14:TP=-1.5:LRA=11" -ar 48000 -c:a aac -b:a 192k separate/out/voice_only.m4a
+          ffmpeg -loglevel error -y -i "$V" -af "highpass=f=70,loudnorm=I=-14:TP=-1.5:LRA=11" -ar 48000 -c:a libmp3lame -b:a 192k separate/out/voice_only.mp3
+          ffmpeg -loglevel error -y -i "$M" -c:a aac -b:a 160k separate/out/music_only.m4a
+      - name: Commit
+        run: |
+          git config user.name "render-bot"; git config user.email "render-bot@users.noreply.github.com"
+          git add separate/out; git commit -m "Vocals separated [skip ci]" || exit 0
+          git pull --rebase -q && git push -q
