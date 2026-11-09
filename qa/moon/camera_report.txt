@@ -19,8 +19,8 @@ warning    6.13-  6.20 s  f184-185  SUBJECT   c:editor             cut off right
 warning    6.13-  6.17 s  f184-184  SUBJECT   c:editor             too small (29 % of frame height, needs 30 %)
 warning    6.23-  6.27 s  f187-187  SUBJECT   c:editor             out of frame (x 1.27..1.60, y 0.45..0.93)
 warning    6.27-  6.30 s  f188-188  SUBJECT   c:editor             cut off right (1.33)
-warning    6.30-  6.33 s  f189-189  SUBJECT   c:editor             cut off left (-0.38)
-warning    6.33-  6.37 s  f190-190  SUBJECT   c:editor             out of frame (x -1.24..-0.42, y -0.46..0.36)
+warning    6.30-  6.33 s  f189-189  SUBJECT   c:editor             cut off left (-0.35)
+warning    6.33-  6.37 s  f190-190  SUBJECT   c:editor             out of frame (x -0.75..-0.12, y -0.30..0.43)
 warning    8.27-  8.73 s  f248-261  SUBJECT   f:chart0             cut off right (1.37)
 warning   10.67- 11.03 s  f320-330  SUBJECT   c:locke              cut off right (1.33)
 warning   10.67- 10.87 s  f320-325  FACES     c:locke              head centre at 74 % of the frame height
@@ -47,18 +47,15 @@ warning   13.83- 14.50 s  f415-434  SUBJECT   c:locke              behind the ca
 warning   13.90- 14.33 s  f417-429  SUBJECT   c:herschelT          too small (8 % of frame height, needs 30 %)
 warning   16.67- 17.43 s  f500-522  SUBJECT   c:herschelT          too small (4 % of frame height, needs 30 %)
 warning   17.00- 17.23 s  f510-516  SUBJECT   w:telescope          cut off left (-0.27)
-warning   17.63- 18.40 s  f529-551  SUBJECT   w:moon               out of frame (x -2.97..-0.38, y -1.70..0.12)
-warning   18.00- 18.03 s  f540-540  SUBJECT   w:telescope          cut off right (0.96)
-warning   18.03- 18.17 s  f541-544  SUBJECT   w:telescope          cut off left (-0.25)
-warning   18.47- 18.50 s  f554-554  SUBJECT   w:telescope          reaches behind the camera
-warning   18.50- 18.70 s  f555-560  SUBJECT   w:telescope          behind the camera
-warning   18.67- 18.70 s  f560-560  SUBJECT   w:moon               out of frame (x -4.91..4.03, y 1.30..1.56)
-warning   18.70- 18.73 s  f561-561  SUBJECT   w:telescope          out of frame (x -1.97..-0.13, y 0.68..1.40)
-warning   18.73- 19.20 s  f562-575  SUBJECT   w:telescope          cut off right (1.87)
-CRITICAL  18.77- 18.80 s  f563-563  EMPTY                          none of w:telescope, w:moon, ?f:carry in view
-CRITICAL  18.77- 18.80 s  f563-563  CLIPPING                       view filled by geometry within 1.5 m (100 % of the frame)
-warning   18.97- 19.33 s  f569-579  SUBJECT   w:moon               cut off left (-0.22)
-warning   19.20- 19.60 s  f576-587  SUBJECT   w:telescope          out of frame (x 1.08..1.75, y 0.64..0.98)
+warning   17.73- 18.47 s  f532-553  SUBJECT   w:moon               out of frame (x -3.25..-0.42, y -1.86..0.11)
+warning   18.10- 18.23 s  f543-546  SUBJECT   w:telescope          cut off left (-0.11)
+warning   18.57- 18.73 s  f557-561  SUBJECT   w:telescope          behind the camera
+warning   18.73- 18.77 s  f562-562  SUBJECT   w:telescope          out of frame (x -15.21..-1.35, y 3.14..8.96)
+warning   18.77- 19.20 s  f563-575  SUBJECT   w:telescope          cut off right (1.90)
+CRITICAL  18.83- 18.87 s  f565-565  EMPTY                          none of w:telescope, w:moon, ?f:carry in view
+CRITICAL  18.83- 18.87 s  f565-565  CLIPPING                       view filled by geometry within 1.5 m (100 % of the frame)
+warning   19.00- 19.37 s  f570-580  SUBJECT   w:moon               cut off left (-0.19)
+warning   19.20- 19.60 s  f576-587  SUBJECT   w:telescope          out of frame (x 1.08..1.74, y 0.64..0.97)
 warning   20.00- 20.67 s  f600-619  SUBJECT   f:day1               too small (2 % of frame height, needs 15 %)
 warning   20.00- 20.67 s  f600-619  OCCLUSION f:day1               5/5 rays blocked for 11 frames
 warning   20.30- 20.70 s  f609-620  SUBJECT   w:moon               cut off left (-0.04)

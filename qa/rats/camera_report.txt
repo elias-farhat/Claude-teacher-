@@ -55,9 +55,10 @@ warning   13.37- 14.00 s  f401-419  SUBJECT   c:lady               not on stage
 warning   13.40- 13.50 s  f402-404  SUBJECT   f:convoy6            cut off right (1.28)
 warning   13.50- 13.63 s  f405-408  SUBJECT   f:convoy6            out of frame (x -2.33..-0.78, y 0.77..1.21)
 warning   13.63- 14.00 s  f409-419  SUBJECT   f:convoy6            behind the camera
-warning   14.00- 14.13 s  f420-423  SUBJECT   f:convoy6            out of frame (x 0.26..0.50, y 1.77..1.84)
-warning   14.00- 14.07 s  f420-421  SUBJECT   c:lady               out of frame (x 4.85..26.91, y -2.04..12.32)
-warning   14.07- 14.13 s  f422-423  SUBJECT   c:lady               behind the camera
+warning   14.00- 14.13 s  f420-423  SUBJECT   f:convoy6            out of frame (x 0.21..0.44, y 1.76..1.83)
+warning   14.00- 14.07 s  f420-421  SUBJECT   c:lady               out of frame (x 4.85..26.88, y -2.03..12.31)
+warning   14.07- 14.10 s  f422-422  SUBJECT   c:lady               behind the camera
+warning   14.10- 14.13 s  f423-423  SUBJECT   c:lady               out of frame (x 4.18..11.27, y -0.88..3.02)
 warning   14.13- 14.30 s  f424-428  SUBJECT   f:convoy6            behind the camera
 warning   14.13- 14.17 s  f424-424  SUBJECT   c:lady               cut off top (-0.01)
 warning   14.63- 14.73 s  f439-441  SUBJECT   f:plague             not on stage
@@ -134,12 +135,12 @@ warning   39.10- 39.17 s  f1173-1174  SUBJECT   c:officialS          out of fram
 warning   39.10- 39.17 s  f1173-1174  SUBJECT   f:scurry             out of frame (x -1.29..-0.50, y 1.27..1.50)
 warning   39.17- 39.23 s  f1175-1176  SUBJECT   c:officialS          cut off left (-0.24)
 warning   39.17- 39.23 s  f1175-1176  SUBJECT   f:scurry             behind the camera
-warning   39.23- 39.63 s  f1177-1188  SUBJECT   c:officialS          behind the camera
+warning   39.23- 39.60 s  f1177-1187  SUBJECT   c:officialS          behind the camera
 warning   39.23- 39.33 s  f1177-1179  SUBJECT   f:scurry             out of frame (x 1.24..4.12, y 2.87..3.68)
-warning   39.33- 39.60 s  f1180-1187  SUBJECT   f:scurry             behind the camera
-warning   39.60- 39.63 s  f1188-1188  SUBJECT   f:scurry             out of frame (x -3.16..-2.01, y 0.38..0.71)
-warning   39.63- 39.67 s  f1189-1189  SUBJECT   c:officialS          out of frame (x -94.91..-94.91, y 4.78..4.78)
-warning   39.63- 39.67 s  f1189-1189  SUBJECT   f:scurry             cut off left (-0.33)
+warning   39.33- 39.53 s  f1180-1185  SUBJECT   f:scurry             behind the camera
+warning   39.53- 39.63 s  f1186-1188  SUBJECT   f:scurry             out of frame (x -2.19..-1.21, y 0.28..0.55)
+warning   39.60- 39.67 s  f1188-1189  SUBJECT   c:officialS          out of frame (x -85.64..-85.64, y 4.29..4.29)
+warning   39.63- 39.67 s  f1189-1189  SUBJECT   f:scurry             cut off left (-0.32)
 warning   40.43- 41.37 s  f1213-1240  SUBJECT   f:hero               not on stage
 warning   40.43- 40.53 s  f1213-1215  SUBJECT   f:scurry             cut off right (1.27)
 warning   40.53- 40.63 s  f1216-1218  SUBJECT   f:scurry             out of frame (x 1.13..1.78, y 0.09..0.27)
@@ -158,21 +159,23 @@ warning   44.57- 44.83 s  f1337-1344  SUBJECT   c:officialR          behind the 
 warning   44.57- 44.80 s  f1337-1343  SUBJECT   c:officialB          out of frame (x 1.58..2.01, y 0.48..1.03)
 warning   44.80- 44.83 s  f1344-1344  SUBJECT   c:officialB          behind the camera
 warning   44.83- 45.03 s  f1345-1350  SUBJECT   c:officialR          out of frame (x 1.67..1.75, y 0.19..0.29)
-warning   44.83- 44.87 s  f1345-1345  SUBJECT   c:officialB          out of frame (x 2.30..4.34, y -0.20..1.13)
+warning   44.83- 44.87 s  f1345-1345  SUBJECT   c:officialB          out of frame (x 1.01..1.88, y -0.11..0.85)
 warning   46.60- 46.63 s  f1398-1398  SUBJECT   f:mom                out of frame (x 1.77..1.87, y 0.63..0.69)
 warning   46.63- 46.80 s  f1399-1403  SUBJECT   c:officialB          out of frame (x -2.71..-1.40, y 0.38..1.87)
 warning   46.63- 46.80 s  f1399-1403  SUBJECT   f:mom                cut off bottom (1.02)
 warning   46.63- 46.80 s  f1399-1403  SUBJECT   f:mom                too small (3 % of frame height, needs 15 %)
 warning   46.63- 46.80 s  f1399-1403  OCCLUSION f:mom                5/5 rays blocked (start of the run)
-warning   46.80- 47.47 s  f1404-1423  SUBJECT   c:officialB          behind the camera
+warning   46.80- 47.40 s  f1404-1421  SUBJECT   c:officialB          behind the camera
 warning   46.80- 47.17 s  f1404-1414  SUBJECT   f:mom                out of frame (x -0.06..0.13, y 1.43..1.54)
 warning   47.17- 47.20 s  f1415-1415  SUBJECT   f:mom                cut off bottom (1.07)
 warning   47.17- 47.20 s  f1415-1415  SUBJECT   f:mom                too small (14 % of frame height, needs 15 %)
-warning   47.30- 47.43 s  f1419-1422  SUBJECT   f:mom                behind the camera
-warning   47.43- 47.47 s  f1423-1423  SUBJECT   f:mom                out of frame (x -36.92..-26.66, y 0.65..6.42)
-CRITICAL  47.43- 47.47 s  f1423-1423  EMPTY                          none of c:officialB, ?f:tailOne, f:mom, ?f:carry in view
-CRITICAL  47.43- 47.47 s  f1423-1423  CLIPPING                       view filled by geometry within 1.5 m (100 % of the frame)
-warning   47.47- 47.53 s  f1424-1425  SUBJECT   c:officialB          out of frame (x -8.21..-7.12, y -1.47..-0.99)
+warning   47.30- 47.37 s  f1419-1420  SUBJECT   f:mom                behind the camera
+warning   47.37- 47.40 s  f1421-1421  SUBJECT   f:mom                out of frame (x -14.65..-9.40, y -0.69..2.26)
+CRITICAL  47.37- 47.40 s  f1421-1421  EMPTY                          none of c:officialB, ?f:tailOne, f:mom, ?f:carry in view
+CRITICAL  47.37- 47.40 s  f1421-1421  CLIPPING                       view filled by geometry within 1.5 m (100 % of the frame)
+warning   47.40- 47.53 s  f1422-1425  SUBJECT   c:officialB          out of frame (x -8.33..-7.20, y -1.49..-1.00)
+warning   47.40- 47.43 s  f1422-1422  SUBJECT   f:mom                cut off left (-0.43)
+warning   47.40- 47.43 s  f1422-1422  SUBJECT   f:mom                too small (11 % of frame height, needs 15 %)
 warning   51.77- 52.03 s  f1553-1560  SUBJECT   c:farmerH            out of frame (x -25.24..-20.78, y -0.14..0.15)
 warning   51.83- 51.87 s  f1555-1555  SUBJECT   f:mom                cut off right (1.03)
 warning   51.87- 51.90 s  f1556-1556  SUBJECT   f:mom                cut off left (0.01)

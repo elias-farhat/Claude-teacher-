@@ -83,12 +83,15 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
     const fwd = new THREE.Vector3(); cam.getWorldDirection(fwd);
     let sc = 0; const why: string[] = [];
     if (geo.inside(pos)) { sc += 1000; why.push("inside"); }
-    let near = Infinity;
+    let near = Infinity, walled = 0;
     for (let i = 0; i < 5; i++) for (let j = 0; j < 9; j++) {
       const nd = new THREE.Vector3(((i + 0.5) / 5) * 2 - 1, 1 - ((j + 0.5) / 9) * 2, 0.5).unproject(cam).sub(pos).normalize();
-      const h = geo.cast(pos, nd, 1.6); if (h) near = Math.min(near, h.distance * nd.dot(fwd));
+      const h = geo.cast(pos, nd, 1.6 / Math.max(0.2, nd.dot(fwd))); if (h) { const d = h.distance * nd.dot(fwd); near = Math.min(near, d); if (d < 1.5) walled++; }
     }
     if (near < 0.6) { sc += 300; why.push(`near ${near.toFixed(2)}`); } else if (near < 1.5) sc += 10 * (1.5 - near);
+    // keep clear of the guard's "view filled within 1.5 m" (85 %) with a margin: the flight in and the hold's own
+    // drift must not tip over it
+    if (walled / 45 >= 0.65) { sc += 60 * (walled / 45 - 0.6) + 20; why.push(`walled ${Math.round((walled / 45) * 100)} %`); }
     // the guard's own subject rules on this pose (billboards turned to this camera), so the solver and the guard agree
     const t = pose.t, subs2 = subjAt(pose.sp, t, pos);
     const chk = checkSubjects(cam, subs2, geo);

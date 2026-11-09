@@ -4,7 +4,7 @@
  "pass": false,
  "criticalFrames": 1,
  "warningFrames": 781,
- "seconds": 193.78,
+ "seconds": 221.434,
  "history": [
   "round 1: 299 frames with CRITICAL failures in 23 shots (2, 3, 4, 5, 6, 7, 9, 11, 12, 14, 16, 17, 18, 19, 20, 21, 22, 23, 26, 27, 28, 29, 30)",
   "round 2: 206 frames with CRITICAL failures in 23 shots (2, 3, 4, 5, 6, 7, 9, 11, 12, 14, 16, 17, 18, 19, 20, 21, 22, 23, 26, 27, 28, 29, 30)",
@@ -735,7 +735,7 @@
    "from": 420,
    "to": 423,
    "worst": 420,
-   "detail": "out of frame (x 0.26..0.50, y 1.77..1.84)",
+   "detail": "out of frame (x 0.21..0.44, y 1.76..1.83)",
    "t0": 14,
    "t1": 14.13
   },
@@ -747,7 +747,7 @@
    "from": 420,
    "to": 421,
    "worst": 420,
-   "detail": "out of frame (x 4.85..26.91, y -2.04..12.32)",
+   "detail": "out of frame (x 4.85..26.88, y -2.03..12.31)",
    "t0": 14,
    "t1": 14.07
   },
@@ -757,10 +757,22 @@
    "subject": "c:lady",
    "shot": 6,
    "from": 422,
-   "to": 423,
+   "to": 422,
    "worst": 422,
    "detail": "behind the camera",
    "t0": 14.07,
+   "t1": 14.1
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:lady",
+   "shot": 6,
+   "from": 423,
+   "to": 423,
+   "worst": 423,
+   "detail": "out of frame (x 4.18..11.27, y -0.88..3.02)",
+   "t0": 14.1,
    "t1": 14.13
   },
   {
@@ -1681,11 +1693,11 @@
    "subject": "c:officialS",
    "shot": 18,
    "from": 1177,
-   "to": 1188,
+   "to": 1187,
    "worst": 1177,
    "detail": "behind the camera",
    "t0": 39.23,
-   "t1": 39.63
+   "t1": 39.6
   },
   {
    "rule": "SUBJECT",
@@ -1705,22 +1717,22 @@
    "subject": "f:scurry",
    "shot": 18,
    "from": 1180,
-   "to": 1187,
+   "to": 1185,
    "worst": 1180,
    "detail": "behind the camera",
    "t0": 39.33,
-   "t1": 39.6
+   "t1": 39.53
   },
   {
    "rule": "SUBJECT",
    "critical": false,
    "subject": "f:scurry",
    "shot": 18,
-   "from": 1188,
+   "from": 1186,
    "to": 1188,
-   "worst": 1188,
-   "detail": "out of frame (x -3.16..-2.01, y 0.38..0.71)",
-   "t0": 39.6,
+   "worst": 1186,
+   "detail": "out of frame (x -2.19..-1.21, y 0.28..0.55)",
+   "t0": 39.53,
    "t1": 39.63
   },
   {
@@ -1728,11 +1740,11 @@
    "critical": false,
    "subject": "c:officialS",
    "shot": 18,
-   "from": 1189,
+   "from": 1188,
    "to": 1189,
-   "worst": 1189,
-   "detail": "out of frame (x -94.91..-94.91, y 4.78..4.78)",
-   "t0": 39.63,
+   "worst": 1188,
+   "detail": "out of frame (x -85.64..-85.64, y 4.29..4.29)",
+   "t0": 39.6,
    "t1": 39.67
   },
   {
@@ -1743,7 +1755,7 @@
    "from": 1189,
    "to": 1189,
    "worst": 1189,
-   "detail": "cut off left (-0.33)",
+   "detail": "cut off left (-0.32)",
    "t0": 39.63,
    "t1": 39.67
   },
@@ -1971,7 +1983,7 @@
    "from": 1345,
    "to": 1345,
    "worst": 1345,
-   "detail": "out of frame (x 2.30..4.34, y -0.20..1.13)",
+   "detail": "out of frame (x 1.01..1.88, y -0.11..0.85)",
    "t0": 44.83,
    "t1": 44.87
   },
@@ -2041,11 +2053,11 @@
    "subject": "c:officialB",
    "shot": 22,
    "from": 1404,
-   "to": 1423,
-   "worst": 1423,
+   "to": 1421,
+   "worst": 1421,
    "detail": "behind the camera",
    "t0": 46.8,
-   "t1": 47.47
+   "t1": 47.4
   },
   {
    "rule": "SUBJECT",
@@ -2089,10 +2101,70 @@
    "subject": "f:mom",
    "shot": 22,
    "from": 1419,
-   "to": 1422,
+   "to": 1420,
    "worst": 1419,
    "detail": "behind the camera",
    "t0": 47.3,
+   "t1": 47.37
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "f:mom",
+   "shot": 22,
+   "from": 1421,
+   "to": 1421,
+   "worst": 1421,
+   "detail": "out of frame (x -14.65..-9.40, y -0.69..2.26)",
+   "t0": 47.37,
+   "t1": 47.4
+  },
+  {
+   "rule": "EMPTY",
+   "critical": true,
+   "subject": null,
+   "shot": 22,
+   "from": 1421,
+   "to": 1421,
+   "worst": 1421,
+   "detail": "none of c:officialB, ?f:tailOne, f:mom, ?f:carry in view",
+   "t0": 47.37,
+   "t1": 47.4
+  },
+  {
+   "rule": "CLIPPING",
+   "critical": true,
+   "subject": null,
+   "shot": 22,
+   "from": 1421,
+   "to": 1421,
+   "worst": 1421,
+   "detail": "view filled by geometry within 1.5 m (100 % of the frame)",
+   "t0": 47.37,
+   "t1": 47.4
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:officialB",
+   "shot": 22,
+   "from": 1422,
+   "to": 1425,
+   "worst": 1422,
+   "detail": "out of frame (x -8.33..-7.20, y -1.49..-1.00)",
+   "t0": 47.4,
+   "t1": 47.53
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "f:mom",
+   "shot": 22,
+   "from": 1422,
+   "to": 1422,
+   "worst": 1422,
+   "detail": "cut off left (-0.43)",
+   "t0": 47.4,
    "t1": 47.43
   },
   {
@@ -2100,48 +2172,12 @@
    "critical": false,
    "subject": "f:mom",
    "shot": 22,
-   "from": 1423,
-   "to": 1423,
-   "worst": 1423,
-   "detail": "out of frame (x -36.92..-26.66, y 0.65..6.42)",
-   "t0": 47.43,
-   "t1": 47.47
-  },
-  {
-   "rule": "EMPTY",
-   "critical": true,
-   "subject": null,
-   "shot": 22,
-   "from": 1423,
-   "to": 1423,
-   "worst": 1423,
-   "detail": "none of c:officialB, ?f:tailOne, f:mom, ?f:carry in view",
-   "t0": 47.43,
-   "t1": 47.47
-  },
-  {
-   "rule": "CLIPPING",
-   "critical": true,
-   "subject": null,
-   "shot": 22,
-   "from": 1423,
-   "to": 1423,
-   "worst": 1423,
-   "detail": "view filled by geometry within 1.5 m (100 % of the frame)",
-   "t0": 47.43,
-   "t1": 47.47
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:officialB",
-   "shot": 22,
-   "from": 1424,
-   "to": 1425,
-   "worst": 1424,
-   "detail": "out of frame (x -8.21..-7.12, y -1.47..-0.99)",
-   "t0": 47.47,
-   "t1": 47.53
+   "from": 1422,
+   "to": 1422,
+   "worst": 1422,
+   "detail": "too small (11 % of frame height, needs 15 %)",
+   "t0": 47.4,
+   "t1": 47.43
   },
   {
    "rule": "SUBJECT",
@@ -5647,13 +5683,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialG",
-     "detail": "out of frame (x 1.67..5.21, y -17.70..-6.85)",
+     "detail": "out of frame (x 1.57..3.15, y -8.48..-4.56)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:plaqueRat",
-     "detail": "cut off left (-0.72)",
+     "detail": "cut off left (-0.52)",
      "critical": false
     }
    ],
@@ -7079,7 +7115,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:lady",
-     "detail": "out of frame (x 4.85..26.91, y -2.04..12.32)",
+     "detail": "out of frame (x 4.85..26.88, y -2.03..12.31)",
      "critical": false
     }
    ],
@@ -7101,7 +7137,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:convoy6",
-     "detail": "out of frame (x 0.26..0.50, y 1.77..1.84)",
+     "detail": "out of frame (x 0.21..0.44, y 1.76..1.83)",
      "critical": false
     },
     {
@@ -7129,13 +7165,13 @@
     {
      "rule": "SUBJECT",
      "subject": "f:convoy6",
-     "detail": "out of frame (x -1.20..-0.92, y 1.84..1.91)",
+     "detail": "out of frame (x -5.77..-5.20, y 2.94..3.10)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:lady",
-     "detail": "behind the camera",
+     "detail": "out of frame (x 4.18..11.27, y -0.88..3.02)",
      "critical": false
     }
    ],
@@ -13932,7 +13968,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "behind the camera",
+     "detail": "out of frame (x -11.45..-8.25, y 1.58..2.48)",
      "critical": false
     }
    ],
@@ -13958,7 +13994,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "behind the camera",
+     "detail": "out of frame (x -2.19..-1.21, y 0.28..0.55)",
      "critical": false
     }
    ],
@@ -13978,13 +14014,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialS",
-     "detail": "behind the camera",
+     "detail": "out of frame (x -369.37..-369.37, y 19.36..19.36)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "out of frame (x -3.16..-2.01, y 0.38..0.71)",
+     "detail": "out of frame (x -0.94..-0.13, y 0.19..0.42)",
      "critical": false
     }
    ],
@@ -14004,13 +14040,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialS",
-     "detail": "out of frame (x -94.91..-94.91, y 4.78..4.78)",
+     "detail": "out of frame (x -85.64..-85.64, y 4.29..4.29)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:scurry",
-     "detail": "cut off left (-0.33)",
+     "detail": "cut off left (-0.32)",
      "critical": false
     }
    ],
@@ -15872,7 +15908,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialB",
-     "detail": "out of frame (x 7.77..101.56, y -0.61..15.18)",
+     "detail": "out of frame (x 7.76..100.04, y -0.60..15.08)",
      "critical": false
     }
    ],
@@ -15922,13 +15958,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialR",
-     "detail": "out of frame (x 40.49..129.71, y -0.98..1.90)",
+     "detail": "out of frame (x 5.07..5.54, y -0.05..0.17)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:officialB",
-     "detail": "out of frame (x 2.30..4.34, y -0.20..1.13)",
+     "detail": "out of frame (x 1.01..1.88, y -0.11..0.85)",
      "critical": false
     }
    ],
@@ -16728,61 +16764,7 @@
     {
      "rule": "SUBJECT",
      "subject": "f:mom",
-     "detail": "behind the camera",
-     "critical": false
-    }
-   ],
-   "score": 0.8
-  },
-  {
-   "f": 1422,
-   "t": 47.4,
-   "shot": 22,
-   "flight": true,
-   "subjects": [
-    "c:officialB",
-    "?f:tailOne",
-    "f:mom",
-    "?f:carry"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:officialB",
-     "detail": "behind the camera",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:mom",
-     "detail": "behind the camera",
-     "critical": false
-    }
-   ],
-   "score": 0.8
-  },
-  {
-   "f": 1423,
-   "t": 47.433,
-   "shot": 22,
-   "flight": true,
-   "subjects": [
-    "c:officialB",
-    "?f:tailOne",
-    "f:mom",
-    "?f:carry"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:officialB",
-     "detail": "behind the camera",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:mom",
-     "detail": "out of frame (x -36.92..-26.66, y 0.65..6.42)",
+     "detail": "out of frame (x -14.65..-9.40, y -0.69..2.26)",
      "critical": false
     },
     {
@@ -16799,6 +16781,60 @@
    "score": 9.8
   },
   {
+   "f": 1422,
+   "t": 47.4,
+   "shot": 22,
+   "flight": true,
+   "subjects": [
+    "c:officialB",
+    "?f:tailOne",
+    "f:mom",
+    "?f:carry"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:officialB",
+     "detail": "out of frame (x -179.17..-179.17, y -29.30..-29.30)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:mom",
+     "detail": "cut off left (-0.43)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:mom",
+     "detail": "too small (11 % of frame height, needs 15 %)",
+     "critical": false
+    }
+   ],
+   "score": 1.2000000000000002
+  },
+  {
+   "f": 1423,
+   "t": 47.433,
+   "shot": 22,
+   "flight": true,
+   "subjects": [
+    "c:officialB",
+    "?f:tailOne",
+    "f:mom",
+    "?f:carry"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:officialB",
+     "detail": "out of frame (x -9.90..-8.34, y -1.84..-1.22)",
+     "critical": false
+    }
+   ],
+   "score": 0.4
+  },
+  {
    "f": 1424,
    "t": 47.467,
    "shot": 22,
@@ -16813,7 +16849,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:officialB",
-     "detail": "out of frame (x -8.33..-7.21, y -1.50..-1.00)",
+     "detail": "out of frame (x -8.33..-7.20, y -1.49..-1.00)",
      "critical": false
     }
    ],
