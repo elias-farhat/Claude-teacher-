@@ -207,10 +207,20 @@ jobs:
           npx remotion render src/index.ts "${{ inputs.composition }}" "out/proxy-${{ matrix.chunk.index }}.mp4" \
             --frames=${{ matrix.chunk.start }}-${{ matrix.chunk.end }} --codec h264 --crf 20 --muted \
             --gl=swangle --timeout=300000 --scale 0.25 --props '{"preview":true,"dpr":0.25}'
+          # the same frames with the lens blur off: the SHARP check's reference (what the subject looks like in focus)
+          npx remotion render src/index.ts "${{ inputs.composition }}" "out/lensoff-${{ matrix.chunk.index }}.mp4" \
+            --frames=${{ matrix.chunk.start }}-${{ matrix.chunk.end }} --codec h264 --crf 20 --muted \
+            --gl=swangle --timeout=300000 --scale 0.25 --props '{"preview":true,"dpr":0.25,"post":{"lens":false}}'
       - uses: actions/upload-artifact@v4
         with:
           name: proxy-${{ matrix.chunk.index }}
           path: video/out/proxy-${{ matrix.chunk.index }}.mp4
+          retention-days: 3
+          compression-level: 0
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lensoff-${{ matrix.chunk.index }}
+          path: video/out/lensoff-${{ matrix.chunk.index }}.mp4
           retention-days: 3
           compression-level: 0
 
@@ -228,6 +238,11 @@ jobs:
           path: video/out/proxy
       - uses: actions/download-artifact@v4
         with:
+          pattern: lensoff-*
+          merge-multiple: true
+          path: video/out/lensoff
+      - uses: actions/download-artifact@v4
+        with:
           name: camera-guard
           path: qa
         continue-on-error: true
@@ -240,7 +255,9 @@ jobs:
           v=$(case "${{ inputs.composition }}" in RatShort) echo rats;; MoonShort) echo moon;; esac)
           ls out/proxy/*.mp4 | sort -t- -k2 -n | sed "s|^out/proxy/|file '|; s|$|'|" > out/proxy/list.txt
           ffmpeg -v error -y -f concat -safe 0 -i out/proxy/list.txt -c copy out/proxy.mp4
-          set +e; python scripts/pixel-check.py out/proxy.mp4 ../qa/$v ../qa/$v/camera_report.json src/videos/$v/camtrack.json ../qa/$v/headboxes.json; rc=$?; set -e
+          ls out/lensoff/*.mp4 | sort -t- -k2 -n | sed "s|^out/lensoff/|file '|; s|$|'|" > out/lensoff/list.txt
+          ffmpeg -v error -y -f concat -safe 0 -i out/lensoff/list.txt -c copy out/lensoff.mp4
+          set +e; python scripts/pixel-check.py out/proxy.mp4 ../qa/$v ../qa/$v/camera_report.json src/videos/$v/camtrack.json ../qa/$v/headboxes.json out/lensoff.mp4; rc=$?; set -e
           cat ../qa/$v/pixel_report.txt >> "$GITHUB_STEP_SUMMARY"
           cp out/proxy.mp4 ../qa/$v/proxy.mp4
           exit $rc
