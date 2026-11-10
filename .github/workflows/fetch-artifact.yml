@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Download artifacts named in fetch.txt (format: run_id name)
+      - name: "Download artifacts listed in fetch.txt"
         env: { GH_TOKEN: "${{ github.token }}" }
         run: |
           while read run name; do
