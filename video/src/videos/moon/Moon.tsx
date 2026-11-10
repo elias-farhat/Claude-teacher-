@@ -3,7 +3,7 @@
 // bridge / Eiffel shorts: InkPass -> lens blur -> bloom -> NEUTRAL tone map -> grade (per look). One-word captions
 // (STYLE_BIBLE.md 2) at 70 % of the frame height, timed to words.json.
 import "@fontsource/montserrat/900.css";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { AbsoluteFill, continueRender, delayRender, getInputProps, useCurrentFrame } from "remotion";
 import { ThreeCanvas } from "@remotion/three";
@@ -94,8 +94,10 @@ const Inner: React.FC<{ kit: Kit }> = ({ kit }) => {
     whip: new WhipBlur(),
   }), [camera, scene]);
   useEffect(() => () => fx.ink.dispose(), [fx]);
+  const composer = useRef<{ passes: { fullscreenMaterial?: { copyCameraSettings?: (c: THREE.Camera) => void } }[] } | null>(null);
+  const nearFar = useRef("");
   const post = useMemo(() => (
-    <EffectComposer multisampling={quality({ shadowMap: 4096, msaa: 4 }).msaa}>
+    <EffectComposer ref={composer as never} multisampling={quality({ shadowMap: 4096, msaa: 4 }).msaa}>
       {[
         on.ink && <primitive key="ink" object={fx.ink} dispose={null} />,
         on.lens && on.pre && <primitive key="pre" object={fx.lens.pre} dispose={null} />,
@@ -109,6 +111,11 @@ const Inner: React.FC<{ kit: Kit }> = ({ kit }) => {
   ), [fx, on]);
   const cam = camera as THREE.PerspectiveCamera;
   const c = world.update(f, cam, scene);
+  // postprocessing copies the camera's near / far into its depth-reading passes only when the camera is first set, but
+  // the world switches near per frame (0.05 m indoors, 0.3 m outdoors): re-sync them every frame, or the lens blur reads
+  // distances up to 6x wrong and puts the in-focus subject out of focus (Rats run 25: 20.5 s, 62.0 s)
+  const nf = `${cam.near}|${cam.far}|${composer.current?.passes.length}`;
+  if (composer.current && nearFar.current !== nf) { for (const p of composer.current.passes) p.fullscreenMaterial?.copyCameraSettings?.(cam); nearFar.current = nf; }
   if ((getInputProps() as { qa?: boolean }).qa) qaProbe(f, world, cam, c);
   noInkFallback(world.root);
   cam.getWorldDirection(fwd);
