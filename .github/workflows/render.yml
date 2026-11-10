@@ -62,8 +62,9 @@ defaults:
     working-directory: video
 
 env:
-  # 720up: R3F clamps dpr >= 1, so the WebGL buffer is shrunk through the composition's "dpr" prop as well
-  PROPS: ${{ inputs.res == '720up' && (inputs.mode == 'preview' && '{"preview":true,"dpr":0.666667}' || '{"dpr":0.666667}') || (inputs.mode == 'preview' && '{"preview":true}' || '{}') }}
+  # R3F clamps dpr >= 1, so the WebGL buffer follows the output size only through the composition's "dpr" prop: it is
+  # set from the scale too (run 24 rendered "720p" at 1080x1920 and downscaled, ~2.25x the pixels)
+  PROPS: ${{ format('{{"preview":{0},"dpr":{1}}}', inputs.mode == 'preview', inputs.res == '720up' && '0.666667' || inputs.scale) }}
   RSCALE: ${{ inputs.res == '720up' && '0.666667' || inputs.scale }}
 
 jobs:
@@ -167,9 +168,95 @@ jobs:
           path: video/out/frame-qa.json
           retention-days: 7
 
-  render:
+  # Proxy render + pixel check (CLAUDE.md rule 13, after the math guard, before any full-quality frame): the whole
+  # video at 270x480, preview quality, then scripts/pixel-check.py (one flat colour > 55 % of a frame, > 2 s barely
+  # changing, extreme close-up flashes). A failure stops the render / stills / qa jobs.
+  proxy:
     needs: plan
-    if: needs.plan.outputs.count != '0'
+    if: needs.plan.outputs.count != '0' && (inputs.composition == 'RatShort' || inputs.composition == 'MoonShort') && inputs.mode == 'full' && inputs.only_chunks == ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        chunk: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    name: proxy ${{ matrix.chunk.index }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: camtrack
+          path: video/src/videos
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - id: deps
+        uses: actions/cache@v4
+        with:
+          path: video/node_modules
+          key: node-modules-${{ runner.os }}-${{ hashFiles('video/package-lock.json') }}
+      - if: steps.deps.outputs.cache-hit != 'true'
+        run: npm ci --no-audit --no-fund && npx remotion browser ensure
+      - uses: actions/cache/restore@v4
+        with:
+          path: video/public/bridge/kenney
+          key: kenney-v3-${{ hashFiles('video/scripts/fetch-kenney.sh', 'video/scripts/kenney_flatten.py', 'video/assets/kenney/*.zip') }}
+      - name: Proxy frames ${{ matrix.chunk.start }}-${{ matrix.chunk.end }} at 270x480
+        run: |
+          mkdir -p out
+          npx remotion render src/index.ts "${{ inputs.composition }}" "out/proxy-${{ matrix.chunk.index }}.mp4" \
+            --frames=${{ matrix.chunk.start }}-${{ matrix.chunk.end }} --codec h264 --crf 20 --muted \
+            --gl=swangle --timeout=300000 --scale 0.25 --props '{"preview":true,"dpr":0.25}'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: proxy-${{ matrix.chunk.index }}
+          path: video/out/proxy-${{ matrix.chunk.index }}.mp4
+          retention-days: 3
+          compression-level: 0
+
+  pixelcheck:
+    needs: [plan, proxy]
+    if: always() && needs.proxy.result != 'skipped' && needs.plan.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: proxy-*
+          merge-multiple: true
+          path: video/out/proxy
+      - uses: actions/download-artifact@v4
+        with:
+          name: camera-guard
+          path: qa
+        continue-on-error: true
+      - name: Pixel check of the proxy
+        run: |
+          set -e
+          test "${{ needs.proxy.result }}" = success || { echo "proxy render failed"; exit 1; }
+          timeout 600 sudo apt-get install -y -qq ffmpeg >/dev/null 2>&1 || (sudo sed -i 's|http://azure.archive.ubuntu.com|http://archive.ubuntu.com|g' /etc/apt/sources.list.d/*.sources /etc/apt/sources.list 2>/dev/null; sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+          pip install -q numpy
+          v=$(case "${{ inputs.composition }}" in RatShort) echo rats;; MoonShort) echo moon;; esac)
+          ls out/proxy/*.mp4 | sort -t- -k2 -n | sed "s|^out/proxy/|file '|; s|$|'|" > out/proxy/list.txt
+          ffmpeg -v error -y -f concat -safe 0 -i out/proxy/list.txt -c copy out/proxy.mp4
+          set +e; python scripts/pixel-check.py out/proxy.mp4 ../qa/$v ../qa/$v/camera_report.json; rc=$?; set -e
+          cat ../qa/$v/pixel_report.txt >> "$GITHUB_STEP_SUMMARY"
+          cp out/proxy.mp4 ../qa/$v/proxy.mp4
+          exit $rc
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pixel-check
+          path: |
+            qa/*/pixel_report.*
+            qa/*/proxy.mp4
+          retention-days: 14
+          if-no-files-found: ignore
+
+  render:
+    needs: [plan, pixelcheck]
+    if: always() && needs.plan.result == 'success' && needs.plan.outputs.count != '0' && (needs.pixelcheck.result == 'success' || needs.pixelcheck.result == 'skipped')
     runs-on: ubuntu-latest
     timeout-minutes: 300
     strategy:
@@ -235,8 +322,8 @@ jobs:
           if-no-files-found: ignore
 
   stills:
-    needs: plan
-    if: needs.plan.outputs.stills != '[]' && needs.plan.outputs.stills != ''
+    needs: [plan, pixelcheck]
+    if: always() && needs.plan.result == 'success' && needs.plan.outputs.stills != '[]' && needs.plan.outputs.stills != '' && (needs.pixelcheck.result == 'success' || needs.pixelcheck.result == 'skipped')
     runs-on: ubuntu-latest
     timeout-minutes: 60
     strategy:
@@ -281,8 +368,8 @@ jobs:
           retention-days: 3
 
   qa:
-    needs: plan
-    if: needs.plan.outputs.qa != '[]' && needs.plan.outputs.qa != ''
+    needs: [plan, pixelcheck]
+    if: always() && needs.plan.result == 'success' && needs.plan.outputs.qa != '[]' && needs.plan.outputs.qa != '' && (needs.pixelcheck.result == 'success' || needs.pixelcheck.result == 'skipped')
     runs-on: ubuntu-latest
     timeout-minutes: 120
     strategy:
@@ -480,6 +567,19 @@ jobs:
           # the rendered commit is in REPORT.md
           gh release create "$TAG" "out/$NAME" out/REPORT.md out/qa-sheets.zip $extra --target "${GITHUB_REF_NAME}" \
             --title "$COMP ($MODE) · run ${{ github.run_number }}" --notes-file out/REPORT.md
+      # Claude chat cannot download artifacts or release assets: the finished video also goes into the repo
+      - name: Commit the MP4 to qa/<video>/preview.mp4
+        if: (inputs.composition == 'RatShort' || inputs.composition == 'MoonShort') && inputs.mode == 'full'
+        run: |
+          v=$(case "$COMP" in RatShort) echo rats;; MoonShort) echo moon;; esac)
+          [ -f "out/$NAME" ] || { echo "no MP4"; exit 0; }
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for k in 1 2 3 4; do
+            git fetch -q origin "${GITHUB_REF_NAME}" && git checkout -q -f -B pub "origin/${GITHUB_REF_NAME}"
+            mkdir -p ../qa/$v && cp -f "out/$NAME" ../qa/$v/preview.mp4
+            git add ../qa/$v/preview.mp4 && git commit -q -m "qa/$v/preview.mp4 from render run ${{ github.run_number }} ($NAME)" || exit 0
+            git push -q origin "HEAD:${GITHUB_REF_NAME}" && break; sleep $((k * 5))
+          done
       - name: Keep REPORT.md as an artifact (also for failed runs)
         if: always()
         uses: actions/upload-artifact@v4

@@ -4,7 +4,9 @@ import * as THREE from "three";
 import { Geo } from "./geo";
 import { run, Row, Cam, Place, FxCard } from "./core";
 import { solve, ShotSpec, Hint } from "./solve";
-import { Track, TFlight, trackCam, holdPose } from "./track";
+import { subjectsAt, lensFor } from "./subjects";
+import { focusIds } from "./focus";
+import { Track, TFlight, trackCam, holdPose, whipFlight } from "./track";
 const smootherW = (x: number) => { const t = Math.min(1, Math.max(0, x)); return t * t * t * (t * (t * 6 - 15) + 10); };
 const A3 = (v: THREE.Vector3): [number, number, number] => [+v.x.toFixed(3), +v.y.toFixed(3), +v.z.toFixed(3)];
 
@@ -19,11 +21,19 @@ export type AutoCfg = {
 const dummy = new THREE.PerspectiveCamera(40, 1080 / 1920, 0.05, 6000);
 const adapter = (C: AutoCfg, tr: Track) => ({
   name: C.video, fps: C.fps, total: C.total, root: C.root, camAt: C.camAt, stage: C.stage, setTime: C.setTime, props: C.props,
+  // the renderer's own lens (focus on the subject's head, blur capped) so the guard can check that no subject is blurred
+  lens: (t: number, cam: THREE.PerspectiveCamera, st: { places: Place[]; fx: FxCard[] }) => {
+    const r = new THREE.Vector3().setFromMatrixColumn(cam.matrixWorld, 0), u = new THREE.Vector3().setFromMatrixColumn(cam.matrixWorld, 1);
+    const { subj } = subjectsAt(focusIds(C.specs, tr, t), st, cam.position, r, u, C.props, t);
+    const L = lensFor(subj, cam, C.camAt(t).dof ?? 0);
+    return L ? { focus: L.focus, cInf: L.cInf } : null;
+  },
   moment: (t: number) => {
     const p = trackCam(tr, t), flying = p.flying >= 0;
     // in a flight the subjects of both shots count, and so does the prop the camera carries across (rule 2)
-    const ids = [...new Set([...C.specs[p.shot].subjects, ...(flying ? [...C.specs[p.next].subjects, "?f:carry"] : [])])];
-    return { ids, flight: flying, shot: flying ? p.next : p.shot };
+    const ids = [...new Set([...C.specs[p.shot].subjects, ...(flying ? C.specs[p.next].subjects : [])])];
+    const fl = flying ? tr.flights.find((g) => g.to === p.next && t >= g.t0 && t < g.t1) : undefined;
+    return { ids, flight: flying, shot: flying ? p.next : p.shot, whip: fl?.kind === "whip" };
   },
 });
 export const guardOnly = (C: AutoCfg) => {
@@ -87,6 +97,7 @@ export const loop = (C: AutoCfg, maxIter = 5) => {
     const critIn = (rw: Row[]) => rw.filter((r) => r.fails.some((q) => q.critical)).length;
     let fixedN = 0;
     for (let pass = 0; pass < 3; pass++) for (const fl of tr.flights) {
+      if (fl.kind !== "fly") continue;
       const f0 = Math.floor(fl.t0 * C.fps) - 2, f1 = Math.ceil(fl.t1 * C.fps) + 2, frames = Array.from({ length: f1 - f0 + 1 }, (_, k) => f0 + k);
       let cur = critIn(run(adapter(C, tr), geo, frames)); if (!cur) continue;
       const base = JSON.parse(JSON.stringify(fl));
@@ -112,11 +123,8 @@ export const loop = (C: AutoCfg, maxIter = 5) => {
         // start 1-3 frames earlier / later (shifts which frame falls inside a narrow opening)
         ...[-3, -2.5, -2, -1.5, -1, -0.5, 0.5, 1, 1.5, 2, 2.5, 3].map((df) => (g: TFlight) => { g.t0 = +(base.t0 + df / C.fps).toFixed(4); const S = tr.shots[g.to - 1]; g.path = [A3(holdPose(S, g.t0, g.t0).pos), ...base.path.slice(1)]; }),
       ];
-      // last resort (rule 2): the carried prop rides this flight, alone or with every variant above
-      // pairs: every start shift with every look / route variant (a dive through a narrow opening needs both)
       const shifts = variants.slice(-12), others = variants.slice(0, -12);
       for (const sv of shifts) for (const ov of others) variants.push((g: TFlight) => { ov(g); sv(g); });
-      variants.push((g) => { g.carry = true; }, ...variants.slice(0, others.length + shifts.length).map((v) => (g: TFlight) => { v(g); g.carry = true; }));
       let bestV = JSON.parse(JSON.stringify(base));
       for (const v of variants) {
         Object.assign(fl, JSON.parse(JSON.stringify(base))); if (!base.ahead) delete fl.ahead; v(fl);
@@ -128,7 +136,15 @@ export const loop = (C: AutoCfg, maxIter = 5) => {
       Object.assign(fl, bestV);
       if (!cur) fixedN++;
     }
+    // a fly transition that still has a CRITICAL frame becomes a 6-frame whip
+    let whips = 0;
+    for (let k = 0; k < tr.flights.length; k++) {
+      const fl = tr.flights[k]; if (fl.kind !== "fly") continue;
+      const f0 = Math.floor(fl.t0 * C.fps) - 1, f1 = Math.ceil(fl.t1 * C.fps) + 1;
+      if (critIn(run(adapter(C, tr), geo, Array.from({ length: f1 - f0 + 1 }, (_, q) => f0 + q)))) { tr.flights[k] = whipFlight(tr, fl.to - 1, C.fps, "CRITICAL frames left after the polish"); whips++; }
+    }
     const rw = run(adapter(C, tr), geo), n = critIn(rw);
+    history.push(`fly transitions that still failed became whips: ${whips}`);
     history.push(`flight polish (look timing per failing flight): ${n} frames with CRITICAL failures (${fixedN} flights cleared)`);
     if (n < best.n) best = { track: tr, rows: rw, n, round: -1 };
   }

@@ -12,7 +12,7 @@ import * as THREE from "three";
 import { Geo } from "./geo";
 import { subjectsAt, Place, FxCard } from "./subjects";
 import { checkSubjects } from "./core";
-import { Track, TShot, TFlight, Key, V3, pathLen, holdPose, along, smoother, trackCam } from "./track";
+import { Track, TShot, TFlight, Key, V3, pathLen, holdPose, along, smoother, trackCam, whipFlight } from "./track";
 
 export type Size = "wide" | "medium" | "close" | "insert";
 export type ShotSpec = { t0: number; t1?: number; subjects: string[]; size: Size; angle?: "front" | "left" | "right" | "low" | "high"; move?: "push" | "drift" | "orbit"; note?: string };
@@ -50,7 +50,7 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
   };
   /** frame the union box from direction (az, el) at distance scale k: camera pose fitted on screen (subject height =
    *  the size's fraction, width <= 86 %, top edge lifted toward the upper part of the frame so the head sits high) */
-  const compose = (sp: ShotSpec, t: number, az: number, el: number, k: number, wMax = 0.8) => {
+  const compose = (sp: ShotSpec, t: number, az: number, el: number, k: number, wMax = 0.74, sx = 0) => {
     const eye0 = I.hand(t).pos, subs = subjAt(sp, t, eye0);
     if (!subs.length) return null;
     const req = subs.filter((s) => !s.opt).length ? subs.filter((s) => !s.opt) : subs;
@@ -72,7 +72,7 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
       // re-aim: centre horizontally, put the top edge at topWant (NDC y = 1 - 2 * topWant)
       const right = new THREE.Vector3().setFromMatrixColumn(cam.matrixWorld, 0), upv = new THREE.Vector3().setFromMatrixColumn(cam.matrixWorld, 1);
       const dist = look.distanceTo(pos), halfH = dist * th, halfW = dist * tw;
-      look.addScaledVector(right, ((x0 + x1) / 2) * halfW).addScaledVector(upv, (y1 - (1 - 2 * topWant)) * halfH);
+      look.addScaledVector(right, ((x0 + x1) / 2 - 2 * sx) * halfW).addScaledVector(upv, (y1 - (1 - 2 * topWant)) * halfH);
     }
     d *= k; pos = C.clone().addScaledVector(dir, d);
     return { pos, look, fov, subs, C, d };
@@ -116,8 +116,16 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
     const travel = subs0.length && subsB.length ? subsB[0].centre.distanceTo(subjAt(sp, tA, hc.pos)[0]?.centre ?? subsB[0].centre) : 0;
     if (travel > 1) { tA = t0 + 0.001; tB = Math.max(tA + 0.2, t1 - 0.45); subsB = subjAt(sp, tB, hc.pos); }   // tracking: keys reach the flight start
     const nK = Math.max(3, Math.ceil((tB - tA) / (travel > 3 ? 0.1 : 0.2)) + 1);
-    const times: number[] = travel > 1.0 ? Array.from({ length: nK }, (_, k) => tA + ((tB - tA) * k) / (nK - 1))
-      : tB - tA > 2.4 ? [tA, (tA + tB) / 2, tB] : [tA, tB];
+    // a new camera move every ~1.2 s (CLAUDE.md 1): static subjects get one eased move per beat (keys at the beats);
+    // moving subjects are followed with keys every 0.1-0.2 s while the beat moves blend underneath
+    const nBeat = Math.max(1, Math.round((tB - tA) / 1.2)), beatT = Array.from({ length: nBeat + 1 }, (_, k) => tA + ((tB - tA) * k) / nBeat);
+    const times: number[] = travel > 1.0 ? Array.from({ length: nK }, (_, k) => tA + ((tB - tA) * k) / (nK - 1)) : beatT;
+    // beat b: distance scale and the subject's horizontal place on screen (push in / drift aside / pull back / drift back)
+    const mvS = sp.move ?? (i % 2 ? "drift" : "push");
+    const BEAT: [number, number, number][] = mvS === "push" ? [[1.06, 0, 0], [0.97, 0.04, 0], [0.9, 0, 0], [0.97, -0.04, 0]]
+      : mvS === "orbit" ? [[1, 0, -0.1], [1, 0.03, 0], [1, 0, 0.1], [0.94, -0.03, 0]] : [[1, -0.05, 0], [0.94, 0, 0], [1, 0.05, 0], [1.06, 0, 0]];
+    const beatAt = (t: number) => { const x = Math.min(nBeat, Math.max(0, ((t - tA) / Math.max(1e-3, tB - tA)) * nBeat)), b = Math.min(nBeat - 1, Math.floor(x)), e = smoother(x - b);
+      const P = BEAT[b % 4], Q = BEAT[(b + 1) % 4]; return [P[0] + (Q[0] - P[0]) * e, P[1] + (Q[1] - P[1]) * e, P[2] + (Q[2] - P[2]) * e]; };
     let best: { name: string; sc: number; keys: Key[]; why: string[] } | null = null;
     for (const [name, daz, del, kk] of CANDS) {
       if (hint.force ? name !== hint.force : hint.reject.includes(name)) continue;
@@ -127,8 +135,8 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
       times.forEach((t, k) => {
         // the move: push in over the hold, or drift sideways / orbit a little (alternating), so the camera never freezes
         const u = times.length > 1 ? k / (times.length - 1) : 0, mv = sp.move ?? (i % 2 ? "drift" : "push");
-        const azk = az + (mv === "orbit" ? (u - 0.5) * 0.2 : mv === "drift" ? (u - 0.5) * 0.08 : 0), kd = kk * hint.scale * (mv === "push" ? 1.04 - 0.08 * u : 1);
-        const p = compose(sp, t, azk, el, kd, travel > 1 ? 0.6 : 0.8);
+        const [bk, bsx, baz] = beatAt(t); void u; void mv;
+        const p = compose(sp, t, az + baz, el, kk * hint.scale * bk, travel > 1 ? 0.6 : 0.74, bsx);
         if (!p) { ok = false; return; }
         const s = score({ ...p, t, sp }); sc = Math.max(sc, s.sc); why.push(...s.why);
         keys.push({ t: +t.toFixed(3), pos: A3(p.pos), look: A3(p.look), fov: p.fov });
@@ -151,6 +159,24 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
     shots.push({ t0, t1, keys: best.keys, dof: DOF[sp.size], size: sp.size, cand: `${best.name} (score ${best.sc.toFixed(0)}${best.why.length ? ": " + best.why.join(", ") : ""})` });
   }
   // ---- flights ----
+  /** first problem of a fly transition (null = fine): any frame with no real subject in view, or geometry within
+   *  0.4 m / filling the view / around the camera */
+  const flightProblem = (fl: TFlight, i: number): string | null => {
+    const tmp: Track = { video: I.video, shots, flights: [fl] };
+    const n = Math.max(2, Math.round((fl.t1 - fl.t0) * I.fps));
+    for (let k = 0; k <= n; k++) {
+      const t = Math.min(fl.t1 - 1e-3, fl.t0 + k / I.fps), c = trackCam(tmp, t);
+      cam.position.copy(c.pos); cam.up.set(0, 1, 0); cam.lookAt(c.look); cam.fov = c.fov; cam.updateProjectionMatrix(); cam.updateMatrixWorld();
+      const subs = [...subjAt(specs[i], t, c.pos), ...subjAt(specs[i + 1], t, c.pos)].filter((q) => !q.opt);
+      if (!checkSubjects(cam, subs, geo).anyInView) return `no subject in view at ${t.toFixed(2)} s`;
+      const fwd = new THREE.Vector3(); cam.getWorldDirection(fwd); let near = Infinity, walled = 0;
+      for (let a = 0; a < 5; a++) for (let b2 = 0; b2 < 9; b2++) { const nd = new THREE.Vector3(((a + 0.5) / 5) * 2 - 1, 1 - ((b2 + 0.5) / 9) * 2, 0.5).unproject(cam).sub(c.pos).normalize(); const h = geo.cast(c.pos, nd, 1.6 / Math.max(0.2, nd.dot(fwd))); if (h) { const d = h.distance * nd.dot(fwd); near = Math.min(near, d); if (d < 1.5) walled++; } }
+      if (near < 0.45 || walled >= 0.8 * 45) return `geometry against the lens at ${t.toFixed(2)} s`;
+      if (geo.inside(c.pos)) return `camera inside geometry at ${t.toFixed(2)} s`;
+    }
+    return null;
+  };
+  const whipInto = (i: number, why: string): TFlight => whipFlight({ video: I.video, shots, flights: [] }, i, I.fps, why);
   const flights: TFlight[] = [];
   for (let i = 0; i + 1 < shots.length; i++) {
     const S = shots[i], N = shots[i + 1];
@@ -251,7 +277,11 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
       }
       for (let k = 0; k <= 30; k++) { let m = 0; for (let j = -4; j <= 4; j++) m = Math.max(m, raw[k + j] ?? 0); ahead.push(m); }   // widen
     }
-    flights.push({ t0: tS, t1: N.t0, to: i + 1, path, swing, ...(ahead.some((x) => x > 0) ? { ahead } : {}), ...({ route: pick.name, tried: tried.join(" "), blocked: bestBad, peak: +((len * 1.875) / frames).toFixed(2) } as object) });
+    const fly: TFlight = { kind: "fly", t0: tS, t1: N.t0, to: i + 1, path, swing, ...(ahead.some((x) => x > 0) ? { ahead } : {}) };
+    // a flight only exists if it never touches geometry and a real subject (of either shot) stays in view on every frame
+    const why = bestBad > 0 ? `route blocked (${bestBad} segments)` : flightProblem(fly, i);
+    if (!why) flights.push({ ...fly, ...({ route: pick.name, tried: tried.join(" "), peak: +((len * 1.875) / frames).toFixed(2) } as object) });
+    else flights.push(whipInto(i, why));
   }
   return { video: I.video, shots, flights };
 };

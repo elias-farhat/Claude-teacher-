@@ -3,7 +3,7 @@
 // the Cape rises into green hills and a flat-topped Table Mountain ridge, and a hill ring closes the horizon (the fog
 // hazes it). Chimney tops are exported for the smoke puffs (stage.ts).
 import * as THREE from "three";
-import { Batch, lam, V } from "../bridge/build";
+import { Batch, TiledBatch, lam, V } from "../bridge/build";
 import { rep, rng, grassHD, facadeHD, roofHD, cobbleHD } from "../bridge/paint";
 import { box, gableRoof, holedGround } from "../rats/hanoi";
 import { WATER, CAPE, PIER } from "./layout";
@@ -21,7 +21,7 @@ const ship = (b: Batch, x: number, z: number, s: number, yaw: number) => {
 };
 
 export const buildBackdrop = (root: THREE.Object3D) => {
-  const b = new Batch(), g = new THREE.Group(), r = rng(1835);
+  const b = new TiledBatch(), g = new THREE.Group(), r = rng(1835);
   root.add(g);
   const cob = lam("bdCob", () => ({ map: rep(cobbleHD(), 1, 1) })), grass = lam("bdGrassM", () => ({ map: grassHD() }));
   // ---- floors: New York west of the harbour, the Cape east of the strait (holes where the sets have their own) ----

@@ -48,48 +48,50 @@ for (const r of rows) {
 for (const g of ranges) { g.detail = g.dets[Math.floor(g.dets.length / 2)]; delete g.dets; g.t0 = +(g.from / 30).toFixed(2); g.t1 = +((g.to + 1) / 30).toFixed(2); }
 const critRows = rows.filter((r) => r.fails.some((q) => q.critical)), crit = ranges.filter((g) => g.critical), warn = ranges.filter((g) => !g.critical);
 const report = { video, frames: rows.length, pass: critRows.length === 0, criticalFrames: critRows.length, warningFrames: rows.filter((r) => r.fails.length).length - critRows.length,
-  seconds: (Date.now() - t0) / 1000, history, rules: ["SUBJECT", "OCCLUSION", "CLIPPING", "EMPTY", "FACES"].map((k) => ({ rule: k, critical: rows.filter((r) => r.fails.some((q) => q.rule === k && q.critical)).length, warning: rows.filter((r) => r.fails.some((q) => q.rule === k && !q.critical)).length })),
+  seconds: (Date.now() - t0) / 1000, history, rules: ["SUBJECT", "OCCLUSION", "CLIPPING", "EMPTY", "FACES", "XCU", "STALE"].map((k) => ({ rule: k, critical: rows.filter((r) => r.fails.some((q) => q.rule === k && q.critical)).length, warning: rows.filter((r) => r.fails.some((q) => q.rule === k && !q.critical)).length })),
   ranges: ranges.map(({ worstScore, ...g }) => g), frames_failing: rows.filter((r) => r.fails.length) };
 fs.writeFileSync(path.join(qa, "camera_report.json"), JSON.stringify(report, null, 1));
 const line = (g) => `${g.t0.toFixed(2).padStart(6)}-${g.t1.toFixed(2).padStart(6)} s  f${g.from}-${g.to}  ${g.rule.padEnd(9)} ${(g.subject ?? "").padEnd(20)} ${g.detail}`;
 fs.writeFileSync(path.join(qa, "camera_report.txt"), ranges.map((g) => (g.critical ? "CRITICAL " : "warning  ") + line(g)).join("\n") + "\n");
 
 // ---- summary.txt: decisions first, then the verdict ----
-const DECISIONS = `Decisions (auto-framer + camera guard, made without asking):
-- CRITICAL = any guard failure on a held frame. During a flight between two shots only CLIPPING and EMPTY are
-  CRITICAL (EMPTY = none of the subjects of either shot, nor the prop the camera carries across, is visible: each is
-  out of frame or fully blocked); SUBJECT (size / margin), FACES and the OCCLUSION of one of them are warnings,
-  because the camera is travelling from one subject to the next. Warnings are listed in camera_report.txt.
+const DECISIONS = `Decisions (auto-framer + camera guard, made without asking; revised after the review of Rats run 24):
+- No carried props any more. A transition is a FLIGHT only if it never touches geometry (free route, nothing within
+  0.45 m, view never walled in, camera never inside a solid) and a real subject of either shot is in view on every
+  frame; otherwise it is a 6-frame WHIP: 3 frames panning fast off the outgoing framing, 3 frames panning fast onto the
+  incoming one from its own position, smeared by a directional motion blur (strongest in the middle). A whip is used
+  rather than a hard cut (CLAUDE.md 1 keeps hard cuts for punchlines).
+- CRITICAL = any guard failure on a held frame; in a flight CLIPPING, EMPTY and XCU; in a whip only CLIPPING (its
+  frames are a motion-blurred pan between two subjects). Warnings are listed in camera_report.txt.
+- Focus: every frame focuses on the current subject's head (a prop's centre), and the blur radius is capped so that no
+  subject's head or prop centre gets a circle of confusion above 1.2 px; the guard checks the same lens (> 1.5 px =
+  "blurred"). In a flight / whip the outgoing subject is in focus for the first half, the incoming one for the second.
+- FACES now uses each character's HEAD box (chin to hat top, 0.52 m wide): head centre in the upper 55 %, the head
+  never inside the caption band (62-80 %), never cut by any frame edge, and never more than 20 % covered by geometry
+  or by another card in front of it (other characters / label cards, their transparent margins trimmed by 20 %).
+- XCU: a head taller than 30 % of the frame is an extreme close-up (CLAUDE.md 3), CRITICAL; bursts under 8 frames
+  are reported as flashes.
+- STALE: on held frames the subject must not sit still on screen for more than 2 s (within every 60 frames of a shot
+  its box moves >= 3.5 % of the frame or changes size >= 6 %). The solver gives every hold a new move every ~1.2 s:
+  push in / drift aside / pull back / drift back (or a small orbit), also under subjects that the camera follows.
+- Before the full render the whole video is rendered at 270x480 (preview quality) and scripts/pixel-check.py fails
+  it if one flat colour fills > 55 % of a frame or if the picture (caption band masked) barely changes for > 2 s.
 - Subject boxes: characters are their full card figure (feet to hat, 0.62 m wide; seated: legs to head), so "close" =
-  the full figure at 75 % of the frame height, never a face close-up (CLAUDE.md 3). Groups ("c:/re/") are one union
-  box. Subjects marked "?" are optional: they count for EMPTY but are not framed or size-checked (small props next to
-  a character: the tail on the table, the marching rats, the cages, the poster, the rumour bubble; the fainter, who
-  lies down; the hunters inside the manhole shaft).
+  the full figure at 75 % of the frame height, never a face close-up. Groups ("c:/re/") are one union box. Subjects
+  marked "?" are optional: they count for EMPTY but are not framed or size-checked.
 - The base camera direction is the old hand-placed camera's direction to the subject (it knows the rooms, windows and
   streets), turned by the spec's angle; candidates when blocked: +-30 / +-60 / +-90 / 180 deg, higher, lower, overhead,
   closer (x0.82 / 0.6 / 0.45), two higher diagonals, and the hand-placed pose itself.
-- Flights try a straight line, the old shot list's own waypoints (doors, windows, grates, shafts), the hand camera's
-  route and an arc over the top; blocked segments are nudged round edges; through enclosed stretches the camera looks
-  down its path (faded out before landing); one subject stays in view while it turns to the next. The carried prop
-  (rule 2) rides only the flights that would otherwise have an empty frame, 1.8 m ahead of the camera (the old
-  shot's prop, else a rat / a paper); a prop on every flight crossed the subjects (rule 5).
-- A last "flight polish" step tries other look timings / path bends on any flight that still has a CRITICAL frame.
 - Lighting looks, the sun direction and every on-screen action keep the old SHOTS timeline (story.ts), so the light
   arc and all actions keep their exact voice timing; only the camera comes from shots.ts. voice.wav is untouched.
-- Shots shorter than ~1.2 s were merged into a neighbour (a 25-30 frame flight needs the room): Rats "farming",
-  "the rat pops out" (an optional subject of "into the nicest houses"), "it's not enough"; the convoy shot lands on
-  "love" (following rat 6, which stays in the main tunnel), the scurrying rat on "strange", Doumer's balcony 0.45 s
-  before "President" (the quay Doumer leaves the stage then). Moon line 10 frames the pier newsboys (the paper birds
-  are optional, they only fly part of the time).
-- Fixes the guard found in the sets: the shared holedGround() moved its cursor back on overlapping holes, so Hanoi's
-  city floor re-covered the whole story area 6 cm under the street (every grate / drain dive went through it);
-  back-faced / double-sided linings (the telescope tube) no longer count as "inside a solid".
-- Loop: a failing shot drops the candidate that failed; "too small" moves 15 % closer, "cut off" 15 % farther;
-  twice blocked / too small frames it one size tighter; after 5 rounds every shot takes the settings of the round where
-  it failed least.
+- Shots shorter than ~1.2 s were merged into a neighbour (see shots.ts notes).
+- Loop: a failing shot drops the candidate that failed; "too small" moves 15 % closer, "cut off" 15 % farther; twice
+  blocked / too small frames it one size tighter; after 5 rounds every shot takes the settings of the round where it
+  failed least; failing flights try other look timings / bends / start shifts, and a flight that still fails becomes
+  a whip.
 `;
 const shotsTxt = track ? track.shots.map((s, i) => `  shot ${String(i).padStart(2)}  ${s.t0.toFixed(2).padStart(6)}-${s.t1.toFixed(2).padStart(6)} s  ${s.size.padEnd(6)} ${s.cand}`).join("\n") : "";
-const flTxt = track ? track.flights.map((g) => `  -> shot ${g.to}: ${g.t0.toFixed(2)}-${g.t1.toFixed(2)} s, ${Math.round((g.t1 - g.t0) * 30)} f, ${g.route}${g.blocked ? ` (${g.blocked} blocked segments)` : ""}, peak ${g.peak} m/f`).join("\n") : "";
+const flTxt = track ? track.flights.map((g) => `  -> shot ${g.to}: ${(g.kind ?? "fly").toUpperCase()} ${g.t0.toFixed(2)}-${g.t1.toFixed(2)} s, ${Math.round((g.t1 - g.t0) * 30)} f, ${g.kind === "whip" ? g.reason ?? "" : `${g.route}, peak ${g.peak} m/f`}`).join("\n") : "";
 fs.writeFileSync(path.join(qa, "summary.txt"), (video === "eiffel" ? "" : DECISIONS + "\n") +
   `CRITICAL: ${critRows.length}${critRows.length ? ` frames in ${crit.length} ranges` : ""}\n` +
   (crit.length ? crit.map((g) => "  " + line(g)).join("\n") + "\n" : "") +
@@ -102,7 +104,7 @@ for (const g of crit) console.log("  " + line(g));
 
 // ---- contact sheet of the worst frames ----
 if (sheet) {
-  const w = { CLIPPING: 5, EMPTY: 4, OCCLUSION: 3, SUBJECT: 2, FACES: 1 };
+  const w = { CLIPPING: 5, EMPTY: 4, OCCLUSION: 3, SUBJECT: 2, FACES: 1, XCU: 3, STALE: 2 };
   const pool = crit.length ? crit : warn.length ? warn : [];
   const pick = [...pool].sort((a, b) => (w[b.rule] * Math.sqrt(b.to - b.from + 1)) - (w[a.rule] * Math.sqrt(a.to - a.from + 1)));
   const frames = []; for (const g of pick) { const f = Math.round((g.from + g.to) / 2); if (!frames.some((x) => Math.abs(x - f) < 8)) frames.push(f); if (frames.length === 16) break; }

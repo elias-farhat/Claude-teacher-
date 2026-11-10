@@ -4,7 +4,7 @@
 //    small sphere from Earth); the silvery look's fog hazes it all toward the horizon
 //  - Herschel's beach (line 14) is a real beach: a striped umbrella, a deckchair, a towel, a sandcastle with a bucket
 import * as THREE from "three";
-import { Batch, lam } from "../bridge/build";
+import { Batch, TiledBatch, lam } from "../bridge/build";
 import { ctex, rng } from "../bridge/paint";
 import { box } from "../rats/hanoi";
 import { MOON, MOON_TOP, BEACH } from "./layout";
@@ -12,7 +12,7 @@ import { MOON, MOON_TOP, BEACH } from "./layout";
 const stripes = (key: string, a: string, c: string) => lam(key, () => ({ map: ctex(key + "T", 128, 128, (g) => { for (let i = 0; i < 8; i++) { g.fillStyle = i % 2 ? c : a; g.fillRect(i * 16, 0, 16, 128); } }), side: THREE.DoubleSide }));
 
 export const buildMoonExtras = (root: THREE.Object3D) => {
-  const b = new Batch(), g = new THREE.Group(), r = rng(1969), cx = MOON.c.x, cz = MOON.c.z, y = MOON_TOP;
+  const b = new TiledBatch(), g = new THREE.Group(), r = rng(1969), cx = MOON.c.x, cz = MOON.c.z, y = MOON_TOP;
   root.add(g);
   const ground = lam("mxGround", () => ({ color: "#8e98cc" })), hillA = lam("mxHillA", () => ({ color: "#a7a3d8" })), hillB = lam("mxHillB", () => ({ color: "#9aa6d6" }));
   const rim = lam("mxCraterRim", () => ({ color: "#bfc2e0" })), pit = lam("mxCraterPit", () => ({ color: "#6f74a6" }));

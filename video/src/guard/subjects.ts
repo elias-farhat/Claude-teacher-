@@ -4,8 +4,10 @@ import * as THREE from "three";
 
 export type Place = { key: string; x: number; y: number; z: number; scale?: number };
 export type FxCard = { key: string; x: number; y: number; z: number; w: number; h: number; flat?: boolean; rot?: number; soft?: boolean; yaw?: number };
+/** one character's head: centre, half width, and its box from the chin to the hat top (metres) */
+export type Head = { key: string; c: THREE.Vector3; hw: number; y0: number; y1: number };
 export type Subj = { id: string; opt?: boolean; kind: "char" | "prop"; pts: THREE.Vector3[]; own?: THREE.Box3; head?: THREE.Vector3; chest?: number;
-  centre: THREE.Vector3; height: number; width: number; bottom: number; top: number };
+  heads?: Head[]; centre: THREE.Vector3; height: number; width: number; bottom: number; top: number };
 
 export const nameOf = (key: string) => { const p = key.split("|"); return p[0] === "up" ? p[1] : p[0]; };
 const isUp = (key: string) => key.startsWith("up|");
@@ -25,7 +27,7 @@ export const subjectsAt = (ids: string[], st: { places: Place[]; fx: FxCard[] },
       const ps = st.places.filter((p) => (re ? re.test(nameOf(p.key)) : nameOf(p.key) === s));
       if (!ps.length) { missing.push(id); continue; }
       // billboard rectangle facing the camera: width 0.62 m, feet .. hat top 1.78 m (seated: legs .. head top)
-      const pts: THREE.Vector3[] = []; let head: THREE.Vector3 | undefined; let bottom = Infinity, top = -Infinity, chest = 0;
+      const pts: THREE.Vector3[] = []; let head: THREE.Vector3 | undefined; let bottom = Infinity, top = -Infinity, chest = 0; const heads: Head[] = [];
       for (const p of ps) {
         const sc = p.scale ?? 1, sit = modeOf(p.key) === "sit", up0 = isUp(p.key);
         const y0 = p.y + (up0 ? 0.81 : sit ? -0.45 : 0) * sc, y1 = p.y + (sit ? 1.2 : 1.78) * sc, hc = p.y + (sit ? 0.86 : 1.44) * sc;
@@ -33,9 +35,10 @@ export const subjectsAt = (ids: string[], st: { places: Place[]; fx: FxCard[] },
         const b = new THREE.Vector3(p.x, 0, p.z);
         for (const y of [y0, y1]) for (const s2 of [-1, 1]) pts.push(b.clone().addScaledVector(side, s2).setY(y));
         if (!head || hc > head.y) head = new THREE.Vector3(p.x, hc, p.z);
+        heads.push({ key: p.key, c: new THREE.Vector3(p.x, hc, p.z), hw: 0.26 * sc, y0: hc - 0.25 * sc, y1: hc + 0.32 * sc });
         bottom = Math.min(bottom, y0); top = Math.max(top, y1); chest = Math.max(chest, p.y + (sit ? 0.55 : 1.0) * sc);
       }
-      out.push(finish({ id, kind: "char", pts, head: ps.length === 1 ? head : undefined, chest, bottom, top }));
+      out.push(finish({ id, kind: "char", pts, head: ps.length === 1 ? head : undefined, heads, chest, bottom, top }));
     } else if (k === "f") {
       const fs = st.fx.filter((p) => { const parts = p.key.split("|"); return parts[0].startsWith(s) || parts[parts.length - 1].startsWith(s); });
       if (!fs.length) { missing.push(id); continue; }
@@ -63,4 +66,27 @@ export const subjectsAt = (ids: string[], st: { places: Place[]; fx: FxCard[] },
 const finish = (s: Omit<Subj, "centre" | "height" | "width">): Subj => {
   const b = new THREE.Box3().setFromPoints(s.pts), c = b.getCenter(new THREE.Vector3()), sz = b.getSize(new THREE.Vector3());
   return { ...s, centre: c, height: Math.max(0.05, sz.y), width: Math.max(0.05, Math.hypot(sz.x, sz.z)) };
+};
+
+/** the point to focus on: the head of the first required character in front of the camera (else the first prop's
+ *  centre), and the blur radius at infinity capped so that no subject's key point (heads, prop centres) gets a
+ *  circle of confusion above maxCoC px (CLAUDE.md: subjects are never blurred). Shared by the renderer and the guard. */
+export const lensFor = (subs: Subj[], cam: THREE.Camera, dof: number, nearScale = 1.2, maxCoC = 1.2) => {
+  const fwd = new THREE.Vector3(); cam.getWorldDirection(fwd);
+  const depth = (p: THREE.Vector3) => p.clone().sub(cam.position).dot(fwd);
+  const keyPts = (s: Subj) => (s.kind === "char" ? (s.heads ?? []).map((h) => h.c) : [s.centre]).filter((p) => depth(p) > 0.2);
+  const req = subs.filter((s) => !s.opt), order = [...req, ...subs.filter((s) => s.opt)];
+  let focusPt: THREE.Vector3 | null = null;
+  for (const s of order) { const k = keyPts(s); if (k.length) { focusPt = k.reduce((a, p) => (depth(p) < depth(a) ? p : a)); break; } }
+  if (!focusPt) return null;
+  const focus = Math.max(0.3, depth(focusPt));
+  let worst = 0;
+  for (const s of subs) for (const p of keyPts(s)) { const d = depth(p), c = 1 - focus / d; worst = Math.max(worst, c < 0 ? -c * nearScale : c); }
+  const cInf = worst > 1e-4 ? Math.min(dof, maxCoC / worst) : dof;
+  return { focus, cInf, focusPt };
+};
+/** circle of confusion (px at 1080x1920) of a point for a lens */
+export const cocAt = (p: THREE.Vector3, cam: THREE.Camera, focus: number, cInf: number, nearScale = 1.2) => {
+  const fwd = new THREE.Vector3(); cam.getWorldDirection(fwd); const d = Math.max(1e-3, p.clone().sub(cam.position).dot(fwd)), c = cInf * (1 - focus / d);
+  return c < 0 ? -c * nearScale : c;
 };

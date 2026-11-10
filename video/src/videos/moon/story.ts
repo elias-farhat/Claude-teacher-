@@ -151,7 +151,7 @@ export const SHOTS: Shot[] = [
 void SHIP0;
 
 // ---------------- camera evaluation ----------------
-export type Cam = { pos: THREE.Vector3; look: THREE.Vector3; fov: number; roll: number; dof: number; shot: number; mix: number; next: number; interior: boolean };
+export type Cam = { pos: THREE.Vector3; look: THREE.Vector3; fov: number; roll: number; dof: number; shot: number; mix: number; next: number; interior: boolean; blur?: number; blurDir?: number };
 type Pose = { pos: THREE.Vector3; look: THREE.Vector3; fov: number; roll: number; dof: number };
 const AVG = 6 / 1.875;                 // m/frame average for a 6 m/frame peak under smootherstep
 const MOVEF = (d: number) => Math.max(18, Math.min(30, Math.ceil(d / AVG) + 12)); // in-shot move length (frames)
@@ -302,19 +302,8 @@ export const camAt = (t: number): Cam => {
   const p = trackCam(TRACK, t);
   let b = 0; while (b + 1 < SHOTS.length && SHOTS[b + 1].at <= t) b++;
   const nb = b + 1 < SHOTS.length && t > SHOTS[b + 1].at - 0.5 ? b + 1 : b, mix = nb !== b ? (t - (SHOTS[nb].at - 0.5)) / 0.5 : 0;
-  return { pos: p.pos, look: p.look, fov: p.fov, roll: 0, dof: p.dof, shot: b, mix, next: nb, interior: !!insideRoom(p.pos) };
+  return { pos: p.pos, look: p.look, fov: p.fov, roll: 0, dof: p.dof, shot: b, mix, next: nb, interior: !!insideRoom(p.pos), blur: p.blur, blurDir: p.blurDir };
 };
-/** the carried prop (CLAUDE.md 2: no empty flights): with the auto-framed track it rides ahead of the camera through
- *  the flights that would otherwise show no subject (the auto-framer decides), from the outgoing subject to the incoming one (the old shot's prop, else a "paper") */
-export const carryAt = (t: number, c: Cam) => {
-  if (!TRACK) return carryAtHand(t, c);
-  const fl = TRACK.flights.find((g) => g.carry && t >= g.t0 && t <= g.t1 + 0.3); if (!fl) return null;   // only flights that need it
-  let b = 0; while (b + 1 < SHOTS.length && SHOTS[b + 1].at <= fl.t1 + 0.05) b++;
-  const kind = SHOTS[b].carry ?? "paper";
-  const S = TRACK.shots[fl.to - 1], N = TRACK.shots[fl.to], B = new THREE.Vector3(...N.keys[0].look);
-  if (t >= fl.t1) return { kind, p: B, k: 1 - (t - fl.t1) / 0.3, spin: 0 };
-  const u = (t - fl.t0) / (fl.t1 - fl.t0), A = holdPose(S, fl.t0, fl.t0).look;
-  const fwd = c.look.clone().sub(c.pos).normalize(), ahead = c.pos.clone().addScaledVector(fwd, 1.8).add(new THREE.Vector3(0, -0.15, 0));
-  const p = A.lerp(ahead, smoother(u / 0.25)).lerp(B, smoother((u - 0.85) / 0.15));
-  return { kind, p, k: 1, spin: Math.sin(u * Math.PI * 3) * 0.5 };
-};
+/** carried props are gone (the review of Rats run 24): a flight only exists if a real subject stays in view, otherwise
+ *  the auto-framer uses a whip or a cut. Kept as a function so stage.ts needs no change. */
+export const carryAt = (t: number, c: Cam): { kind: NonNullable<Shot["carry"]>; p: THREE.Vector3; k: number; spin: number } | null => { void t; void c; return null; };

@@ -4,7 +4,7 @@
 // bamboo around the farm, the Red River across the whole width with the Doumer bridge, cathedral + pagoda silhouettes,
 // and a hill line on the horizon that the fog hazes out. Chimney tops are returned for the smoke puffs (stage.ts).
 import * as THREE from "three";
-import { Batch, lam, V } from "../bridge/build";
+import { Batch, TiledBatch, lam, V } from "../bridge/build";
 import { ctex, rep, rng, grassHD, stoneHD } from "../bridge/paint";
 import { box, gableRoof, ground, holedGround, wallX } from "./hanoi";
 import { colonialFacade } from "./hanoi";
@@ -29,7 +29,7 @@ export type Backdrop = { chimneys: THREE.Vector3[] };
 export const CHIMNEYS: THREE.Vector3[] = [];
 
 export const buildBackdrop = (root: THREE.Object3D): Backdrop => {
-  const b = new Batch(), g = new THREE.Group(), chimneys: THREE.Vector3[] = [];
+  const b = new TiledBatch(), g = new THREE.Group(), chimneys: THREE.Vector3[] = [];
   root.add(g);
   const r = rng(1902);
   // ---- the city floor out to the horizon, streets of the grid ----

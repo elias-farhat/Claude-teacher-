@@ -13,10 +13,16 @@ import { BlendFunction, BloomEffect, ToneMappingEffect, ToneMappingMode } from "
 import { isPreview, quality } from "../../quality";
 import { InkPass, noInkFallback } from "../bridge/ink";
 import { LensBlur } from "../bridge/lensblur";
+import { WhipBlur } from "../bridge/whipblur";
+import { subjectsAt, lensFor } from "../../guard/subjects";
+import { focusIds } from "../../guard/focus";
+import { SHOT_SPECS } from "./shots";
+import { PROPS as PROPS_FOR_FOCUS } from "./subjects";
+
 import { GradeEffect } from "../bridge/grade";
 import { Kit } from "../bridge/build";
 import { MoonWorld, loadMoonKit } from "./world";
-import { TOTAL, FPS, SHOTS, captionAt } from "./story";
+import { TOTAL, FPS, SHOTS, captionAt, getTrack } from "./story";
 import { LOOKS } from "./looks";
 
 /** QA probe (inputProps { qa: true }): which characters / key props are really visible (in frame AND not hidden
@@ -85,6 +91,7 @@ const Inner: React.FC<{ kit: Kit }> = ({ kit }) => {
     bloom: makeBloom(),
     tone: new ToneMappingEffect({ mode: ToneMappingMode.NEUTRAL }),
     grade: new GradeEffect(LOOKS.morning.grade, 1),
+    whip: new WhipBlur(),
   }), [camera, scene]);
   useEffect(() => () => fx.ink.dispose(), [fx]);
   const post = useMemo(() => (
@@ -93,6 +100,7 @@ const Inner: React.FC<{ kit: Kit }> = ({ kit }) => {
         on.ink && <primitive key="ink" object={fx.ink} dispose={null} />,
         on.lens && on.pre && <primitive key="pre" object={fx.lens.pre} dispose={null} />,
         on.lens && <primitive key="lens" object={fx.lens.main} dispose={null} />,
+        <primitive key="whip" object={fx.whip} dispose={null} />,
         on.bloom && <primitive key="bloom" object={fx.bloom} dispose={null} />,
         <primitive key="tone" object={fx.tone} dispose={null} />,
         on.grade && <primitive key="grade" object={fx.grade} dispose={null} />,
@@ -106,6 +114,15 @@ const Inner: React.FC<{ kit: Kit }> = ({ kit }) => {
   cam.getWorldDirection(fwd);
   fx.lens.focus = Math.max(0.3, c.look.clone().sub(cam.position).dot(fwd));
   fx.lens.cInf = c.dof;
+  // auto-framed: focus on the current subject's head and cap the blur so no subject is ever soft (guard/subjects.ts)
+  const tr = getTrack();
+  if (tr && world.last) {
+    const r = new THREE.Vector3().setFromMatrixColumn(cam.matrixWorld, 0), u = new THREE.Vector3().setFromMatrixColumn(cam.matrixWorld, 1);
+    const { subj } = subjectsAt(focusIds(SHOT_SPECS, tr, f / FPS), world.last, cam.position, r, u, PROPS_FOR_FOCUS, f / FPS);
+    const L = lensFor(subj, cam, c.dof);
+    if (L) { fx.lens.focus = L.focus; fx.lens.cInf = L.cInf; }
+  }
+  fx.whip.strength = (c.blur ?? 0) * 140; fx.whip.dir = c.blurDir ?? 1;
   const look = LOOKS[SHOTS[c.mix > 0.5 ? c.next : c.shot].look];
   const tag = fx.grade as unknown as { _look?: string };
   if (tag._look !== SHOTS[c.mix > 0.5 ? c.next : c.shot].look) { fx.grade.set(look.grade); tag._look = SHOTS[c.mix > 0.5 ? c.next : c.shot].look; }

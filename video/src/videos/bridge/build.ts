@@ -115,6 +115,22 @@ export class Batch {
   }
 }
 
+/** a Batch for wide backdrops: geometry is grouped by ground tile (default 200 m) so every tile is its own mesh that
+ *  the renderer can frustum-cull, and nothing in it casts shadows (it sits far away in the haze; a city-wide caster
+ *  made the shadow pass and the main pass draw the whole backdrop every frame) */
+export class TiledBatch extends Batch {
+  private tiles = new Map<string, Batch>();
+  constructor(private tile = 200) { super(); }
+  add(geo: THREE.BufferGeometry, mat: THREE.Material, m?: THREE.Matrix4) {
+    if (!geo.boundingBox) geo.computeBoundingBox();
+    const c = geo.boundingBox!.getCenter(new THREE.Vector3()); if (m) c.applyMatrix4(m);
+    const k = `${Math.floor(c.x / this.tile)},${Math.floor(c.z / this.tile)}`;
+    let b = this.tiles.get(k); if (!b) { b = new Batch(); this.tiles.set(k, b); }
+    b.add(geo, mat, m);
+  }
+  build(parent: THREE.Object3D, cast = false) { for (const b of this.tiles.values()) b.build(parent, cast); this.tiles.clear(); }
+}
+
 // ---------------- strands: box-section tube along a path, rebuilt in place ----------------
 // chain-link template (MAT pass): a stadium-shaped ring tube in link space (x along the chain, y in the ring plane,
 // z across), NS centre-line samples x NR tube sides, smooth normals (clean ink silhouettes, no facet creases)
