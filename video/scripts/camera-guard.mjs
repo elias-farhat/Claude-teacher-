@@ -81,8 +81,8 @@ const DECISIONS = `Decisions (auto-framer + camera guard, made without asking; r
   caption band too (run 25, 32.0-32.5 s: the official under the captions while the sign was the subject).
 - WHIPS: two whips with less than 0.9 s of hold between them fail (run 25, 10.0-10.5 s); such shots are merged in shots.ts.
 - STALE is now a visibly new framing every 2 s: the subject's box moves >= 6 % of the frame or changes size >= 12 %
-  (run 25 passed 47.5-52.0 s with 3.5 % / 6 % wobbles), unless the subject itself travels >= 1 m. The solver's beats
-  are that large for standing subjects (push to x0.76, drift 5-7 % aside, turn up to 13 deg), gentle under a followed one.
+  (run 25 passed 47.5-52.0 s with 3.5 % / 6 % wobbles), unless the subject itself travels >= 3 m in those 2 s. The solver's beats
+  are that large for standing subjects (push to x0.76, drift 5-7 % aside, turn up to 13 deg), gentle only under a fast followed one (> 4 m during the shot; Moon run 29: the slowly sailing ship read as static).
 - Before the full render the whole video is rendered at 270x480 (preview quality) and scripts/pixel-check.py fails
   it if one flat colour fills > 55 % of a frame, if the picture (caption band masked) barely changes for > 2 s, or if
   the subject is blurred on a held frame (SHARP: edge sharpness inside the subject's head box, from headboxes.json,

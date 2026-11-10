@@ -127,8 +127,8 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
     const mvS = sp.move ?? (i % 2 ? "drift" : "push");
     const BEAT: [number, number, number][] = mvS === "push" ? [[1.1, 0, 0], [0.9, 0.05, 0.1], [0.76, 0, 0], [0.92, -0.05, -0.14]]
       : mvS === "orbit" ? [[1, 0, -0.22], [0.82, 0.04, 0], [1, 0, 0.22], [0.8, -0.04, 0]] : [[1, -0.07, -0.14], [0.84, 0, 0], [1, 0.07, 0.14], [1.12, 0, 0]];
-    // a followed (travelling) subject already changes the picture: only gentle beats underneath
-    if (travel > 1) for (const B of BEAT) { B[0] = 1 + (B[0] - 1) * 0.35; B[1] *= 0.5; B[2] *= 0.3; }
+    // a fast followed subject already changes the picture: only gentle beats underneath (a slow one gets the full beats)
+    if (travel > 4) for (const B of BEAT) { B[0] = 1 + (B[0] - 1) * 0.35; B[1] *= 0.5; B[2] *= 0.3; }
     const beatAt = (t: number) => { const x = Math.min(nBeat, Math.max(0, ((t - tA) / Math.max(1e-3, tB - tA)) * nBeat)), b = Math.min(nBeat - 1, Math.floor(x)), e = smoother(x - b);
       const P = BEAT[b % 4], Q = BEAT[(b + 1) % 4]; return [P[0] + (Q[0] - P[0]) * e, P[1] + (Q[1] - P[1]) * e, P[2] + (Q[2] - P[2]) * e]; };
     let best: { name: string; sc: number; keys: Key[]; why: string[] } | null = null;

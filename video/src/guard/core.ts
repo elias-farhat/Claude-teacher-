@@ -216,14 +216,14 @@ export const run = (A: Adapter, geo = new Geo(A.root), frames?: number[]): Row[]
     i = j + 1;
   }
   // STALE: on held frames, the subject must not sit still on screen for more than 2 s (60 frames): within every
-  // 60-frame window of one shot its box has to move >= 6 % of the frame or change size >= 12 % (a visibly new framing), unless the subject itself travels >= 1 m (the camera follows it)
+  // 60-frame window of one shot its box has to move >= 6 % of the frame or change size >= 12 % (a visibly new framing), unless the subject itself travels >= 3 m (a fast subject the camera follows: the world streams past; a slow, distant ship does not count)
   const N = 60;
   for (let i = 0; i + N < metrics.length; i++) {
     const a = metrics[i]; if (a.flight || !a.primary) continue;
     let ok = false, same = true;
     for (let k = i + 1; k <= i + N; k++) {
       const b = metrics[k]; if (b.flight || b.shot !== a.shot || !b.primary || b.f !== a.f + (k - i)) { same = false; break; }
-      if (Math.hypot(b.primary.cx - a.primary.cx, b.primary.cy - a.primary.cy) >= 0.06 || Math.abs(b.primary.h / a.primary.h - 1) >= 0.12 || Math.hypot(b.primary.w[0] - a.primary.w[0], b.primary.w[1] - a.primary.w[1], b.primary.w[2] - a.primary.w[2]) >= 1) { ok = true; break; }
+      if (Math.hypot(b.primary.cx - a.primary.cx, b.primary.cy - a.primary.cy) >= 0.06 || Math.abs(b.primary.h / a.primary.h - 1) >= 0.12 || Math.hypot(b.primary.w[0] - a.primary.w[0], b.primary.w[1] - a.primary.w[1], b.primary.w[2] - a.primary.w[2]) >= 3) { ok = true; break; }
     }
     if (same && !ok) for (let k = i; k <= i + N; k++) if (!rows[k].fails.some((q) => q.rule === "STALE")) { rows[k].fails.push({ rule: "STALE", detail: "the subject barely moves on screen for more than 2 s", critical: true }); rows[k].score += W8.STALE; }
   }

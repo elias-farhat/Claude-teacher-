@@ -52,22 +52,12 @@ warning   21.70- 21.73 s  f651-651  SUBJECT   f:day1               too small (2 
 warning   21.73- 21.83 s  f652-654  SUBJECT   f:day1               out of frame (x 2.28..2.31, y 0.19..0.21)
 warning   21.77- 21.80 s  f653-653  SUBJECT   w:moon               out of frame (x 1.79..3.28, y 0.12..0.69)
 warning   21.77- 21.80 s  f653-653  EMPTY                          none of w:moon, f:day1 in view
-warning   23.07- 23.13 s  f692-693  SUBJECT   f:wave               out of frame (x 1.99..3.35, y -0.04..0.08)
-warning   23.13- 23.23 s  f694-696  SUBJECT   f:wave               cut off right (1.37)
-warning   23.13- 23.17 s  f694-694  SUBJECT   f:wave               too small (2 % of frame height, needs 15 %)
-warning   23.17- 23.27 s  f695-697  SUBJECT   f:day1               out of frame (x -1.78..-1.42, y 0.49..0.75)
-warning   23.37- 23.57 s  f701-706  SUBJECT   f:wave               cut off left (-0.38)
-warning   23.37- 23.57 s  f701-706  SUBJECT   f:wave               too small (9 % of frame height, needs 15 %)
-warning   23.37- 23.50 s  f701-704  SUBJECT   f:goat               out of frame (x 0.19..0.54, y 1.02..1.22)
-warning   23.50- 23.53 s  f705-705  SUBJECT   f:goat               cut off bottom (1.15)
-warning   23.50- 23.53 s  f705-705  SUBJECT   f:goat               too small (6 % of frame height, needs 15 %)
-warning   23.53- 23.57 s  f706-706  SUBJECT   f:goat               cut off top (-0.03)
-warning   23.57- 23.97 s  f707-718  SUBJECT   f:wave               out of frame (x 1.14..2.24, y -0.08..0.23)
-warning   23.70- 23.83 s  f711-714  SUBJECT   f:goat               cut off left (-0.03)
-warning   26.33- 26.37 s  f790-790  SUBJECT   f:goat               cut off right (1.11)
-warning   26.33- 26.47 s  f790-793  SUBJECT   c:bat0               out of frame (x 1.07..1.38, y -0.46..0.00)
-warning   26.37- 26.53 s  f791-795  SUBJECT   f:goat               out of frame (x 1.26..2.18, y 1.47..1.99)
-warning   26.40- 26.43 s  f792-792  EMPTY                          none of f:goat, c:bat0, ?c:bat1 in view
+warning   23.07- 23.20 s  f692-695  SUBJECT   f:goat               out of frame (x 2.13..2.71, y -0.15..0.18)
+warning   23.17- 23.27 s  f695-697  SUBJECT   f:day1               out of frame (x -1.82..-1.09, y -0.71..-0.20)
+warning   23.17- 23.20 s  f695-695  EMPTY                          none of f:day1, f:goat, ?f:wave in view
+warning   26.33- 26.47 s  f790-793  SUBJECT   c:bat0               out of frame (x 0.11..0.65, y -1.93..-0.77)
+warning   26.40- 26.53 s  f792-795  SUBJECT   f:goat               out of frame (x 2.03..3.20, y 1.85..2.51)
+warning   26.40- 26.43 s  f792-792  EMPTY                          none of f:goat, ?f:wave, c:bat0, ?c:bat1 in view
 warning   26.47- 26.50 s  f794-794  SUBJECT   c:bat0               cut off left (0.03)
 warning   29.00- 29.37 s  f870-880  SUBJECT   c:bat1               out of frame (x 1.17..1.80, y -0.04..0.69)
 warning   29.13- 29.23 s  f874-876  SUBJECT   c:bat0               cut off top (0.04)
@@ -108,12 +98,14 @@ warning   39.50- 39.53 s  f1185-1185  SUBJECT   c:herschelG          cut off rig
 warning   39.50- 39.53 s  f1185-1185  FACES     c:herschelG          head cut at the right edge
 warning   43.43- 43.57 s  f1303-1306  SUBJECT   w:ship               out of frame (x 3.52..4.95, y -0.41..0.50)
 warning   43.47- 43.50 s  f1304-1304  SUBJECT   c:herschelG          cut off left (0.03)
-warning   43.50- 43.63 s  f1305-1308  SUBJECT   c:herschelG          out of frame (x 3.72..3.84, y 0.47..0.54)
+warning   43.50- 43.53 s  f1305-1305  SUBJECT   c:herschelG          out of frame (x -0.96..-0.48, y 0.16..0.71)
 warning   43.50- 43.57 s  f1305-1306  EMPTY                          none of c:herschelG, w:ship in view
-warning   43.57- 43.63 s  f1307-1308  SUBJECT   w:ship               cut off right (0.95)
-warning   47.30- 47.37 s  f1419-1420  SUBJECT   w:ship               cut off left (-0.67)
-warning   47.30- 47.37 s  f1419-1420  SUBJECT   c:herschelB          out of frame (x 1.30..1.34, y 0.46..0.52)
-warning   47.37- 47.50 s  f1421-1424  SUBJECT   w:ship               out of frame (x 4.11..9.32, y -1.17..0.67)
+warning   43.53- 43.57 s  f1306-1306  SUBJECT   c:herschelG          behind the camera
+warning   43.57- 43.63 s  f1307-1308  SUBJECT   c:herschelG          out of frame (x 2.32..2.37, y 0.44..0.50)
+warning   43.57- 43.60 s  f1307-1307  SUBJECT   w:ship               cut off right (1.65)
+warning   47.30- 47.37 s  f1419-1420  SUBJECT   c:herschelB          out of frame (x 1.19..1.23, y 0.46..0.52)
+warning   47.33- 47.50 s  f1420-1424  SUBJECT   w:ship               out of frame (x 10.98..30.68, y -3.00..2.57)
+warning   47.33- 47.37 s  f1420-1420  EMPTY                          none of w:ship, c:herschelB in view
 warning   47.37- 47.40 s  f1421-1421  SUBJECT   c:herschelB          too small (6 % of frame height, needs 30 %)
 warning   47.40- 47.43 s  f1422-1422  SUBJECT   c:herschelB          out of frame (x 1.51..2.06, y 0.16..0.75)
 warning   47.40- 47.43 s  f1422-1422  EMPTY                          none of w:ship, c:herschelB in view

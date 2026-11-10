@@ -14,8 +14,8 @@ export const SHOT_SPECS: ShotSpec[] = [
   { t0: land(4, "built"), subjects: ["w:telescope"], size: "wide", move: "drift", note: "4 a giant telescope in South Africa" },
   { t0: land(5), subjects: ["w:moon"], size: "wide", move: "push", note: "5 through it he can see the Moon" },
   { t0: land(6), subjects: ["f:day1"], size: "insert", move: "drift", note: "6 day one: forests" },
-  { t0: land(6, "oceans"), subjects: ["f:wave"], size: "insert", move: "push", note: "6 and oceans" },
-  { t0: land(7), subjects: ["f:goat"], size: "insert", move: "drift", note: "7 blue goats with a single horn" },
+  // "oceans" and the goat in one shot (a 0.7 s overhead shot of the waves was 90 % flat blue in run 29)
+  { t0: land(6, "oceans"), subjects: ["f:goat", "?f:wave"], size: "insert", move: "drift", note: "6 and oceans / 7 blue goats with a single horn, on the shore" },
   // two shots (the pair, 1.25 m apart, is too wide for a portrait frame at full-figure size): one bat each, the other optional
   { t0: land(8), subjects: ["c:bat0", "?c:bat1"], size: "medium", move: "push", note: "8 winged people, like humans with bat wings" },
   { t0: land(8, "flying"), subjects: ["c:bat1", "?c:bat0"], size: "medium", move: "drift", note: "8 flying around and chatting (bat1 waves)" },
