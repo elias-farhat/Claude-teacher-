@@ -14,7 +14,7 @@
 // subject blocked"), while SUBJECT, OCCLUSION of one of them and FACES are warnings (the camera is travelling).
 import * as THREE from "three";
 import { Geo } from "./geo";
-import { subjectsAt, Place, FxCard, Subj, cocAt, lensFor } from "./subjects";
+import { subjectsAt, bystanderHeads, Head, Place, FxCard, Subj, cocAt, lensFor } from "./subjects";
 
 export type { Place, FxCard };
 export type Cam = { pos: THREE.Vector3; look: THREE.Vector3; fov: number; roll: number; shot: number; mix: number; dof?: number };
@@ -33,9 +33,9 @@ export type Adapter = {
   /** the lens the renderer uses at this moment (focus on the subject's head, blur capped): the guard checks it */
   lens?: (t: number, cam: THREE.PerspectiveCamera, st: { places: Place[]; fx: FxCard[] }) => { focus: number; cInf: number } | null;
 };
-export type Fail = { rule: "SUBJECT" | "OCCLUSION" | "CLIPPING" | "EMPTY" | "FACES" | "XCU" | "STALE"; subject?: string; detail: string; critical: boolean };
-export type Row = { f: number; t: number; shot: number; flight: boolean; subjects: string[]; fails: Fail[]; score: number };
-const W8 = { CLIPPING: 5, EMPTY: 4, OCCLUSION: 3, SUBJECT: 2, FACES: 1, XCU: 2, STALE: 1 } as const;
+export type Fail = { rule: "SUBJECT" | "OCCLUSION" | "CLIPPING" | "EMPTY" | "FACES" | "XCU" | "STALE" | "WHIPS"; subject?: string; detail: string; critical: boolean };
+export type Row = { f: number; t: number; shot: number; flight: boolean; subjects: string[]; fails: Fail[]; score: number; box?: [number, number, number, number] | null };
+const W8 = { CLIPPING: 5, EMPTY: 4, OCCLUSION: 3, SUBJECT: 2, FACES: 1, XCU: 2, STALE: 1, WHIPS: 2 } as const;
 
 /** a card (another character or a label / effect card) that can cover a face: a quad facing the camera unless it
  *  has a fixed yaw or lies flat; its extents are shrunk to 80 % for the transparent margin of the drawing */
@@ -63,21 +63,26 @@ const hitsCard = (P: THREE.Vector3, d: THREE.Vector3, L: number, q: CardQ) => {
  *  geometry or another card). occRun carries occlusion run lengths between consecutive frames (fresh Map for a single
  *  pose). Optional subjects only count as "in view". Returns the frame's largest head height (XCU) and the first
  *  required subject's screen box (STALE). */
-export const checkSubjects = (cam: THREE.PerspectiveCamera, subj: Subj[], geo: Geo, occRun = new Map<string, number>(), extra: { cards?: CardQ[]; lens?: { focus: number; cInf: number } | null } = {}) => {
+export const checkSubjects = (cam: THREE.PerspectiveCamera, subj: Subj[], geo: Geo, occRun = new Map<string, number>(), extra: { cards?: CardQ[]; lens?: { focus: number; cInf: number } | null; by?: Head[] } = {}) => {
   const fwd = new THREE.Vector3(); cam.getWorldDirection(fwd);
   const right = new THREE.Vector3().setFromMatrixColumn(cam.matrixWorld, 0); right.y = 0; if (right.lengthSq() < 1e-8) right.set(1, 0, 0); right.normalize();
   const toScreen = (p: THREE.Vector3) => { const v = p.clone().project(cam); const behind = p.clone().sub(cam.position).dot(fwd) <= 0.05; return { x: (v.x + 1) / 2, y: (1 - v.y) / 2, behind }; };
   const fails: Omit<Fail, "critical">[] = [];
   const addS = (s: Subj, q: Omit<Fail, "critical">) => { if (!s.opt) fails.push(q); };
   let anyInView = false, headMax = 0; const blk: Record<string, number> = {};
-  let primary: { cx: number; cy: number; h: number } | null = null;
+  let primary: { cx: number; cy: number; h: number; w: [number, number, number] } | null = null;
+  // the box the SHARPNESS pixel check measures: the first required subject's (nearest) head, or the prop's own box
+  let focusBox: [number, number, number, number] | null = null; let focusSet = false;
+  const clampBox = (x0: number, y0: number, x1: number, y1: number): [number, number, number, number] | null => {
+    const a = Math.max(0, x0), b = Math.max(0, y0), c = Math.min(1, x1), d = Math.min(1, y1); return c - a > 0.02 && d - b > 0.02 ? [+a.toFixed(4), +b.toFixed(4), +c.toFixed(4), +d.toFixed(4)] : null; };
   for (const s of subj) {
     const sp = s.pts.map(toScreen);
     if (sp.every((q) => q.behind)) { addS(s, { rule: "SUBJECT", subject: s.id, detail: "behind the camera" }); occRun.set(s.id, 0); continue; }
     const front = sp.filter((q) => !q.behind), straddle = front.length < sp.length;
     const x0 = Math.min(...front.map((q) => q.x)), x1 = Math.max(...front.map((q) => q.x)), y0 = Math.min(...front.map((q) => q.y)), y1 = Math.max(...front.map((q) => q.y));
     if (!(x1 > 0 && x0 < 1 && y1 > 0 && y0 < 1)) { addS(s, { rule: "SUBJECT", subject: s.id, detail: `out of frame (x ${x0.toFixed(2)}..${x1.toFixed(2)}, y ${y0.toFixed(2)}..${y1.toFixed(2)})` }); occRun.set(s.id, 0); continue; }
-    if (!s.opt && !primary) primary = { cx: (x0 + x1) / 2, cy: (y0 + y1) / 2, h: y1 - y0 };
+    if (!s.opt && !primary) primary = { cx: (x0 + x1) / 2, cy: (y0 + y1) / 2, h: y1 - y0, w: [s.centre.x, s.centre.y, s.centre.z] };
+    if (!s.opt && !focusSet && s.kind === "prop") { focusSet = true; focusBox = clampBox(x0, y0, x1, y1); }
     const visH = Math.min(1, y1) - Math.max(0, y0);
     const fills = s.kind === "prop" && y1 - y0 > 0.9 && x1 - x0 > 0.9;
     let cut = "";
@@ -118,6 +123,7 @@ export const checkSubjects = (cam: THREE.PerspectiveCamera, subj: Subj[], geo: G
       const who = s.id + (s.heads!.length > 1 ? `(${hd.key.split("|")[0]})` : "");
       headMax = Math.max(headMax, hy1 - hy0);
       const hc = toScreen(hd.c);
+      if (!focusSet) { focusSet = true; focusBox = clampBox(hx0, hy0, hx1, hy1); }
       if (cs.some((q) => q.behind) || hx0 < 0 || hx1 > 1 || hy0 < 0 || hy1 > 1) fails.push({ rule: "FACES", subject: who, detail: `head cut at the ${hx0 < 0 ? "left" : hx1 > 1 ? "right" : hy0 < 0 ? "top" : "bottom"} edge` });
       if (hc.y > 0.55) fails.push({ rule: "FACES", subject: who, detail: `head centre at ${Math.round(hc.y * 100)} % of the frame height` });
       else if (hy1 > 0.62 && hy0 < 0.8) fails.push({ rule: "FACES", subject: who, detail: `head in the caption band (${Math.round(hy0 * 100)}-${Math.round(hy1 * 100)} %)` });
@@ -133,7 +139,22 @@ export const checkSubjects = (cam: THREE.PerspectiveCamera, subj: Subj[], geo: G
       if (extra.lens) { const cc = cocAt(hd.c, cam, extra.lens.focus, extra.lens.cInf); if (cc > 1.5) fails.push({ rule: "SUBJECT", subject: who, detail: `blurred (circle of confusion ${cc.toFixed(1)} px)` }); }
     }
   }
-  return { fails, anyInView, blocked: blk, headMax, primary };
+  // bystanders: a named character who is not a declared subject but whose head is big in the picture (>= 6 % of
+  // the frame height) and not hidden must keep its face above the captions as well
+  for (const hd of extra.by ?? []) {
+    const corners = [hd.y0, hd.y1].flatMap((y) => [-1, 1].map((k) => hd.c.clone().setY(y).addScaledVector(right, k * hd.hw)));
+    const cs = corners.map(toScreen); if (cs.some((q) => q.behind)) continue;
+    const hx0 = Math.min(...cs.map((q) => q.x)), hx1 = Math.max(...cs.map((q) => q.x)), hy0 = Math.min(...cs.map((q) => q.y)), hy1 = Math.max(...cs.map((q) => q.y));
+    // at least half of the head box is in the picture
+    const vis = Math.max(0, Math.min(1, hx1) - Math.max(0, hx0)) * Math.max(0, Math.min(1, hy1) - Math.max(0, hy0)) / Math.max(1e-6, (hx1 - hx0) * (hy1 - hy0));
+    if (vis < 0.5 || hy1 - hy0 < 0.06) continue;
+    const hc = toScreen(hd.c);
+    if (!(hc.y > 0.55 || (hy1 > 0.62 && hy0 < 0.8))) continue;
+    const dv = hd.c.clone().sub(cam.position), L = dv.length(); dv.normalize();
+    if (geo.cast(cam.position, dv, Math.max(0.05, L - 0.1))) continue;
+    fails.push({ rule: "FACES", subject: "bystander " + hd.key.split("|").filter((x) => x !== "up")[0], detail: hc.y > 0.55 ? `bystander's head centre at ${Math.round(hc.y * 100)} % of the frame height` : `bystander's head in the caption band (${Math.round(hy0 * 100)}-${Math.round(hy1 * 100)} %)` });
+  }
+  return { fails, anyInView, blocked: blk, headMax, primary, focusBox };
 };
 
 export const run = (A: Adapter, geo = new Geo(A.root), frames?: number[]): Row[] => {
@@ -142,7 +163,7 @@ export const run = (A: Adapter, geo = new Geo(A.root), frames?: number[]): Row[]
   const toScreen = (p: THREE.Vector3) => { const v = p.clone().project(cam); const behind = p.clone().sub(cam.position).dot(fwd) <= 0.05; return { x: (v.x + 1) / 2, y: (1 - v.y) / 2, behind }; };
   const rows: Row[] = [];
   const occRun = new Map<string, number>();
-  const metrics: { f: number; flight: boolean; shot: number; headMax: number; primary: { cx: number; cy: number; h: number } | null }[] = [];
+  const metrics: { f: number; flight: boolean; whip: boolean; shot: number; headMax: number; primary: { cx: number; cy: number; h: number; w: [number, number, number] } | null }[] = [];
   const list = frames ?? Array.from({ length: A.total }, (_, f) => f);
   for (const f of list) {
     const t = f / A.fps, c = A.camAt(t);
@@ -161,8 +182,8 @@ export const run = (A: Adapter, geo = new Geo(A.root), frames?: number[]): Row[]
     if ((globalThis as unknown as { GUARD_DBG_OCC?: boolean }).GUARD_DBG_OCC) console.log("[subj]", f, ids.join(","), "found", subj.map((q) => q.id + "@" + q.centre.toArray().map((x) => +x.toFixed(1))).join(" "), "fx", st.fx.map((q) => q.key.split("|")[0]).filter((k) => !k.startsWith("bg")).join(","));
     for (const id of missing) add({ rule: "SUBJECT", subject: id, detail: "not on stage" });
     const lens = A.lens ? A.lens(t, cam, st) : null;
-    const chk = checkSubjects(cam, subj, geo, occRun, { cards: cardsOf(st), lens });
-    metrics.push({ f, flight: flight || whip, shot: mo.shot, headMax: chk.headMax, primary: chk.primary });
+    const chk = checkSubjects(cam, subj, geo, occRun, { cards: cardsOf(st), lens, by: flight ? undefined : bystanderHeads(ids, st) });
+    metrics.push({ f, flight: flight || whip, whip, shot: mo.shot, headMax: chk.headMax, primary: chk.primary });
     for (const q of chk.fails) add(q);
     const anyInView = chk.anyInView;
     if (!ids.length) add({ rule: "EMPTY", detail: "no subject declared for this moment" });
@@ -178,7 +199,7 @@ export const run = (A: Adapter, geo = new Geo(A.root), frames?: number[]): Row[]
     if (near < 0.4) add({ rule: "CLIPPING", detail: `geometry ${near.toFixed(2)} m from the lens` });
     if (geo.inside(cam.position)) add({ rule: "CLIPPING", detail: "camera inside a solid" });
     const score = fails.reduce((a, q) => a + W8[q.rule] * (q.critical ? 1 : 0.2), 0);
-    rows.push({ f, t: +t.toFixed(3), shot: mo.shot, flight, subjects: ids, fails, score });
+    rows.push({ f, t: +t.toFixed(3), shot: mo.shot, flight: flight || whip, subjects: ids, fails, score, box: chk.focusBox });
   }
   // occlusion needs > 3 consecutive frames: the first 3 frames of every qualifying run fail too
   for (let i = 0; i < rows.length; i++) for (const q of rows[i].fails) if (q.rule === "OCCLUSION" && q.detail.endsWith(" 4 frames")) {
@@ -195,16 +216,25 @@ export const run = (A: Adapter, geo = new Geo(A.root), frames?: number[]): Row[]
     i = j + 1;
   }
   // STALE: on held frames, the subject must not sit still on screen for more than 2 s (60 frames): within every
-  // 60-frame window of one shot its box has to move >= 3.5 % of the frame or change size >= 6 %
+  // 60-frame window of one shot its box has to move >= 6 % of the frame or change size >= 12 % (a visibly new framing), unless the subject itself travels >= 1 m (the camera follows it)
   const N = 60;
   for (let i = 0; i + N < metrics.length; i++) {
     const a = metrics[i]; if (a.flight || !a.primary) continue;
     let ok = false, same = true;
     for (let k = i + 1; k <= i + N; k++) {
       const b = metrics[k]; if (b.flight || b.shot !== a.shot || !b.primary || b.f !== a.f + (k - i)) { same = false; break; }
-      if (Math.hypot(b.primary.cx - a.primary.cx, b.primary.cy - a.primary.cy) >= 0.035 || Math.abs(b.primary.h / a.primary.h - 1) >= 0.06) { ok = true; break; }
+      if (Math.hypot(b.primary.cx - a.primary.cx, b.primary.cy - a.primary.cy) >= 0.06 || Math.abs(b.primary.h / a.primary.h - 1) >= 0.12 || Math.hypot(b.primary.w[0] - a.primary.w[0], b.primary.w[1] - a.primary.w[1], b.primary.w[2] - a.primary.w[2]) >= 1) { ok = true; break; }
     }
     if (same && !ok) for (let k = i; k <= i + N; k++) if (!rows[k].fails.some((q) => q.rule === "STALE")) { rows[k].fails.push({ rule: "STALE", detail: "the subject barely moves on screen for more than 2 s", critical: true }); rows[k].score += W8.STALE; }
   }
+  // WHIPS: two whips less than 0.9 s apart read as one confused double whip: the hold between them fails
+  { let lastEnd = -1e9, i = 0;
+    while (i < metrics.length) {
+      if (!metrics[i].whip) { i++; continue; }
+      let j = i; while (j + 1 < metrics.length && metrics[j + 1].whip && metrics[j + 1].f === metrics[j].f + 1) j++;
+      if (lastEnd >= 0 && metrics[i].f - metrics[lastEnd].f < 27 && metrics[i].f - metrics[lastEnd].f > 1)
+        for (let k = lastEnd + 1; k < i; k++) { rows[k].fails.push({ rule: "WHIPS", detail: `two whips ${((metrics[i].f - metrics[lastEnd].f) / 30).toFixed(1)} s apart`, critical: true }); rows[k].score += W8.WHIPS; }
+      lastEnd = j; i = j + 1;
+    } }
   return rows;
 };

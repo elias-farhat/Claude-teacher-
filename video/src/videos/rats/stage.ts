@@ -123,8 +123,9 @@ const tunnel = (t: number, s: Stage, cam: THREE.Camera) => {
   // under the NEW SEWERS plaque, the first rats move in and look round their new home (then race off on line 4)
   if (between(t, wt(3, "brand-new") - 0.3, wt(4, "rats") - 0.4))
     for (let i = 0; i < 3; i++) s.fx.push(card(`plaqueRat${i}`, 600, 600, ratHero(i === 1 ? "smug" : "look", 0, blinkAt(t, 50 + i)), [-7.0 + i * 0.85, -6.86 + 0.38, 1.55 + (i % 2) * 0.35], 0.75, 0.75));
-  if (!between(t, wt(4, "rats") - 0.9, wt(5))) return;
-  for (let i = 0; i < 14; i++) { const p = convoy(t, i), v = convoy(t + 0.05, i).sub(p); if (v.lengthSq() < 1e-6 || p.y > 0.4) continue; runner(s, `convoy${i}`, p, v, cam, t, true, 0.95); }
+  // the convoy waits in line from "sewer" (rats that have not started yet stand still, facing down the tunnel)
+  if (!between(t, wt(3, "sewer") - 0.5, wt(5))) return;
+  for (let i = 0; i < 14; i++) { const p = convoy(t, i), v = convoy(t + 0.05, i).sub(p), still = v.lengthSq() < 1e-6; if (p.y > 0.4) continue; runner(s, `convoy${i}`, p, still ? V(1, 0, 0) : v, cam, still ? 0 : t, true, 0.95); }
 };
 const bath = (t: number, s: Stage) => {
   if (!between(t, wt(4, "straight"), wt(5, "kitchen"))) return;

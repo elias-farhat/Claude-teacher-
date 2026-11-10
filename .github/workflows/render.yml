@@ -240,7 +240,7 @@ jobs:
           v=$(case "${{ inputs.composition }}" in RatShort) echo rats;; MoonShort) echo moon;; esac)
           ls out/proxy/*.mp4 | sort -t- -k2 -n | sed "s|^out/proxy/|file '|; s|$|'|" > out/proxy/list.txt
           ffmpeg -v error -y -f concat -safe 0 -i out/proxy/list.txt -c copy out/proxy.mp4
-          set +e; python scripts/pixel-check.py out/proxy.mp4 ../qa/$v ../qa/$v/camera_report.json src/videos/$v/camtrack.json; rc=$?; set -e
+          set +e; python scripts/pixel-check.py out/proxy.mp4 ../qa/$v ../qa/$v/camera_report.json src/videos/$v/camtrack.json ../qa/$v/headboxes.json; rc=$?; set -e
           cat ../qa/$v/pixel_report.txt >> "$GITHUB_STEP_SUMMARY"
           cp out/proxy.mp4 ../qa/$v/proxy.mp4
           exit $rc
@@ -439,7 +439,7 @@ jobs:
           inst() { timeout 240 sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=20 update -qq && timeout 240 sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=20 install -y -qq --no-install-recommends ffmpeg; }
           # the runner's Azure apt mirror stalled in runs 12 and 14: fall back to Ubuntu's main archive
           other() { sudo sed -i 's|http://azure.archive.ubuntu.com|http://archive.ubuntu.com|g' /etc/apt/sources.list /etc/apt/sources.list.d/*.sources 2>/dev/null || true; inst; }
-          command -v ffmpeg >/dev/null || inst || other
+          command -v ffmpeg >/dev/null || inst || other || inst || other   # run 25: both mirrors stalled once
           ffmpeg -hide_banner -version | head -1
           timeout 300 pip install -q numpy pillow
           echo "STARTED_AT=$(gh api repos/${{ github.repository }}/actions/runs/${{ github.run_id }} --jq .run_started_at)" >> "$GITHUB_ENV"

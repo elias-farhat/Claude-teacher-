@@ -9,6 +9,7 @@
 //   frames (longer only to keep <= 6 m/frame) along the first of: straight line, the hand camera's own route
 //   (through doors, windows, grates), an arc over the top; each smoothed and checked against the geometry.
 import * as THREE from "three";
+import { bystanderHeads } from "./subjects";
 import { Geo } from "./geo";
 import { subjectsAt, Place, FxCard } from "./subjects";
 import { checkSubjects } from "./core";
@@ -94,7 +95,7 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
     if (walled / 45 >= 0.65) { sc += 60 * (walled / 45 - 0.6) + 20; why.push(`walled ${Math.round((walled / 45) * 100)} %`); }
     // the guard's own subject rules on this pose (billboards turned to this camera), so the solver and the guard agree
     const t = pose.t, subs2 = subjAt(pose.sp, t, pos);
-    const chk = checkSubjects(cam, subs2, geo);
+    const chk = checkSubjects(cam, subs2, geo, undefined, { by: bystanderHeads(pose.sp.subjects, I.stage(t, pos)) });
     for (const q of chk.fails) { sc += q.rule === "FACES" ? 25 : q.rule === "OCCLUSION" ? 0 : 40; why.push(q.detail.replace(/ \(.*$/, "")); }
     for (const s2 of subs2) if (!s2.opt) { const b = chk.blocked[s2.id] ?? 0; if (b) { sc += 22 * b; why.push(`${b}/5 blocked`); } }
     if (!chk.anyInView) { sc += 200; why.push("nothing in view"); }
@@ -122,8 +123,10 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
     const times: number[] = travel > 1.0 ? Array.from({ length: nK }, (_, k) => tA + ((tB - tA) * k) / (nK - 1)) : beatT;
     // beat b: distance scale and the subject's horizontal place on screen (push in / drift aside / pull back / drift back)
     const mvS = sp.move ?? (i % 2 ? "drift" : "push");
-    const BEAT: [number, number, number][] = mvS === "push" ? [[1.06, 0, 0], [0.97, 0.04, 0], [0.9, 0, 0], [0.97, -0.04, 0]]
-      : mvS === "orbit" ? [[1, 0, -0.1], [1, 0.03, 0], [1, 0, 0.1], [0.94, -0.03, 0]] : [[1, -0.05, 0], [0.94, 0, 0], [1, 0.05, 0], [1.06, 0, 0]];
+    const BEAT: [number, number, number][] = mvS === "push" ? [[1.1, 0, 0], [0.9, 0.05, 0.1], [0.76, 0, 0], [0.92, -0.05, -0.14]]
+      : mvS === "orbit" ? [[1, 0, -0.22], [0.88, 0.04, 0], [1, 0, 0.22], [0.86, -0.04, 0]] : [[1, -0.07, -0.14], [0.84, 0, 0], [1, 0.07, 0.14], [1.12, 0, 0]];
+    // a followed (travelling) subject already changes the picture: only gentle beats underneath
+    if (travel > 1) for (const B of BEAT) { B[0] = 1 + (B[0] - 1) * 0.35; B[1] *= 0.5; B[2] *= 0.3; }
     const beatAt = (t: number) => { const x = Math.min(nBeat, Math.max(0, ((t - tA) / Math.max(1e-3, tB - tA)) * nBeat)), b = Math.min(nBeat - 1, Math.floor(x)), e = smoother(x - b);
       const P = BEAT[b % 4], Q = BEAT[(b + 1) % 4]; return [P[0] + (Q[0] - P[0]) * e, P[1] + (Q[1] - P[1]) * e, P[2] + (Q[2] - P[2]) * e]; };
     let best: { name: string; sc: number; keys: Key[]; why: string[] } | null = null;

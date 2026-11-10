@@ -48,9 +48,11 @@ for (const r of rows) {
 for (const g of ranges) { g.detail = g.dets[Math.floor(g.dets.length / 2)]; delete g.dets; g.t0 = +(g.from / 30).toFixed(2); g.t1 = +((g.to + 1) / 30).toFixed(2); }
 const critRows = rows.filter((r) => r.fails.some((q) => q.critical)), crit = ranges.filter((g) => g.critical), warn = ranges.filter((g) => !g.critical);
 const report = { video, frames: rows.length, pass: critRows.length === 0, criticalFrames: critRows.length, warningFrames: rows.filter((r) => r.fails.length).length - critRows.length,
-  seconds: (Date.now() - t0) / 1000, history, rules: ["SUBJECT", "OCCLUSION", "CLIPPING", "EMPTY", "FACES", "XCU", "STALE"].map((k) => ({ rule: k, critical: rows.filter((r) => r.fails.some((q) => q.rule === k && q.critical)).length, warning: rows.filter((r) => r.fails.some((q) => q.rule === k && !q.critical)).length })),
+  seconds: (Date.now() - t0) / 1000, history, rules: ["SUBJECT", "OCCLUSION", "CLIPPING", "EMPTY", "FACES", "XCU", "STALE", "WHIPS"].map((k) => ({ rule: k, critical: rows.filter((r) => r.fails.some((q) => q.rule === k && q.critical)).length, warning: rows.filter((r) => r.fails.some((q) => q.rule === k && !q.critical)).length })),
   ranges: ranges.map(({ worstScore, ...g }) => g), frames_failing: rows.filter((r) => r.fails.length) };
 fs.writeFileSync(path.join(qa, "camera_report.json"), JSON.stringify(report, null, 1));
+// per frame: the current subject's head box (prop: its box) on screen + held flag, for the proxy SHARPNESS check
+fs.writeFileSync(path.join(qa, "headboxes.json"), JSON.stringify(rows.map((r) => (r.box ? [...r.box, r.flight ? 0 : 1] : null))) + "\n");
 const line = (g) => `${g.t0.toFixed(2).padStart(6)}-${g.t1.toFixed(2).padStart(6)} s  f${g.from}-${g.to}  ${g.rule.padEnd(9)} ${(g.subject ?? "").padEnd(20)} ${g.detail}`;
 fs.writeFileSync(path.join(qa, "camera_report.txt"), ranges.map((g) => (g.critical ? "CRITICAL " : "warning  ") + line(g)).join("\n") + "\n");
 
@@ -73,9 +75,18 @@ const DECISIONS = `Decisions (auto-framer + camera guard, made without asking; r
   are reported as flashes.
 - STALE: on held frames the subject must not sit still on screen for more than 2 s (within every 60 frames of a shot
   its box moves >= 3.5 % of the frame or changes size >= 6 %). The solver gives every hold a new move every ~1.2 s:
-  push in / drift aside / pull back / drift back (or a small orbit), also under subjects that the camera follows.
+  push in / drift aside / pull back / drift back (or an orbit).
+- Bystanders: a named character who is not a declared subject but whose head is big in the picture (>= 6 % of the
+  frame height, at least half of it in frame, not hidden) must keep its head centre in the upper 55 % and out of the
+  caption band too (run 25, 32.0-32.5 s: the official under the captions while the sign was the subject).
+- WHIPS: two whips with less than 0.9 s of hold between them fail (run 25, 10.0-10.5 s); such shots are merged in shots.ts.
+- STALE is now a visibly new framing every 2 s: the subject's box moves >= 6 % of the frame or changes size >= 12 %
+  (run 25 passed 47.5-52.0 s with 3.5 % / 6 % wobbles), unless the subject itself travels >= 1 m. The solver's beats
+  are that large for standing subjects (push to x0.76, drift 5-7 % aside, turn up to 13 deg), gentle under a followed one.
 - Before the full render the whole video is rendered at 270x480 (preview quality) and scripts/pixel-check.py fails
-  it if one flat colour fills > 55 % of a frame or if the picture (caption band masked) barely changes for > 2 s.
+  it if one flat colour fills > 55 % of a frame, if the picture (caption band masked) barely changes for > 2 s, or if
+  the subject is blurred on a held frame (SHARP: edge sharpness inside the subject's head box, from headboxes.json,
+  under 70 % of the video median for 3+ frames; see pixel-check.py for why it is contrast-normalised).
 - Subject boxes: characters are their full card figure (feet to hat, 0.62 m wide; seated: legs to head), so "close" =
   the full figure at 75 % of the frame height, never a face close-up. Groups ("c:/re/") are one union box. Subjects
   marked "?" are optional: they count for EMPTY but are not framed or size-checked.
@@ -104,7 +115,7 @@ for (const g of crit) console.log("  " + line(g));
 
 // ---- contact sheet of the worst frames ----
 if (sheet) {
-  const w = { CLIPPING: 5, EMPTY: 4, OCCLUSION: 3, SUBJECT: 2, FACES: 1, XCU: 3, STALE: 2 };
+  const w = { CLIPPING: 5, EMPTY: 4, OCCLUSION: 3, SUBJECT: 2, FACES: 1, XCU: 3, STALE: 2, WHIPS: 2 };
   const pool = crit.length ? crit : warn.length ? warn : [];
   const pick = [...pool].sort((a, b) => (w[b.rule] * Math.sqrt(b.to - b.from + 1)) - (w[a.rule] * Math.sqrt(a.to - a.from + 1)));
   const frames = []; for (const g of pick) { const f = Math.round((g.from + g.to) / 2); if (!frames.some((x) => Math.abs(x - f) < 8)) frames.push(f); if (frames.length === 16) break; }

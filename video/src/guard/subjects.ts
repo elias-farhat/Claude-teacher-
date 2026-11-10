@@ -63,6 +63,19 @@ export const subjectsAt = (ids: string[], st: { places: Place[]; fx: FxCard[] },
   }
   return { subj: out, missing: missingAll };
 };
+/** heads of the named characters on stage that are NOT among the declared subjects (background life "bg..." excluded):
+ *  the guard keeps their faces out of the caption band too when they are big in the picture */
+export const bystanderHeads = (ids: string[], st: { places: Place[] }): Head[] => {
+  const pats = ids.map((i) => (i.startsWith("?") ? i.slice(1) : i)).filter((i) => i.startsWith("c:")).map((i) => i.slice(2));
+  const isSubj = (n: string) => pats.some((s) => (s.startsWith("/") ? new RegExp(s.slice(1, -1)).test(n) : s === n));
+  const out: Head[] = [];
+  for (const p of st.places) {
+    const n = nameOf(p.key); if (n.startsWith("bg") || isSubj(n)) continue;
+    const sc = p.scale ?? 1, sit = modeOf(p.key) === "sit", hc = p.y + (sit ? 0.86 : 1.44) * sc;
+    out.push({ key: p.key, c: new THREE.Vector3(p.x, hc, p.z), hw: 0.26 * sc, y0: hc - 0.25 * sc, y1: hc + 0.32 * sc });
+  }
+  return out;
+};
 const finish = (s: Omit<Subj, "centre" | "height" | "width">): Subj => {
   const b = new THREE.Box3().setFromPoints(s.pts), c = b.getCenter(new THREE.Vector3()), sz = b.getSize(new THREE.Vector3());
   return { ...s, centre: c, height: Math.max(0.05, sz.y), width: Math.max(0.05, Math.hypot(sz.x, sz.z)) };
