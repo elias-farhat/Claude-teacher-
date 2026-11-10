@@ -8,7 +8,7 @@ export const SHOT_SPECS: ShotSpec[] = [
   { t0: land(1, "told"), subjects: ["c:newsboy"], size: "wide", move: "drift", note: "1 told New York (the street)" },
   { t0: land(1, "believed"), subjects: ["c:/^reader\\d$/"], size: "wide", move: "push", note: "1 New York believed it" },
   { t0: land(2, "called"), subjects: ["c:editor"], size: "medium", move: "drift", note: "2 The Sun ... needs readers" },
-  { t0: land(2, "costs"), subjects: ["c:editor", "f:chart0"], size: "medium", move: "push", note: "2 the empty sales chart" },
+  { t0: land(2, "costs"), subjects: ["c:editor", "f:chart0"], size: "medium", angle: "right", move: "push", note: "2 the empty sales chart (from the right, so Locke at his desk in front stays out of the frame)" },
   { t0: land(3), subjects: ["c:locke"], size: "medium", move: "drift", note: "3 Richard Locke writes a story" },
   { t0: land(4), subjects: ["c:herschelT"], size: "medium", move: "push", note: "4 the astronomer Sir John Herschel" },
   { t0: land(4, "built"), subjects: ["w:telescope"], size: "wide", move: "drift", note: "4 a giant telescope in South Africa" },
@@ -16,7 +16,9 @@ export const SHOT_SPECS: ShotSpec[] = [
   { t0: land(6), subjects: ["f:day1"], size: "insert", move: "drift", note: "6 day one: forests" },
   { t0: land(6, "oceans"), subjects: ["f:wave"], size: "insert", move: "push", note: "6 and oceans" },
   { t0: land(7), subjects: ["f:goat"], size: "insert", move: "drift", note: "7 blue goats with a single horn" },
-  { t0: land(8), subjects: ["c:/^bat\\d$/"], size: "medium", move: "push", note: "8 winged people, chatting" },
+  // two shots (the pair, 1.25 m apart, is too wide for a portrait frame at full-figure size): one bat each, the other optional
+  { t0: land(8), subjects: ["c:bat0", "?c:bat1"], size: "medium", move: "push", note: "8 winged people, like humans with bat wings" },
+  { t0: land(8, "flying"), subjects: ["c:bat1", "?c:bat0"], size: "medium", move: "drift", note: "8 flying around and chatting (bat1 waves)" },
   { t0: land(9), subjects: ["c:/^town\\d$/", "?c:fainter"], size: "wide", move: "drift", note: "9 the whole city is talking" },
   { t0: land(10), subjects: ["c:/^pierBoy\\d$/", "?f:bird"], size: "wide", move: "push", note: "10 other papers copy it, across Europe" },
   { t0: land(11), subjects: ["f:portrait"], size: "insert", move: "push", note: "11 didn't anyone just ask Herschel?" },
@@ -28,5 +30,5 @@ export const SHOT_SPECS: ShotSpec[] = [
   { t0: land(16), subjects: ["c:cust0", "?c:/^cust\\d$/"], size: "medium", move: "drift", note: "16 the paper everyone has heard of" },
   { t0: land(17), subjects: ["c:herschelL"], size: "medium", move: "push", note: "17 letters in four languages" },
   { t0: land(18), subjects: ["c:lockeS"], size: "medium", move: "drift", note: "18 and Locke?" },
-  { t0: land(18, "signing"), subjects: ["f:sig"], size: "insert", move: "push", note: "18 author of the Moon hoax" },
+  { t0: land(18, "signing"), subjects: ["f:sig", "?c:lockeS"], size: "close", angle: "high", move: "drift", note: "18 author of the Moon hoax (the page from above, Locke's signing hand in it)" },
 ];
