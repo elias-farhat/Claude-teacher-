@@ -29,7 +29,7 @@ export const SHOT_SPECS: ShotSpec[] = [
   { t0: land(14), subjects: ["c:officialR", "?f:march"], size: "wide", move: "drift", note: "14 then another, and another" },
   { t0: land(15), subjects: ["c:officialB", "?f:tailOne"], size: "medium", move: "push", note: "15 a dead rat pays you once" },
   { t0: land(16), subjects: ["f:mom"], size: "insert", move: "push", note: "16 a live rat (push in on the mother)" },
-  { t0: land(16, "babies"), subjects: ["f:mom", "?f:baby"], size: "wide", move: "orbit", note: "16 keeps having babies (wider: the ring of babies, 2 m across, fits the portrait frame at the mother's feet)" },
+  { t0: land(16, "babies"), subjects: ["f:mom", "?f:baby"], size: "wide", move: "push", note: "16 keeps having babies (wider: the ring of babies, 2 m across, fits the portrait frame at the mother's feet)" },
   { t0: land(17), subjects: ["c:farmerH"], size: "medium", move: "push", note: "17 paid for every egg" },
   { t0: land(17, "killing"), subjects: ["c:farmerH", "c:officialH"], size: "medium", move: "drift", note: "17 and then killing the chicken" },
   { t0: lineEnd(17), subjects: ["c:farmerWalk"], size: "medium", move: "push", note: "18 farms outside the city" },
