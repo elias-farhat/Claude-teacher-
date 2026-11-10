@@ -43,16 +43,18 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
   const { geo, specs } = I, END = I.total / I.fps;
   const cam = new THREE.PerspectiveCamera(40, ASPECT, 0.05, 6000);
   const shots: TShot[] = [];
-  const subjAt = (sp: ShotSpec, t: number, eye: THREE.Vector3) => {
+  // fdir = horizontal direction from the look point to the camera (billboards face the camera that is being tried,
+  // not the hand camera, whose look point can be elsewhere at this moment)
+  const subjAt = (sp: ShotSpec, t: number, eye: THREE.Vector3, fdir?: THREE.Vector3) => {
     I.setTime?.(t); if (I.setTime) geo.refresh();
-    const st = I.stage(t, eye), f = eye.clone().sub(I.hand(t).look).setY(0).normalize();
+    const st = I.stage(t, eye), f = (fdir ? fdir.clone() : eye.clone().sub(I.hand(t).look)).setY(0).normalize();
     const right = new THREE.Vector3(-f.z, 0, f.x), up = new THREE.Vector3(0, 1, 0);
     return subjectsAt(sp.subjects, st, eye, right, up, I.props, t).subj;
   };
   /** frame the union box from direction (az, el) at distance scale k: camera pose fitted on screen (subject height =
    *  the size's fraction, width <= 86 %, top edge lifted toward the upper part of the frame so the head sits high) */
   const compose = (sp: ShotSpec, t: number, az: number, el: number, k: number, wMax = 0.74, sx = 0) => {
-    const eye0 = I.hand(t).pos, subs = subjAt(sp, t, eye0);
+    const eye0 = I.hand(t).pos, subs = subjAt(sp, t, eye0, new THREE.Vector3(Math.cos(az), 0, Math.sin(az)));
     if (!subs.length) return null;
     const req = subs.filter((s) => !s.opt).length ? subs.filter((s) => !s.opt) : subs;
     const box = new THREE.Box3(); for (const s of req) for (const p of s.pts) box.expandByPoint(p);
@@ -94,7 +96,7 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
     // drift must not tip over it
     if (walled / 45 >= 0.65) { sc += 60 * (walled / 45 - 0.6) + 20; why.push(`walled ${Math.round((walled / 45) * 100)} %`); }
     // the guard's own subject rules on this pose (billboards turned to this camera), so the solver and the guard agree
-    const t = pose.t, subs2 = subjAt(pose.sp, t, pos);
+    const t = pose.t, subs2 = subjAt(pose.sp, t, pos, pos.clone().sub(look));
     const chk = checkSubjects(cam, subs2, geo, undefined, { by: bystanderHeads(pose.sp.subjects, I.stage(t, pos)) });
     for (const q of chk.fails) { sc += q.rule === "FACES" ? 25 : q.rule === "OCCLUSION" ? 0 : 40; why.push(q.detail.replace(/ \(.*$/, "")); }
     for (const s2 of subs2) if (!s2.opt) { const b = chk.blocked[s2.id] ?? 0; if (b) { sc += 22 * b; why.push(`${b}/5 blocked`); } }
