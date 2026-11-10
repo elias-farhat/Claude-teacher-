@@ -1,9 +1,10 @@
 """Pixel check on a cheap proxy render (CLAUDE.md rule 13, after the math-only camera guard, before the full render).
-usage: python pixel-check.py <proxy.mp4> <out_dir> [camera_report.json]
+usage: python pixel-check.py <proxy.mp4> <out_dir> [camera_report.json] [camtrack.json]
 Reads the video at 270x480 and fails on:
   FLAT    one flat colour fills more than 55 % of a frame (colours quantised to 8 levels per channel)
   STATIC  the picture barely changes for more than 2 s: on a 27x48 thumbnail with the caption band (rows 58-84 %)
           masked, the mean abs difference between frame i and frame i+60 is < STATIC_T grey levels
+FLAT skips the frames of 6-frame whips (camtrack.json: a deliberate motion-blur smear between two subjects),
 and reports the camera guard's XCU bursts (extreme close-ups shorter than 8 frames, e.g. a whip into a face).
 Writes <out_dir>/pixel_report.txt + pixel_report.json; exit 1 on any failure."""
 import json, os, subprocess, sys
@@ -15,6 +16,11 @@ TW, TH = 27, 48
 rows = np.r_[0:int(TH * 0.58), int(TH * 0.84):TH]
 src, out = sys.argv[1], sys.argv[2]
 guard = sys.argv[3] if len(sys.argv) > 3 else None
+trackf = sys.argv[4] if len(sys.argv) > 4 else None
+whip = set()
+if trackf and os.path.exists(trackf):
+    for g in json.load(open(trackf)).get("flights", []):
+        if g.get("kind") == "whip": whip.update(range(int(g["t0"] * 30), int(g["t1"] * 30) + 2))
 os.makedirs(out, exist_ok=True)
 p = subprocess.Popen(["ffmpeg", "-v", "error", "-i", src, "-vf", f"scale={W}:{H}:flags=area", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], stdout=subprocess.PIPE)
 frames = []
@@ -45,7 +51,7 @@ def spans(mask):
         if m and a is None: a = i
         if not m and a is not None: s.append((a, i - 1)); a = None
     return s
-fl = spans([x > FLAT_T for x in flat])
+fl = spans([x > FLAT_T and i not in whip for i, x in enumerate(flat)])
 st = spans(static)
 xcu = []
 if guard and os.path.exists(guard):

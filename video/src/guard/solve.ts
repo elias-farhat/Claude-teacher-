@@ -114,8 +114,8 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
     // moving subjects: how far does the union centre travel during the hold?
     let subsB = subjAt(sp, tB, hc.pos);
     const travel = subs0.length && subsB.length ? subsB[0].centre.distanceTo(subjAt(sp, tA, hc.pos)[0]?.centre ?? subsB[0].centre) : 0;
-    if (travel > 1) { tA = t0 + 0.001; tB = Math.max(tA + 0.2, t1 - 0.45); subsB = subjAt(sp, tB, hc.pos); }   // tracking: keys reach the flight start
-    const nK = Math.max(3, Math.ceil((tB - tA) / (travel > 3 ? 0.1 : 0.2)) + 1);
+    if (travel > 1) { tA = t0 + 0.001; tB = Math.max(tA + 0.2, t1 - 0.2); subsB = subjAt(sp, tB, hc.pos); }   // tracking: keys reach the whip start (a moving subject is followed until the transition)
+    const nK = Math.max(3, Math.ceil((tB - tA) / (travel > 3 ? 0.05 : 0.2)) + 1);
     // a new camera move every ~1.2 s (CLAUDE.md 1): static subjects get one eased move per beat (keys at the beats);
     // moving subjects are followed with keys every 0.1-0.2 s while the beat moves blend underneath
     const nBeat = Math.max(1, Math.round((tB - tA) / 1.2)), beatT = Array.from({ length: nBeat + 1 }, (_, k) => tA + ((tB - tA) * k) / nBeat);

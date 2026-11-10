@@ -143,8 +143,22 @@ export const loop = (C: AutoCfg, maxIter = 5) => {
       const f0 = Math.floor(fl.t0 * C.fps) - 1, f1 = Math.ceil(fl.t1 * C.fps) + 1;
       if (critIn(run(adapter(C, tr), geo, Array.from({ length: f1 - f0 + 1 }, (_, q) => f0 + q)))) { tr.flights[k] = whipFlight(tr, fl.to - 1, C.fps, "CRITICAL frames left after the polish"); whips++; }
     }
+    // a whip that clips (its pan sweeps the lens past a wall) pans the other way round
+    let flipped = 0, cuts = 0;
+    for (const fl of tr.flights) {
+      if (fl.kind !== "whip") continue;
+      const fr = Array.from({ length: Math.ceil(fl.t1 * C.fps) - Math.floor(fl.t0 * C.fps) + 1 }, (_, q) => Math.floor(fl.t0 * C.fps) + q);
+      const n0 = critIn(run(adapter(C, tr), geo, fr)); if (!n0) continue;
+      fl.whipDir = (fl.whipDir === -1 ? 1 : -1);
+      const n1 = critIn(run(adapter(C, tr), geo, fr));
+      if (!n1) { flipped++; continue; }
+      // it clips both ways round (a wall on either side): a straight cut instead
+      const dir = fl.whipDir; fl.kind = "cut";
+      if (critIn(run(adapter(C, tr), geo, fr)) < Math.min(n0, n1)) { cuts++; (fl as unknown as { reason: string }).reason = "a whip would sweep the lens past a wall"; continue; }
+      fl.kind = "whip"; fl.whipDir = n1 < n0 ? dir : (dir === -1 ? 1 : -1);
+    }
     const rw = run(adapter(C, tr), geo), n = critIn(rw);
-    history.push(`fly transitions that still failed became whips: ${whips}`);
+    history.push(`fly transitions that still failed became whips: ${whips}; clipping whips panned the other way: ${flipped}, became cuts: ${cuts}`);
     history.push(`flight polish (look timing per failing flight): ${n} frames with CRITICAL failures (${fixedN} flights cleared)`);
     if (n < best.n) best = { track: tr, rows: rw, n, round: -1 };
   }

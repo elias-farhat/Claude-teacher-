@@ -9,7 +9,10 @@ export const SHOT_SPECS: ShotSpec[] = [
   { t0: land(2), subjects: ["c:rickLady", "c:rickPuller"], size: "wide", move: "drift", note: "2 Hanoi, the shiny new capital" },
   { t0: land(3), subjects: ["c:officialG"], size: "medium", move: "push", note: "3 the French gave it a sewer" },
   { t0: land(3, "sewer"), subjects: ["f:plaqueRat"], size: "insert", move: "drift", note: "3 brand-new sewer system" },
-  { t0: land(4, "love"), subjects: ["f:convoy6", "?f:convoy7"], size: "insert", note: "4 the rats love it, a highway" },
+  // the plaque rats leave at "rats" - 0.4 s, so the convoy shot starts there; convoy0 turns the far corner at ~12.9 s,
+  // so the second half follows convoy9, which runs straight until line 4 "into"
+  { t0: wt(4, "rats") - 0.45, subjects: ["f:convoy0", "?f:convoy1"], size: "insert", note: "4 the rats love it" },
+  { t0: wt(4, "rats") + 1.15, subjects: ["f:convoy9", "?f:convoy10"], size: "wide", move: "push", angle: "left", note: "4 a highway (still running)" },
   { t0: land(4, "into"), subjects: ["c:lady", "?f:toiletRat"], size: "medium", move: "push", note: "4 straight into the nicest houses (the rat pops out, she screams)" },
   { t0: land(5), subjects: ["f:plague"], size: "insert", move: "push", note: "5 with plague spreading" },
   { t0: land(5, "kitchen"), subjects: ["f:kitRat"], size: "insert", move: "drift", note: "5 a rat in your kitchen, dangerous" },
@@ -33,6 +36,6 @@ export const SHOT_SPECS: ShotSpec[] = [
   { t0: land(18, "breeding"), subjects: ["c:farmerB", "?f:cageRat"], size: "medium", move: "drift", note: "18 breeding rats for the reward" },
   { t0: land(19), subjects: ["c:officialT"], size: "medium", move: "push", note: "19 the French cancel the reward" },
   { t0: land(20), subjects: ["c:doumerQ"], size: "medium", move: "drift", note: "20 Paul Doumer goes home" },
-  { t0: wt(20, "President") - 0.45, subjects: ["c:doumerP"], size: "medium", move: "push", note: "20 becomes President of France" },
+  { t0: wt(20, "President") - 1.1, subjects: ["c:doumerP"], size: "medium", move: "push", note: "20 becomes President of France" },
   { t0: land(21), subjects: ["f:lounge"], size: "insert", move: "drift", note: "21 the rats stayed" },
 ];

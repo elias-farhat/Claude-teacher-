@@ -240,7 +240,7 @@ jobs:
           v=$(case "${{ inputs.composition }}" in RatShort) echo rats;; MoonShort) echo moon;; esac)
           ls out/proxy/*.mp4 | sort -t- -k2 -n | sed "s|^out/proxy/|file '|; s|$|'|" > out/proxy/list.txt
           ffmpeg -v error -y -f concat -safe 0 -i out/proxy/list.txt -c copy out/proxy.mp4
-          set +e; python scripts/pixel-check.py out/proxy.mp4 ../qa/$v ../qa/$v/camera_report.json; rc=$?; set -e
+          set +e; python scripts/pixel-check.py out/proxy.mp4 ../qa/$v ../qa/$v/camera_report.json src/videos/$v/camtrack.json; rc=$?; set -e
           cat ../qa/$v/pixel_report.txt >> "$GITHUB_STEP_SUMMARY"
           cp out/proxy.mp4 ../qa/$v/proxy.mp4
           exit $rc

@@ -1,225 +1,215 @@
-warning    0.63-  1.17 s  f19-34  SUBJECT   c:official           out of frame (x -0.44..-0.13, y 0.17..0.61)
-warning    1.17-  1.37 s  f35-40  SUBJECT   c:official           cut off left (-0.08)
-warning    4.17-  4.57 s  f125-136  SUBJECT   c:rickLady           not on stage
-warning    4.17-  4.57 s  f125-136  SUBJECT   c:rickPuller         not on stage
-warning    4.23-  4.40 s  f127-131  SUBJECT   c:farmer             cut off right (1.26)
-warning    4.40-  4.50 s  f132-134  SUBJECT   c:farmer             out of frame (x -8.97..-2.78, y 4.00..8.82)
-warning    4.40-  4.43 s  f132-132  SUBJECT   c:official           cut off left (-0.57)
-warning    4.40-  4.43 s  f132-132  SUBJECT   c:official           too small (21 % of frame height, needs 30 %)
-warning    4.43-  4.50 s  f133-134  SUBJECT   c:official           out of frame (x -13.81..-5.76, y 4.51..7.81)
-warning    4.50-  5.10 s  f135-152  SUBJECT   c:farmer             behind the camera
-warning    4.50-  5.10 s  f135-152  SUBJECT   c:official           behind the camera
-warning    4.57-  5.00 s  f137-149  SUBJECT   c:rickLady           too small (9 % of frame height, needs 30 %)
-warning    4.57-  4.97 s  f137-148  SUBJECT   c:rickPuller         too small (11 % of frame height, needs 30 %)
-warning    7.37-  7.53 s  f221-225  SUBJECT   c:officialG          too small (3 % of frame height, needs 30 %)
-warning    7.47-  7.50 s  f224-224  SUBJECT   c:rickLady           cut off top (0.01)
-warning    7.50-  7.57 s  f225-226  SUBJECT   c:rickLady           cut off right (1.56)
-warning    7.50-  7.57 s  f225-226  SUBJECT   c:rickPuller         cut off left (-1.17)
-warning    7.50-  7.53 s  f225-225  SUBJECT   c:officialG          cut off top (-0.00)
-warning    7.53-  7.57 s  f226-226  SUBJECT   c:officialG          out of frame (x 0.95..0.98, y -0.37..-0.33)
-warning    7.57-  7.60 s  f227-227  SUBJECT   c:rickLady           reaches behind the camera
-warning    7.57-  7.60 s  f227-227  SUBJECT   c:rickLady           too small (9 % of frame height, needs 30 %)
-warning    7.57-  7.60 s  f227-227  SUBJECT   c:rickPuller         out of frame (x -28.33..-0.35, y -9.04..0.28)
-warning    7.57-  7.83 s  f227-234  SUBJECT   c:officialG          behind the camera
-warning    7.60-  7.63 s  f228-228  SUBJECT   c:rickLady           cut off left (-0.23)
-warning    7.60-  7.63 s  f228-228  SUBJECT   c:rickPuller         cut off right (0.96)
-warning    7.67-  7.77 s  f230-232  SUBJECT   c:rickLady           too small (15 % of frame height, needs 30 %)
-warning    7.67-  7.77 s  f230-232  SUBJECT   c:rickPuller         too small (15 % of frame height, needs 30 %)
-warning    7.73-  7.77 s  f232-232  SUBJECT   c:rickLady           cut off top (-0.04)
-warning    7.73-  7.77 s  f232-232  SUBJECT   c:rickPuller         cut off top (-0.01)
-warning    7.77-  7.83 s  f233-234  SUBJECT   c:rickLady           out of frame (x 4.44..4.96, y -1.16..-0.93)
-warning    7.77-  7.83 s  f233-234  SUBJECT   c:rickPuller         out of frame (x 4.58..5.13, y -1.11..-0.87)
-warning    7.83-  8.30 s  f235-248  SUBJECT   c:rickLady           behind the camera
-warning    7.83-  8.30 s  f235-248  SUBJECT   c:rickPuller         behind the camera
-warning    7.83-  7.93 s  f235-237  SUBJECT   c:officialG          out of frame (x -2.68..-2.45, y -0.50..-0.37)
-warning    7.93-  7.97 s  f238-238  SUBJECT   c:officialG          cut off left (0.03)
-warning    7.93-  8.13 s  f238-243  SUBJECT   c:officialG          too small (15 % of frame height, needs 30 %)
-warning    9.37-  9.50 s  f281-284  SUBJECT   f:plaqueRat          not on stage
-warning    9.50- 10.03 s  f285-300  SUBJECT   f:plaqueRat          out of frame (x 4.17..20.89, y 6.19..22.48)
-warning    9.53-  9.63 s  f286-288  SUBJECT   c:officialG          cut off top (-0.05)
-warning    9.63-  9.70 s  f289-290  SUBJECT   c:officialG          cut off left (-0.63)
-warning    9.70-  9.73 s  f291-291  SUBJECT   c:officialG          reaches behind the camera
-warning    9.70-  9.73 s  f291-291  SUBJECT   c:officialG          too small (0 % of frame height, needs 30 %)
-warning    9.73-  9.80 s  f292-293  SUBJECT   c:officialG          behind the camera
-warning    9.80-  9.83 s  f294-294  SUBJECT   c:officialG          out of frame (x 0.20..2.13, y 3.83..3.99)
-warning    9.83- 10.10 s  f295-302  SUBJECT   c:officialG          behind the camera
-warning   10.03- 10.10 s  f301-302  SUBJECT   f:plaqueRat          behind the camera
-warning   10.10- 10.30 s  f303-308  SUBJECT   c:officialG          out of frame (x 2.73..10.61, y -31.36..-8.49)
-warning   10.10- 10.20 s  f303-305  SUBJECT   f:plaqueRat          cut off left (-0.05)
-warning   10.77- 11.37 s  f323-340  SUBJECT   f:convoy6            not on stage
-warning   10.87- 10.97 s  f326-328  SUBJECT   f:plaqueRat          cut off right (1.06)
-warning   10.97- 11.70 s  f329-350  SUBJECT   f:plaqueRat          not on stage
-warning   11.37- 11.57 s  f341-346  SUBJECT   f:convoy6            out of frame (x -2.19..-1.12, y 0.35..0.65)
-warning   11.57- 11.67 s  f347-349  SUBJECT   f:convoy6            cut off left (-0.43)
-warning   13.37- 14.00 s  f401-419  SUBJECT   c:lady               not on stage
-warning   13.40- 13.50 s  f402-404  SUBJECT   f:convoy6            cut off right (1.28)
-warning   13.50- 13.63 s  f405-408  SUBJECT   f:convoy6            out of frame (x -2.33..-0.78, y 0.77..1.21)
-warning   13.63- 14.00 s  f409-419  SUBJECT   f:convoy6            behind the camera
-warning   14.00- 14.13 s  f420-423  SUBJECT   f:convoy6            out of frame (x 0.21..0.44, y 1.76..1.83)
-warning   14.00- 14.07 s  f420-421  SUBJECT   c:lady               out of frame (x 4.85..26.88, y -2.03..12.31)
-warning   14.07- 14.10 s  f422-422  SUBJECT   c:lady               behind the camera
-warning   14.10- 14.13 s  f423-423  SUBJECT   c:lady               out of frame (x 4.18..11.27, y -0.88..3.02)
-warning   14.13- 14.30 s  f424-428  SUBJECT   f:convoy6            behind the camera
-warning   14.13- 14.17 s  f424-424  SUBJECT   c:lady               cut off top (-0.01)
-warning   14.63- 14.73 s  f439-441  SUBJECT   f:plague             not on stage
-warning   14.73- 15.20 s  f442-455  SUBJECT   f:plague             behind the camera
-warning   14.80- 15.00 s  f444-449  SUBJECT   c:lady               cut off top (-0.03)
-warning   15.10- 15.13 s  f453-453  SUBJECT   c:lady               cut off left (-0.11)
-warning   15.13- 15.23 s  f454-456  SUBJECT   c:lady               out of frame (x -6.25..-2.55, y -2.00..-0.44)
-warning   15.20- 15.30 s  f456-458  SUBJECT   f:plague             out of frame (x 1.06..2.32, y -1.28..-0.68)
-warning   15.23- 15.47 s  f457-463  SUBJECT   c:lady               behind the camera
-warning   15.30- 15.33 s  f459-459  SUBJECT   f:plague             cut off top (-0.00)
-warning   16.23- 16.37 s  f487-490  SUBJECT   f:kitRat             cut off right (1.01)
-warning   16.23- 16.40 s  f487-491  SUBJECT   f:kitRat             too small (5 % of frame height, needs 15 %)
-warning   16.37- 16.47 s  f491-493  SUBJECT   f:kitRat             cut off bottom (1.19)
-warning   16.63- 16.73 s  f499-501  SUBJECT   f:kitRat             too small (13 % of frame height, needs 15 %)
-warning   16.80- 16.90 s  f504-506  SUBJECT   f:plague             cut off right (1.32)
-warning   16.87- 16.90 s  f506-506  SUBJECT   f:plague             too small (14 % of frame height, needs 15 %)
-warning   16.90- 17.17 s  f507-514  SUBJECT   f:plague             out of frame (x 2.68..5.34, y -0.81..0.05)
-warning   18.70- 18.97 s  f561-568  SUBJECT   c:officialM          not on stage
-warning   18.87- 18.90 s  f566-566  SUBJECT   f:kitRat             cut off left (-0.26)
-warning   18.90- 19.00 s  f567-569  SUBJECT   f:kitRat             out of frame (x -2.29..-1.87, y 0.26..0.50)
-warning   18.97- 19.07 s  f569-571  SUBJECT   c:officialM          out of frame (x 2.81..2.99, y 0.10..0.24)
-warning   19.00- 19.63 s  f570-588  SUBJECT   f:kitRat             behind the camera
-warning   19.07- 19.10 s  f572-572  SUBJECT   c:officialM          cut off right (0.99)
-warning   19.07- 19.40 s  f572-581  SUBJECT   c:officialM          too small (16 % of frame height, needs 30 %)
-warning   20.10- 20.50 s  f603-614  SUBJECT   c:officialM          too small (8 % of frame height, needs 30 %)
-warning   21.13- 21.53 s  f634-645  SUBJECT   f:tally              not on stage
-warning   21.40- 21.53 s  f642-645  SUBJECT   c:officialM          out of frame (x 4.06..4.99, y 3.35..3.77)
-warning   21.53- 21.73 s  f646-651  SUBJECT   c:officialM          behind the camera
-warning   21.53- 21.73 s  f646-651  SUBJECT   f:tally              out of frame (x -5.93..-2.81, y -0.96..-0.53)
-warning   21.73- 21.83 s  f652-654  SUBJECT   c:officialM          out of frame (x 4.60..22.45, y -43.36..-7.59)
-warning   21.73- 21.77 s  f652-652  SUBJECT   f:tally              cut off right (1.00)
-warning   21.83- 22.07 s  f655-661  SUBJECT   c:officialM          behind the camera
-warning   21.83- 21.87 s  f655-655  SUBJECT   f:tally              cut off top (0.01)
-warning   21.87- 21.93 s  f656-657  SUBJECT   f:tally              cut off left (-0.10)
-warning   24.23- 24.57 s  f727-736  SUBJECT   c:officialP          not on stage
-warning   24.37- 24.40 s  f731-731  SUBJECT   f:tally              cut off left (-0.00)
-warning   24.57- 24.70 s  f737-740  SUBJECT   c:officialP          out of frame (x -0.66..-0.50, y -0.54..-0.37)
-warning   24.60- 24.70 s  f738-740  SUBJECT   f:tally              out of frame (x 1.65..1.93, y 1.32..1.78)
-warning   24.70- 25.17 s  f741-754  SUBJECT   f:tally              behind the camera
-warning   24.70- 24.93 s  f741-747  SUBJECT   c:officialP          too small (18 % of frame height, needs 30 %)
-warning   25.87- 26.13 s  f776-783  SUBJECT   c:officialP          cut off top (0.02)
-warning   27.87- 28.07 s  f836-841  SUBJECT   c:officialO          not on stage
-warning   28.07- 28.57 s  f842-856  SUBJECT   c:officialO          behind the camera
-warning   28.17- 28.53 s  f845-855  SUBJECT   c:officialP          too small (15 % of frame height, needs 30 %)
-warning   28.53- 28.60 s  f856-857  SUBJECT   c:officialP          out of frame (x 20.21..63.15, y -1.50..0.30)
-warning   28.57- 28.63 s  f857-858  SUBJECT   c:officialO          out of frame (x -0.71..-0.14, y -0.20..0.36)
-warning   28.60- 28.80 s  f858-863  SUBJECT   c:officialP          behind the camera
-warning   31.40- 31.60 s  f942-947  SUBJECT   f:sign               cut off top (-0.03)
-warning   31.40- 31.87 s  f942-955  SUBJECT   f:sign               too small (14 % of frame height, needs 15 %)
-warning   31.87- 32.33 s  f956-969  FACES     c:officialO          head centre at 65 % of the frame height
-warning   31.93- 32.33 s  f958-969  SUBJECT   c:officialO          cut off left (-0.13)
-warning   33.23- 33.73 s  f997-1011  SUBJECT   c:clerk0             not on stage
-warning   33.67- 33.80 s  f1010-1013  SUBJECT   f:sign               cut off left (-0.64)
-warning   33.73- 33.77 s  f1012-1012  SUBJECT   c:clerk0             cut off right (1.03)
-warning   33.77- 33.80 s  f1013-1013  SUBJECT   f:sign               too small (15 % of frame height, needs 15 %)
-warning   33.80- 34.17 s  f1014-1024  SUBJECT   f:sign               out of frame (x -1.26..-0.19, y -0.18..0.04)
-warning   37.47- 37.90 s  f1124-1136  SUBJECT   c:officialS          not on stage
-warning   37.80- 37.83 s  f1134-1134  SUBJECT   c:clerk0             cut off top (-0.13)
-warning   37.83- 37.90 s  f1135-1136  SUBJECT   c:clerk0             out of frame (x -159.99..-159.99, y 89.76..89.76)
-warning   37.90- 38.17 s  f1137-1144  SUBJECT   c:clerk0             behind the camera
-warning   37.90- 37.93 s  f1137-1137  SUBJECT   c:officialS          out of frame (x -3.38..-1.54, y 0.16..2.01)
-warning   37.93- 38.03 s  f1138-1140  SUBJECT   c:officialS          cut off left (-0.28)
-warning   38.00- 38.03 s  f1140-1140  FACES     c:officialS          head centre at 77 % of the frame height
-warning   38.03- 38.17 s  f1141-1144  SUBJECT   c:officialS          behind the camera
-warning   38.17- 38.40 s  f1145-1151  SUBJECT   c:clerk0             out of frame (x 3.22..4.04, y -0.16..0.28)
-warning   38.17- 38.23 s  f1145-1146  SUBJECT   c:officialS          cut off top (0.04)
-warning   38.73- 39.00 s  f1162-1169  SUBJECT   f:scurry             not on stage
-warning   38.90- 39.00 s  f1167-1169  SUBJECT   c:officialS          cut off left (-0.25)
-warning   38.90- 39.00 s  f1167-1169  FACES     c:officialS          head centre at 60 % of the frame height
-warning   39.00- 39.03 s  f1170-1170  SUBJECT   c:officialS          reaches behind the camera
-warning   39.00- 39.10 s  f1170-1172  SUBJECT   f:scurry             behind the camera
-warning   39.03- 39.10 s  f1171-1172  SUBJECT   c:officialS          behind the camera
-warning   39.10- 39.17 s  f1173-1174  SUBJECT   c:officialS          out of frame (x 2.40..33.65, y -6.30..14.37)
-warning   39.10- 39.17 s  f1173-1174  SUBJECT   f:scurry             out of frame (x -1.29..-0.50, y 1.27..1.50)
-warning   39.17- 39.23 s  f1175-1176  SUBJECT   c:officialS          cut off left (-0.24)
-warning   39.17- 39.23 s  f1175-1176  SUBJECT   f:scurry             behind the camera
-warning   39.23- 39.60 s  f1177-1187  SUBJECT   c:officialS          behind the camera
-warning   39.23- 39.33 s  f1177-1179  SUBJECT   f:scurry             out of frame (x 1.24..4.12, y 2.87..3.68)
-warning   39.33- 39.53 s  f1180-1185  SUBJECT   f:scurry             behind the camera
-warning   39.53- 39.63 s  f1186-1188  SUBJECT   f:scurry             out of frame (x -2.19..-1.21, y 0.28..0.55)
-warning   39.60- 39.67 s  f1188-1189  SUBJECT   c:officialS          out of frame (x -85.64..-85.64, y 4.29..4.29)
-warning   39.63- 39.67 s  f1189-1189  SUBJECT   f:scurry             cut off left (-0.32)
-warning   40.50- 41.37 s  f1215-1240  SUBJECT   f:hero               not on stage
-warning   40.53- 40.77 s  f1216-1222  SUBJECT   f:scurry             cut off right (1.67)
-warning   40.80- 41.37 s  f1224-1240  SUBJECT   f:scurry             cut off left (-0.45)
-warning   42.23- 42.73 s  f1267-1281  SUBJECT   c:officialR          not on stage
-warning   42.47- 42.80 s  f1274-1283  SUBJECT   f:hero               cut off left (-0.34)
-warning   42.73- 42.80 s  f1282-1283  SUBJECT   c:officialR          cut off right (0.97)
-warning   42.80- 43.17 s  f1284-1294  SUBJECT   f:hero               out of frame (x -1.12..-0.19, y 0.47..1.00)
-warning   42.80- 42.83 s  f1284-1284  SUBJECT   c:officialR          cut off top (0.02)
-warning   44.10- 44.30 s  f1323-1328  SUBJECT   c:officialB          not on stage
-warning   44.30- 44.57 s  f1329-1336  SUBJECT   c:officialB          behind the camera
-warning   44.40- 44.57 s  f1332-1336  SUBJECT   c:officialR          too small (21 % of frame height, needs 30 %)
-warning   44.57- 44.83 s  f1337-1344  SUBJECT   c:officialR          behind the camera
-warning   44.57- 44.80 s  f1337-1343  SUBJECT   c:officialB          out of frame (x 1.58..2.01, y 0.48..1.03)
-warning   44.80- 44.83 s  f1344-1344  SUBJECT   c:officialB          behind the camera
-warning   44.83- 45.03 s  f1345-1350  SUBJECT   c:officialR          out of frame (x 1.67..1.75, y 0.19..0.29)
-warning   44.83- 44.87 s  f1345-1345  SUBJECT   c:officialB          out of frame (x 1.01..1.88, y -0.11..0.85)
-warning   46.57- 46.77 s  f1397-1402  SUBJECT   f:mom                out of frame (x 2.29..2.40, y 0.61..0.67)
-warning   46.67- 46.73 s  f1400-1401  SUBJECT   c:officialB          cut off top (-0.12)
-warning   46.73- 46.77 s  f1402-1402  SUBJECT   c:officialB          cut off left (0.02)
-warning   46.77- 46.80 s  f1403-1403  SUBJECT   c:officialB          cut off right (0.96)
-warning   46.77- 46.97 s  f1403-1408  SUBJECT   f:mom                behind the camera
-warning   46.80- 46.83 s  f1404-1404  SUBJECT   c:officialB          cut off top (0.03)
-warning   46.87- 46.90 s  f1406-1406  SUBJECT   c:officialB          cut off left (-0.14)
-warning   46.90- 47.07 s  f1407-1411  SUBJECT   c:officialB          out of frame (x -4.64..-3.13, y -1.93..-1.17)
-warning   46.97- 47.07 s  f1409-1411  SUBJECT   f:mom                out of frame (x 3.44..3.74, y 0.78..0.95)
-warning   47.07- 47.13 s  f1412-1413  SUBJECT   c:officialB          behind the camera
-warning   47.07- 47.10 s  f1412-1412  SUBJECT   f:mom                cut off right (1.21)
-warning   47.13- 47.17 s  f1414-1414  SUBJECT   c:officialB          out of frame (x 65.95..66.00, y 43.20..45.37)
-warning   47.17- 47.33 s  f1415-1419  SUBJECT   c:officialB          behind the camera
-warning   47.23- 47.27 s  f1417-1417  SUBJECT   f:mom                cut off left (0.01)
-warning   47.33- 47.53 s  f1420-1425  SUBJECT   c:officialB          out of frame (x -8.94..-7.66, y -1.62..-1.08)
-warning   47.33- 47.40 s  f1420-1421  SUBJECT   f:mom                cut off left (-0.02)
-warning   51.77- 52.03 s  f1553-1560  SUBJECT   c:farmerH            out of frame (x -25.24..-20.78, y -0.14..0.15)
-warning   51.83- 51.87 s  f1555-1555  SUBJECT   f:mom                cut off right (1.03)
-warning   51.87- 51.90 s  f1556-1556  SUBJECT   f:mom                cut off left (0.01)
-warning   51.87- 51.90 s  f1556-1556  SUBJECT   f:mom                too small (11 % of frame height, needs 15 %)
-warning   51.90- 51.93 s  f1557-1557  SUBJECT   f:mom                out of frame (x -3.64..5.55, y 1.66..6.83)
-warning   51.93- 52.60 s  f1558-1577  SUBJECT   f:mom                behind the camera
-warning   52.03- 52.47 s  f1561-1573  SUBJECT   c:farmerH            too small (6 % of frame height, needs 30 %)
-warning   52.03- 52.17 s  f1561-1564  FACES     c:farmerH            head centre at 85 % of the frame height
-warning   52.10- 52.13 s  f1563-1563  SUBJECT   c:farmerH            cut off right (0.96)
-warning   52.60- 52.70 s  f1578-1580  SUBJECT   f:mom                out of frame (x 13.10..13.27, y 1.00..1.10)
+warning    0.63-  1.00 s  f19-29  SUBJECT   c:official           out of frame (x -0.40..-0.10, y 0.18..0.62)
+warning    1.00-  1.33 s  f30-39  SUBJECT   c:official           cut off left (-0.05)
+warning    1.03-  1.23 s  f31-36  FACES     c:official           head cut at the left edge
+warning    4.90-  4.97 s  f147-148  SUBJECT   c:rickLady           too small (4 % of frame height, needs 30 %)
+warning    4.90-  4.97 s  f147-148  FACES     c:rickLady           face 100 % covered by something in front
+warning    4.90-  4.97 s  f147-148  SUBJECT   c:rickPuller         too small (4 % of frame height, needs 30 %)
+warning    4.90-  4.97 s  f147-148  FACES     c:rickPuller         face 100 % covered by something in front
+warning    4.93-  4.97 s  f148-148  SUBJECT   c:official           cut off left (-0.19)
+warning    4.93-  4.97 s  f148-148  FACES     c:official           head cut at the left edge
+warning    4.97-  5.00 s  f149-149  SUBJECT   c:farmer             out of frame (x -0.78..-0.27, y 0.16..0.72)
+warning    4.97-  5.00 s  f149-149  SUBJECT   c:official           out of frame (x -1.33..-0.83, y 0.14..0.59)
+warning    4.97-  5.07 s  f149-151  SUBJECT   c:rickLady           out of frame (x 2.60..3.40, y 0.03..0.58)
+warning    4.97-  5.03 s  f149-150  SUBJECT   c:rickPuller         out of frame (x 2.16..2.96, y 0.14..0.77)
+warning    4.97-  5.03 s  f149-150  EMPTY                          none of c:farmer, c:official, c:rickLady, c:rickPuller in view
+warning    5.00-  5.10 s  f150-152  SUBJECT   c:farmer             behind the camera
+warning    5.00-  5.10 s  f150-152  SUBJECT   c:official           behind the camera
+warning    5.03-  5.07 s  f151-151  SUBJECT   c:rickPuller         cut off right (1.28)
+warning    5.03-  5.07 s  f151-151  FACES     c:rickPuller         head cut at the right edge
+warning    8.10-  8.13 s  f243-243  SUBJECT   c:officialG          out of frame (x -0.34..-0.32, y 0.22..0.25)
+warning    8.13-  8.17 s  f244-244  SUBJECT   c:rickLady           cut off right (1.03)
+warning    8.13-  8.17 s  f244-244  FACES     c:rickLady           head cut at the right edge
+warning    8.13-  8.17 s  f244-244  SUBJECT   c:officialG          cut off left (-0.01)
+warning    8.13-  8.20 s  f244-245  SUBJECT   c:officialG          too small (2 % of frame height, needs 30 %)
+warning    8.13-  8.17 s  f244-244  FACES     c:officialG          head cut at the left edge
+warning    8.17-  8.23 s  f245-246  SUBJECT   c:rickLady           out of frame (x 29.20..34.60, y 0.06..0.44)
+warning    8.17-  8.23 s  f245-246  SUBJECT   c:rickPuller         out of frame (x 32.87..40.10, y 0.14..0.59)
+warning    8.20-  8.27 s  f246-247  SUBJECT   c:officialG          out of frame (x -0.67..-0.19, y 0.15..0.70)
+warning    8.20-  8.27 s  f246-247  EMPTY                          none of c:rickLady, c:rickPuller, c:officialG in view
+warning    8.23-  8.30 s  f247-248  SUBJECT   c:rickLady           behind the camera
+warning    8.23-  8.30 s  f247-248  SUBJECT   c:rickPuller         behind the camera
+warning   10.10- 10.27 s  f303-307  SUBJECT   f:plaqueRat          out of frame (x 2.81..4.82, y 2.43..3.98)
+warning   10.13- 10.17 s  f304-304  SUBJECT   c:officialG          cut off right (1.09)
+warning   10.13- 10.17 s  f304-304  FACES     c:officialG          head cut at the right edge
+warning   10.17- 10.30 s  f305-308  SUBJECT   c:officialG          out of frame (x 0.09..3.37, y -17.06..-15.59)
+warning   10.17- 10.27 s  f305-307  EMPTY                          none of c:officialG, f:plaqueRat in view
+warning   10.27- 10.30 s  f308-308  SUBJECT   f:plaqueRat          cut off left (-0.12)
+warning   10.73- 10.83 s  f322-324  SUBJECT   f:convoy0            not on stage
+warning   10.73- 10.80 s  f322-323  SUBJECT   f:plaqueRat          cut off right (1.72)
+warning   10.80- 10.87 s  f324-325  SUBJECT   f:plaqueRat          out of frame (x -1.06..-0.58, y 0.03..0.19)
+warning   10.80- 10.87 s  f324-325  EMPTY                          none of f:plaqueRat, f:convoy0, ?f:convoy1 in view
+warning   10.83- 10.87 s  f325-325  SUBJECT   f:convoy0            out of frame (x -2.01..-1.17, y 0.12..0.35)
+warning   10.87- 10.90 s  f326-326  SUBJECT   f:plaqueRat          cut off top (0.03)
+warning   10.87- 10.93 s  f326-327  SUBJECT   f:plaqueRat          too small (15 % of frame height, needs 15 %)
+warning   10.87- 10.90 s  f326-326  SUBJECT   f:convoy0            cut off left (-0.53)
+warning   10.90- 10.93 s  f327-327  SUBJECT   f:plaqueRat          cut off right (1.10)
+warning   12.33- 12.37 s  f370-370  SUBJECT   f:convoy0            cut off right (0.96)
+warning   12.33- 12.43 s  f370-372  SUBJECT   f:convoy9            behind the camera
+warning   12.37- 12.43 s  f371-372  SUBJECT   f:convoy0            out of frame (x 2.96..3.75, y 0.09..0.31)
+warning   12.40- 12.47 s  f372-373  EMPTY                          none of f:convoy0, ?f:convoy1, f:convoy9, ?f:convoy10 in view
+warning   12.43- 12.53 s  f373-375  SUBJECT   f:convoy0            behind the camera
+warning   12.43- 12.47 s  f373-373  SUBJECT   f:convoy9            out of frame (x -1.34..-0.72, y 0.33..0.50)
+warning   12.47- 12.50 s  f374-374  SUBJECT   f:convoy9            cut off left (-0.25)
+warning   14.10- 14.23 s  f423-426  SUBJECT   c:lady               out of frame (x 1.07..1.23, y -1.01..-0.73)
+warning   14.13- 14.17 s  f424-424  SUBJECT   f:convoy9            cut off left (-0.30)
+warning   14.17- 14.27 s  f425-427  SUBJECT   f:convoy9            out of frame (x -5.10..-4.70, y 2.25..2.36)
+warning   14.17- 14.23 s  f425-426  EMPTY                          none of f:convoy9, ?f:convoy10, c:lady, ?f:toiletRat in view
+warning   14.23- 14.27 s  f427-427  SUBJECT   c:lady               cut off right (1.14)
+warning   14.23- 14.27 s  f427-427  FACES     c:lady               head cut at the right edge
+warning   14.27- 14.30 s  f428-428  SUBJECT   f:convoy9            behind the camera
+warning   15.27- 15.33 s  f458-459  SUBJECT   f:plague             behind the camera
+warning   15.30- 15.37 s  f459-460  SUBJECT   c:lady               out of frame (x -2.91..-1.24, y 0.26..1.13)
+warning   15.33- 15.40 s  f460-461  SUBJECT   f:plague             out of frame (x 1.45..2.39, y 0.10..0.45)
+warning   15.33- 15.40 s  f460-461  EMPTY                          none of c:lady, ?f:toiletRat, f:plague in view
+warning   15.37- 15.47 s  f461-463  SUBJECT   c:lady               behind the camera
+warning   15.40- 15.43 s  f462-462  SUBJECT   f:plague             cut off right (1.21)
+warning   16.23- 16.43 s  f487-492  SUBJECT   f:kitRat             cut off bottom (1.13)
+warning   16.23- 16.60 s  f487-497  SUBJECT   f:kitRat             blurred (circle of confusion 11.1 px)
+warning   16.63- 16.70 s  f499-500  SUBJECT   f:kitRat             too small (13 % of frame height, needs 15 %)
+warning   16.80- 16.90 s  f504-506  SUBJECT   f:plague             cut off right (1.35)
+warning   16.87- 16.90 s  f506-506  SUBJECT   f:plague             too small (12 % of frame height, needs 15 %)
+warning   16.87- 16.90 s  f506-506  SUBJECT   f:plague             blurred (circle of confusion 1.6 px)
+warning   16.90- 17.17 s  f507-514  SUBJECT   f:plague             out of frame (x 2.45..4.68, y -0.72..0.04)
+warning   19.43- 19.50 s  f583-584  SUBJECT   c:officialM          behind the camera
+warning   19.47- 19.50 s  f584-584  SUBJECT   f:kitRat             cut off left (-0.50)
+warning   19.50- 19.57 s  f585-586  SUBJECT   f:kitRat             out of frame (x -9.34..-9.15, y 0.26..0.36)
+warning   19.50- 19.57 s  f585-586  SUBJECT   c:officialM          out of frame (x 2.09..2.83, y 0.13..0.80)
+warning   19.50- 19.57 s  f585-586  EMPTY                          none of f:kitRat, c:officialM in view
+warning   19.57- 19.63 s  f587-588  SUBJECT   f:kitRat             behind the camera
+warning   19.57- 19.60 s  f587-587  SUBJECT   c:officialM          cut off right (1.30)
+warning   19.57- 19.60 s  f587-587  FACES     c:officialM          head cut at the right edge
+warning   21.87- 22.00 s  f656-659  SUBJECT   f:tally              out of frame (x 1.80..2.09, y 1.50..1.83)
+warning   21.90- 21.93 s  f657-657  SUBJECT   c:officialM          cut off right (1.15)
+warning   21.90- 21.93 s  f657-657  FACES     c:officialM          head cut at the right edge
+warning   21.93- 22.07 s  f658-661  SUBJECT   c:officialM          out of frame (x 6.22..17.85, y -29.03..-14.39)
+warning   21.93- 22.00 s  f658-659  EMPTY                          none of c:officialM, ?c:/^hunter\d$/, f:tally in view
+warning   22.00- 22.07 s  f660-661  SUBJECT   f:tally              cut off left (-0.00)
+warning   24.97- 25.13 s  f749-753  SUBJECT   c:officialP          out of frame (x -2.48..-2.15, y -1.09..-0.82)
+warning   25.00- 25.03 s  f750-750  SUBJECT   f:tally              cut off right (1.39)
+warning   25.03- 25.07 s  f751-751  SUBJECT   f:tally              out of frame (x 1.52..2.67, y 0.08..0.78)
+warning   25.03- 25.13 s  f751-753  EMPTY                          none of f:tally, c:officialP in view
+warning   25.07- 25.17 s  f752-754  SUBJECT   f:tally              behind the camera
+warning   28.60- 28.67 s  f858-859  SUBJECT   c:officialO          behind the camera
+warning   28.63- 28.67 s  f859-859  SUBJECT   c:officialP          cut off left (-0.43)
+warning   28.67- 28.70 s  f860-860  SUBJECT   c:officialP          out of frame (x -2.20..-1.31, y -0.00..0.86)
+warning   28.67- 28.73 s  f860-861  SUBJECT   c:officialO          out of frame (x 1.85..2.54, y 0.14..0.77)
+warning   28.67- 28.73 s  f860-861  EMPTY                          none of c:officialP, ?f:poster, c:officialO in view
+warning   28.70- 28.80 s  f861-863  SUBJECT   c:officialP          behind the camera
+warning   28.73- 28.77 s  f862-862  SUBJECT   c:officialO          cut off right (1.21)
+warning   28.73- 28.77 s  f862-862  FACES     c:officialO          head cut at the right edge
+warning   31.40- 31.47 s  f942-943  SUBJECT   f:sign               cut off left (0.05)
+warning   31.40- 31.93 s  f942-957  SUBJECT   f:sign               too small (14 % of frame height, needs 15 %)
+warning   31.40- 31.50 s  f942-944  SUBJECT   f:sign               blurred (circle of confusion 1.6 px)
+warning   31.47- 31.70 s  f944-950  SUBJECT   f:sign               cut off top (-0.04)
+warning   31.93- 32.00 s  f958-959  FACES     c:officialO          head in the caption band (43-64 %)
+warning   32.00- 32.33 s  f960-969  SUBJECT   c:officialO          cut off left (-0.03)
+warning   32.00- 32.33 s  f960-969  FACES     c:officialO          head centre at 60 % of the frame height
+warning   32.03- 32.33 s  f961-969  SUBJECT   c:officialO          blurred (circle of confusion 2.7 px)
+warning   32.23- 32.33 s  f967-969  FACES     c:officialO          head cut at the left edge
+warning   33.97- 34.00 s  f1019-1019  SUBJECT   c:clerk0             out of frame (x 1.25..1.84, y 0.36..1.04)
+warning   34.00- 34.03 s  f1020-1020  SUBJECT   f:sign               cut off left (-0.34)
+warning   34.00- 34.03 s  f1020-1020  SUBJECT   c:clerk0             cut off right (1.38)
+warning   34.00- 34.03 s  f1020-1020  FACES     c:clerk0             head cut at the right edge
+warning   34.03- 34.10 s  f1021-1022  SUBJECT   f:sign               out of frame (x 1.58..2.49, y -0.05..0.15)
+warning   34.03- 34.07 s  f1021-1021  SUBJECT   c:clerk0             cut off left (-0.04)
+warning   34.03- 34.07 s  f1021-1021  FACES     c:clerk0             head cut at the left edge
+warning   34.07- 34.13 s  f1022-1023  SUBJECT   c:clerk0             out of frame (x 1.17..1.61, y 0.14..0.70)
+warning   34.10- 34.13 s  f1023-1023  SUBJECT   f:sign               cut off top (0.01)
+warning   34.10- 34.17 s  f1023-1024  SUBJECT   f:sign               too small (15 % of frame height, needs 15 %)
+warning   34.13- 34.17 s  f1024-1024  SUBJECT   f:sign               cut off left (-0.48)
+warning   38.20- 38.27 s  f1146-1147  SUBJECT   c:officialS          behind the camera
+warning   38.23- 38.27 s  f1147-1147  SUBJECT   c:clerk0             cut off right (1.31)
+warning   38.23- 38.27 s  f1147-1147  FACES     c:clerk0             head cut at the right edge
+warning   38.27- 38.30 s  f1148-1148  SUBJECT   c:clerk0             out of frame (x 2.09..2.91, y 0.08..0.83)
+warning   38.27- 38.33 s  f1148-1149  SUBJECT   c:officialS          out of frame (x -1.76..-0.90, y 0.15..0.85)
+warning   38.30- 38.33 s  f1149-1149  SUBJECT   c:clerk0             too small (22 % of frame height, needs 30 %)
+warning   38.30- 38.33 s  f1149-1149  FACES     c:clerk0             face 100 % covered by something in front
+warning   38.30- 38.33 s  f1149-1149  EMPTY                          none of c:clerk0, ?c:clerk1, c:officialS in view
+warning   38.33- 38.40 s  f1150-1151  SUBJECT   c:clerk0             out of frame (x 2.29..2.65, y 0.09..0.38)
+warning   38.33- 38.37 s  f1150-1150  SUBJECT   c:officialS          cut off left (-0.32)
+warning   38.33- 38.37 s  f1150-1150  FACES     c:officialS          head cut at the left edge
+warning   39.47- 39.57 s  f1184-1186  SUBJECT   f:scurry             out of frame (x 14.46..15.81, y 2.20..2.58)
+warning   39.50- 39.53 s  f1185-1185  SUBJECT   c:officialS          cut off left (-0.07)
+warning   39.50- 39.53 s  f1185-1185  FACES     c:officialS          head cut at the left edge
+warning   39.53- 39.67 s  f1186-1189  SUBJECT   c:officialS          out of frame (x -11.93..-6.75, y -1.06..0.22)
+warning   39.53- 39.57 s  f1186-1186  EMPTY                          none of c:officialS, f:scurry in view
+warning   39.57- 39.60 s  f1187-1187  SUBJECT   f:scurry             cut off right (1.53)
+warning   39.60- 39.67 s  f1188-1189  SUBJECT   f:scurry             cut off left (-0.20)
+warning   41.17- 41.37 s  f1235-1240  SUBJECT   f:hero               not on stage
+warning   41.20- 41.23 s  f1236-1236  SUBJECT   f:scurry             cut off left (-0.64)
+warning   41.23- 41.30 s  f1237-1238  SUBJECT   f:scurry             out of frame (x 1.72..2.39, y 0.36..0.55)
+warning   41.23- 41.30 s  f1237-1238  EMPTY                          none of f:scurry, f:hero in view
+warning   41.30- 41.33 s  f1239-1239  SUBJECT   f:scurry             cut off right (1.22)
+warning   42.97- 43.13 s  f1289-1293  SUBJECT   c:officialR          out of frame (x 2.77..4.04, y -0.64..0.52)
+warning   43.00- 43.03 s  f1290-1290  SUBJECT   f:hero               cut off right (1.29)
+warning   43.03- 43.13 s  f1291-1293  SUBJECT   f:hero               out of frame (x -3.86..-3.14, y 0.57..0.98)
+warning   43.03- 43.07 s  f1291-1291  EMPTY                          none of f:hero, c:officialR, ?f:march in view
+warning   43.10- 43.13 s  f1293-1293  EMPTY                          none of f:hero, c:officialR, ?f:march in view
+warning   43.13- 43.17 s  f1294-1294  SUBJECT   f:hero               cut off left (-0.26)
+warning   44.83- 44.97 s  f1345-1348  SUBJECT   c:officialB          out of frame (x -1.17..-1.07, y 0.32..0.43)
+warning   44.87- 44.93 s  f1346-1347  SUBJECT   c:officialR          out of frame (x 2.94..3.81, y 0.08..0.75)
+warning   44.87- 44.97 s  f1346-1348  EMPTY                          none of c:officialR, ?f:march, c:officialB, ?f:tailOne in view
+warning   44.93- 45.03 s  f1348-1350  SUBJECT   c:officialR          behind the camera
+warning   44.97- 45.00 s  f1349-1349  SUBJECT   c:officialB          cut off left (0.00)
+warning   47.33- 47.43 s  f1420-1422  SUBJECT   f:mom                behind the camera
+warning   47.37- 47.43 s  f1421-1422  SUBJECT   c:officialB          out of frame (x 2.96..4.53, y 0.07..1.03)
+warning   47.40- 47.47 s  f1422-1423  EMPTY                          none of c:officialB, ?f:tailOne, f:mom in view
+warning   47.43- 47.47 s  f1423-1423  SUBJECT   c:officialB          behind the camera
+warning   47.43- 47.47 s  f1423-1423  SUBJECT   f:mom                out of frame (x -1.33..-0.50, y 0.11..0.57)
+warning   47.47- 47.53 s  f1424-1425  SUBJECT   c:officialB          out of frame (x -10.23..-8.63, y -1.82..-1.20)
+warning   47.47- 47.50 s  f1424-1424  SUBJECT   f:mom                cut off left (-0.25)
+warning   52.50- 52.63 s  f1575-1578  SUBJECT   c:farmerH            out of frame (x -2.02..-1.96, y -0.12..-0.06)
+warning   52.53- 52.57 s  f1576-1576  SUBJECT   f:mom                cut off right (1.48)
+warning   52.57- 52.63 s  f1577-1578  SUBJECT   f:mom                out of frame (x 5.55..5.63, y 0.56..0.60)
+warning   52.57- 52.63 s  f1577-1578  EMPTY                          none of f:mom, c:farmerH in view
+warning   52.63- 52.70 s  f1579-1580  SUBJECT   f:mom                behind the camera
+warning   52.63- 52.67 s  f1579-1579  SUBJECT   c:farmerH            cut off left (-0.30)
+warning   52.63- 52.67 s  f1579-1579  FACES     c:farmerH            head cut at the left edge
 warning   53.90- 54.30 s  f1617-1628  SUBJECT   c:officialH          not on stage
-warning   54.30- 54.47 s  f1629-1633  SUBJECT   c:officialH          out of frame (x 1.13..1.43, y 0.30..0.70)
-warning   54.47- 54.63 s  f1634-1638  SUBJECT   c:officialH          cut off right (1.08)
+warning   54.30- 54.40 s  f1629-1631  SUBJECT   c:officialH          cut off right (1.08)
+warning   54.30- 54.37 s  f1629-1630  FACES     c:officialH          head cut at the right edge
+warning   54.40- 54.50 s  f1632-1634  SUBJECT   c:farmerH            too small (29 % of frame height, needs 30 %)
+warning   54.50- 54.63 s  f1635-1638  SUBJECT   c:farmerH            cut off left (0.05)
 warning   55.87- 56.80 s  f1676-1703  SUBJECT   c:farmerWalk         not on stage
-warning   56.07- 56.23 s  f1682-1686  SUBJECT   c:officialH          cut off right (1.09)
-warning   56.23- 56.80 s  f1687-1703  SUBJECT   c:officialH          out of frame (x 1.30..1.78, y 0.17..0.73)
-warning   57.70- 57.90 s  f1731-1736  SUBJECT   c:farmerB            out of frame (x -0.74..-0.62, y 0.15..0.29)
-warning   57.87- 57.93 s  f1736-1737  SUBJECT   c:farmerWalk         cut off right (1.51)
-warning   57.90- 57.93 s  f1737-1737  SUBJECT   c:farmerB            cut off left (0.02)
-warning   57.90- 58.33 s  f1737-1749  SUBJECT   c:farmerB            too small (17 % of frame height, needs 30 %)
-warning   57.93- 58.03 s  f1738-1740  SUBJECT   c:farmerWalk         out of frame (x 1.90..4.07, y 0.76..3.05)
-warning   58.03- 58.63 s  f1741-1758  SUBJECT   c:farmerWalk         behind the camera
-warning   59.57- 59.97 s  f1787-1798  SUBJECT   c:officialT          behind the camera
-warning   59.73- 59.90 s  f1792-1796  SUBJECT   c:farmerB            too small (16 % of frame height, needs 30 %)
-warning   59.90- 59.97 s  f1797-1798  SUBJECT   c:farmerB            out of frame (x 1.21..1.38, y -1.78..-1.51)
-warning   59.97- 60.40 s  f1799-1811  SUBJECT   c:farmerB            behind the camera
-warning   59.97- 60.03 s  f1799-1800  SUBJECT   c:officialT          out of frame (x -0.38..-0.31, y -0.39..-0.31)
-warning   60.03- 60.30 s  f1801-1808  SUBJECT   c:officialT          too small (12 % of frame height, needs 30 %)
-warning   60.40- 60.50 s  f1812-1814  SUBJECT   c:farmerB            out of frame (x 13.14..14.01, y 0.19..0.34)
-warning   61.80- 62.23 s  f1854-1866  SUBJECT   c:doumerQ            out of frame (x -0.47..-0.31, y 2.72..2.99)
-warning   62.00- 62.23 s  f1860-1866  SUBJECT   c:officialT          behind the camera
-warning   62.23- 62.27 s  f1867-1867  SUBJECT   c:officialT          out of frame (x 40.17..40.17, y 209.31..209.31)
-warning   62.23- 62.53 s  f1867-1875  SUBJECT   c:doumerQ            too small (13 % of frame height, needs 30 %)
-warning   62.27- 62.73 s  f1868-1881  SUBJECT   c:officialT          behind the camera
-warning   66.30- 66.90 s  f1989-2006  SUBJECT   c:doumerP            out of frame (x 21.21..37.35, y -1.91..-0.55)
-warning   66.43- 66.53 s  f1993-1995  SUBJECT   c:doumerQ            cut off right (1.08)
-warning   66.53- 66.63 s  f1996-1998  SUBJECT   c:doumerQ            too small (22 % of frame height, needs 30 %)
-warning   66.60- 66.63 s  f1998-1998  SUBJECT   c:doumerQ            cut off left (-0.03)
-warning   66.63- 66.80 s  f1999-2003  SUBJECT   c:doumerQ            out of frame (x -2.89..-2.25, y 0.69..0.96)
-warning   66.80- 67.23 s  f2004-2016  SUBJECT   c:doumerQ            behind the camera
-warning   66.90- 66.93 s  f2007-2007  SUBJECT   c:doumerP            cut off right (0.97)
-warning   66.90- 66.97 s  f2007-2008  SUBJECT   c:doumerP            too small (29 % of frame height, needs 30 %)
-warning   67.80- 68.27 s  f2034-2047  SUBJECT   f:lounge             not on stage
-warning   67.93- 68.07 s  f2038-2041  SUBJECT   c:doumerP            cut off top (-0.02)
-warning   68.07- 68.10 s  f2042-2042  SUBJECT   c:doumerP            cut off left (0.02)
-warning   68.07- 68.10 s  f2042-2042  SUBJECT   c:doumerP            too small (30 % of frame height, needs 30 %)
-warning   68.10- 68.23 s  f2043-2046  SUBJECT   c:doumerP            out of frame (x -4.28..-2.05, y -3.68..-1.70)
-warning   68.23- 68.73 s  f2047-2061  SUBJECT   c:doumerP            behind the camera
-warning   68.27- 68.30 s  f2048-2048  SUBJECT   f:lounge             out of frame (x 1.04..1.23, y 0.46..0.57)
-warning   68.30- 68.40 s  f2049-2051  SUBJECT   f:lounge             too small (13 % of frame height, needs 15 %)
+warning   56.03- 56.27 s  f1681-1687  SUBJECT   c:farmerH            cut off left (-0.01)
+warning   56.03- 56.37 s  f1681-1690  SUBJECT   c:officialH          cut off right (1.02)
+warning   56.23- 56.37 s  f1687-1690  FACES     c:officialH          head cut at the right edge
+warning   56.37- 56.80 s  f1691-1703  SUBJECT   c:officialH          out of frame (x 1.30..1.81, y 0.17..0.75)
+warning   58.43- 58.50 s  f1753-1754  SUBJECT   c:farmerB            out of frame (x -0.33..-0.23, y 0.12..0.25)
+warning   58.47- 58.50 s  f1754-1754  SUBJECT   c:farmerWalk         cut off right (1.16)
+warning   58.47- 58.50 s  f1754-1754  FACES     c:farmerWalk         head cut at the right edge
+warning   58.50- 58.53 s  f1755-1755  SUBJECT   c:farmerWalk         out of frame (x 1.66..2.35, y 0.11..0.78)
+warning   58.50- 58.53 s  f1755-1755  SUBJECT   c:farmerB            too small (12 % of frame height, needs 30 %)
+warning   58.53- 58.63 s  f1756-1758  SUBJECT   c:farmerWalk         behind the camera
+warning   58.53- 58.60 s  f1756-1757  SUBJECT   c:farmerB            out of frame (x -0.63..-0.04, y 0.14..0.74)
+warning   58.53- 58.60 s  f1756-1757  EMPTY                          none of c:farmerWalk, c:farmerB, ?f:cageRat in view
+warning   60.30- 60.40 s  f1809-1811  SUBJECT   c:officialT          behind the camera
+warning   60.33- 60.37 s  f1810-1810  SUBJECT   c:farmerB            cut off left (-0.29)
+warning   60.33- 60.37 s  f1810-1810  FACES     c:farmerB            head cut at the left edge
+warning   60.37- 60.50 s  f1811-1814  SUBJECT   c:farmerB            out of frame (x 5.32..5.46, y 0.19..0.25)
+warning   60.37- 60.43 s  f1811-1812  EMPTY                          none of c:farmerB, ?f:cageRat, c:officialT in view
+warning   60.40- 60.43 s  f1812-1812  SUBJECT   c:officialT          out of frame (x 2.18..2.97, y 0.13..0.82)
+warning   60.43- 60.47 s  f1813-1813  SUBJECT   c:officialT          cut off right (1.35)
+warning   62.53- 62.60 s  f1876-1877  SUBJECT   c:doumerQ            out of frame (x -0.84..-0.78, y 0.18..0.25)
+warning   62.57- 62.63 s  f1877-1878  SUBJECT   c:officialT          out of frame (x 2.77..4.07, y 0.06..0.98)
+warning   62.57- 62.67 s  f1877-1879  EMPTY                          none of c:officialT, c:doumerQ in view
+warning   62.60- 62.63 s  f1878-1878  SUBJECT   c:doumerQ            too small (6 % of frame height, needs 30 %)
+warning   62.60- 62.63 s  f1878-1878  FACES     c:doumerQ            face 100 % covered by something in front
+warning   62.63- 62.73 s  f1879-1881  SUBJECT   c:officialT          behind the camera
+warning   62.63- 62.67 s  f1879-1879  SUBJECT   c:doumerQ            out of frame (x -1.14..-0.71, y 0.20..0.70)
+warning   62.67- 62.70 s  f1880-1880  SUBJECT   c:doumerQ            cut off left (-0.05)
+warning   62.67- 62.70 s  f1880-1880  FACES     c:doumerQ            head cut at the left edge
+warning   66.37- 66.43 s  f1991-1992  SUBJECT   c:doumerP            out of frame (x 1.08..1.12, y 0.06..0.12)
+warning   66.40- 66.43 s  f1992-1992  SUBJECT   c:doumerQ            too small (30 % of frame height, needs 30 %)
+warning   66.43- 66.47 s  f1993-1993  SUBJECT   c:doumerQ            out of frame (x -1.00..-0.71, y 0.24..0.58)
+warning   66.43- 66.47 s  f1993-1993  SUBJECT   c:doumerP            too small (6 % of frame height, needs 30 %)
+warning   66.43- 66.47 s  f1993-1993  FACES     c:doumerP            face 100 % covered by something in front
+warning   66.43- 66.53 s  f1993-1995  EMPTY                          none of c:doumerQ, c:doumerP in view
+warning   66.47- 66.57 s  f1994-1996  SUBJECT   c:doumerQ            behind the camera
+warning   66.47- 66.53 s  f1994-1995  SUBJECT   c:doumerP            out of frame (x 1.01..1.38, y 0.12..0.67)
+warning   68.53- 68.57 s  f2056-2056  SUBJECT   f:lounge             behind the camera
+warning   68.57- 68.63 s  f2057-2058  SUBJECT   c:doumerP            out of frame (x -2.54..-1.68, y -0.16..0.76)
+warning   68.57- 68.67 s  f2057-2059  SUBJECT   f:lounge             out of frame (x 4.37..4.62, y 2.92..3.05)
+warning   68.57- 68.67 s  f2057-2059  EMPTY                          none of c:doumerP, f:lounge in view
+warning   68.63- 68.73 s  f2059-2061  SUBJECT   c:doumerP            behind the camera
+warning   68.67- 68.70 s  f2060-2060  SUBJECT   f:lounge             cut off right (1.27)
