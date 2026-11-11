@@ -182,5 +182,5 @@ function pageTunnel(q) {
     ctx.globalCompositeOperation = 'lighter'; glowAt(x, y, 30 * s, .35 * a); ctx.globalCompositeOperation = 'source-over';
     ctx.setTransform(1, 0, 0, 1, 0, 0); page(x, y, Math.sin(q * 2 + k) * .6, s, a); }
 }
-window.render = render;
-document.fonts.load('700 40px Fredoka').then(() => { buildStatic(); buildRoom(); buildBoard(); window.FACES = []; window.SCENE = 'pov-door'; window.DUR = DUR; render(0); window.READY = true; });
+if (!window.FILM2) window.render = render;
+if (!window.FILM2) document.fonts.load('700 40px Fredoka').then(() => { buildStatic(); buildRoom(); buildBoard(); window.FACES = []; window.SCENE = 'pov-door'; window.DUR = DUR; render(0); window.READY = true; });
