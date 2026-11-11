@@ -16,7 +16,7 @@ import { checkSubjects } from "./core";
 import { Track, TShot, TFlight, Key, V3, pathLen, holdPose, along, smoother, trackCam, whipFlight } from "./track";
 
 export type Size = "wide" | "medium" | "close" | "insert";
-export type ShotSpec = { t0: number; t1?: number; subjects: string[]; size: Size; angle?: "front" | "left" | "right" | "low" | "high"; move?: "push" | "drift" | "orbit"; note?: string };
+export type ShotSpec = { t0: number; t1?: number; subjects: string[]; size: Size; angle?: "front" | "left" | "right" | "low" | "high"; move?: "push" | "drift" | "orbit"; place?: "centre"; note?: string };
 export type SolveIn = {
   video: string; fps: number; total: number; geo: Geo; specs: ShotSpec[];
   stage: (t: number, eye: THREE.Vector3) => { places: Place[]; fx: FxCard[] };
@@ -75,7 +75,10 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
       // re-aim: centre horizontally, put the top edge at topWant (NDC y = 1 - 2 * topWant)
       const right = new THREE.Vector3().setFromMatrixColumn(cam.matrixWorld, 0), upv = new THREE.Vector3().setFromMatrixColumn(cam.matrixWorld, 1);
       const dist = look.distanceTo(pos), halfH = dist * th, halfW = dist * tw;
-      look.addScaledVector(right, ((x0 + x1) / 2 - 2 * sx) * halfW).addScaledVector(upv, (y1 - (1 - 2 * topWant)) * halfH);
+      // place "centre": a width-limited subject (shorter than the size's fraction) is centred where a full-size one
+      // would be, instead of hanging at the top edge over empty ground (Moon run 31, 23-26 s: goats in the top quarter)
+      const top = sp.place === "centre" && hFrac < want ? topWant + (want - hFrac) / 2 : topWant;
+      look.addScaledVector(right, ((x0 + x1) / 2 - 2 * sx) * halfW).addScaledVector(upv, (y1 - (1 - 2 * top)) * halfH);
     }
     d *= k; pos = C.clone().addScaledVector(dir, d);
     return { pos, look, fov, subs, C, d };

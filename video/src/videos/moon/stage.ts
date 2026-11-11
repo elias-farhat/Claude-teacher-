@@ -143,8 +143,9 @@ const moonWorld = (t: number, s: Stage) => {
   if (t < wt(7, "blue")) s.fx.push(card("day1", 480, 600, LB.dayPage("DAY 1", "forest"), M(-1.8, 0.85, 2.4), 1.2, 1.5));
   for (let i = 0; i < 4; i++) { const ph = (t * 0.6 + i * 0.25) % 1; s.fx.push(card("wave", 300, 120, (p) => p.line([[20, 80], [80, 40], [150, 70], [220, 40], [280, 70]], "#e8f2ff", 10), M(4.8 + ph * 2.2, 0.12, 0.4 + i * 0.9), 0.6, 0.24)); }
   s.fx.push(card(`goat${blinkAt(t, 4) > 0.5 ? "b" : ""}${q((t * 2) % 1, 4)}`, 600, 600, goat(after(t, 7, "horn") ? blinkAt(t, 4) : 0, q((t * 2) % 1, 4)), M(3.0, 0.5, 4.4), 1.0, 1.0));
-  // "blue goats": a second, smaller goat beside the first (its own blink and chew)
-  s.fx.push(card(`goatB${blinkAt(t, 9) > 0.5 ? "b" : ""}${q((t * 2 + 0.5) % 1, 4)}`, 600, 600, goat(after(t, 7, "horn") ? blinkAt(t, 9) : 0, q((t * 2 + 0.5) % 1, 4)), M(1.9, 0.43, 4.9), 0.86, 0.86));
+  // "blue goats": a second, smaller goat just behind and beside the first (its own blink and chew); tucked in so the
+  // pair frames narrower and both read bigger (run 31: 1.1 m apart made them tiny in a portrait frame)
+  s.fx.push(card(`goatB${blinkAt(t, 9) > 0.5 ? "b" : ""}${q((t * 2 + 0.5) % 1, 4)}`, 600, 600, goat(after(t, 7, "horn") ? blinkAt(t, 9) : 0, q((t * 2 + 0.5) % 1, 4)), M(2.4, 0.43, 3.6), 0.86, 0.86));
   if (t > wt(7, "horn")) for (let i = 0; i < 2; i++) {
     const flap = q((t * 2.4 + i * 0.4) % 1, 8), wave = i === 1 && after(t, 8, "flying");
     s.places.push(P(`bat${i}`, BATFOLK[i], { expr: after(t, 8, "chatting") ? "laugh" : "grin", gest: wave ? "wave" : i ? "palm" : "point", k: flap, blink: blinkAt(t, 50 + i) }, { wings: flap }, M(-0.75 + i * 1.25, 1.6 + 0.15 * Math.sin(t * 3 + i), 2.6 - i * 0.3), { scale: 0.9 }));

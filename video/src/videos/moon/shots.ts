@@ -15,9 +15,10 @@ export const SHOT_SPECS: ShotSpec[] = [
   { t0: land(5), subjects: ["w:moon"], size: "wide", move: "push", note: "5 through it he can see the Moon" },
   { t0: land(6), subjects: ["f:day1"], size: "wide", move: "drift", note: "6 day one: forests (pulled back: the page among the lunar trees, so the forest reads as trees on the Moon)" },
   // "oceans" and the goat in one shot (a 0.7 s overhead shot of the waves was 90 % flat blue in run 29)
-  { t0: land(6, "oceans"), subjects: ["f:goat", "?f:wave"], size: "medium", move: "drift", note: "6 and oceans / 7 blue goats with a single horn, on the shore" },
-  // two shots (the pair, 1.25 m apart, is too wide for a portrait frame at full-figure size): one bat each, the other optional
-  { t0: land(8), subjects: ["c:bat0", "?c:bat1"], size: "medium", move: "push", note: "8 winged people, like humans with bat wings" },
+  // centred (run 31: the goat pair was width-limited and hung in the top quarter over ~70 % empty ground)
+  { t0: land(6, "oceans"), subjects: ["f:goat", "?f:wave"], size: "medium", move: "drift", place: "centre", note: "6 and oceans / 7 blue goats with a single horn, on the shore" },
+  // both bats in the first shot, wide and centred (run 31: with bat1 optional it hung half cut at the right edge for 3 s)
+  { t0: land(8), subjects: ["c:bat0", "c:bat1"], size: "wide", move: "push", place: "centre", note: "8 winged people, like humans with bat wings" },
   { t0: land(8, "flying"), subjects: ["c:bat1", "?c:bat0"], size: "medium", move: "drift", note: "8 flying around and chatting (bat1 waves)" },
   { t0: land(9), subjects: ["c:/^town\\d$/", "?c:fainter"], size: "wide", move: "drift", note: "9 the whole city is talking" },
   { t0: land(10), subjects: ["c:/^pierBoy\\d$/", "?f:bird"], size: "wide", move: "push", note: "10 other papers copy it, across Europe" },
