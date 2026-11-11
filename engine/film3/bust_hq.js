@@ -26,12 +26,12 @@ function hairFront(a, d) { const g = a.createLinearGradient(-60, -270, 60, -150)
   // shine
   a.globalAlpha = .35; a.strokeStyle = '#ffffff'; a.lineWidth = 7; a.lineCap = 'round'; a.beginPath(); a.arc(-10, -170, 82, -2.4, -1.75); a.stroke(); a.globalAlpha = 1; }
 function bustHQ(id) { if (BUSTHQ[id]) return BUSTHQ[id]; const d = CAST2[id];
-  const torso = gouache('hq-torso-' + id, 560, 560, a => {
+  const torso = gouache('hq-torso-' + id, 560, 630, a => {
     const g = a.createLinearGradient(-240, 0, 240, 0); g.addColorStop(0, hx2(d.top, 1.12)); g.addColorStop(.55, d.top); g.addColorStop(1, hx2(d.top, .7));
-    a.fillStyle = g; a.beginPath(); a.moveTo(-46, -6);
-    a.bezierCurveTo(-90, 6, -150, 22, -186, 52); a.bezierCurveTo(-214, 74, -222, 120, -220, 170);   // trapezius -> deltoid
-    a.lineTo(-206, 520); a.lineTo(206, 520); a.lineTo(220, 170);
-    a.bezierCurveTo(222, 120, 214, 74, 186, 52); a.bezierCurveTo(150, 22, 90, 6, 46, -6); a.closePath(); a.fill();
+    a.fillStyle = g; a.beginPath(); a.moveTo(-50, 4);
+    a.bezierCurveTo(-100, 14, -150, 26, -184, 44); a.bezierCurveTo(-206, 56, -214, 82, -214, 118);
+    a.lineTo(-210, 520); a.lineTo(210, 520); a.lineTo(214, 118);
+    a.bezierCurveTo(214, 82, 206, 56, 184, 44); a.bezierCurveTo(150, 26, 100, 14, 50, 4); a.closePath(); a.fill();
     const top = a.createLinearGradient(0, -10, 0, 90); top.addColorStop(0, 'rgba(255,240,220,.18)'); top.addColorStop(1, 'rgba(255,240,220,0)'); a.fillStyle = top; a.fill();
     a.fillStyle = 'rgba(40,20,30,.18)'; a.beginPath(); a.moveTo(-150, 200); a.bezierCurveTo(-120, 260, -110, 380, -130, 520); a.lineTo(-206, 520); a.lineTo(-214, 210); a.fill();   // under-arm shadow
     a.beginPath(); a.moveTo(150, 200); a.bezierCurveTo(120, 260, 110, 380, 130, 520); a.lineTo(206, 520); a.lineTo(214, 210); a.fill();
@@ -40,14 +40,15 @@ function bustHQ(id) { if (BUSTHQ[id]) return BUSTHQ[id]; const d = CAST2[id];
     a.strokeStyle = hx2(d.top, .62); a.lineWidth = 4; a.beginPath(); a.moveTo(-170, 70); a.bezierCurveTo(-150, 180, -146, 360, -152, 520); a.moveTo(170, 70); a.bezierCurveTo(150, 180, 146, 360, 152, 520); a.stroke();   // arm/body line
     if (d.coat) { a.fillStyle = d.coat; a.beginPath(); a.moveTo(-58, -2); a.lineTo(-18, 230); a.lineTo(-8, 520); a.lineTo(-246, 520); a.lineTo(-232, 130); a.bezierCurveTo(-214, 40, -150, 6, -58, -2); a.fill(); a.beginPath(); a.moveTo(58, -2); a.lineTo(18, 230); a.lineTo(8, 520); a.lineTo(246, 520); a.lineTo(232, 130); a.bezierCurveTo(214, 40, 150, 6, 58, -2); a.fill(); }
     if (d.apron) { a.fillStyle = d.apron; a.fillRect(-150, 210, 300, 310); a.fillRect(-120, 30, 20, 190); a.fillRect(100, 30, 20, 190); }
-    a.fillStyle = hx2(d.top, .8); a.beginPath(); a.moveTo(-58, -8); a.bezierCurveTo(-36, 46, 36, 46, 58, -8); a.bezierCurveTo(34, 24, -34, 24, -58, -8); a.fill();          // collar rib
+        { const sk = a.createLinearGradient(0, -70, 0, 10); sk.addColorStop(0, hx2(d.skin, .7)); sk.addColorStop(1, hx2(d.skin, .92)); a.fillStyle = sk;
+      a.beginPath(); a.moveTo(-36, -80); a.bezierCurveTo(-37, -40, -40, -10, -50, 10); a.lineTo(50, 10); a.bezierCurveTo(40, -10, 37, -40, 36, -80); a.fill();
+      a.strokeStyle = 'rgba(110,50,40,.16)'; a.lineWidth = 4; a.beginPath(); a.moveTo(-24, -50); a.quadraticCurveTo(-16, -20, -6, 4); a.moveTo(24, -50); a.quadraticCurveTo(16, -20, 6, 4); a.stroke(); }
+    a.fillStyle = hx2(d.top, .78); a.beginPath(); a.moveTo(-60, 2); a.bezierCurveTo(-40, 30, 40, 30, 60, 2); a.lineTo(56, 16); a.bezierCurveTo(36, 44, -36, 44, -56, 16); a.closePath(); a.fill();   // crew collar over the neck
     if (d.old) { a.fillStyle = '#e8dcc0'; for (let y = 70; y < 500; y += 72) { a.beginPath(); a.arc(0, y, 9, 0, 7); a.fill(); } }
-  }, { origin: [280, 20], size: 6, clip: true, crisp: .55, soft: 2 });
+  }, { origin: [280, 90], size: 6, clip: true, crisp: .55, soft: 2 });
   const back = gouache('hq-hairback-' + id, 360, 460, a => hairBack(a, d), { origin: [180, 320], size: 5, clip: true, crisp: .7, soft: 1.5 });
   const head = gouache('hq-head-' + id, 360, 420, a => {
-    const sk = a.createLinearGradient(0, -10, 0, 60); sk.addColorStop(0, hx2(d.skin, .72)); sk.addColorStop(1, hx2(d.skin, .9)); a.fillStyle = sk; a.beginPath(); a.moveTo(-36, -60); a.bezierCurveTo(-37, -26, -40, -6, -48, 8); a.lineTo(48, 8); a.bezierCurveTo(40, -6, 37, -26, 36, -60); a.fill();   // tapered neck
-    a.strokeStyle = 'rgba(110,50,40,.18)'; a.lineWidth = 4; a.beginPath(); a.moveTo(-26, -44); a.quadraticCurveTo(-18, -14, -6, 4); a.moveTo(26, -44); a.quadraticCurveTo(18, -14, 6, 4); a.stroke();
-    a.fillStyle = 'rgba(80,30,30,.28)'; a.beginPath(); a.ellipse(0, -36, 46, 18, 0, 0, 7); a.fill();   // chin shadow on the neck
+    
     for (const s of [-1, 1]) { a.fillStyle = d.skin; a.beginPath(); a.ellipse(s * 96, -140, 18, 28, s * .1, 0, 7); a.fill(); a.fillStyle = hx2(d.skin, .8); a.beginPath(); a.ellipse(s * 98, -140, 8, 15, 0, 0, 7); a.fill(); }
     const fg = a.createRadialGradient(-36, -170, 20, 0, -130, 150); fg.addColorStop(0, hx2(d.skin, 1.08)); fg.addColorStop(.7, d.skin); fg.addColorStop(1, hx2(d.skin, .82)); a.fillStyle = fg; faceShape(a); a.fill();
     a.save(); faceShape(a); a.clip(); const sg = a.createLinearGradient(10, 0, 100, 0); sg.addColorStop(0, 'rgba(90,40,30,0)'); sg.addColorStop(1, 'rgba(90,40,30,.2)'); a.fillStyle = sg; a.fillRect(0, -260, 110, 260); a.restore();   // shadow side
@@ -69,11 +70,12 @@ function bustHQ(id) { if (BUSTHQ[id]) return BUSTHQ[id]; const d = CAST2[id];
 function drawBust(id, x, y, o, t) { const B = bustHQ(id), s = o.s || 1;
   ctx.save(); ctx.translate(x, y); ctx.scale(s, s); ctx.rotate(o.lean || 0);
   const br = Math.sin(t * 2) * 3, sh = o.shake ? Math.sin(t * 40) * o.shake : 0;
-  const arm = (side, a) => { ctx.save(); ctx.translate(side * 186, 92 + br); ctx.rotate(-side * a); spr(B.arm, 0, 0, 0, 1); ctx.restore(); };
-  arm(-1, o.armL || .12); arm(1, o.armR || .12);
+  const arm = (side, a) => { ctx.save(); ctx.translate(side * 182, 84 + br); ctx.rotate(-side * a); spr(B.arm, 0, 0, 0, 1); ctx.restore(); };
+  if (o.armL) arm(-1, o.armL); if (o.armR) arm(1, o.armR);
   ctx.fillStyle = 'rgba(30,10,20,.18)'; ctx.beginPath(); ctx.ellipse(0, 26 + br, 90, 26, 0, 0, 7); ctx.fill();
   spr(B.back, sh, br, 0, 1);
   spr(B.torso, 0, br, 0, 1);
+  ctx.fillStyle = 'rgba(80,30,30,.22)'; ctx.beginPath(); ctx.ellipse(sh, -40 + br, 40, 14, 0, 0, 7); ctx.fill();
   ctx.save(); ctx.translate(sh, br + (o.cough ? -Math.abs(Math.sin(t * 18)) * 8 * o.cough : 0)); ctx.rotate((o.tilt || 0) + sh * .004);
   spr(B.head, 0, 0, 0, 1); face2(B.d, o, t); ctx.restore();
   if (o.front) for (const [side, a] of o.front) arm(side, a);
