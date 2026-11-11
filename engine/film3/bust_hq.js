@@ -60,7 +60,7 @@ function bustHQ(id) { if (BUSTHQ[id]) return BUSTHQ[id]; const d = CAST2[id];
     a.fillStyle = 'rgba(130,70,120,.16)'; a.beginPath(); a.moveTo(-14, -88); a.quadraticCurveTo(0, -78, 16, -88); a.quadraticCurveTo(0, -82, -14, -88); a.fill();   // under-nose shadow (cool)
     
        // nose bridge shadow
-    a.fillStyle = 'rgba(120,55,60,.35)'; for (const s of [-1, 1]) { a.beginPath(); a.ellipse(s * 9, -88, 4.5, 2.8, s * .3, 0, 7); a.fill(); }  a.fillStyle = 'rgba(255,235,205,.22)'; a.beginPath(); a.ellipse(-3, -100, 5, 4, 0, 0, 7); a.fill();
+    a.fillStyle = 'rgba(120,55,60,.35)'; for (const s of [-1, 1]) { a.beginPath(); a.ellipse(s * 9, -88, 4.5, 2.8, s * .3, 0, 7); a.fill(); }  
     if (d.old) { a.strokeStyle = 'rgba(140,80,60,.4)'; a.lineWidth = 3; for (const s of [-1, 1]) { a.beginPath(); a.moveTo(s * 70, -140); a.lineTo(s * 82, -128); a.moveTo(s * 70, -132); a.lineTo(s * 84, -118); a.stroke(); a.beginPath(); a.moveTo(s * 24, -78); a.quadraticCurveTo(s * 36, -60, s * 30, -46); a.stroke(); } a.beginPath(); a.moveTo(-34, -214); a.lineTo(34, -214); a.moveTo(-26, -200); a.lineTo(26, -200); a.stroke(); }
     if (d.beard) { a.fillStyle = d.beard; a.beginPath(); a.moveTo(-90, -120); a.bezierCurveTo(-86, -30, -40, -6, 0, -6); a.bezierCurveTo(40, -6, 86, -30, 90, -120); a.bezierCurveTo(60, -70, 30, -80, 0, -78); a.bezierCurveTo(-30, -80, -60, -70, -90, -120); a.fill(); }
     hairFront(a, d);
@@ -89,15 +89,15 @@ function face2(d, o, t) { const k = ctx, ex = o.face || 'neutral', [lx, ly] = o.
     k.save(); k.translate(cx, cy);
     if (blink || ex === 'happy') { k.strokeStyle = lash; k.lineWidth = 4.5; k.lineCap = 'round'; k.beginPath(); if (ex === 'happy') k.arc(0, 8, 17, Math.PI * 1.15, Math.PI * 1.85); else k.arc(0, -6, 18, Math.PI * .18, Math.PI * .82); k.stroke();
       k.restore(); continue; }
-    const W2 = 17, H2 = 11 * open, inn = -s * W2 * .33, out = s * W2 * .33;
-    k.beginPath(); k.moveTo(-W2, 0); k.quadraticCurveTo(inn * 1.6, -H2 * 2.1, W2, -1); k.quadraticCurveTo(out * 1.6, H2 * 1.6, -W2, 0); k.closePath();
+    const W2 = 18, H2 = 10 * open, inn = -s * W2 * .12, out = s * W2 * .1;
+    k.beginPath(); k.moveTo(-W2, 1); k.bezierCurveTo(-W2 * .6 + inn, -H2 * 1.45, W2 * .6 + inn, -H2 * 1.45, W2, 1); k.bezierCurveTo(W2 * .6 + out, H2 * 1.05, -W2 * .6 + out, H2 * 1.05, -W2, 1); k.closePath();
     k.fillStyle = '#fbf7f0'; k.fill(); k.save(); k.clip();
-    const ix = lx * 7, iy = ly * 4 + 1, ig = k.createRadialGradient(ix - 3, iy - 4, 2, ix, iy, 13); ig.addColorStop(0, hx2(iris, 1.6)); ig.addColorStop(1, iris);
-    k.fillStyle = ig; k.beginPath(); k.arc(ix, iy, 10, 0, 7); k.fill(); k.strokeStyle = hx2(iris, .6); k.lineWidth = 1.5; k.stroke(); k.fillStyle = '#120a0e'; k.beginPath(); k.arc(ix, iy, 5, 0, 7); k.fill();
-    k.fillStyle = 'rgba(60,30,30,.12)'; k.fillRect(-W2, -H2 * 2, W2 * 2, H2 * .8);          // upper lid shadow
-    k.fillStyle = '#fff'; k.beginPath(); k.arc(ix - 3.5, iy - 4, 3, 0, 7); k.fill(); k.beginPath(); k.arc(ix + 4, iy + 4, 1.8, 0, 7); k.fill(); k.restore();
-    k.strokeStyle = lash; k.lineWidth = 3.4; k.lineCap = 'round'; k.beginPath(); k.moveTo(-W2 - 1, 0); k.quadraticCurveTo(inn * 1.6, -H2 * 2.1, W2 + 1, -1); k.stroke();
-    k.strokeStyle = 'rgba(120,60,90,.2)'; k.lineWidth = 2; k.beginPath(); k.moveTo(-W2 * .8, H2 * .3); k.quadraticCurveTo(out * 1.6, H2 * 1.6, W2 * .9, 0); k.stroke();
+    const ix = lx * 6, iy = ly * 3 + 1.5, ig = k.createRadialGradient(ix - 3, iy - 4, 2, ix, iy, 13); ig.addColorStop(0, hx2(iris, 1.6)); ig.addColorStop(1, iris);
+    k.fillStyle = ig; k.beginPath(); k.arc(ix, iy, 8.5, 0, 7); k.fill(); k.strokeStyle = hx2(iris, .6); k.lineWidth = 1.5; k.stroke(); k.fillStyle = '#120a0e'; k.beginPath(); k.arc(ix, iy, 4, 0, 7); k.fill();
+    k.fillStyle = 'rgba(60,30,30,.1)'; k.fillRect(-W2, -H2 * 2, W2 * 2, H2 * 1.1);          // upper lid shadow
+    k.fillStyle = '#fff'; k.beginPath(); k.arc(ix - 3, iy - 3, 2.2, 0, 7); k.fill(); k.restore();
+    k.strokeStyle = lash; k.lineWidth = 3; k.lineCap = 'round'; k.beginPath(); k.moveTo(-W2 - 1, 1); k.bezierCurveTo(-W2 * .6 + inn, -H2 * 1.45, W2 * .6 + inn, -H2 * 1.45, W2 + 1, 1); k.stroke();
+    
     k.strokeStyle = 'rgba(90,50,40,.3)'; k.lineWidth = 2; k.beginPath(); k.moveTo(-W2 * .7, -H2 * 1.6 - 5); k.quadraticCurveTo(0, -H2 * 2.1 - 6, W2 * .8, -H2 * 1.4 - 6); k.stroke();
     k.restore(); }
   const br = { sad: [-.3, 4], worry: [-.35, 2], scared: [-.45, 0], shock: [0, -12], happy: [.1, -4], smile: [.05, -2], neutral: [0, 0], angry: [.35, 6], closed: [0, 0] }[ex] || [0, 0];
