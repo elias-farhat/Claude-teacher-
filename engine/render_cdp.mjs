@@ -19,7 +19,7 @@ const send = (method, params = {}) => new Promise(r => { const i = ++id; pend.se
 const ev = async (expr) => { const m = await send('Runtime.evaluate', { expression: expr, returnByValue: true, awaitPromise: true }); if (m.result.exceptionDetails) throw new Error(JSON.stringify(m.result.exceptionDetails).slice(0, 600)); return m.result.result.value; };
 await send('Runtime.enable');
 const from = +(fromArg || 0);
-await send('Page.navigate', { url: `http://localhost:${port}/?from=${from}&to=${toArg || 1e9}` });
+await send('Page.navigate', { url: `http://localhost:${port}/${process.env.PAGE || ""}?from=${from}&to=${toArg || 1e9}` });
 const t0 = Date.now(); while (!(await ev('window.READY === true'))) { if (Date.now() - t0 > 180000) throw new Error('not ready'); await new Promise(r => setTimeout(r, 200)); }
 const dur = await ev('window.DUR'); const to = Math.min(+(toArg || dur), dur);
 const i0 = Math.round(from * fps), i1 = Math.round(to * fps);
