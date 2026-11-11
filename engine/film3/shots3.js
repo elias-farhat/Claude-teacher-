@@ -59,22 +59,40 @@ const SHOTS3 = [
   [11, (t, q) => { // you step outside: walking, everyone has a number
     const x0 = 900 + q * 260, c = eyeCam(x0, 640, 1.1, t, 12);
     view('street', c, t, () => { [['p1', 1500, 1, { y: 44, m: 2, d: 11, sec: 9000 }], ['p2', 2050, .9, { y: 12, m: 7, d: 3, sec: 30000 }], ['p3', 2600, 1, { y: 58, m: 0, d: 21, sec: 4000 }], ['f2', 3150, .95, { y: 27, m: 9, d: 2, sec: 60000 }]].forEach(([id, x, s, spec], i) => {
-      person(id, x, 660, s, { face: 'neutral', look: [x < c.cx ? .5 : -.5, 0] }, t + i); lifeTag(x, tagAbove(660, s), spec, t, { a: on(t, 12, .6), s: .85 }); }); }); }],
-  [13, (t, q) => { // the bus driver, the baker, a baby in a stroller
-    const k1 = on(t, 14, .6), k2 = on(t, 15, .7), door = ease(seg(t, LT(13) - .4, LT(13) + .3));
-    let c = eyeCam(1700, 560, 1.25, t); c = mix(c, eyeCam(3050, 620, 1.25, t), k1); c = mix(c, eyeCam(3700, 1000, 1.35, t), k2);
-    view('street', c, t, () => { person('driver', 1890, 560, .7, { face: 'smile', look: [.3, 0] }, t); bus(1400, 1240, t, door);
-      lifeTag(1890, tagAbove(560, .7) - 20, { y: 38, m: 5, d: 14, sec: 20000 }, t, { a: on(t, 13, .5), s: .9 });
-      ctx.fillStyle = '#f4e8d0'; ctx.fillRect(2800, 700, 520, 120); ctx.fillStyle = '#7a3a2a'; ctx.font = '700 72px Fredoka'; ctx.textAlign = 'center'; ctx.fillText('BAKERY', 3060, 785);
-      person('baker', 3050, 620, .95, { face: 'smile' }, t); lifeTag(3050, tagAbove(620, .95), { y: 19, m: 3, d: 8, sec: 7000 }, t, { a: on(t, 14, .4), s: .9 });
-      stroller(3700, 1160, 1.05, t); lifeTag(3760, 880, { y: 84, m: 6, d: 2, sec: 80000 }, t, { a: on(t, 16, .5), s: 1 }); }); }],
+      const sc = s * .56, ey = personFull(id, x, 1420, sc, { face: 'neutral', look: [x < c.cx ? .5 : -.5, 0], walk: true, ph: i }, t + i); lifeTag(x, ey - 175 * sc - 95, spec, t, { a: on(t, 12, .6), s: .85 }); }); }); }],
+  [13, (t, q) => { // the bus doors open: the driver in his seat; then the baker; then you look down into the stroller
+    const k1 = on(t, 14, .6), k2 = on(t, 15, .5), door = ease(seg(t, LT(13) - .5, LT(13) + .4));
+    if (k2 < 1) {
+      if (k1 < 1) { // bus door close-up (screen space)
+        const c = eyeCam(1500, 700, 1.1, t); view('street', c, t, null, { blur: 1 }); ctx.setTransform(1, 0, 0, 1, 0, 0);
+        const z = 1 + q * .03; ctx.save(); ctx.translate(W / 2, H / 2); ctx.scale(z, z); ctx.translate(-W / 2, -H / 2);
+        ctx.fillStyle = '#e8b03a'; ctx.fillRect(-100, 40, W + 200, 1100); ctx.fillStyle = '#c88a20'; ctx.fillRect(-100, 900, W + 200, 40);
+        ctx.fillStyle = '#9ac8e0'; ctx.fillRect(40, 120, 380, 330); ctx.fillRect(1500, 120, 380, 330);
+        ctx.fillStyle = '#4a4a56'; ctx.fillRect(560, 100, 800, 1000);                                     // door frame / interior
+        const ig = ctx.createLinearGradient(0, 120, 0, 1080); ig.addColorStop(0, '#5a5a6a'); ig.addColorStop(1, '#3a3a46'); ctx.fillStyle = ig; ctx.fillRect(580, 120, 760, 980);
+        ctx.fillStyle = '#7a8aa0'; ctx.fillRect(580, 160, 760, 150); ctx.fillStyle = '#c0d8e8'; ctx.fillRect(600, 175, 300, 120);   // windscreen strip
+        ctx.fillStyle = '#2a2a34'; ctx.fillRect(580, 860, 760, 40); ctx.fillStyle = '#6a6a74'; ctx.fillRect(580, 1000, 760, 30);   // dashboard + step
+        driverSide(1080, 900, .9, t);
+        lifeTag(1010, 150, { y: 38, m: 5, d: 14, sec: 20000 }, t, { a: on(t, 13, .5) * door, s: 1 });
+        const o = door * 380; ctx.fillStyle = '#b8d8e8'; ctx.strokeStyle = '#3a3a44'; ctx.lineWidth = 14;
+        for (const [x0, dir] of [[580, -1], [960, 1]]) { const x = dir < 0 ? x0 - o : x0 + o; ctx.fillRect(x, 120, 380, 980); ctx.strokeRect(x, 120, 380, 980); ctx.fillStyle = 'rgba(255,255,255,.3)'; ctx.fillRect(x + 30, 160, 60, 500); ctx.fillStyle = '#b8d8e8'; }
+        ctx.restore(); grade('255,220,170', .05);
+      } else { // the baker
+        const c = eyeCam(3050, 640, 1.2, t); view('street', c, t, () => { ctx.fillStyle = '#7a3a2a'; ctx.fillRect(3180, 560, 440, 120); ctx.fillStyle = '#f4e8d0'; ctx.font = '700 76px Fredoka'; ctx.textAlign = 'center'; ctx.fillText('BAKERY', 3400, 648);
+          const ey = personFull('baker', 3050, 1460, .62, { face: 'smile' }, t); lifeTag(3050, ey - 175 * .62 - 95, { y: 19, m: 3, d: 8, sec: 7000 }, t, { a: on(t, 14, .4), s: .9 }); }); }
+    }
+    if (k2 > 0) { ctx.save(); ctx.globalAlpha = k2; ctx.setTransform(1, 0, 0, 1, 0, 0);   // look down into the stroller
+      ctx.fillStyle = '#9a9090'; ctx.fillRect(0, 0, W, H); ctx.strokeStyle = 'rgba(60,50,50,.35)'; ctx.lineWidth = 4; for (let i = -10; i < 30; i += 1) { ctx.beginPath(); ctx.moveTo(i * 140 - q * 10, 0); ctx.lineTo(i * 140 - 300 - q * 10, H); ctx.stroke(); }
+      const z = 1 + (t - LT(15)) * .03; ctx.translate(W / 2, H / 2 + 120); ctx.scale(z, z); ctx.rotate(Math.PI / 2); babyTop(40, 0, 1.15, t); ctx.restore();
+      ctx.setTransform(1, 0, 0, 1, 0, 0); lifeTag(W / 2, 140, { y: 84, m: 6, d: 2, sec: 80000 }, t, { a: on(t, 16, .5), s: 1.05 }); }
+  }],
   [17, (t, q) => { // wide: the whole street, numbers everywhere
-    const c = eyeCam(2400, 700, .85 + q * .02, t); view('street', c, t, () => { for (let k = 0; k < 14; k++) { const x = 300 + k * 320, s = .55 + hash(k) * .2; person(['p1', 'p2', 'p3', 'f1', 'f2', 'f3', 'f4'][k % 7], x, 720, s, { face: 'neutral' }, t + k); lifeTag(x, tagAbove(720, s), { y: (hash(k + 2) * 80) | 0, m: (hash(k) * 11) | 0, d: (hash(k + 5) * 29) | 0, sec: 40000 }, t, { s: .6, a: seg(t, LT(17) + k * .1, LT(17) + k * .1 + .4) }); } });
+    const c = { cx: 2400, cy: 840, z: .9 + q * .02, roll: 0 }; view('street', c, t, () => { for (let k = 0; k < 14; k++) { const x = 300 + k * 320 + (k % 2) * 40, s = .34 + hash(k) * .05; const ey = personFull(['p1', 'p2', 'p3', 'f1', 'f2', 'f3', 'f4'][k % 7], x, 1330 + (k % 2) * 40, s, { face: 'neutral', walk: k % 3 === 0, ph: k }, t + k); lifeTag(x, ey - 175 * s - 80, { y: (hash(k + 2) * 80) | 0, m: (hash(k) * 11) | 0, d: (hash(k + 5) * 29) | 0, sec: 40000 }, t, { s: .6, a: seg(t, LT(17) + k * .1, LT(17) + k * .1 + .4) }); } });
     bigCenter('How long does everyone have left?', 150, 80, on(t, 17, .6) * (1 - seg(t, ET(17) + .1, ET(17) + .5))); }],
   [18, (t, q) => wbDraw(WB3.life.items, t - WB3.life.s0, [960, 590, 1])],
   [22, (t, q) => { // day one strange, day two worse
     const two = on(t, 23, .4); const c = shake(eyeCam(2000 + q * 120, 660, 1 + two * .12, t, 10, two * .04), two * 6, t);
-    view('street', c, t, () => { for (let k = 0; k < 8; k++) { const x = 1100 + k * 330, s = .7; person(['p3', 'f1', 'p1', 'f3', 'p2', 'f4', 'f2', 'p3'][k], x, 680, s, { face: two ? 'worry' : 'neutral' }, t + k); lifeTag(x, tagAbove(680, s), { y: (hash(k + 9) * 70) | 0, m: 3, d: 4, sec: 5000 }, t, { s: .7, spin: two > .5 && k % 2 === 0 }); } });
+    view('street', c, t, () => { for (let k = 0; k < 8; k++) { const x = 1100 + k * 330, s = .7; const ey = personFull(['p3', 'f1', 'p1', 'f3', 'p2', 'f4', 'f2', 'p3'][k], x, 1380, s * .62, { face: two ? 'worry' : 'neutral', walk: true, ph: k }, t + k); lifeTag(x, ey - 175 * s * .62 - 90, { y: (hash(k + 9) * 70) | 0, m: 3, d: 4, sec: 5000 }, t, { s: .7, spin: two > .5 && k % 2 === 0 }); } });
     grade('80,20,40', two * .25); bigCenter(two > .5 ? 'DAY 2' : 'DAY 1', 170, 120, 1); }],
   [24, (t, q) => { // the park: an old man feeding pigeons; look up at his number; the zoom into it; you could walk away
     const look = on(t, 25, .7), zoom = ease(seg(t, LT(27), LT(28))), away = on(t, 28, .9) - on(t, 30, .6);
@@ -98,13 +116,12 @@ const SHOTS3 = [
     const arrive = ease(seg(t, LT(49) - .2, LT(49) + 2.2)), up = on(t, 50, .6), drop = on(t, 55, .2);
     const s = lerp(.45, 1.15, arrive), lx = lerp(3700, 2650, arrive), bob = Math.abs(Math.sin(t * 9)) * 18 * (1 - arrive);
     let c = eyeCam(2650, 620, 1.12, t); c = mix(c, { cx: 2650, cy: tagAbove(620, 1.15) + 120, z: 1.5, roll: 0 }, up); c = shake(c, drop * 7, t);
-    view('street', c, t, () => { person('leo', lx, 620 - bob + (1 - arrive) * 60, s, { face: during(t, 49) || t < LT(50) ? 'happy' : 'smile', talk: talking(t, 49), front: [[1, 2.2]] }, t);
-      ctx.save(); ctx.translate(lx + 150 * s, 620 + 40 * s); ctx.rotate(-.2); ctx.fillStyle = '#1c1a22'; ctx.beginPath(); ctx.roundRect(-30 * s, -55 * s, 60 * s, 110 * s, 10 * s); ctx.fill(); ctx.fillStyle = '#7ac0ff'; ctx.fillRect(-24 * s, -48 * s, 48 * s, 92 * s); ctx.restore();
+    view('street', c, t, () => { person('leo', lx, 620 - bob + (1 - arrive) * 60, s, { face: during(t, 49) || t < LT(50) ? 'happy' : 'smile', talk: talking(t, 49), armR: 2.55, phone: 2.55, look: [.4, -.2] }, t);
       lifeTag(lx, tagAbove(620, s), { sec: 7200 - Math.max(0, t - LT(51)) }, 0, { a: on(t, 51, .4), s: 1.05, tick: 0 }); });
     grade('40,10,30', drop * .22); }],
   [56, (t, q) => { // walking him home the long way
     const c = eyeCam(2200 + q * 200, 640, 1.15, t, 10, -.01); view('street', c, t, () => { const lx = c.cx + 330, s = 1.05;
-      person('leo', lx, 650 + Math.abs(Math.sin(t * 4.5)) * -8, s, { face: t > LT(60) ? 'worry' : (t > LT(58) ? 'shock' : 'smile'), talk: talking(t, 58, 60), look: [-.8, 0], front: t > LT(58) && t < LT(60) ? [[1, 1.5]] : null }, t);
+      person('leo', lx, 650 + Math.abs(Math.sin(t * 4.5)) * -8, s, { face: t > LT(60) ? 'worry' : (t > LT(58) ? 'shock' : 'smile'), talk: talking(t, 58, 60), look: [-.8, 0] }, t);
       lifeTag(lx, tagAbove(650, s), { sec: 6900 - (t - LT(56)) * 40 }, 0, { s: .95, tick: 0 }); });
     grade('60,20,50', .1); }],
   [61, (t, q) => { // the crosswalk: green light, Leo steps forward, you grab his hoodie; the truck

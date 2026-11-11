@@ -77,6 +77,9 @@ function drawBust(id, x, y, o, t) { const B = bustHQ(id), s = o.s || 1;
   spr(B.torso, 0, br, 0, 1);
   ctx.save(); ctx.translate(sh, br + (o.cough ? -Math.abs(Math.sin(t * 18)) * 8 * o.cough : 0)); ctx.rotate((o.tilt || 0) + sh * .004);
   spr(B.head, 0, 0, 0, 1); face2(B.d, o, t); ctx.restore();
+  if (o.phone) { const a = o.phone, hx = 165 + 292 * Math.sin(a), hy = 80 + br + 292 * Math.cos(a); ctx.save(); ctx.translate(hx - 10, hy - 30); ctx.rotate(-.25);
+    ctx.fillStyle = '#1c1a22'; ctx.beginPath(); ctx.roundRect(-40, -78, 80, 150, 14); ctx.fill(); ctx.fillStyle = '#7ac0ff'; ctx.fillRect(-32, -68, 64, 128); ctx.restore();
+    ctx.fillStyle = B.d.skin; ctx.beginPath(); ctx.ellipse(hx - 2, hy + 6, 30, 34, 0, 0, 7); ctx.fill(); }
   ctx.restore(); }
 
 function face2(d, o, t) { const k = ctx, ex = o.face || 'neutral', [lx, ly] = o.look || [0, 0], iris = d.eye || '#5a3a22', lash = '#24161c';
