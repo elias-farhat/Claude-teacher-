@@ -1,7 +1,7 @@
 // POV test, refined gouache: "Then you reach your front door ... in your hand ... for ten minutes." (lines 8-12)
 // The world is a frontal room 2400x2000; the camera is your head (pan, tilt, bob, roll); hands live in screen space.
 const WW = 2400, WH = 2000, GR = 1.2;
-const DUR = 9.6;
+const DUR = 19.0, CUT1 = 9.0, CUT2 = 15.05;
 
 // ---------- refined gouache painter: soft wash + directional strokes + crisp shape memory ----------
 function gouache(name, w, h, draw, o = {}) {
@@ -111,8 +111,8 @@ function cam(t) {
   const hw = W / 2 / z + 90, hh = H / 2 / z + 60; cx = clamp(cx, hw, WW - hw); cy = clamp(cy, hh, WH - hh);
   return { cx, cy, z, roll, down };
 }
-function render(t) {
-  const c = cam(t);
+function povDoor(t, ret) {
+  const c = ret ? retCam(t) : cam(t);
   ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
   ctx.translate(W / 2, H / 2); ctx.rotate(c.roll); ctx.scale(c.z, c.z); ctx.translate(-c.cx, -c.cy);
   ctx.drawImage(ROOM.c, 0, 0, WW, WH);
@@ -137,8 +137,7 @@ function render(t) {
   ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.fillStyle = 'rgba(40,20,60,.08)'; ctx.fillRect(0, 0, W, H);
   ctx.drawImage(S.tex, 0, 0);
-  blink(t); captions(t);
-  const k = Math.min(seg(t, 0, .35), 1 - seg(t, DUR - .5, DUR)); if (k < 1) { ctx.fillStyle = `rgba(14,6,14,${1 - k})`; ctx.fillRect(0, 0, W, H); }
+  if (!ret) blink(t);
 }
 function keysOnPalm(t, lift) {
   const sw = Math.sin(t * 6) * .06 * (1 + lift / 10);
@@ -154,10 +153,34 @@ function keysOnPalm(t, lift) {
 }
 function blink(t) { const b = Math.max(0, 1 - Math.abs(t - 6.85) / .13); if (b <= 0) return; ctx.fillStyle = '#0c0608';
   const hgt = b * H * .55; ctx.beginPath(); ctx.ellipse(W / 2, -H * .2 + hgt * 1.1, W * .8, H * .45, 0, 0, 7); ctx.fill(); ctx.beginPath(); ctx.ellipse(W / 2, H * 1.2 - hgt * 1.1, W * .8, H * .45, 0, 0, 7); ctx.fill(); }
-const CAPS = [[.19, 2.43, 'Then you reach your front door.'], [2.94, 4.13, 'Where are your keys?'], [4.6, 5.17, 'In your hand.'], [5.64, 7.62, 'Where they’ve been...'], [8.37, 9.05, 'for ten minutes.']];
+const CAPS = [[.19, 2.43, 'Then you reach your front door.'], [2.94, 4.13, 'Where are your keys?'], [4.6, 5.17, 'In your hand.'], [5.64, 7.62, 'Where they’ve been...'], [8.37, 9.05, 'for ten minutes.'],
+  [9.05, 11.19, 'Most people hold about four things in mind at once.'], [11.61, 12.19, 'Maybe seven.'], [12.53, 14.09, 'Scientists still argue about which.'], [14.54, 15.13, 'That’s tiny.'], [15.13, 15.6, 'You?'], [15.97, 18.75, 'A memory the size of one million books.']];
 function captions(t) { const i = CAPS.findIndex((c, k) => t >= c[0] - .1 && t < (CAPS[k + 1] ? CAPS[k + 1][0] - .1 : DUR)); if (i < 0) return; const c = CAPS[i]; if (t > c[1] + .7) return;
   ctx.globalAlpha = Math.min(seg(t, c[0] - .1, c[0] + .08), 1 - seg(t, c[1] + .5, c[1] + .7)); ctx.font = '600 50px Fredoka'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.lineJoin = 'round';
   ctx.lineWidth = 10; ctx.strokeStyle = 'rgba(30,12,24,.75)'; ctx.strokeText(c[2], W / 2, H - 80); ctx.fillStyle = '#fff6e6'; ctx.fillText(c[2], W / 2, H - 80); ctx.globalAlpha = 1; }
 
+// ---------- master edit: POV -> whiteboard fact -> POV ----------
+function retCam(t) { const q = t - CUT2; return { cx: 1200 + Math.sin(q * .7) * 12, cy: 700, z: 1.12 + q * .03, roll: Math.sin(q * .9) * .004, down: 0 }; }
+function render(t) {
+  if (t < CUT1) povDoor(t);
+  else if (t < CUT2) board(t - CUT1);
+  else { povDoor(t, true); pageTunnel(t - CUT2); }
+  // transitions: page-swipe into the board, white flash back into POV
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  const k1 = 1 - seg(t, CUT1 - .02, CUT1 + .35); if (t >= CUT1 && k1 > 0 && t < CUT2) { const x = W * (1 - ease(1 - k1)); ctx.save(); ctx.translate(x, 0); ctx.fillStyle = 'rgba(30,20,20,.35)'; ctx.fillRect(-40, 0, 40, H); ctx.restore(); }
+  const fl = Math.max(0, 1 - Math.abs(t - CUT2) / .18); if (fl > 0) { ctx.fillStyle = `rgba(255,248,230,${fl})`; ctx.fillRect(0, 0, W, H); }
+  captions(t);
+  const k = Math.min(seg(t, 0, .35), 1 - seg(t, DUR - .5, DUR)); if (k < 1) { ctx.fillStyle = `rgba(14,6,14,${1 - k})`; ctx.fillRect(0, 0, W, H); }
+}
+// "A memory the size of one million books": glowing pages fly out of the centre, past you
+function pageTunnel(q) {
+  const n = Math.floor(clamp(q / 2.2, 0, 1) * 160) + 6, cx = W / 2, cy = H * .45;
+  ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = clamp(q / 1.2, 0, 1) * .5; ctx.drawImage(S.glow, cx - 700, cy - 700, 1400, 1400); ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
+  for (let k = 0; k < n; k++) { const life = 2.4, ph = ((q * (.5 + hash(k) * .4) + hash(k + 3) * life) % life) / life, z = Math.pow(ph, 2.2);
+    const an = hash(k + 7) * 6.283, r = 40 + z * 1300, x = cx + Math.cos(an) * r * 1.4, y = cy + Math.sin(an) * r * .9, s = .4 + z * 5;
+    const a = Math.min(1, ph * 4) * (1 - Math.max(0, (z - .8) / .2));
+    ctx.globalCompositeOperation = 'lighter'; glowAt(x, y, 30 * s, .35 * a); ctx.globalCompositeOperation = 'source-over';
+    ctx.setTransform(1, 0, 0, 1, 0, 0); page(x, y, Math.sin(q * 2 + k) * .6, s, a); }
+}
 window.render = render;
-document.fonts.load('700 40px Fredoka').then(() => { buildStatic(); buildRoom(); window.FACES = []; window.SCENE = 'pov-door'; window.DUR = DUR; render(0); window.READY = true; });
+document.fonts.load('700 40px Fredoka').then(() => { buildStatic(); buildRoom(); buildBoard(); window.FACES = []; window.SCENE = 'pov-door'; window.DUR = DUR; render(0); window.READY = true; });
