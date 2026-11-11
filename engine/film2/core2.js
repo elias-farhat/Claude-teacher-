@@ -124,10 +124,11 @@ const fn = (t0, f) => ({ k: 'f', t0, fn: f });
 const headPts = (hx, hy, s = 1) => spline([[-120, 260], [-150, 150], [-172, 30], [-150, -90], [-90, -175], [20, -210], [120, -170], [168, -95], [178, -40], [214, 6], [176, 34], [186, 66], [168, 92], [160, 126], [96, 160], [84, 262]].map(([x, y]) => [hx + x * s, hy + y * s]), 8);
 
 // ---------- overlays ----------
-function bubble2(x, y, str, a, tail = 'down') { ctx.save(); ctx.globalAlpha = a; ctx.font = '600 52px Fredoka'; const w = ctx.measureText(str).width + 70;
+function bubble2(x, y, str, a, tail = 'down') { if (window.SHORTCX != null) x = window.SHORTCX + 40; ctx.save(); ctx.globalAlpha = a; ctx.font = '600 52px Fredoka'; const w = ctx.measureText(str).width + 70;
   ctx.fillStyle = '#fff8ec'; ctx.beginPath(); ctx.roundRect(x - w / 2, y - 50, w, 100, 44); ctx.fill(); ctx.beginPath(); ctx.moveTo(x - 20, y + 46); ctx.lineTo(x - 40, y + 100); ctx.lineTo(x + 20, y + 46); ctx.fill();
   ctx.fillStyle = '#3a2430'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(str, x, y + 2); ctx.restore(); }
-function bigText(str, x, y, size, a, col = '#fff6e6', glow = 'rgba(255,200,120,.9)') { ctx.save(); ctx.globalAlpha = a; ctx.font = `700 ${size}px Fredoka`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+function bigText(str, x, y, size, a, col = '#fff6e6', glow = 'rgba(255,200,120,.9)') { ctx.save(); ctx.globalAlpha = a; ctx.font = `700 ${size}px Fredoka`;
+  if (window.SHORTCX != null && Math.abs(x - window.SHORTCX) < 400) { x = window.SHORTCX; const w = ctx.measureText(str).width; if (w > 500) { size = size * 500 / w; ctx.font = `700 ${size}px Fredoka`; } } ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
   ctx.lineWidth = size / 6; ctx.lineJoin = 'round'; ctx.strokeStyle = 'rgba(40,16,40,.7)'; ctx.strokeText(str, x, y); ctx.shadowColor = glow; ctx.shadowBlur = 30; ctx.fillStyle = col; ctx.fillText(str, x, y); ctx.restore(); }
 function notes2(x, y, t, a, dir = 1) { for (let k = 0; k < 6; k++) { const q = (t * .45 + k / 6) % 1; ctx.globalCompositeOperation = 'lighter'; glowAt(x + dir * q * 260 + Math.sin(q * 9 + k) * 30, y - q * 240, 34, .5 * a * (1 - q)); ctx.globalCompositeOperation = 'source-over';
   note(x + dir * q * 260 + Math.sin(q * 9 + k) * 30, y - q * 240, 1.8, a * Math.min(1, (1 - q) * 2)); } }

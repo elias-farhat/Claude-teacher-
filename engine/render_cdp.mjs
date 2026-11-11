@@ -26,7 +26,7 @@ const i0 = Math.round(from * fps), i1 = Math.round(to * fps);
 const ff = spawn('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(fps), '-c:v', 'mjpeg', '-i', '-', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', '-pix_fmt', 'yuv420p', out], { stdio: ['pipe', 'inherit', 'inherit'] });
 const faces = []; const t1 = Date.now();
 for (let i = i0; i < i1; i++) {
-  const v = await ev(`render(${i / fps}); [document.getElementById('c').toDataURL('image/jpeg', .92), JSON.stringify(window.FACES), window.SCENE]`);
+  const v = await ev(`render(${i / fps}); [document.getElementById(window.OUT || 'c').toDataURL('image/jpeg', .92), JSON.stringify(window.FACES), window.SCENE]`);
   faces.push([+(i / fps).toFixed(3), v[2], JSON.parse(v[1])]);
   const buf = Buffer.from(v[0].slice(v[0].indexOf(',') + 1), 'base64'); if (!ff.stdin.write(buf)) await new Promise(r => ff.stdin.once('drain', r));
   if ((i - i0) % 300 === 0) console.log(`${out}: frame ${i - i0}/${i1 - i0}`);
