@@ -34,4 +34,10 @@ Direction by Elias, 2026-11-11. "On you" = Claude picks the best shot. Focus: ca
 | You can see everyone's time... except yours. | POV | The silhouette slowly gains detail and becomes the person. |
 | Maybe that's the point … not waste it. | POV | The realisation moment. |
 | You text your mom. Love you. | POV | Hand holding the phone; contact "Mom"; fingers typing on the keyboard. |
-| (to be continued) | | |
+| (typing) Love you. | POV | Fingers type "Love you" on the phone keyboard and send it. |
+| She replies with three hearts. | POV | Mom's reply pops in: ❤️❤️❤️. |
+| Thirty-one years. You plan to fill every one of them. | POV | (on Claude) Hold on the phone/warm moment. |
+| So what's real? … sleep, movement, and the people you love. | WB | Whiteboard facts. |
+| What would you do if you saw your own number? | POV | Back at the mirror: this time YOUR number appears above your reflection. |
+| And what if you could pause time? | POV | The number stops ticking (freezes). |
+| Tell us in the comments … subscribe | POV | Hold on the frozen number; end card. |
