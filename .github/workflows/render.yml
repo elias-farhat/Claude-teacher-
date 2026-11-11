@@ -73,6 +73,7 @@ jobs:
     timeout-minutes: 90   # the auto-framer loop (~15-20 min for a short) + the worst-frames sheet
     outputs:
       matrix: ${{ steps.plan.outputs.matrix }}
+      fullmatrix: ${{ steps.plan.outputs.fullmatrix }}
       frames: ${{ steps.plan.outputs.frames }}
       fps: ${{ steps.plan.outputs.fps }}
       count: ${{ steps.plan.outputs.count }}
@@ -117,6 +118,7 @@ jobs:
         run: |
           out="$(node scripts/plan-chunks.mjs "${{ inputs.composition }}" "${{ inputs.chunks }}" "${{ inputs.mode }}" | tail -1)"
           echo "$out"
+          echo "fullmatrix=$(jq -c '.matrix' <<<"$out")" >> "$GITHUB_OUTPUT"   # the proxy always covers the whole video
           only="${{ inputs.only_chunks }}"
           if [ "$only" = "none" ]; then out="$(jq -c '.matrix = []' <<<"$out")"; echo "splice: assemble only"
           elif [ -n "$only" ]; then  # splice: render only the changed chunks
@@ -144,7 +146,10 @@ jobs:
           if [ "$v" = eiffel ]; then node scripts/camera-guard.mjs "$v" | tee out/camera-guard.txt; exit "${PIPESTATUS[0]}"; fi
           timeout 300 pip install -q pillow || true
           set -o pipefail
-          node scripts/camera-guard.mjs "$v" --solve --sheet | tee out/camera-guard.txt
+          # a splice run (only_chunks) guards the committed camera track as it is: the spliced chunks of the earlier run
+          # and the new ones must come from the same track, so it is never re-solved here
+          if [ -n "${{ inputs.only_chunks }}" ]; then node scripts/camera-guard.mjs "$v" --sheet | tee out/camera-guard.txt
+          else node scripts/camera-guard.mjs "$v" --solve --sheet | tee out/camera-guard.txt; fi
           cat ../qa/$v/summary.txt >> "$GITHUB_STEP_SUMMARY"
       - if: always() && (inputs.composition == 'RatShort' || inputs.composition == 'MoonShort')
         uses: actions/upload-artifact@v4
@@ -170,16 +175,17 @@ jobs:
 
   # Proxy render + pixel check (CLAUDE.md rule 13, after the math guard, before any full-quality frame): the whole
   # video at 270x480, preview quality, then scripts/pixel-check.py (one flat colour > 55 % of a frame, > 2 s barely
-  # changing, extreme close-up flashes). A failure stops the render / stills / qa jobs.
+  # changing, extreme close-up flashes, blurred subject). A failure stops the render / stills / qa jobs. A splice run
+  # (only_chunks) proxies the WHOLE video too: the checks look at the result, not only at the re-rendered chunks.
   proxy:
     needs: plan
-    if: needs.plan.outputs.count != '0' && (inputs.composition == 'RatShort' || inputs.composition == 'MoonShort') && inputs.mode == 'full' && inputs.only_chunks == ''
+    if: (inputs.composition == 'RatShort' || inputs.composition == 'MoonShort') && inputs.mode == 'full' && inputs.only_chunks != 'none'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     strategy:
       fail-fast: false
       matrix:
-        chunk: ${{ fromJSON(needs.plan.outputs.matrix) }}
+        chunk: ${{ fromJSON(needs.plan.outputs.fullmatrix) }}
     name: proxy ${{ matrix.chunk.index }}
     steps:
       - uses: actions/checkout@v4

@@ -14,7 +14,7 @@
 // subject blocked"), while SUBJECT, OCCLUSION of one of them and FACES are warnings (the camera is travelling).
 import * as THREE from "three";
 import { Geo } from "./geo";
-import { subjectsAt, bystanderHeads, Head, Place, FxCard, Subj, cocAt, lensFor } from "./subjects";
+import { subjectsAt, bystanderHeads, nameOf, Head, Place, FxCard, Subj, cocAt, lensFor } from "./subjects";
 
 export type { Place, FxCard };
 export type Cam = { pos: THREE.Vector3; look: THREE.Vector3; fov: number; roll: number; shot: number; mix: number; dof?: number };
@@ -84,7 +84,9 @@ export const checkSubjects = (cam: THREE.PerspectiveCamera, subj: Subj[], geo: G
     if (!s.opt && !primary) primary = { cx: (x0 + x1) / 2, cy: (y0 + y1) / 2, h: y1 - y0, w: [s.centre.x, s.centre.y, s.centre.z] };
     if (!s.opt && !focusSet && s.kind === "prop") { focusSet = true; focusBox = clampBox(x0, y0, x1, y1); }
     const visH = Math.min(1, y1) - Math.max(0, y0);
-    const fills = s.kind === "prop" && y1 - y0 > 0.9 && x1 - x0 > 0.9;
+    // a prop bigger than the frame (a wall map, a page) is not "cut off"; an animal card never gets this pass (Moon run 30:
+    // the goat filled the frame with its head cut off at the top for 3 s and nothing failed)
+    const fills = s.kind === "prop" && !s.heads?.length && y1 - y0 > 0.9 && x1 - x0 > 0.9;
     let cut = "";
     if (!fills) {
       if (straddle) cut = "reaches behind the camera";
@@ -115,6 +117,17 @@ export const checkSubjects = (cam: THREE.PerspectiveCamera, subj: Subj[], geo: G
     if (runN > 3) addS(s, { rule: "OCCLUSION", subject: s.id, detail: `${blocked}/5 rays blocked for ${runN} frames` });
     if (blocked < 5) anyInView = true;
     // FACES on every head of a character subject
+    // optional characters and animals: a head cut by a frame edge fails (CLAUDE.md rule 3: never cut the head)
+    if ((s.opt || s.kind === "prop") && s.heads?.length) for (const hd of s.heads) {
+      const cs = [hd.y0, hd.y1].flatMap((y) => [-1, 1].map((k) => toScreen(hd.c.clone().setY(y).addScaledVector(right, k * hd.hw))));
+      if (cs.every((q) => q.behind)) continue;
+      const hx0 = Math.min(...cs.map((q) => q.x)), hx1 = Math.max(...cs.map((q) => q.x)), hy0 = Math.min(...cs.map((q) => q.y)), hy1 = Math.max(...cs.map((q) => q.y));
+      if (hx1 < 0 || hx0 > 1 || hy1 < 0 || hy0 > 1) continue;                       // entirely out of the picture: fine
+      if (s.opt && hy1 - hy0 < 0.06) continue;                                        // a small optional figure at the edge
+      if (cs.some((q) => q.behind) || hx0 < 0 || hx1 > 1 || hy0 < 0 || hy1 > 1)
+        fails.push({ rule: "FACES", subject: s.id + (hd.animal ? "" : `(${nameOf(hd.key)})`), detail: `head cut at the ${hx0 < 0 ? "left" : hx1 > 1 ? "right" : hy0 < 0 ? "top" : "bottom"} edge${hd.animal ? " (animal)" : ""}` });
+      if (!s.opt && hd.animal) { headMax = Math.max(headMax, 0); if (!focusSet) { focusSet = true; focusBox = clampBox(hx0, hy0, hx1, hy1); } }
+    }
     if (s.kind === "char" && !s.opt) for (const hd of s.heads ?? []) {
       const corners = [hd.y0, hd.y1].flatMap((y) => [-1, 1].map((k) => hd.c.clone().setY(y).addScaledVector(right, k * hd.hw)));
       const cs = corners.map(toScreen); if (cs.every((q) => q.behind)) continue;
@@ -147,7 +160,11 @@ export const checkSubjects = (cam: THREE.PerspectiveCamera, subj: Subj[], geo: G
     const hx0 = Math.min(...cs.map((q) => q.x)), hx1 = Math.max(...cs.map((q) => q.x)), hy0 = Math.min(...cs.map((q) => q.y)), hy1 = Math.max(...cs.map((q) => q.y));
     // at least half of the head box is in the picture
     const vis = Math.max(0, Math.min(1, hx1) - Math.max(0, hx0)) * Math.max(0, Math.min(1, hy1) - Math.max(0, hy0)) / Math.max(1e-6, (hx1 - hx0) * (hy1 - hy0));
-    if (vis < 0.5 || hy1 - hy0 < 0.06) continue;
+    if (hy1 - hy0 < 0.06 || vis <= 0) continue;
+    if (vis < 1 && geo.cast(cam.position, hd.c.clone().sub(cam.position).normalize(), Math.max(0.05, hd.c.distanceTo(cam.position) - 0.1)) === null) {
+      fails.push({ rule: "FACES", subject: "bystander " + hd.key.split("|").filter((x) => x !== "up")[0], detail: `bystander's head cut at the ${hx0 < 0 ? "left" : hx1 > 1 ? "right" : hy0 < 0 ? "top" : "bottom"} edge` }); continue;
+    }
+    if (vis < 0.5) continue;
     const hc = toScreen(hd.c);
     if (!(hc.y > 0.55 || (hy1 > 0.62 && hy0 < 0.8))) continue;
     const dv = hd.c.clone().sub(cam.position), L = dv.length(); dv.normalize();

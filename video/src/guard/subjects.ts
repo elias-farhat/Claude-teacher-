@@ -5,7 +5,9 @@ import * as THREE from "three";
 export type Place = { key: string; x: number; y: number; z: number; scale?: number };
 export type FxCard = { key: string; x: number; y: number; z: number; w: number; h: number; flat?: boolean; rot?: number; soft?: boolean; yaw?: number };
 /** one character's head: centre, half width, and its box from the chin to the hat top (metres) */
-export type Head = { key: string; c: THREE.Vector3; hw: number; y0: number; y1: number };
+export type Head = { key: string; c: THREE.Vector3; hw: number; y0: number; y1: number; animal?: boolean };
+/** animal cards: the head (horn / ears to chin) in card coordinates [u0, v0, u1, v1] (0..1, v down), by key prefix */
+export const ANIMAL_HEADS: Record<string, [number, number, number, number]> = { goat: [0.25, 0.04, 0.75, 0.62] };
 export type Subj = { id: string; opt?: boolean; kind: "char" | "prop"; pts: THREE.Vector3[]; own?: THREE.Box3; head?: THREE.Vector3; chest?: number;
   heads?: Head[]; centre: THREE.Vector3; height: number; width: number; bottom: number; top: number };
 
@@ -52,7 +54,16 @@ export const subjectsAt = (ids: string[], st: { places: Place[]; fx: FxCard[] },
           for (const [a, b] of [[-1, -1], [1, -1], [-1, 1], [1, 1]]) pts.push(c0.clone().addScaledVector(r, a * p.w / 2).addScaledVector(u, b * p.h / 2));
         }
       }
-      out.push(finish({ id, kind: "prop", pts, bottom: Math.min(...pts.map((p) => p.y)), top: Math.max(...pts.map((p) => p.y)) }));
+      // animal cards carry a head (an upright billboard: the head box hangs from the card's top edge)
+      const heads: Head[] = [];
+      for (const p of fs) {
+        const hk = Object.keys(ANIMAL_HEADS).find((a) => p.key.split("|")[0].startsWith(a)); if (!hk || p.flat) continue;
+        const [u0, v0, u1, v1] = ANIMAL_HEADS[hk], r = p.yaw !== undefined ? new THREE.Vector3(Math.cos(p.yaw), 0, -Math.sin(p.yaw)) : right.clone().setY(0).normalize();
+        const top = p.y + p.h / 2, c = new THREE.Vector3(p.x, 0, p.z).addScaledVector(r, ((u0 + u1) / 2 - 0.5) * p.w);
+        const y0 = top - v1 * p.h, y1 = top - v0 * p.h; c.y = (y0 + y1) / 2;
+        heads.push({ key: p.key, c, hw: ((u1 - u0) / 2) * p.w, y0, y1, animal: true });
+      }
+      out.push(finish({ id, kind: "prop", pts, heads: heads.length ? heads : undefined, bottom: Math.min(...pts.map((p) => p.y)), top: Math.max(...pts.map((p) => p.y)) }));
     } else if (k === "w") {
       const bx = props?.[s]?.(t); if (!bx) { missing.push(id); continue; }
       const pts: THREE.Vector3[] = [];

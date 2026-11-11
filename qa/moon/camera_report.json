@@ -3,16 +3,16 @@
  "frames": 1980,
  "pass": true,
  "criticalFrames": 0,
- "warningFrames": 197,
- "seconds": 133.691,
+ "warningFrames": 220,
+ "seconds": 136.263,
  "history": [
-  "round 1: 296 frames with CRITICAL failures in 8 shots (2, 5, 6, 11, 12, 14, 22, 24)",
+  "round 1: 338 frames with CRITICAL failures in 9 shots (2, 5, 6, 11, 12, 14, 17, 22, 24)",
   "round 2: 139 frames with CRITICAL failures in 4 shots (2, 5, 12, 22)",
-  "round 3: 53 frames with CRITICAL failures in 2 shots (2, 5)",
-  "round 4: 134 frames with CRITICAL failures in 3 shots (2, 5, 6)",
-  "round 5: 133 frames with CRITICAL failures in 3 shots (2, 5, 6)",
-  "assembled the best round of every shot: 4 frames with CRITICAL failures",
-  "fly transitions that still failed became whips: 0; clipping whips panned the other way: 0, became cuts: 1",
+  "round 3: 64 frames with CRITICAL failures in 3 shots (2, 5, 12)",
+  "round 4: 37 frames with CRITICAL failures in 2 shots (2, 12)",
+  "round 5: 36 frames with CRITICAL failures in 1 shots (2)",
+  "assembled the best round of every shot: 3 frames with CRITICAL failures",
+  "fly transitions that still failed became whips: 0; clipping whips panned the other way: 0, became cuts: 0",
   "flight polish (look timing per failing flight): 0 frames with CRITICAL failures (1 flights cleared)",
   "kept the polished track (0 CRITICAL frames)"
  ],
@@ -20,7 +20,7 @@
   {
    "rule": "SUBJECT",
    "critical": 0,
-   "warning": 197
+   "warning": 220
   },
   {
    "rule": "OCCLUSION",
@@ -35,12 +35,12 @@
   {
    "rule": "EMPTY",
    "critical": 0,
-   "warning": 31
+   "warning": 29
   },
   {
    "rule": "FACES",
    "critical": 0,
-   "warning": 47
+   "warning": 53
   },
   {
    "rule": "XCU",
@@ -446,6 +446,162 @@
   {
    "rule": "SUBJECT",
    "critical": false,
+   "subject": "c:locke",
+   "shot": 5,
+   "from": 342,
+   "to": 343,
+   "worst": 343,
+   "detail": "out of frame (x 1.02..1.70, y 0.25..1.08)",
+   "t0": 11.4,
+   "t1": 11.47
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:editor",
+   "shot": 5,
+   "from": 343,
+   "to": 343,
+   "worst": 343,
+   "detail": "cut off left (-0.28)",
+   "t0": 11.43,
+   "t1": 11.47
+  },
+  {
+   "rule": "FACES",
+   "critical": false,
+   "subject": "c:editor",
+   "shot": 5,
+   "from": 343,
+   "to": 343,
+   "worst": 343,
+   "detail": "head cut at the left edge",
+   "t0": 11.43,
+   "t1": 11.47
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "f:chart0",
+   "shot": 5,
+   "from": 343,
+   "to": 344,
+   "worst": 344,
+   "detail": "out of frame (x -2.29..-1.75, y -0.01..0.27)",
+   "t0": 11.43,
+   "t1": 11.5
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:editor",
+   "shot": 5,
+   "from": 344,
+   "to": 347,
+   "worst": 345,
+   "detail": "out of frame (x 2.55..3.85, y 0.13..1.01)",
+   "t0": 11.47,
+   "t1": 11.6
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:locke",
+   "shot": 5,
+   "from": 344,
+   "to": 344,
+   "worst": 344,
+   "detail": "cut off left (-0.09)",
+   "t0": 11.47,
+   "t1": 11.5
+  },
+  {
+   "rule": "FACES",
+   "critical": false,
+   "subject": "c:locke",
+   "shot": 5,
+   "from": 344,
+   "to": 344,
+   "worst": 344,
+   "detail": "head cut at the left edge",
+   "t0": 11.47,
+   "t1": 11.5
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "f:chart0",
+   "shot": 5,
+   "from": 345,
+   "to": 345,
+   "worst": 345,
+   "detail": "behind the camera",
+   "t0": 11.5,
+   "t1": 11.53
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:locke",
+   "shot": 5,
+   "from": 345,
+   "to": 345,
+   "worst": 345,
+   "detail": "out of frame (x 1.67..2.26, y 0.19..0.74)",
+   "t0": 11.5,
+   "t1": 11.53
+  },
+  {
+   "rule": "EMPTY",
+   "critical": false,
+   "subject": null,
+   "shot": 5,
+   "from": 345,
+   "to": 345,
+   "worst": 345,
+   "detail": "none of c:editor, f:chart0, c:locke in view",
+   "t0": 11.5,
+   "t1": 11.53
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "f:chart0",
+   "shot": 5,
+   "from": 346,
+   "to": 347,
+   "worst": 346,
+   "detail": "out of frame (x 5.33..16.50, y -1.33..0.53)",
+   "t0": 11.53,
+   "t1": 11.6
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:locke",
+   "shot": 5,
+   "from": 346,
+   "to": 346,
+   "worst": 346,
+   "detail": "cut off right (1.07)",
+   "t0": 11.53,
+   "t1": 11.57
+  },
+  {
+   "rule": "FACES",
+   "critical": false,
+   "subject": "c:locke",
+   "shot": 5,
+   "from": 346,
+   "to": 346,
+   "worst": 346,
+   "detail": "head cut at the right edge",
+   "t0": 11.53,
+   "t1": 11.57
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
    "subject": "c:herschelT",
    "shot": 6,
    "from": 429,
@@ -460,36 +616,12 @@
    "critical": false,
    "subject": "c:locke",
    "shot": 6,
-   "from": 430,
-   "to": 430,
-   "worst": 430,
-   "detail": "cut off right (1.04)",
-   "t0": 14.33,
-   "t1": 14.37
-  },
-  {
-   "rule": "FACES",
-   "critical": false,
-   "subject": "c:locke",
-   "shot": 6,
-   "from": 430,
-   "to": 430,
-   "worst": 430,
-   "detail": "head cut at the right edge",
-   "t0": 14.33,
-   "t1": 14.37
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:locke",
-   "shot": 6,
    "from": 431,
-   "to": 431,
+   "to": 432,
    "worst": 431,
-   "detail": "out of frame (x 1.41..2.00, y 0.13..0.72)",
+   "detail": "out of frame (x -27.25..-23.29, y 1.64..1.96)",
    "t0": 14.37,
-   "t1": 14.4
+   "t1": 14.43
   },
   {
    "rule": "EMPTY",
@@ -506,26 +638,26 @@
   {
    "rule": "SUBJECT",
    "critical": false,
-   "subject": "c:locke",
-   "shot": 6,
-   "from": 432,
-   "to": 434,
-   "worst": 432,
-   "detail": "behind the camera",
-   "t0": 14.4,
-   "t1": 14.5
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
    "subject": "c:herschelT",
    "shot": 6,
    "from": 432,
    "to": 433,
    "worst": 432,
-   "detail": "out of frame (x -0.77..-0.33, y 0.22..0.69)",
+   "detail": "out of frame (x 1.32..1.76, y 0.22..0.69)",
    "t0": 14.4,
    "t1": 14.47
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:locke",
+   "shot": 6,
+   "from": 433,
+   "to": 434,
+   "worst": 433,
+   "detail": "behind the camera",
+   "t0": 14.43,
+   "t1": 14.5
   },
   {
    "rule": "SUBJECT",
@@ -710,12 +842,24 @@
   {
    "rule": "SUBJECT",
    "critical": false,
+   "subject": "f:day1",
+   "shot": 9,
+   "from": 655,
+   "to": 655,
+   "worst": 655,
+   "detail": "cut off left (-0.29)",
+   "t0": 21.83,
+   "t1": 21.87
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
    "subject": "f:goat",
    "shot": 10,
    "from": 692,
    "to": 695,
    "worst": 695,
-   "detail": "out of frame (x 2.13..2.71, y -0.15..0.18)",
+   "detail": "out of frame (x 1.01..1.41, y 0.27..0.50)",
    "t0": 23.07,
    "t1": 23.2
   },
@@ -724,12 +868,24 @@
    "critical": false,
    "subject": "f:day1",
    "shot": 10,
-   "from": 695,
-   "to": 697,
+   "from": 693,
+   "to": 693,
+   "worst": 693,
+   "detail": "cut off left (-0.09)",
+   "t0": 23.1,
+   "t1": 23.13
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "f:day1",
+   "shot": 10,
+   "from": 694,
+   "to": 695,
    "worst": 695,
-   "detail": "out of frame (x -1.82..-1.09, y -0.71..-0.20)",
-   "t0": 23.17,
-   "t1": 23.27
+   "detail": "out of frame (x 1.76..2.08, y -0.00..0.22)",
+   "t0": 23.13,
+   "t1": 23.2
   },
   {
    "rule": "EMPTY",
@@ -746,50 +902,146 @@
   {
    "rule": "SUBJECT",
    "critical": false,
+   "subject": "f:day1",
+   "shot": 10,
+   "from": 696,
+   "to": 696,
+   "worst": 696,
+   "detail": "cut off top (-0.01)",
+   "t0": 23.2,
+   "t1": 23.23
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "f:goat",
+   "shot": 10,
+   "from": 696,
+   "to": 697,
+   "worst": 696,
+   "detail": "cut off right (0.99)",
+   "t0": 23.2,
+   "t1": 23.27
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "f:day1",
+   "shot": 10,
+   "from": 697,
+   "to": 697,
+   "worst": 697,
+   "detail": "out of frame (x -0.38..-0.10, y -0.01..0.20)",
+   "t0": 23.23,
+   "t1": 23.27
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
    "subject": "c:bat0",
    "shot": 11,
-   "from": 790,
-   "to": 793,
-   "worst": 792,
-   "detail": "out of frame (x 0.11..0.65, y -1.93..-0.77)",
-   "t0": 26.33,
-   "t1": 26.47
+   "from": 768,
+   "to": 778,
+   "worst": 773,
+   "detail": "not on stage",
+   "t0": 25.6,
+   "t1": 25.97
   },
   {
    "rule": "SUBJECT",
    "critical": false,
    "subject": "f:goat",
    "shot": 11,
-   "from": 792,
-   "to": 795,
-   "worst": 792,
-   "detail": "out of frame (x 2.03..3.20, y 1.85..2.51)",
-   "t0": 26.4,
-   "t1": 26.53
+   "from": 772,
+   "to": 779,
+   "worst": 773,
+   "detail": "cut off right (1.61)",
+   "t0": 25.73,
+   "t1": 26
   },
   {
-   "rule": "EMPTY",
+   "rule": "FACES",
    "critical": false,
-   "subject": null,
+   "subject": "f:goat",
    "shot": 11,
-   "from": 792,
-   "to": 792,
-   "worst": 792,
-   "detail": "none of f:goat, ?f:wave, c:bat0, ?c:bat1 in view",
-   "t0": 26.4,
-   "t1": 26.43
+   "from": 773,
+   "to": 774,
+   "worst": 773,
+   "detail": "head cut at the right edge (animal)",
+   "t0": 25.77,
+   "t1": 25.83
+  },
+  {
+   "rule": "FACES",
+   "critical": false,
+   "subject": "f:goat",
+   "shot": 11,
+   "from": 777,
+   "to": 777,
+   "worst": 777,
+   "detail": "head cut at the right edge (animal)",
+   "t0": 25.9,
+   "t1": 25.93
   },
   {
    "rule": "SUBJECT",
    "critical": false,
-   "subject": "c:bat0",
+   "subject": "f:goat",
    "shot": 11,
-   "from": 794,
-   "to": 794,
-   "worst": 794,
-   "detail": "cut off left (0.03)",
-   "t0": 26.47,
-   "t1": 26.5
+   "from": 780,
+   "to": 780,
+   "worst": 780,
+   "detail": "out of frame (x 1.00..2.72, y 0.80..1.25)",
+   "t0": 26,
+   "t1": 26.03
+  },
+  {
+   "rule": "FACES",
+   "critical": false,
+   "subject": "c:bat1(bat1)",
+   "shot": 11,
+   "from": 780,
+   "to": 786,
+   "worst": 782,
+   "detail": "head cut at the right edge",
+   "t0": 26,
+   "t1": 26.23
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "f:goat",
+   "shot": 11,
+   "from": 781,
+   "to": 782,
+   "worst": 782,
+   "detail": "cut off right (3.20)",
+   "t0": 26.03,
+   "t1": 26.1
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "f:goat",
+   "shot": 11,
+   "from": 782,
+   "to": 782,
+   "worst": 782,
+   "detail": "too small (3 % of frame height, needs 15 %)",
+   "t0": 26.07,
+   "t1": 26.1
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "f:goat",
+   "shot": 11,
+   "from": 783,
+   "to": 795,
+   "worst": 783,
+   "detail": "out of frame (x 1.09..4.17, y 1.84..2.73)",
+   "t0": 26.1,
+   "t1": 26.53
   },
   {
    "rule": "SUBJECT",
@@ -797,11 +1049,11 @@
    "subject": "c:bat1",
    "shot": 12,
    "from": 870,
-   "to": 880,
+   "to": 878,
    "worst": 874,
-   "detail": "out of frame (x 1.17..1.80, y -0.04..0.69)",
+   "detail": "out of frame (x 1.17..1.80, y -0.03..0.69)",
    "t0": 29,
-   "t1": 29.37
+   "t1": 29.3
   },
   {
    "rule": "SUBJECT",
@@ -809,34 +1061,46 @@
    "subject": "c:bat0",
    "shot": 12,
    "from": 874,
-   "to": 876,
+   "to": 874,
    "worst": 874,
-   "detail": "cut off top (0.04)",
+   "detail": "cut off top (0.05)",
    "t0": 29.13,
-   "t1": 29.23
+   "t1": 29.17
   },
   {
    "rule": "SUBJECT",
    "critical": false,
    "subject": "c:bat1",
    "shot": 12,
-   "from": 881,
-   "to": 883,
-   "worst": 881,
-   "detail": "cut off right (1.10)",
-   "t0": 29.37,
-   "t1": 29.47
+   "from": 879,
+   "to": 882,
+   "worst": 880,
+   "detail": "cut off right (1.15)",
+   "t0": 29.3,
+   "t1": 29.43
+  },
+  {
+   "rule": "FACES",
+   "critical": false,
+   "subject": "c:bat1(bat1)",
+   "shot": 12,
+   "from": 880,
+   "to": 882,
+   "worst": 880,
+   "detail": "head cut at the right edge",
+   "t0": 29.33,
+   "t1": 29.43
   },
   {
    "rule": "FACES",
    "critical": false,
    "subject": "c:bat1",
    "shot": 12,
-   "from": 881,
+   "from": 880,
    "to": 882,
-   "worst": 881,
+   "worst": 880,
    "detail": "head cut at the right edge",
-   "t0": 29.37,
+   "t0": 29.33,
    "t1": 29.43
   },
   {
@@ -844,11 +1108,47 @@
    "critical": false,
    "subject": "c:bat0",
    "shot": 12,
-   "from": 884,
+   "from": 885,
+   "to": 888,
+   "worst": 886,
+   "detail": "cut off left (-0.03)",
+   "t0": 29.5,
+   "t1": 29.63
+  },
+  {
+   "rule": "FACES",
+   "critical": false,
+   "subject": "c:bat0",
+   "shot": 12,
+   "from": 886,
+   "to": 887,
+   "worst": 886,
+   "detail": "head cut at the left edge",
+   "t0": 29.53,
+   "t1": 29.6
+  },
+  {
+   "rule": "FACES",
+   "critical": false,
+   "subject": "c:bat0(bat0)",
+   "shot": 12,
+   "from": 886,
+   "to": 887,
+   "worst": 886,
+   "detail": "head cut at the left edge",
+   "t0": 29.53,
+   "t1": 29.6
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:bat0",
+   "shot": 12,
+   "from": 893,
    "to": 897,
-   "worst": 885,
-   "detail": "cut off left (-0.20)",
-   "t0": 29.47,
+   "worst": 895,
+   "detail": "too small (28 % of frame height, needs 30 %)",
+   "t0": 29.77,
    "t1": 29.93
   },
   {
@@ -856,11 +1156,11 @@
    "critical": false,
    "subject": "c:bat0",
    "shot": 12,
-   "from": 885,
+   "from": 895,
    "to": 897,
-   "worst": 885,
-   "detail": "head cut at the left edge",
-   "t0": 29.5,
+   "worst": 895,
+   "detail": "face 40 % covered by something in front",
+   "t0": 29.83,
    "t1": 29.93
   },
   {
@@ -871,7 +1171,7 @@
    "from": 953,
    "to": 955,
    "worst": 955,
-   "detail": "out of frame (x -7.16..-5.46, y 4.37..5.79)",
+   "detail": "out of frame (x -0.31..-0.12, y 1.67..1.82)",
    "t0": 31.77,
    "t1": 31.87
   },
@@ -883,9 +1183,21 @@
    "from": 954,
    "to": 955,
    "worst": 955,
-   "detail": "out of frame (x 2.45..3.15, y -0.01..0.71)",
+   "detail": "out of frame (x 2.51..3.09, y 0.08..0.67)",
    "t0": 31.8,
    "t1": 31.87
+  },
+  {
+   "rule": "FACES",
+   "critical": false,
+   "subject": "c:bat0(bat0)",
+   "shot": 13,
+   "from": 954,
+   "to": 954,
+   "worst": 954,
+   "detail": "head cut at the right edge",
+   "t0": 31.8,
+   "t1": 31.83
   },
   {
    "rule": "EMPTY",
@@ -1238,14 +1550,14 @@
   {
    "rule": "SUBJECT",
    "critical": false,
-   "subject": "w:ship",
+   "subject": "c:sailor",
    "shot": 17,
    "from": 1303,
-   "to": 1306,
+   "to": 1307,
    "worst": 1305,
-   "detail": "out of frame (x 3.52..4.95, y -0.41..0.50)",
+   "detail": "out of frame (x 3.89..4.10, y 0.23..0.36)",
    "t0": 43.43,
-   "t1": 43.57
+   "t1": 43.6
   },
   {
    "rule": "SUBJECT",
@@ -1277,11 +1589,11 @@
    "subject": null,
    "shot": 17,
    "from": 1305,
-   "to": 1306,
+   "to": 1305,
    "worst": 1305,
-   "detail": "none of c:herschelG, w:ship in view",
+   "detail": "none of c:herschelG, c:sailor, ?w:ship in view",
    "t0": 43.5,
-   "t1": 43.57
+   "t1": 43.53
   },
   {
    "rule": "SUBJECT",
@@ -1303,21 +1615,9 @@
    "from": 1307,
    "to": 1308,
    "worst": 1307,
-   "detail": "out of frame (x 2.32..2.37, y 0.44..0.50)",
+   "detail": "out of frame (x 5.10..5.34, y 0.33..0.48)",
    "t0": 43.57,
    "t1": 43.63
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "w:ship",
-   "shot": 17,
-   "from": 1307,
-   "to": 1307,
-   "worst": 1307,
-   "detail": "cut off right (1.65)",
-   "t0": 43.57,
-   "t1": 43.6
   },
   {
    "rule": "SUBJECT",
@@ -1325,58 +1625,34 @@
    "subject": "c:herschelB",
    "shot": 18,
    "from": 1419,
-   "to": 1420,
-   "worst": 1420,
-   "detail": "out of frame (x 1.19..1.23, y 0.46..0.52)",
+   "to": 1419,
+   "worst": 1419,
+   "detail": "behind the camera",
    "t0": 47.3,
-   "t1": 47.37
+   "t1": 47.33
   },
   {
    "rule": "SUBJECT",
    "critical": false,
-   "subject": "w:ship",
+   "subject": "c:sailor",
    "shot": 18,
    "from": 1420,
    "to": 1424,
-   "worst": 1420,
-   "detail": "out of frame (x 10.98..30.68, y -3.00..2.57)",
+   "worst": 1422,
+   "detail": "out of frame (x 19.33..27.78, y 0.25..1.12)",
    "t0": 47.33,
    "t1": 47.5
   },
   {
-   "rule": "EMPTY",
+   "rule": "SUBJECT",
    "critical": false,
-   "subject": null,
+   "subject": "c:herschelB",
    "shot": 18,
    "from": 1420,
-   "to": 1420,
-   "worst": 1420,
-   "detail": "none of w:ship, c:herschelB in view",
-   "t0": 47.33,
-   "t1": 47.37
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:herschelB",
-   "shot": 18,
-   "from": 1421,
-   "to": 1421,
-   "worst": 1421,
-   "detail": "too small (6 % of frame height, needs 30 %)",
-   "t0": 47.37,
-   "t1": 47.4
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:herschelB",
-   "shot": 18,
-   "from": 1422,
    "to": 1422,
    "worst": 1422,
-   "detail": "out of frame (x 1.51..2.06, y 0.16..0.75)",
-   "t0": 47.4,
+   "detail": "out of frame (x 3.43..3.61, y 0.31..0.47)",
+   "t0": 47.33,
    "t1": 47.43
   },
   {
@@ -1387,7 +1663,7 @@
    "from": 1422,
    "to": 1422,
    "worst": 1422,
-   "detail": "none of w:ship, c:herschelB in view",
+   "detail": "none of c:sailor, ?w:ship, c:herschelB in view",
    "t0": 47.4,
    "t1": 47.43
   },
@@ -1579,7 +1855,7 @@
    "from": 1631,
    "to": 1632,
    "worst": 1631,
-   "detail": "out of frame (x -0.50..-0.08, y 0.11..0.70)",
+   "detail": "out of frame (x -0.50..-0.09, y 0.12..0.69)",
    "t0": 54.37,
    "t1": 54.43
   },
@@ -1598,26 +1874,14 @@
   {
    "rule": "SUBJECT",
    "critical": false,
-   "subject": "c:cust0",
+   "subject": "c:herschelL",
    "shot": 22,
    "from": 1710,
    "to": 1710,
    "worst": 1710,
-   "detail": "cut off top (0.05)",
+   "detail": "behind the camera",
    "t0": 57,
    "t1": 57.03
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:herschelL",
-   "shot": 22,
-   "from": 1710,
-   "to": 1713,
-   "worst": 1711,
-   "detail": "out of frame (x 1.34..1.37, y 0.29..0.33)",
-   "t0": 57,
-   "t1": 57.13
   },
   {
    "rule": "SUBJECT",
@@ -1627,9 +1891,21 @@
    "from": 1711,
    "to": 1712,
    "worst": 1711,
-   "detail": "out of frame (x -2.73..-1.54, y -0.12..0.95)",
+   "detail": "out of frame (x -2.73..-1.56, y -0.11..0.93)",
    "t0": 57.03,
    "t1": 57.1
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:herschelL",
+   "shot": 22,
+   "from": 1711,
+   "to": 1713,
+   "worst": 1711,
+   "detail": "out of frame (x 3.22..3.28, y 0.29..0.34)",
+   "t0": 57.03,
+   "t1": 57.13
   },
   {
    "rule": "EMPTY",
@@ -1827,6 +2103,18 @@
    "rule": "FACES",
    "critical": false,
    "subject": "c:lockeS",
+   "shot": 24,
+   "from": 1870,
+   "to": 1870,
+   "worst": 1870,
+   "detail": "head cut at the left edge",
+   "t0": 62.33,
+   "t1": 62.37
+  },
+  {
+   "rule": "FACES",
+   "critical": false,
+   "subject": "c:lockeS(lockeS)",
    "shot": 24,
    "from": 1870,
    "to": 1870,
@@ -3447,6 +3735,234 @@
    ]
   },
   {
+   "f": 342,
+   "t": 11.4,
+   "shot": 5,
+   "flight": true,
+   "subjects": [
+    "c:editor",
+    "f:chart0",
+    "c:locke"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:locke",
+     "detail": "out of frame (x 1.65..2.62, y 0.25..1.22)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.3971,
+    0.2153,
+    0.6546,
+    0.3743
+   ]
+  },
+  {
+   "f": 343,
+   "t": 11.433,
+   "shot": 5,
+   "flight": true,
+   "subjects": [
+    "c:editor",
+    "f:chart0",
+    "c:locke"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:editor",
+     "detail": "cut off left (-0.28)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:editor",
+     "detail": "head cut at the left edge",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:chart0",
+     "detail": "out of frame (x -0.43..-0.17, y 0.07..0.27)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:locke",
+     "detail": "out of frame (x 1.02..1.70, y 0.25..1.08)",
+     "critical": false
+    }
+   ],
+   "score": 1.4,
+   "box": [
+    0,
+    0.2134,
+    0.0346,
+    0.3776
+   ]
+  },
+  {
+   "f": 344,
+   "t": 11.467,
+   "shot": 5,
+   "flight": true,
+   "subjects": [
+    "c:editor",
+    "f:chart0",
+    "c:locke"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:editor",
+     "detail": "out of frame (x -1.95..-1.24, y 0.18..0.85)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:chart0",
+     "detail": "out of frame (x -2.29..-1.75, y -0.01..0.27)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:locke",
+     "detail": "cut off left (-0.09)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:locke",
+     "detail": "head cut at the left edge",
+     "critical": false
+    }
+   ],
+   "score": 1.4000000000000001,
+   "box": [
+    0,
+    0.2621,
+    0.4268,
+    0.5411
+   ]
+  },
+  {
+   "f": 345,
+   "t": 11.5,
+   "shot": 5,
+   "flight": true,
+   "subjects": [
+    "c:editor",
+    "f:chart0",
+    "c:locke"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:editor",
+     "detail": "out of frame (x 4.99..11.27, y 0.15..1.95)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:chart0",
+     "detail": "behind the camera",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:locke",
+     "detail": "out of frame (x 1.67..2.26, y 0.19..0.74)",
+     "critical": false
+    },
+    {
+     "rule": "EMPTY",
+     "detail": "none of c:editor, f:chart0, c:locke in view",
+     "critical": false
+    }
+   ],
+   "score": 2,
+   "box": null
+  },
+  {
+   "f": 346,
+   "t": 11.533,
+   "shot": 5,
+   "flight": true,
+   "subjects": [
+    "c:editor",
+    "f:chart0",
+    "c:locke"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:editor",
+     "detail": "out of frame (x 2.55..3.85, y 0.13..1.01)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:chart0",
+     "detail": "out of frame (x 8.82..78.50, y -0.77..2.99)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:locke",
+     "detail": "cut off right (1.07)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:locke",
+     "detail": "head cut at the right edge",
+     "critical": false
+    }
+   ],
+   "score": 1.4000000000000001,
+   "box": [
+    0.7513,
+    0.1849,
+    1,
+    0.3526
+   ]
+  },
+  {
+   "f": 347,
+   "t": 11.567,
+   "shot": 5,
+   "flight": true,
+   "subjects": [
+    "c:editor",
+    "f:chart0",
+    "c:locke"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:editor",
+     "detail": "out of frame (x 1.95..2.82, y 0.13..0.87)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:chart0",
+     "detail": "out of frame (x 5.33..16.50, y -1.33..0.53)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0.3254,
+    0.1839,
+    0.5964,
+    0.3495
+   ]
+  },
+  {
    "f": 429,
    "t": 14.3,
    "shot": 6,
@@ -3466,9 +3982,9 @@
    "score": 0.4,
    "box": [
     0.4161,
-    0.1343,
-    0.7244,
-    0.3234
+    0.1839,
+    0.6915,
+    0.3522
    ]
   },
   {
@@ -3483,29 +3999,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:locke",
-     "detail": "cut off right (1.04)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:locke",
-     "detail": "head cut at the right edge",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:herschelT",
      "detail": "behind the camera",
      "critical": false
     }
    ],
-   "score": 1,
+   "score": 0.4,
    "box": [
-    0.687,
-    0.1348,
-    1,
-    0.3256
+    0.1395,
+    0.1842,
+    0.419,
+    0.3531
    ]
   },
   {
@@ -3521,7 +4025,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:locke",
-     "detail": "out of frame (x 1.41..2.00, y 0.13..0.72)",
+     "detail": "out of frame (x -0.80..-0.31, y 0.18..0.70)",
      "critical": false
     },
     {
@@ -3552,13 +4056,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:locke",
-     "detail": "behind the camera",
+     "detail": "out of frame (x -27.25..-23.29, y 1.64..1.96)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:herschelT",
-     "detail": "out of frame (x -3.43..-2.10, y 0.31..1.06)",
+     "detail": "out of frame (x 3.08..4.39, y 0.31..1.05)",
      "critical": false
     },
     {
@@ -3589,7 +4093,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:herschelT",
-     "detail": "out of frame (x -0.77..-0.33, y 0.22..0.69)",
+     "detail": "out of frame (x 1.32..1.76, y 0.22..0.69)",
      "critical": false
     },
     {
@@ -3620,10 +4124,10 @@
    ],
    "score": 0.4,
    "box": [
-    0.1259,
+    0.6252,
     0.2173,
-    0.3654,
-    0.3591
+    0.8642,
+    0.3589
    ]
   },
   {
@@ -4590,7 +5094,32 @@
     {
      "rule": "SUBJECT",
      "subject": "f:day1",
-     "detail": "out of frame (x -2.73..-0.68, y -0.44..1.00)",
+     "detail": "out of frame (x -1.42..-0.78, y 0.25..0.70)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0,
+    0.0457,
+    1,
+    1
+   ]
+  },
+  {
+   "f": 655,
+   "t": 21.833,
+   "shot": 9,
+   "flight": true,
+   "subjects": [
+    "w:moon",
+    "f:day1"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "f:day1",
+     "detail": "cut off left (-0.29)",
      "critical": false
     }
    ],
@@ -4616,16 +5145,16 @@
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "out of frame (x 5.24..6.27, y -0.07..0.50)",
+     "detail": "out of frame (x 2.39..2.98, y 0.31..0.64)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0,
-    0,
-    1,
-    0.7867
+    0.1943,
+    0.1787,
+    0.7978,
+    0.603
    ]
   },
   {
@@ -4641,17 +5170,23 @@
    "fails": [
     {
      "rule": "SUBJECT",
+     "subject": "f:day1",
+     "detail": "cut off left (-0.09)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "out of frame (x 3.98..4.81, y -0.11..0.36)",
+     "detail": "out of frame (x 1.92..2.42, y 0.29..0.58)",
      "critical": false
     }
    ],
-   "score": 0.4,
+   "score": 0.8,
    "box": [
     0,
-    0,
-    1,
-    0.7961
+    0.179,
+    0.524,
+    0.6074
    ]
   },
   {
@@ -4667,18 +5202,19 @@
    "fails": [
     {
      "rule": "SUBJECT",
+     "subject": "f:day1",
+     "detail": "out of frame (x -0.91..-0.23, y 0.18..0.66)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "out of frame (x 2.13..2.71, y -0.15..0.18)",
+     "detail": "out of frame (x 1.01..1.41, y 0.27..0.50)",
      "critical": false
     }
    ],
-   "score": 0.4,
-   "box": [
-    0,
-    0,
-    0.1565,
-    0.9163
-   ]
+   "score": 0.8,
+   "box": null
   },
   {
    "f": 695,
@@ -4694,13 +5230,13 @@
     {
      "rule": "SUBJECT",
      "subject": "f:day1",
-     "detail": "out of frame (x 0.08..0.69, y -0.69..-0.25)",
+     "detail": "out of frame (x 1.76..2.08, y -0.00..0.22)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "out of frame (x 2.06..4.28, y -0.35..0.90)",
+     "detail": "out of frame (x 2.57..3.99, y 0.24..0.56)",
      "critical": false
     },
     {
@@ -4726,16 +5262,22 @@
     {
      "rule": "SUBJECT",
      "subject": "f:day1",
-     "detail": "out of frame (x -1.82..-1.09, y -0.71..-0.20)",
+     "detail": "cut off top (-0.01)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:goat",
+     "detail": "cut off right (1.78)",
      "critical": false
     }
    ],
-   "score": 0.4,
+   "score": 0.8,
    "box": [
-    0.5198,
+    0.3789,
     0,
-    1,
-    0.5497
+    0.6528,
+    0.186
    ]
   },
   {
@@ -4752,16 +5294,719 @@
     {
      "rule": "SUBJECT",
      "subject": "f:day1",
-     "detail": "out of frame (x -3.59..-2.65, y -0.77..-0.11)",
+     "detail": "out of frame (x -0.38..-0.10, y -0.01..0.20)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:goat",
+     "detail": "cut off right (0.99)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0.2676,
+    0.1297,
+    0.9909,
+    0.3284
+   ]
+  },
+  {
+   "f": 768,
+   "t": 25.6,
+   "shot": 11,
+   "flight": true,
+   "subjects": [
+    "f:goat",
+    "?f:wave",
+    "c:bat0",
+    "?c:bat1"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:bat0",
+     "detail": "not on stage",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0,
-    0,
+    0.2068,
+    0.1288,
+    0.9268,
+    0.3513
+   ]
+  },
+  {
+   "f": 769,
+   "t": 25.633,
+   "shot": 11,
+   "flight": true,
+   "subjects": [
+    "f:goat",
+    "?f:wave",
+    "c:bat0",
+    "?c:bat1"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:bat0",
+     "detail": "not on stage",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.206,
+    0.1278,
+    0.928,
+    0.3509
+   ]
+  },
+  {
+   "f": 770,
+   "t": 25.667,
+   "shot": 11,
+   "flight": true,
+   "subjects": [
+    "f:goat",
+    "?f:wave",
+    "c:bat0",
+    "?c:bat1"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:bat0",
+     "detail": "not on stage",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.2038,
+    0.1252,
+    0.9313,
+    0.35
+   ]
+  },
+  {
+   "f": 771,
+   "t": 25.7,
+   "shot": 11,
+   "flight": true,
+   "subjects": [
+    "f:goat",
+    "?f:wave",
+    "c:bat0",
+    "?c:bat1"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:bat0",
+     "detail": "not on stage",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.2072,
+    0.1249,
+    0.9446,
+    0.3526
+   ]
+  },
+  {
+   "f": 772,
+   "t": 25.733,
+   "shot": 11,
+   "flight": true,
+   "subjects": [
+    "f:goat",
+    "?f:wave",
+    "c:bat0",
+    "?c:bat1"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:bat0",
+     "detail": "not on stage",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:goat",
+     "detail": "cut off right (0.99)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0.2385,
+    0.1413,
+    0.9909,
+    0.3724
+   ]
+  },
+  {
+   "f": 773,
+   "t": 25.767,
+   "shot": 11,
+   "flight": true,
+   "subjects": [
+    "f:goat",
+    "?f:wave",
+    "c:bat0",
+    "?c:bat1"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:bat0",
+     "detail": "not on stage",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:goat",
+     "detail": "cut off right (1.08)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "f:goat",
+     "detail": "head cut at the right edge (animal)",
+     "critical": false
+    }
+   ],
+   "score": 1,
+   "box": [
+    0.3079,
+    0.1824,
     1,
-    0.5037
+    0.4178
+   ]
+  },
+  {
+   "f": 774,
+   "t": 25.8,
+   "shot": 11,
+   "flight": true,
+   "subjects": [
+    "f:goat",
+    "?f:wave",
+    "c:bat0",
+    "?c:bat1"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:bat0",
+     "detail": "not on stage",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:goat",
+     "detail": "cut off right (1.22)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "f:goat",
+     "detail": "head cut at the right edge (animal)",
+     "critical": false
+    }
+   ],
+   "score": 1,
+   "box": [
+    0.4116,
+    0.2495,
+    1,
+    0.4912
+   ]
+  },
+  {
+   "f": 775,
+   "t": 25.833,
+   "shot": 11,
+   "flight": true,
+   "subjects": [
+    "f:goat",
+    "?f:wave",
+    "c:bat0",
+    "?c:bat1"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:bat0",
+     "detail": "not on stage",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:goat",
+     "detail": "cut off right (1.40)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0.5377,
+    0.3385,
+    1,
+    0.5903
+   ]
+  },
+  {
+   "f": 776,
+   "t": 25.867,
+   "shot": 11,
+   "flight": true,
+   "subjects": [
+    "f:goat",
+    "?f:wave",
+    "c:bat0",
+    "?c:bat1"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:bat0",
+     "detail": "not on stage",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:goat",
+     "detail": "cut off right (1.61)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0.6729,
+    0.4421,
+    1,
+    0.7101
+   ]
+  },
+  {
+   "f": 777,
+   "t": 25.9,
+   "shot": 11,
+   "flight": true,
+   "subjects": [
+    "f:goat",
+    "?f:wave",
+    "c:bat0",
+    "?c:bat1"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:bat0",
+     "detail": "not on stage",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:goat",
+     "detail": "cut off right (1.86)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "f:goat",
+     "detail": "head cut at the right edge (animal)",
+     "critical": false
+    }
+   ],
+   "score": 1,
+   "box": [
+    0.8042,
+    0.5505,
+    1,
+    0.8428
+   ]
+  },
+  {
+   "f": 778,
+   "t": 25.933,
+   "shot": 11,
+   "flight": true,
+   "subjects": [
+    "f:goat",
+    "?f:wave",
+    "c:bat0",
+    "?c:bat1"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:bat0",
+     "detail": "not on stage",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:goat",
+     "detail": "cut off right (2.14)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0.9164,
+    0.6527,
+    1,
+    0.9788
+   ]
+  },
+  {
+   "f": 779,
+   "t": 25.967,
+   "shot": 11,
+   "flight": true,
+   "subjects": [
+    "f:goat",
+    "?f:wave",
+    "c:bat0",
+    "?c:bat1"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "f:goat",
+     "detail": "cut off right (2.43)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": null
+  },
+  {
+   "f": 780,
+   "t": 26,
+   "shot": 11,
+   "flight": true,
+   "subjects": [
+    "f:goat",
+    "?f:wave",
+    "c:bat0",
+    "?c:bat1"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "f:goat",
+     "detail": "out of frame (x 1.00..2.72, y 0.80..1.25)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:bat1(bat1)",
+     "detail": "head cut at the right edge",
+     "critical": false
+    }
+   ],
+   "score": 0.6000000000000001,
+   "box": [
+    0.4076,
+    0.2566,
+    0.5726,
+    0.3559
+   ]
+  },
+  {
+   "f": 781,
+   "t": 26.033,
+   "shot": 11,
+   "flight": true,
+   "subjects": [
+    "f:goat",
+    "?f:wave",
+    "c:bat0",
+    "?c:bat1"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "f:goat",
+     "detail": "cut off right (3.00)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:bat1(bat1)",
+     "detail": "head cut at the right edge",
+     "critical": false
+    }
+   ],
+   "score": 0.6000000000000001,
+   "box": [
+    0.9468,
+    0.8451,
+    1,
+    1
+   ]
+  },
+  {
+   "f": 782,
+   "t": 26.067,
+   "shot": 11,
+   "flight": true,
+   "subjects": [
+    "f:goat",
+    "?f:wave",
+    "c:bat0",
+    "?c:bat1"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "f:goat",
+     "detail": "cut off right (3.20)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:goat",
+     "detail": "too small (3 % of frame height, needs 15 %)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:bat1(bat1)",
+     "detail": "head cut at the right edge",
+     "critical": false
+    }
+   ],
+   "score": 1,
+   "box": [
+    0.8181,
+    0.9688,
+    1,
+    1
+   ]
+  },
+  {
+   "f": 783,
+   "t": 26.1,
+   "shot": 11,
+   "flight": true,
+   "subjects": [
+    "f:goat",
+    "?f:wave",
+    "c:bat0",
+    "?c:bat1"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "f:goat",
+     "detail": "out of frame (x 1.04..3.49, y 1.06..1.69)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:bat1(bat1)",
+     "detail": "head cut at the right edge",
+     "critical": false
+    }
+   ],
+   "score": 0.6000000000000001,
+   "box": [
+    0.4034,
+    0.2353,
+    0.5931,
+    0.3509
+   ]
+  },
+  {
+   "f": 784,
+   "t": 26.133,
+   "shot": 11,
+   "flight": true,
+   "subjects": [
+    "f:goat",
+    "?f:wave",
+    "c:bat0",
+    "?c:bat1"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "f:goat",
+     "detail": "out of frame (x 1.33..3.94, y 1.10..1.78)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:bat1(bat1)",
+     "detail": "head cut at the right edge",
+     "critical": false
+    }
+   ],
+   "score": 0.6000000000000001,
+   "box": [
+    0.397,
+    0.2254,
+    0.5961,
+    0.3469
+   ]
+  },
+  {
+   "f": 785,
+   "t": 26.167,
+   "shot": 11,
+   "flight": true,
+   "subjects": [
+    "f:goat",
+    "?f:wave",
+    "c:bat0",
+    "?c:bat1"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "f:goat",
+     "detail": "out of frame (x 1.45..4.28, y 1.27..2.01)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:bat1(bat1)",
+     "detail": "head cut at the right edge",
+     "critical": false
+    }
+   ],
+   "score": 0.6000000000000001,
+   "box": [
+    0.3911,
+    0.2121,
+    0.601,
+    0.3415
+   ]
+  },
+  {
+   "f": 786,
+   "t": 26.2,
+   "shot": 11,
+   "flight": true,
+   "subjects": [
+    "f:goat",
+    "?f:wave",
+    "c:bat0",
+    "?c:bat1"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "f:goat",
+     "detail": "out of frame (x 1.40..4.41, y 1.49..2.27)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:bat1(bat1)",
+     "detail": "head cut at the right edge",
+     "critical": false
+    }
+   ],
+   "score": 0.6000000000000001,
+   "box": [
+    0.3865,
+    0.2021,
+    0.6064,
+    0.3385
+   ]
+  },
+  {
+   "f": 787,
+   "t": 26.233,
+   "shot": 11,
+   "flight": true,
+   "subjects": [
+    "f:goat",
+    "?f:wave",
+    "c:bat0",
+    "?c:bat1"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "f:goat",
+     "detail": "out of frame (x 1.30..4.41, y 1.66..2.48)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.3831,
+    0.1962,
+    0.6109,
+    0.3378
+   ]
+  },
+  {
+   "f": 788,
+   "t": 26.267,
+   "shot": 11,
+   "flight": true,
+   "subjects": [
+    "f:goat",
+    "?f:wave",
+    "c:bat0",
+    "?c:bat1"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "f:goat",
+     "detail": "out of frame (x 1.19..4.31, y 1.77..2.63)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.3806,
+    0.1937,
+    0.6147,
+    0.3388
+   ]
+  },
+  {
+   "f": 789,
+   "t": 26.3,
+   "shot": 11,
+   "flight": true,
+   "subjects": [
+    "f:goat",
+    "?f:wave",
+    "c:bat0",
+    "?c:bat1"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "f:goat",
+     "detail": "out of frame (x 1.09..4.17, y 1.84..2.73)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.3788,
+    0.1937,
+    0.6176,
+    0.3412
    ]
   },
   {
@@ -4778,17 +6023,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "out of frame (x -8.43..-3.25, y -3.93..-0.91)",
+     "subject": "f:goat",
+     "detail": "out of frame (x 1.01..4.02, y 1.88..2.79)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.0842,
-    0,
-    1,
-    0.5133
+    0.3777,
+    0.1956,
+    0.6197,
+    0.3443
    ]
   },
   {
@@ -4805,17 +6050,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "out of frame (x -3.15..-1.39, y -2.44..-0.81)",
+     "subject": "f:goat",
+     "detail": "out of frame (x 0.95..3.90, y 1.90..2.82)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.8779,
-    0,
-    1,
-    0.6005
+    0.377,
+    0.1984,
+    0.6212,
+    0.3477
    ]
   },
   {
@@ -4833,23 +6078,17 @@
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "out of frame (x 2.65..5.19, y -0.32..1.11)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "out of frame (x 0.11..0.65, y -1.93..-0.77)",
-     "critical": false
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of f:goat, ?f:wave, c:bat0, ?c:bat1 in view",
+     "detail": "out of frame (x 0.91..3.81, y 1.91..2.83)",
      "critical": false
     }
    ],
-   "score": 1.6,
-   "box": null
+   "score": 0.4,
+   "box": [
+    0.3766,
+    0.2018,
+    0.6221,
+    0.3511
+   ]
   },
   {
    "f": 793,
@@ -4866,18 +6105,17 @@
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "out of frame (x 1.26..2.18, y 1.47..1.99)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "out of frame (x -0.95..-0.45, y 0.21..0.72)",
+     "detail": "out of frame (x 0.88..3.76, y 1.92..2.84)",
      "critical": false
     }
    ],
-   "score": 0.8,
-   "box": null
+   "score": 0.4,
+   "box": [
+    0.3765,
+    0.2051,
+    0.6225,
+    0.3544
+   ]
   },
   {
    "f": 794,
@@ -4894,22 +6132,16 @@
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "out of frame (x 2.03..3.20, y 1.85..2.51)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (0.03)",
+     "detail": "out of frame (x 0.87..3.74, y 1.92..2.84)",
      "critical": false
     }
    ],
-   "score": 0.8,
+   "score": 0.4,
    "box": [
-    0.0564,
-    0.2096,
-    0.3119,
-    0.3598
+    0.3765,
+    0.2082,
+    0.6226,
+    0.3573
    ]
   },
   {
@@ -4927,15 +6159,15 @@
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "out of frame (x 2.40..3.73, y 2.09..2.84)",
+     "detail": "out of frame (x 0.87..3.73, y 1.92..2.84)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.3739,
+    0.3765,
     0.211,
-    0.62,
+    0.6226,
     0.3599
    ]
   },
@@ -4989,7 +6221,7 @@
    "box": [
     0.317,
     0.0671,
-    0.6697,
+    0.6696,
     0.2835
    ]
   },
@@ -5014,9 +6246,9 @@
    ],
    "score": 0.4,
    "box": [
-    0.3168,
-    0.0627,
-    0.6692,
+    0.3167,
+    0.063,
+    0.6686,
     0.2794
    ]
   },
@@ -5035,16 +6267,16 @@
     {
      "rule": "SUBJECT",
      "subject": "c:bat1",
-     "detail": "out of frame (x 1.17..1.85, y -0.03..0.72)",
+     "detail": "out of frame (x 1.17..1.83, y -0.03..0.71)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
     0.3164,
-    0.0583,
-    0.6679,
-    0.275
+    0.0593,
+    0.6661,
+    0.2752
    ]
   },
   {
@@ -5068,16 +6300,16 @@
     {
      "rule": "SUBJECT",
      "subject": "c:bat1",
-     "detail": "out of frame (x 1.17..1.83, y -0.03..0.70)",
+     "detail": "out of frame (x 1.17..1.80, y -0.03..0.69)",
      "critical": false
     }
    ],
    "score": 0.8,
    "box": [
-    0.3163,
-    0.0545,
-    0.6653,
-    0.2705
+    0.3167,
+    0.0576,
+    0.6613,
+    0.2716
    ]
   },
   {
@@ -5094,23 +6326,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off top (0.04)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:bat1",
-     "detail": "out of frame (x 1.17..1.80, y -0.04..0.69)",
+     "detail": "out of frame (x 1.16..1.74, y -0.03..0.67)",
      "critical": false
     }
    ],
-   "score": 0.8,
+   "score": 0.4,
    "box": [
-    0.3165,
-    0.0522,
-    0.6612,
-    0.2665
+    0.3183,
+    0.0603,
+    0.6538,
+    0.2696
    ]
   },
   {
@@ -5127,23 +6353,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off top (0.05)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:bat1",
-     "detail": "out of frame (x 1.16..1.75, y -0.04..0.67)",
+     "detail": "out of frame (x 1.14..1.65, y -0.02..0.64)",
      "critical": false
     }
    ],
-   "score": 0.8,
+   "score": 0.4,
    "box": [
-    0.3177,
-    0.0528,
-    0.6553,
-    0.2636
+    0.3223,
+    0.0702,
+    0.6433,
+    0.2711
    ]
   },
   {
@@ -5161,16 +6381,16 @@
     {
      "rule": "SUBJECT",
      "subject": "c:bat1",
-     "detail": "out of frame (x 1.15..1.68, y -0.03..0.64)",
+     "detail": "out of frame (x 1.10..1.53, y 0.01..0.62)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.3203,
-    0.0577,
-    0.6476,
-    0.2626
+    0.3296,
+    0.0894,
+    0.6302,
+    0.2774
    ]
   },
   {
@@ -5188,16 +6408,16 @@
     {
      "rule": "SUBJECT",
      "subject": "c:bat1",
-     "detail": "out of frame (x 1.13..1.60, y -0.01..0.62)",
+     "detail": "out of frame (x 1.05..1.40, y 0.06..0.60)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.3247,
-    0.0678,
-    0.6384,
-    0.2644
+    0.3413,
+    0.1199,
+    0.6153,
+    0.2902
    ]
   },
   {
@@ -5215,16 +6435,16 @@
     {
      "rule": "SUBJECT",
      "subject": "c:bat1",
-     "detail": "out of frame (x 1.09..1.51, y 0.01..0.61)",
+     "detail": "cut off right (1.28)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.328,
-    0.0843,
-    0.6246,
-    0.2698
+    0.3543,
+    0.1594,
+    0.5981,
+    0.3088
    ]
   },
   {
@@ -5240,18 +6460,30 @@
    ],
    "fails": [
     {
+     "rule": "FACES",
+     "subject": "c:bat1(bat1)",
+     "detail": "head cut at the right edge",
+     "critical": false
+    },
+    {
      "rule": "SUBJECT",
      "subject": "c:bat1",
-     "detail": "out of frame (x 1.03..1.38, y 0.05..0.59)",
+     "detail": "cut off right (1.20)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:bat1",
+     "detail": "head cut at the right edge",
      "critical": false
     }
    ],
-   "score": 0.4,
+   "score": 0.8,
    "box": [
-    0.3135,
-    0.108,
-    0.5901,
-    0.28
+    0.3528,
+    0.1961,
+    0.5713,
+    0.3273
    ]
   },
   {
@@ -5267,9 +6499,15 @@
    ],
    "fails": [
     {
+     "rule": "FACES",
+     "subject": "c:bat1(bat1)",
+     "detail": "head cut at the right edge",
+     "critical": false
+    },
+    {
      "rule": "SUBJECT",
      "subject": "c:bat1",
-     "detail": "cut off right (1.24)",
+     "detail": "cut off right (1.15)",
      "critical": false
     },
     {
@@ -5279,12 +6517,12 @@
      "critical": false
     }
    ],
-   "score": 0.6000000000000001,
+   "score": 0.8,
    "box": [
-    0.2756,
-    0.1379,
-    0.5301,
-    0.2949
+    0.3198,
+    0.2074,
+    0.5298,
+    0.3329
    ]
   },
   {
@@ -5300,9 +6538,15 @@
    ],
    "fails": [
     {
+     "rule": "FACES",
+     "subject": "c:bat1(bat1)",
+     "detail": "head cut at the right edge",
+     "critical": false
+    },
+    {
      "rule": "SUBJECT",
      "subject": "c:bat1",
-     "detail": "cut off right (1.10)",
+     "detail": "cut off right (1.06)",
      "critical": false
     },
     {
@@ -5312,44 +6556,17 @@
      "critical": false
     }
    ],
-   "score": 0.6000000000000001,
+   "score": 0.8,
    "box": [
-    0.2191,
-    0.1706,
-    0.4528,
-    0.3121
+    0.2669,
+    0.2254,
+    0.4655,
+    0.3434
    ]
   },
   {
-   "f": 883,
-   "t": 29.433,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:bat0",
-    "?c:bat1",
-    "c:bat1",
-    "?c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off right (0.97)",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.1436,
-    0.1931,
-    0.3641,
-    0.3243
-   ]
-  },
-  {
-   "f": 884,
-   "t": 29.467,
+   "f": 885,
+   "t": 29.5,
    "shot": 12,
    "flight": true,
    "subjects": [
@@ -5368,43 +6585,10 @@
    ],
    "score": 0.4,
    "box": [
-    0.0436,
-    0.2015,
-    0.2613,
-    0.3295
-   ]
-  },
-  {
-   "f": 885,
-   "t": 29.5,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:bat0",
-    "?c:bat1",
-    "c:bat1",
-    "?c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (-0.09)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat0",
-     "detail": "head cut at the left edge",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0,
-    0.2118,
-    0.1655,
-    0.3363
+    0.0385,
+    0.2431,
+    0.233,
+    0.3586
    ]
   },
   {
@@ -5422,7 +6606,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:bat0",
-     "detail": "cut off left (-0.16)",
+     "detail": "cut off left (-0.03)",
      "critical": false
     },
     {
@@ -5430,14 +6614,20 @@
      "subject": "c:bat0",
      "detail": "head cut at the left edge",
      "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:bat0(bat0)",
+     "detail": "head cut at the left edge",
+     "critical": false
     }
    ],
-   "score": 0.6000000000000001,
+   "score": 0.8,
    "box": [
     0,
-    0.2237,
-    0.0924,
-    0.3441
+    0.2433,
+    0.1891,
+    0.3597
    ]
   },
   {
@@ -5455,7 +6645,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:bat0",
-     "detail": "cut off left (-0.20)",
+     "detail": "cut off left (-0.03)",
      "critical": false
     },
     {
@@ -5463,14 +6653,20 @@
      "subject": "c:bat0",
      "detail": "head cut at the left edge",
      "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:bat0(bat0)",
+     "detail": "head cut at the left edge",
+     "critical": false
     }
    ],
-   "score": 0.6000000000000001,
+   "score": 0.8,
    "box": [
     0,
-    0.2363,
-    0.0511,
-    0.3522
+    0.2451,
+    0.1869,
+    0.3602
    ]
   },
   {
@@ -5488,154 +6684,16 @@
     {
      "rule": "SUBJECT",
      "subject": "c:bat0",
-     "detail": "cut off left (-0.20)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat0",
-     "detail": "head cut at the left edge",
+     "detail": "cut off left (0.02)",
      "critical": false
     }
    ],
-   "score": 0.6000000000000001,
+   "score": 0.4,
    "box": [
-    0,
-    0.2487,
-    0.0418,
-    0.3601
-   ]
-  },
-  {
-   "f": 889,
-   "t": 29.633,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:bat0",
-    "?c:bat1",
-    "c:bat1",
-    "?c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (-0.20)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat0",
-     "detail": "head cut at the left edge",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0,
-    0.2466,
-    0.037,
-    0.3589
-   ]
-  },
-  {
-   "f": 890,
-   "t": 29.667,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:bat0",
-    "?c:bat1",
-    "c:bat1",
-    "?c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (-0.20)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat0",
-     "detail": "head cut at the left edge",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0,
-    0.237,
-    0.0302,
-    0.3526
-   ]
-  },
-  {
-   "f": 891,
-   "t": 29.7,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:bat0",
-    "?c:bat1",
-    "c:bat1",
-    "?c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (-0.20)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat0",
-     "detail": "head cut at the left edge",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0,
-    0.2286,
-    0.0252,
-    0.3469
-   ]
-  },
-  {
-   "f": 892,
-   "t": 29.733,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:bat0",
-    "?c:bat1",
-    "c:bat1",
-    "?c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (-0.20)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat0",
-     "detail": "head cut at the left edge",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0,
-    0.222,
-    0.0226,
-    0.3421
+    0.0365,
+    0.2473,
+    0.2192,
+    0.3594
    ]
   },
   {
@@ -5653,22 +6711,16 @@
     {
      "rule": "SUBJECT",
      "subject": "c:bat0",
-     "detail": "cut off left (-0.20)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat0",
-     "detail": "head cut at the left edge",
+     "detail": "too small (29 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
-   "score": 0.6000000000000001,
+   "score": 0.4,
    "box": [
-    0,
-    0.2171,
-    0.0221,
-    0.3384
+    0.2469,
+    0.2635,
+    0.4003,
+    0.3583
    ]
   },
   {
@@ -5686,22 +6738,16 @@
     {
      "rule": "SUBJECT",
      "subject": "c:bat0",
-     "detail": "cut off left (-0.20)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat0",
-     "detail": "head cut at the left edge",
+     "detail": "too small (29 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
-   "score": 0.6000000000000001,
+   "score": 0.4,
    "box": [
-    0,
-    0.2137,
-    0.0222,
-    0.3358
+    0.263,
+    0.2659,
+    0.4136,
+    0.359
    ]
   },
   {
@@ -5719,22 +6765,22 @@
     {
      "rule": "SUBJECT",
      "subject": "c:bat0",
-     "detail": "cut off left (-0.20)",
+     "detail": "too small (28 % of frame height, needs 30 %)",
      "critical": false
     },
     {
      "rule": "FACES",
      "subject": "c:bat0",
-     "detail": "head cut at the left edge",
+     "detail": "face 40 % covered by something in front",
      "critical": false
     }
    ],
    "score": 0.6000000000000001,
    "box": [
-    0,
-    0.2118,
-    0.0223,
-    0.3343
+    0.2729,
+    0.2676,
+    0.4217,
+    0.3595
    ]
   },
   {
@@ -5752,22 +6798,22 @@
     {
      "rule": "SUBJECT",
      "subject": "c:bat0",
-     "detail": "cut off left (-0.20)",
+     "detail": "too small (28 % of frame height, needs 30 %)",
      "critical": false
     },
     {
      "rule": "FACES",
      "subject": "c:bat0",
-     "detail": "head cut at the left edge",
+     "detail": "face 40 % covered by something in front",
      "critical": false
     }
    ],
    "score": 0.6000000000000001,
    "box": [
-    0,
-    0.211,
-    0.0225,
-    0.3337
+    0.278,
+    0.2686,
+    0.4258,
+    0.36
    ]
   },
   {
@@ -5785,22 +6831,22 @@
     {
      "rule": "SUBJECT",
      "subject": "c:bat0",
-     "detail": "cut off left (-0.20)",
+     "detail": "too small (28 % of frame height, needs 30 %)",
      "critical": false
     },
     {
      "rule": "FACES",
      "subject": "c:bat0",
-     "detail": "head cut at the left edge",
+     "detail": "face 32 % covered by something in front",
      "critical": false
     }
    ],
    "score": 0.6000000000000001,
    "box": [
-    0,
-    0.2111,
-    0.0226,
-    0.3339
+    0.2797,
+    0.2693,
+    0.4272,
+    0.3604
    ]
   },
   {
@@ -5818,16 +6864,16 @@
     {
      "rule": "SUBJECT",
      "subject": "c:/^town\\d$/",
-     "detail": "out of frame (x -49.38..-17.87, y 12.50..34.61)",
+     "detail": "out of frame (x -0.97..-0.75, y 1.82..2.00)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.4768,
-    0.1158,
-    0.7308,
-    0.2744
+    0.5013,
+    0.1753,
+    0.7129,
+    0.3071
    ]
   },
   {
@@ -5845,17 +6891,23 @@
     {
      "rule": "SUBJECT",
      "subject": "c:bat1",
-     "detail": "out of frame (x 1.04..1.40, y 0.10..0.61)",
+     "detail": "out of frame (x 1.07..1.37, y 0.16..0.59)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:bat0(bat0)",
+     "detail": "head cut at the right edge",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:/^town\\d$/",
-     "detail": "out of frame (x -7.16..-5.46, y 4.37..5.79)",
+     "detail": "out of frame (x -0.31..-0.12, y 1.67..1.82)",
      "critical": false
     }
    ],
-   "score": 0.8,
+   "score": 1,
    "box": null
   },
   {
@@ -5873,13 +6925,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:bat1",
-     "detail": "out of frame (x 2.45..3.15, y -0.01..0.71)",
+     "detail": "out of frame (x 2.51..3.09, y 0.08..0.67)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:/^town\\d$/",
-     "detail": "out of frame (x -2.03..-1.68, y 2.27..2.61)",
+     "detail": "out of frame (x 0.73..0.90, y 1.62..1.76)",
      "critical": false
     },
     {
@@ -6561,13 +7613,14 @@
    "flight": true,
    "subjects": [
     "c:herschelG",
-    "w:ship"
+    "c:sailor",
+    "?w:ship"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:ship",
-     "detail": "out of frame (x 13.29..75.05, y -9.60..2.40)",
+     "subject": "c:sailor",
+     "detail": "out of frame (x 19.16..25.14, y 0.22..0.92)",
      "critical": false
     }
    ],
@@ -6586,7 +7639,8 @@
    "flight": true,
    "subjects": [
     "c:herschelG",
-    "w:ship"
+    "c:sailor",
+    "?w:ship"
    ],
    "fails": [
     {
@@ -6597,8 +7651,8 @@
     },
     {
      "rule": "SUBJECT",
-     "subject": "w:ship",
-     "detail": "out of frame (x 7.79..18.45, y -1.69..0.87)",
+     "subject": "c:sailor",
+     "detail": "out of frame (x 9.49..10.73, y 0.23..0.55)",
      "critical": false
     }
    ],
@@ -6617,7 +7671,8 @@
    "flight": true,
    "subjects": [
     "c:herschelG",
-    "w:ship"
+    "c:sailor",
+    "?w:ship"
    ],
    "fails": [
     {
@@ -6628,13 +7683,13 @@
     },
     {
      "rule": "SUBJECT",
-     "subject": "w:ship",
-     "detail": "out of frame (x 3.52..4.95, y -0.41..0.50)",
+     "subject": "c:sailor",
+     "detail": "out of frame (x 3.89..4.10, y 0.23..0.36)",
      "critical": false
     },
     {
      "rule": "EMPTY",
-     "detail": "none of c:herschelG, w:ship in view",
+     "detail": "none of c:herschelG, c:sailor, ?w:ship in view",
      "critical": false
     }
    ],
@@ -6648,7 +7703,8 @@
    "flight": true,
    "subjects": [
     "c:herschelG",
-    "w:ship"
+    "c:sailor",
+    "?w:ship"
    ],
    "fails": [
     {
@@ -6659,17 +7715,12 @@
     },
     {
      "rule": "SUBJECT",
-     "subject": "w:ship",
-     "detail": "out of frame (x 2.35..4.09, y 0.10..0.76)",
-     "critical": false
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of c:herschelG, w:ship in view",
+     "subject": "c:sailor",
+     "detail": "out of frame (x 3.22..4.03, y 0.05..0.79)",
      "critical": false
     }
    ],
-   "score": 1.6,
+   "score": 0.8,
    "box": null
   },
   {
@@ -6679,29 +7730,25 @@
    "flight": true,
    "subjects": [
     "c:herschelG",
-    "w:ship"
+    "c:sailor",
+    "?w:ship"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "c:herschelG",
-     "detail": "out of frame (x 3.97..4.11, y 0.48..0.56)",
+     "detail": "out of frame (x 15.42..17.80, y 0.11..0.62)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
-     "subject": "w:ship",
-     "detail": "cut off right (1.65)",
+     "subject": "c:sailor",
+     "detail": "out of frame (x 1.32..1.64, y 0.19..0.65)",
      "critical": false
     }
    ],
    "score": 0.8,
-   "box": [
-    0.9518,
-    0.2133,
-    1,
-    0.5926
-   ]
+   "box": null
   },
   {
    "f": 1308,
@@ -6710,22 +7757,23 @@
    "flight": true,
    "subjects": [
     "c:herschelG",
-    "w:ship"
+    "c:sailor",
+    "?w:ship"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "c:herschelG",
-     "detail": "out of frame (x 2.32..2.37, y 0.44..0.50)",
+     "detail": "out of frame (x 5.10..5.34, y 0.33..0.48)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.3239,
-    0.2267,
-    0.9158,
-    0.5725
+    0.5995,
+    0.2205,
+    0.8161,
+    0.3544
    ]
   },
   {
@@ -6734,23 +7782,24 @@
    "shot": 18,
    "flight": true,
    "subjects": [
-    "w:ship",
+    "c:sailor",
+    "?w:ship",
     "c:herschelB"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "c:herschelB",
-     "detail": "out of frame (x 1.96..2.02, y 0.48..0.55)",
+     "detail": "behind the camera",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.069,
-    0.2549,
-    0.5933,
-    0.5683
+    0.1479,
+    0.1676,
+    0.4048,
+    0.3266
    ]
   },
   {
@@ -6759,29 +7808,25 @@
    "shot": 18,
    "flight": true,
    "subjects": [
-    "w:ship",
+    "c:sailor",
+    "?w:ship",
     "c:herschelB"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:ship",
-     "detail": "out of frame (x -0.64..-0.02, y 0.24..0.59)",
+     "subject": "c:sailor",
+     "detail": "out of frame (x -0.65..-0.27, y 0.14..0.67)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:herschelB",
-     "detail": "out of frame (x 1.19..1.23, y 0.46..0.52)",
-     "critical": false
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of w:ship, c:herschelB in view",
+     "detail": "out of frame (x 16.21..20.53, y -0.11..0.73)",
      "critical": false
     }
    ],
-   "score": 1.6,
+   "score": 0.8,
    "box": null
   },
   {
@@ -6790,20 +7835,21 @@
    "shot": 18,
    "flight": true,
    "subjects": [
-    "w:ship",
+    "c:sailor",
+    "?w:ship",
     "c:herschelB"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:ship",
-     "detail": "out of frame (x -2.95..-1.43, y 0.15..0.74)",
+     "subject": "c:sailor",
+     "detail": "out of frame (x -2.99..-2.06, y -0.03..0.83)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:herschelB",
-     "detail": "too small (6 % of frame height, needs 30 %)",
+     "detail": "out of frame (x 3.43..3.61, y 0.31..0.47)",
      "critical": false
     }
    ],
@@ -6816,14 +7862,15 @@
    "shot": 18,
    "flight": true,
    "subjects": [
-    "w:ship",
+    "c:sailor",
+    "?w:ship",
     "c:herschelB"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:ship",
-     "detail": "out of frame (x 10.98..30.68, y -3.00..2.57)",
+     "subject": "c:sailor",
+     "detail": "out of frame (x 19.33..27.78, y 0.25..1.12)",
      "critical": false
     },
     {
@@ -6834,7 +7881,7 @@
     },
     {
      "rule": "EMPTY",
-     "detail": "none of w:ship, c:herschelB in view",
+     "detail": "none of c:sailor, ?w:ship, c:herschelB in view",
      "critical": false
     }
    ],
@@ -6847,14 +7894,15 @@
    "shot": 18,
    "flight": true,
    "subjects": [
-    "w:ship",
+    "c:sailor",
+    "?w:ship",
     "c:herschelB"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:ship",
-     "detail": "out of frame (x 4.11..9.32, y -1.17..0.67)",
+     "subject": "c:sailor",
+     "detail": "out of frame (x 5.01..5.44, y 0.18..0.38)",
      "critical": false
     },
     {
@@ -6878,14 +7926,15 @@
    "shot": 18,
    "flight": true,
    "subjects": [
-    "w:ship",
+    "c:sailor",
+    "?w:ship",
     "c:herschelB"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:ship",
-     "detail": "out of frame (x 3.20..6.01, y -0.72..0.53)",
+     "subject": "c:sailor",
+     "detail": "out of frame (x 3.79..4.05, y 0.18..0.33)",
      "critical": false
     }
    ],
@@ -7211,7 +8260,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:cust0",
-     "detail": "out of frame (x -2.36..-1.48, y 0.02..0.85)",
+     "detail": "out of frame (x -2.36..-1.49, y 0.03..0.84)",
      "critical": false
     },
     {
@@ -7243,7 +8292,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:cust0",
-     "detail": "out of frame (x -0.50..-0.08, y 0.11..0.70)",
+     "detail": "out of frame (x -0.50..-0.09, y 0.12..0.69)",
      "critical": false
     },
     {
@@ -7275,10 +8324,10 @@
    ],
    "score": 0.4,
    "box": [
-    0.1772,
-    0.1341,
-    0.4677,
-    0.3146
+    0.1786,
+    0.1398,
+    0.46,
+    0.3145
    ]
   },
   {
@@ -7294,23 +8343,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:cust0",
-     "detail": "cut off top (0.05)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:herschelL",
-     "detail": "out of frame (x 5.30..5.45, y 0.28..0.36)",
+     "detail": "behind the camera",
      "critical": false
     }
    ],
-   "score": 0.8,
+   "score": 0.4,
    "box": [
-    0.1764,
-    0.0579,
-    0.5294,
-    0.2786
+    0.1761,
+    0.0656,
+    0.5168,
+    0.2787
    ]
   },
   {
@@ -7327,13 +8370,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:cust0",
-     "detail": "out of frame (x -0.59..-0.07, y 0.03..0.74)",
+     "detail": "out of frame (x -0.59..-0.08, y 0.04..0.73)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:herschelL",
-     "detail": "out of frame (x 3.12..3.18, y 0.29..0.34)",
+     "detail": "out of frame (x 11.30..11.97, y 0.25..0.41)",
      "critical": false
     },
     {
@@ -7359,13 +8402,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:cust0",
-     "detail": "out of frame (x -2.73..-1.54, y -0.12..0.95)",
+     "detail": "out of frame (x -2.73..-1.56, y -0.11..0.93)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:herschelL",
-     "detail": "out of frame (x 1.34..1.37, y 0.29..0.33)",
+     "detail": "out of frame (x 3.22..3.28, y 0.29..0.34)",
      "critical": false
     },
     {
@@ -7719,9 +8762,15 @@
      "subject": "f:sig",
      "detail": "too small (1 % of frame height, needs 15 %)",
      "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:lockeS(lockeS)",
+     "detail": "head cut at the left edge",
+     "critical": false
     }
    ],
-   "score": 1,
+   "score": 1.2,
    "box": [
     0,
     0.0565,
