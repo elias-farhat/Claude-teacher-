@@ -1,0 +1,19 @@
+name: imagegen
+on:
+  push:
+    paths: ['art/**/prompts.json']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  gen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: for f in art/*/prompts.json; do python3 tools/imagegen/gen.py "$(dirname "$f")"; done
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      - run: |
+          git config user.name "imagegen-bot"; git config user.email "imagegen-bot@users.noreply.github.com"
+          git add art; git commit -m "imagegen: new images [skip ci]" || exit 0
+          git pull --rebase && git push

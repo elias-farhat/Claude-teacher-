@@ -1,0 +1,8 @@
+{
+  "style": "Cinematic first-person POV illustration, as seen through the viewer's own eyes. Rich hand-painted digital illustration, warm soft lighting, detailed backgrounds, expressive appealing stylized characters, storybook film still. 16:9 frame, no text, no letters, no watermark.",
+  "images": [
+    { "id": "mom_doorway", "prompt": "Morning in a cozy bedroom. A warm, kind mother in her late 40s with long dark brown hair and a pink sweater stands in the open bedroom doorway, looking straight at the viewer with a gentle smile. Golden sunlight from a window on the left. The top third of the frame above her head is calm empty wall space." },
+    { "id": "walter_bench", "prompt": "Sunny city park. A gentle elderly man in his 80s, bald with white hair at the sides, round glasses, brown wool coat, sits on a wooden park bench right next to the viewer, turned slightly toward the viewer, smiling warmly while scattering breadcrumbs to pigeons on the path. Soft trees in the background, empty sky above his head." },
+    { "id": "leo_crosswalk", "prompt": "City street crosswalk at golden hour. A teenage boy with short dark hair in a blue hoodie stands at the curb facing the viewer, laughing and holding up his phone. A pedestrian traffic light glows green behind him, warm buildings in the background, clear space above his head." }
+  ]
+}
