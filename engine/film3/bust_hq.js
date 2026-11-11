@@ -52,16 +52,16 @@ function bustHQ(id) { if (BUSTHQ[id]) return BUSTHQ[id]; const d = CAST2[id];
     for (const s of [-1, 1]) { a.fillStyle = d.skin; a.beginPath(); a.ellipse(s * 96, -140, 18, 28, s * .1, 0, 7); a.fill(); a.fillStyle = hx2(d.skin, .8); a.beginPath(); a.ellipse(s * 98, -140, 8, 15, 0, 0, 7); a.fill(); }
     const fg = a.createRadialGradient(-36, -170, 20, 0, -130, 150); fg.addColorStop(0, hx2(d.skin, 1.08)); fg.addColorStop(.7, d.skin); fg.addColorStop(1, hx2(d.skin, .82)); a.fillStyle = fg; faceShape(a); a.fill();
     a.save(); faceShape(a); a.clip(); const sg = a.createLinearGradient(10, 0, 100, 0); sg.addColorStop(0, 'rgba(90,40,30,0)'); sg.addColorStop(1, 'rgba(90,40,30,.1)'); a.fillStyle = sg; a.fillRect(0, -260, 110, 260); a.restore();   // shadow side
-    for (const s of [-1, 1]) { const b = a.createRadialGradient(s * 52, -92, 2, s * 52, -92, 30); b.addColorStop(0, 'rgba(225,105,100,.24)'); b.addColorStop(1, 'rgba(235,110,110,0)'); a.fillStyle = b; a.beginPath(); a.arc(s * 56, -88, 34, 0, 7); a.fill(); }
+    for (const s of [-1, 1]) { const b = a.createRadialGradient(s * 52, -92, 2, s * 52, -92, 30); b.addColorStop(0, 'rgba(225,105,100,.16)'); b.addColorStop(1, 'rgba(235,110,110,0)'); a.fillStyle = b; a.beginPath(); a.arc(s * 56, -88, 34, 0, 7); a.fill(); }
     a.strokeStyle = 'rgba(120,60,50,.22)'; a.lineWidth = 3; a.lineCap = 'round'; a.beginPath(); a.moveTo(6, -136); a.quadraticCurveTo(13, -114, 13, -102); a.stroke();
     a.fillStyle = 'rgba(120,60,50,.16)'; a.beginPath(); a.moveTo(-14, -100); a.quadraticCurveTo(0, -88, 16, -100); a.quadraticCurveTo(0, -92, -14, -100); a.fill();   // under-nose shadow
-    a.save(); faceShape(a); a.clip(); a.fillStyle = 'rgba(110,50,40,.10)'; for (const sd of [-1, 1]) { a.beginPath(); a.ellipse(sd * 74, -96, 18, 40, sd * -.3, 0, 7); a.fill(); } a.restore();   // cheek hollows
-    a.fillStyle = 'rgba(255,240,225,.35)'; a.globalAlpha = .5; for (const sd of [-1, 1]) { a.beginPath(); a.ellipse(sd * 66, -104, 10, 6, sd * .4, 0, 7); a.fill(); } a.globalAlpha = 1;   // cheekbone light   // nose bridge shadow
-    a.fillStyle = 'rgba(110,50,45,.35)'; for (const s of [-1, 1]) { a.beginPath(); a.ellipse(s * 9, -98, 4.5, 2.8, s * .3, 0, 7); a.fill(); } a.fillStyle = 'rgba(120,60,50,.14)'; for (const s of [-1, 1]) { a.beginPath(); a.ellipse(s * 15, -104, 6, 8, 0, 0, 7); a.fill(); } a.fillStyle = 'rgba(255,255,255,.4)'; a.beginPath(); a.ellipse(-2, -108, 6, 5, 0, 0, 7); a.fill();
+    
+       // nose bridge shadow
+    a.fillStyle = 'rgba(110,50,45,.35)'; for (const s of [-1, 1]) { a.beginPath(); a.ellipse(s * 9, -98, 4.5, 2.8, s * .3, 0, 7); a.fill(); }  a.fillStyle = 'rgba(255,255,255,.15)'; a.beginPath(); a.ellipse(-2, -108, 5, 4, 0, 0, 7); a.fill();
     if (d.old) { a.strokeStyle = 'rgba(140,80,60,.4)'; a.lineWidth = 3; for (const s of [-1, 1]) { a.beginPath(); a.moveTo(s * 70, -140); a.lineTo(s * 82, -128); a.moveTo(s * 70, -132); a.lineTo(s * 84, -118); a.stroke(); a.beginPath(); a.moveTo(s * 24, -78); a.quadraticCurveTo(s * 36, -60, s * 30, -46); a.stroke(); } a.beginPath(); a.moveTo(-34, -214); a.lineTo(34, -214); a.moveTo(-26, -200); a.lineTo(26, -200); a.stroke(); }
     if (d.beard) { a.fillStyle = d.beard; a.beginPath(); a.moveTo(-90, -120); a.bezierCurveTo(-86, -30, -40, -6, 0, -6); a.bezierCurveTo(40, -6, 86, -30, 90, -120); a.bezierCurveTo(60, -70, 30, -80, 0, -78); a.bezierCurveTo(-30, -80, -60, -70, -90, -120); a.fill(); }
     hairFront(a, d);
-  }, { origin: [180, 320], size: 4, clip: true, crisp: .7, soft: 1.5 });
+  }, { origin: [180, 320], size: 4, clip: true, crisp: .92, soft: 1 });
   const arm = gouache('hq-arm-' + id, 140, 380, a => { const g = a.createLinearGradient(-36, 0, 36, 0); g.addColorStop(0, hx2(d.coat || d.top, 1.1)); g.addColorStop(1, hx2(d.coat || d.top, .75)); a.fillStyle = g; a.beginPath(); a.moveTo(-30, -10); a.lineTo(30, -10); a.lineTo(25, 262); a.lineTo(-25, 262); a.closePath(); a.fill();
     a.fillStyle = hx2(d.coat || d.top, .8); a.fillRect(-26, 244, 52, 20); a.fillStyle = d.skin; a.beginPath(); a.ellipse(0, 292, 22, 32, 0, 0, 7); a.fill(); a.fillStyle = hx2(d.skin, .85); a.beginPath(); a.ellipse(6, 300, 12, 18, 0, 0, 7); a.fill(); },
     { origin: [70, 40], size: 5, clip: true, crisp: .6, soft: 2 });
