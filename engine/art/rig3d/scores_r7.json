@@ -1,0 +1,542 @@
+{
+ "mom front": {
+  "score": "5/5",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "120-239,12-472"
+   },
+   {
+    "check": "height in heads",
+    "ok": true,
+    "measured": "5.61/5.5"
+   },
+   {
+    "check": "balanced (CoM over feet)",
+    "ok": true,
+    "measured": "179 in 147-212"
+   },
+   {
+    "check": "no joint seams",
+    "ok": true,
+    "measured": "0"
+   }
+  ]
+ },
+ "mom 3/4": {
+  "score": "5/5",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "129-230,12-472"
+   },
+   {
+    "check": "height in heads",
+    "ok": true,
+    "measured": "5.61/5.5"
+   },
+   {
+    "check": "balanced (CoM over feet)",
+    "ok": true,
+    "measured": "179 in 151-223"
+   },
+   {
+    "check": "no joint seams",
+    "ok": true,
+    "measured": "1"
+   }
+  ]
+ },
+ "mom side": {
+  "score": "4/5",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "131-224,12-472"
+   },
+   {
+    "check": "height in heads",
+    "ok": true,
+    "measured": "5.61/5.5"
+   },
+   {
+    "check": "balanced (CoM over feet)",
+    "ok": true,
+    "measured": "178 in 167-218"
+   },
+   {
+    "check": "no joint seams",
+    "ok": false,
+    "measured": "2"
+   }
+  ]
+ },
+ "mom back": {
+  "score": "5/5",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "120-239,12-472"
+   },
+   {
+    "check": "height in heads",
+    "ok": true,
+    "measured": "5.61/5.5"
+   },
+   {
+    "check": "balanced (CoM over feet)",
+    "ok": true,
+    "measured": "179 in 147-212"
+   },
+   {
+    "check": "no joint seams",
+    "ok": true,
+    "measured": "0"
+   }
+  ]
+ },
+ "dad walk 3/4": {
+  "score": "5/5",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "94-246,12-471"
+   },
+   {
+    "check": "height in heads",
+    "ok": true,
+    "measured": "5.60/5.6"
+   },
+   {
+    "check": "balanced (CoM over feet)",
+    "ok": true,
+    "measured": "178 in 98-246"
+   },
+   {
+    "check": "no joint seams",
+    "ok": true,
+    "measured": "1"
+   }
+  ]
+ },
+ "dad walk side": {
+  "score": "4/5",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "83-287,12-471"
+   },
+   {
+    "check": "height in heads",
+    "ok": true,
+    "measured": "5.60/5.6"
+   },
+   {
+    "check": "balanced (CoM over feet)",
+    "ok": true,
+    "measured": "181 in 102-283"
+   },
+   {
+    "check": "no joint seams",
+    "ok": false,
+    "measured": "2"
+   }
+  ]
+ },
+ "kid wave": {
+  "score": "5/5",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "86-227,12-351"
+   },
+   {
+    "check": "height in heads",
+    "ok": true,
+    "measured": "4.13/4.0"
+   },
+   {
+    "check": "balanced (CoM over feet)",
+    "ok": true,
+    "measured": "176 in 152-212"
+   },
+   {
+    "check": "no joint seams",
+    "ok": true,
+    "measured": "0"
+   }
+  ]
+ },
+ "kid sit 3/4": {
+  "score": "3/3",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "132-271,12-298"
+   },
+   {
+    "check": "no joint seams",
+    "ok": true,
+    "measured": "0"
+   }
+  ]
+ },
+ "gran 3/4": {
+  "score": "5/5",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "125-236,11-447"
+   },
+   {
+    "check": "height in heads",
+    "ok": true,
+    "measured": "5.32/5.2"
+   },
+   {
+    "check": "balanced (CoM over feet)",
+    "ok": true,
+    "measured": "182 in 138-208"
+   },
+   {
+    "check": "no joint seams",
+    "ok": true,
+    "measured": "0"
+   }
+  ]
+ },
+ "driver sit side": {
+  "score": "3/3",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "38-228,12-388"
+   },
+   {
+    "check": "no joint seams",
+    "ok": true,
+    "measured": "0"
+   }
+  ]
+ },
+ "baby front": {
+  "score": "5/5",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "138-221,23-241"
+   },
+   {
+    "check": "height in heads",
+    "ok": true,
+    "measured": "2.66/2.6"
+   },
+   {
+    "check": "balanced (CoM over feet)",
+    "ok": true,
+    "measured": "180 in 148-214"
+   },
+   {
+    "check": "no joint seams",
+    "ok": true,
+    "measured": "0"
+   }
+  ]
+ },
+ "mom phone 3/4": {
+  "score": "5/5",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "132-234,12-472"
+   },
+   {
+    "check": "height in heads",
+    "ok": true,
+    "measured": "5.61/5.5"
+   },
+   {
+    "check": "balanced (CoM over feet)",
+    "ok": true,
+    "measured": "182 in 150-220"
+   },
+   {
+    "check": "no joint seams",
+    "ok": true,
+    "measured": "1"
+   }
+  ]
+ },
+ "kid run side": {
+  "score": "5/5",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "78-300,12-318"
+   },
+   {
+    "check": "height in heads",
+    "ok": true,
+    "measured": "3.73/4.0"
+   },
+   {
+    "check": "balanced (CoM over feet)",
+    "ok": true,
+    "measured": "197 in 198-244"
+   },
+   {
+    "check": "no joint seams",
+    "ok": true,
+    "measured": "0"
+   }
+  ]
+ },
+ "dad sit front": {
+  "score": "2/3",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "115-244,12-389"
+   },
+   {
+    "check": "no joint seams",
+    "ok": false,
+    "measured": "6"
+   }
+  ]
+ },
+ "dad back 3/4": {
+  "score": "5/5",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "121-238,12-482"
+   },
+   {
+    "check": "height in heads",
+    "ok": true,
+    "measured": "5.73/5.6"
+   },
+   {
+    "check": "balanced (CoM over feet)",
+    "ok": true,
+    "measured": "180 in 152-222"
+   },
+   {
+    "check": "no joint seams",
+    "ok": true,
+    "measured": "1"
+   }
+  ]
+ },
+ "gran side": {
+  "score": "4/5",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "138-231,11-447"
+   },
+   {
+    "check": "height in heads",
+    "ok": true,
+    "measured": "5.32/5.2"
+   },
+   {
+    "check": "balanced (CoM over feet)",
+    "ok": true,
+    "measured": "182 in 142-192"
+   },
+   {
+    "check": "no joint seams",
+    "ok": false,
+    "measured": "8"
+   }
+  ]
+ },
+ "baby lying (top)": {
+  "score": "2/2",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "79-296,162-357"
+   }
+  ]
+ },
+ "mom lying side": {
+  "score": "2/2",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "19-342,228-294"
+   }
+  ]
+ },
+ "kid walk front": {
+  "score": "5/5",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "129-231,12-345"
+   },
+   {
+    "check": "height in heads",
+    "ok": true,
+    "measured": "4.06/4.0"
+   },
+   {
+    "check": "balanced (CoM over feet)",
+    "ok": true,
+    "measured": "180 in 152-207"
+   },
+   {
+    "check": "no joint seams",
+    "ok": true,
+    "measured": "0"
+   }
+  ]
+ },
+ "driver 3/4 phone": {
+  "score": "5/5",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "65-235,12-482"
+   },
+   {
+    "check": "height in heads",
+    "ok": true,
+    "measured": "5.73/5.6"
+   },
+   {
+    "check": "balanced (CoM over feet)",
+    "ok": true,
+    "measured": "177 in 135-206"
+   },
+   {
+    "check": "no joint seams",
+    "ok": true,
+    "measured": "0"
+   }
+  ]
+ }
+}

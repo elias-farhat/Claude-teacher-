@@ -1,0 +1,282 @@
+{
+ "mom front": {
+  "score": "4/4",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "120-239,12-472"
+   },
+   {
+    "check": "height in heads",
+    "ok": true,
+    "measured": "5.61/5.5"
+   },
+   {
+    "check": "balanced (CoM over feet)",
+    "ok": true,
+    "measured": "179 in 147-212"
+   }
+  ]
+ },
+ "mom 3/4": {
+  "score": "4/4",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "129-230,12-472"
+   },
+   {
+    "check": "height in heads",
+    "ok": true,
+    "measured": "5.61/5.5"
+   },
+   {
+    "check": "balanced (CoM over feet)",
+    "ok": true,
+    "measured": "179 in 151-223"
+   }
+  ]
+ },
+ "mom side": {
+  "score": "4/4",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "128-224,12-472"
+   },
+   {
+    "check": "height in heads",
+    "ok": true,
+    "measured": "5.61/5.5"
+   },
+   {
+    "check": "balanced (CoM over feet)",
+    "ok": true,
+    "measured": "177 in 167-218"
+   }
+  ]
+ },
+ "mom back": {
+  "score": "4/4",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "120-239,12-472"
+   },
+   {
+    "check": "height in heads",
+    "ok": true,
+    "measured": "5.61/5.5"
+   },
+   {
+    "check": "balanced (CoM over feet)",
+    "ok": true,
+    "measured": "179 in 147-212"
+   }
+  ]
+ },
+ "dad walk 3/4": {
+  "score": "4/4",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "94-246,12-471"
+   },
+   {
+    "check": "height in heads",
+    "ok": true,
+    "measured": "5.60/5.6"
+   },
+   {
+    "check": "balanced (CoM over feet)",
+    "ok": true,
+    "measured": "178 in 98-246"
+   }
+  ]
+ },
+ "dad walk side": {
+  "score": "4/4",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "80-287,12-471"
+   },
+   {
+    "check": "height in heads",
+    "ok": true,
+    "measured": "5.60/5.6"
+   },
+   {
+    "check": "balanced (CoM over feet)",
+    "ok": true,
+    "measured": "181 in 102-283"
+   }
+  ]
+ },
+ "kid wave": {
+  "score": "4/4",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "85-227,12-351"
+   },
+   {
+    "check": "height in heads",
+    "ok": true,
+    "measured": "4.13/4.0"
+   },
+   {
+    "check": "balanced (CoM over feet)",
+    "ok": true,
+    "measured": "176 in 152-212"
+   }
+  ]
+ },
+ "kid sit 3/4": {
+  "score": "2/2",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "132-274,12-298"
+   }
+  ]
+ },
+ "gran 3/4": {
+  "score": "4/4",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "125-236,11-447"
+   },
+   {
+    "check": "height in heads",
+    "ok": true,
+    "measured": "5.32/5.2"
+   },
+   {
+    "check": "balanced (CoM over feet)",
+    "ok": true,
+    "measured": "182 in 138-208"
+   }
+  ]
+ },
+ "driver sit side": {
+  "score": "2/2",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "34-228,12-388"
+   }
+  ]
+ },
+ "baby front": {
+  "score": "4/4",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "138-221,23-238"
+   },
+   {
+    "check": "height in heads",
+    "ok": true,
+    "measured": "2.62/2.6"
+   },
+   {
+    "check": "balanced (CoM over feet)",
+    "ok": true,
+    "measured": "180 in 152-209"
+   }
+  ]
+ },
+ "mom phone 3/4": {
+  "score": "4/4",
+  "checks": [
+   {
+    "check": "one silhouette",
+    "ok": true,
+    "measured": "1"
+   },
+   {
+    "check": "inside cell",
+    "ok": true,
+    "measured": "132-234,12-472"
+   },
+   {
+    "check": "height in heads",
+    "ok": true,
+    "measured": "5.61/5.5"
+   },
+   {
+    "check": "balanced (CoM over feet)",
+    "ok": true,
+    "measured": "182 in 150-220"
+   }
+  ]
+ }
+}
