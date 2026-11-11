@@ -21,6 +21,7 @@ await send('Runtime.enable');
 const from = +(fromArg || 0);
 await send('Page.navigate', { url: `http://localhost:${port}/${process.env.PAGE || ""}?from=${from}&to=${toArg || 1e9}` });
 const t0 = Date.now(); while (!(await ev('window.READY === true'))) { if (Date.now() - t0 > 180000) throw new Error('not ready'); await new Promise(r => setTimeout(r, 200)); }
+if (process.env.PNGS) { const m = await ev('window.PNG'); for (const [k, v] of Object.entries(m)) fs.writeFileSync(path.join(process.env.PNGS, k + '.png'), Buffer.from(v.split(',')[1], 'base64')); console.log('pngs written'); ws.close(); chrome.kill(); srv.close(); process.exit(0); }
 const dur = await ev('window.DUR'); const to = Math.min(+(toArg || dur), dur);
 const i0 = Math.round(from * fps), i1 = Math.round(to * fps);
 const ff = spawn('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(fps), '-c:v', 'mjpeg', '-i', '-', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', '-pix_fmt', 'yuv420p', out], { stdio: ['pipe', 'inherit', 'inherit'] });
