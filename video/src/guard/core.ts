@@ -138,6 +138,7 @@ export const checkSubjects = (cam: THREE.PerspectiveCamera, subj: Subj[], geo: G
       const hc = toScreen(hd.c);
       if (!focusSet) { focusSet = true; focusBox = clampBox(hx0, hy0, hx1, hy1); }
       if (cs.some((q) => q.behind) || hx0 < 0 || hx1 > 1 || hy0 < 0 || hy1 > 1) fails.push({ rule: "FACES", subject: who, detail: `head cut at the ${hx0 < 0 ? "left" : hx1 > 1 ? "right" : hy0 < 0 ? "top" : "bottom"} edge` });
+      if (hy0 >= 0 && hy0 < 0.02) fails.push({ rule: "FACES", subject: who, detail: `head (hat) touches the top edge (${(hy0 * 100).toFixed(1)} %)` });
       if (hc.y > 0.55) fails.push({ rule: "FACES", subject: who, detail: `head centre at ${Math.round(hc.y * 100)} % of the frame height` });
       else if (hy1 > 0.62 && hy0 < 0.8) fails.push({ rule: "FACES", subject: who, detail: `head in the caption band (${Math.round(hy0 * 100)}-${Math.round(hy1 * 100)} %)` });
       // how much of the face is covered by geometry or another card in front of it (5 x 5 samples)
@@ -161,6 +162,20 @@ export const checkSubjects = (cam: THREE.PerspectiveCamera, subj: Subj[], geo: G
     // at least half of the head box is in the picture
     const vis = Math.max(0, Math.min(1, hx1) - Math.max(0, hx0)) * Math.max(0, Math.min(1, hy1) - Math.max(0, hy0)) / Math.max(1e-6, (hx1 - hx0) * (hy1 - hy0));
     if (hy1 - hy0 < 0.06 || vis <= 0) continue;
+    // a bystander close to the lens: a face taller than 30 % of the frame is an extreme close-up of the wrong person
+    // (Moon, frame 151: a reader beside the newsboy's camera)
+    if (hy1 - hy0 > 0.3 && geo.cast(cam.position, hd.c.clone().sub(cam.position).normalize(), Math.max(0.05, hd.c.distanceTo(cam.position) - 0.1)) === null) {
+      fails.push({ rule: "FACES", subject: "bystander " + hd.key.split("|").filter((x) => x !== "up")[0], detail: `bystander's face fills ${Math.round((hy1 - hy0) * 100)} % of the frame` }); continue;
+    }
+    // a big bystander standing half out of the picture at a side edge (Moon run 31, 47.5-51.5 s: the beach woman behind
+    // Herschel): the body (feet .. head top) straddles the left / right edge with 20-80 % of its width in frame
+    if (hd.foot !== undefined && hx0 >= 0 && hx1 <= 1) {
+      const bw = (hd.hw / 0.26) * 0.45, bl = toScreen(hd.c.clone().setY(hd.foot).addScaledVector(right, -bw)), br = toScreen(hd.c.clone().setY(hd.foot).addScaledVector(right, bw));
+      const b0 = Math.min(bl.x, br.x, hx0), b1 = Math.max(bl.x, br.x, hx1), inF = (Math.min(1, b1) - Math.max(0, b0)) / Math.max(1e-6, b1 - b0);
+      if (!bl.behind && !br.behind && inF > 0.2 && inF < 0.8 && geo.cast(cam.position, hd.c.clone().sub(cam.position).normalize(), Math.max(0.05, hd.c.distanceTo(cam.position) - 0.1)) === null) {
+        fails.push({ rule: "FACES", subject: "bystander " + hd.key.split("|").filter((x) => x !== "up")[0], detail: `bystander half cut at the ${b0 < 0 ? "left" : "right"} edge (${Math.round(inF * 100)} % in frame)` }); continue;
+      }
+    }
     if (vis < 1 && geo.cast(cam.position, hd.c.clone().sub(cam.position).normalize(), Math.max(0.05, hd.c.distanceTo(cam.position) - 0.1)) === null) {
       fails.push({ rule: "FACES", subject: "bystander " + hd.key.split("|").filter((x) => x !== "up")[0], detail: `bystander's head cut at the ${hx0 < 0 ? "left" : hx1 > 1 ? "right" : hy0 < 0 ? "top" : "bottom"} edge` }); continue;
     }

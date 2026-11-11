@@ -43,14 +43,14 @@ Decisions (auto-framer + camera guard, made without asking; revised after the re
   a whip.
 
 CRITICAL: 0
-warnings: 220 frames in 179 ranges (list in camera_report.txt)
+warnings: 165 frames in 178 ranges (list in camera_report.txt)
 
 Loop:
-  round 1: 338 frames with CRITICAL failures in 9 shots (2, 5, 6, 11, 12, 14, 17, 22, 24)
-  round 2: 139 frames with CRITICAL failures in 4 shots (2, 5, 12, 22)
-  round 3: 64 frames with CRITICAL failures in 3 shots (2, 5, 12)
-  round 4: 37 frames with CRITICAL failures in 2 shots (2, 12)
-  round 5: 36 frames with CRITICAL failures in 1 shots (2)
+  round 1: 339 frames with CRITICAL failures in 7 shots (2, 6, 12, 14, 17, 22, 24)
+  round 2: 77 frames with CRITICAL failures in 3 shots (2, 12, 22)
+  round 3: 54 frames with CRITICAL failures in 3 shots (1, 2, 12)
+  round 4: 44 frames with CRITICAL failures in 3 shots (1, 2, 12)
+  round 5: 32 frames with CRITICAL failures in 1 shots (2)
   assembled the best round of every shot: 3 frames with CRITICAL failures
   fly transitions that still failed became whips: 0; clipping whips panned the other way: 0, became cuts: 0
   flight polish (look timing per failing flight): 0 frames with CRITICAL failures (1 flights cleared)
@@ -62,49 +62,49 @@ Shots (candidate chosen, score):
   shot  2    5.22-  6.50 s  wide   az-30 high (score 6)
   shot  3    6.50-  9.20 s  medium lower (score 2)
   shot  4    9.20- 11.58 s  medium lower (score 2)
-  shot  5   11.58- 14.50 s  medium az180 (score 18)
-  shot  6   14.50- 17.40 s  medium az-30 high (score 6)
+  shot  5   11.58- 14.50 s  medium az+30 high (score 6)
+  shot  6   14.50- 17.40 s  medium az-30 (score 3)
   shot  7   17.40- 19.58 s  wide   base (score 0)
   shot  8   19.58- 21.88 s  wide   base (score 0)
   shot  9   21.88- 23.26 s  wide   base (score 0)
-  shot 10   23.26- 26.50 s  medium lower (score 2)
-  shot 11   26.50- 29.93 s  medium az-30 high (score 6)
+  shot 10   23.26- 26.50 s  medium az+30 (score 3)
+  shot 11   26.50- 29.93 s  wide   lower (score 2)
   shot 12   29.93- 31.95 s  medium az-90 (score 9)
-  shot 13   31.95- 33.69 s  wide   overhead (score 12)
+  shot 13   31.95- 33.69 s  medium az+60 (score 6)
   shot 14   33.69- 37.25 s  wide   az+30 (score 3)
   shot 15   37.25- 39.55 s  insert higher (score 25: 1/5 blocked)
   shot 16   39.55- 43.63 s  medium az+30 (score 3)
   shot 17   43.63- 47.47 s  medium track lower (score 2)
   shot 18   47.47- 49.07 s  medium base (score 0)
   shot 19   49.07- 51.69 s  medium lower (score 2)
-  shot 20   51.69- 54.45 s  medium az-90 (score 9)
+  shot 20   51.69- 54.45 s  medium base (score 44: 2/5 blocked)
   shot 21   54.45- 57.18 s  medium az-30 (score 3)
   shot 22   57.18- 61.38 s  medium az+30 (score 3)
   shot 23   61.38- 62.50 s  medium lower (score 2)
   shot 24   62.50- 66.00 s  close  higher (score 5)
 
 Flights:
-  -> shot 1: FLY 1.06-1.99 s, 28 f, hand route, peak 0.22 m/f
-  -> shot 2: FLY 4.28-5.22 s, 28 f, hand waypoints, peak 2.16 m/f
-  -> shot 3: WHIP 6.30-6.50 s, 6 f, no subject in view at 6.13 s
-  -> shot 4: FLY 8.26-9.20 s, 28 f, hand route (reversed), peak 0.32 m/f
-  -> shot 5: WHIP 11.38-11.58 s, 6 f, no subject in view at 10.94 s
+  -> shot 1: FLY 1.06-1.99 s, 28 f, hand route (reversed), peak 0.34 m/f
+  -> shot 2: FLY 4.12-5.22 s, 33 f, hand waypoints, peak 2.08 m/f
+  -> shot 3: WHIP 6.30-6.50 s, 6 f, a face fills the frame at 5.93 s (reader4)
+  -> shot 4: WHIP 9.00-9.20 s, 6 f, a face fills the frame at 8.66 s (locke)
+  -> shot 5: WHIP 11.38-11.58 s, 6 f, a face fills the frame at 10.98 s (locke)
   -> shot 6: WHIP 14.30-14.50 s, 6 f, route blocked (1 segments)
-  -> shot 7: FLY 16.47-17.40 s, 28 f, hand route (reversed), peak 5.56 m/f
+  -> shot 7: WHIP 17.20-17.40 s, 6 f, c:herschelT shrinks to a dot at 16.80 s
   -> shot 8: WHIP 19.38-19.58 s, 6 f, no subject in view at 18.75 s
   -> shot 9: WHIP 21.68-21.88 s, 6 f, no subject in view at 21.08 s
-  -> shot 10: WHIP 23.06-23.26 s, 6 f, no subject in view at 22.50 s
-  -> shot 11: FLY 25.57-26.50 s, 28 f, hand route (reversed), peak 0.47 m/f
-  -> shot 12: FLY 28.99-29.93 s, 28 f, hand route (reversed), peak 0.82 m/f
+  -> shot 10: WHIP 23.06-23.26 s, 6 f, no subject in view at 22.56 s
+  -> shot 11: WHIP 26.30-26.50 s, 6 f, the next shot's subject is not on stage yet at 25.90 s
+  -> shot 12: FLY 28.99-29.93 s, 28 f, hand route (reversed), peak 0.7 m/f
   -> shot 13: WHIP 31.75-31.95 s, 6 f, route blocked (1 segments)
   -> shot 14: WHIP 33.49-33.69 s, 6 f, no subject in view at 33.19 s
   -> shot 15: WHIP 37.05-37.25 s, 6 f, route blocked (1 segments)
   -> shot 16: WHIP 39.35-39.55 s, 6 f, route blocked (1 segments)
   -> shot 17: WHIP 43.43-43.63 s, 6 f, no subject in view at 42.90 s
   -> shot 18: WHIP 47.27-47.47 s, 6 f, no subject in view at 47.10 s
-  -> shot 19: FLY 48.14-49.07 s, 28 f, hand route, peak 0.1 m/f
+  -> shot 19: WHIP 48.87-49.07 s, 6 f, the next shot's subject is not on stage yet at 48.47 s
   -> shot 20: WHIP 51.49-51.69 s, 6 f, route blocked (1 segments)
-  -> shot 21: WHIP 54.25-54.45 s, 6 f, no subject in view at 53.59 s
-  -> shot 22: WHIP 56.98-57.18 s, 6 f, no subject in view at 56.68 s
+  -> shot 21: WHIP 54.25-54.45 s, 6 f, a face fills the frame at 53.52 s (rival)
+  -> shot 22: WHIP 56.98-57.18 s, 6 f, a face fills the frame at 56.38 s (cust1)
   -> shot 23: WHIP 61.18-61.38 s, 6 f, route blocked (1 segments)
-  -> shot 24: WHIP 62.30-62.50 s, 6 f, no subject in view at 62.06 s
+  -> shot 24: WHIP 62.30-62.50 s, 6 f, a face fills the frame at 61.93 s (lockeS)

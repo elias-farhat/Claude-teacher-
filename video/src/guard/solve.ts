@@ -103,6 +103,8 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
     const chk = checkSubjects(cam, subs2, geo, undefined, { by: bystanderHeads(pose.sp.subjects, I.stage(t, pos)) });
     for (const q of chk.fails) { sc += q.rule === "FACES" ? 25 : q.rule === "OCCLUSION" ? 0 : 40; why.push(q.detail.replace(/ \(.*$/, "")); }
     for (const s2 of subs2) if (!s2.opt) { const b = chk.blocked[s2.id] ?? 0; if (b) { sc += 22 * b; why.push(`${b}/5 blocked`); } }
+    // stay clear of the guard's extreme close-up (head > 30 % of the frame): a push beat must not end in one (Moon, 151)
+    if (chk.headMax > 0.28) { sc += 40; why.push(`head ${Math.round(chk.headMax * 100)} %`); }
     if (!chk.anyInView) { sc += 200; why.push("nothing in view"); }
     return { sc, why };
   };
@@ -137,6 +139,8 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
     let best: { name: string; sc: number; keys: Key[]; why: string[] } | null = null;
     for (const [name, daz, del, kk] of CANDS) {
       if (hint.force ? name !== hint.force : hint.reject.includes(name)) continue;
+      // people are never shot from overhead: faces read as dots on the ground (Moon run 31, 31.9-33.5 s, rule 12)
+      if (name === "overhead" && sp.subjects.some((id) => id.startsWith("c:"))) continue;
       const az = az0 + (daz * Math.PI) / 180, el = THREE.MathUtils.clamp(el0 + (del * Math.PI) / 180, (-12 * Math.PI) / 180, (80 * Math.PI) / 180);
       const keys: Key[] = []; const pen = (Math.abs(daz) / 30 + Math.abs(del) / 15 + (kk < 1 ? 1 : 0)) * 3; let sc = 0; const why: string[] = [];
       let ok = true;
@@ -175,7 +179,29 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
     for (let k = 0; k <= n; k++) {
       const t = Math.min(fl.t1 - 1e-3, fl.t0 + k / I.fps), c = trackCam(tmp, t);
       cam.position.copy(c.pos); cam.up.set(0, 1, 0); cam.lookAt(c.look); cam.fov = c.fov; cam.updateProjectionMatrix(); cam.updateMatrixWorld();
-      const subs = [...subjAt(specs[i], t, c.pos), ...subjAt(specs[i + 1], t, c.pos)].filter((q) => !q.opt);
+      const subN = subjAt(specs[i + 1], t, c.pos);
+      // flying toward a subject that is not on stage yet arrives at an empty spot (Moon run 31, 777-778: trees only on
+      // "horn", the bats appeared after the flight left the goats): whip at the cut instead
+      const missingN = specs[i + 1].subjects.filter((id) => !id.startsWith("?")).length > subN.filter((q) => !q.opt).length;
+      if (missingN && k > n / 3) return `the next shot's subject is not on stage yet at ${t.toFixed(2)} s`;
+      {
+        // a face filling the frame mid-flight (Moon run 31, 136-138 / 261-262), or the outgoing character pulled back
+        // to a dot (16.7-17.2 s, at night: rule 11) -> whip instead
+        const st = I.stage(t, c.pos), fwd0 = new THREE.Vector3(); cam.getWorldDirection(fwd0);
+        const scr = (p: THREE.Vector3) => { const v = p.clone().project(cam); return { x: (v.x + 1) / 2, y: (1 - v.y) / 2, front: p.clone().sub(c.pos).dot(fwd0) > 0.05 }; };
+        for (const hd of bystanderHeads([], st)) {
+          const a = scr(hd.c.clone().setY(hd.y0)), b = scr(hd.c.clone().setY(hd.y1));
+          if (a.front && b.front && a.x > -0.1 && a.x < 1.1 && Math.abs(a.y - b.y) > 0.25 && Math.min(a.y, b.y) < 1 && Math.max(a.y, b.y) > 0)
+            return `a face fills the frame at ${t.toFixed(2)} s (${hd.key.split("|")[0]})`;
+        }
+        if (k > 0 && k < n * 0.6) for (const q of subjAt(specs[i], t, c.pos)) {
+          if (q.opt || q.kind !== "char") continue;
+          const ys = q.pts.map(scr); if (ys.some((v) => !v.front)) continue;
+          const xs = ys.map((v) => v.x), yy = ys.map((v) => v.y);
+          if (Math.max(...xs) > 0 && Math.min(...xs) < 1 && Math.max(...yy) - Math.min(...yy) < 0.12) return `${q.id} shrinks to a dot at ${t.toFixed(2)} s`;
+        }
+      }
+      const subs = [...subjAt(specs[i], t, c.pos), ...subN].filter((q) => !q.opt);
       if (!checkSubjects(cam, subs, geo).anyInView) return `no subject in view at ${t.toFixed(2)} s`;
       const fwd = new THREE.Vector3(); cam.getWorldDirection(fwd); let near = Infinity, walled = 0;
       for (let a = 0; a < 5; a++) for (let b2 = 0; b2 < 9; b2++) { const nd = new THREE.Vector3(((a + 0.5) / 5) * 2 - 1, 1 - ((b2 + 0.5) / 9) * 2, 0.5).unproject(cam).sub(c.pos).normalize(); const h = geo.cast(c.pos, nd, 1.6 / Math.max(0.2, nd.dot(fwd))); if (h) { const d = h.distance * nd.dot(fwd); near = Math.min(near, d); if (d < 1.5) walled++; } }

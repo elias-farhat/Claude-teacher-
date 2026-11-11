@@ -1,6 +1,6 @@
 // Camera guard + auto-framer adapter: the Moon short (shots.ts -> camtrack.json).
 import * as THREE from "three";
-import { loop, guardOnly, AutoCfg } from "./auto";
+import { loop, guardOnly, guardFrames, AutoCfg } from "./auto";
 import { MoonWorld } from "../videos/moon/world";
 import { camAt, camAtHand, setTrack, getTrack, FPS, TOTAL, SHOTS } from "../videos/moon/story";
 import { stage } from "../videos/moon/stage";
@@ -18,3 +18,5 @@ const cfg = (): AutoCfg => {
 };
 export const autoframe = (n = 5) => loop(cfg(), n);
 export const guard = () => guardOnly(cfg()).rows;
+
+export const debugFrames = (fs: number[]) => guardFrames(cfg(), fs).map((r) => console.log(r.f, JSON.stringify(r.fails)));

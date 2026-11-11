@@ -2,10 +2,10 @@
 // characters (judged as their union box), "f:prefix" an effect / label card by key prefix, "w:name" a world prop box.
 import * as THREE from "three";
 
-export type Place = { key: string; x: number; y: number; z: number; scale?: number };
+export type Place = { key: string; x: number; y: number; z: number; scale?: number; tall?: number };   // tall: a top hat etc. above the 1.78 m figure (m)
 export type FxCard = { key: string; x: number; y: number; z: number; w: number; h: number; flat?: boolean; rot?: number; soft?: boolean; yaw?: number };
 /** one character's head: centre, half width, and its box from the chin to the hat top (metres) */
-export type Head = { key: string; c: THREE.Vector3; hw: number; y0: number; y1: number; animal?: boolean };
+export type Head = { key: string; c: THREE.Vector3; hw: number; y0: number; y1: number; animal?: boolean; foot?: number };
 /** animal cards: the head (horn / ears to chin) in card coordinates [u0, v0, u1, v1] (0..1, v down), by key prefix */
 export const ANIMAL_HEADS: Record<string, [number, number, number, number]> = { goat: [0.25, 0.04, 0.75, 0.62] };
 export type Subj = { id: string; opt?: boolean; kind: "char" | "prop"; pts: THREE.Vector3[]; own?: THREE.Box3; head?: THREE.Vector3; chest?: number;
@@ -32,12 +32,12 @@ export const subjectsAt = (ids: string[], st: { places: Place[]; fx: FxCard[] },
       const pts: THREE.Vector3[] = []; let head: THREE.Vector3 | undefined; let bottom = Infinity, top = -Infinity, chest = 0; const heads: Head[] = [];
       for (const p of ps) {
         const sc = p.scale ?? 1, sit = modeOf(p.key) === "sit", up0 = isUp(p.key);
-        const y0 = p.y + (up0 ? 0.81 : sit ? -0.45 : 0) * sc, y1 = p.y + (sit ? 1.2 : 1.78) * sc, hc = p.y + (sit ? 0.86 : 1.44) * sc;
+        const tl = (p.tall ?? 0) * sc, y0 = p.y + (up0 ? 0.81 : sit ? -0.45 : 0) * sc, y1 = p.y + (sit ? 1.2 : 1.78) * sc + tl, hc = p.y + (sit ? 0.86 : 1.44) * sc;
         const side = new THREE.Vector3(eye.z - p.z, 0, -(eye.x - p.x)); if (side.lengthSq() < 1e-8) side.set(1, 0, 0); side.normalize().multiplyScalar(0.31 * sc);
         const b = new THREE.Vector3(p.x, 0, p.z);
         for (const y of [y0, y1]) for (const s2 of [-1, 1]) pts.push(b.clone().addScaledVector(side, s2).setY(y));
         if (!head || hc > head.y) head = new THREE.Vector3(p.x, hc, p.z);
-        heads.push({ key: p.key, c: new THREE.Vector3(p.x, hc, p.z), hw: 0.26 * sc, y0: hc - 0.25 * sc, y1: hc + 0.32 * sc });
+        heads.push({ key: p.key, c: new THREE.Vector3(p.x, hc, p.z), hw: 0.26 * sc, y0: hc - 0.25 * sc, y1: hc + 0.32 * sc + tl });
         bottom = Math.min(bottom, y0); top = Math.max(top, y1); chest = Math.max(chest, p.y + (sit ? 0.55 : 1.0) * sc);
       }
       out.push(finish({ id, kind: "char", pts, head: ps.length === 1 ? head : undefined, heads, chest, bottom, top }));
@@ -74,16 +74,19 @@ export const subjectsAt = (ids: string[], st: { places: Place[]; fx: FxCard[] },
   }
   return { subj: out, missing: missingAll };
 };
-/** heads of the named characters on stage that are NOT among the declared subjects (background life "bg..." excluded):
+/** heads of the characters on stage that are NOT among the declared subjects (walkers excluded):
  *  the guard keeps their faces out of the caption band too when they are big in the picture */
 export const bystanderHeads = (ids: string[], st: { places: Place[] }): Head[] => {
   const pats = ids.map((i) => (i.startsWith("?") ? i.slice(1) : i)).filter((i) => i.startsWith("c:")).map((i) => i.slice(2));
   const isSubj = (n: string) => pats.some((s) => (s.startsWith("/") ? new RegExp(s.slice(1, -1)).test(n) : s === n));
   const out: Head[] = [];
   for (const p of st.places) {
-    const n = nameOf(p.key); if (n.startsWith("bg") || isSubj(n)) continue;
+    // walkers (mode stroll) are skipped: a passer-by entering or leaving the picture crosses the edge for a moment
+    // background life ("bg...") counts too once it is big in the picture (Moon run 31, 47.5-51.5 s: a beach woman half cut
+    // at the left edge behind Herschel); the 6 % head-size threshold in the guard skips the small, distant ones
+    const n = nameOf(p.key); if (isSubj(n) || modeOf(p.key) === "stroll") continue;
     const sc = p.scale ?? 1, sit = modeOf(p.key) === "sit", hc = p.y + (sit ? 0.86 : 1.44) * sc;
-    out.push({ key: p.key, c: new THREE.Vector3(p.x, hc, p.z), hw: 0.26 * sc, y0: hc - 0.25 * sc, y1: hc + 0.32 * sc });
+    out.push({ key: p.key, c: new THREE.Vector3(p.x, hc, p.z), hw: 0.26 * sc, y0: hc - 0.25 * sc, y1: hc + 0.32 * sc + (p.tall ?? 0) * sc, foot: p.y } as Head);
   }
   return out;
 };

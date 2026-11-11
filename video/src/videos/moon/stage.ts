@@ -28,7 +28,7 @@ const blinkAt = (t: number, seed: number) => {
 const SEAT = 0.4;
 const P = (name: string, o: Outfit, l: Look, x: Extra, at: V3 | THREE.Vector3, opt: { scale?: number; size?: [number, number, number] } = {}): Place => {
   const a = at instanceof THREE.Vector3 ? at : V(...at);
-  return { key: personKey(name, l, x), draw: person(o, l, x), x: a.x, y: a.y + (l.mode === "sit" ? SEAT : 0), z: a.z, size: opt.size ?? HI, scale: opt.scale };
+  return { key: personKey(name, l, x), draw: person(o, l, x), x: a.x, y: a.y + (l.mode === "sit" ? SEAT : 0), z: a.z, size: opt.size ?? HI, scale: opt.scale, tall: o.hat === "tophat" ? 0.3 : 0 };
 };
 const card = (key: string, cw: number, ch: number, draw: (p: Pen) => void, at: V3 | THREE.Vector3, w: number, h: number, o: Partial<FxCard> = {}): FxCard => {
   const a = at instanceof THREE.Vector3 ? at : V(...at);
@@ -117,12 +117,12 @@ const cape = (t: number, s: Stage) => {
     s.lights.push(warm(V(GARDEN.x - 0.3, 1.3, GARDEN.z - 0.4), 1.3));
   }
   if (between(t, wt(13, "months") - 0.2, wt(15, "rival"))) { // line 14: on vacation, no signal; the rumour cloud grows
-    const cloud = smooth((t - wt(14, "rumor") + LEAD) / 0.5), phone = after(t, 14, "phone");
+    const cloud = smooth((t - wt(14, "rumor") + LEAD + 0.5) / 0.5), phone = after(t, 14, "phone");
     s.places.push(P("herschelB", HERSCHEL_BEACH, { expr: phone ? "nervous" : "smile_closed", gest: phone ? "tip" : "palm", k: 1, blink: blinkAt(t, 9) }, { sideburns: true, phone: true }, [BEACH.x, 0, BEACH.z]));
-    if (cloud > 0) s.fx.push(card("rumor", 640, 420, LB.rumorCloud, [BEACH.x - 0.25, 2.55 + 0.2 * cloud, BEACH.z + 0.45], 1.75 * cloud, 1.15 * cloud));
+    if (cloud > 0) s.fx.push(card("rumor", 640, 420, LB.rumorCloud, [BEACH.x - 0.25, 2.3 + 0.15 * cloud, BEACH.z + 0.45], 1.5 * cloud, 1.0 * cloud));   // lower and a little smaller: framed whole with him
     if (phone) s.fx.push(card("nosignal", 300, 220, LB.noSignal, [BEACH.x + 0.2, 1.95, BEACH.z - 0.75], 0.75, 0.55));
     // beach life around him (background: never the subject)
-    s.places.push(P("bgBeach0", CITIZEN(5), { expr: "smile_closed", gest: "hold", seed: 140 }, {}, [BEACH.x - 2.4, 0, BEACH.z + 3.0], { size: LO }));
+    s.places.push(P("bgBeach0", CITIZEN(5), { expr: "smile_closed", gest: "hold", seed: 140 }, {}, [BEACH.x - 4.4, 0, BEACH.z + 3.4], { size: LO }));   // well clear of Herschel's frame (run 31: half cut at the left edge)
     s.places.push(P("bgBeach1", KID(1), { mode: "stroll", phase: q((t * 1.6) % 1, 12), expr: "laugh", seed: 141 }, {}, [BEACH.x - 2.0 + Math.sin(t * 0.8) * 0.8, 0, BEACH.z - 2.8], { size: LO }));
     s.places.push(P("bgBeach2", CITIZEN(9), { mode: "sit", expr: "smile_closed", gest: "hang", seed: 142 }, {}, [BEACH.x - 2.9, 0, BEACH.z - 1.4], { size: LO }));
   }
