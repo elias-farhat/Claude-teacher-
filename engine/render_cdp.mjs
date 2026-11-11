@@ -3,7 +3,7 @@
 // (Node 22 has WebSocket built in) and reads frames straight from the canvas.
 import http from 'http'; import fs from 'fs'; import path from 'path'; import os from 'os'; import { spawn } from 'child_process';
 const [dir = '.', out = 'out.mp4', fpsArg = '30', fromArg, toArg] = process.argv.slice(2); const fps = +fpsArg; const root = path.resolve(dir);
-const types = { '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json', '.woff2': 'font/woff2', '.png': 'image/png' };
+const types = { '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json', '.woff2': 'font/woff2', '.png': 'image/png', '.svg': 'image/svg+xml' };
 const srv = http.createServer((q, r) => { const p = decodeURIComponent(q.url.split('?')[0]); const f = path.join(root, p === '/' ? 'index.html' : p);
   fs.readFile(f, (e, d) => { if (e) { r.writeHead(404); r.end(); return; } r.writeHead(200, { 'content-type': types[path.extname(f)] || 'application/octet-stream' }); r.end(d); }); }).listen(0);
 await new Promise(r => srv.on('listening', r)); const port = srv.address().port;

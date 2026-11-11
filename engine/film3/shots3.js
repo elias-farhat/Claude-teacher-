@@ -184,7 +184,7 @@ function render3(t) {
   window.FACES = []; window.SCENE = 'shot' + SHOTS3[i][0]; }
 window.render = render3;
 fetch('timing_countdown.json').then(r => r.json()).then(async tm => { TIM2 = tm; await document.fonts.load('700 40px Fredoka'); await document.fonts.load('600 40px Fredoka');
-  buildStatic(); buildRoom(); buildBoard(); buildHands(); buildBoards3(); window.DUR = DUR3;
+  await (window.TOON_READY || Promise.resolve()); buildStatic(); buildRoom(); buildBoard(); buildHands(); buildBoards3(); window.DUR = DUR3;
   const q = new URLSearchParams(location.search), from = +(q.get('from') || 0), to = +(q.get('to') || DUR3);
   for (let tt = from; tt < Math.min(to, from + 30); tt += 2) render3(tt);
   render3(from); window.READY = true; });
