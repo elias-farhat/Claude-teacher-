@@ -19,10 +19,12 @@ import { buildRooms, Room, RoomName } from "./rooms";
 import { LOOKS, Look, LAMP } from "./looks";
 import { SHOTS, camAt, Cam, FPS, wt, shipX } from "./story";
 import { stage, Stage } from "./stage";
-import { buildDressing, loadDressing } from "./dressing";
+import { buildDressing, buildEarthDressing, loadDressing, DRESS_NAMES } from "./dressing";
 import { SHIP_LINE, WATER, MOON_TOP } from "./layout";
 
 const NAMES = ["lantern", "cart", "stall-red", "stall-green", "stall-bench", "fountain-round", "fence"];
+/** every Kenney model the Moon world uses (the camera guard loads the same set from disk) */
+export const KIT_NAMES = () => [...new Set([...NAMES, ...DRESS_NAMES])];
 let kitP: Promise<Kit> | null = null;
 export const loadMoonKit = () => {
   if (!kitP) {
@@ -102,6 +104,7 @@ export class MoonWorld {
     const dot = new THREE.MeshBasicMaterial({ color: new THREE.Color(4.5, 2.8, 1.1) });
     for (const l of this.dio.lamps) { const m = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 8), dot); m.position.copy(l.p); m.layers.set(NOINK); this.lampDots.push(m); R.add(m); }
     buildDressing(R, kit as unknown as Record<string, THREE.Object3D>);
+    buildEarthDressing(R, kit as unknown as Record<string, THREE.Object3D>);
   }
 
   private actor(i: number) { while (this.actors.length <= i) this.actors.push(new Actor(this.root)); return this.actors[i]; }

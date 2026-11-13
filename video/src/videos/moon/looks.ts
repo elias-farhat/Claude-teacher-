@@ -24,5 +24,23 @@ export const LOOKS: Record<LookName, Look> = {
   seaday: { L: P(D, { az: 70, el: 45, fogNear: 500, fogFar: 3600, fog: "#c3d9ef", lit: [1.62, 1.52, 1.34] }), ...{ sky: RATS.morning.sky, skyE: RATS.morning.skyE }, grade: RATS.morning.grade, gradeK: 1, glowK: 0, window: "#cfe3f7", cloud: RATS.morning.cloud, interior: false },
   afternoon: { L: P(D, { az: 50, el: 26, fogNear: 400, fogFar: 3000, fog: "#d8d6e6", lit: [1.66, 1.42, 1.12], charTint: [1.0, 0.94, 0.88] }), sky: ["#f2dcb8", "#d9cdc4", "#a9bedf", "#7fa3d9", "#5a88cf"], skyE: NE, grade: RATS.cafe.grade, gradeK: 0.7, glowK: 0.2, window: "#f3e2c0", cloud: RATS.morning.cloud, interior: false },
 };
-for (const k of ["morning", "seaday", "afternoon", "golden"] as const) { const L = LOOKS[k]; LOOKS[k] = { ...L, L: { ...L.L, fogNear: 70, fogFar: 1500 } }; }
+// Look pass, every scene (2026-11-13, after the katana / roller-coaster reference shorts): one strong, low, one-sided
+// key per scene (side light: real shadow shapes on the cast and the sets), deep shade, warm practicals glowing at
+// night, fog pushed back so the mid-ground keeps its contrast, full-strength grade. az is measured from the camera
+// (0 = from behind it, 90 = from the right side); interiors take their key through the window at elevation el.
+type C3 = [number, number, number];
+const deep = (c: C3, k: number): C3 => [c[0] * k, c[1] * k, c[2] * k];
+const pass = (k: LookName, o: Partial<LightPreset>, rest: Partial<Look> = {}, shadeK = 0.6) => {
+  const L = LOOKS[k]; LOOKS[k] = { ...L, ...rest, gradeK: 1, L: { ...L.L, shade: deep(L.L.shade, shadeK), lift: deep(L.L.lift, 0.7), ...o } };
+};
+pass("moonlit", { az: 80, el: 24, lit: [0.78, 0.88, 1.32], sunI: 2.2, fogNear: 160, fogFar: 1400 }, { glowK: 2.0 });
+pass("starry", { az: -75, el: 22, lit: [0.72, 0.8, 1.28], sunI: 2.1, fogNear: 200, fogFar: 1700 }, { glowK: 2.0 });
+pass("lamp", { el: 16, lit: [1.45, 0.92, 0.5] }, { glowK: 2.0 }, 0.55);
+pass("dim", { el: 14 }, { glowK: 2.0 }, 0.55);
+pass("neutral", { el: 22, lit: [1.55, 1.36, 1.1] }, { glowK: 0.9 }, 0.45);
+pass("sunrise", { el: 9 }, { glowK: 0.6 }, 0.5);
+pass("morning", { az: 75, el: 20, lit: [1.78, 1.56, 1.24], fogNear: 600, fogFar: 4000 });
+pass("seaday", { az: 80, el: 30, lit: [1.78, 1.62, 1.34], fogNear: 700, fogFar: 4200 });
+pass("afternoon", { az: 62, el: 20, fogNear: 600, fogFar: 4000 });
+pass("golden", { az: 65, el: 12, fogNear: 400, fogFar: 3600 });
 export { LAMP } from "../rats/looks";

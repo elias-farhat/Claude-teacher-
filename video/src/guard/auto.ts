@@ -141,7 +141,9 @@ export const loop = (C: AutoCfg, maxIter = 5) => {
     for (let k = 0; k < tr.flights.length; k++) {
       const fl = tr.flights[k]; if (fl.kind !== "fly") continue;
       const f0 = Math.floor(fl.t0 * C.fps) - 1, f1 = Math.ceil(fl.t1 * C.fps) + 1;
-      if (critIn(run(adapter(C, tr), geo, Array.from({ length: f1 - f0 + 1 }, (_, q) => f0 + q)))) { tr.flights[k] = whipFlight(tr, fl.to - 1, C.fps, "CRITICAL frames left after the polish"); whips++; }
+      const rwF = run(adapter(C, tr), geo, Array.from({ length: f1 - f0 + 1 }, (_, q) => f0 + q));
+      if (process.env.FLYDBG) for (const r of rwF) if (r.fails.some((q) => q.critical)) console.error("[crit]", fl.to, r.f, JSON.stringify(r.fails.filter((q) => q.critical)));
+      if (critIn(rwF)) { tr.flights[k] = whipFlight(tr, fl.to - 1, C.fps, "CRITICAL frames left after the polish"); whips++; }
     }
     // a whip that clips (its pan sweeps the lens past a wall) pans the other way round
     let flipped = 0, cuts = 0;

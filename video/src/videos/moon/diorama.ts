@@ -66,8 +66,10 @@ export type Diorama = { group: THREE.Group; lamps: Lamp[]; ship: THREE.Group; su
 export const buildDiorama = (root: THREE.Object3D): Diorama => {
   const b = new Batch(), g = new THREE.Group(), lamps: Lamp[] = [];
   root.add(g);
-  const cob = lam("cobble", () => ({ map: cobbleHD() })), walk = lam("nycWalk", () => ({ map: stoneHD("nycWalk", ["#c9c0b0", "#bfb5a3", "#d3cbbd", "#b5aa97"], "#8f8574") }));
-  const grass = lam("grassM", () => ({ map: grassHD() })), sand = lam("sandM", () => ({ map: rep(sandTex(), 4, 4) })), wood = lam("pierWood", () => ({ map: rep(planksHD(), 2, 1) }));
+  // look pass (all scenes): the ground is toned down (colour x map) so the cast, the shadow shapes and the warm
+  // practicals read against it instead of a pale floor that flattens every frame
+  const cob = lam("cobble", () => ({ map: cobbleHD(), color: "#9c9088" })), walk = lam("nycWalk", () => ({ map: stoneHD("nycWalk", ["#c9c0b0", "#bfb5a3", "#d3cbbd", "#b5aa97"], "#8f8574"), color: "#a89c92" }));
+  const grass = lam("grassM", () => ({ map: grassHD(), color: "#a8b394" })), sand = lam("sandM", () => ({ map: rep(sandTex(), 4, 4), color: "#d6c6a8" })), wood = lam("pierWood", () => ({ map: rep(planksHD(), 2, 1), color: "#b4a698" }));
   // ---- New York street ----
   ground(b, cob, STREET.x0, STREET.x1, -STREET.road, STREET.road, 0, 6);
   ground(b, walk, STREET.x0, STREET.x1, -STREET.facade, -STREET.road, 0.12, 3); ground(b, walk, STREET.x0, STREET.x1, STREET.road, STREET.facade, 0.12, 3);

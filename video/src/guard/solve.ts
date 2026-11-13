@@ -202,10 +202,17 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
         }
       }
       const subs = [...subjAt(specs[i], t, c.pos), ...subN].filter((q) => !q.opt);
-      if (!checkSubjects(cam, subs, geo).anyInView) return `no subject in view at ${t.toFixed(2)} s`;
+      const ck = checkSubjects(cam, subs, geo);
+      if (process.env.FLYDBG && !ck.anyInView && i + 1 === +process.env.FLYDBG) console.error("[fly]", i + 1, t.toFixed(2), "pos", c.pos.toArray().map((x) => +x.toFixed(1)), "look", c.look.toArray().map((x) => +x.toFixed(1)), JSON.stringify(ck.fails.map((f) => f.subject + ":" + f.detail)), JSON.stringify(ck.blocked), subs.map((q) => q.id).join(","));
+      if (!ck.anyInView) return `no subject in view at ${t.toFixed(2)} s`;
       const fwd = new THREE.Vector3(); cam.getWorldDirection(fwd); let near = Infinity, walled = 0;
       for (let a = 0; a < 5; a++) for (let b2 = 0; b2 < 9; b2++) { const nd = new THREE.Vector3(((a + 0.5) / 5) * 2 - 1, 1 - ((b2 + 0.5) / 9) * 2, 0.5).unproject(cam).sub(c.pos).normalize(); const h = geo.cast(c.pos, nd, 1.6 / Math.max(0.2, nd.dot(fwd))); if (h) { const d = h.distance * nd.dot(fwd); near = Math.min(near, d); if (d < 1.5) walled++; } }
       if (near < 0.45 || walled >= 0.8 * 45) return `geometry against the lens at ${t.toFixed(2)} s`;
+      // one surface filling the frame (Moon 20.2-21.9 s: the glide skimmed the Moon's white sphere): >= 85 % of the
+      // view rays hit the same mesh within 25 m -> the picture is a flat colour (the proxy's FLAT check)
+      { let same = 0; let first: THREE.Object3D | null = null;
+        for (let a = 0; a < 5; a++) for (let b2 = 0; b2 < 9; b2++) { const nd = new THREE.Vector3(((a + 0.5) / 5) * 2 - 1, 1 - ((b2 + 0.5) / 9) * 2, 0.5).unproject(cam).sub(c.pos).normalize(); const h = geo.cast(c.pos, nd, 25); if (h) { if (!first) first = h.object; if (h.object === first) same++; } }
+        if (same >= 0.85 * 45) return `one surface fills the view at ${t.toFixed(2)} s`; }
       if (geo.inside(c.pos)) return `camera inside geometry at ${t.toFixed(2)} s`;
     }
     return null;
@@ -313,8 +320,28 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
     }
     const fly: TFlight = { kind: "fly", t0: tS, t1: N.t0, to: i + 1, path, swing, ...(ahead.some((x) => x > 0) ? { ahead } : {}) };
     // a flight only exists if it never touches geometry and a real subject (of either shot) stays in view on every frame
-    const why = bestBad > 0 ? `route blocked (${bestBad} segments)` : flightProblem(fly, i);
-    if (!why) flights.push({ ...fly, ...({ route: pick.name, tried: tried.join(" "), peak: +((len * 1.875) / frames).toFixed(2) } as object) });
+    let why = bestBad > 0 ? `route blocked (${bestBad} segments)` : flightProblem(fly, i);
+    // before giving up on a glide (CLAUDE.md 1 / 9: 25-30 frame eased glides, not whips), try other look timings: swing
+    // the view over the whole flight or its middle, so one of the two subjects stays in the picture all the way
+    let usedSwing = swing;
+    // the routes to try: the picked one, then a straight glide (short hops between nearby subjects: the hand route can
+    // turn away from both, Moon 22.5 s) and a slightly raised one
+    const B3 = A3(new THREE.Vector3(...N.keys[0].pos)), mid = new THREE.Vector3(...path[0]).lerp(new THREE.Vector3(...B3), 0.5);
+    const altPaths: V3[][] = [path, [path[0], B3], [path[0], A3(mid.clone().setY(mid.y + Math.min(3, 0.25 * L0))), B3]];
+    let pickedAlt = "";
+    if (why) for (const [pi, pth] of altPaths.entries()) {
+      if (pi > 0) { let ok = true; for (let k = 0; k + 1 < pth.length; k++) if (!geo.segmentFree(new THREE.Vector3(...pth[k]), new THREE.Vector3(...pth[k + 1]), 0.25)) ok = false; if (!ok) continue; }
+      if (pathLen(pth) * 1.875 / frames > 6) continue;   // CLAUDE.md 9: never faster than ~6 m/frame at the peak
+      else if (bestBad > 0) continue;
+      for (const sw of [[0, 1], [0.15, 0.85], [0.3, 0.7], [0.05, 0.6], [0.4, 0.95]] as [number, number][]) {
+        const alt: TFlight = { ...fly, path: pth, swing: sw }; delete (alt as { ahead?: number[] }).ahead;
+        if (!flightProblem(alt, i)) { why = null; usedSwing = sw; Object.assign(fly, alt); delete (fly as { ahead?: number[] }).ahead; pickedAlt = pi ? ["", "straight glide", "raised glide"][pi] : ""; break; }
+      }
+      if (!why) break;
+    }
+    if (pickedAlt) pick = { name: pickedAlt, pts: [] };
+    void usedSwing;
+    if (!why) flights.push({ ...fly, ...({ route: pick.name, tried: tried.join(" "), peak: +((pathLen(fly.path) * 1.875) / Math.round((fly.t1 - fly.t0) * I.fps)).toFixed(2) } as object) });
     else flights.push(whipInto(i, why));
   }
   return { video: I.video, shots, flights };

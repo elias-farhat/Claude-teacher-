@@ -138,7 +138,7 @@ export const checkSubjects = (cam: THREE.PerspectiveCamera, subj: Subj[], geo: G
       const hc = toScreen(hd.c);
       if (!focusSet) { focusSet = true; focusBox = clampBox(hx0, hy0, hx1, hy1); }
       if (cs.some((q) => q.behind) || hx0 < 0 || hx1 > 1 || hy0 < 0 || hy1 > 1) fails.push({ rule: "FACES", subject: who, detail: `head cut at the ${hx0 < 0 ? "left" : hx1 > 1 ? "right" : hy0 < 0 ? "top" : "bottom"} edge` });
-      if (hy0 >= 0 && hy0 < 0.02) fails.push({ rule: "FACES", subject: who, detail: `head (hat) touches the top edge (${(hy0 * 100).toFixed(1)} %)` });
+      if (hy0 >= 0 && hy0 < 0.045) fails.push({ rule: "FACES", subject: who, detail: `head (hat) touches the top edge (${(hy0 * 100).toFixed(1)} %)` });
       if (hc.y > 0.55) fails.push({ rule: "FACES", subject: who, detail: `head centre at ${Math.round(hc.y * 100)} % of the frame height` });
       else if (hy1 > 0.62 && hy0 < 0.8) fails.push({ rule: "FACES", subject: who, detail: `head in the caption band (${Math.round(hy0 * 100)}-${Math.round(hy1 * 100)} %)` });
       // how much of the face is covered by geometry or another card in front of it (5 x 5 samples)
@@ -186,6 +186,15 @@ export const checkSubjects = (cam: THREE.PerspectiveCamera, subj: Subj[], geo: G
     if (geo.cast(cam.position, dv, Math.max(0.05, L - 0.1))) continue;
     fails.push({ rule: "FACES", subject: "bystander " + hd.key.split("|").filter((x) => x !== "up")[0], detail: hc.y > 0.55 ? `bystander's head centre at ${Math.round(hc.y * 100)} % of the frame height` : `bystander's head in the caption band (${Math.round(hy0 * 100)}-${Math.round(hy1 * 100)} %)` });
   }
+  // two declared characters hiding each other (f2bb35f test, 890-929: the bat-people overlapping, the left one mostly
+  // hidden): their figure boxes may not overlap by more than 35 % of the smaller one on screen
+  { const boxes = subj.filter((q) => !q.opt && q.kind === "char" && !q.id.startsWith("c:/")).map((q) => { const sp = q.pts.map(toScreen); if (sp.some((v) => v.behind)) return null;
+      return { id: q.id, x0: Math.min(...sp.map((v) => v.x)), x1: Math.max(...sp.map((v) => v.x)), y0: Math.min(...sp.map((v) => v.y)), y1: Math.max(...sp.map((v) => v.y)) }; }).filter((b): b is NonNullable<typeof b> => !!b);
+    for (let a = 0; a < boxes.length; a++) for (let b = a + 1; b < boxes.length; b++) {
+      const A = boxes[a], B = boxes[b], ix = Math.max(0, Math.min(A.x1, B.x1) - Math.max(A.x0, B.x0)), iy = Math.max(0, Math.min(A.y1, B.y1) - Math.max(A.y0, B.y0));
+      const sm = Math.min((A.x1 - A.x0) * (A.y1 - A.y0), (B.x1 - B.x0) * (B.y1 - B.y0));
+      if (sm > 0 && (ix * iy) / sm > 0.35) fails.push({ rule: "SUBJECT", subject: `${A.id}+${B.id}`, detail: `the two overlap by ${Math.round((ix * iy) / sm * 100)} % on screen` });
+    } }
   return { fails, anyInView, blocked: blk, headMax, primary, focusBox };
 };
 

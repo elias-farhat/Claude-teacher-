@@ -23,6 +23,7 @@ await build({ entryPoints: [path.resolve(`src/guard/${video}.ts`)], bundle: true
   inject: [path.resolve("src/guard/shim.js")], loader: { ".json": "json", ".css": "empty", ".woff": "empty", ".woff2": "empty" }, define: { "process.env.NODE_ENV": '"production"' }, logLevel: "error" });
 const t0 = Date.now();
 const mod = await import(pathToFileURL(path.join(work, `${video}.mjs`)).href + "?" + Date.now());
+if (mod.prepare) await mod.prepare();
 if (process.env.GUARD_DEBUG) globalThis.GUARD_DEBUG = +process.env.GUARD_DEBUG;
 let rows, history = [], track = null;
 if (doSolve) {

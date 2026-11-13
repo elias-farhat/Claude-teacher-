@@ -33,7 +33,7 @@ export const subjectsAt = (ids: string[], st: { places: Place[]; fx: FxCard[] },
       for (const p of ps) {
         const sc = p.scale ?? 1, sit = modeOf(p.key) === "sit", up0 = isUp(p.key);
         const tl = (p.tall ?? 0) * sc, y0 = p.y + (up0 ? 0.81 : sit ? -0.45 : 0) * sc, y1 = p.y + (sit ? 1.2 : 1.78) * sc + tl, hc = p.y + (sit ? 0.86 : 1.44) * sc;
-        const side = new THREE.Vector3(eye.z - p.z, 0, -(eye.x - p.x)); if (side.lengthSq() < 1e-8) side.set(1, 0, 0); side.normalize().multiplyScalar(0.31 * sc);
+        const side = new THREE.Vector3(eye.z - p.z, 0, -(eye.x - p.x)); if (side.lengthSq() < 1e-8) side.set(1, 0, 0); side.normalize().multiplyScalar((/wings/.test(p.key) ? 0.65 : 0.31) * sc);   // bat-people: spread wings ~1.3 m
         const b = new THREE.Vector3(p.x, 0, p.z);
         for (const y of [y0, y1]) for (const s2 of [-1, 1]) pts.push(b.clone().addScaledVector(side, s2).setY(y));
         if (!head || hc > head.y) head = new THREE.Vector3(p.x, hc, p.z);
