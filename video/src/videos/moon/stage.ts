@@ -74,8 +74,8 @@ const street = (t: number, s: Stage) => {
     const high = t < wt(1, "bat-people") - 0.3;   // paper waved over his head while he shouts, then held out to show the bat-people
     s.places.push(P("newsboy", NEWSBOY, { expr: "laugh", gest: high ? "cheer" : "hold", k: q((t * 2.5) % 1, 8), blink: blinkAt(t, 3), headTilt: 6 * Math.sin(t * 5) }, { paper: "bat" }, [22.0, 0, 1.2]));
     // (no "EXTRA!" shout bubble: speech bubbles read as cheap; Elias 2026-11-13)
-    for (let i = 0; i < 5; i++) {
-      const a = -1.6 + i * 0.75, end = V(22 + Math.sin(a) * 2.0, 0, 0.7 - Math.abs(Math.cos(a)) * 0.7), start = end.clone().add(V((i % 2 ? 1 : -1) * 5, 0, -2.5));   // they gather beside and behind him, never between him and the camera
+    for (let i = 0; i < 3; i++) {   // three readers (five crowded the frame edges)
+      const a = -1.1 + i * 1.1, end = V(22 + Math.sin(a) * 2.0, 0, 0.7 - Math.abs(Math.cos(a)) * 0.7), start = end.clone().add(V((i % 2 ? 1 : -1) * 2.5, 0, -1.5));   // they gather beside and behind him, never between him and the camera
       const k = smooth((t - wt(1, "believed") + 0.9 + i * 0.08) / 0.8), p = start.lerp(end, k);
       if (t > wt(1, "York") - 0.3) s.places.push(P(`reader${i}`, CITIZEN(i + 2), { mode: k < 1 ? "stroll" : "stand", phase: q((t * 1.8 + i * 0.3) % 1, 12), expr: grab ? "shock" : "neutral", gest: grab ? "hold" : "hang", seed: 10 + i, blink: blinkAt(t, 10 + i) }, { paper: grab ? "bat" : undefined }, p, { size: LO }));
     }

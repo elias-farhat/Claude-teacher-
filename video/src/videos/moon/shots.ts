@@ -6,7 +6,7 @@ import type { ShotSpec } from "../../guard/solve";
 export const SHOT_SPECS: ShotSpec[] = [
   { t0: 0, subjects: ["c:newsboy"], size: "medium", angle: "low", move: "push", note: "1 the newsboy waves The Sun and shouts" },
   { t0: land(1, "told"), subjects: ["c:newsboy"], size: "wide", angle: "left", move: "drift", note: "1 told New York (the street)" },
-  { t0: land(1, "believed"), subjects: ["c:reader1", "c:reader2", "?c:/^reader\\d$/"], size: "medium", angle: "left", move: "push", note: "1 New York believed it: two readers grabbing papers, medium (3D sample: the crowd small and bunched)" },
+  { t0: land(1, "believed"), subjects: ["c:/^reader[0-2]$/"], size: "medium", move: "push", note: "1 New York believed it: two readers grabbing papers, medium (3D sample: the crowd small and bunched)" },
   { t0: land(2, "called"), subjects: ["c:editor"], size: "close", move: "push", note: "2 the paper is called The Sun: the editor holds up a copy, framed tight (3D sample: idle over an empty floor)" },
   { t0: land(2, "costs"), subjects: ["c:editor", "f:chart0"], size: "medium", angle: "right", move: "push", note: "2 the empty sales chart (from the right, so Locke at his desk in front stays out of the frame)" },
   { t0: land(3), subjects: ["c:locke"], size: "medium", angle: "left", move: "drift", note: "3 Richard Locke writes a story" },
@@ -18,8 +18,8 @@ export const SHOT_SPECS: ShotSpec[] = [
   // centred (run 31: the goat pair was width-limited and hung in the top quarter over ~70 % empty ground)
   { t0: land(6, "oceans"), subjects: ["f:goat", "?f:wave"], size: "medium", move: "drift", place: "centre", note: "6 and oceans / 7 blue goats with a single horn, on the shore" },
   // both bats in the first shot, wide and centred (run 31: with bat1 optional it hung half cut at the right edge for 3 s)
-  { t0: land(8), subjects: ["c:bat0", "c:bat1"], size: "medium", move: "sway", place: "centre", note: "8 winged people, like humans with bat wings" },
-  { t0: land(8, "flying"), subjects: ["c:bat1", "c:bat0"], size: "medium", move: "sway", place: "centre", note: "8 flying around and chatting (both framed: run 31 / f2bb35f test had them overlapping, the left one hidden)" },
+  { t0: land(8), subjects: ["c:/^bat[01]$/"], size: "medium", move: "drift", place: "centre", note: "8 winged people, like humans with bat wings" },
+  { t0: land(8, "flying"), subjects: ["c:/^bat[01]$/"], size: "medium", move: "drift", place: "centre", note: "8 flying around and chatting (both framed: run 31 / f2bb35f test had them overlapping, the left one hidden)" },
   { t0: land(9), subjects: ["c:town0", "c:town1", "?c:/^town\\d$/", "?c:fainter"], size: "medium", move: "drift", note: "9 the whole city is talking" },
   { t0: land(10), subjects: ["c:/^pierBoy\\d$/", "?f:bird"], size: "wide", move: "push", note: "10 other papers copy it, across Europe" },
   { t0: land(11), subjects: ["f:portrait"], size: "insert", move: "push", note: "11 didn't anyone just ask Herschel?" },
