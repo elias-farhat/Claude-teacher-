@@ -42,24 +42,30 @@ Decisions (auto-framer + camera guard, made without asking; revised after the re
   failed least; failing flights try other look timings / bends / start shifts, and a flight that still fails becomes
   a whip.
 
-CRITICAL: 129 frames in 5 ranges
-   26.53- 29.00 s  f796-869  SUBJECT   c:bat0               too small (21 % of frame height, needs 30 %)
-   26.53- 29.00 s  f796-869  SUBJECT   c:bat1               too small (23 % of frame height, needs 30 %)
-   29.93- 31.77 s  f898-952  SUBJECT   c:bat1               too small (22 % of frame height, needs 30 %)
-   29.93- 31.77 s  f898-952  SUBJECT   c:bat0               too small (21 % of frame height, needs 30 %)
-   31.73- 31.77 s  f952-952  SUBJECT   c:bat0               cut off left (0.05)
-warnings: 279 frames in 185 ranges (list in camera_report.txt)
+CRITICAL: 67 frames in 11 ranges
+   26.53- 27.23 s  f796-816  SUBJECT   c:bat0               too small (27 % of frame height, needs 30 %)
+   26.53- 26.80 s  f796-803  SUBJECT   c:bat1               too small (30 % of frame height, needs 30 %)
+   28.60- 29.00 s  f858-869  SUBJECT   c:bat1               cut off top (0.02)
+   28.70- 29.00 s  f861-869  FACES     c:bat1               head (hat) touches the top edge (2.8 %)
+   29.93- 30.07 s  f898-901  SUBJECT   c:bat0               too small (30 % of frame height, needs 30 %)
+   30.47- 30.90 s  f914-926  SUBJECT   c:bat1               cut off right (0.98)
+   31.20- 31.77 s  f936-952  SUBJECT   c:bat0               cut off left (-0.10)
+   31.27- 31.77 s  f938-952  SUBJECT   c:bat1               cut off top (-0.00)
+   31.30- 31.53 s  f939-945  FACES     c:bat1               head (hat) touches the top edge (2.0 %)
+   31.53- 31.77 s  f946-952  FACES     c:bat1               head cut at the top edge
+   31.57- 31.77 s  f947-952  FACES     c:bat0               head cut at the left edge
+warnings: 271 frames in 195 ranges (list in camera_report.txt)
 
 Loop:
-  round 1: 458 frames with CRITICAL failures in 9 shots (5, 6, 11, 12, 14, 17, 20, 22, 24)
-  round 2: 225 frames with CRITICAL failures in 4 shots (5, 11, 12, 22)
-  round 3: 137 frames with CRITICAL failures in 3 shots (5, 11, 12)
-  round 4: 148 frames with CRITICAL failures in 3 shots (11, 12, 13)
-  round 5: 159 frames with CRITICAL failures in 3 shots (11, 12, 13)
-  assembled the best round of every shot: 129 frames with CRITICAL failures
+  round 1: 396 frames with CRITICAL failures in 9 shots (5, 6, 11, 12, 14, 17, 20, 22, 24)
+  round 2: 206 frames with CRITICAL failures in 4 shots (5, 11, 12, 22)
+  round 3: 156 frames with CRITICAL failures in 3 shots (5, 11, 12)
+  round 4: 120 frames with CRITICAL failures in 2 shots (11, 12)
+  round 5: 129 frames with CRITICAL failures in 2 shots (11, 12)
+  assembled the best round of every shot: 67 frames with CRITICAL failures
   fly transitions that still failed became whips: 2; clipping whips panned the other way: 0, became cuts: 0
-  flight polish (look timing per failing flight): 151 frames with CRITICAL failures (0 flights cleared)
-  kept the assembled track (129 CRITICAL frames)
+  flight polish (look timing per failing flight): 89 frames with CRITICAL failures (0 flights cleared)
+  kept the assembled track (67 CRITICAL frames)
 
 Shots (candidate chosen, score):
   shot  0    0.00-  1.99 s  medium base (score 0)
@@ -73,8 +79,8 @@ Shots (candidate chosen, score):
   shot  8   19.58- 21.88 s  wide   base (score 0)
   shot  9   21.88- 23.26 s  wide   az-30 (score 3)
   shot 10   23.26- 26.50 s  medium az+30 (score 3)
-  shot 11   26.50- 29.93 s  wide   az-30 (score 83: too small)
-  shot 12   29.93- 31.95 s  wide   az-30 (score 83: too small)
+  shot 11   26.50- 29.93 s  medium az-30 (score 83: too small, cut off top, head)
+  shot 12   29.93- 31.95 s  medium az-30 (score 43: too small)
   shot 13   31.95- 33.69 s  medium az+60 (score 6)
   shot 14   33.69- 37.25 s  wide   az+30 (score 3)
   shot 15   37.25- 39.55 s  insert higher (score 25: 1/5 blocked)
@@ -99,8 +105,8 @@ Flights:
   -> shot 8: FLY 17.71-19.58 s, 56 f, straight glide, peak 3.97 m/f
   -> shot 9: WHIP 21.68-21.88 s, 6 f, no subject in view at 21.08 s
   -> shot 10: FLY 22.33-23.26 s, 28 f, straight, peak 0.2 m/f
-  -> shot 11: FLY 25.57-26.50 s, 28 f, hand route (reversed), peak 0.63 m/f
-  -> shot 12: FLY 28.99-29.93 s, 28 f, straight, peak 0.15 m/f
+  -> shot 11: FLY 25.57-26.50 s, 28 f, hand route (reversed), peak 0.49 m/f
+  -> shot 12: FLY 28.99-29.93 s, 28 f, hand route (reversed), peak 0.22 m/f
   -> shot 13: WHIP 31.75-31.95 s, 6 f, route blocked (1 segments)
   -> shot 14: WHIP 33.49-33.69 s, 6 f, no subject in view at 33.19 s
   -> shot 15: WHIP 37.05-37.25 s, 6 f, route blocked (1 segments)
