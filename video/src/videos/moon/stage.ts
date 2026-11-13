@@ -28,7 +28,7 @@ const blinkAt = (t: number, seed: number) => {
 const SEAT = 0.4;
 const P = (name: string, o: Outfit, l: Look, x: Extra, at: V3 | THREE.Vector3, opt: { scale?: number; size?: [number, number, number] } = {}): Place => {
   const a = at instanceof THREE.Vector3 ? at : V(...at);
-  return { key: personKey(name, l, x), draw: person(o, l, x), x: a.x, y: a.y + (l.mode === "sit" ? SEAT : 0), z: a.z, size: opt.size ?? HI, scale: opt.scale, tall: o.hat === "tophat" ? 0.3 : 0 };
+  return { key: personKey(name, l, x), draw: person(o, l, x), x: a.x, y: a.y + (l.mode === "sit" ? SEAT : 0), z: a.z, size: opt.size ?? HI, scale: opt.scale, tall: o.hat === "tophat" ? 0.3 : 0, rig: { o, l, x } };
 };
 const card = (key: string, cw: number, ch: number, draw: (p: Pen) => void, at: V3 | THREE.Vector3, w: number, h: number, o: Partial<FxCard> = {}): FxCard => {
   const a = at instanceof THREE.Vector3 ? at : V(...at);

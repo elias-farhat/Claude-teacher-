@@ -9,6 +9,8 @@ import { TONE, CHAR, untone } from "../bridge/shade";
 import { NOINK } from "../bridge/ink";
 import { cloudHD } from "../bridge/paint";
 import { Actor, Fx, Pool } from "../bridge/cast";
+import { Char3D, Rig3 } from "../bridge/char3d";
+import { getInputProps } from "remotion";
 import { LightPreset } from "../bridge/lights";
 import { quality } from "../../quality";
 import type { Lamp } from "../rats/hanoi";
@@ -61,7 +63,9 @@ export class MoonWorld {
   root = new THREE.Group();
   dio: Diorama; rooms: Record<RoomName, Room>; moonX!: THREE.Group;
   private pool = new Pool();
-  private actors: Actor[] = []; private fxs: Fx[] = [];
+  private actors: Actor[] = []; private fxs: Fx[] = []; private c3: Char3D[] = [];
+  /** 3D cast (style test): place names drawn as 3D figures instead of cards; inputProps.char3d = ["herschelT", ...] or "all" */
+  private use3d = (() => { try { return (getInputProps() as { char3d?: string[] | "all" }).char3d ?? []; } catch { return []; } })();
   private hemi = new THREE.HemisphereLight("#cfe6ff", "#6c5c8c", 1.0);
   private sun = new THREE.DirectionalLight("#fff0d6", 2.6);
   private sky: THREE.Mesh; private skyMat: THREE.ShaderMaterial;
@@ -210,11 +214,17 @@ export class MoonWorld {
     this.dio.ship.position.set(shipX(t), WATER.y + 0.4, SHIP_LINE.z);
     // ---- cast + label cards ----
     this.frustum.setFromProjectionMatrix(this.m4.multiplyMatrices(cam.projectionMatrix, cam.matrixWorldInverse));
-    let ai = 0;
+    let ai = 0, ci = 0;
     const used: Actor[] = [];
     for (const p of st.places) {
       const s2 = p.scale ?? 1;
       if (!this.frustum.intersectsSphere(this.sph.set(this.v.set(p.x, p.y + 1.1 * s2, p.z), 2.5 * s2))) continue;
+      const nm = p.key.split("|")[0];
+      if (p.rig && (this.use3d === "all" || this.use3d.includes(nm))) {
+        while (this.c3.length <= ci) this.c3.push(new Char3D(this.root));
+        this.c3[ci++].set(p.rig as Rig3, this.v.set(p.x, p.y - ((p.rig as Rig3).l.mode === "sit" ? 0.0 : 0), p.z).clone(), Math.atan2(cam.position.x - p.x, cam.position.z - p.z), s2);
+        continue;
+      }
       const a = this.actor(ai++), [w, h, kk] = p.size ?? [300, 500, 0.5];
       a.r = this.pool.req(p.key, w, h, kk, p.draw);
       a.mesh.visible = true; a.mesh.position.set(p.x, p.y, p.z);
@@ -224,6 +234,7 @@ export class MoonWorld {
       used.push(a);
     }
     for (let i = ai; i < this.actors.length; i++) this.actors[i].mesh.visible = false;
+    for (let i = ci; i < this.c3.length; i++) this.c3[i].hide();
     let fi = 0;
     const fused: Fx[] = [];
     for (const p of st.fx) {

@@ -114,7 +114,9 @@ export type Place = {
   key: string; draw: (p: Pen) => void; x: number; y: number; z: number;
   scale?: number;
   /** height above the 1.78 m figure of a tall hat (top hat), m: the camera guard's head box (not drawn) */
-  tall?: number; mirror?: boolean; yaw?: number; geo?: "body" | "swing"; roll?: number; size?: [number, number, number];
+  tall?: number;
+  /** the outfit / look / extras behind the card (the 3D cast in char3d.ts builds from these instead of the drawing) */
+  rig?: unknown; mirror?: boolean; yaw?: number; geo?: "body" | "swing"; roll?: number; size?: [number, number, number];
 };
 export type FxPlace = { key: string; cw: number; ch: number; draw: (p: Pen) => void; x: number; y: number; z: number; w: number; h: number; flat?: boolean; rot?: number; soft?: boolean };
 /** sun = world direction TOWARD the sun (optional: when absent the scene's shadow-casting light is used) */
