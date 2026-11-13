@@ -189,9 +189,9 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
         // to a dot (16.7-17.2 s, at night: rule 11) -> whip instead
         const st = I.stage(t, c.pos), fwd0 = new THREE.Vector3(); cam.getWorldDirection(fwd0);
         const scr = (p: THREE.Vector3) => { const v = p.clone().project(cam); return { x: (v.x + 1) / 2, y: (1 - v.y) / 2, front: p.clone().sub(c.pos).dot(fwd0) > 0.05 }; };
-        for (const hd of bystanderHeads([], st)) {
+        for (const hd of bystanderHeads([...specs[i].subjects, ...specs[i + 1].subjects], st)) {   // the subjects' own close-ups are the guard's XCU rule
           const a = scr(hd.c.clone().setY(hd.y0)), b = scr(hd.c.clone().setY(hd.y1));
-          if (a.front && b.front && a.x > -0.1 && a.x < 1.1 && Math.abs(a.y - b.y) > 0.25 && Math.min(a.y, b.y) < 1 && Math.max(a.y, b.y) > 0)
+          if (a.front && b.front && a.x > -0.1 && a.x < 1.1 && Math.abs(a.y - b.y) > 0.3 && Math.min(a.y, b.y) < 1 && Math.max(a.y, b.y) > 0)
             return `a face fills the frame at ${t.toFixed(2)} s (${hd.key.split("|")[0]})`;
         }
         if (k > 0 && k < n * 0.6) for (const q of subjAt(specs[i], t, c.pos)) {

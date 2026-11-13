@@ -75,7 +75,7 @@ const street = (t: number, s: Stage) => {
     s.places.push(P("newsboy", NEWSBOY, { expr: "laugh", gest: high ? "cheer" : "hold", k: q((t * 2.5) % 1, 8), blink: blinkAt(t, 3), headTilt: 6 * Math.sin(t * 5) }, { paper: "bat" }, [22.0, 0, 1.2]));
     // (no "EXTRA!" shout bubble: speech bubbles read as cheap; Elias 2026-11-13)
     for (let i = 0; i < 5; i++) {
-      const a = -1.6 + i * 0.75, end = V(22 + Math.sin(a) * 1.9, 0, 1.2 + Math.cos(a) * 1.3 - 0.4), start = end.clone().add(V((i % 2 ? 1 : -1) * 5, 0, -2));
+      const a = -1.6 + i * 0.75, end = V(22 + Math.sin(a) * 2.0, 0, 0.7 - Math.abs(Math.cos(a)) * 0.7), start = end.clone().add(V((i % 2 ? 1 : -1) * 5, 0, -2.5));   // they gather beside and behind him, never between him and the camera
       const k = smooth((t - wt(1, "believed") + 0.9 + i * 0.08) / 0.8), p = start.lerp(end, k);
       if (t > wt(1, "York") - 0.3) s.places.push(P(`reader${i}`, CITIZEN(i + 2), { mode: k < 1 ? "stroll" : "stand", phase: q((t * 1.8 + i * 0.3) % 1, 12), expr: grab ? "shock" : "neutral", gest: grab ? "hold" : "hang", seed: 10 + i, blink: blinkAt(t, 10 + i) }, { paper: grab ? "bat" : undefined }, p, { size: LO }));
     }
@@ -174,7 +174,7 @@ const moonWorld = (t: number, s: Stage) => {
     const flap = q((t * (2.4 + 1.6 * fly) + i * 0.4) % 1, 8), wave = i === 1 && after(t, 8, "flying");
     const loopX = fly * 0.55 * Math.sin((t - wt(8, "flying")) * 2.2), loopY = fly * 0.12 * Math.sin((t - wt(8, "flying")) * 4.4);
     s.places.push(P(`bat${i}`, BATFOLK[i], { expr: after(t, 8, "chatting") ? "laugh" : "grin", gest: wave ? "wave" : i ? "palm" : "point", k: flap, blink: blinkAt(t, 50 + i), tilt: Math.round(8 * fly * Math.cos((t - wt(8, "flying")) * 2.2)) }, { wings: flap },
-      M(-0.45 + i * 0.95 + loopX, 1.35 + i * 1.25 + 0.12 * Math.sin(t * 3 + i) + 5.5 * (1 - land) + loopY, 2.6), { scale: 0.9 }));
+      M(-0.55 + i * 1.1 + loopX, 1.45 + i * 0.7 + 0.12 * Math.sin(t * 3 + i) + 5.5 * (1 - land) + loopY, 2.6), { scale: 0.9 }));
   }
   s.lights.push(warm(M(-0.2, 3.5, 4.5), 0.6));
 };
