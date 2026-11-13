@@ -16,7 +16,7 @@ import { checkSubjects } from "./core";
 import { Track, TShot, TFlight, Key, V3, pathLen, holdPose, along, smoother, trackCam, whipFlight } from "./track";
 
 export type Size = "wide" | "medium" | "close" | "insert";
-export type ShotSpec = { t0: number; t1?: number; subjects: string[]; size: Size; angle?: "front" | "left" | "right" | "low" | "high"; move?: "push" | "drift" | "orbit"; place?: "centre"; note?: string };
+export type ShotSpec = { t0: number; t1?: number; subjects: string[]; size: Size; angle?: "front" | "left" | "right" | "low" | "high"; move?: "push" | "drift" | "orbit" | "sway"; place?: "centre"; note?: string };
 export type SolveIn = {
   video: string; fps: number; total: number; geo: Geo; specs: ShotSpec[];
   stage: (t: number, eye: THREE.Vector3) => { places: Place[]; fx: FxCard[] };
@@ -130,7 +130,7 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
     const times: number[] = travel > 1.0 ? Array.from({ length: nK }, (_, k) => tA + ((tB - tA) * k) / (nK - 1)) : beatT;
     // beat b: distance scale and the subject's horizontal place on screen (push in / drift aside / pull back / drift back)
     const mvS = sp.move ?? (i % 2 ? "drift" : "push");
-    const BEAT: [number, number, number][] = mvS === "push" ? [[1.1, 0, 0], [0.9, 0.05, 0.1], [0.76, 0, 0], [0.92, -0.05, -0.14]]
+    const BEAT: [number, number, number][] = mvS === "sway" ? [[1, 0, -0.17], [0.97, 0, 0], [1, 0, 0.17], [0.97, 0, 0]] : mvS === "push" ? [[1.1, 0, 0], [0.9, 0.05, 0.1], [0.76, 0, 0], [0.92, -0.05, -0.14]]
       : mvS === "orbit" ? [[1, 0, -0.22], [0.82, 0.04, 0], [1, 0, 0.22], [0.8, -0.04, 0]] : [[1, -0.07, -0.14], [0.84, 0, 0], [1, 0.07, 0.14], [1.12, 0, 0]];
     // a fast followed subject already changes the picture: only gentle beats underneath (a slow one gets the full beats)
     if (travel > 4) for (const B of BEAT) { B[0] = 1 + (B[0] - 1) * 0.35; B[1] *= 0.5; B[2] *= 0.3; }
@@ -189,7 +189,7 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
         // to a dot (16.7-17.2 s, at night: rule 11) -> whip instead
         const st = I.stage(t, c.pos), fwd0 = new THREE.Vector3(); cam.getWorldDirection(fwd0);
         const scr = (p: THREE.Vector3) => { const v = p.clone().project(cam); return { x: (v.x + 1) / 2, y: (1 - v.y) / 2, front: p.clone().sub(c.pos).dot(fwd0) > 0.05 }; };
-        for (const hd of bystanderHeads([...specs[i].subjects, ...specs[i + 1].subjects], st)) {   // the subjects' own close-ups are the guard's XCU rule
+        for (const hd of bystanderHeads([], st)) {   // every face, the subjects' too (the guard's XCU: > 30 % of the frame)
           const a = scr(hd.c.clone().setY(hd.y0)), b = scr(hd.c.clone().setY(hd.y1));
           if (a.front && b.front && a.x > -0.1 && a.x < 1.1 && Math.abs(a.y - b.y) > 0.3 && Math.min(a.y, b.y) < 1 && Math.max(a.y, b.y) > 0)
             return `a face fills the frame at ${t.toFixed(2)} s (${hd.key.split("|")[0]})`;
