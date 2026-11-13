@@ -26,7 +26,7 @@ export const SHOT_SPECS: ShotSpec[] = [
   { t0: land(12), subjects: ["c:herschelG"], size: "medium", move: "drift", note: "12 Herschel really is in South Africa" },
   { t0: land(13), subjects: ["c:sailor", "?w:ship"], size: "medium", move: "push", note: "13 a letter takes months (pushed in on the sailor holding the letter, the ship around him)" },
   { t0: land(14), subjects: ["c:herschelB"], size: "medium", move: "push", note: "14 nobody can check" },
-  { t0: land(14, "rumor"), subjects: ["c:herschelB", "f:rumor", "?f:nosignal"], size: "medium", move: "drift", note: "14 a rumour about a friend on vacation (the rumour cloud is the point: framed whole, its text never cut)" },
+  { t0: land(14, "rumor"), subjects: ["c:herschelB"], size: "medium", move: "push", note: "14 a rumour about a friend on vacation: Herschel on the beach checking his dead phone (bubbles removed 2026-11-13)" },
   { t0: land(15), subjects: ["c:rival"], size: "medium", move: "push", note: "15 a rival paper exposes the whole thing" },
   { t0: land(16), subjects: ["c:cust0", "?c:/^cust\\d$/"], size: "medium", move: "drift", note: "16 the paper everyone has heard of" },
   { t0: land(17), subjects: ["c:herschelL"], size: "medium", move: "push", note: "17 letters in four languages" },

@@ -25,7 +25,7 @@ export const WINDOWS: Window[] = [
   W(wt(12), wt(13), "12: Herschel really is in South Africa", "c:herschelG"),
   W(wt(13), wt(14), "13: a letter takes months (the ship)", "w:ship"),
   W(wt(14), wt(15), "14: nobody can check; on vacation, no phone", "c:herschelB"),
-  W(wt(14, "rumor"), wt(15), "14: a rumour about a friend", "f:rumor"),
+  W(wt(14, "rumor"), wt(15), "14: a rumour about a friend (Herschel on the beach, phone dead)", "c:herschelB"),
   W(wt(15), wt(16), "15: a rival paper exposes the whole thing", "c:rival"),
   W(wt(16), wt(17), "16: The Sun is the paper everyone has heard of", "c:/^cust\\d$/"),
   W(wt(17), wt(18), "17: Herschel gets letters in four languages", "c:herschelL"),

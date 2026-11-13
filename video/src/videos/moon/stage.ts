@@ -73,7 +73,7 @@ const street = (t: number, s: Stage) => {
     const grab = after(t, 1, "believed");
     const high = t < wt(1, "bat-people") - 0.3;   // paper waved over his head while he shouts, then held out to show the bat-people
     s.places.push(P("newsboy", NEWSBOY, { expr: "laugh", gest: high ? "cheer" : "hold", k: q((t * 2.5) % 1, 8), blink: blinkAt(t, 3), headTilt: 6 * Math.sin(t * 5) }, { paper: "bat" }, [22.0, 0, 1.2]));
-    if (t < wt(1, "told") + 0.4) s.fx.push(card(`shout${q((t * 4) % 1, 2)}`, 520, 300, LB.shout(q((t * 4) % 1, 2)), [22.2, 2.3, 1.6], 0.95, 0.55));
+    // (no "EXTRA!" shout bubble: speech bubbles read as cheap; Elias 2026-11-13)
     for (let i = 0; i < 5; i++) {
       const a = -1.6 + i * 0.75, end = V(22 + Math.sin(a) * 1.9, 0, 1.2 + Math.cos(a) * 1.3 - 0.4), start = end.clone().add(V((i % 2 ? 1 : -1) * 5, 0, -2));
       const k = smooth((t - wt(1, "believed") + 0.9 + i * 0.08) / 0.8), p = start.lerp(end, k);
@@ -133,8 +133,7 @@ const cape = (t: number, s: Stage) => {
   if (between(t, wt(13, "months") - 0.2, wt(15, "rival"))) { // line 14: on vacation, no signal; the rumour cloud grows
     const cloud = smooth((t - wt(14, "rumor") + LEAD + 0.5) / 0.5), phone = after(t, 14, "phone");
     s.places.push(P("herschelB", HERSCHEL_BEACH, { expr: phone ? "nervous" : "smile_closed", gest: phone ? "tip" : "palm", k: 1, blink: blinkAt(t, 9) }, { sideburns: true, phone: true }, [BEACH.x, 0, BEACH.z]));
-    if (cloud > 0) s.fx.push(card("rumor", 640, 420, LB.rumorCloud, [BEACH.x - 0.25, 2.3 + 0.15 * cloud, BEACH.z + 0.45], 1.5 * cloud, 1.0 * cloud));   // lower and a little smaller: framed whole with him
-    if (phone) s.fx.push(card("nosignal", 300, 220, LB.noSignal, [BEACH.x + 0.2, 1.95, BEACH.z - 0.75], 0.75, 0.55));
+    void cloud;   // (no rumour cloud / "no signal" bubbles: they read as cheap; Herschel holding his dead phone carries the line)
     // beach life around him (background: never the subject)
     s.places.push(P("bgBeach0", CITIZEN(5), { expr: "smile_closed", gest: "hold", seed: 140 }, {}, [BEACH.x - 4.4, 0, BEACH.z + 3.4], { size: LO }));   // well clear of Herschel's frame (run 31: half cut at the left edge)
     s.places.push(P("bgBeach1", KID(1), { mode: "stroll", phase: q((t * 1.6) % 1, 12), expr: "laugh", seed: 141 }, {}, [BEACH.x - 2.0 + Math.sin(t * 0.8) * 0.8, 0, BEACH.z - 2.8], { size: LO }));

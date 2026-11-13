@@ -26,27 +26,76 @@ const mat = (col: string) => { let m = mats.get(col); if (!m) { m = twoTone(new 
 const faceTex = new Map<string, THREE.CanvasTexture>();
 const face = (r: Rig3) => {
   const { o, l, x } = r, expr = (l.expr ?? "neutral") as Expr, lid = l.blink ?? 0, look = l.look ?? 0;
-  const key = `${o.skin}|${o.hat}|${o.hair}|${o.moustache}|${expr}|${lid.toFixed(2)}|${look}|${x.sideburns ? 1 : 0}|${x.curls ? 1 : 0}`;
+  const key = `${o.skin}|${o.moustache}|${expr}|${lid.toFixed(2)}|${look}|${o.build}`;  void x;
   let t = faceTex.get(key);
   if (t) return t;
   const cv = document.createElement("canvas"); cv.width = 1024; cv.height = 512;
   const g = cv.getContext("2d")!, skin = o.skin ?? SKIN;
   g.fillStyle = skin; g.fillRect(0, 0, 1024, 512);
-  const hair = o.hat === "hair" && o.hair ? o.hair : null;
-  if (hair) {
-    // a hair "helmet" like the card's: the crown, the sides and the whole back, the face left open in front (a window
-    // x 150..362, below y 150); sideburns down beside the face; an ink line along the hairline so pale hair still reads
-    const win = (gg: CanvasRenderingContext2D) => { gg.beginPath(); gg.moveTo(150, 512); gg.lineTo(150, 205); gg.quadraticCurveTo(160, 150, 256, 146); gg.quadraticCurveTo(352, 150, 362, 205); gg.lineTo(362, 512); gg.closePath(); };
-    g.save(); g.fillStyle = hair; g.beginPath(); g.rect(0, 0, 1024, 330); win(g); g.fill("evenodd"); g.restore();
-    if (x.sideburns) { g.fillStyle = hair; g.fillRect(120, 200, 34, 160); g.fillRect(358, 200, 34, 160); }
-    g.strokeStyle = INK; g.lineWidth = 7; win(g); g.stroke();
-    g.beginPath(); g.moveTo(0, 330); g.lineTo(150, 330); g.moveTo(362, 330); g.lineTo(1024, 330); g.stroke();
-  }
+  // features only (eyes, brows, mouth, moustache) on plain skin; hair and hats are real geometry (buildTop below).
+  // The painted hair "window" with its ink ring read as a mask over a ball (Elias, 2026-11-13).
   const p = new Pen(g);
   faceFront(p, 256, 262, 320, expr, 0, look, lid, false, skin, o.moustache, o.build === "stout");
   t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4;
   faceTex.set(key, t);
   return t;
+};
+
+
+// ---- hair and hats as geometry, built once per outfit and parented to the head (so they turn and tilt with it).
+// SphereGeometry: front (+z) is phi = pi/2, so a shell with phi from pi/2 + w to pi/2 - w (going round the back)
+// leaves the face open by +-w; theta runs from the crown (0) down. ----
+const shell = (r: number, w: number, thetaEnd: number) => new THREE.SphereGeometry(r, 36, 20, Math.PI / 2 + w, Math.PI * 2 - 2 * w, 0, thetaEnd);
+const cap = (r: number, thetaEnd: number) => new THREE.SphereGeometry(r, 36, 14, 0, Math.PI * 2, 0, thetaEnd);
+const tops = new Map<string, THREE.Group>();
+const buildTop = (o: Outfit, sideburns: boolean): THREE.Group => {
+  const key = `${o.hat}|${o.hair}|${o.cap}|${sideburns ? 1 : 0}`;
+  const cached = tops.get(key); if (cached) return cached.clone();
+  const g = new THREE.Group(), R = HEAD_R;
+  const m = (col: string, side: THREE.Side = THREE.FrontSide) => { const mm = twoTone(new THREE.MeshLambertMaterial({ color: new THREE.Color(col), side })); return mm; };
+  const add = (geo: THREE.BufferGeometry, mat: THREE.Material, pos: V3 = [0, 0, 0], rot: V3 = [0, 0, 0]) => {
+    const me = new THREE.Mesh(geo, mat); me.position.set(...pos); me.rotation.set(...rot); me.castShadow = true; me.receiveShadow = true; g.add(me); return me;
+  };
+  const hairCol = o.hair ?? "#4a3020";
+  if (o.hat === "hair") {
+    // a shade deeper than the card colour (pale hair washed out to bald under the key light) and with volume:
+    // a thicker crown, the back, and a puff over each ear so the silhouette says "hair"
+    const hm = m("#" + new THREE.Color(hairCol).multiplyScalar(0.82).getHexString(), THREE.DoubleSide);
+    add(cap(R * 1.09, 1.0), hm, [0, R * 0.03, -R * 0.02]);           // crown, down to the forehead
+    add(shell(R * 1.07, 0.95, 2.05), hm);                            // sides and back, the face left open
+    for (const sx of [-1, 1]) add(new THREE.SphereGeometry(R * 0.36, 16, 12), hm, [sx * R * 0.86, R * 0.12, -R * 0.12]);
+    add(new THREE.SphereGeometry(R * 0.5, 16, 12).scale(1.4, 0.8, 1), hm, [0, R * 0.05, -R * 0.62]);   // the back of the head
+    // a soft fringe lip along the hairline so it reads as hair, not a swim cap
+    add(new THREE.TorusGeometry(R * 0.86, R * 0.07, 8, 28, Math.PI * 0.9), hm, [0, R * 0.5, R * 0.05], [-1.1, 0, Math.PI * 0.05]);
+    if (sideburns) for (const sx of [-1, 1]) add(new THREE.CapsuleGeometry(R * 0.07, R * 0.45, 4, 8), hm, [sx * R * 0.86, -R * 0.12, R * 0.42], [0.15, 0, sx * 0.12]);
+  } else if (o.hat === "cap") {
+    const cm = m(o.cap ?? "#5a4a3a");
+    add(cap(R * 1.06, 1.25), cm);
+    add(new THREE.CylinderGeometry(R * 0.75, R * 0.75, R * 0.06, 24, 1, false, -Math.PI / 2 - 0.9, 1.8), cm, [0, R * 0.32, R * 0.32]);
+  } else if (o.hat === "tophat") {
+    const tm = m("#1d1b22");
+    add(new THREE.CylinderGeometry(R * 0.72, R * 0.66, R * 1.25, 28), tm, [0, R * 1.35, 0]);
+    add(new THREE.CylinderGeometry(R * 1.15, R * 1.15, R * 0.06, 32), tm, [0, R * 0.74, 0]);
+    add(new THREE.CylinderGeometry(R * 0.68, R * 0.68, R * 0.2, 28), m("#8a6a3a"), [0, R * 0.88, 0]);
+    add(shell(R * 1.03, 1.0, 1.7), m(hairCol, THREE.DoubleSide));  // hair under the hat at the back
+  } else if (o.hat === "helmet") {
+    const hm = m("#f1ece0");
+    add(cap(R * 1.14, 1.25), hm, [0, R * 0.08, 0]);
+    add(new THREE.CylinderGeometry(R * 1.45, R * 1.45, R * 0.05, 36), hm, [0, R * 0.3, 0]);
+    add(new THREE.CylinderGeometry(R * 1.1, R * 1.1, R * 0.16, 32), m("#8a6a3a"), [0, R * 0.42, 0]);
+  } else if (o.hat === "conical") {
+    add(new THREE.ConeGeometry(R * 1.75, R * 0.95, 32, 1, true), m("#e3cf96", THREE.DoubleSide), [0, R * 1.0, 0]);
+  } else if (o.hat === "bonnet") {
+    const bm = m("#e9cf8f", THREE.DoubleSide);
+    add(shell(R * 1.12, 1.15, 2.2), bm);
+    add(new THREE.TorusGeometry(R * 1.02, R * 0.09, 8, 32, Math.PI * 1.25), m("#d6b46a"), [0, R * 0.02, R * 0.25], [0, 0, -Math.PI * 0.125 + Math.PI / 2 - Math.PI * 0.625 + Math.PI * 0.5]);
+  } else if (o.hat === "shako" || o.hat === "shako_tall") {
+    const sm = m("#2e2a36"), tall = o.hat === "shako_tall";
+    add(new THREE.CylinderGeometry(R * 0.95, R * 0.85, R * (tall ? 1.4 : 1.15), 28), sm, [0, R * (tall ? 1.15 : 1.02), 0]);
+    add(new THREE.CylinderGeometry(R * 0.7, R * 0.7, R * 0.05, 24, 1, false, -Math.PI / 2 - 0.8, 1.6), sm, [0, R * 0.45, R * 0.28]);
+  }
+  tops.set(key, g);
+  return g.clone();
 };
 
 // ---- poses: shoulder -> elbow -> hand per arm, character space (+z = toward the camera, +x = its left... screen right) ----
@@ -77,7 +126,7 @@ const limb = (pts: V3[], r = LIMB_R) => {
 export class Char3D {
   g = new THREE.Group(); private head: THREE.Mesh; private headMat: THREE.MeshLambertMaterial; private body: THREE.Mesh;
   private arms: THREE.Mesh[]; private legs: THREE.Mesh[]; private hands: THREE.Mesh[]; private feet: THREE.Mesh[]; private buttons: THREE.Mesh[] = [];
-  private cup: THREE.Mesh; private phone: THREE.Mesh;
+  private cup: THREE.Mesh; private phone: THREE.Mesh; private top: THREE.Group | null = null; private topKey = "";
   constructor(parent: THREE.Object3D) {
     const add = <T extends THREE.Object3D>(o: T) => { o.traverse((m) => { const me = m as THREE.Mesh; if (me.isMesh) { me.castShadow = true; me.receiveShadow = true; } }); this.g.add(o); return o; };
     this.headMat = twoTone(new THREE.MeshLambertMaterial({ color: "#ffffff" })) as THREE.MeshLambertMaterial;
@@ -101,6 +150,9 @@ export class Char3D {
     this.headMat.map = face(r); this.headMat.needsUpdate = false;
     this.head.position.set(0, HEAD_Y + dy + bob, 0.01); this.head.rotation.set(0, (l.look ?? 0) * 0.25, ((l.headTilt ?? 0) * Math.PI) / 180);
     this.head.scale.set(1, 1.06, 0.98);
+    this.headMat.color.setScalar(0.9);   // skin a touch darker: under a warm key the bare sphere glowed like a lamp
+    const tk = `${o.hat}|${o.hair}|${o.cap}|${x.sideburns ? 1 : 0}`;
+    if (tk !== this.topKey) { if (this.top) this.head.remove(this.top); this.top = buildTop(o, !!x.sideburns); this.head.add(this.top); this.topKey = tk; }
     // body: the bean, jacket colour; stout builds are rounder
     const stout = o.build === "stout";
     this.body.material = mat(o.jacket); this.body.position.set(0, 0.89 + dy + bob, 0); this.body.scale.set(stout ? 1.12 : 1, 1, 0.82);
