@@ -1,0 +1,4 @@
+Pixel character sprites: Universal LPC Spritesheet Character Generator (github.com/LiberatedPixelCup/Universal-LPC-Spritesheet-Character-Generator).
+Artists: Benjamin K. Smith (BenCreating), Bluecarrot16, Carlo Enrico Victoria (Nemisys), Cobra Hubbard (BlueVortexGames), Durrani, Eliza Wyatt (ElizaWy), ElizaWy, Evert, Fabzy, JaidynReiman, Joe White, Johannes Sjölund (wulax), Mandi Paugh, Manuel Riecke (MrBeast), Matthew Krohn (makrohn), MuffinElZangano, Nila122, Pierre Vigier (pvigier), Skorpio, Stephen Challener (Redshrike), Thane Brimhall (pennomi), TheraHedwig, Yamilian, bluecarrot16, dalonedrau, kcilds/Rocetti/Eredah, kheftel, laetissima, thecilekli
+Licenses: CC-BY-SA 3.0 / GPL 3.0 / OGA-BY 3.0 (see the project credits).
+Close-up portraits based on "Toon Head" by Johan Melin, CC BY 4.0 (via DiceBear).
