@@ -6,8 +6,8 @@ import type { ShotSpec } from "../../guard/solve";
 export const SHOT_SPECS: ShotSpec[] = [
   { t0: 0, subjects: ["c:newsboy"], size: "medium", angle: "low", move: "push", note: "1 the newsboy waves The Sun and shouts" },
   { t0: land(1, "told"), subjects: ["c:newsboy"], size: "wide", angle: "left", move: "drift", note: "1 told New York (the street)" },
-  { t0: land(1, "believed"), subjects: ["c:/^reader\\d$/"], size: "wide", move: "push", note: "1 New York believed it" },
-  { t0: land(2, "called"), subjects: ["c:editor"], size: "medium", move: "drift", note: "2 The Sun ... needs readers" },
+  { t0: land(1, "believed"), subjects: ["c:reader1", "c:reader2", "?c:/^reader\\d$/"], size: "medium", move: "push", note: "1 New York believed it: two readers grabbing papers, medium (3D sample: the crowd small and bunched)" },
+  { t0: land(2, "called"), subjects: ["c:editor"], size: "close", move: "push", note: "2 the paper is called The Sun: the editor holds up a copy, framed tight (3D sample: idle over an empty floor)" },
   { t0: land(2, "costs"), subjects: ["c:editor", "f:chart0"], size: "medium", angle: "right", move: "push", note: "2 the empty sales chart (from the right, so Locke at his desk in front stays out of the frame)" },
   { t0: land(3), subjects: ["c:locke"], size: "medium", angle: "left", move: "drift", note: "3 Richard Locke writes a story" },
   { t0: land(4), subjects: ["c:herschelT"], size: "medium", move: "push", note: "4 the astronomer Sir John Herschel" },

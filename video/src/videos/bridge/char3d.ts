@@ -12,7 +12,7 @@ import { Pen, Outfit, Expr, INK, SKIN, faceFront, mix } from "./toon";
 export type Rig3 = {
   o: Outfit;
   l: { mode?: string; expr?: Expr; gest?: string; k?: number; blink?: number; look?: number; headTilt?: number; tilt?: number; phase?: number };
-  x: { sideburns?: boolean; tea?: boolean; phone?: boolean; pen?: boolean; paper?: string; wings?: number; curls?: boolean };
+  x: { sideburns?: boolean; tea?: boolean; phone?: boolean; pen?: boolean; paper?: string; wings?: number; curls?: boolean; letter?: boolean; sweat?: boolean };
 };
 type V3 = [number, number, number];
 const v = (a: V3) => new THREE.Vector3(...a);
@@ -67,6 +67,7 @@ const buildTop = (o: Outfit, sideburns: boolean): THREE.Group => {
     add(new THREE.SphereGeometry(R * 0.5, 16, 12).scale(1.4, 0.8, 1), hm, [0, R * 0.05, -R * 0.62]);   // the back of the head
     // a soft fringe lip along the hairline so it reads as hair, not a swim cap
     add(new THREE.TorusGeometry(R * 0.86, R * 0.07, 8, 28, Math.PI * 0.9), hm, [0, R * 0.5, R * 0.05], [-1.1, 0, Math.PI * 0.05]);
+    if (o.hair === "#6a3a22") for (let c = -3; c <= 3; c++) add(new THREE.SphereGeometry(R * 0.2, 10, 8), hm, [c * R * 0.26, R * 0.95 - Math.abs(c) * R * 0.08, R * 0.25]);   // Locke's curls
     if (sideburns) for (const sx of [-1, 1]) add(new THREE.CapsuleGeometry(R * 0.07, R * 0.45, 4, 8), hm, [sx * R * 0.86, -R * 0.12, R * 0.42], [0.15, 0, sx * 0.12]);
   } else if (o.hat === "cap") {
     const cm = m(o.cap ?? "#5a4a3a");
@@ -98,6 +99,26 @@ const buildTop = (o: Outfit, sideburns: boolean): THREE.Group => {
   return g.clone();
 };
 
+// ---- props in hand (CLAUDE.md 10: the card versions drew them; the 3D cast must hold them too) ----
+const paperTex = new Map<string, THREE.CanvasTexture>();
+const newspaper = (kind: string) => {
+  let t = paperTex.get(kind); if (t) return t;
+  const cv = document.createElement("canvas"); cv.width = 300; cv.height = 220; const g = cv.getContext("2d")!;
+  g.fillStyle = "#f1e8d6"; g.fillRect(0, 0, 300, 220); g.strokeStyle = INK; g.lineWidth = 8; g.strokeRect(4, 4, 292, 212);
+  g.fillStyle = INK; g.font = "900 40px Georgia, serif"; g.textAlign = "center"; g.textBaseline = "middle";
+  g.fillText(kind === "hoax" ? "HOAX!" : kind === "day1" ? "DAY 1" : "THE SUN", 150, 40);
+  g.fillRect(20, 66, 260, 5);
+  if (kind === "bat") {   // the famous winged figure
+    g.fillStyle = "#7a5a4a"; g.beginPath(); g.ellipse(150, 140, 16, 26, 0, 0, Math.PI * 2); g.fill();
+    g.fillStyle = "#5a4034"; for (const sd of [-1, 1]) { g.beginPath(); g.moveTo(150 + sd * 10, 128); g.lineTo(150 + sd * 90, 98); g.lineTo(150 + sd * 72, 134); g.lineTo(150 + sd * 90, 168); g.lineTo(150 + sd * 16, 158); g.closePath(); g.fill(); }
+  } else { g.fillStyle = "#8a8070"; for (let k = 0; k < 6; k++) g.fillRect(24, 92 + k * 20, 252, 6); }
+  t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; paperTex.set(kind, t); return t;
+};
+const paperMats = new Map<string, THREE.Material>();
+const paperMat = (kind: string) => { let m = paperMats.get(kind); if (!m) { m = twoTone(new THREE.MeshLambertMaterial({ map: newspaper(kind), side: THREE.DoubleSide })); paperMats.set(kind, m); } return m; };
+// a bat wing: a membrane fan (local +x = outward), flap = 0..1
+const wingGeo = (() => { const sh = new THREE.Shape(); sh.moveTo(0, 0.1); sh.lineTo(0.62, 0.42); sh.lineTo(0.52, 0.12); sh.lineTo(0.66, -0.06); sh.lineTo(0.42, -0.1); sh.lineTo(0.46, -0.3); sh.lineTo(0.06, -0.18); sh.closePath(); return new THREE.ShapeGeometry(sh); })();
+
 // ---- poses: shoulder -> elbow -> hand per arm, character space (+z = toward the camera, +x = its left... screen right) ----
 type Arm = [V3, V3, V3];
 const hang = (s: number, k = 0): Arm => [[s * SHOULDER[0], SHOULDER[1], 0], [s * 0.25, 0.84, 0.0], [s * 0.26, 0.63 + 0.01 * Math.sin(k * 6.283), 0.05]];
@@ -127,6 +148,7 @@ export class Char3D {
   g = new THREE.Group(); private head: THREE.Mesh; private headMat: THREE.MeshLambertMaterial; private body: THREE.Mesh;
   private arms: THREE.Mesh[]; private legs: THREE.Mesh[]; private hands: THREE.Mesh[]; private feet: THREE.Mesh[]; private buttons: THREE.Mesh[] = [];
   private cup: THREE.Mesh; private phone: THREE.Mesh; private top: THREE.Group | null = null; private topKey = "";
+  private paper: THREE.Mesh; private letter: THREE.Mesh; private quill: THREE.Mesh; private sweat: THREE.Mesh; private wings: THREE.Mesh[];
   constructor(parent: THREE.Object3D) {
     const add = <T extends THREE.Object3D>(o: T) => { o.traverse((m) => { const me = m as THREE.Mesh; if (me.isMesh) { me.castShadow = true; me.receiveShadow = true; } }); this.g.add(o); return o; };
     this.headMat = twoTone(new THREE.MeshLambertMaterial({ color: "#ffffff" })) as THREE.MeshLambertMaterial;
@@ -139,13 +161,23 @@ export class Char3D {
     for (let i = 0; i < 3; i++) this.buttons.push(add(new THREE.Mesh(new THREE.SphereGeometry(0.018, 8, 6), mat("#c9a04a"))));
     this.cup = add(new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.035, 0.07, 14), mat("#f4f1ea")));
     this.phone = add(new THREE.Mesh(new THREE.BoxGeometry(0.07, 0.13, 0.015), mat("#2a2a33")));
+    this.paper = add(new THREE.Mesh(new THREE.PlaneGeometry(0.34, 0.25), paperMat("plain")));
+    this.letter = add(new THREE.Mesh(new THREE.BoxGeometry(0.13, 0.09, 0.006), mat("#f2e6c8")));
+    this.quill = add(new THREE.Mesh(new THREE.ConeGeometry(0.018, 0.26, 6).translate(0, 0.13, 0), mat("#f4f1ea")));
+    this.sweat = add(new THREE.Mesh(new THREE.SphereGeometry(0.03, 10, 8).scale(0.8, 1.3, 0.8), mat("#9fd4ff")));
+    this.wings = [0, 1].map(() => add(new THREE.Mesh(wingGeo, twoTone(new THREE.MeshLambertMaterial({ color: "#5a4034", side: THREE.DoubleSide })))));
     this.g.visible = false; parent.add(this.g);
   }
   /** pose at (x, y, z), turned toward the camera (yaw), scale s */
   set(r: Rig3, at: THREE.Vector3, yaw: number, s: number) {
-    const { o, l, x } = r, sit = l.mode === "sit", k = l.k ?? 0;
-    this.g.visible = true; this.g.position.copy(at); this.g.rotation.set(0, yaw, ((l.tilt ?? 0) * Math.PI) / 180 * -0.5); this.g.scale.setScalar(s);
-    const dy = sit ? -0.2 : 0, bob = (l.mode === "stroll" ? 0.015 * Math.cos((l.phase ?? 0) * Math.PI * 4) : 0);
+    const { o, l, x } = r, sit = l.mode === "sit", fall = l.mode === "fall", k = l.k ?? 0, kid = o.build === "kid";
+    // kids: the same rig at 0.82 of the height (head a little smaller relative to the body)
+    this.g.visible = true; this.g.position.copy(at);
+    // sitting: the stage raises a sitter by the seat height (0.4 m), so the hips sit at the group origin and the shins
+    // reach down to the floor; fainting: the whole figure tips over sideways from the feet
+    if (sit) this.g.position.y -= 0.4 * s;
+    this.g.rotation.set(0, yaw, fall ? -((l.tilt ?? 0) * Math.PI) / 180 : ((l.tilt ?? 0) * Math.PI) / 180 * -0.5); this.g.scale.setScalar(s * (kid ? 0.82 : 1));
+    const dy = sit ? -0.18 : 0, ph = (l.phase ?? 0) * Math.PI * 2, bob = (l.mode === "stroll" ? 0.015 * Math.cos(ph * 2) : 0);
     // head: the face texture on the front, tilted with headTilt, turned a little toward where it looks
     this.headMat.map = face(r); this.headMat.needsUpdate = false;
     this.head.position.set(0, HEAD_Y + dy + bob, 0.01); this.head.rotation.set(0, (l.look ?? 0) * 0.25, ((l.headTilt ?? 0) * Math.PI) / 180);
@@ -166,10 +198,27 @@ export class Char3D {
     });
     // legs + feet (sitting: thighs forward, shins down)
     [-1, 1].forEach((side, i) => {
-      const pts: V3[] = sit ? [[side * 0.09, HIP_Y + dy, 0], [side * 0.11, 0.45, 0.32], [side * 0.12, 0.06, 0.36]] : [[side * 0.09, HIP_Y + bob, 0], [side * 0.1, 0.33, 0.02], [side * 0.11, 0.06, 0]];
+      const step = l.mode === "stroll" ? 0.16 * Math.sin(ph + (i ? Math.PI : 0)) : 0, lift = l.mode === "stroll" ? 0.06 * Math.max(0, Math.sin(ph + (i ? Math.PI : 0))) : 0;
+      const pts: V3[] = sit ? [[side * 0.09, HIP_Y + dy, 0], [side * 0.11, HIP_Y + dy - 0.02, 0.36], [side * 0.12, 0.08, 0.4]]
+        : [[side * 0.09, HIP_Y + bob, 0], [side * 0.1, 0.33 + lift, 0.02 + step * 0.6], [side * 0.11, 0.06 + lift, step]];
       this.legs[i].geometry = limb(pts, LIMB_R * 1.1);
-      this.feet[i].position.set(side * 0.12, 0.035, (sit ? 0.36 : 0) + 0.05); this.feet[i].material = mat(o.boots);
+      this.feet[i].position.set(side * 0.12, 0.035 + (sit ? 0.02 : lift), (sit ? 0.4 : step) + 0.05); this.feet[i].material = mat(o.boots);
     });
+    // props: a newspaper between both hands (or held up in one), a letter / quill in the right hand, sweat, bat wings
+    const hR = AR[2], hL = AL[2], two = Math.abs(hR[0] - hL[0]) < 0.4;
+    this.paper.visible = !!x.paper;
+    if (x.paper) {
+      this.paper.material = paperMat(x.paper);
+      if (two) this.paper.position.set((hR[0] + hL[0]) / 2, (hR[1] + hL[1]) / 2 + 0.08 + dy + bob, Math.max(hR[2], hL[2]) + 0.03);
+      else this.paper.position.set(hR[0], hR[1] + 0.16 + dy + bob, hR[2] + 0.03);
+      this.paper.rotation.set(-0.12, 0, two ? 0 : 0.18 * Math.sin(k * Math.PI * 2));
+    }
+    this.letter.visible = !!x.letter && !x.paper; if (this.letter.visible) this.letter.position.set(hR[0], hR[1] + 0.05 + dy, hR[2] + 0.03);
+    this.quill.visible = !!x.pen; if (x.pen) { this.quill.position.set(hR[0], hR[1] + dy, hR[2] + 0.02); this.quill.rotation.set(0.3, 0, -0.5); }
+    this.sweat.visible = !!x.sweat; if (x.sweat) this.sweat.position.set(-0.2, HEAD_Y + 0.12 + dy, 0.18);
+    const wf = x.wings; this.wings.forEach((w, i) => { w.visible = wf !== undefined; if (wf === undefined) return;
+      const side = i ? 1 : -1, a = 0.35 * Math.sin(wf * Math.PI * 2);
+      w.position.set(side * 0.12, 1.02 + dy + bob, -0.12); w.scale.set(side, 1, 1); w.rotation.set(0, side * 0.35, side * (0.15 + a)); });
     // props in the right hand
     this.cup.visible = !!x.tea; if (x.tea) this.cup.position.set(AR[2][0], AR[2][1] + 0.05 + dy, AR[2][2] + 0.02);
     this.phone.visible = !!x.phone; if (x.phone) { this.phone.position.set(AR[2][0], AR[2][1] + 0.07 + dy, AR[2][2] + 0.02); this.phone.rotation.set(-0.2, 0, 0); }

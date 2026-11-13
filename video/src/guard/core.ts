@@ -162,6 +162,9 @@ export const checkSubjects = (cam: THREE.PerspectiveCamera, subj: Subj[], geo: G
     // at least half of the head box is in the picture
     const vis = Math.max(0, Math.min(1, hx1) - Math.max(0, hx0)) * Math.max(0, Math.min(1, hy1) - Math.max(0, hy0)) / Math.max(1e-6, (hx1 - hx0) * (hy1 - hy0));
     if (hy1 - hy0 < 0.06 || vis <= 0) continue;
+    // a passer-by may cross an edge while small; a big one (head >= 10 % of the frame) may not (3D sample, 139-143: a
+    // reader popped in huge, half cut at the right edge)
+    if (hd.walker && hy1 - hy0 < 0.1) continue;
     // a bystander close to the lens: a face taller than 30 % of the frame is an extreme close-up of the wrong person
     // (Moon, frame 151: a reader beside the newsboy's camera)
     if (hy1 - hy0 > 0.3 && geo.cast(cam.position, hd.c.clone().sub(cam.position).normalize(), Math.max(0.05, hd.c.distanceTo(cam.position) - 0.1)) === null) {

@@ -81,7 +81,7 @@ const street = (t: number, s: Stage) => {
     }
     s.lights.push(warm(V(22.6, 2.8, 3.2), 1.3));
     // the news itself: front pages flutter down from the Moon over the city (the camera follows them down)
-    for (let i = 0; i < 7; i++) { const u = clamp01((t + 0.4 - i * 0.18) / 3.2), a = V(52 + (i % 3) * 1.6, 50 - (i % 2) * 1.5, -9 - (i % 4) * 1.2), b = V(22.5 + (i % 3) * 0.8, 2.2 + (i % 2) * 0.6, 0.6 + (i % 4) * 0.4);
+    for (let i = 0; i < 7; i++) { const u = clamp01((t + 0.4 - i * 0.12) / 2.0),   /* all landed by ~2.3 s (3D sample: still falling, cut by the top edge at 79-117) */ a = V(52 + (i % 3) * 1.6, 50 - (i % 2) * 1.5, -9 - (i % 4) * 1.2), b = V(22.5 + (i % 3) * 0.8, 2.2 + (i % 2) * 0.6, 0.6 + (i % 4) * 0.4);
       if (u < 1) s.fx.push(card(`fall${q((t * 3 + i * 0.3) % 1, 6)}`, 300, 200, LB.paperBird(q((t * 3 + i * 0.3) % 1, 6)), a.lerp(b, smooth(u)).add(V(Math.sin(t * 2 + i) * 1.2, 0, 0)), 0.9, 0.6)); }
   }
   // line 9 (morning): the whole city is reading; a man faints, kids flap like bat-people
@@ -94,7 +94,9 @@ const street = (t: number, s: Stage) => {
 };
 const shop = (t: number, s: Stage) => {
   if (between(t, wt(1, "believed"), wt(4, "Herschel"))) {
-    s.places.push(P("editor", EDITOR, { expr: after(t, 2, "readers") ? "dazed" : "nervous", gest: "clutch", look: 1, blink: blinkAt(t, 5) }, { sweat: true }, [24.9, 0, -13.4]));
+    // line 2: he holds up a copy of The Sun ("the paper is called The Sun"), then clutches it, sweating, on "needs readers"
+    const showing = !after(t, 2, "costs");
+    s.places.push(P("editor", EDITOR, { expr: after(t, 2, "readers") ? "dazed" : showing ? "grin" : "nervous", gest: showing ? "hold" : "clutch", look: 1, blink: blinkAt(t, 5) }, { sweat: !showing, paper: showing ? "plain" : undefined }, [24.9, 0, -13.4]));
     s.fx.push(card("chart0", 520, 400, LB.salesChart(0), [CHART.x, CHART.y, CHART.z + 0.05], 1.15, 0.88, { yaw: 0 }));
     const crack = after(t, 3, "writes");
     if (crack) for (let i = 0; i < 3; i++) {   // line 3 "writes a story": finished pages flutter off his desk

@@ -64,8 +64,9 @@ export class MoonWorld {
   dio: Diorama; rooms: Record<RoomName, Room>; moonX!: THREE.Group;
   private pool = new Pool();
   private actors: Actor[] = []; private fxs: Fx[] = []; private c3: Char3D[] = [];
-  /** 3D cast (style test): place names drawn as 3D figures instead of cards; inputProps.char3d = ["herschelT", ...] or "all" */
-  private use3d = (() => { try { return (getInputProps() as { char3d?: string[] | "all" }).char3d ?? []; } catch { return []; } })();
+  /** 3D cast: place names drawn as 3D figures (default "all"; "none" = the cards; or a list of names) */
+  // the 3D cast is the default (approved 2026-11-13); inputProps.char3d = "none" falls back to the cards
+  private use3d = (() => { try { const v = (getInputProps() as { char3d?: string[] | "all" | "none" }).char3d ?? "all"; return v === "none" ? [] : v; } catch { return "all" as const; } })();
   private hemi = new THREE.HemisphereLight("#cfe6ff", "#6c5c8c", 1.0);
   private sun = new THREE.DirectionalLight("#fff0d6", 2.6);
   private sky: THREE.Mesh; private skyMat: THREE.ShaderMaterial;

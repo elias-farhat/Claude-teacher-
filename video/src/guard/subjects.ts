@@ -5,7 +5,7 @@ import * as THREE from "three";
 export type Place = { key: string; x: number; y: number; z: number; scale?: number; tall?: number };   // tall: a top hat etc. above the 1.78 m figure (m)
 export type FxCard = { key: string; x: number; y: number; z: number; w: number; h: number; flat?: boolean; rot?: number; soft?: boolean; yaw?: number };
 /** one character's head: centre, half width, and its box from the chin to the hat top (metres) */
-export type Head = { key: string; c: THREE.Vector3; hw: number; y0: number; y1: number; animal?: boolean; foot?: number };
+export type Head = { key: string; c: THREE.Vector3; hw: number; y0: number; y1: number; animal?: boolean; foot?: number; walker?: boolean };
 /** animal cards: the head (horn / ears to chin) in card coordinates [u0, v0, u1, v1] (0..1, v down), by key prefix */
 export const ANIMAL_HEADS: Record<string, [number, number, number, number]> = { goat: [0.25, 0.04, 0.75, 0.62] };
 export type Subj = { id: string; opt?: boolean; kind: "char" | "prop"; pts: THREE.Vector3[]; own?: THREE.Box3; head?: THREE.Vector3; chest?: number;
@@ -84,9 +84,9 @@ export const bystanderHeads = (ids: string[], st: { places: Place[] }): Head[] =
     // walkers (mode stroll) are skipped: a passer-by entering or leaving the picture crosses the edge for a moment
     // background life ("bg...") counts too once it is big in the picture (Moon run 31, 47.5-51.5 s: a beach woman half cut
     // at the left edge behind Herschel); the 6 % head-size threshold in the guard skips the small, distant ones
-    const n = nameOf(p.key); if (isSubj(n) || modeOf(p.key) === "stroll") continue;
+    const n = nameOf(p.key); if (isSubj(n)) continue;
     const sc = p.scale ?? 1, sit = modeOf(p.key) === "sit", hc = p.y + (sit ? 0.86 : 1.44) * sc;
-    out.push({ key: p.key, c: new THREE.Vector3(p.x, hc, p.z), hw: 0.26 * sc, y0: hc - 0.25 * sc, y1: hc + 0.32 * sc + (p.tall ?? 0) * sc, foot: p.y } as Head);
+    out.push({ key: p.key, c: new THREE.Vector3(p.x, hc, p.z), hw: 0.26 * sc, y0: hc - 0.25 * sc, y1: hc + 0.32 * sc + (p.tall ?? 0) * sc, foot: p.y, walker: modeOf(p.key) === "stroll" } as Head);
   }
   return out;
 };
