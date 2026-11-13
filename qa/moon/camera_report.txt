@@ -1,43 +1,35 @@
-warning    4.30-  4.70 s  f129-140  SUBJECT   c:/^reader\d$/       cut off right (2.40)
-warning    4.30-  4.40 s  f129-131  FACES     c:/^reader\d$/(reader0) face 32 % covered by something in front
-warning    4.30-  4.57 s  f129-136  OCCLUSION c:/^reader\d$/       3/5 rays blocked for 5 frames
-warning    4.53-  5.23 s  f136-156  SUBJECT   c:newsboy            too small (18 % of frame height, needs 30 %)
-warning    4.63-  4.67 s  f139-139  FACES     c:/^reader\d$/(reader1) head cut at the right edge
-warning    4.63-  4.67 s  f139-139  FACES     c:/^reader\d$/(reader3) head cut at the right edge
-warning    4.67-  4.70 s  f140-140  FACES     c:/^reader\d$/(reader4) face 32 % covered by something in front
-warning    4.70-  4.73 s  f141-141  FACES     c:/^reader\d$/(reader1) face 80 % covered by something in front
-warning    4.80-  4.83 s  f144-144  FACES     c:newsboy            face 48 % covered by something in front
-warning    4.83-  4.90 s  f145-146  FACES     c:/^reader\d$/(reader1) face 36 % covered by something in front
-warning    6.30-  6.47 s  f189-193  SUBJECT   c:editor             out of frame (x 1.15..1.25, y 0.10..0.22)
-warning    6.33-  6.37 s  f190-190  SUBJECT   c:/^reader\d$/       cut off left (-0.03)
-warning    6.33-  6.37 s  f190-190  FACES     c:/^reader\d$/(reader1) head cut at the left edge
-warning    6.33-  6.37 s  f190-190  FACES     c:/^reader\d$/(reader2) head cut at the left edge
-warning    6.37-  6.40 s  f191-191  SUBJECT   c:/^reader\d$/       out of frame (x -0.87..-0.02, y 0.24..0.63)
-warning    6.37-  6.47 s  f191-193  EMPTY                          none of c:/^reader\d$/, c:editor in view
-warning    6.40-  6.50 s  f192-194  SUBJECT   c:/^reader\d$/       behind the camera
-warning    9.00-  9.03 s  f270-270  SUBJECT   f:chart0             cut off right (1.30)
-warning    9.03-  9.07 s  f271-271  SUBJECT   c:editor             cut off right (1.03)
+warning    4.30-  4.83 s  f129-144  SUBJECT   c:/^reader[0-2]$/    cut off right (1.72)
+warning    4.30-  4.43 s  f129-132  FACES     c:/^reader[0-2]$/(reader0) face 24 % covered by something in front
+warning    4.43-  4.73 s  f133-141  FACES     c:/^reader[0-2]$/(reader2) head cut at the right edge
+warning    4.63-  5.23 s  f139-156  SUBJECT   c:newsboy            too small (24 % of frame height, needs 30 %)
+warning    4.73-  4.80 s  f142-143  FACES     c:/^reader[0-2]$/(reader1) head cut at the right edge
+warning    4.80-  4.87 s  f144-145  FACES     c:/^reader[0-2]$/(reader1) face 36 % covered by something in front
+warning    6.30-  6.47 s  f189-193  SUBJECT   c:editor             out of frame (x 1.20..1.32, y 0.03..0.17)
+warning    6.33-  6.37 s  f190-190  SUBJECT   c:/^reader[0-2]$/    cut off left (-0.15)
+warning    6.33-  6.37 s  f190-190  FACES     c:/^reader[0-2]$/(reader0) head cut at the left edge
+warning    6.37-  6.40 s  f191-191  SUBJECT   c:/^reader[0-2]$/    out of frame (x -1.17..-0.13, y 0.20..0.66)
+warning    6.37-  6.47 s  f191-193  EMPTY                          none of c:/^reader[0-2]$/, c:editor in view
+warning    6.40-  6.50 s  f192-194  SUBJECT   c:/^reader[0-2]$/    behind the camera
+warning    9.00-  9.03 s  f270-270  SUBJECT   f:chart0             cut off right (1.37)
+warning    9.03-  9.07 s  f271-271  SUBJECT   c:editor             cut off right (1.17)
+warning    9.03-  9.07 s  f271-271  FACES     c:editor             head cut at the right edge
 warning    9.03-  9.17 s  f271-274  SUBJECT   f:chart0             out of frame (x -3.26..-2.54, y 0.04..0.32)
 warning    9.07-  9.17 s  f272-274  SUBJECT   c:editor             out of frame (x -3.04..-2.16, y 0.24..0.90)
 warning    9.07-  9.17 s  f272-274  EMPTY                          none of c:editor, f:chart0 in view
-warning   10.67- 10.97 s  f320-328  SUBJECT   c:locke              out of frame (x 1.68..2.85, y 0.27..1.33)
-warning   10.80- 10.87 s  f324-325  SUBJECT   f:chart0             cut off top (-0.01)
-warning   10.87- 10.93 s  f326-327  SUBJECT   f:chart0             cut off left (-0.20)
-warning   10.87- 10.93 s  f326-327  SUBJECT   f:chart0             too small (0 % of frame height, needs 15 %)
-warning   10.90- 11.00 s  f327-329  SUBJECT   c:editor             cut off left (-0.37)
-warning   10.90- 10.97 s  f327-328  FACES     c:editor             head cut at the left edge
-warning   10.93- 11.60 s  f328-347  SUBJECT   f:chart0             out of frame (x 10.68..23.11, y -0.05..1.29)
-warning   10.97- 11.00 s  f329-329  SUBJECT   c:editor             too small (29 % of frame height, needs 30 %)
-warning   10.97- 11.07 s  f329-331  SUBJECT   c:locke              cut off right (2.00)
-warning   11.00- 11.60 s  f330-347  SUBJECT   c:editor             out of frame (x 2.24..4.05, y 0.16..1.11)
-warning   11.00- 11.07 s  f330-331  FACES     c:locke              head cut at the right edge
-warning   11.00- 11.10 s  f330-332  FACES     c:locke              head centre at 82 % of the frame height
-warning   11.07- 11.20 s  f332-335  SUBJECT   c:locke              cut off left (-0.05)
-warning   11.07- 11.13 s  f332-333  FACES     c:locke              head cut at the left edge
-warning   14.30- 14.40 s  f429-431  SUBJECT   c:herschelT          behind the camera
+warning   10.67- 11.03 s  f320-330  SUBJECT   c:locke              out of frame (x 1.60..2.55, y 0.26..1.21)
+warning   10.93- 11.00 s  f328-329  SUBJECT   f:chart0             cut off top (0.03)
+warning   11.00- 11.20 s  f330-335  SUBJECT   f:chart0             cut off left (-0.19)
+warning   11.03- 11.37 s  f331-340  SUBJECT   c:editor             cut off left (-0.26)
+warning   11.03- 11.23 s  f331-336  SUBJECT   c:locke              cut off right (1.20)
+warning   11.07- 11.23 s  f332-336  FACES     c:editor             head cut at the left edge
+warning   11.07- 11.20 s  f332-335  FACES     c:locke              head cut at the right edge
+warning   11.10- 11.20 s  f333-335  SUBJECT   f:chart0             too small (12 % of frame height, needs 15 %)
+warning   11.20- 11.60 s  f336-347  SUBJECT   f:chart0             out of frame (x -0.38..-0.07, y -0.21..-0.02)
+warning   11.37- 11.60 s  f341-347  SUBJECT   c:editor             out of frame (x -0.37..-0.01, y -0.03..0.39)
+warning   14.30- 14.47 s  f429-433  SUBJECT   c:herschelT          out of frame (x -0.09..-0.06, y -0.40..-0.36)
+warning   14.33- 14.37 s  f430-430  SUBJECT   c:locke              cut off left (0.02)
 warning   14.37- 14.43 s  f431-432  SUBJECT   c:locke              out of frame (x -27.25..-23.29, y 1.64..1.96)
 warning   14.37- 14.47 s  f431-433  EMPTY                          none of c:locke, c:herschelT in view
-warning   14.40- 14.47 s  f432-433  SUBJECT   c:herschelT          out of frame (x 1.32..1.76, y 0.22..0.69)
 warning   14.43- 14.50 s  f433-434  SUBJECT   c:locke              behind the camera
 warning   17.23- 17.27 s  f517-517  SUBJECT   c:herschelT          cut off left (0.02)
 warning   17.27- 17.37 s  f518-520  SUBJECT   c:herschelT          out of frame (x -3.99..-1.88, y 0.10..1.20)
@@ -66,51 +58,23 @@ warning   22.73- 22.77 s  f682-682  FACES     f:goat               head cut at t
 warning   22.80- 22.87 s  f684-685  FACES     f:goat               head cut at the right edge (animal)
 warning   22.87- 23.27 s  f686-697  SUBJECT   f:day1               out of frame (x -0.82..-0.28, y 0.18..0.56)
 warning   22.97- 23.00 s  f689-689  SUBJECT   f:goat               cut off left (0.05)
-warning   25.60- 26.07 s  f768-781  SUBJECT   c:bat0               out of frame (x -2.32..-1.00, y -0.62..0.10)
-warning   25.60- 26.03 s  f768-780  SUBJECT   c:bat1               out of frame (x -1.47..-0.49, y -0.99..-0.27)
-warning   25.73- 26.10 s  f772-782  SUBJECT   f:goat               cut off right (1.13)
+warning   25.60- 26.00 s  f768-779  SUBJECT   c:/^bat[01]$/        out of frame (x -2.33..-0.46, y -0.81..0.04)
+warning   25.73- 26.53 s  f772-795  SUBJECT   f:goat               cut off right (1.86)
 warning   25.90- 26.00 s  f777-779  FACES     f:goat               head cut at the right edge (animal)
-warning   26.03- 26.07 s  f781-781  FACES     f:goat               head cut at the right edge (animal)
-warning   26.03- 26.10 s  f781-782  SUBJECT   c:bat1               cut off left (0.00)
-warning   26.03- 26.13 s  f781-783  SUBJECT   c:bat1               too small (17 % of frame height, needs 30 %)
-warning   26.07- 26.17 s  f782-784  SUBJECT   c:bat0               cut off left (-0.14)
-warning   26.10- 26.27 s  f783-787  SUBJECT   f:goat               out of frame (x 1.11..2.18, y 0.86..1.44)
-warning   26.10- 26.17 s  f783-784  SUBJECT   c:bat1               cut off top (-0.02)
-warning   26.10- 26.17 s  f783-784  FACES     c:bat1               head cut at the top edge
-warning   26.27- 26.53 s  f788-795  SUBJECT   f:goat               cut off right (1.52)
-warning   26.27- 26.53 s  f788-795  SUBJECT   f:goat               too small (13 % of frame height, needs 15 %)
-warning   26.27- 26.53 s  f788-795  SUBJECT   f:goat               blurred (circle of confusion 2.5 px)
-warning   26.27- 26.53 s  f788-795  SUBJECT   c:bat0               too small (27 % of frame height, needs 30 %)
-warning   26.40- 26.53 s  f792-795  SUBJECT   c:bat1               too small (30 % of frame height, needs 30 %)
-warning   26.43- 26.53 s  f793-795  FACES     f:goat               head cut at the right edge (animal)
-CRITICAL  26.53- 27.23 s  f796-816  SUBJECT   c:bat0               too small (27 % of frame height, needs 30 %)
-CRITICAL  26.53- 26.80 s  f796-803  SUBJECT   c:bat1               too small (30 % of frame height, needs 30 %)
-CRITICAL  28.60- 29.00 s  f858-869  SUBJECT   c:bat1               cut off top (0.02)
-CRITICAL  28.70- 29.00 s  f861-869  FACES     c:bat1               head (hat) touches the top edge (2.8 %)
-warning   29.00- 29.47 s  f870-883  SUBJECT   c:bat1               cut off top (-0.01)
-warning   29.00- 29.17 s  f870-874  FACES     c:bat1               head (hat) touches the top edge (0.6 %)
-warning   29.17- 29.33 s  f875-879  FACES     c:bat1               head cut at the top edge
-warning   29.33- 29.47 s  f880-883  FACES     c:bat1               head (hat) touches the top edge (2.6 %)
-warning   29.50- 29.60 s  f885-887  SUBJECT   c:bat0               cut off left (0.05)
-warning   29.83- 29.93 s  f895-897  SUBJECT   c:bat0               too small (30 % of frame height, needs 30 %)
-CRITICAL  29.93- 30.07 s  f898-901  SUBJECT   c:bat0               too small (30 % of frame height, needs 30 %)
-CRITICAL  30.47- 30.90 s  f914-926  SUBJECT   c:bat1               cut off right (0.98)
-CRITICAL  31.20- 31.77 s  f936-952  SUBJECT   c:bat0               cut off left (-0.10)
-CRITICAL  31.27- 31.77 s  f938-952  SUBJECT   c:bat1               cut off top (-0.00)
-CRITICAL  31.30- 31.53 s  f939-945  FACES     c:bat1               head (hat) touches the top edge (2.0 %)
-CRITICAL  31.53- 31.77 s  f946-952  FACES     c:bat1               head cut at the top edge
-CRITICAL  31.57- 31.77 s  f947-952  FACES     c:bat0               head cut at the left edge
-warning   31.77- 31.80 s  f953-953  SUBJECT   c:bat1               cut off top (-0.02)
-warning   31.77- 31.80 s  f953-953  FACES     c:bat1               head cut at the top edge
-warning   31.77- 31.80 s  f953-953  SUBJECT   c:bat0               cut off left (-0.10)
-warning   31.77- 31.93 s  f953-957  SUBJECT   c:town0              out of frame (x -2.05..-1.98, y 2.42..2.49)
-warning   31.77- 31.90 s  f953-956  SUBJECT   c:town1              out of frame (x -2.11..-2.04, y 2.51..2.61)
-warning   31.80- 31.83 s  f954-954  SUBJECT   c:bat1               cut off right (1.31)
-warning   31.80- 31.83 s  f954-954  FACES     c:bat1               head cut at the right edge
-warning   31.83- 31.97 s  f955-958  SUBJECT   c:bat1               out of frame (x -0.67..-0.58, y -2.04..-1.94)
-warning   31.83- 31.97 s  f955-958  SUBJECT   c:bat0               out of frame (x -0.70..-0.60, y -2.03..-1.93)
-warning   31.83- 31.87 s  f955-955  EMPTY                          none of c:bat1, c:bat0, c:town0, c:town1, ?c:/^town\d$/, ?c:fainter in view
-warning   31.87- 31.97 s  f956-958  SUBJECT   c:bat1+c:bat0        the two overlap by 65 % on screen
+warning   26.00- 26.23 s  f780-786  SUBJECT   c:/^bat[01]$/        cut off left (-0.21)
+warning   26.00- 26.07 s  f780-781  SUBJECT   c:/^bat[01]$/        too small (30 % of frame height, needs 30 %)
+warning   26.03- 26.10 s  f781-782  FACES     f:goat               head cut at the right edge (animal)
+warning   26.10- 26.13 s  f783-783  FACES     c:/^bat[01]$/(bat0)  head cut at the left edge
+warning   26.10- 26.13 s  f783-783  FACES     c:/^bat[01]$/(bat1)  head cut at the top edge
+warning   26.17- 26.53 s  f785-795  SUBJECT   f:goat               too small (12 % of frame height, needs 15 %)
+warning   26.20- 26.53 s  f786-795  FACES     f:goat               head cut at the right edge (animal)
+warning   29.33- 29.43 s  f880-882  SUBJECT   c:/^bat[01]$/        cut off right (0.96)
+warning   31.77- 31.93 s  f953-957  SUBJECT   c:town0              out of frame (x -0.10..-0.08, y 1.72..1.76)
+warning   31.77- 31.90 s  f953-956  SUBJECT   c:town1              out of frame (x -0.14..-0.11, y 1.77..1.82)
+warning   31.80- 31.83 s  f954-954  SUBJECT   c:/^bat[01]$/        cut off right (1.33)
+warning   31.80- 31.83 s  f954-954  FACES     c:/^bat[01]$/(bat0)  head cut at the right edge
+warning   31.83- 31.97 s  f955-958  SUBJECT   c:/^bat[01]$/        out of frame (x -0.70..-0.57, y -2.05..-1.91)
+warning   31.83- 31.87 s  f955-955  EMPTY                          none of c:/^bat[01]$/, c:town0, c:town1, ?c:/^town\d$/, ?c:fainter in view
 warning   31.90- 31.93 s  f957-957  SUBJECT   c:town1              cut off left (-0.00)
 warning   33.50- 33.53 s  f1005-1005  SUBJECT   c:/^pierBoy\d$/      out of frame (x 1.01..1.16, y 0.13..0.20)
 warning   33.53- 33.57 s  f1006-1006  SUBJECT   c:town0              cut off left (-0.38)
@@ -157,18 +121,13 @@ warning   47.33- 47.50 s  f1420-1424  SUBJECT   c:sailor             out of fram
 warning   47.33- 47.43 s  f1420-1422  SUBJECT   c:herschelB          out of frame (x 3.43..3.61, y 0.31..0.47)
 warning   47.40- 47.43 s  f1422-1422  EMPTY                          none of c:sailor, ?w:ship, c:herschelB in view
 warning   47.43- 47.47 s  f1423-1423  SUBJECT   c:herschelB          cut off right (1.02)
-warning   48.90- 49.03 s  f1467-1470  SUBJECT   f:rumor              out of frame (x -3.93..-2.46, y -0.66..-0.11)
-warning   48.93- 49.03 s  f1468-1470  SUBJECT   c:herschelB          out of frame (x -2.93..-1.54, y 0.04..1.01)
-warning   48.93- 49.03 s  f1468-1470  EMPTY                          none of c:herschelB, f:rumor, ?f:nosignal in view
-warning   49.03- 49.07 s  f1471-1471  SUBJECT   c:herschelB          cut off right (0.97)
-warning   49.03- 49.07 s  f1471-1471  SUBJECT   f:rumor              cut off right (1.03)
-warning   51.50- 51.57 s  f1545-1546  SUBJECT   c:rival              out of frame (x 1.51..1.53, y 0.30..0.33)
-warning   51.53- 51.57 s  f1546-1546  SUBJECT   f:rumor              cut off left (-0.18)
+warning   51.50- 51.57 s  f1545-1546  SUBJECT   c:rival              out of frame (x 1.36..1.38, y 0.11..0.15)
+warning   51.53- 51.57 s  f1546-1546  SUBJECT   c:herschelB          cut off left (-0.05)
+warning   51.53- 51.57 s  f1546-1546  FACES     c:herschelB          head cut at the left edge
 warning   51.57- 51.70 s  f1547-1550  SUBJECT   c:herschelB          out of frame (x -0.14..-0.12, y 0.21..0.24)
-warning   51.57- 51.70 s  f1547-1550  SUBJECT   f:rumor              out of frame (x -0.14..-0.10, y 0.19..0.21)
 warning   51.57- 51.60 s  f1547-1547  SUBJECT   c:rival              too small (3 % of frame height, needs 30 %)
 warning   51.57- 51.60 s  f1547-1547  FACES     c:rival              face 100 % covered by something in front
-warning   51.57- 51.67 s  f1547-1549  EMPTY                          none of c:herschelB, f:rumor, ?f:nosignal, c:rival in view
+warning   51.57- 51.67 s  f1547-1549  EMPTY                          none of c:herschelB, c:rival in view
 warning   51.60- 51.67 s  f1548-1549  SUBJECT   c:rival              out of frame (x 1.19..1.56, y 0.16..0.68)
 warning   54.27- 54.43 s  f1628-1632  SUBJECT   c:cust0              out of frame (x -2.76..-2.52, y 0.18..0.33)
 warning   54.30- 54.33 s  f1629-1629  SUBJECT   c:rival              cut off right (1.25)
@@ -184,23 +143,17 @@ warning   57.10- 57.20 s  f1713-1715  SUBJECT   c:cust0              behind the 
 warning   57.13- 57.17 s  f1714-1714  SUBJECT   c:herschelL          cut off right (1.07)
 warning   57.13- 57.17 s  f1714-1714  FACES     c:herschelL          head cut at the right edge
 warning   61.20- 61.27 s  f1836-1837  SUBJECT   c:lockeS             behind the camera
-warning   61.23- 61.30 s  f1837-1838  SUBJECT   c:herschelL          out of frame (x -2.44..-1.49, y 0.11..0.88)
+warning   61.23- 61.40 s  f1837-1841  SUBJECT   c:herschelL          out of frame (x 0.84..0.87, y -0.26..-0.22)
 warning   61.23- 61.33 s  f1837-1839  EMPTY                          none of c:herschelL, c:lockeS in view
-warning   61.27- 61.33 s  f1838-1839  SUBJECT   c:lockeS             out of frame (x 1.70..2.31, y 0.07..0.76)
-warning   61.30- 61.33 s  f1839-1839  SUBJECT   c:herschelL          too small (3 % of frame height, needs 30 %)
-warning   61.30- 61.33 s  f1839-1839  FACES     c:herschelL          face 100 % covered by something in front
-warning   61.33- 61.40 s  f1840-1841  SUBJECT   c:herschelL          out of frame (x -0.65..-0.63, y 0.32..0.35)
+warning   61.27- 61.33 s  f1838-1839  SUBJECT   c:lockeS             out of frame (x 1.44..2.20, y 0.23..0.81)
 warning   61.33- 61.37 s  f1840-1840  SUBJECT   c:lockeS             cut off right (1.09)
 warning   61.33- 61.37 s  f1840-1840  FACES     c:lockeS             head cut at the right edge
-warning   62.30- 62.33 s  f1869-1869  SUBJECT   f:sig                cut off right (1.15)
-warning   62.30- 62.40 s  f1869-1871  SUBJECT   f:sig                too small (1 % of frame height, needs 15 %)
-warning   62.33- 62.37 s  f1870-1870  SUBJECT   c:lockeS             cut off left (-0.05)
-warning   62.33- 62.37 s  f1870-1870  FACES     c:lockeS             head cut at the left edge
-warning   62.33- 62.37 s  f1870-1870  FACES     c:lockeS(lockeS)     head cut at the left edge
-warning   62.37- 62.47 s  f1871-1873  SUBJECT   c:lockeS             out of frame (x 2.34..5.87, y -0.53..0.73)
-warning   62.37- 62.40 s  f1871-1871  SUBJECT   f:sig                cut off left (-0.34)
-warning   62.40- 62.43 s  f1872-1872  SUBJECT   f:sig                out of frame (x 1.72..2.77, y 0.42..0.89)
-warning   62.40- 62.43 s  f1872-1872  EMPTY                          none of c:lockeS, f:sig, ?c:lockeS in view
-warning   62.43- 62.47 s  f1873-1873  SUBJECT   f:sig                cut off right (1.59)
-warning   62.47- 62.50 s  f1874-1874  SUBJECT   c:lockeS             cut off right (1.44)
-warning   62.47- 62.50 s  f1874-1874  SUBJECT   c:lockeS             too small (17 % of frame height, needs 30 %)
+warning   61.70- 62.23 s  f1851-1866  SUBJECT   f:sig                cut off right (1.24)
+warning   61.70- 62.00 s  f1851-1859  SUBJECT   f:sig                too small (8 % of frame height, needs 15 %)
+warning   61.97- 62.17 s  f1859-1864  SUBJECT   c:lockeS             cut off left (-0.40)
+warning   62.00- 62.13 s  f1860-1863  FACES     c:lockeS             head cut at the left edge
+warning   62.00- 62.13 s  f1860-1863  FACES     c:lockeS(lockeS)     head cut at the left edge
+warning   62.17- 62.23 s  f1865-1866  SUBJECT   c:lockeS             out of frame (x -1.52..-0.07, y -0.31..0.45)
+warning   62.23- 62.37 s  f1867-1870  SUBJECT   c:lockeS             cut off left (-0.29)
+warning   62.23- 62.50 s  f1867-1874  SUBJECT   c:lockeS             too small (11 % of frame height, needs 30 %)
+warning   62.37- 62.50 s  f1871-1874  SUBJECT   c:lockeS             cut off right (1.10)

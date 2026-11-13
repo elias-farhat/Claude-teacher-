@@ -1,31 +1,27 @@
 {
  "video": "moon",
  "frames": 1980,
- "pass": false,
- "criticalFrames": 67,
- "warningFrames": 271,
- "seconds": 639.43,
+ "pass": true,
+ "criticalFrames": 0,
+ "warningFrames": 267,
+ "seconds": 130.071,
  "history": [
-  "round 1: 396 frames with CRITICAL failures in 9 shots (5, 6, 11, 12, 14, 17, 20, 22, 24)",
-  "round 2: 206 frames with CRITICAL failures in 4 shots (5, 11, 12, 22)",
-  "round 3: 156 frames with CRITICAL failures in 3 shots (5, 11, 12)",
-  "round 4: 120 frames with CRITICAL failures in 2 shots (11, 12)",
-  "round 5: 129 frames with CRITICAL failures in 2 shots (11, 12)",
-  "assembled the best round of every shot: 67 frames with CRITICAL failures",
-  "fly transitions that still failed became whips: 2; clipping whips panned the other way: 0, became cuts: 0",
-  "flight polish (look timing per failing flight): 89 frames with CRITICAL failures (0 flights cleared)",
-  "kept the assembled track (67 CRITICAL frames)"
+  "round 1: 492 frames with CRITICAL failures in 11 shots (2, 5, 6, 11, 12, 14, 17, 20, 22, 23, 24)",
+  "round 2: 191 frames with CRITICAL failures in 5 shots (5, 11, 12, 22, 23)",
+  "round 3: 40 frames with CRITICAL failures in 2 shots (5, 12)",
+  "round 4: 0 frames with CRITICAL failures in 0 shots",
+  "assembled the best round of every shot: 0 frames with CRITICAL failures"
  ],
  "rules": [
   {
    "rule": "SUBJECT",
-   "critical": 67,
-   "warning": 271
+   "critical": 0,
+   "warning": 267
   },
   {
    "rule": "OCCLUSION",
    "critical": 0,
-   "warning": 8
+   "warning": 0
   },
   {
    "rule": "CLIPPING",
@@ -35,12 +31,12 @@
   {
    "rule": "EMPTY",
    "critical": 0,
-   "warning": 34
+   "warning": 30
   },
   {
    "rule": "FACES",
-   "critical": 23,
-   "warning": 54
+   "critical": 0,
+   "warning": 57
   },
   {
    "rule": "XCU",
@@ -62,122 +58,74 @@
   {
    "rule": "SUBJECT",
    "critical": false,
-   "subject": "c:/^reader\\d$/",
+   "subject": "c:/^reader[0-2]$/",
    "shot": 2,
    "from": 129,
-   "to": 140,
-   "worst": 129,
-   "detail": "cut off right (2.40)",
+   "to": 144,
+   "worst": 139,
+   "detail": "cut off right (1.72)",
    "t0": 4.3,
-   "t1": 4.7
+   "t1": 4.83
   },
   {
    "rule": "FACES",
    "critical": false,
-   "subject": "c:/^reader\\d$/(reader0)",
+   "subject": "c:/^reader[0-2]$/(reader0)",
    "shot": 2,
    "from": 129,
-   "to": 131,
+   "to": 132,
    "worst": 129,
-   "detail": "face 32 % covered by something in front",
+   "detail": "face 24 % covered by something in front",
    "t0": 4.3,
-   "t1": 4.4
+   "t1": 4.43
   },
   {
-   "rule": "OCCLUSION",
+   "rule": "FACES",
    "critical": false,
-   "subject": "c:/^reader\\d$/",
+   "subject": "c:/^reader[0-2]$/(reader2)",
    "shot": 2,
-   "from": 129,
-   "to": 136,
-   "worst": 129,
-   "detail": "3/5 rays blocked for 5 frames",
-   "t0": 4.3,
-   "t1": 4.57
+   "from": 133,
+   "to": 141,
+   "worst": 139,
+   "detail": "head cut at the right edge",
+   "t0": 4.43,
+   "t1": 4.73
   },
   {
    "rule": "SUBJECT",
    "critical": false,
    "subject": "c:newsboy",
    "shot": 2,
-   "from": 136,
+   "from": 139,
    "to": 156,
-   "worst": 136,
-   "detail": "too small (18 % of frame height, needs 30 %)",
-   "t0": 4.53,
+   "worst": 139,
+   "detail": "too small (24 % of frame height, needs 30 %)",
+   "t0": 4.63,
    "t1": 5.23
   },
   {
    "rule": "FACES",
    "critical": false,
-   "subject": "c:/^reader\\d$/(reader1)",
+   "subject": "c:/^reader[0-2]$/(reader1)",
    "shot": 2,
-   "from": 139,
-   "to": 139,
-   "worst": 139,
+   "from": 142,
+   "to": 143,
+   "worst": 142,
    "detail": "head cut at the right edge",
-   "t0": 4.63,
-   "t1": 4.67
+   "t0": 4.73,
+   "t1": 4.8
   },
   {
    "rule": "FACES",
    "critical": false,
-   "subject": "c:/^reader\\d$/(reader3)",
-   "shot": 2,
-   "from": 139,
-   "to": 139,
-   "worst": 139,
-   "detail": "head cut at the right edge",
-   "t0": 4.63,
-   "t1": 4.67
-  },
-  {
-   "rule": "FACES",
-   "critical": false,
-   "subject": "c:/^reader\\d$/(reader4)",
-   "shot": 2,
-   "from": 140,
-   "to": 140,
-   "worst": 140,
-   "detail": "face 32 % covered by something in front",
-   "t0": 4.67,
-   "t1": 4.7
-  },
-  {
-   "rule": "FACES",
-   "critical": false,
-   "subject": "c:/^reader\\d$/(reader1)",
-   "shot": 2,
-   "from": 141,
-   "to": 141,
-   "worst": 141,
-   "detail": "face 80 % covered by something in front",
-   "t0": 4.7,
-   "t1": 4.73
-  },
-  {
-   "rule": "FACES",
-   "critical": false,
-   "subject": "c:newsboy",
+   "subject": "c:/^reader[0-2]$/(reader1)",
    "shot": 2,
    "from": 144,
-   "to": 144,
+   "to": 145,
    "worst": 144,
-   "detail": "face 48 % covered by something in front",
-   "t0": 4.8,
-   "t1": 4.83
-  },
-  {
-   "rule": "FACES",
-   "critical": false,
-   "subject": "c:/^reader\\d$/(reader1)",
-   "shot": 2,
-   "from": 145,
-   "to": 146,
-   "worst": 145,
    "detail": "face 36 % covered by something in front",
-   "t0": 4.83,
-   "t1": 4.9
+   "t0": 4.8,
+   "t1": 4.87
   },
   {
    "rule": "SUBJECT",
@@ -187,38 +135,26 @@
    "from": 189,
    "to": 193,
    "worst": 191,
-   "detail": "out of frame (x 1.15..1.25, y 0.10..0.22)",
+   "detail": "out of frame (x 1.20..1.32, y 0.03..0.17)",
    "t0": 6.3,
    "t1": 6.47
   },
   {
    "rule": "SUBJECT",
    "critical": false,
-   "subject": "c:/^reader\\d$/",
+   "subject": "c:/^reader[0-2]$/",
    "shot": 3,
    "from": 190,
    "to": 190,
    "worst": 190,
-   "detail": "cut off left (-0.03)",
+   "detail": "cut off left (-0.15)",
    "t0": 6.33,
    "t1": 6.37
   },
   {
    "rule": "FACES",
    "critical": false,
-   "subject": "c:/^reader\\d$/(reader1)",
-   "shot": 3,
-   "from": 190,
-   "to": 190,
-   "worst": 190,
-   "detail": "head cut at the left edge",
-   "t0": 6.33,
-   "t1": 6.37
-  },
-  {
-   "rule": "FACES",
-   "critical": false,
-   "subject": "c:/^reader\\d$/(reader2)",
+   "subject": "c:/^reader[0-2]$/(reader0)",
    "shot": 3,
    "from": 190,
    "to": 190,
@@ -230,12 +166,12 @@
   {
    "rule": "SUBJECT",
    "critical": false,
-   "subject": "c:/^reader\\d$/",
+   "subject": "c:/^reader[0-2]$/",
    "shot": 3,
    "from": 191,
    "to": 191,
    "worst": 191,
-   "detail": "out of frame (x -0.87..-0.02, y 0.24..0.63)",
+   "detail": "out of frame (x -1.17..-0.13, y 0.20..0.66)",
    "t0": 6.37,
    "t1": 6.4
   },
@@ -247,14 +183,14 @@
    "from": 191,
    "to": 193,
    "worst": 191,
-   "detail": "none of c:/^reader\\d$/, c:editor in view",
+   "detail": "none of c:/^reader[0-2]$/, c:editor in view",
    "t0": 6.37,
    "t1": 6.47
   },
   {
    "rule": "SUBJECT",
    "critical": false,
-   "subject": "c:/^reader\\d$/",
+   "subject": "c:/^reader[0-2]$/",
    "shot": 3,
    "from": 192,
    "to": 194,
@@ -271,7 +207,7 @@
    "from": 270,
    "to": 270,
    "worst": 270,
-   "detail": "cut off right (1.30)",
+   "detail": "cut off right (1.37)",
    "t0": 9,
    "t1": 9.03
   },
@@ -283,7 +219,19 @@
    "from": 271,
    "to": 271,
    "worst": 271,
-   "detail": "cut off right (1.03)",
+   "detail": "cut off right (1.17)",
+   "t0": 9.03,
+   "t1": 9.07
+  },
+  {
+   "rule": "FACES",
+   "critical": false,
+   "subject": "c:editor",
+   "shot": 4,
+   "from": 271,
+   "to": 271,
+   "worst": 271,
+   "detail": "head cut at the right edge",
    "t0": 9.03,
    "t1": 9.07
   },
@@ -329,71 +277,11 @@
    "subject": "c:locke",
    "shot": 5,
    "from": 320,
-   "to": 328,
-   "worst": 327,
-   "detail": "out of frame (x 1.68..2.85, y 0.27..1.33)",
+   "to": 330,
+   "worst": 328,
+   "detail": "out of frame (x 1.60..2.55, y 0.26..1.21)",
    "t0": 10.67,
-   "t1": 10.97
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "f:chart0",
-   "shot": 5,
-   "from": 324,
-   "to": 325,
-   "worst": 324,
-   "detail": "cut off top (-0.01)",
-   "t0": 10.8,
-   "t1": 10.87
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "f:chart0",
-   "shot": 5,
-   "from": 326,
-   "to": 327,
-   "worst": 327,
-   "detail": "cut off left (-0.20)",
-   "t0": 10.87,
-   "t1": 10.93
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "f:chart0",
-   "shot": 5,
-   "from": 326,
-   "to": 327,
-   "worst": 327,
-   "detail": "too small (0 % of frame height, needs 15 %)",
-   "t0": 10.87,
-   "t1": 10.93
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:editor",
-   "shot": 5,
-   "from": 327,
-   "to": 329,
-   "worst": 327,
-   "detail": "cut off left (-0.37)",
-   "t0": 10.9,
-   "t1": 11
-  },
-  {
-   "rule": "FACES",
-   "critical": false,
-   "subject": "c:editor",
-   "shot": 5,
-   "from": 327,
-   "to": 328,
-   "worst": 327,
-   "detail": "head cut at the left edge",
-   "t0": 10.9,
-   "t1": 10.97
+   "t1": 11.03
   },
   {
    "rule": "SUBJECT",
@@ -401,83 +289,59 @@
    "subject": "f:chart0",
    "shot": 5,
    "from": 328,
-   "to": 347,
-   "worst": 329,
-   "detail": "out of frame (x 10.68..23.11, y -0.05..1.29)",
-   "t0": 10.93,
-   "t1": 11.6
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:editor",
-   "shot": 5,
-   "from": 329,
    "to": 329,
-   "worst": 329,
-   "detail": "too small (29 % of frame height, needs 30 %)",
-   "t0": 10.97,
+   "worst": 328,
+   "detail": "cut off top (0.03)",
+   "t0": 10.93,
    "t1": 11
   },
   {
    "rule": "SUBJECT",
    "critical": false,
-   "subject": "c:locke",
+   "subject": "f:chart0",
    "shot": 5,
-   "from": 329,
-   "to": 331,
-   "worst": 329,
-   "detail": "cut off right (2.00)",
-   "t0": 10.97,
-   "t1": 11.07
+   "from": 330,
+   "to": 335,
+   "worst": 333,
+   "detail": "cut off left (-0.19)",
+   "t0": 11,
+   "t1": 11.2
   },
   {
    "rule": "SUBJECT",
    "critical": false,
    "subject": "c:editor",
    "shot": 5,
-   "from": 330,
-   "to": 347,
-   "worst": 330,
-   "detail": "out of frame (x 2.24..4.05, y 0.16..1.11)",
-   "t0": 11,
-   "t1": 11.6
-  },
-  {
-   "rule": "FACES",
-   "critical": false,
-   "subject": "c:locke",
-   "shot": 5,
-   "from": 330,
-   "to": 331,
-   "worst": 330,
-   "detail": "head cut at the right edge",
-   "t0": 11,
-   "t1": 11.07
-  },
-  {
-   "rule": "FACES",
-   "critical": false,
-   "subject": "c:locke",
-   "shot": 5,
-   "from": 330,
-   "to": 332,
-   "worst": 330,
-   "detail": "head centre at 82 % of the frame height",
-   "t0": 11,
-   "t1": 11.1
+   "from": 331,
+   "to": 340,
+   "worst": 333,
+   "detail": "cut off left (-0.26)",
+   "t0": 11.03,
+   "t1": 11.37
   },
   {
    "rule": "SUBJECT",
    "critical": false,
    "subject": "c:locke",
    "shot": 5,
+   "from": 331,
+   "to": 336,
+   "worst": 333,
+   "detail": "cut off right (1.20)",
+   "t0": 11.03,
+   "t1": 11.23
+  },
+  {
+   "rule": "FACES",
+   "critical": false,
+   "subject": "c:editor",
+   "shot": 5,
    "from": 332,
-   "to": 335,
-   "worst": 332,
-   "detail": "cut off left (-0.05)",
+   "to": 336,
+   "worst": 333,
+   "detail": "head cut at the left edge",
    "t0": 11.07,
-   "t1": 11.2
+   "t1": 11.23
   },
   {
    "rule": "FACES",
@@ -485,11 +349,47 @@
    "subject": "c:locke",
    "shot": 5,
    "from": 332,
-   "to": 333,
-   "worst": 332,
-   "detail": "head cut at the left edge",
+   "to": 335,
+   "worst": 333,
+   "detail": "head cut at the right edge",
    "t0": 11.07,
-   "t1": 11.13
+   "t1": 11.2
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "f:chart0",
+   "shot": 5,
+   "from": 333,
+   "to": 335,
+   "worst": 333,
+   "detail": "too small (12 % of frame height, needs 15 %)",
+   "t0": 11.1,
+   "t1": 11.2
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "f:chart0",
+   "shot": 5,
+   "from": 336,
+   "to": 347,
+   "worst": 336,
+   "detail": "out of frame (x -0.38..-0.07, y -0.21..-0.02)",
+   "t0": 11.2,
+   "t1": 11.6
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:editor",
+   "shot": 5,
+   "from": 341,
+   "to": 347,
+   "worst": 341,
+   "detail": "out of frame (x -0.37..-0.01, y -0.03..0.39)",
+   "t0": 11.37,
+   "t1": 11.6
   },
   {
    "rule": "SUBJECT",
@@ -497,11 +397,23 @@
    "subject": "c:herschelT",
    "shot": 6,
    "from": 429,
-   "to": 431,
+   "to": 433,
    "worst": 431,
-   "detail": "behind the camera",
+   "detail": "out of frame (x -0.09..-0.06, y -0.40..-0.36)",
    "t0": 14.3,
-   "t1": 14.4
+   "t1": 14.47
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:locke",
+   "shot": 6,
+   "from": 430,
+   "to": 430,
+   "worst": 430,
+   "detail": "cut off left (0.02)",
+   "t0": 14.33,
+   "t1": 14.37
   },
   {
    "rule": "SUBJECT",
@@ -525,18 +437,6 @@
    "worst": 431,
    "detail": "none of c:locke, c:herschelT in view",
    "t0": 14.37,
-   "t1": 14.47
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:herschelT",
-   "shot": 6,
-   "from": 432,
-   "to": 433,
-   "worst": 432,
-   "detail": "out of frame (x 1.32..1.76, y 0.22..0.69)",
-   "t0": 14.4,
    "t1": 14.47
   },
   {
@@ -878,26 +778,14 @@
   {
    "rule": "SUBJECT",
    "critical": false,
-   "subject": "c:bat0",
+   "subject": "c:/^bat[01]$/",
    "shot": 11,
    "from": 768,
-   "to": 781,
-   "worst": 781,
-   "detail": "out of frame (x -2.32..-1.00, y -0.62..0.10)",
-   "t0": 25.6,
-   "t1": 26.07
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:bat1",
-   "shot": 11,
-   "from": 768,
-   "to": 780,
+   "to": 779,
    "worst": 777,
-   "detail": "out of frame (x -1.47..-0.49, y -0.99..-0.27)",
+   "detail": "out of frame (x -2.33..-0.46, y -0.81..0.04)",
    "t0": 25.6,
-   "t1": 26.03
+   "t1": 26
   },
   {
    "rule": "SUBJECT",
@@ -905,11 +793,11 @@
    "subject": "f:goat",
    "shot": 11,
    "from": 772,
-   "to": 782,
+   "to": 795,
    "worst": 781,
-   "detail": "cut off right (1.13)",
+   "detail": "cut off right (1.86)",
    "t0": 25.73,
-   "t1": 26.1
+   "t1": 26.53
   },
   {
    "rule": "FACES",
@@ -924,147 +812,75 @@
    "t1": 26
   },
   {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:/^bat[01]$/",
+   "shot": 11,
+   "from": 780,
+   "to": 786,
+   "worst": 781,
+   "detail": "cut off left (-0.21)",
+   "t0": 26,
+   "t1": 26.23
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:/^bat[01]$/",
+   "shot": 11,
+   "from": 780,
+   "to": 781,
+   "worst": 781,
+   "detail": "too small (30 % of frame height, needs 30 %)",
+   "t0": 26,
+   "t1": 26.07
+  },
+  {
    "rule": "FACES",
    "critical": false,
    "subject": "f:goat",
    "shot": 11,
    "from": 781,
-   "to": 781,
-   "worst": 781,
-   "detail": "head cut at the right edge (animal)",
-   "t0": 26.03,
-   "t1": 26.07
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:bat1",
-   "shot": 11,
-   "from": 781,
    "to": 782,
    "worst": 781,
-   "detail": "cut off left (0.00)",
+   "detail": "head cut at the right edge (animal)",
    "t0": 26.03,
    "t1": 26.1
   },
   {
-   "rule": "SUBJECT",
+   "rule": "FACES",
    "critical": false,
-   "subject": "c:bat1",
+   "subject": "c:/^bat[01]$/(bat0)",
    "shot": 11,
-   "from": 781,
+   "from": 783,
    "to": 783,
    "worst": 783,
-   "detail": "too small (17 % of frame height, needs 30 %)",
-   "t0": 26.03,
+   "detail": "head cut at the left edge",
+   "t0": 26.1,
+   "t1": 26.13
+  },
+  {
+   "rule": "FACES",
+   "critical": false,
+   "subject": "c:/^bat[01]$/(bat1)",
+   "shot": 11,
+   "from": 783,
+   "to": 783,
+   "worst": 783,
+   "detail": "head cut at the top edge",
+   "t0": 26.1,
    "t1": 26.13
   },
   {
    "rule": "SUBJECT",
    "critical": false,
-   "subject": "c:bat0",
-   "shot": 11,
-   "from": 782,
-   "to": 784,
-   "worst": 783,
-   "detail": "cut off left (-0.14)",
-   "t0": 26.07,
-   "t1": 26.17
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
    "subject": "f:goat",
    "shot": 11,
-   "from": 783,
-   "to": 787,
-   "worst": 783,
-   "detail": "out of frame (x 1.11..2.18, y 0.86..1.44)",
-   "t0": 26.1,
-   "t1": 26.27
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:bat1",
-   "shot": 11,
-   "from": 783,
-   "to": 784,
-   "worst": 783,
-   "detail": "cut off top (-0.02)",
-   "t0": 26.1,
-   "t1": 26.17
-  },
-  {
-   "rule": "FACES",
-   "critical": false,
-   "subject": "c:bat1",
-   "shot": 11,
-   "from": 783,
-   "to": 784,
-   "worst": 783,
-   "detail": "head cut at the top edge",
-   "t0": 26.1,
-   "t1": 26.17
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "f:goat",
-   "shot": 11,
-   "from": 788,
+   "from": 785,
    "to": 795,
-   "worst": 793,
-   "detail": "cut off right (1.52)",
-   "t0": 26.27,
-   "t1": 26.53
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "f:goat",
-   "shot": 11,
-   "from": 788,
-   "to": 795,
-   "worst": 793,
-   "detail": "too small (13 % of frame height, needs 15 %)",
-   "t0": 26.27,
-   "t1": 26.53
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "f:goat",
-   "shot": 11,
-   "from": 788,
-   "to": 795,
-   "worst": 793,
-   "detail": "blurred (circle of confusion 2.5 px)",
-   "t0": 26.27,
-   "t1": 26.53
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:bat0",
-   "shot": 11,
-   "from": 788,
-   "to": 795,
-   "worst": 793,
-   "detail": "too small (27 % of frame height, needs 30 %)",
-   "t0": 26.27,
-   "t1": 26.53
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:bat1",
-   "shot": 11,
-   "from": 792,
-   "to": 795,
-   "worst": 793,
-   "detail": "too small (30 % of frame height, needs 30 %)",
-   "t0": 26.4,
+   "worst": 786,
+   "detail": "too small (12 % of frame height, needs 15 %)",
+   "t0": 26.17,
    "t1": 26.53
   },
   {
@@ -1072,252 +888,24 @@
    "critical": false,
    "subject": "f:goat",
    "shot": 11,
-   "from": 793,
+   "from": 786,
    "to": 795,
-   "worst": 793,
+   "worst": 786,
    "detail": "head cut at the right edge (animal)",
-   "t0": 26.43,
+   "t0": 26.2,
    "t1": 26.53
   },
   {
    "rule": "SUBJECT",
-   "critical": true,
-   "subject": "c:bat0",
-   "shot": 11,
-   "from": 796,
-   "to": 816,
-   "worst": 796,
-   "detail": "too small (27 % of frame height, needs 30 %)",
-   "t0": 26.53,
-   "t1": 27.23
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": true,
-   "subject": "c:bat1",
-   "shot": 11,
-   "from": 796,
-   "to": 803,
-   "worst": 796,
-   "detail": "too small (30 % of frame height, needs 30 %)",
-   "t0": 26.53,
-   "t1": 26.8
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": true,
-   "subject": "c:bat1",
-   "shot": 11,
-   "from": 858,
-   "to": 869,
-   "worst": 861,
-   "detail": "cut off top (0.02)",
-   "t0": 28.6,
-   "t1": 29
-  },
-  {
-   "rule": "FACES",
-   "critical": true,
-   "subject": "c:bat1",
-   "shot": 11,
-   "from": 861,
-   "to": 869,
-   "worst": 861,
-   "detail": "head (hat) touches the top edge (2.8 %)",
-   "t0": 28.7,
-   "t1": 29
-  },
-  {
-   "rule": "SUBJECT",
    "critical": false,
-   "subject": "c:bat1",
-   "shot": 12,
-   "from": 870,
-   "to": 883,
-   "worst": 870,
-   "detail": "cut off top (-0.01)",
-   "t0": 29,
-   "t1": 29.47
-  },
-  {
-   "rule": "FACES",
-   "critical": false,
-   "subject": "c:bat1",
-   "shot": 12,
-   "from": 870,
-   "to": 874,
-   "worst": 870,
-   "detail": "head (hat) touches the top edge (0.6 %)",
-   "t0": 29,
-   "t1": 29.17
-  },
-  {
-   "rule": "FACES",
-   "critical": false,
-   "subject": "c:bat1",
-   "shot": 12,
-   "from": 875,
-   "to": 879,
-   "worst": 875,
-   "detail": "head cut at the top edge",
-   "t0": 29.17,
-   "t1": 29.33
-  },
-  {
-   "rule": "FACES",
-   "critical": false,
-   "subject": "c:bat1",
+   "subject": "c:/^bat[01]$/",
    "shot": 12,
    "from": 880,
-   "to": 883,
+   "to": 882,
    "worst": 880,
-   "detail": "head (hat) touches the top edge (2.6 %)",
+   "detail": "cut off right (0.96)",
    "t0": 29.33,
-   "t1": 29.47
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:bat0",
-   "shot": 12,
-   "from": 885,
-   "to": 887,
-   "worst": 885,
-   "detail": "cut off left (0.05)",
-   "t0": 29.5,
-   "t1": 29.6
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:bat0",
-   "shot": 12,
-   "from": 895,
-   "to": 897,
-   "worst": 895,
-   "detail": "too small (30 % of frame height, needs 30 %)",
-   "t0": 29.83,
-   "t1": 29.93
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": true,
-   "subject": "c:bat0",
-   "shot": 12,
-   "from": 898,
-   "to": 901,
-   "worst": 898,
-   "detail": "too small (30 % of frame height, needs 30 %)",
-   "t0": 29.93,
-   "t1": 30.07
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": true,
-   "subject": "c:bat1",
-   "shot": 12,
-   "from": 914,
-   "to": 926,
-   "worst": 914,
-   "detail": "cut off right (0.98)",
-   "t0": 30.47,
-   "t1": 30.9
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": true,
-   "subject": "c:bat0",
-   "shot": 12,
-   "from": 936,
-   "to": 952,
-   "worst": 947,
-   "detail": "cut off left (-0.10)",
-   "t0": 31.2,
-   "t1": 31.77
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": true,
-   "subject": "c:bat1",
-   "shot": 12,
-   "from": 938,
-   "to": 952,
-   "worst": 947,
-   "detail": "cut off top (-0.00)",
-   "t0": 31.27,
-   "t1": 31.77
-  },
-  {
-   "rule": "FACES",
-   "critical": true,
-   "subject": "c:bat1",
-   "shot": 12,
-   "from": 939,
-   "to": 945,
-   "worst": 939,
-   "detail": "head (hat) touches the top edge (2.0 %)",
-   "t0": 31.3,
-   "t1": 31.53
-  },
-  {
-   "rule": "FACES",
-   "critical": true,
-   "subject": "c:bat1",
-   "shot": 12,
-   "from": 946,
-   "to": 952,
-   "worst": 947,
-   "detail": "head cut at the top edge",
-   "t0": 31.53,
-   "t1": 31.77
-  },
-  {
-   "rule": "FACES",
-   "critical": true,
-   "subject": "c:bat0",
-   "shot": 12,
-   "from": 947,
-   "to": 952,
-   "worst": 947,
-   "detail": "head cut at the left edge",
-   "t0": 31.57,
-   "t1": 31.77
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:bat1",
-   "shot": 13,
-   "from": 953,
-   "to": 953,
-   "worst": 953,
-   "detail": "cut off top (-0.02)",
-   "t0": 31.77,
-   "t1": 31.8
-  },
-  {
-   "rule": "FACES",
-   "critical": false,
-   "subject": "c:bat1",
-   "shot": 13,
-   "from": 953,
-   "to": 953,
-   "worst": 953,
-   "detail": "head cut at the top edge",
-   "t0": 31.77,
-   "t1": 31.8
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:bat0",
-   "shot": 13,
-   "from": 953,
-   "to": 953,
-   "worst": 953,
-   "detail": "cut off left (-0.10)",
-   "t0": 31.77,
-   "t1": 31.8
+   "t1": 29.43
   },
   {
    "rule": "SUBJECT",
@@ -1327,7 +915,7 @@
    "from": 953,
    "to": 957,
    "worst": 955,
-   "detail": "out of frame (x -2.05..-1.98, y 2.42..2.49)",
+   "detail": "out of frame (x -0.10..-0.08, y 1.72..1.76)",
    "t0": 31.77,
    "t1": 31.93
   },
@@ -1339,26 +927,26 @@
    "from": 953,
    "to": 956,
    "worst": 955,
-   "detail": "out of frame (x -2.11..-2.04, y 2.51..2.61)",
+   "detail": "out of frame (x -0.14..-0.11, y 1.77..1.82)",
    "t0": 31.77,
    "t1": 31.9
   },
   {
    "rule": "SUBJECT",
    "critical": false,
-   "subject": "c:bat1",
+   "subject": "c:/^bat[01]$/",
    "shot": 13,
    "from": 954,
    "to": 954,
    "worst": 954,
-   "detail": "cut off right (1.31)",
+   "detail": "cut off right (1.33)",
    "t0": 31.8,
    "t1": 31.83
   },
   {
    "rule": "FACES",
    "critical": false,
-   "subject": "c:bat1",
+   "subject": "c:/^bat[01]$/(bat0)",
    "shot": 13,
    "from": 954,
    "to": 954,
@@ -1370,24 +958,12 @@
   {
    "rule": "SUBJECT",
    "critical": false,
-   "subject": "c:bat1",
+   "subject": "c:/^bat[01]$/",
    "shot": 13,
    "from": 955,
    "to": 958,
    "worst": 955,
-   "detail": "out of frame (x -0.67..-0.58, y -2.04..-1.94)",
-   "t0": 31.83,
-   "t1": 31.97
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:bat0",
-   "shot": 13,
-   "from": 955,
-   "to": 958,
-   "worst": 955,
-   "detail": "out of frame (x -0.70..-0.60, y -2.03..-1.93)",
+   "detail": "out of frame (x -0.70..-0.57, y -2.05..-1.91)",
    "t0": 31.83,
    "t1": 31.97
   },
@@ -1399,21 +975,9 @@
    "from": 955,
    "to": 955,
    "worst": 955,
-   "detail": "none of c:bat1, c:bat0, c:town0, c:town1, ?c:/^town\\d$/, ?c:fainter in view",
+   "detail": "none of c:/^bat[01]$/, c:town0, c:town1, ?c:/^town\\d$/, ?c:fainter in view",
    "t0": 31.83,
    "t1": 31.87
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:bat1+c:bat0",
-   "shot": 13,
-   "from": 956,
-   "to": 958,
-   "worst": 956,
-   "detail": "the two overlap by 65 % on screen",
-   "t0": 31.87,
-   "t1": 31.97
   },
   {
    "rule": "SUBJECT",
@@ -1970,84 +1534,36 @@
   {
    "rule": "SUBJECT",
    "critical": false,
-   "subject": "f:rumor",
-   "shot": 19,
-   "from": 1467,
-   "to": 1470,
-   "worst": 1468,
-   "detail": "out of frame (x -3.93..-2.46, y -0.66..-0.11)",
-   "t0": 48.9,
-   "t1": 49.03
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:herschelB",
-   "shot": 19,
-   "from": 1468,
-   "to": 1470,
-   "worst": 1468,
-   "detail": "out of frame (x -2.93..-1.54, y 0.04..1.01)",
-   "t0": 48.93,
-   "t1": 49.03
-  },
-  {
-   "rule": "EMPTY",
-   "critical": false,
-   "subject": null,
-   "shot": 19,
-   "from": 1468,
-   "to": 1470,
-   "worst": 1468,
-   "detail": "none of c:herschelB, f:rumor, ?f:nosignal in view",
-   "t0": 48.93,
-   "t1": 49.03
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:herschelB",
-   "shot": 19,
-   "from": 1471,
-   "to": 1471,
-   "worst": 1471,
-   "detail": "cut off right (0.97)",
-   "t0": 49.03,
-   "t1": 49.07
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "f:rumor",
-   "shot": 19,
-   "from": 1471,
-   "to": 1471,
-   "worst": 1471,
-   "detail": "cut off right (1.03)",
-   "t0": 49.03,
-   "t1": 49.07
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
    "subject": "c:rival",
    "shot": 20,
    "from": 1545,
    "to": 1546,
    "worst": 1546,
-   "detail": "out of frame (x 1.51..1.53, y 0.30..0.33)",
+   "detail": "out of frame (x 1.36..1.38, y 0.11..0.15)",
    "t0": 51.5,
    "t1": 51.57
   },
   {
    "rule": "SUBJECT",
    "critical": false,
-   "subject": "f:rumor",
+   "subject": "c:herschelB",
    "shot": 20,
    "from": 1546,
    "to": 1546,
    "worst": 1546,
-   "detail": "cut off left (-0.18)",
+   "detail": "cut off left (-0.05)",
+   "t0": 51.53,
+   "t1": 51.57
+  },
+  {
+   "rule": "FACES",
+   "critical": false,
+   "subject": "c:herschelB",
+   "shot": 20,
+   "from": 1546,
+   "to": 1546,
+   "worst": 1546,
+   "detail": "head cut at the left edge",
    "t0": 51.53,
    "t1": 51.57
   },
@@ -2060,18 +1576,6 @@
    "to": 1550,
    "worst": 1547,
    "detail": "out of frame (x -0.14..-0.12, y 0.21..0.24)",
-   "t0": 51.57,
-   "t1": 51.7
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "f:rumor",
-   "shot": 20,
-   "from": 1547,
-   "to": 1550,
-   "worst": 1547,
-   "detail": "out of frame (x -0.14..-0.10, y 0.19..0.21)",
    "t0": 51.57,
    "t1": 51.7
   },
@@ -2107,7 +1611,7 @@
    "from": 1547,
    "to": 1549,
    "worst": 1547,
-   "detail": "none of c:herschelB, f:rumor, ?f:nosignal, c:rival in view",
+   "detail": "none of c:herschelB, c:rival in view",
    "t0": 51.57,
    "t1": 51.67
   },
@@ -2297,11 +1801,11 @@
    "subject": "c:herschelL",
    "shot": 23,
    "from": 1837,
-   "to": 1838,
+   "to": 1841,
    "worst": 1837,
-   "detail": "out of frame (x -2.44..-1.49, y 0.11..0.88)",
+   "detail": "out of frame (x 0.84..0.87, y -0.26..-0.22)",
    "t0": 61.23,
-   "t1": 61.3
+   "t1": 61.4
   },
   {
    "rule": "EMPTY",
@@ -2310,7 +1814,7 @@
    "shot": 23,
    "from": 1837,
    "to": 1839,
-   "worst": 1839,
+   "worst": 1837,
    "detail": "none of c:herschelL, c:lockeS in view",
    "t0": 61.23,
    "t1": 61.33
@@ -2322,46 +1826,10 @@
    "shot": 23,
    "from": 1838,
    "to": 1839,
-   "worst": 1839,
-   "detail": "out of frame (x 1.70..2.31, y 0.07..0.76)",
+   "worst": 1838,
+   "detail": "out of frame (x 1.44..2.20, y 0.23..0.81)",
    "t0": 61.27,
    "t1": 61.33
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:herschelL",
-   "shot": 23,
-   "from": 1839,
-   "to": 1839,
-   "worst": 1839,
-   "detail": "too small (3 % of frame height, needs 30 %)",
-   "t0": 61.3,
-   "t1": 61.33
-  },
-  {
-   "rule": "FACES",
-   "critical": false,
-   "subject": "c:herschelL",
-   "shot": 23,
-   "from": 1839,
-   "to": 1839,
-   "worst": 1839,
-   "detail": "face 100 % covered by something in front",
-   "t0": 61.3,
-   "t1": 61.33
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:herschelL",
-   "shot": 23,
-   "from": 1840,
-   "to": 1841,
-   "worst": 1840,
-   "detail": "out of frame (x -0.65..-0.63, y 0.32..0.35)",
-   "t0": 61.33,
-   "t1": 61.4
   },
   {
    "rule": "SUBJECT",
@@ -2392,59 +1860,83 @@
    "critical": false,
    "subject": "f:sig",
    "shot": 24,
-   "from": 1869,
-   "to": 1869,
-   "worst": 1869,
-   "detail": "cut off right (1.15)",
-   "t0": 62.3,
-   "t1": 62.33
+   "from": 1851,
+   "to": 1866,
+   "worst": 1859,
+   "detail": "cut off right (1.24)",
+   "t0": 61.7,
+   "t1": 62.23
   },
   {
    "rule": "SUBJECT",
    "critical": false,
    "subject": "f:sig",
    "shot": 24,
-   "from": 1869,
-   "to": 1871,
-   "worst": 1871,
-   "detail": "too small (1 % of frame height, needs 15 %)",
-   "t0": 62.3,
-   "t1": 62.4
+   "from": 1851,
+   "to": 1859,
+   "worst": 1859,
+   "detail": "too small (8 % of frame height, needs 15 %)",
+   "t0": 61.7,
+   "t1": 62
   },
   {
    "rule": "SUBJECT",
    "critical": false,
    "subject": "c:lockeS",
    "shot": 24,
-   "from": 1870,
-   "to": 1870,
-   "worst": 1870,
-   "detail": "cut off left (-0.05)",
-   "t0": 62.33,
-   "t1": 62.37
+   "from": 1859,
+   "to": 1864,
+   "worst": 1859,
+   "detail": "cut off left (-0.40)",
+   "t0": 61.97,
+   "t1": 62.17
   },
   {
    "rule": "FACES",
    "critical": false,
    "subject": "c:lockeS",
    "shot": 24,
-   "from": 1870,
-   "to": 1870,
-   "worst": 1870,
+   "from": 1860,
+   "to": 1863,
+   "worst": 1860,
    "detail": "head cut at the left edge",
-   "t0": 62.33,
-   "t1": 62.37
+   "t0": 62,
+   "t1": 62.13
   },
   {
    "rule": "FACES",
    "critical": false,
    "subject": "c:lockeS(lockeS)",
    "shot": 24,
-   "from": 1870,
-   "to": 1870,
-   "worst": 1870,
+   "from": 1860,
+   "to": 1863,
+   "worst": 1860,
    "detail": "head cut at the left edge",
-   "t0": 62.33,
+   "t0": 62,
+   "t1": 62.13
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:lockeS",
+   "shot": 24,
+   "from": 1865,
+   "to": 1866,
+   "worst": 1865,
+   "detail": "out of frame (x -1.52..-0.07, y -0.31..0.45)",
+   "t0": 62.17,
+   "t1": 62.23
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:lockeS",
+   "shot": 24,
+   "from": 1867,
+   "to": 1870,
+   "worst": 1867,
+   "detail": "cut off left (-0.29)",
+   "t0": 62.23,
    "t1": 62.37
   },
   {
@@ -2452,71 +1944,11 @@
    "critical": false,
    "subject": "c:lockeS",
    "shot": 24,
-   "from": 1871,
-   "to": 1873,
-   "worst": 1872,
-   "detail": "out of frame (x 2.34..5.87, y -0.53..0.73)",
-   "t0": 62.37,
-   "t1": 62.47
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "f:sig",
-   "shot": 24,
-   "from": 1871,
-   "to": 1871,
-   "worst": 1871,
-   "detail": "cut off left (-0.34)",
-   "t0": 62.37,
-   "t1": 62.4
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "f:sig",
-   "shot": 24,
-   "from": 1872,
-   "to": 1872,
-   "worst": 1872,
-   "detail": "out of frame (x 1.72..2.77, y 0.42..0.89)",
-   "t0": 62.4,
-   "t1": 62.43
-  },
-  {
-   "rule": "EMPTY",
-   "critical": false,
-   "subject": null,
-   "shot": 24,
-   "from": 1872,
-   "to": 1872,
-   "worst": 1872,
-   "detail": "none of c:lockeS, f:sig, ?c:lockeS in view",
-   "t0": 62.4,
-   "t1": 62.43
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "f:sig",
-   "shot": 24,
-   "from": 1873,
-   "to": 1873,
-   "worst": 1873,
-   "detail": "cut off right (1.59)",
-   "t0": 62.43,
-   "t1": 62.47
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:lockeS",
-   "shot": 24,
-   "from": 1874,
+   "from": 1867,
    "to": 1874,
-   "worst": 1874,
-   "detail": "cut off right (1.44)",
-   "t0": 62.47,
+   "worst": 1867,
+   "detail": "too small (11 % of frame height, needs 30 %)",
+   "t0": 62.23,
    "t1": 62.5
   },
   {
@@ -2524,11 +1956,11 @@
    "critical": false,
    "subject": "c:lockeS",
    "shot": 24,
-   "from": 1874,
+   "from": 1871,
    "to": 1874,
-   "worst": 1874,
-   "detail": "too small (17 % of frame height, needs 30 %)",
-   "t0": 62.47,
+   "worst": 1871,
+   "detail": "cut off right (1.10)",
+   "t0": 62.37,
    "t1": 62.5
   }
  ],
@@ -2540,31 +1972,25 @@
    "flight": true,
    "subjects": [
     "c:newsboy",
-    "c:/^reader\\d$/"
+    "c:/^reader[0-2]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:/^reader\\d$/",
-     "detail": "cut off right (11.31)",
+     "subject": "c:/^reader[0-2]$/",
+     "detail": "cut off right (2.37)",
      "critical": false
     },
     {
      "rule": "FACES",
-     "subject": "c:/^reader\\d$/(reader0)",
-     "detail": "face 32 % covered by something in front",
-     "critical": false
-    },
-    {
-     "rule": "OCCLUSION",
-     "subject": "c:/^reader\\d$/",
-     "detail": "3/5 rays blocked (start of the run)",
+     "subject": "c:/^reader[0-2]$/(reader0)",
+     "detail": "face 24 % covered by something in front",
      "critical": false
     }
    ],
-   "score": 3.6,
+   "score": 0.6000000000000001,
    "box": [
-    0.4749,
+    0.4748,
     0.2293,
     0.6593,
     0.3435
@@ -2577,33 +2003,27 @@
    "flight": true,
    "subjects": [
     "c:newsboy",
-    "c:/^reader\\d$/"
+    "c:/^reader[0-2]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:/^reader\\d$/",
-     "detail": "cut off right (8.57)",
+     "subject": "c:/^reader[0-2]$/",
+     "detail": "cut off right (2.36)",
      "critical": false
     },
     {
      "rule": "FACES",
-     "subject": "c:/^reader\\d$/(reader0)",
-     "detail": "face 32 % covered by something in front",
-     "critical": false
-    },
-    {
-     "rule": "OCCLUSION",
-     "subject": "c:/^reader\\d$/",
-     "detail": "3/5 rays blocked (start of the run)",
+     "subject": "c:/^reader[0-2]$/(reader0)",
+     "detail": "face 24 % covered by something in front",
      "critical": false
     }
    ],
-   "score": 3.6,
+   "score": 0.6000000000000001,
    "box": [
-    0.4748,
-    0.2296,
-    0.6589,
+    0.4743,
+    0.2295,
+    0.6586,
     0.3436
    ]
   },
@@ -2614,34 +2034,28 @@
    "flight": true,
    "subjects": [
     "c:newsboy",
-    "c:/^reader\\d$/"
+    "c:/^reader[0-2]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:/^reader\\d$/",
-     "detail": "cut off right (6.51)",
+     "subject": "c:/^reader[0-2]$/",
+     "detail": "cut off right (2.32)",
      "critical": false
     },
     {
      "rule": "FACES",
-     "subject": "c:/^reader\\d$/(reader0)",
-     "detail": "face 32 % covered by something in front",
-     "critical": false
-    },
-    {
-     "rule": "OCCLUSION",
-     "subject": "c:/^reader\\d$/",
-     "detail": "3/5 rays blocked (start of the run)",
+     "subject": "c:/^reader[0-2]$/(reader0)",
+     "detail": "face 24 % covered by something in front",
      "critical": false
     }
    ],
-   "score": 3.6,
+   "score": 0.6000000000000001,
    "box": [
-    0.4744,
-    0.2306,
-    0.6577,
-    0.344
+    0.4725,
+    0.23,
+    0.6564,
+    0.3439
    ]
   },
   {
@@ -2651,28 +2065,28 @@
    "flight": true,
    "subjects": [
     "c:newsboy",
-    "c:/^reader\\d$/"
+    "c:/^reader[0-2]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:/^reader\\d$/",
-     "detail": "cut off right (4.98)",
+     "subject": "c:/^reader[0-2]$/",
+     "detail": "cut off right (2.26)",
      "critical": false
     },
     {
-     "rule": "OCCLUSION",
-     "subject": "c:/^reader\\d$/",
-     "detail": "3/5 rays blocked for 4 frames",
+     "rule": "FACES",
+     "subject": "c:/^reader[0-2]$/(reader0)",
+     "detail": "face 24 % covered by something in front",
      "critical": false
     }
    ],
-   "score": 1,
+   "score": 0.6000000000000001,
    "box": [
-    0.4737,
-    0.2325,
-    0.6552,
-    0.3447
+    0.4687,
+    0.2311,
+    0.6518,
+    0.3444
    ]
   },
   {
@@ -2682,28 +2096,28 @@
    "flight": true,
    "subjects": [
     "c:newsboy",
-    "c:/^reader\\d$/"
+    "c:/^reader[0-2]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:/^reader\\d$/",
-     "detail": "cut off right (3.85)",
+     "subject": "c:/^reader[0-2]$/",
+     "detail": "cut off right (2.18)",
      "critical": false
     },
     {
-     "rule": "OCCLUSION",
-     "subject": "c:/^reader\\d$/",
-     "detail": "3/5 rays blocked for 5 frames",
+     "rule": "FACES",
+     "subject": "c:/^reader[0-2]$/(reader2)",
+     "detail": "head cut at the right edge",
      "critical": false
     }
    ],
-   "score": 1,
+   "score": 0.6000000000000001,
    "box": [
-    0.4727,
-    0.2355,
-    0.6513,
-    0.3459
+    0.4627,
+    0.2329,
+    0.6445,
+    0.3452
    ]
   },
   {
@@ -2713,28 +2127,28 @@
    "flight": true,
    "subjects": [
     "c:newsboy",
-    "c:/^reader\\d$/"
+    "c:/^reader[0-2]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:/^reader\\d$/",
-     "detail": "cut off right (3.01)",
+     "subject": "c:/^reader[0-2]$/",
+     "detail": "cut off right (2.08)",
      "critical": false
     },
     {
-     "rule": "OCCLUSION",
-     "subject": "c:/^reader\\d$/",
-     "detail": "3/5 rays blocked for 6 frames",
+     "rule": "FACES",
+     "subject": "c:/^reader[0-2]$/(reader2)",
+     "detail": "head cut at the right edge",
      "critical": false
     }
    ],
-   "score": 1,
+   "score": 0.6000000000000001,
    "box": [
-    0.4712,
-    0.2398,
-    0.6459,
-    0.3476
+    0.4543,
+    0.2354,
+    0.6342,
+    0.3464
    ]
   },
   {
@@ -2744,28 +2158,28 @@
    "flight": true,
    "subjects": [
     "c:newsboy",
-    "c:/^reader\\d$/"
+    "c:/^reader[0-2]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:/^reader\\d$/",
-     "detail": "cut off right (2.40)",
+     "subject": "c:/^reader[0-2]$/",
+     "detail": "cut off right (1.96)",
      "critical": false
     },
     {
-     "rule": "OCCLUSION",
-     "subject": "c:/^reader\\d$/",
-     "detail": "3/5 rays blocked for 7 frames",
+     "rule": "FACES",
+     "subject": "c:/^reader[0-2]$/(reader2)",
+     "detail": "head cut at the right edge",
      "critical": false
     }
    ],
-   "score": 1,
+   "score": 0.6000000000000001,
    "box": [
-    0.4694,
-    0.2451,
-    0.6392,
-    0.3496
+    0.4435,
+    0.2387,
+    0.6209,
+    0.348
    ]
   },
   {
@@ -2775,7 +2189,100 @@
    "flight": true,
    "subjects": [
     "c:newsboy",
-    "c:/^reader\\d$/"
+    "c:/^reader[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^reader[0-2]$/",
+     "detail": "cut off right (1.84)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:/^reader[0-2]$/(reader2)",
+     "detail": "head cut at the right edge",
+     "critical": false
+    }
+   ],
+   "score": 0.6000000000000001,
+   "box": [
+    0.4304,
+    0.2427,
+    0.605,
+    0.35
+   ]
+  },
+  {
+   "f": 137,
+   "t": 4.567,
+   "shot": 2,
+   "flight": true,
+   "subjects": [
+    "c:newsboy",
+    "c:/^reader[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^reader[0-2]$/",
+     "detail": "cut off right (1.72)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:/^reader[0-2]$/(reader2)",
+     "detail": "head cut at the right edge",
+     "critical": false
+    }
+   ],
+   "score": 0.6000000000000001,
+   "box": [
+    0.4154,
+    0.2473,
+    0.5867,
+    0.3523
+   ]
+  },
+  {
+   "f": 138,
+   "t": 4.6,
+   "shot": 2,
+   "flight": true,
+   "subjects": [
+    "c:newsboy",
+    "c:/^reader[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^reader[0-2]$/",
+     "detail": "cut off right (1.59)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:/^reader[0-2]$/(reader2)",
+     "detail": "head cut at the right edge",
+     "critical": false
+    }
+   ],
+   "score": 0.6000000000000001,
+   "box": [
+    0.399,
+    0.2525,
+    0.5667,
+    0.3549
+   ]
+  },
+  {
+   "f": 139,
+   "t": 4.633,
+   "shot": 2,
+   "flight": true,
+   "subjects": [
+    "c:newsboy",
+    "c:/^reader[0-2]$/"
    ],
    "fails": [
     {
@@ -2786,33 +2293,33 @@
     },
     {
      "rule": "SUBJECT",
-     "subject": "c:/^reader\\d$/",
-     "detail": "cut off right (1.94)",
+     "subject": "c:/^reader[0-2]$/",
+     "detail": "cut off right (1.47)",
      "critical": false
     },
     {
-     "rule": "OCCLUSION",
-     "subject": "c:/^reader\\d$/",
-     "detail": "3/5 rays blocked for 8 frames",
+     "rule": "FACES",
+     "subject": "c:/^reader[0-2]$/(reader2)",
+     "detail": "head cut at the right edge",
      "critical": false
     }
    ],
-   "score": 1.4000000000000001,
+   "score": 1,
    "box": [
-    0.4673,
-    0.2513,
-    0.6313,
-    0.352
+    0.3814,
+    0.2581,
+    0.5453,
+    0.3578
    ]
   },
   {
-   "f": 137,
-   "t": 4.567,
+   "f": 140,
+   "t": 4.667,
    "shot": 2,
    "flight": true,
    "subjects": [
     "c:newsboy",
-    "c:/^reader\\d$/"
+    "c:/^reader[0-2]$/"
    ],
    "fails": [
     {
@@ -2823,27 +2330,70 @@
     },
     {
      "rule": "SUBJECT",
-     "subject": "c:/^reader\\d$/",
-     "detail": "cut off right (1.60)",
+     "subject": "c:/^reader[0-2]$/",
+     "detail": "cut off right (1.36)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:/^reader[0-2]$/(reader2)",
+     "detail": "head cut at the right edge",
      "critical": false
     }
    ],
-   "score": 0.8,
+   "score": 1,
    "box": [
-    0.465,
-    0.2582,
-    0.6225,
-    0.3546
+    0.3633,
+    0.264,
+    0.5233,
+    0.3608
    ]
   },
   {
-   "f": 138,
-   "t": 4.6,
+   "f": 141,
+   "t": 4.7,
    "shot": 2,
    "flight": true,
    "subjects": [
     "c:newsboy",
-    "c:/^reader\\d$/"
+    "c:/^reader[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:newsboy",
+     "detail": "too small (28 % of frame height, needs 30 %)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^reader[0-2]$/",
+     "detail": "cut off right (1.25)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:/^reader[0-2]$/(reader2)",
+     "detail": "head cut at the right edge",
+     "critical": false
+    }
+   ],
+   "score": 1,
+   "box": [
+    0.3449,
+    0.2699,
+    0.5011,
+    0.364
+   ]
+  },
+  {
+   "f": 142,
+   "t": 4.733,
+   "shot": 2,
+   "flight": true,
+   "subjects": [
+    "c:newsboy",
+    "c:/^reader[0-2]$/"
    ],
    "fails": [
     {
@@ -2854,27 +2404,33 @@
     },
     {
      "rule": "SUBJECT",
-     "subject": "c:/^reader\\d$/",
-     "detail": "cut off right (1.33)",
+     "subject": "c:/^reader[0-2]$/",
+     "detail": "cut off right (1.15)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:/^reader[0-2]$/(reader1)",
+     "detail": "head cut at the right edge",
      "critical": false
     }
    ],
-   "score": 0.8,
+   "score": 1,
    "box": [
-    0.4626,
-    0.2655,
-    0.6133,
-    0.3573
+    0.3268,
+    0.2759,
+    0.4798,
+    0.3672
    ]
   },
   {
-   "f": 139,
-   "t": 4.633,
+   "f": 143,
+   "t": 4.767,
    "shot": 2,
    "flight": true,
    "subjects": [
     "c:newsboy",
-    "c:/^reader\\d$/"
+    "c:/^reader[0-2]$/"
    ],
    "fails": [
     {
@@ -2885,39 +2441,70 @@
     },
     {
      "rule": "SUBJECT",
-     "subject": "c:/^reader\\d$/",
-     "detail": "cut off right (1.13)",
+     "subject": "c:/^reader[0-2]$/",
+     "detail": "cut off right (1.06)",
      "critical": false
     },
     {
      "rule": "FACES",
-     "subject": "c:/^reader\\d$/(reader1)",
-     "detail": "head cut at the right edge",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:/^reader\\d$/(reader3)",
+     "subject": "c:/^reader[0-2]$/(reader1)",
      "detail": "head cut at the right edge",
      "critical": false
     }
    ],
-   "score": 1.2,
+   "score": 1,
    "box": [
-    0.4602,
-    0.2729,
-    0.604,
-    0.3601
+    0.3093,
+    0.2816,
+    0.4593,
+    0.3703
    ]
   },
   {
-   "f": 140,
-   "t": 4.667,
+   "f": 144,
+   "t": 4.8,
    "shot": 2,
    "flight": true,
    "subjects": [
     "c:newsboy",
-    "c:/^reader\\d$/"
+    "c:/^reader[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:newsboy",
+     "detail": "too small (26 % of frame height, needs 30 %)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^reader[0-2]$/",
+     "detail": "cut off right (0.98)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:/^reader[0-2]$/(reader1)",
+     "detail": "face 24 % covered by something in front",
+     "critical": false
+    }
+   ],
+   "score": 1,
+   "box": [
+    0.2926,
+    0.287,
+    0.4398,
+    0.3734
+   ]
+  },
+  {
+   "f": 145,
+   "t": 4.833,
+   "shot": 2,
+   "flight": true,
+   "subjects": [
+    "c:newsboy",
+    "c:/^reader[0-2]$/"
    ],
    "fails": [
     {
@@ -2927,34 +2514,103 @@
      "critical": false
     },
     {
-     "rule": "SUBJECT",
-     "subject": "c:/^reader\\d$/",
-     "detail": "cut off right (0.98)",
-     "critical": false
-    },
-    {
      "rule": "FACES",
-     "subject": "c:/^reader\\d$/(reader4)",
-     "detail": "face 32 % covered by something in front",
+     "subject": "c:/^reader[0-2]$/(reader1)",
+     "detail": "face 36 % covered by something in front",
      "critical": false
     }
    ],
-   "score": 1,
+   "score": 0.6000000000000001,
    "box": [
-    0.4579,
-    0.2802,
-    0.5948,
-    0.3628
+    0.277,
+    0.2921,
+    0.4217,
+    0.3762
    ]
   },
   {
-   "f": 141,
-   "t": 4.7,
+   "f": 146,
+   "t": 4.867,
    "shot": 2,
    "flight": true,
    "subjects": [
     "c:newsboy",
-    "c:/^reader\\d$/"
+    "c:/^reader[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:newsboy",
+     "detail": "too small (25 % of frame height, needs 30 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.2627,
+    0.2967,
+    0.4051,
+    0.3789
+   ]
+  },
+  {
+   "f": 147,
+   "t": 4.9,
+   "shot": 2,
+   "flight": true,
+   "subjects": [
+    "c:newsboy",
+    "c:/^reader[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:newsboy",
+     "detail": "too small (24 % of frame height, needs 30 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.2498,
+    0.3008,
+    0.3903,
+    0.3813
+   ]
+  },
+  {
+   "f": 148,
+   "t": 4.933,
+   "shot": 2,
+   "flight": true,
+   "subjects": [
+    "c:newsboy",
+    "c:/^reader[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:newsboy",
+     "detail": "too small (24 % of frame height, needs 30 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.2385,
+    0.3044,
+    0.3773,
+    0.3834
+   ]
+  },
+  {
+   "f": 149,
+   "t": 4.967,
+   "shot": 2,
+   "flight": true,
+   "subjects": [
+    "c:newsboy",
+    "c:/^reader[0-2]$/"
    ],
    "fails": [
     {
@@ -2962,30 +2618,124 @@
      "subject": "c:newsboy",
      "detail": "too small (23 % of frame height, needs 30 %)",
      "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:/^reader\\d$/(reader1)",
-     "detail": "face 80 % covered by something in front",
-     "critical": false
     }
    ],
-   "score": 0.6000000000000001,
+   "score": 0.4,
    "box": [
-    0.4557,
-    0.2872,
-    0.586,
-    0.3654
+    0.2288,
+    0.3074,
+    0.3662,
+    0.3852
    ]
   },
   {
-   "f": 142,
-   "t": 4.733,
+   "f": 150,
+   "t": 5,
    "shot": 2,
    "flight": true,
    "subjects": [
     "c:newsboy",
-    "c:/^reader\\d$/"
+    "c:/^reader[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:newsboy",
+     "detail": "too small (23 % of frame height, needs 30 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.2208,
+    0.3099,
+    0.357,
+    0.3867
+   ]
+  },
+  {
+   "f": 151,
+   "t": 5.033,
+   "shot": 2,
+   "flight": true,
+   "subjects": [
+    "c:newsboy",
+    "c:/^reader[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:newsboy",
+     "detail": "too small (23 % of frame height, needs 30 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.2144,
+    0.3119,
+    0.3497,
+    0.3879
+   ]
+  },
+  {
+   "f": 152,
+   "t": 5.067,
+   "shot": 2,
+   "flight": true,
+   "subjects": [
+    "c:newsboy",
+    "c:/^reader[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:newsboy",
+     "detail": "too small (23 % of frame height, needs 30 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.2097,
+    0.3134,
+    0.3443,
+    0.3888
+   ]
+  },
+  {
+   "f": 153,
+   "t": 5.1,
+   "shot": 2,
+   "flight": true,
+   "subjects": [
+    "c:newsboy",
+    "c:/^reader[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:newsboy",
+     "detail": "too small (23 % of frame height, needs 30 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.2064,
+    0.3144,
+    0.3405,
+    0.3894
+   ]
+  },
+  {
+   "f": 154,
+   "t": 5.133,
+   "shot": 2,
+   "flight": true,
+   "subjects": [
+    "c:newsboy",
+    "c:/^reader[0-2]$/"
    ],
    "fails": [
     {
@@ -2997,328 +2747,10 @@
    ],
    "score": 0.4,
    "box": [
-    0.4537,
-    0.2938,
-    0.5777,
-    0.3679
-   ]
-  },
-  {
-   "f": 143,
-   "t": 4.767,
-   "shot": 2,
-   "flight": true,
-   "subjects": [
-    "c:newsboy",
-    "c:/^reader\\d$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:newsboy",
-     "detail": "too small (21 % of frame height, needs 30 %)",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.4519,
-    0.2998,
-    0.5701,
-    0.3701
-   ]
-  },
-  {
-   "f": 144,
-   "t": 4.8,
-   "shot": 2,
-   "flight": true,
-   "subjects": [
-    "c:newsboy",
-    "c:/^reader\\d$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:newsboy",
-     "detail": "too small (20 % of frame height, needs 30 %)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:newsboy",
-     "detail": "face 48 % covered by something in front",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0.4502,
-    0.3052,
-    0.5632,
-    0.3721
-   ]
-  },
-  {
-   "f": 145,
-   "t": 4.833,
-   "shot": 2,
-   "flight": true,
-   "subjects": [
-    "c:newsboy",
-    "c:/^reader\\d$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:newsboy",
-     "detail": "too small (19 % of frame height, needs 30 %)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:/^reader\\d$/(reader1)",
-     "detail": "face 80 % covered by something in front",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0.4487,
-    0.31,
-    0.557,
-    0.3738
-   ]
-  },
-  {
-   "f": 146,
-   "t": 4.867,
-   "shot": 2,
-   "flight": true,
-   "subjects": [
-    "c:newsboy",
-    "c:/^reader\\d$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:newsboy",
-     "detail": "too small (18 % of frame height, needs 30 %)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:/^reader\\d$/(reader1)",
-     "detail": "face 36 % covered by something in front",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0.4475,
-    0.3142,
-    0.5517,
-    0.3754
-   ]
-  },
-  {
-   "f": 147,
-   "t": 4.9,
-   "shot": 2,
-   "flight": true,
-   "subjects": [
-    "c:newsboy",
-    "c:/^reader\\d$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:newsboy",
-     "detail": "too small (18 % of frame height, needs 30 %)",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.4464,
-    0.3178,
-    0.547,
-    0.3767
-   ]
-  },
-  {
-   "f": 148,
-   "t": 4.933,
-   "shot": 2,
-   "flight": true,
-   "subjects": [
-    "c:newsboy",
-    "c:/^reader\\d$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:newsboy",
-     "detail": "too small (17 % of frame height, needs 30 %)",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.4454,
-    0.3208,
-    0.5431,
-    0.3778
-   ]
-  },
-  {
-   "f": 149,
-   "t": 4.967,
-   "shot": 2,
-   "flight": true,
-   "subjects": [
-    "c:newsboy",
-    "c:/^reader\\d$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:newsboy",
-     "detail": "too small (17 % of frame height, needs 30 %)",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.4447,
-    0.3233,
-    0.5399,
-    0.3787
-   ]
-  },
-  {
-   "f": 150,
-   "t": 5,
-   "shot": 2,
-   "flight": true,
-   "subjects": [
-    "c:newsboy",
-    "c:/^reader\\d$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:newsboy",
-     "detail": "too small (16 % of frame height, needs 30 %)",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.4441,
-    0.3253,
-    0.5372,
-    0.3794
-   ]
-  },
-  {
-   "f": 151,
-   "t": 5.033,
-   "shot": 2,
-   "flight": true,
-   "subjects": [
-    "c:newsboy",
-    "c:/^reader\\d$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:newsboy",
-     "detail": "too small (16 % of frame height, needs 30 %)",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.4436,
-    0.3269,
-    0.5352,
-    0.38
-   ]
-  },
-  {
-   "f": 152,
-   "t": 5.067,
-   "shot": 2,
-   "flight": true,
-   "subjects": [
-    "c:newsboy",
-    "c:/^reader\\d$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:newsboy",
-     "detail": "too small (16 % of frame height, needs 30 %)",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.4433,
-    0.328,
-    0.5337,
-    0.3804
-   ]
-  },
-  {
-   "f": 153,
-   "t": 5.1,
-   "shot": 2,
-   "flight": true,
-   "subjects": [
-    "c:newsboy",
-    "c:/^reader\\d$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:newsboy",
-     "detail": "too small (16 % of frame height, needs 30 %)",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.443,
-    0.3288,
-    0.5327,
-    0.3807
-   ]
-  },
-  {
-   "f": 154,
-   "t": 5.133,
-   "shot": 2,
-   "flight": true,
-   "subjects": [
-    "c:newsboy",
-    "c:/^reader\\d$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:newsboy",
-     "detail": "too small (15 % of frame height, needs 30 %)",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.4429,
-    0.3293,
-    0.5321,
-    0.3809
+    0.2044,
+    0.315,
+    0.3382,
+    0.3897
    ]
   },
   {
@@ -3328,22 +2760,22 @@
    "flight": true,
    "subjects": [
     "c:newsboy",
-    "c:/^reader\\d$/"
+    "c:/^reader[0-2]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "c:newsboy",
-     "detail": "too small (15 % of frame height, needs 30 %)",
+     "detail": "too small (22 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.4428,
-    0.3295,
-    0.5318,
-    0.381
+    0.2034,
+    0.3153,
+    0.3371,
+    0.3899
    ]
   },
   {
@@ -3353,22 +2785,22 @@
    "flight": true,
    "subjects": [
     "c:newsboy",
-    "c:/^reader\\d$/"
+    "c:/^reader[0-2]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "c:newsboy",
-     "detail": "too small (15 % of frame height, needs 30 %)",
+     "detail": "too small (22 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.4428,
-    0.3295,
-    0.5317,
-    0.381
+    0.2032,
+    0.3153,
+    0.3369,
+    0.39
    ]
   },
   {
@@ -3377,23 +2809,23 @@
    "shot": 3,
    "flight": true,
    "subjects": [
-    "c:/^reader\\d$/",
+    "c:/^reader[0-2]$/",
     "c:editor"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "c:editor",
-     "detail": "out of frame (x 2.50..2.76, y 0.17..0.33)",
+     "detail": "out of frame (x 2.74..3.04, y 0.10..0.29)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.3764,
-    0.2005,
-    0.4736,
-    0.2884
+    0.1929,
+    0.1482,
+    0.3276,
+    0.2645
    ]
   },
   {
@@ -3402,42 +2834,31 @@
    "shot": 3,
    "flight": true,
    "subjects": [
-    "c:/^reader\\d$/",
+    "c:/^reader[0-2]$/",
     "c:editor"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:/^reader\\d$/",
-     "detail": "cut off left (-0.03)",
+     "subject": "c:/^reader[0-2]$/",
+     "detail": "cut off left (-0.15)",
      "critical": false
     },
     {
      "rule": "FACES",
-     "subject": "c:/^reader\\d$/(reader1)",
-     "detail": "head cut at the left edge",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:/^reader\\d$/(reader2)",
+     "subject": "c:/^reader[0-2]$/(reader0)",
      "detail": "head cut at the left edge",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:editor",
-     "detail": "out of frame (x 2.05..2.24, y 0.14..0.28)",
+     "detail": "out of frame (x 2.23..2.46, y 0.07..0.24)",
      "critical": false
     }
    ],
-   "score": 1.2000000000000002,
-   "box": [
-    0.0998,
-    0.2044,
-    0.2084,
-    0.2932
-   ]
+   "score": 1,
+   "box": null
   },
   {
    "f": 191,
@@ -3445,25 +2866,25 @@
    "shot": 3,
    "flight": true,
    "subjects": [
-    "c:/^reader\\d$/",
+    "c:/^reader[0-2]$/",
     "c:editor"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:/^reader\\d$/",
-     "detail": "out of frame (x -0.87..-0.02, y 0.24..0.63)",
+     "subject": "c:/^reader[0-2]$/",
+     "detail": "out of frame (x -1.17..-0.13, y 0.20..0.66)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:editor",
-     "detail": "out of frame (x 1.15..1.25, y 0.10..0.22)",
+     "detail": "out of frame (x 1.20..1.32, y 0.03..0.17)",
      "critical": false
     },
     {
      "rule": "EMPTY",
-     "detail": "none of c:/^reader\\d$/, c:editor in view",
+     "detail": "none of c:/^reader[0-2]$/, c:editor in view",
      "critical": false
     }
    ],
@@ -3476,25 +2897,25 @@
    "shot": 3,
    "flight": true,
    "subjects": [
-    "c:/^reader\\d$/",
+    "c:/^reader[0-2]$/",
     "c:editor"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:/^reader\\d$/",
+     "subject": "c:/^reader[0-2]$/",
      "detail": "behind the camera",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:editor",
-     "detail": "out of frame (x 2.92..4.02, y -0.05..0.91)",
+     "detail": "out of frame (x 3.35..4.69, y -0.11..1.16)",
      "critical": false
     },
     {
      "rule": "EMPTY",
-     "detail": "none of c:/^reader\\d$/, c:editor in view",
+     "detail": "none of c:/^reader[0-2]$/, c:editor in view",
      "critical": false
     }
    ],
@@ -3507,25 +2928,25 @@
    "shot": 3,
    "flight": true,
    "subjects": [
-    "c:/^reader\\d$/",
+    "c:/^reader[0-2]$/",
     "c:editor"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:/^reader\\d$/",
+     "subject": "c:/^reader[0-2]$/",
      "detail": "behind the camera",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:editor",
-     "detail": "out of frame (x 1.19..1.62, y 0.10..0.70)",
+     "detail": "out of frame (x 1.33..1.86, y 0.10..0.87)",
      "critical": false
     },
     {
      "rule": "EMPTY",
-     "detail": "none of c:/^reader\\d$/, c:editor in view",
+     "detail": "none of c:/^reader[0-2]$/, c:editor in view",
      "critical": false
     }
    ],
@@ -3538,23 +2959,23 @@
    "shot": 3,
    "flight": true,
    "subjects": [
-    "c:/^reader\\d$/",
+    "c:/^reader[0-2]$/",
     "c:editor"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:/^reader\\d$/",
+     "subject": "c:/^reader[0-2]$/",
      "detail": "behind the camera",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.4929,
-    0.1332,
-    0.7825,
-    0.3136
+    0.5498,
+    0.1439,
+    0.91,
+    0.3665
    ]
   },
   {
@@ -3570,16 +2991,16 @@
     {
      "rule": "SUBJECT",
      "subject": "f:chart0",
-     "detail": "cut off right (1.30)",
+     "detail": "cut off right (1.37)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.3266,
-    0.0586,
-    0.6769,
-    0.2775
+    0.341,
+    0.0672,
+    0.7775,
+    0.3377
    ]
   },
   {
@@ -3595,22 +3016,28 @@
     {
      "rule": "SUBJECT",
      "subject": "c:editor",
-     "detail": "cut off right (1.03)",
+     "detail": "cut off right (1.17)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:editor",
+     "detail": "head cut at the right edge",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:chart0",
-     "detail": "out of frame (x 1.14..1.66, y -0.04..0.20)",
+     "detail": "out of frame (x 1.20..1.76, y -0.02..0.26)",
      "critical": false
     }
    ],
-   "score": 0.8,
+   "score": 1,
    "box": [
-    0.6334,
-    0.0562,
-    0.9896,
-    0.277
+    0.6781,
+    0.0632,
+    1,
+    0.3368
    ]
   },
   {
@@ -3626,13 +3053,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:editor",
-     "detail": "out of frame (x 1.43..2.04, y -0.00..0.77)",
+     "detail": "out of frame (x 1.58..2.31, y -0.02..0.98)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:chart0",
-     "detail": "out of frame (x 2.18..3.01, y -0.14..0.17)",
+     "detail": "out of frame (x 2.33..3.22, y -0.13..0.22)",
      "critical": false
     },
     {
@@ -3726,9 +3153,9 @@
    ],
    "score": 0.4,
    "box": [
-    0.5186,
+    0.5184,
     0.2151,
-    0.7771,
+    0.7768,
     0.3745
    ]
   },
@@ -3746,16 +3173,16 @@
     {
      "rule": "SUBJECT",
      "subject": "c:locke",
-     "detail": "out of frame (x 1.79..2.86, y 0.25..1.27)",
+     "detail": "out of frame (x 1.79..2.84, y 0.24..1.26)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.5178,
-    0.215,
-    0.7769,
-    0.3748
+    0.5153,
+    0.2149,
+    0.7735,
+    0.3742
    ]
   },
   {
@@ -3772,16 +3199,16 @@
     {
      "rule": "SUBJECT",
      "subject": "c:locke",
-     "detail": "out of frame (x 1.79..2.88, y 0.25..1.29)",
+     "detail": "out of frame (x 1.77..2.81, y 0.25..1.25)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.5088,
-    0.2131,
-    0.7696,
-    0.3739
+    0.5057,
+    0.2142,
+    0.7634,
+    0.3733
    ]
   },
   {
@@ -3798,21 +3225,125 @@
     {
      "rule": "SUBJECT",
      "subject": "c:locke",
-     "detail": "out of frame (x 1.75..2.88, y 0.26..1.31)",
+     "detail": "out of frame (x 1.73..2.76, y 0.25..1.24)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.4754,
-    0.2047,
-    0.7399,
-    0.368
+    0.4868,
+    0.2127,
+    0.744,
+    0.3715
    ]
   },
   {
    "f": 324,
    "t": 10.8,
+   "shot": 5,
+   "flight": true,
+   "subjects": [
+    "c:editor",
+    "f:chart0",
+    "c:locke"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:locke",
+     "detail": "out of frame (x 1.67..2.67, y 0.25..1.23)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.4573,
+    0.2104,
+    0.7137,
+    0.3687
+   ]
+  },
+  {
+   "f": 325,
+   "t": 10.833,
+   "shot": 5,
+   "flight": true,
+   "subjects": [
+    "c:editor",
+    "f:chart0",
+    "c:locke"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:locke",
+     "detail": "out of frame (x 1.60..2.55, y 0.26..1.21)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.4168,
+    0.2068,
+    0.6722,
+    0.3645
+   ]
+  },
+  {
+   "f": 326,
+   "t": 10.867,
+   "shot": 5,
+   "flight": true,
+   "subjects": [
+    "c:editor",
+    "f:chart0",
+    "c:locke"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:locke",
+     "detail": "out of frame (x 1.51..2.41, y 0.26..1.18)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.366,
+    0.2017,
+    0.6203,
+    0.3587
+   ]
+  },
+  {
+   "f": 327,
+   "t": 10.9,
+   "shot": 5,
+   "flight": true,
+   "subjects": [
+    "c:editor",
+    "f:chart0",
+    "c:locke"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:locke",
+     "detail": "out of frame (x 1.40..2.26, y 0.26..1.15)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.3065,
+    0.195,
+    0.5595,
+    0.3512
+   ]
+  },
+  {
+   "f": 328,
+   "t": 10.933,
    "shot": 5,
    "flight": true,
    "subjects": [
@@ -3830,180 +3361,16 @@
     {
      "rule": "SUBJECT",
      "subject": "c:locke",
-     "detail": "out of frame (x 1.68..2.85, y 0.27..1.33)",
+     "detail": "out of frame (x 1.29..2.09, y 0.27..1.12)",
      "critical": false
     }
    ],
    "score": 0.8,
    "box": [
-    0.4064,
-    0.1853,
-    0.6778,
-    0.3526
-   ]
-  },
-  {
-   "f": 325,
-   "t": 10.833,
-   "shot": 5,
-   "flight": true,
-   "subjects": [
-    "c:editor",
-    "f:chart0",
-    "c:locke"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "f:chart0",
-     "detail": "cut off top (-0.01)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:locke",
-     "detail": "out of frame (x 1.56..2.80, y 0.27..1.36)",
-     "critical": false
-    }
-   ],
-   "score": 0.8,
-   "box": [
-    0.2959,
-    0.1484,
-    0.5781,
-    0.3224
-   ]
-  },
-  {
-   "f": 326,
-   "t": 10.867,
-   "shot": 5,
-   "flight": true,
-   "subjects": [
-    "c:editor",
-    "f:chart0",
-    "c:locke"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "f:chart0",
-     "detail": "cut off left (0.01)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:chart0",
-     "detail": "too small (12 % of frame height, needs 15 %)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:locke",
-     "detail": "out of frame (x 1.40..2.73, y 0.27..1.36)",
-     "critical": false
-    }
-   ],
-   "score": 1.2000000000000002,
-   "box": [
-    0.1402,
-    0.0851,
-    0.4423,
-    0.2698
-   ]
-  },
-  {
-   "f": 327,
-   "t": 10.9,
-   "shot": 5,
-   "flight": true,
-   "subjects": [
-    "c:editor",
-    "f:chart0",
-    "c:locke"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:editor",
-     "detail": "cut off left (-0.10)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:editor",
-     "detail": "head cut at the left edge",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:chart0",
-     "detail": "cut off left (-0.20)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:chart0",
-     "detail": "too small (0 % of frame height, needs 15 %)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:locke",
-     "detail": "out of frame (x 1.21..2.65, y 0.27..1.35)",
-     "critical": false
-    }
-   ],
-   "score": 1.7999999999999998,
-   "box": [
-    0,
-    0,
-    0.2769,
-    0.1848
-   ]
-  },
-  {
-   "f": 328,
-   "t": 10.933,
-   "shot": 5,
-   "flight": true,
-   "subjects": [
-    "c:editor",
-    "f:chart0",
-    "c:locke"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:editor",
-     "detail": "cut off left (-0.37)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:editor",
-     "detail": "head cut at the left edge",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:chart0",
-     "detail": "out of frame (x -0.48..-0.03, y -0.48..-0.18)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:locke",
-     "detail": "out of frame (x 1.02..2.56, y 0.28..1.30)",
-     "critical": false
-    }
-   ],
-   "score": 1.4,
-   "box": [
-    0,
-    0,
-    0.0854,
-    0.0554
+    0.2404,
+    0.1865,
+    0.4923,
+    0.3418
    ]
   },
   {
@@ -4019,31 +3386,24 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:editor",
-     "detail": "cut off left (-0.71)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:editor",
-     "detail": "too small (29 % of frame height, needs 30 %)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "f:chart0",
-     "detail": "out of frame (x -0.87..-0.25, y -0.87..-0.46)",
+     "detail": "cut off top (0.03)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:locke",
-     "detail": "cut off right (2.38)",
+     "detail": "out of frame (x 1.17..1.93, y 0.27..1.09)",
      "critical": false
     }
    ],
-   "score": 1.6,
-   "box": null
+   "score": 0.8,
+   "box": [
+    0.1703,
+    0.176,
+    0.4229,
+    0.3306
+   ]
   },
   {
    "f": 330,
@@ -4058,41 +3418,23 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:editor",
-     "detail": "out of frame (x -1.10..-0.06, y -0.78..0.09)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "f:chart0",
-     "detail": "out of frame (x -1.43..-0.46, y -1.59..-0.90)",
+     "detail": "cut off left (-0.01)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:locke",
-     "detail": "cut off right (2.00)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:locke",
-     "detail": "head cut at the right edge",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:locke",
-     "detail": "head centre at 75 % of the frame height",
+     "detail": "out of frame (x 1.05..1.76, y 0.27..1.05)",
      "critical": false
     }
    ],
-   "score": 1.6,
+   "score": 0.8,
    "box": [
-    0.7641,
-    0.6361,
-    1,
-    0.8174
+    0.0991,
+    0.1637,
+    0.3526,
+    0.3175
    ]
   },
   {
@@ -4109,36 +3451,29 @@
     {
      "rule": "SUBJECT",
      "subject": "c:editor",
-     "detail": "out of frame (x -1.23..0.01, y -1.25..-0.16)",
+     "detail": "cut off left (0.00)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:chart0",
-     "detail": "out of frame (x -1.83..-0.35, y -3.05..-1.60)",
+     "detail": "cut off left (-0.07)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:locke",
-     "detail": "cut off right (1.12)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:locke",
-     "detail": "head cut at the right edge",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:locke",
-     "detail": "head centre at 82 % of the frame height",
+     "detail": "cut off right (1.60)",
      "critical": false
     }
    ],
-   "score": 1.6,
-   "box": null
+   "score": 1.2000000000000002,
+   "box": [
+    0.0294,
+    0.1496,
+    0.284,
+    0.3027
+   ]
   },
   {
    "f": 332,
@@ -4154,40 +3489,40 @@
     {
      "rule": "SUBJECT",
      "subject": "c:editor",
-     "detail": "out of frame (x 1.26..2.94, y -1.47..-0.25)",
+     "detail": "cut off left (-0.06)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:editor",
+     "detail": "head cut at the left edge",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:chart0",
-     "detail": "out of frame (x 3.62..8.89, y -4.21..-1.95)",
+     "detail": "cut off left (-0.13)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:locke",
-     "detail": "cut off left (-0.15)",
+     "detail": "cut off right (1.46)",
      "critical": false
     },
     {
      "rule": "FACES",
      "subject": "c:locke",
-     "detail": "head cut at the left edge",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:locke",
-     "detail": "head centre at 73 % of the frame height",
+     "detail": "head cut at the right edge",
      "critical": false
     }
    ],
-   "score": 1.6,
+   "score": 1.5999999999999999,
    "box": [
     0,
-    0.7129,
-    0.4727,
-    0.7485
+    0.1341,
+    0.2194,
+    0.2864
    ]
   },
   {
@@ -4204,34 +3539,46 @@
     {
      "rule": "SUBJECT",
      "subject": "c:editor",
-     "detail": "out of frame (x 2.28..4.46, y 0.70..1.25)",
+     "detail": "cut off left (-0.13)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:editor",
+     "detail": "head cut at the left edge",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:chart0",
-     "detail": "out of frame (x 6.70..21.02, y 1.61..6.38)",
+     "detail": "cut off left (-0.19)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:chart0",
+     "detail": "too small (14 % of frame height, needs 15 %)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:locke",
-     "detail": "cut off left (-0.24)",
+     "detail": "cut off right (1.32)",
      "critical": false
     },
     {
      "rule": "FACES",
      "subject": "c:locke",
-     "detail": "head cut at the left edge",
+     "detail": "head cut at the right edge",
      "critical": false
     }
    ],
-   "score": 1.4000000000000001,
+   "score": 1.9999999999999998,
    "box": [
     0,
-    0.2761,
-    0.4526,
-    0.386
+    0.1175,
+    0.1606,
+    0.2691
    ]
   },
   {
@@ -4248,28 +3595,46 @@
     {
      "rule": "SUBJECT",
      "subject": "c:editor",
-     "detail": "out of frame (x 2.31..4.84, y 0.89..1.54)",
+     "detail": "cut off left (-0.18)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:editor",
+     "detail": "head cut at the left edge",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:chart0",
-     "detail": "out of frame (x 8.07..23.26, y 2.44..5.32)",
+     "detail": "cut off left (-0.23)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:chart0",
+     "detail": "too small (12 % of frame height, needs 15 %)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:locke",
-     "detail": "cut off left (-0.05)",
+     "detail": "cut off right (1.20)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:locke",
+     "detail": "head cut at the right edge",
      "critical": false
     }
    ],
-   "score": 1.2000000000000002,
+   "score": 1.9999999999999998,
    "box": [
-    0.008,
-    0.1938,
-    0.5782,
-    0.3571
+    0,
+    0.1001,
+    0.1086,
+    0.251
    ]
   },
   {
@@ -4286,28 +3651,46 @@
     {
      "rule": "SUBJECT",
      "subject": "c:editor",
-     "detail": "out of frame (x 2.41..5.68, y 0.74..1.43)",
+     "detail": "cut off left (-0.23)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:editor",
+     "detail": "head cut at the left edge",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:chart0",
-     "detail": "out of frame (x 11.06..75.08, y 2.89..12.92)",
+     "detail": "cut off left (-0.27)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:chart0",
+     "detail": "too small (10 % of frame height, needs 15 %)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:locke",
-     "detail": "cut off left (0.03)",
+     "detail": "cut off right (1.10)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:locke",
+     "detail": "head cut at the right edge",
      "critical": false
     }
    ],
-   "score": 1.2000000000000002,
+   "score": 1.9999999999999998,
    "box": [
-    0.0885,
-    0.1243,
-    0.6281,
-    0.3346
+    0,
+    0.0824,
+    0.0641,
+    0.2326
    ]
   },
   {
@@ -4324,22 +3707,34 @@
     {
      "rule": "SUBJECT",
      "subject": "c:editor",
-     "detail": "out of frame (x 2.44..5.79, y 0.50..1.35)",
+     "detail": "cut off left (-0.26)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:editor",
+     "detail": "head cut at the left edge",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:chart0",
-     "detail": "out of frame (x 12.87..114.35, y 2.64..10.93)",
+     "detail": "out of frame (x -0.30..-0.01, y -0.11..0.08)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:locke",
+     "detail": "cut off right (1.01)",
      "critical": false
     }
    ],
-   "score": 0.8,
+   "score": 1.4,
    "box": [
-    0.1346,
-    0.0879,
-    0.6268,
-    0.3182
+    0,
+    0.0649,
+    0.027,
+    0.2144
    ]
   },
   {
@@ -4356,22 +3751,22 @@
     {
      "rule": "SUBJECT",
      "subject": "c:editor",
-     "detail": "out of frame (x 2.40..5.28, y 0.32..1.29)",
+     "detail": "cut off left (-0.29)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:chart0",
-     "detail": "out of frame (x 12.39..47.00, y 1.80..1.94)",
+     "detail": "out of frame (x -0.33..-0.03, y -0.14..0.06)",
      "critical": false
     }
    ],
    "score": 0.8,
    "box": [
-    0.1718,
-    0.0817,
-    0.6136,
-    0.3123
+    0.4729,
+    0.2392,
+    0.8846,
+    0.4746
    ]
   },
   {
@@ -4388,22 +3783,22 @@
     {
      "rule": "SUBJECT",
      "subject": "c:editor",
-     "detail": "out of frame (x 2.33..4.63, y 0.22..1.20)",
+     "detail": "cut off left (-0.32)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:chart0",
-     "detail": "out of frame (x 10.68..23.11, y -0.05..1.29)",
+     "detail": "out of frame (x -0.35..-0.05, y -0.15..0.04)",
      "critical": false
     }
    ],
    "score": 0.8,
    "box": [
-    0.205,
-    0.0936,
-    0.6019,
-    0.3145
+    0.4156,
+    0.2305,
+    0.8205,
+    0.4614
    ]
   },
   {
@@ -4420,22 +3815,22 @@
     {
      "rule": "SUBJECT",
      "subject": "c:editor",
-     "detail": "out of frame (x 2.24..4.05, y 0.16..1.11)",
+     "detail": "cut off left (-0.34)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:chart0",
-     "detail": "out of frame (x 8.96..94.39, y -0.41..11.86)",
+     "detail": "out of frame (x -0.36..-0.06, y -0.17..0.02)",
      "critical": false
     }
    ],
    "score": 0.8,
    "box": [
-    0.232,
-    0.1122,
-    0.5925,
-    0.3206
+    0.3686,
+    0.2221,
+    0.7676,
+    0.4492
    ]
   },
   {
@@ -4452,22 +3847,22 @@
     {
      "rule": "SUBJECT",
      "subject": "c:editor",
-     "detail": "out of frame (x 2.16..3.62, y 0.14..1.03)",
+     "detail": "cut off left (-0.35)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:chart0",
-     "detail": "out of frame (x 7.64..35.58, y -0.47..3.43)",
+     "detail": "out of frame (x -0.37..-0.06, y -0.19..0.01)",
      "critical": false
     }
    ],
    "score": 0.8,
    "box": [
-    0.2531,
-    0.1313,
-    0.5851,
-    0.3277
+    0.3309,
+    0.2145,
+    0.725,
+    0.4383
    ]
   },
   {
@@ -4484,22 +3879,22 @@
     {
      "rule": "SUBJECT",
      "subject": "c:editor",
-     "detail": "out of frame (x 2.08..3.30, y 0.13..0.97)",
+     "detail": "out of frame (x -0.36..-0.00, y -0.01..0.42)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:chart0",
-     "detail": "out of frame (x 6.71..93.40, y -4.93..1.68)",
+     "detail": "out of frame (x -0.38..-0.07, y -0.20..-0.01)",
      "critical": false
     }
    ],
    "score": 0.8,
    "box": [
-    0.2689,
-    0.148,
-    0.5796,
-    0.3344
+    0.3016,
+    0.2079,
+    0.6916,
+    0.4291
    ]
   },
   {
@@ -4516,22 +3911,22 @@
     {
      "rule": "SUBJECT",
      "subject": "c:editor",
-     "detail": "out of frame (x 2.02..3.09, y 0.13..0.93)",
+     "detail": "out of frame (x -0.37..-0.01, y -0.02..0.41)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:chart0",
-     "detail": "out of frame (x 6.09..33.28, y -2.16..1.04)",
+     "detail": "out of frame (x -0.38..-0.07, y -0.21..-0.02)",
      "critical": false
     }
    ],
    "score": 0.8,
    "box": [
-    0.2804,
-    0.1614,
-    0.5756,
-    0.3399
+    0.2796,
+    0.2024,
+    0.6664,
+    0.4216
    ]
   },
   {
@@ -4548,22 +3943,22 @@
     {
      "rule": "SUBJECT",
      "subject": "c:editor",
-     "detail": "out of frame (x 1.98..2.94, y 0.13..0.90)",
+     "detail": "out of frame (x -0.37..-0.01, y -0.03..0.40)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:chart0",
-     "detail": "out of frame (x 5.67..22.22, y -1.60..0.75)",
+     "detail": "out of frame (x -0.39..-0.07, y -0.22..-0.02)",
      "critical": false
     }
    ],
    "score": 0.8,
    "box": [
-    0.2884,
-    0.1712,
-    0.5728,
-    0.3441
+    0.2638,
+    0.1983,
+    0.6483,
+    0.4159
    ]
   },
   {
@@ -4580,22 +3975,22 @@
     {
      "rule": "SUBJECT",
      "subject": "c:editor",
-     "detail": "out of frame (x 1.95..2.85, y 0.13..0.88)",
+     "detail": "out of frame (x -0.37..-0.01, y -0.03..0.39)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:chart0",
-     "detail": "out of frame (x 5.42..18.05, y -1.38..0.61)",
+     "detail": "out of frame (x -0.39..-0.07, y -0.23..-0.03)",
      "critical": false
     }
    ],
    "score": 0.8,
    "box": [
-    0.2937,
-    0.1779,
-    0.571,
-    0.3469
+    0.2534,
+    0.1954,
+    0.6363,
+    0.412
    ]
   },
   {
@@ -4612,22 +4007,22 @@
     {
      "rule": "SUBJECT",
      "subject": "c:editor",
-     "detail": "out of frame (x 1.93..2.79, y 0.13..0.87)",
+     "detail": "out of frame (x -0.38..-0.01, y -0.04..0.39)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:chart0",
-     "detail": "out of frame (x 5.28..16.23, y -1.28..0.55)",
+     "detail": "out of frame (x -0.39..-0.07, y -0.23..-0.03)",
      "critical": false
     }
    ],
    "score": 0.8,
    "box": [
-    0.2967,
-    0.1817,
-    0.57,
-    0.3486
+    0.2474,
+    0.1937,
+    0.6293,
+    0.4097
    ]
   },
   {
@@ -4644,22 +4039,22 @@
     {
      "rule": "SUBJECT",
      "subject": "c:editor",
-     "detail": "out of frame (x 1.92..2.77, y 0.13..0.86)",
+     "detail": "out of frame (x -0.38..-0.01, y -0.04..0.39)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:chart0",
-     "detail": "out of frame (x 5.21..15.51, y -1.24..0.52)",
+     "detail": "out of frame (x -0.39..-0.07, y -0.23..-0.03)",
      "critical": false
     }
    ],
    "score": 0.8,
    "box": [
-    0.298,
-    0.1835,
-    0.5695,
-    0.3494
+    0.2447,
+    0.1929,
+    0.6262,
+    0.4086
    ]
   },
   {
@@ -4676,22 +4071,22 @@
     {
      "rule": "SUBJECT",
      "subject": "c:editor",
-     "detail": "out of frame (x 1.92..2.77, y 0.13..0.86)",
+     "detail": "out of frame (x -0.38..-0.01, y -0.04..0.39)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:chart0",
-     "detail": "out of frame (x 5.20..15.35, y -1.23..0.51)",
+     "detail": "out of frame (x -0.39..-0.07, y -0.23..-0.03)",
      "critical": false
     }
    ],
    "score": 0.8,
    "box": [
-    0.2983,
-    0.1839,
-    0.5694,
-    0.3496
+    0.2441,
+    0.1927,
+    0.6254,
+    0.4083
    ]
   },
   {
@@ -4707,16 +4102,16 @@
     {
      "rule": "SUBJECT",
      "subject": "c:herschelT",
-     "detail": "behind the camera",
+     "detail": "out of frame (x 1.30..1.33, y -0.40..-0.36)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.4161,
-    0.1839,
-    0.6915,
-    0.3522
+    0.3569,
+    0.1908,
+    0.7441,
+    0.4098
    ]
   },
   {
@@ -4731,17 +4126,23 @@
    "fails": [
     {
      "rule": "SUBJECT",
+     "subject": "c:locke",
+     "detail": "cut off left (0.02)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
      "subject": "c:herschelT",
-     "detail": "behind the camera",
+     "detail": "out of frame (x 0.94..0.97, y -0.40..-0.36)",
      "critical": false
     }
    ],
-   "score": 0.4,
+   "score": 0.8,
    "box": [
-    0.1395,
-    0.1842,
-    0.419,
-    0.3531
+    0.0608,
+    0.1925,
+    0.453,
+    0.4122
    ]
   },
   {
@@ -4757,13 +4158,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:locke",
-     "detail": "out of frame (x -0.80..-0.31, y 0.18..0.70)",
+     "detail": "out of frame (x -0.95..-0.24, y 0.20..0.85)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:herschelT",
-     "detail": "behind the camera",
+     "detail": "out of frame (x -0.09..-0.06, y -0.40..-0.36)",
      "critical": false
     },
     {
@@ -7110,28 +6511,21 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "out of frame (x -1.80..-0.79, y -0.75..-0.12)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "out of frame (x -1.28..-0.41, y -1.14..-0.46)",
+     "subject": "c:/^bat[01]$/",
+     "detail": "out of frame (x -1.91..-0.36, y -0.94..-0.15)",
      "critical": false
     }
    ],
-   "score": 0.8,
+   "score": 0.4,
    "box": [
     0.208,
     0.294,
-    0.926,
+    0.9261,
     0.5119
    ]
   },
@@ -7143,28 +6537,21 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "out of frame (x -1.77..-0.78, y -0.67..-0.06)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "out of frame (x -1.25..-0.40, y -1.06..-0.40)",
+     "subject": "c:/^bat[01]$/",
+     "detail": "out of frame (x -1.88..-0.35, y -0.86..-0.09)",
      "critical": false
     }
    ],
-   "score": 0.8,
+   "score": 0.4,
    "box": [
-    0.2071,
-    0.2834,
-    0.9285,
+    0.207,
+    0.2833,
+    0.9288,
     0.5026
    ]
   },
@@ -7176,29 +6563,22 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "out of frame (x -1.76..-0.78, y -0.61..-0.02)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "out of frame (x -1.25..-0.40, y -1.00..-0.35)",
+     "subject": "c:/^bat[01]$/",
+     "detail": "out of frame (x -1.88..-0.35, y -0.81..-0.05)",
      "critical": false
     }
    ],
-   "score": 0.8,
+   "score": 0.4,
    "box": [
-    0.2048,
-    0.2724,
-    0.9331,
-    0.4939
+    0.2042,
+    0.2719,
+    0.9339,
+    0.4938
    ]
   },
   {
@@ -7209,29 +6589,22 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "out of frame (x -1.78..-0.79, y -0.57..0.02)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "out of frame (x -1.26..-0.40, y -0.96..-0.31)",
+     "subject": "c:/^bat[01]$/",
+     "detail": "out of frame (x -1.91..-0.36, y -0.77..-0.01)",
      "critical": false
     }
    ],
-   "score": 0.8,
+   "score": 0.4,
    "box": [
-    0.2003,
-    0.261,
-    0.9405,
-    0.4893
+    0.1989,
+    0.2599,
+    0.9425,
+    0.4892
    ]
   },
   {
@@ -7242,34 +6615,27 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "cut off right (0.95)",
+     "detail": "cut off right (0.96)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "out of frame (x -1.84..-0.81, y -0.54..0.05)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "out of frame (x -1.30..-0.42, y -0.94..-0.29)",
+     "subject": "c:/^bat[01]$/",
+     "detail": "out of frame (x -1.98..-0.38, y -0.75..0.02)",
      "critical": false
     }
    ],
-   "score": 1.2000000000000002,
+   "score": 0.8,
    "box": [
-    0.1931,
-    0.2495,
-    0.9517,
+    0.1905,
+    0.2473,
+    0.9556,
     0.4891
    ]
   },
@@ -7281,8 +6647,7 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
@@ -7293,23 +6658,17 @@
     },
     {
      "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "out of frame (x -1.93..-0.85, y -0.54..0.08)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "out of frame (x -1.36..-0.45, y -0.95..-0.27)",
+     "subject": "c:/^bat[01]$/",
+     "detail": "out of frame (x -2.12..-0.41, y -0.77..0.04)",
      "critical": false
     }
    ],
-   "score": 1.2000000000000002,
+   "score": 0.8,
    "box": [
-    0.1827,
-    0.2379,
-    0.9673,
-    0.4889
+    0.178,
+    0.2339,
+    0.9743,
+    0.4888
    ]
   },
   {
@@ -7320,35 +6679,28 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "cut off right (0.99)",
+     "detail": "cut off right (1.00)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "out of frame (x -2.09..-0.91, y -0.57..0.09)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "out of frame (x -1.47..-0.49, y -0.99..-0.27)",
+     "subject": "c:/^bat[01]$/",
+     "detail": "out of frame (x -2.33..-0.46, y -0.81..0.04)",
      "critical": false
     }
    ],
-   "score": 1.2000000000000002,
+   "score": 0.8,
    "box": [
-    0.1682,
-    0.2259,
-    0.9885,
-    0.4887
+    0.1604,
+    0.2193,
+    0.9999,
+    0.4886
    ]
   },
   {
@@ -7359,35 +6711,28 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "cut off right (1.02)",
+     "detail": "cut off right (1.03)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "out of frame (x -2.32..-1.00, y -0.62..0.10)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "out of frame (x -1.63..-0.55, y -1.07..-0.29)",
+     "subject": "c:/^bat[01]$/",
+     "detail": "out of frame (x -2.66..-0.52, y -0.90..0.04)",
      "critical": false
     }
    ],
-   "score": 1.2000000000000002,
+   "score": 0.8,
    "box": [
-    0.1488,
-    0.2133,
+    0.1365,
+    0.2028,
     1,
-    0.4884
+    0.4881
    ]
   },
   {
@@ -7398,35 +6743,28 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "cut off right (1.05)",
+     "detail": "cut off right (1.08)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "out of frame (x -2.65..-1.12, y -0.73..0.09)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "out of frame (x -1.85..-0.63, y -1.21..-0.32)",
+     "subject": "c:/^bat[01]$/",
+     "detail": "out of frame (x -3.15..-0.62, y -1.04..0.01)",
      "critical": false
     }
    ],
-   "score": 1.2000000000000002,
+   "score": 0.8,
    "box": [
-    0.1248,
-    0.1998,
+    0.1066,
+    0.184,
     1,
-    0.4883
+    0.4877
    ]
   },
   {
@@ -7437,14 +6775,13 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "cut off right (1.13)",
+     "detail": "cut off right (1.16)",
      "critical": false
     },
     {
@@ -7455,23 +6792,17 @@
     },
     {
      "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "out of frame (x -2.83..-1.18, y -0.79..0.08)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "out of frame (x -1.97..-0.65, y -1.30..-0.34)",
+     "subject": "c:/^bat[01]$/",
+     "detail": "out of frame (x -3.07..-0.59, y -1.05..0.01)",
      "critical": false
     }
    ],
-   "score": 1.4,
+   "score": 1,
    "box": [
-    0.1325,
-    0.2004,
+    0.1258,
+    0.1885,
     1,
-    0.5057
+    0.5093
    ]
   },
   {
@@ -7482,14 +6813,13 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "cut off right (1.26)",
+     "detail": "cut off right (1.29)",
      "critical": false
     },
     {
@@ -7500,23 +6830,17 @@
     },
     {
      "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "out of frame (x -2.49..-1.04, y -0.70..0.10)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "out of frame (x -1.71..-0.52, y -1.20..-0.31)",
+     "subject": "c:/^bat[01]$/",
+     "detail": "out of frame (x -2.62..-0.46, y -0.96..0.03)",
      "critical": false
     }
    ],
-   "score": 1.4,
+   "score": 1,
    "box": [
-    0.2169,
-    0.2367,
+    0.207,
+    0.2225,
     1,
-    0.5647
+    0.5708
    ]
   },
   {
@@ -7527,14 +6851,13 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "cut off right (1.46)",
+     "detail": "cut off right (1.47)",
      "critical": false
     },
     {
@@ -7545,23 +6868,17 @@
     },
     {
      "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "out of frame (x -1.90..-0.77, y -0.53..0.14)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "out of frame (x -1.25..-0.28, y -0.99..-0.23)",
+     "subject": "c:/^bat[01]$/",
+     "detail": "out of frame (x -1.92..-0.21, y -0.78..0.09)",
      "critical": false
     }
    ],
-   "score": 1.4,
+   "score": 1,
    "box": [
-    0.3673,
-    0.3068,
+    0.3475,
+    0.2905,
     1,
-    0.6638
+    0.6712
    ]
   },
   {
@@ -7572,35 +6889,34 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "cut off right (1.71)",
+     "detail": "cut off right (1.66)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "out of frame (x -1.28..-0.44, y -0.33..0.23)",
+     "subject": "c:/^bat[01]$/",
+     "detail": "cut off left (-1.24)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "out of frame (x -0.74..0.02, y -0.73..-0.11)",
+     "subject": "c:/^bat[01]$/",
+     "detail": "too small (18 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
    "score": 1.2000000000000002,
    "box": [
-    0.5569,
-    0.3974,
+    0.5141,
+    0.3763,
     1,
-    0.7919
+    0.794
    ]
   },
   {
@@ -7611,14 +6927,13 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "cut off right (1.96)",
+     "detail": "cut off right (1.81)",
      "critical": false
     },
     {
@@ -7629,29 +6944,23 @@
     },
     {
      "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "out of frame (x -0.76..-0.12, y -0.12..0.34)",
+     "subject": "c:/^bat[01]$/",
+     "detail": "cut off left (-0.71)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off left (-0.31)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "too small (3 % of frame height, needs 30 %)",
+     "subject": "c:/^bat[01]$/",
+     "detail": "too small (30 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
-   "score": 1.7999999999999998,
+   "score": 1.4,
    "box": [
-    0.7491,
-    0.507,
+    0.6651,
+    0.4778,
     1,
-    0.9465
+    0.9282
    ]
   },
   {
@@ -7662,39 +6971,32 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "cut off right (2.15)",
+     "detail": "cut off right (1.94)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "f:goat",
+     "detail": "head cut at the right edge (animal)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (-0.38)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off left (0.00)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "too small (17 % of frame height, needs 30 %)",
+     "subject": "c:/^bat[01]$/",
+     "detail": "cut off left (-0.43)",
      "critical": false
     }
    ],
-   "score": 1.6,
+   "score": 1,
    "box": [
-    0.9085,
-    0.6037,
+    0.805,
+    0.5983,
     1,
     1
    ]
@@ -7707,47 +7009,40 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "out of frame (x 1.03..2.23, y 0.71..1.25)",
+     "detail": "cut off right (1.94)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (-0.14)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (-0.10)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "too small (28 % of frame height, needs 30 %)",
+     "subject": "c:/^bat[01]$/",
+     "detail": "cut off left (-0.21)",
      "critical": false
     },
     {
      "rule": "FACES",
-     "subject": "c:bat1",
+     "subject": "c:/^bat[01]$/(bat0)",
+     "detail": "head cut at the left edge",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:/^bat[01]$/(bat1)",
      "detail": "head cut at the top edge",
      "critical": false
     }
    ],
-   "score": 1.8,
+   "score": 1.2,
    "box": [
-    0.0116,
-    0.1978,
-    0.2014,
-    0.3134
+    0.8977,
+    0.7226,
+    1,
+    1
    ]
   },
   {
@@ -7758,41 +7053,28 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "out of frame (x 1.11..2.34, y 0.81..1.43)",
+     "detail": "cut off right (1.86)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (-0.01)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (-0.02)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head cut at the top edge",
+     "subject": "c:/^bat[01]$/",
+     "detail": "cut off left (-0.07)",
      "critical": false
     }
    ],
-   "score": 1.4000000000000001,
+   "score": 0.8,
    "box": [
-    0.1376,
-    0.2785,
-    0.324,
-    0.3921
+    0.934,
+    0.815,
+    1,
+    1
    ]
   },
   {
@@ -7803,23 +7085,34 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "out of frame (x 1.11..2.18, y 0.86..1.44)",
+     "detail": "cut off right (1.74)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:goat",
+     "detail": "too small (13 % of frame height, needs 15 %)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bat[01]$/",
+     "detail": "cut off left (0.00)",
      "critical": false
     }
    ],
-   "score": 0.4,
+   "score": 1.2000000000000002,
    "box": [
-    0.2191,
-    0.3376,
-    0.3943,
-    0.4449
+    0.9281,
+    0.8659,
+    1,
+    1
    ]
   },
   {
@@ -7830,23 +7123,40 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "out of frame (x 1.07..2.00, y 0.87..1.40)",
+     "detail": "cut off right (1.61)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:goat",
+     "detail": "too small (12 % of frame height, needs 15 %)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "f:goat",
+     "detail": "head cut at the right edge (animal)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bat[01]$/",
+     "detail": "cut off left (0.04)",
      "critical": false
     }
    ],
-   "score": 0.4,
+   "score": 1.4,
    "box": [
-    0.2535,
-    0.3627,
-    0.4197,
-    0.465
+    0.8973,
+    0.8807,
+    1,
+    1
    ]
   },
   {
@@ -7857,23 +7167,34 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "out of frame (x 1.02..1.84, y 0.87..1.35)",
+     "detail": "cut off right (1.50)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:goat",
+     "detail": "too small (12 % of frame height, needs 15 %)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "f:goat",
+     "detail": "head cut at the right edge (animal)",
      "critical": false
     }
    ],
-   "score": 0.4,
+   "score": 1,
    "box": [
-    0.2661,
-    0.3705,
-    0.4253,
-    0.4686
+    0.8613,
+    0.8781,
+    1,
+    1
    ]
   },
   {
@@ -7884,37 +7205,35 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "cut off right (1.73)",
+     "detail": "cut off right (1.41)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "too small (13 % of frame height, needs 15 %)",
+     "detail": "too small (12 % of frame height, needs 15 %)",
      "critical": false
     },
     {
-     "rule": "SUBJECT",
+     "rule": "FACES",
      "subject": "f:goat",
-     "detail": "blurred (circle of confusion 1.9 px)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (30 % of frame height, needs 30 %)",
+     "detail": "head cut at the right edge (animal)",
      "critical": false
     }
    ],
-   "score": 1.6,
-   "box": null
+   "score": 1,
+   "box": [
+    0.8329,
+    0.8755,
+    1,
+    1
+   ]
   },
   {
    "f": 789,
@@ -7924,39 +7243,32 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "cut off right (1.65)",
+     "detail": "cut off right (1.35)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "too small (13 % of frame height, needs 15 %)",
+     "detail": "too small (12 % of frame height, needs 15 %)",
      "critical": false
     },
     {
-     "rule": "SUBJECT",
+     "rule": "FACES",
      "subject": "f:goat",
-     "detail": "blurred (circle of confusion 2.2 px)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (29 % of frame height, needs 30 %)",
+     "detail": "head cut at the right edge (animal)",
      "critical": false
     }
    ],
-   "score": 1.6,
+   "score": 1,
    "box": [
-    0.9568,
-    0.867,
+    0.8114,
+    0.875,
     1,
     1
    ]
@@ -7969,39 +7281,32 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "cut off right (1.59)",
+     "detail": "cut off right (1.31)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "too small (13 % of frame height, needs 15 %)",
+     "detail": "too small (12 % of frame height, needs 15 %)",
      "critical": false
     },
     {
-     "rule": "SUBJECT",
+     "rule": "FACES",
      "subject": "f:goat",
-     "detail": "blurred (circle of confusion 2.3 px)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (28 % of frame height, needs 30 %)",
+     "detail": "head cut at the right edge (animal)",
      "critical": false
     }
    ],
-   "score": 1.6,
+   "score": 1,
    "box": [
-    0.9366,
-    0.8706,
+    0.7956,
+    0.8765,
     1,
     1
    ]
@@ -8014,39 +7319,32 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "cut off right (1.55)",
+     "detail": "cut off right (1.28)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "too small (13 % of frame height, needs 15 %)",
+     "detail": "too small (12 % of frame height, needs 15 %)",
      "critical": false
     },
     {
-     "rule": "SUBJECT",
+     "rule": "FACES",
      "subject": "f:goat",
-     "detail": "blurred (circle of confusion 2.4 px)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (27 % of frame height, needs 30 %)",
+     "detail": "head cut at the right edge (animal)",
      "critical": false
     }
    ],
-   "score": 1.6,
+   "score": 1,
    "box": [
-    0.9226,
-    0.874,
+    0.7847,
+    0.878,
     1,
     1
    ]
@@ -8059,14 +7357,13 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "cut off right (1.52)",
+     "detail": "cut off right (1.26)",
      "critical": false
     },
     {
@@ -8076,28 +7373,16 @@
      "critical": false
     },
     {
-     "rule": "SUBJECT",
+     "rule": "FACES",
      "subject": "f:goat",
-     "detail": "blurred (circle of confusion 2.5 px)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (27 % of frame height, needs 30 %)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "too small (30 % of frame height, needs 30 %)",
+     "detail": "head cut at the right edge (animal)",
      "critical": false
     }
    ],
-   "score": 2,
+   "score": 1,
    "box": [
-    0.9138,
-    0.8703,
+    0.778,
+    0.8744,
     1,
     1
    ]
@@ -8110,14 +7395,13 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "cut off right (1.51)",
+     "detail": "cut off right (1.25)",
      "critical": false
     },
     {
@@ -8127,34 +7411,16 @@
      "critical": false
     },
     {
-     "rule": "SUBJECT",
-     "subject": "f:goat",
-     "detail": "blurred (circle of confusion 2.6 px)",
-     "critical": false
-    },
-    {
      "rule": "FACES",
      "subject": "f:goat",
      "detail": "head cut at the right edge (animal)",
      "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (27 % of frame height, needs 30 %)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "too small (30 % of frame height, needs 30 %)",
-     "critical": false
     }
    ],
-   "score": 2.2,
+   "score": 1,
    "box": [
-    0.909,
-    0.8682,
+    0.7743,
+    0.8724,
     1,
     1
    ]
@@ -8167,14 +7433,13 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "cut off right (1.51)",
+     "detail": "cut off right (1.25)",
      "critical": false
     },
     {
@@ -8184,9 +7449,9 @@
      "critical": false
     },
     {
-     "rule": "SUBJECT",
+     "rule": "FACES",
      "subject": "f:goat",
-     "detail": "blurred (circle of confusion 2.6 px)",
+     "detail": "head cut at the right edge (animal)",
      "critical": false
     },
     {
@@ -8194,24 +7459,12 @@
      "subject": "f:goat",
      "detail": "head cut at the right edge (animal)",
      "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (27 % of frame height, needs 30 %)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "too small (30 % of frame height, needs 30 %)",
-     "critical": false
     }
    ],
-   "score": 2.2,
+   "score": 1.2,
    "box": [
-    0.907,
-    0.8673,
+    0.7728,
+    0.8715,
     1,
     1
    ]
@@ -8224,14 +7477,13 @@
    "subjects": [
     "f:goat",
     "?f:wave",
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "f:goat",
-     "detail": "cut off right (1.51)",
+     "detail": "cut off right (1.25)",
      "critical": false
     },
     {
@@ -8241,9 +7493,9 @@
      "critical": false
     },
     {
-     "rule": "SUBJECT",
+     "rule": "FACES",
      "subject": "f:goat",
-     "detail": "blurred (circle of confusion 2.6 px)",
+     "detail": "head cut at the right edge (animal)",
      "critical": false
     },
     {
@@ -8251,1263 +7503,14 @@
      "subject": "f:goat",
      "detail": "head cut at the right edge (animal)",
      "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (27 % of frame height, needs 30 %)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "too small (30 % of frame height, needs 30 %)",
-     "critical": false
     }
    ],
-   "score": 2.2,
+   "score": 1.2,
    "box": [
-    0.9066,
-    0.8672,
+    0.7725,
+    0.8713,
     1,
     1
-   ]
-  },
-  {
-   "f": 796,
-   "t": 26.533,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (27 % of frame height, needs 30 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "too small (30 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 4,
-   "box": [
-    0.295,
-    0.3969,
-    0.4359,
-    0.4832
-   ]
-  },
-  {
-   "f": 797,
-   "t": 26.567,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (27 % of frame height, needs 30 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "too small (30 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 4,
-   "box": [
-    0.295,
-    0.3978,
-    0.4359,
-    0.4842
-   ]
-  },
-  {
-   "f": 798,
-   "t": 26.6,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (27 % of frame height, needs 30 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "too small (30 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 4,
-   "box": [
-    0.295,
-    0.3985,
-    0.436,
-    0.4849
-   ]
-  },
-  {
-   "f": 799,
-   "t": 26.633,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (27 % of frame height, needs 30 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "too small (30 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 4,
-   "box": [
-    0.2951,
-    0.3991,
-    0.4362,
-    0.4856
-   ]
-  },
-  {
-   "f": 800,
-   "t": 26.667,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (27 % of frame height, needs 30 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "too small (30 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 4,
-   "box": [
-    0.2951,
-    0.3996,
-    0.4364,
-    0.4862
-   ]
-  },
-  {
-   "f": 801,
-   "t": 26.7,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (27 % of frame height, needs 30 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "too small (30 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 4,
-   "box": [
-    0.2952,
-    0.3999,
-    0.4368,
-    0.4867
-   ]
-  },
-  {
-   "f": 802,
-   "t": 26.733,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (27 % of frame height, needs 30 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "too small (30 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 4,
-   "box": [
-    0.2952,
-    0.4,
-    0.4372,
-    0.487
-   ]
-  },
-  {
-   "f": 803,
-   "t": 26.767,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (27 % of frame height, needs 30 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "too small (30 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 4,
-   "box": [
-    0.2953,
-    0.4,
-    0.4378,
-    0.4873
-   ]
-  },
-  {
-   "f": 804,
-   "t": 26.8,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (27 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2954,
-    0.3999,
-    0.4385,
-    0.4876
-   ]
-  },
-  {
-   "f": 805,
-   "t": 26.833,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (27 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2956,
-    0.3996,
-    0.4394,
-    0.4877
-   ]
-  },
-  {
-   "f": 806,
-   "t": 26.867,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (27 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2957,
-    0.3991,
-    0.4404,
-    0.4878
-   ]
-  },
-  {
-   "f": 807,
-   "t": 26.9,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (28 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2959,
-    0.3986,
-    0.4414,
-    0.4878
-   ]
-  },
-  {
-   "f": 808,
-   "t": 26.933,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (28 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2961,
-    0.3979,
-    0.4427,
-    0.4877
-   ]
-  },
-  {
-   "f": 809,
-   "t": 26.967,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (28 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2963,
-    0.397,
-    0.444,
-    0.4875
-   ]
-  },
-  {
-   "f": 810,
-   "t": 27,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (28 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2965,
-    0.396,
-    0.4454,
-    0.4873
-   ]
-  },
-  {
-   "f": 811,
-   "t": 27.033,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (28 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2967,
-    0.3949,
-    0.4469,
-    0.487
-   ]
-  },
-  {
-   "f": 812,
-   "t": 27.067,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (29 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2969,
-    0.3937,
-    0.4484,
-    0.4866
-   ]
-  },
-  {
-   "f": 813,
-   "t": 27.1,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (29 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2972,
-    0.3924,
-    0.4501,
-    0.4861
-   ]
-  },
-  {
-   "f": 814,
-   "t": 27.133,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (29 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2974,
-    0.391,
-    0.4517,
-    0.4855
-   ]
-  },
-  {
-   "f": 815,
-   "t": 27.167,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (30 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2977,
-    0.3895,
-    0.4534,
-    0.4849
-   ]
-  },
-  {
-   "f": 816,
-   "t": 27.2,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (30 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2979,
-    0.3879,
-    0.4551,
-    0.4842
-   ]
-  },
-  {
-   "f": 858,
-   "t": 28.6,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (0.05)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2382,
-    0.3661,
-    0.4241,
-    0.4797
-   ]
-  },
-  {
-   "f": 859,
-   "t": 28.633,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (0.04)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2358,
-    0.3657,
-    0.4224,
-    0.4797
-   ]
-  },
-  {
-   "f": 860,
-   "t": 28.667,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (0.04)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2338,
-    0.3654,
-    0.421,
-    0.4796
-   ]
-  },
-  {
-   "f": 861,
-   "t": 28.7,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (0.04)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head (hat) touches the top edge (4.3 %)",
-     "critical": true
-    }
-   ],
-   "score": 3,
-   "box": [
-    0.2322,
-    0.365,
-    0.4198,
-    0.4796
-   ]
-  },
-  {
-   "f": 862,
-   "t": 28.733,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (0.03)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head (hat) touches the top edge (3.9 %)",
-     "critical": true
-    }
-   ],
-   "score": 3,
-   "box": [
-    0.2308,
-    0.3647,
-    0.4188,
-    0.4794
-   ]
-  },
-  {
-   "f": 863,
-   "t": 28.767,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (0.03)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head (hat) touches the top edge (3.5 %)",
-     "critical": true
-    }
-   ],
-   "score": 3,
-   "box": [
-    0.2298,
-    0.3643,
-    0.4181,
-    0.4792
-   ]
-  },
-  {
-   "f": 864,
-   "t": 28.8,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (0.02)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head (hat) touches the top edge (3.2 %)",
-     "critical": true
-    }
-   ],
-   "score": 3,
-   "box": [
-    0.2291,
-    0.3639,
-    0.4175,
-    0.4789
-   ]
-  },
-  {
-   "f": 865,
-   "t": 28.833,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (0.02)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head (hat) touches the top edge (2.8 %)",
-     "critical": true
-    }
-   ],
-   "score": 3,
-   "box": [
-    0.2286,
-    0.3634,
-    0.4172,
-    0.4785
-   ]
-  },
-  {
-   "f": 866,
-   "t": 28.867,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (0.02)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head (hat) touches the top edge (2.5 %)",
-     "critical": true
-    }
-   ],
-   "score": 3,
-   "box": [
-    0.2284,
-    0.3628,
-    0.4171,
-    0.478
-   ]
-  },
-  {
-   "f": 867,
-   "t": 28.9,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (0.01)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head (hat) touches the top edge (2.2 %)",
-     "critical": true
-    }
-   ],
-   "score": 3,
-   "box": [
-    0.2283,
-    0.362,
-    0.417,
-    0.4772
-   ]
-  },
-  {
-   "f": 868,
-   "t": 28.933,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (0.01)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head (hat) touches the top edge (1.9 %)",
-     "critical": true
-    }
-   ],
-   "score": 3,
-   "box": [
-    0.2283,
-    0.3611,
-    0.417,
-    0.4763
-   ]
-  },
-  {
-   "f": 869,
-   "t": 28.967,
-   "shot": 11,
-   "flight": false,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (0.01)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head (hat) touches the top edge (1.6 %)",
-     "critical": true
-    }
-   ],
-   "score": 3,
-   "box": [
-    0.2282,
-    0.3599,
-    0.417,
-    0.4751
-   ]
-  },
-  {
-   "f": 870,
-   "t": 29,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (0.01)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head (hat) touches the top edge (1.2 %)",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0.2282,
-    0.3584,
-    0.417,
-    0.4737
-   ]
-  },
-  {
-   "f": 871,
-   "t": 29.033,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (0.00)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head (hat) touches the top edge (0.9 %)",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0.2281,
-    0.3568,
-    0.4169,
-    0.4721
-   ]
-  },
-  {
-   "f": 872,
-   "t": 29.067,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (-0.00)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head (hat) touches the top edge (0.6 %)",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0.228,
-    0.355,
-    0.4168,
-    0.4704
-   ]
-  },
-  {
-   "f": 873,
-   "t": 29.1,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (-0.00)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head (hat) touches the top edge (0.3 %)",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0.2277,
-    0.3532,
-    0.4166,
-    0.4687
-   ]
-  },
-  {
-   "f": 874,
-   "t": 29.133,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (-0.01)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head (hat) touches the top edge (0.0 %)",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0.2274,
-    0.3513,
-    0.4163,
-    0.467
-   ]
-  },
-  {
-   "f": 875,
-   "t": 29.167,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (-0.01)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head cut at the top edge",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0.2268,
-    0.3495,
-    0.4158,
-    0.4653
-   ]
-  },
-  {
-   "f": 876,
-   "t": 29.2,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (-0.01)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head cut at the top edge",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0.2263,
-    0.3478,
-    0.4151,
-    0.4638
-   ]
-  },
-  {
-   "f": 877,
-   "t": 29.233,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (-0.01)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head cut at the top edge",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0.2257,
-    0.3463,
-    0.4144,
-    0.4624
-   ]
-  },
-  {
-   "f": 878,
-   "t": 29.267,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (-0.01)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head cut at the top edge",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0.2252,
-    0.3451,
-    0.4135,
-    0.4612
-   ]
-  },
-  {
-   "f": 879,
-   "t": 29.3,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (-0.01)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head cut at the top edge",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0.2245,
-    0.3445,
-    0.4123,
-    0.4603
    ]
   },
   {
@@ -9516,29 +7519,22 @@
    "shot": 12,
    "flight": true,
    "subjects": [
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (-0.01)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head (hat) touches the top edge (0.1 %)",
+     "subject": "c:/^bat[01]$/",
+     "detail": "cut off right (0.96)",
      "critical": false
     }
    ],
-   "score": 0.6000000000000001,
+   "score": 0.4,
    "box": [
-    0.2214,
-    0.3453,
-    0.4094,
-    0.4606
+    0.2984,
+    0.3138,
+    0.4583,
+    0.4121
    ]
   },
   {
@@ -9547,29 +7543,22 @@
    "shot": 12,
    "flight": true,
    "subjects": [
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (0.00)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head (hat) touches the top edge (1.0 %)",
+     "subject": "c:/^bat[01]$/",
+     "detail": "cut off right (0.96)",
      "critical": false
     }
    ],
-   "score": 0.6000000000000001,
+   "score": 0.4,
    "box": [
-    0.2153,
-    0.3482,
-    0.4034,
-    0.4626
+    0.286,
+    0.3119,
+    0.4509,
+    0.4137
    ]
   },
   {
@@ -9578,1270 +7567,22 @@
    "shot": 12,
    "flight": true,
    "subjects": [
-    "c:bat0",
-    "c:bat1"
+    "c:/^bat[01]$/"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (0.02)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head (hat) touches the top edge (2.6 %)",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0.208,
-    0.3538,
-    0.3942,
-    0.4661
-   ]
-  },
-  {
-   "f": 883,
-   "t": 29.433,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (0.04)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head (hat) touches the top edge (4.4 %)",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0.2011,
-    0.3593,
-    0.3833,
-    0.4691
-   ]
-  },
-  {
-   "f": 885,
-   "t": 29.5,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (0.05)",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.1868,
-    0.3669,
-    0.3618,
-    0.4735
-   ]
-  },
-  {
-   "f": 886,
-   "t": 29.533,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (0.05)",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.1816,
-    0.3696,
-    0.3536,
-    0.4749
-   ]
-  },
-  {
-   "f": 887,
-   "t": 29.567,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (0.05)",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.1795,
-    0.3714,
-    0.3485,
-    0.4754
-   ]
-  },
-  {
-   "f": 895,
-   "t": 29.833,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (30 % of frame height, needs 30 %)",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.1872,
-    0.3736,
-    0.3454,
-    0.4702
-   ]
-  },
-  {
-   "f": 896,
-   "t": 29.867,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (30 % of frame height, needs 30 %)",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.1864,
-    0.3742,
-    0.3443,
-    0.4706
-   ]
-  },
-  {
-   "f": 897,
-   "t": 29.9,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:bat0",
-    "c:bat1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (30 % of frame height, needs 30 %)",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.1865,
-    0.3746,
-    0.3444,
-    0.4709
-   ]
-  },
-  {
-   "f": 898,
-   "t": 29.933,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (30 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.4859,
-    0.1383,
-    0.6534,
-    0.2431
-   ]
-  },
-  {
-   "f": 899,
-   "t": 29.967,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (30 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.4898,
-    0.1395,
-    0.6574,
-    0.2444
-   ]
-  },
-  {
-   "f": 900,
-   "t": 30,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (30 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.496,
-    0.14,
-    0.6637,
-    0.245
-   ]
-  },
-  {
-   "f": 901,
-   "t": 30.033,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "too small (30 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.5043,
-    0.1398,
-    0.6723,
-    0.2449
-   ]
-  },
-  {
-   "f": 914,
-   "t": 30.467,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
+     "subject": "c:/^bat[01]$/",
      "detail": "cut off right (0.96)",
-     "critical": true
+     "critical": false
     }
    ],
-   "score": 2,
+   "score": 0.4,
    "box": [
-    0.6464,
-    0.1238,
-    0.8224,
-    0.2333
-   ]
-  },
-  {
-   "f": 915,
-   "t": 30.5,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off right (0.96)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.6514,
-    0.1237,
-    0.8281,
-    0.2335
-   ]
-  },
-  {
-   "f": 916,
-   "t": 30.533,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off right (0.97)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.6555,
-    0.1237,
-    0.8327,
-    0.2339
-   ]
-  },
-  {
-   "f": 917,
-   "t": 30.567,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off right (0.97)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.6584,
-    0.1237,
-    0.8363,
-    0.2343
-   ]
-  },
-  {
-   "f": 918,
-   "t": 30.6,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off right (0.98)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.6603,
-    0.1237,
-    0.8388,
-    0.2346
-   ]
-  },
-  {
-   "f": 919,
-   "t": 30.633,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off right (0.98)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.6611,
-    0.1236,
-    0.8402,
-    0.2348
-   ]
-  },
-  {
-   "f": 920,
-   "t": 30.667,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off right (0.98)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.6607,
-    0.1233,
-    0.8403,
-    0.2349
-   ]
-  },
-  {
-   "f": 921,
-   "t": 30.7,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off right (0.98)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.6591,
-    0.1228,
-    0.8393,
-    0.2348
-   ]
-  },
-  {
-   "f": 922,
-   "t": 30.733,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off right (0.98)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.6564,
-    0.1221,
-    0.8371,
-    0.2344
-   ]
-  },
-  {
-   "f": 923,
-   "t": 30.767,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off right (0.97)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.6525,
-    0.121,
-    0.8338,
-    0.2337
-   ]
-  },
-  {
-   "f": 924,
-   "t": 30.8,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off right (0.97)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.6474,
-    0.1195,
-    0.8292,
-    0.2326
-   ]
-  },
-  {
-   "f": 925,
-   "t": 30.833,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off right (0.96)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.6412,
-    0.1177,
-    0.8235,
-    0.2311
-   ]
-  },
-  {
-   "f": 926,
-   "t": 30.867,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off right (0.96)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.6339,
-    0.1153,
-    0.8166,
-    0.2291
-   ]
-  },
-  {
-   "f": 936,
-   "t": 31.2,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.5093,
-    0.064,
-    0.6949,
-    0.1808
-   ]
-  },
-  {
-   "f": 937,
-   "t": 31.233,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (0.02)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.4931,
-    0.0567,
-    0.6789,
-    0.1737
-   ]
-  },
-  {
-   "f": 938,
-   "t": 31.267,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (0.04)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (0.00)",
-     "critical": true
-    }
-   ],
-   "score": 4,
-   "box": [
-    0.4764,
-    0.0493,
-    0.6624,
-    0.1666
-   ]
-  },
-  {
-   "f": 939,
-   "t": 31.3,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (0.04)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head (hat) touches the top edge (4.2 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (-0.02)",
-     "critical": true
-    }
-   ],
-   "score": 5,
-   "box": [
-    0.4596,
-    0.0418,
-    0.6457,
-    0.1593
-   ]
-  },
-  {
-   "f": 940,
-   "t": 31.333,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (0.03)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head (hat) touches the top edge (3.4 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (-0.03)",
-     "critical": true
-    }
-   ],
-   "score": 5,
-   "box": [
-    0.4425,
-    0.0345,
-    0.6289,
-    0.1521
-   ]
-  },
-  {
-   "f": 941,
-   "t": 31.367,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (0.02)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head (hat) touches the top edge (2.7 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (-0.05)",
-     "critical": true
-    }
-   ],
-   "score": 5,
-   "box": [
-    0.4254,
-    0.0273,
-    0.6119,
-    0.1451
-   ]
-  },
-  {
-   "f": 942,
-   "t": 31.4,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (0.02)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head (hat) touches the top edge (2.0 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (-0.07)",
-     "critical": true
-    }
-   ],
-   "score": 5,
-   "box": [
-    0.4084,
-    0.0204,
-    0.5949,
-    0.1383
-   ]
-  },
-  {
-   "f": 943,
-   "t": 31.433,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (0.01)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head (hat) touches the top edge (1.4 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (-0.08)",
-     "critical": true
-    }
-   ],
-   "score": 5,
-   "box": [
-    0.3915,
-    0.0139,
-    0.5781,
-    0.1319
-   ]
-  },
-  {
-   "f": 944,
-   "t": 31.467,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (0.00)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head (hat) touches the top edge (0.8 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (-0.10)",
-     "critical": true
-    }
-   ],
-   "score": 5,
-   "box": [
-    0.3749,
-    0.0079,
-    0.5614,
-    0.126
-   ]
-  },
-  {
-   "f": 945,
-   "t": 31.5,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (-0.00)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head (hat) touches the top edge (0.3 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (-0.12)",
-     "critical": true
-    }
-   ],
-   "score": 5,
-   "box": [
-    0.3586,
-    0.0025,
-    0.5451,
-    0.1206
-   ]
-  },
-  {
-   "f": 946,
-   "t": 31.533,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (-0.01)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head cut at the top edge",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (-0.13)",
-     "critical": true
-    }
-   ],
-   "score": 5,
-   "box": [
-    0.3427,
-    0,
-    0.5291,
-    0.1159
-   ]
-  },
-  {
-   "f": 947,
-   "t": 31.567,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (-0.01)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head cut at the top edge",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (-0.15)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 6,
-   "box": [
-    0.3273,
-    0,
-    0.5136,
-    0.1119
-   ]
-  },
-  {
-   "f": 948,
-   "t": 31.6,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (-0.01)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head cut at the top edge",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 6,
-   "box": [
-    0.3125,
-    0,
-    0.4986,
-    0.1086
-   ]
-  },
-  {
-   "f": 949,
-   "t": 31.633,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (-0.02)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head cut at the top edge",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (-0.17)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 6,
-   "box": [
-    0.2983,
-    0,
-    0.4844,
-    0.1062
-   ]
-  },
-  {
-   "f": 950,
-   "t": 31.667,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (-0.02)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head cut at the top edge",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (-0.19)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 6,
-   "box": [
-    0.2847,
-    0,
-    0.4708,
-    0.1047
-   ]
-  },
-  {
-   "f": 951,
-   "t": 31.7,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (-0.02)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head cut at the top edge",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (-0.20)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 6,
-   "box": [
-    0.272,
-    0,
-    0.4579,
-    0.1039
-   ]
-  },
-  {
-   "f": 952,
-   "t": 31.733,
-   "shot": 12,
-   "flight": false,
-   "subjects": [
-    "c:bat1",
-    "c:bat0"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (-0.02)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head cut at the top edge",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (-0.21)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 6,
-   "box": [
-    0.2599,
-    0,
-    0.4457,
-    0.1041
+    0.2742,
+    0.3154,
+    0.442,
+    0.4189
    ]
   },
   {
@@ -10850,8 +7591,7 @@
    "shot": 13,
    "flight": true,
    "subjects": [
-    "c:bat1",
-    "c:bat0",
+    "c:/^bat[01]$/",
     "c:town0",
     "c:town1",
     "?c:/^town\\d$/",
@@ -10860,41 +7600,23 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off top (-0.02)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:bat1",
-     "detail": "head cut at the top edge",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "cut off left (-0.10)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:town0",
-     "detail": "out of frame (x -49.88..-36.80, y 25.70..33.62)",
+     "detail": "out of frame (x -2.66..-2.57, y 2.61..2.70)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:town1",
-     "detail": "out of frame (x -66.65..-44.03, y 31.92..46.39)",
+     "detail": "out of frame (x -2.73..-2.64, y 2.71..2.82)",
      "critical": false
     }
    ],
-   "score": 1.7999999999999998,
+   "score": 0.8,
    "box": [
-    0.3588,
-    0,
-    0.5435,
-    0.1055
+    0.2992,
+    0.3102,
+    0.4224,
+    0.3862
    ]
   },
   {
@@ -10903,8 +7625,7 @@
    "shot": 13,
    "flight": true,
    "subjects": [
-    "c:bat1",
-    "c:bat0",
+    "c:/^bat[01]$/",
     "c:town0",
     "c:town1",
     "?c:/^town\\d$/",
@@ -10913,35 +7634,35 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "cut off right (1.31)",
+     "subject": "c:/^bat[01]$/",
+     "detail": "cut off right (1.33)",
      "critical": false
     },
     {
      "rule": "FACES",
-     "subject": "c:bat1",
+     "subject": "c:/^bat[01]$/(bat0)",
      "detail": "head cut at the right edge",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:town0",
-     "detail": "out of frame (x -7.20..-6.79, y 5.28..5.57)",
+     "detail": "out of frame (x -1.44..-1.40, y 2.09..2.15)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:town1",
-     "detail": "out of frame (x -7.53..-7.05, y 5.65..5.98)",
+     "detail": "out of frame (x -1.49..-1.44, y 2.16..2.23)",
      "critical": false
     }
    ],
    "score": 1.4,
    "box": [
-    0.9609,
-    0,
+    0.8901,
+    0.3083,
     1,
-    0.1008
+    0.3854
    ]
   },
   {
@@ -10950,8 +7671,7 @@
    "shot": 13,
    "flight": true,
    "subjects": [
-    "c:bat1",
-    "c:bat0",
+    "c:/^bat[01]$/",
     "c:town0",
     "c:town1",
     "?c:/^town\\d$/",
@@ -10960,35 +7680,29 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "out of frame (x 2.11..2.99, y -0.17..0.35)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "out of frame (x 1.66..2.29, y 0.25..0.65)",
+     "subject": "c:/^bat[01]$/",
+     "detail": "out of frame (x 2.08..3.00, y 0.09..0.59)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:town0",
-     "detail": "out of frame (x -2.05..-1.98, y 2.42..2.49)",
+     "detail": "out of frame (x -0.10..-0.08, y 1.72..1.76)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:town1",
-     "detail": "out of frame (x -2.11..-2.04, y 2.51..2.61)",
+     "detail": "out of frame (x -0.14..-0.11, y 1.77..1.82)",
      "critical": false
     },
     {
      "rule": "EMPTY",
-     "detail": "none of c:bat1, c:bat0, c:town0, c:town1, ?c:/^town\\d$/, ?c:fainter in view",
+     "detail": "none of c:/^bat[01]$/, c:town0, c:town1, ?c:/^town\\d$/, ?c:fainter in view",
      "critical": false
     }
    ],
-   "score": 2.4000000000000004,
+   "score": 2,
    "box": null
   },
   {
@@ -10997,8 +7711,7 @@
    "shot": 13,
    "flight": true,
    "subjects": [
-    "c:bat1",
-    "c:bat0",
+    "c:/^bat[01]$/",
     "c:town0",
     "c:town1",
     "?c:/^town\\d$/",
@@ -11007,14 +7720,8 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "out of frame (x -3.02..-2.79, y -3.06..-2.83)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "out of frame (x -3.09..-2.85, y -3.07..-2.84)",
+     "subject": "c:/^bat[01]$/",
+     "detail": "out of frame (x -3.10..-2.78, y -3.09..-2.79)",
      "critical": false
     },
     {
@@ -11028,15 +7735,9 @@
      "subject": "c:town1",
      "detail": "out of frame (x -1.22..-0.79, y 0.12..0.59)",
      "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1+c:bat0",
-     "detail": "the two overlap by 75 % on screen",
-     "critical": false
     }
    ],
-   "score": 2,
+   "score": 1.2000000000000002,
    "box": null
   },
   {
@@ -11045,8 +7746,7 @@
    "shot": 13,
    "flight": true,
    "subjects": [
-    "c:bat1",
-    "c:bat0",
+    "c:/^bat[01]$/",
     "c:town0",
     "c:town1",
     "?c:/^town\\d$/",
@@ -11055,14 +7755,8 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "out of frame (x -0.67..-0.58, y -2.04..-1.94)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "out of frame (x -0.70..-0.60, y -2.03..-1.93)",
+     "subject": "c:/^bat[01]$/",
+     "detail": "out of frame (x -0.70..-0.57, y -2.05..-1.91)",
      "critical": false
     },
     {
@@ -11076,15 +7770,9 @@
      "subject": "c:town1",
      "detail": "cut off left (-0.00)",
      "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1+c:bat0",
-     "detail": "the two overlap by 65 % on screen",
-     "critical": false
     }
    ],
-   "score": 2,
+   "score": 1.2000000000000002,
    "box": [
     0.019,
     0.1318,
@@ -11098,8 +7786,7 @@
    "shot": 13,
    "flight": true,
    "subjects": [
-    "c:bat1",
-    "c:bat0",
+    "c:/^bat[01]$/",
     "c:town0",
     "c:town1",
     "?c:/^town\\d$/",
@@ -11108,24 +7795,12 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:bat1",
-     "detail": "out of frame (x 0.02..0.10, y -1.90..-1.82)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat0",
-     "detail": "out of frame (x -0.01..0.07, y -1.89..-1.81)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:bat1+c:bat0",
-     "detail": "the two overlap by 57 % on screen",
+     "subject": "c:/^bat[01]$/",
+     "detail": "out of frame (x -0.01..0.10, y -1.90..-1.80)",
      "critical": false
     }
    ],
-   "score": 1.2000000000000002,
+   "score": 0.4,
    "box": [
     0.1051,
     0.2016,
@@ -12095,184 +8770,28 @@
    ]
   },
   {
-   "f": 1467,
-   "t": 48.9,
-   "shot": 19,
-   "flight": true,
-   "subjects": [
-    "c:herschelB",
-    "f:rumor",
-    "?f:nosignal"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "f:rumor",
-     "detail": "out of frame (x -0.18..0.49, y -0.27..-0.02)",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.2001,
-    0.0883,
-    0.5417,
-    0.3
-   ]
-  },
-  {
-   "f": 1468,
-   "t": 48.933,
-   "shot": 19,
-   "flight": true,
-   "subjects": [
-    "c:herschelB",
-    "f:rumor",
-    "?f:nosignal"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:herschelB",
-     "detail": "out of frame (x -0.62..-0.08, y 0.07..0.74)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:rumor",
-     "detail": "out of frame (x -1.09..-0.26, y -0.33..-0.02)",
-     "critical": false
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of c:herschelB, f:rumor, ?f:nosignal in view",
-     "critical": false
-    }
-   ],
-   "score": 1.6,
-   "box": null
-  },
-  {
-   "f": 1469,
-   "t": 48.967,
-   "shot": 19,
-   "flight": true,
-   "subjects": [
-    "c:herschelB",
-    "f:rumor",
-    "?f:nosignal"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:herschelB",
-     "detail": "out of frame (x -2.93..-1.54, y 0.04..1.01)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:rumor",
-     "detail": "out of frame (x -3.93..-2.46, y -0.66..-0.11)",
-     "critical": false
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of c:herschelB, f:rumor, ?f:nosignal in view",
-     "critical": false
-    }
-   ],
-   "score": 1.6,
-   "box": null
-  },
-  {
-   "f": 1470,
-   "t": 49,
-   "shot": 19,
-   "flight": true,
-   "subjects": [
-    "c:herschelB",
-    "f:rumor",
-    "?f:nosignal"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:herschelB",
-     "detail": "out of frame (x 1.67..2.00, y 0.35..0.74)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:rumor",
-     "detail": "out of frame (x 1.51..2.03, y 0.11..0.30)",
-     "critical": false
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of c:herschelB, f:rumor, ?f:nosignal in view",
-     "critical": false
-    }
-   ],
-   "score": 1.6,
-   "box": null
-  },
-  {
-   "f": 1471,
-   "t": 49.033,
-   "shot": 19,
-   "flight": true,
-   "subjects": [
-    "c:herschelB",
-    "f:rumor",
-    "?f:nosignal"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:herschelB",
-     "detail": "cut off right (0.97)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:rumor",
-     "detail": "cut off right (1.03)",
-     "critical": false
-    }
-   ],
-   "score": 0.8,
-   "box": [
-    0.7727,
-    0.3468,
-    0.9545,
-    0.4564
-   ]
-  },
-  {
    "f": 1545,
    "t": 51.5,
    "shot": 20,
    "flight": true,
    "subjects": [
     "c:herschelB",
-    "f:rumor",
-    "?f:nosignal",
     "c:rival"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "c:rival",
-     "detail": "out of frame (x 1.98..2.00, y 0.30..0.33)",
+     "detail": "out of frame (x 1.81..1.84, y 0.11..0.15)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.5002,
-    0.3173,
-    0.7137,
-    0.4483
+    0.3742,
+    0.0883,
+    0.7183,
+    0.301
    ]
   },
   {
@@ -12282,30 +8801,34 @@
    "flight": true,
    "subjects": [
     "c:herschelB",
-    "f:rumor",
-    "?f:nosignal",
     "c:rival"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "f:rumor",
-     "detail": "cut off left (-0.18)",
+     "subject": "c:herschelB",
+     "detail": "cut off left (-0.05)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:herschelB",
+     "detail": "head cut at the left edge",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:rival",
-     "detail": "out of frame (x 1.51..1.53, y 0.30..0.33)",
+     "detail": "out of frame (x 1.36..1.38, y 0.11..0.15)",
      "critical": false
     }
    ],
-   "score": 0.8,
+   "score": 1,
    "box": [
-    0.1344,
-    0.3174,
-    0.3513,
-    0.449
+    0,
+    0.0881,
+    0.3468,
+    0.3027
    ]
   },
   {
@@ -12315,21 +8838,13 @@
    "flight": true,
    "subjects": [
     "c:herschelB",
-    "f:rumor",
-    "?f:nosignal",
     "c:rival"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "c:herschelB",
-     "detail": "out of frame (x -0.91..-0.53, y 0.31..0.77)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:rumor",
-     "detail": "out of frame (x -1.26..-0.58, y 0.01..0.27)",
+     "detail": "out of frame (x -1.16..-0.46, y 0.07..0.79)",
      "critical": false
     },
     {
@@ -12346,11 +8861,11 @@
     },
     {
      "rule": "EMPTY",
-     "detail": "none of c:herschelB, f:rumor, ?f:nosignal, c:rival in view",
+     "detail": "none of c:herschelB, c:rival in view",
      "critical": false
     }
    ],
-   "score": 2.2,
+   "score": 1.8,
    "box": null
   },
   {
@@ -12360,8 +8875,6 @@
    "flight": true,
    "subjects": [
     "c:herschelB",
-    "f:rumor",
-    "?f:nosignal",
     "c:rival"
    ],
    "fails": [
@@ -12373,23 +8886,17 @@
     },
     {
      "rule": "SUBJECT",
-     "subject": "f:rumor",
-     "detail": "out of frame (x 1.10..1.14, y 0.19..0.21)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:rival",
      "detail": "out of frame (x 2.77..3.71, y 0.13..0.90)",
      "critical": false
     },
     {
      "rule": "EMPTY",
-     "detail": "none of c:herschelB, f:rumor, ?f:nosignal, c:rival in view",
+     "detail": "none of c:herschelB, c:rival in view",
      "critical": false
     }
    ],
-   "score": 2,
+   "score": 1.6,
    "box": null
   },
   {
@@ -12399,8 +8906,6 @@
    "flight": true,
    "subjects": [
     "c:herschelB",
-    "f:rumor",
-    "?f:nosignal",
     "c:rival"
    ],
    "fails": [
@@ -12412,23 +8917,17 @@
     },
     {
      "rule": "SUBJECT",
-     "subject": "f:rumor",
-     "detail": "out of frame (x -0.14..-0.10, y 0.19..0.21)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:rival",
      "detail": "out of frame (x 1.19..1.56, y 0.16..0.68)",
      "critical": false
     },
     {
      "rule": "EMPTY",
-     "detail": "none of c:herschelB, f:rumor, ?f:nosignal, c:rival in view",
+     "detail": "none of c:herschelB, c:rival in view",
      "critical": false
     }
    ],
-   "score": 2,
+   "score": 1.6,
    "box": null
   },
   {
@@ -12438,8 +8937,6 @@
    "flight": true,
    "subjects": [
     "c:herschelB",
-    "f:rumor",
-    "?f:nosignal",
     "c:rival"
    ],
    "fails": [
@@ -12448,15 +8945,9 @@
      "subject": "c:herschelB",
      "detail": "out of frame (x -0.97..-0.94, y 0.21..0.24)",
      "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:rumor",
-     "detail": "out of frame (x -0.96..-0.92, y 0.19..0.21)",
-     "critical": false
     }
    ],
-   "score": 0.8,
+   "score": 0.4,
    "box": [
     0.5598,
     0.1683,
@@ -12936,19 +9427,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:herschelL",
-     "detail": "too small (3 % of frame height, needs 30 %)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:herschelL",
-     "detail": "face 100 % covered by something in front",
+     "detail": "out of frame (x 0.84..0.87, y -0.26..-0.22)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:lockeS",
-     "detail": "out of frame (x 1.70..2.31, y 0.07..0.76)",
+     "detail": "out of frame (x 1.44..2.20, y 0.23..0.81)",
      "critical": false
     },
     {
@@ -12957,7 +9442,7 @@
      "critical": false
     }
    ],
-   "score": 1.8,
+   "score": 1.6,
    "box": null
   },
   {
@@ -12973,7 +9458,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:herschelL",
-     "detail": "out of frame (x -0.16..-0.14, y 0.32..0.35)",
+     "detail": "out of frame (x -0.26..-0.22, y -0.26..-0.22)",
      "critical": false
     },
     {
@@ -12991,10 +9476,10 @@
    ],
    "score": 1,
    "box": [
-    0.7299,
-    0.1297,
+    0.6989,
+    0.1922,
     1,
-    0.3287
+    0.3801
    ]
   },
   {
@@ -13010,16 +9495,646 @@
     {
      "rule": "SUBJECT",
      "subject": "c:herschelL",
-     "detail": "out of frame (x -0.65..-0.63, y 0.32..0.35)",
+     "detail": "out of frame (x -0.82..-0.77, y -0.26..-0.22)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.2992,
-    0.1324,
-    0.6149,
-    0.3287
+    0.3003,
+    0.1867,
+    0.633,
+    0.373
+   ]
+  },
+  {
+   "f": 1851,
+   "t": 61.7,
+   "shot": 24,
+   "flight": true,
+   "subjects": [
+    "c:lockeS",
+    "f:sig",
+    "?c:lockeS"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "f:sig",
+     "detail": "cut off right (1.16)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:sig",
+     "detail": "too small (7 % of frame height, needs 15 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0.2965,
+    0.12,
+    0.7033,
+    0.3494
+   ]
+  },
+  {
+   "f": 1852,
+   "t": 61.733,
+   "shot": 24,
+   "flight": true,
+   "subjects": [
+    "c:lockeS",
+    "f:sig",
+    "?c:lockeS"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "f:sig",
+     "detail": "cut off right (1.16)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:sig",
+     "detail": "too small (7 % of frame height, needs 15 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0.2958,
+    0.1199,
+    0.7031,
+    0.3494
+   ]
+  },
+  {
+   "f": 1853,
+   "t": 61.767,
+   "shot": 24,
+   "flight": true,
+   "subjects": [
+    "c:lockeS",
+    "f:sig",
+    "?c:lockeS"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "f:sig",
+     "detail": "cut off right (1.16)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:sig",
+     "detail": "too small (7 % of frame height, needs 15 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0.2915,
+    0.1193,
+    0.7018,
+    0.3498
+   ]
+  },
+  {
+   "f": 1854,
+   "t": 61.8,
+   "shot": 24,
+   "flight": true,
+   "subjects": [
+    "c:lockeS",
+    "f:sig",
+    "?c:lockeS"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "f:sig",
+     "detail": "cut off right (1.16)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:sig",
+     "detail": "too small (8 % of frame height, needs 15 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0.2811,
+    0.1182,
+    0.6985,
+    0.3508
+   ]
+  },
+  {
+   "f": 1855,
+   "t": 61.833,
+   "shot": 24,
+   "flight": true,
+   "subjects": [
+    "c:lockeS",
+    "f:sig",
+    "?c:lockeS"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "f:sig",
+     "detail": "cut off right (1.17)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:sig",
+     "detail": "too small (8 % of frame height, needs 15 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0.2621,
+    0.1169,
+    0.6921,
+    0.3532
+   ]
+  },
+  {
+   "f": 1856,
+   "t": 61.867,
+   "shot": 24,
+   "flight": true,
+   "subjects": [
+    "c:lockeS",
+    "f:sig",
+    "?c:lockeS"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "f:sig",
+     "detail": "cut off right (1.19)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:sig",
+     "detail": "too small (9 % of frame height, needs 15 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0.2318,
+    0.1173,
+    0.6809,
+    0.3581
+   ]
+  },
+  {
+   "f": 1857,
+   "t": 61.9,
+   "shot": 24,
+   "flight": true,
+   "subjects": [
+    "c:lockeS",
+    "f:sig",
+    "?c:lockeS"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "f:sig",
+     "detail": "cut off right (1.21)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:sig",
+     "detail": "too small (11 % of frame height, needs 15 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0.187,
+    0.1225,
+    0.6618,
+    0.3673
+   ]
+  },
+  {
+   "f": 1858,
+   "t": 61.933,
+   "shot": 24,
+   "flight": true,
+   "subjects": [
+    "c:lockeS",
+    "f:sig",
+    "?c:lockeS"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "f:sig",
+     "detail": "cut off right (1.23)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:sig",
+     "detail": "too small (12 % of frame height, needs 15 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0.1236,
+    0.1379,
+    0.6305,
+    0.3837
+   ]
+  },
+  {
+   "f": 1859,
+   "t": 61.967,
+   "shot": 24,
+   "flight": true,
+   "subjects": [
+    "c:lockeS",
+    "f:sig",
+    "?c:lockeS"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:lockeS",
+     "detail": "cut off left (-0.02)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:sig",
+     "detail": "cut off right (1.24)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:sig",
+     "detail": "too small (15 % of frame height, needs 15 %)",
+     "critical": false
+    }
+   ],
+   "score": 1.2000000000000002,
+   "box": [
+    0.0378,
+    0.1706,
+    0.5802,
+    0.41
+   ]
+  },
+  {
+   "f": 1860,
+   "t": 62,
+   "shot": 24,
+   "flight": true,
+   "subjects": [
+    "c:lockeS",
+    "f:sig",
+    "?c:lockeS"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:lockeS",
+     "detail": "cut off left (-0.14)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:lockeS",
+     "detail": "head cut at the left edge",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:sig",
+     "detail": "cut off right (1.25)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:lockeS(lockeS)",
+     "detail": "head cut at the left edge",
+     "critical": false
+    }
+   ],
+   "score": 1.2,
+   "box": [
+    0,
+    0.2273,
+    0.5034,
+    0.4478
+   ]
+  },
+  {
+   "f": 1861,
+   "t": 62.033,
+   "shot": 24,
+   "flight": true,
+   "subjects": [
+    "c:lockeS",
+    "f:sig",
+    "?c:lockeS"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:lockeS",
+     "detail": "cut off left (-0.27)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:lockeS",
+     "detail": "head cut at the left edge",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:sig",
+     "detail": "cut off right (1.24)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:lockeS(lockeS)",
+     "detail": "head cut at the left edge",
+     "critical": false
+    }
+   ],
+   "score": 1.2,
+   "box": [
+    0,
+    0.3074,
+    0.4148,
+    0.4943
+   ]
+  },
+  {
+   "f": 1862,
+   "t": 62.067,
+   "shot": 24,
+   "flight": true,
+   "subjects": [
+    "c:lockeS",
+    "f:sig",
+    "?c:lockeS"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:lockeS",
+     "detail": "cut off left (-0.40)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:lockeS",
+     "detail": "head cut at the left edge",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:sig",
+     "detail": "cut off right (1.21)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:lockeS(lockeS)",
+     "detail": "head cut at the left edge",
+     "critical": false
+    }
+   ],
+   "score": 1.2,
+   "box": [
+    0,
+    0.3969,
+    0.3046,
+    0.5395
+   ]
+  },
+  {
+   "f": 1863,
+   "t": 62.1,
+   "shot": 24,
+   "flight": true,
+   "subjects": [
+    "c:lockeS",
+    "f:sig",
+    "?c:lockeS"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:lockeS",
+     "detail": "cut off left (-0.54)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:lockeS",
+     "detail": "head cut at the left edge",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:sig",
+     "detail": "cut off right (1.16)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:lockeS(lockeS)",
+     "detail": "head cut at the left edge",
+     "critical": false
+    }
+   ],
+   "score": 1.2,
+   "box": [
+    0,
+    0.4593,
+    0.1706,
+    0.5644
+   ]
+  },
+  {
+   "f": 1864,
+   "t": 62.133,
+   "shot": 24,
+   "flight": true,
+   "subjects": [
+    "c:lockeS",
+    "f:sig",
+    "?c:lockeS"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:lockeS",
+     "detail": "cut off left (-0.86)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:sig",
+     "detail": "cut off right (1.14)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0.6423,
+    0.3018,
+    1,
+    0.5593
+   ]
+  },
+  {
+   "f": 1865,
+   "t": 62.167,
+   "shot": 24,
+   "flight": true,
+   "subjects": [
+    "c:lockeS",
+    "f:sig",
+    "?c:lockeS"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:lockeS",
+     "detail": "out of frame (x -1.26..-0.07, y 0.07..0.66)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:sig",
+     "detail": "cut off right (1.03)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0.5794,
+    0.3727,
+    1,
+    0.6197
+   ]
+  },
+  {
+   "f": 1866,
+   "t": 62.2,
+   "shot": 24,
+   "flight": true,
+   "subjects": [
+    "c:lockeS",
+    "f:sig",
+    "?c:lockeS"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:lockeS",
+     "detail": "out of frame (x -1.52..-0.07, y -0.31..0.45)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "f:sig",
+     "detail": "cut off right (0.98)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0.3236,
+    0.361,
+    0.9799,
+    0.7259
+   ]
+  },
+  {
+   "f": 1867,
+   "t": 62.233,
+   "shot": 24,
+   "flight": true,
+   "subjects": [
+    "c:lockeS",
+    "f:sig",
+    "?c:lockeS"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:lockeS",
+     "detail": "cut off left (-1.25)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:lockeS",
+     "detail": "too small (21 % of frame height, needs 30 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0.1283,
+    0.3131,
+    0.8822,
+    0.7267
+   ]
+  },
+  {
+   "f": 1868,
+   "t": 62.267,
+   "shot": 24,
+   "flight": true,
+   "subjects": [
+    "c:lockeS",
+    "f:sig",
+    "?c:lockeS"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:lockeS",
+     "detail": "cut off left (-0.71)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:lockeS",
+     "detail": "too small (9 % of frame height, needs 30 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0.0805,
+    0.2578,
+    0.7996,
+    0.6409
    ]
   },
   {
@@ -13035,23 +10150,23 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "f:sig",
-     "detail": "cut off right (1.15)",
+     "subject": "c:lockeS",
+     "detail": "cut off left (-0.29)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
-     "subject": "f:sig",
-     "detail": "too small (1 % of frame height, needs 15 %)",
+     "subject": "c:lockeS",
+     "detail": "too small (6 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
    "score": 0.8,
    "box": [
-    0.3084,
-    0.0587,
-    0.6883,
-    0.2957
+    0.106,
+    0.216,
+    0.7603,
+    0.548
    ]
   },
   {
@@ -13068,34 +10183,22 @@
     {
      "rule": "SUBJECT",
      "subject": "c:lockeS",
-     "detail": "cut off left (-0.05)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:lockeS",
-     "detail": "head cut at the left edge",
+     "detail": "cut off left (-0.02)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
-     "subject": "f:sig",
-     "detail": "too small (1 % of frame height, needs 15 %)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:lockeS(lockeS)",
-     "detail": "head cut at the left edge",
+     "subject": "c:lockeS",
+     "detail": "too small (8 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
-   "score": 1.2,
+   "score": 0.8,
    "box": [
-    0,
-    0.0565,
-    0.3809,
-    0.2956
+    0.1218,
+    0.1911,
+    0.7459,
+    0.4778
    ]
   },
   {
@@ -13112,24 +10215,23 @@
     {
      "rule": "SUBJECT",
      "subject": "c:lockeS",
-     "detail": "out of frame (x -1.07..-0.41, y -0.00..0.78)",
+     "detail": "cut off right (1.03)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
-     "subject": "f:sig",
-     "detail": "cut off left (-0.34)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "f:sig",
-     "detail": "too small (1 % of frame height, needs 15 %)",
+     "subject": "c:lockeS",
+     "detail": "too small (11 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
-   "score": 1.2000000000000002,
-   "box": null
+   "score": 0.8,
+   "box": [
+    0.1158,
+    0.17,
+    0.7413,
+    0.4434
+   ]
   },
   {
    "f": 1872,
@@ -13145,23 +10247,23 @@
     {
      "rule": "SUBJECT",
      "subject": "c:lockeS",
-     "detail": "out of frame (x 2.34..5.87, y -0.53..0.73)",
+     "detail": "cut off right (1.08)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
-     "subject": "f:sig",
-     "detail": "out of frame (x 1.72..2.77, y 0.42..0.89)",
-     "critical": false
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of c:lockeS, f:sig, ?c:lockeS in view",
+     "subject": "c:lockeS",
+     "detail": "too small (14 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
-   "score": 1.6,
-   "box": null
+   "score": 0.8,
+   "box": [
+    0.1175,
+    0.158,
+    0.7519,
+    0.4261
+   ]
   },
   {
    "f": 1873,
@@ -13177,22 +10279,22 @@
     {
      "rule": "SUBJECT",
      "subject": "c:lockeS",
-     "detail": "out of frame (x 1.19..2.65, y -0.78..0.28)",
+     "detail": "cut off right (1.10)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
-     "subject": "f:sig",
-     "detail": "cut off right (1.59)",
+     "subject": "c:lockeS",
+     "detail": "too small (15 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
    "score": 0.8,
    "box": [
-    0.8082,
-    0.172,
-    1,
-    0.5192
+    0.12,
+    0.1532,
+    0.7599,
+    0.4169
    ]
   },
   {
@@ -13209,22 +10311,22 @@
     {
      "rule": "SUBJECT",
      "subject": "c:lockeS",
-     "detail": "cut off right (1.44)",
+     "detail": "cut off right (1.11)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:lockeS",
-     "detail": "too small (17 % of frame height, needs 30 %)",
+     "detail": "too small (16 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
    "score": 0.8,
    "box": [
-    0.2792,
-    0.1449,
-    0.9496,
-    0.4262
+    0.1212,
+    0.1517,
+    0.7628,
+    0.4135
    ]
   }
  ]

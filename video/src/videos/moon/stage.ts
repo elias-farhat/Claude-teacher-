@@ -208,7 +208,7 @@ const herald = (t: number, s: Stage) => {
 const queue = (t: number, s: Stage) => {
   if (!between(t, wt(15, "thing"), wt(17, "getting"))) return;
   s.places.push(P("editorQ", EDITOR, { expr: "laugh", gest: "cheer", k: q((t * 2) % 1, 8), blink: blinkAt(t, 5) }, {}, [28.2, 0.12, -7.3]));
-  for (let i = 0; i < 8; i++) s.places.push(P(`cust${i}`, CITIZEN(i + 13), { expr: i % 3 ? "grin" : "smile_closed", gest: i % 2 ? "palm" : "hang", seed: 90 + i, blink: blinkAt(t, 90 + i) }, {}, [26.6 - i * 1.05, 0.12, -6.7 + (i % 2) * 0.25], { size: LO }));
+  for (let i = 0; i < 8; i++) s.places.push(P(`cust${i}`, CITIZEN(i + 13), { expr: i % 3 ? "grin" : "smile_closed", gest: "hold", k: q((t * 1.5 + i * 0.2) % 1, 8), seed: 90 + i, blink: blinkAt(t, 90 + i) }, { paper: "plain" },   /* "the paper everyone has heard of": every customer holds a copy of The Sun */ [26.6 - i * 1.05, 0.12, -6.7 + (i % 2) * 0.25], { size: LO }));
 };
 
 /** everything on stage at time t */
