@@ -150,10 +150,10 @@ export const buildDiorama = (root: THREE.Object3D): Diorama => {
   const moon = new THREE.Mesh(new THREE.SphereGeometry(MOON.r, 48, 32), moonMat); moon.position.copy(MOON.c); g.add(moon);
   { const c = MOON.c, top = MOON_TOP;
     b.add(new THREE.CylinderGeometry(12.5, 11, 3.2, 40), lam("moonRock", () => ({ map: rep(moonTex(), 2, 1) })), new THREE.Matrix4().makeTranslation(c.x, top - 1.6, c.z));
-    const mg = lam("moonGrassM", () => ({ map: rep(moonGrass(), 3, 3) }));
+    const mg = lam("moonGrassM", () => ({ map: rep(moonGrass(), 3, 3), color: "#8a93c4" }));   // look pass: darker ground so the cast and the shadows read against it
     b.add(new THREE.CircleGeometry(12.5, 40).rotateX(-Math.PI / 2), mg, new THREE.Matrix4().makeTranslation(c.x, top, c.z));
     // the moon ocean (east half) + its beach
-    b.add(new THREE.CircleGeometry(5.2, 32).rotateX(-Math.PI / 2), lam("moonSand", () => ({ map: rep(sandTex(), 2, 2), color: "#e8e6f2" })), new THREE.Matrix4().makeTranslation(c.x + 5.2, top + 0.02, c.z + 1.5));
+    b.add(new THREE.CircleGeometry(5.2, 32).rotateX(-Math.PI / 2), lam("moonSand", () => ({ map: rep(sandTex(), 2, 2), color: "#c4bccf" })), new THREE.Matrix4().makeTranslation(c.x + 5.2, top + 0.02, c.z + 1.5));
     const ocean = new THREE.Mesh(new THREE.CircleGeometry(4.2, 32).rotateX(-Math.PI / 2), new THREE.MeshLambertMaterial({ map: rep(seaTex(), 2, 2), color: new THREE.Color(0.75, 0.85, 1.1), emissive: new THREE.Color(0.05, 0.08, 0.14) }));
     ocean.position.set(c.x + 6.2, top + 0.05, c.z + 1.9); g.add(ocean);
     // the silver forest (west half)
