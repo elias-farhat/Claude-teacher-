@@ -104,7 +104,7 @@ def head(p, w, cx, cy, r, expr='normal', look=0.0, t=0.0, talk=False, blink=True
         p.ell(cx, cy + r * .15, r * 1.22, r * 1.28, w.scarf); p.poly([(cx - r * 1.05, cy + r * .6), (cx + r * 1.05, cy + r * .6), (cx + r * 1.3, cy + r * 1.7), (cx - r * 1.3, cy + r * 1.7)], w.scarf)
     if w.hair == 'long' and not w.scarf: p.ell(cx, cy + r * .45, r * 1.12, r * 1.3, w.hair_col)
     p.circ(cx, cy, r, w.skin, OL, 5)
-    if w.scarf: p.chord(cx, cy - r * .02, r * 1.04, r * 1.06, 180, 360, w.scarf, OL, 4); p.arc(cx, cy + r * .1, r * .98, r * 1.0, 200, 340, shade(w.scarf, .8), 3)
+    if w.scarf: p.chord(cx, cy - r * .36, r * .98, r * .72, 180, 360, w.scarf, OL, 4)
     elif w.hair in ('short', 'long', 'spiky', 'kid'):
         p.chord(cx, cy - r * .08, r * 1.02, r * .98, 180, 360, w.hair_col, OL, 4)
         p.poly([(cx - r * .98, cy - r * .2), (cx - r * .6, cy - r * .55), (cx - r * .2, cy - r * .3), (cx + r * .3, cy - r * .55), (cx + r * .98, cy - r * .2), (cx + r * .9, cy - r * .55), (cx - r * .9, cy - r * .55)], w.hair_col, None)
@@ -184,6 +184,7 @@ def person(p, w, x, feet, h, pose='stand', t=0.0, expr='normal', look=0.0, talk=
     # neck + head
     p.limb([(x, sh_y + 2), (x, sh_y - r * .4)], w.skin, r * .12)
     head(p, w, x + lean * r, hy, r, expr, look, t, talk, blink)
+    if getattr(w, 'badge', False): p.circ(x, sh_y + bodyh * .32, r * .3, (255, 255, 255), OL, 3); p.text((x, sh_y + bodyh * .32 + 1), '؟', r * .42, (232, 120, 40))
     if pose == 'phone':
         hp = arm_pts(1, 40, 160)[-1]; p.rect(hp[0] - r * .3, hp[1] - r * .55, hp[0] + r * .3, hp[1] + r * .2, (40, 44, 56), OL, 3, r=4)
     return x + lean * r, hy, r

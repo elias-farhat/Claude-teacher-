@@ -11,7 +11,7 @@ TJ, HOOK = _D['main'], _D['hook']; HOOK_END = HOOK[-1]['t1'] + .5
 def L(i): return TJ[i]['t0']
 def E(i): return TJ[i]['t1']
 DUR = TJ[-1]['t1'] + 1.5; FPS = 24
-FR = '/home/claude/out/film_doodle/'; os.makedirs(FR, exist_ok=True); OUT = '/home/claude/out/countdown_doodle.mp4'
+FR = '/home/claude/out/film_final/'; os.makedirs(FR, exist_ok=True); OUT = '/home/claude/out/countdown_final.mp4'
 
 def hms(sec, full=False):
     sec = max(0, int(sec)); h, r = divmod(sec, 3600); m, s = divmod(r, 60)
@@ -19,9 +19,10 @@ def hms(sec, full=False):
 def rnd(k): return (k * 2654435761) % 997
 
 MOM = Who(0, scarf=(70, 90, 140), dress=(150, 110, 160))
-YOU = Who(1, shirt=(60, 140, 150), hair='short', hair_col=(70, 46, 30))
+YOU = Who(1, shirt=(232, 120, 40), hair='short', hair_col=(40, 30, 26), glasses=True)   # channel character: صاحب الفضول
+YOU.badge = True
 BRO = Who(0, shirt=(200, 70, 60), hair='kid', hair_col=(90, 60, 40), kid=True)
-ALI = Who(2, shirt=(226, 120, 50), hair='spiky', hair_col=(30, 24, 26))
+ALI = Who(2, shirt=(60, 150, 90), hair='spiky', hair_col=(30, 24, 26))
 WALT = Who(0, shirt=(70, 110, 80), hair='bald', hair_col=(230, 230, 230), beard=(236, 236, 236), glasses=True, old=True)
 DRV = Who(2, shirt=(40, 70, 130), hair='short', hair_col=(30, 24, 26), cap=(40, 70, 130))
 BAK = Who(1, shirt=(245, 245, 245), coat=True, hair='short', hair_col=(40, 30, 26), chef=True)
@@ -143,8 +144,7 @@ def sh_street(t):
         return post(p.out(), t, zoom=push(t, L(14), L(15), 1.0, 1.05))
     p = canvas('city'); lt = t - L(15)
     person(p, CROWD[3], 820 + lt * 6, 600, 290, 'stand', t, 'smile', look=-1)
-    sx = 600 + lt * 6; p.circ(sx - 10, 500, 28, SKIN[0], OL, 4); p.circ(sx - 20, 498, 4, OL, None); p.circ(sx + 0, 498, 4, OL, None)
-    stroller(p, sx, 600)
+    sx = 600 + lt * 6; stroller(p, sx, 600); p.circ(sx - 10, 552, 26, SKIN[0], OL, 4); p.circ(sx - 20, 550, 4, OL, None); p.circ(sx + 0, 550, 4, OL, None)
     if t >= L(16): label(p, sx - 10, 420, '84 سنة', 28, 'cream', ease(seg(t, L(16), L(16) + .3)))
     return post(p.out(), t, zoom=push(t, L(15), L(17), 1.0, 1.06))
 
@@ -360,6 +360,6 @@ if __name__ == '__main__':
         sys.exit()
     from concurrent.futures import ProcessPoolExecutor
     with ProcessPoolExecutor(2) as ex: list(ex.map(render, range(int(DUR * FPS)), chunksize=24))
-    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-framerate', str(FPS), '-i', f'{FR}%05d.png', '-i', VOICE, '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20',
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-framerate', str(FPS), '-i', f'{FR}%05d.png', '-i', VOICE, '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '26',
                     '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '160k', '-shortest', OUT], check=True)
     print('done')
