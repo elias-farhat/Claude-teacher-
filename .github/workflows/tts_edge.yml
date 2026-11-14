@@ -1,0 +1,18 @@
+name: tts-edge
+on:
+  push:
+    paths: ['tts/**/edge.json']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  tts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install edge-tts
+      - run: for f in tts/*/edge.json; do python3 tools/tts/edge_lines.py "$(dirname "$f")"; done
+      - run: |
+          git config user.name "tts-bot"; git config user.email "tts-bot@users.noreply.github.com"
+          git add tts; git commit -m "tts-edge: audio [skip ci]" || exit 0
+          git pull --rebase && git push
