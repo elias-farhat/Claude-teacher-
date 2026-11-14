@@ -4,7 +4,7 @@
  "pass": true,
  "criticalFrames": 0,
  "warningFrames": 267,
- "seconds": 130.071,
+ "seconds": 131.656,
  "history": [
   "round 1: 492 frames with CRITICAL failures in 11 shots (2, 5, 6, 11, 12, 14, 17, 20, 22, 23, 24)",
   "round 2: 191 frames with CRITICAL failures in 5 shots (5, 11, 12, 22, 23)",
@@ -963,7 +963,7 @@
    "from": 955,
    "to": 958,
    "worst": 955,
-   "detail": "out of frame (x -0.70..-0.57, y -2.05..-1.91)",
+   "detail": "out of frame (x -0.34..-0.26, y -1.06..-0.99)",
    "t0": 31.83,
    "t1": 31.97
   },
@@ -987,7 +987,7 @@
    "from": 957,
    "to": 957,
    "worst": 957,
-   "detail": "cut off left (-0.00)",
+   "detail": "cut off left (0.03)",
    "t0": 31.9,
    "t1": 31.93
   },
@@ -999,7 +999,7 @@
    "from": 1005,
    "to": 1005,
    "worst": 1005,
-   "detail": "out of frame (x 1.01..1.16, y 0.13..0.20)",
+   "detail": "out of frame (x 1.01..1.15, y 0.42..0.49)",
    "t0": 33.5,
    "t1": 33.53
   },
@@ -1035,19 +1035,7 @@
    "from": 1006,
    "to": 1006,
    "worst": 1006,
-   "detail": "cut off left (-0.03)",
-   "t0": 33.53,
-   "t1": 33.57
-  },
-  {
-   "rule": "FACES",
-   "critical": false,
-   "subject": "c:town1",
-   "shot": 14,
-   "from": 1006,
-   "to": 1006,
-   "worst": 1006,
-   "detail": "head cut at the left edge",
+   "detail": "cut off left (-0.00)",
    "t0": 33.53,
    "t1": 33.57
   },
@@ -1066,19 +1054,19 @@
   {
    "rule": "FACES",
    "critical": false,
-   "subject": "c:/^town\\d$/(town1)",
+   "subject": "c:/^town\\d$/(town3)",
    "shot": 14,
    "from": 1006,
    "to": 1006,
    "worst": 1006,
-   "detail": "head cut at the left edge",
+   "detail": "head cut at the right edge",
    "t0": 33.53,
    "t1": 33.57
   },
   {
    "rule": "FACES",
    "critical": false,
-   "subject": "c:/^town\\d$/(town3)",
+   "subject": "c:/^town\\d$/(town4)",
    "shot": 14,
    "from": 1006,
    "to": 1006,
@@ -1107,7 +1095,7 @@
    "from": 1007,
    "to": 1007,
    "worst": 1007,
-   "detail": "out of frame (x -1.87..-0.99, y 0.12..0.88)",
+   "detail": "out of frame (x -1.83..-1.13, y -0.07..0.82)",
    "t0": 33.57,
    "t1": 33.6
   },
@@ -1119,7 +1107,7 @@
    "from": 1007,
    "to": 1007,
    "worst": 1007,
-   "detail": "out of frame (x -1.32..-0.81, y 0.04..0.59)",
+   "detail": "out of frame (x -1.22..-0.85, y 0.09..0.67)",
    "t0": 33.57,
    "t1": 33.6
   },
@@ -1127,6 +1115,18 @@
    "rule": "FACES",
    "critical": false,
    "subject": "c:/^town\\d$/(town3)",
+   "shot": 14,
+   "from": 1007,
+   "to": 1007,
+   "worst": 1007,
+   "detail": "head cut at the left edge",
+   "t0": 33.57,
+   "t1": 33.6
+  },
+  {
+   "rule": "FACES",
+   "critical": false,
+   "subject": "c:/^town\\d$/(town4)",
    "shot": 14,
    "from": 1007,
    "to": 1007,
@@ -1146,18 +1146,6 @@
    "detail": "out of frame (x 1.95..2.84, y 0.20..0.67)",
    "t0": 33.57,
    "t1": 33.63
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:town0+c:town1",
-   "shot": 14,
-   "from": 1007,
-   "to": 1007,
-   "worst": 1007,
-   "detail": "the two overlap by 55 % on screen",
-   "t0": 33.57,
-   "t1": 33.6
   },
   {
    "rule": "SUBJECT",
@@ -7721,19 +7709,19 @@
     {
      "rule": "SUBJECT",
      "subject": "c:/^bat[01]$/",
-     "detail": "out of frame (x -3.10..-2.78, y -3.09..-2.79)",
+     "detail": "out of frame (x -1.72..-1.59, y -1.52..-1.40)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:town0",
-     "detail": "out of frame (x -1.85..-1.13, y 0.20..0.82)",
+     "detail": "out of frame (x -1.84..-1.26, y 0.02..0.75)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:town1",
-     "detail": "out of frame (x -1.22..-0.79, y 0.12..0.59)",
+     "detail": "out of frame (x -1.14..-0.82, y 0.14..0.64)",
      "critical": false
     }
    ],
@@ -7756,28 +7744,28 @@
     {
      "rule": "SUBJECT",
      "subject": "c:/^bat[01]$/",
-     "detail": "out of frame (x -0.70..-0.57, y -2.05..-1.91)",
+     "detail": "out of frame (x -0.34..-0.26, y -1.06..-0.99)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:town0",
-     "detail": "out of frame (x -0.41..-0.03, y 0.20..0.68)",
+     "detail": "out of frame (x -0.42..-0.06, y 0.14..0.69)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:town1",
-     "detail": "cut off left (-0.00)",
+     "detail": "cut off left (0.03)",
      "critical": false
     }
    ],
    "score": 1.2000000000000002,
    "box": [
-    0.019,
-    0.1318,
-    0.2109,
-    0.3046
+    0.0464,
+    0.2006,
+    0.233,
+    0.376
    ]
   },
   {
@@ -7796,16 +7784,16 @@
     {
      "rule": "SUBJECT",
      "subject": "c:/^bat[01]$/",
-     "detail": "out of frame (x -0.01..0.10, y -1.90..-1.80)",
+     "detail": "out of frame (x 0.14..0.22, y -0.99..-0.93)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.1051,
-    0.2016,
-    0.3625,
-    0.3573
+    0.0941,
+    0.1623,
+    0.3629,
+    0.3282
    ]
   },
   {
@@ -7825,16 +7813,16 @@
     {
      "rule": "SUBJECT",
      "subject": "c:/^pierBoy\\d$/",
-     "detail": "out of frame (x 1.01..1.16, y 0.13..0.20)",
+     "detail": "out of frame (x 1.01..1.15, y 0.42..0.49)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.1703,
-    0.1349,
-    0.4865,
-    0.3293
+    0.1643,
+    0.0957,
+    0.4952,
+    0.3003
    ]
   },
   {
@@ -7866,13 +7854,7 @@
     {
      "rule": "SUBJECT",
      "subject": "c:town1",
-     "detail": "cut off left (-0.03)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:town1",
-     "detail": "head cut at the left edge",
+     "detail": "cut off left (-0.00)",
      "critical": false
     },
     {
@@ -7883,13 +7865,13 @@
     },
     {
      "rule": "FACES",
-     "subject": "c:/^town\\d$/(town1)",
-     "detail": "head cut at the left edge",
+     "subject": "c:/^town\\d$/(town3)",
+     "detail": "head cut at the right edge",
      "critical": false
     },
     {
      "rule": "FACES",
-     "subject": "c:/^town\\d$/(town3)",
+     "subject": "c:/^town\\d$/(town4)",
      "detail": "head cut at the right edge",
      "critical": false
     },
@@ -7900,7 +7882,7 @@
      "critical": false
     }
    ],
-   "score": 2.1999999999999997,
+   "score": 2,
    "box": null
   },
   {
@@ -7920,13 +7902,13 @@
     {
      "rule": "SUBJECT",
      "subject": "c:town0",
-     "detail": "out of frame (x -1.87..-0.99, y 0.12..0.88)",
+     "detail": "out of frame (x -1.83..-1.13, y -0.07..0.82)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "c:town1",
-     "detail": "out of frame (x -1.32..-0.81, y 0.04..0.59)",
+     "detail": "out of frame (x -1.22..-0.85, y 0.09..0.67)",
      "critical": false
     },
     {
@@ -7936,19 +7918,19 @@
      "critical": false
     },
     {
-     "rule": "SUBJECT",
-     "subject": "c:/^pierBoy\\d$/",
-     "detail": "out of frame (x -0.57..-0.40, y 0.13..0.20)",
+     "rule": "FACES",
+     "subject": "c:/^town\\d$/(town4)",
+     "detail": "head cut at the left edge",
      "critical": false
     },
     {
      "rule": "SUBJECT",
-     "subject": "c:town0+c:town1",
-     "detail": "the two overlap by 55 % on screen",
+     "subject": "c:/^pierBoy\\d$/",
+     "detail": "out of frame (x -0.51..-0.36, y 0.41..0.49)",
      "critical": false
     }
    ],
-   "score": 1.7999999999999998,
+   "score": 1.6,
    "box": null
   },
   {

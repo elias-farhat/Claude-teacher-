@@ -87,6 +87,8 @@ const street = (t: number, s: Stage) => {
   // line 9 (morning): the whole city is reading; a man faints, kids flap like bat-people
   if (between(t, wt(8, "chatting") - 0.4, wt(10, "copy") + 0.4)) {
     const faint = after(t, 9, "talking");
+    // background townsfolk reading the paper further up the street (fills the shot; never the subject)
+    for (let i = 0; i < 4; i++) s.places.push(P(`bgTown${i}`, CITIZEN(i + 20), { expr: i % 2 ? "shock" : "grin", gest: "hold", seed: 120 + i, blink: blinkAt(t, 120 + i) }, { paper: "bat" }, [15.5 + i * 3.3, 0, -5.6 + (i % 2) * 0.6], { size: LO }));
     for (let i = 0; i < 6; i++) s.places.push(P(`town${i}`, CITIZEN(i + 7), { expr: i % 2 ? "shock" : "grin", gest: "hold", seed: 30 + i, blink: blinkAt(t, 30 + i) }, { paper: "bat" }, [18.6 + (i % 3) * 2.2, 0, -1.2 + Math.floor(i / 3) * 1.9], { size: LO }));
     s.places.push(P("fainter", CITIZEN(4), faint ? { mode: "fall", expr: "dazed", tilt: 70 * smooth((t - wt(9, "talking") + LEAD) / 0.4) } : { expr: "shock", gest: "hold" }, { paper: "bat" }, [20.4, 0, 2.6]));
     for (let i = 0; i < 2; i++) s.places.push(P(`kid${i}`, KID(i), { expr: "laugh", gest: "cheer", k: q((t * 3 + i * 0.5) % 1, 8), phase: q((t * 3 + i * 0.5) % 1, 8), seed: 40 + i }, {}, [23.4 + i * 1.1, 0, 3.0 - i * 0.4]));

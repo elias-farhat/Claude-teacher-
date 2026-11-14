@@ -20,7 +20,7 @@ export const SHOT_SPECS: ShotSpec[] = [
   // both bats in the first shot, wide and centred (run 31: with bat1 optional it hung half cut at the right edge for 3 s)
   { t0: land(8), subjects: ["c:/^bat[01]$/"], size: "medium", move: "drift", place: "centre", note: "8 winged people, like humans with bat wings" },
   { t0: land(8, "flying"), subjects: ["c:/^bat[01]$/"], size: "medium", move: "drift", place: "centre", note: "8 flying around and chatting (both framed: run 31 / f2bb35f test had them overlapping, the left one hidden)" },
-  { t0: land(9), subjects: ["c:town0", "c:town1", "?c:/^town\\d$/", "?c:fainter"], size: "medium", move: "drift", note: "9 the whole city is talking" },
+  { t0: land(9), subjects: ["c:town0", "c:town1", "?c:/^town\\d$/", "?c:fainter"], size: "medium", angle: "low", move: "drift", note: "9 the whole city is talking" },
   { t0: land(10), subjects: ["c:/^pierBoy\\d$/", "?f:bird"], size: "wide", move: "push", note: "10 other papers copy it, across Europe" },
   { t0: land(11), subjects: ["f:portrait"], size: "insert", move: "push", note: "11 didn't anyone just ask Herschel?" },
   { t0: land(12), subjects: ["c:herschelG"], size: "medium", move: "drift", note: "12 Herschel really is in South Africa" },

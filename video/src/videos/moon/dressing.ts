@@ -112,6 +112,9 @@ export function buildEarthDressing(root: THREE.Group, kit: Record<string, THREE.
   // the New York street: market carts and stalls on the pavements, well away from the newsboy / crowd (x 15-30) and
   // the queue at The Sun's door (x 18-27, north side)
   const pv = STREET.road + 1.5;
+  // the "whole city is talking" spot (townspeople at x 18.6-23, z -1.2..0.7): a cart and stalls on the cobbles behind
+  // them, so the low shot of the readers has a busy street behind it, not bare paving (run 34 pixel check, 32-33.5 s)
+  for (const [n, x, z, rot] of [["cart", 16.2, -3.4, 0.4], ["stall-green", 25.6, -3.8, 0], ["stall-red", 21.0, -4.6, 0], ["stall-bench", 18.4, -4.2, 0.2]] as [string, number, number, number][]) place(n, x, 0.02, z, 1.6, rot);
   for (const [n, x, z, rot] of [["stall-red", 4.5, pv, Math.PI], ["cart", 0.5, pv, Math.PI / 2], ["stall-green", 34.5, -pv, 0], ["cart", 38.5, -pv, -Math.PI / 2], ["stall-bench", 32.0, pv, Math.PI], ["stall-red", -6.0, -pv, 0]] as [string, number, number, number][]) place(n, x, 0.12, z, 1.6, rot);
   root.add(g);
   return g;
