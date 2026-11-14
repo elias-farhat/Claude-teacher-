@@ -115,6 +115,7 @@ def text_layer(items):
 
 def finish(base, lines, texts, t=0, shake=0, zoom=1.0, flash=0.0, desat=0.0):
     img = glow_comp(base, lines)
+    fixed = [x for x in texts if x[1][1] > H - 90]; texts = [x for x in texts if x[1][1] <= H - 90]
     sharp, gl = text_layer(texts)
     if gl[..., 3].any():
         g = gl[..., :3] * gl[..., 3:4]; sm = cv2.resize(g, (W // 4, H // 4), interpolation=cv2.INTER_AREA)
@@ -123,6 +124,8 @@ def finish(base, lines, texts, t=0, shake=0, zoom=1.0, flash=0.0, desat=0.0):
     if zoom != 1.0 or shake:
         M = cv2.getRotationMatrix2D((W / 2, H / 2), 0, zoom); M[0, 2] += math.sin(t * 61) * shake; M[1, 2] += math.cos(t * 47) * shake
         img = cv2.warpAffine(img, M, (W, H), borderMode=cv2.BORDER_REFLECT)
+    if fixed:
+        fs, _ = text_layer(fixed); img = img * (1 - fs[..., 3:4]) + fs[..., :3] * 255 * fs[..., 3:4]
     if desat: g = img.mean(-1, keepdims=True); img = g + (img - g) * (1 - desat)
     img = img * _VIG[..., None]
     if flash: img = img + (255 - img) * flash

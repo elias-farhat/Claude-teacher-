@@ -5,23 +5,25 @@ import numpy as np, cv2
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from neon import *
 
-TJ = json.load(open(sys.argv[1])); VOICE = sys.argv[2]
+_D = json.load(open(sys.argv[1])); VOICE = sys.argv[2]
+TJ = _D['main'] if isinstance(_D, dict) else _D; HOOK = _D.get('hook', []) if isinstance(_D, dict) else []
+HOOK_END = (HOOK[-1]['t1'] + .5) if HOOK else 0
 LINES = [l.strip() for l in open('/home/claude/claude-teacher-/tts/ar/lines.txt', encoding='utf-8') if l.strip()]
 def L(i): return TJ[i]['t0']
 def E(i): return TJ[i]['t1']
 DUR = TJ[-1]['t1'] + 1.5
-FPS = 24; FR = '/home/claude/out/film_ar/'; os.makedirs(FR, exist_ok=True); OUT = '/home/claude/out/countdown_ar.mp4'
+FPS = 24; FR = '/home/claude/out/film_ar/'; os.makedirs(FR, exist_ok=True); OUT = '/home/claude/out/countdown_ar_v2.mp4'
 GROUND = 590
 def line_at(t):
     cur = None
-    for e in TJ:
-        if e['t0'] - .05 <= t <= e['t1'] + .35: cur = e['i']
+    for e in HOOK + TJ:
+        if e['t1'] > e['t0'] and e['t0'] - .05 <= t <= e['t1'] + .35: cur = e
     return cur
 def caption(t):
-    i = line_at(t)
-    if i is None: return []
-    a = min(seg(t, L(i) - .05, L(i) + .12), 1 - seg(t, E(i) + .2, E(i) + .35))
-    s = LINES[i]; size = 44
+    e = line_at(t)
+    if e is None: return []
+    a = min(seg(t, e['t0'] - .05, e['t0'] + .12), 1 - seg(t, e['t1'] + .2, e['t1'] + .35))
+    s = e['text']; size = 44
     while font(size).getlength(s) > W - 120 and size > 26: size -= 2
     return [(s, (W / 2, H - 52), size, WHITE, a, False)]
 def tagtxt(s, x, y, a=1.0, col=CYAN, size=40): return (s, (x, y), size, col, a, True)
@@ -110,9 +112,10 @@ def sh_room(t):
     if t >= L(7): T.append(tagtxt(hms(13 * 3600 + 22 * 60 + 7 - (t - L(7)), True), 580, 180, ease(seg(t, L(7), L(7) + .4)), GOLD, 34))
     zoom = lerp(1.0, 1.12, ease(seg(t, L(3), L(8))))
     img = finish(base, cv.out(), T + caption(t), t, zoom=zoom, flash=0)
-    k = (1 - ease(seg(t, .2, 1.4))) * .95 + .5 * (1 - ease(seg(t, 1.5, 2.4))) * ease(seg(t, .9, 1.5))
+    tt = t - HOOK_END
+    k = (1 - ease(seg(tt, .2, 1.4))) * .95 + .5 * (1 - ease(seg(tt, 1.5, 2.4))) * ease(seg(tt, .9, 1.5))
     img = lids(img, clamp(k))
-    if t < 2.6: img = cv2.GaussianBlur(img, (0, 0), 1 + 8 * (1 - ease(seg(t, .2, 2.6))))
+    if tt < 2.6: img = cv2.GaussianBlur(img, (0, 0), 1 + 8 * (1 - ease(seg(tt, .2, 2.6))))
     return img
 
 def sh_kitchen(t):
@@ -373,11 +376,28 @@ def sh_cta(t):
 SHOTS = [(0, 8, sh_room), (8, 11, sh_kitchen), (11, 17, sh_street), (17, 18, sh_wide), (18, 22, sh_facts1), (22, 24, sh_days), (24, 31, sh_park), (31, 37, sh_talk),
          (37, 43, sh_zero), (43, 48, sh_facts2), (48, 56, sh_friday), (56, 61, sh_walk), (61, 68, sh_cross), (68, 77, sh_after), (77, 81, sh_facts3),
          (81, 93, sh_mirror), (93, 98, sh_phone), (98, 104, sh_facts4), (104, 108, sh_cta)]
+def sh_hook(t):
+    h = HOOK
+    base = background((12, 14, 34), (60, 20, 40), t); cv = Canvas(); ground(cv); T = []
+    person(cv, 470, GROUND, 260, WHITE, 'stand', t, 1)
+    hd, r = person(cv, 760, GROUND, 260, (255, 150, 60), 'stand', t, -1); smile(cv, hd, r, (255, 150, 60))
+    y = hd[1] - r - 60
+    if t >= h[3]['t0']:
+        pulse = .5 + .5 * math.sin(t * 8); T.append(tagtxt('ساعتان', 760, y - 10, 1, RED, int(80 + 10 * pulse)))
+    elif t >= h[2]['t0']: T.append(tagtxt('0 سنة · 0 يوم', 760, y, 1, RED, 50))
+    elif t >= h[1]['t0']: T.append(tagtxt('0 سنة', 760, y, 1, RED, 50))
+    else: T.append(tagtxt('...', 760, y, 1, RED, 50))
+    rw = seg(t, HOOK_END - .7, HOOK_END)
+    img = finish(base, cv.out(), T + caption(t), t, zoom=lerp(1.0, 1.25, ease(seg(t, 0, h[3]['t1']))) + .2 * rw, shake=10 * rw + (3 if t >= h[3]['t0'] else 0), desat=.8 * rw, flash=.9 * rw ** 3)
+    if h[3]['t0'] <= t < HOOK_END - .7: img = img * np.array([1.0, .8, .8])
+    return np.clip(img, 0, 255)
+
 def frame_at(t):
+    if t < HOOK_END: return sh_hook(t) * seg(t, 0, .25)
     for a, b, f in SHOTS:
-        ta = 0 if a == 0 else L(a) - .15; tb = DUR + 1 if b >= 108 else L(b) - .15
+        ta = HOOK_END if a == 0 else L(a) - .15; tb = DUR + 1 if b >= 108 else L(b) - .15
         if ta <= t < tb:
-            img = f(t); k = seg(t, ta, ta + .2) if a else seg(t, 0, .3)
+            img = f(t); k = seg(t, ta, ta + .2) if a else (seg(t, HOOK_END, HOOK_END + .3) if HOOK else seg(t, 0, .3))
             return img * (.3 + .7 * k) * (1 - seg(t, DUR - .8, DUR))
     return np.zeros((H, W, 3), np.float32)
 def render(i):
