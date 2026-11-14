@@ -1,0 +1,4 @@
+{"voice": "Charon",
+ "models": ["gemini-2.5-flash-preview-tts", "gemini-2.5-pro-preview-tts", "gemini-2.5-flash-tts"],
+ "direction": "Read the following Arabic narration (Modern Standard Arabic) as a calm, warm, suspenseful storyteller. Pause about one second after each line. Do not read this instruction aloud.",
+ "sections": [[0,17],[18,23],[24,42],[43,47],[48,60],[61,76],[77,80],[81,97],[98,107]]}
