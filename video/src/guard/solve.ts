@@ -13,7 +13,7 @@ import { bystanderHeads } from "./subjects";
 import { Geo } from "./geo";
 import { subjectsAt, Place, FxCard } from "./subjects";
 import { checkSubjects } from "./core";
-import { Track, TShot, TFlight, Key, V3, pathLen, holdPose, along, smoother, trackCam, whipFlight } from "./track";
+import { Track, TShot, TFlight, Key, V3, pathLen, holdPose, along, smoother, trackCam, whipFlight, cutFlight } from "./track";
 
 export type Size = "wide" | "medium" | "close" | "insert";
 export type ShotSpec = { t0: number; t1?: number; subjects: string[]; size: Size; angle?: "front" | "left" | "right" | "low" | "high"; move?: "push" | "drift" | "orbit" | "sway"; place?: "centre"; note?: string };
@@ -217,7 +217,7 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
     }
     return null;
   };
-  const whipInto = (i: number, why: string): TFlight => whipFlight({ video: I.video, shots, flights: [] }, i, I.fps, why);
+  const whipInto = (i: number, why: string): TFlight => (process.env.WHIPS ? whipFlight({ video: I.video, shots, flights: [] }, i, I.fps, why) : cutFlight({ video: I.video, shots, flights: [] }, i, why));   // a cut on the beat (no motion-blur whips)
   const flights: TFlight[] = [];
   for (let i = 0; i + 1 < shots.length; i++) {
     const S = shots[i], N = shots[i + 1];

@@ -6,7 +6,7 @@ import { run, Row, Cam, Place, FxCard } from "./core";
 import { solve, ShotSpec, Hint } from "./solve";
 import { subjectsAt, lensFor } from "./subjects";
 import { focusIds } from "./focus";
-import { Track, TFlight, trackCam, holdPose, whipFlight } from "./track";
+import { Track, TFlight, trackCam, holdPose, whipFlight, cutFlight } from "./track";
 const smootherW = (x: number) => { const t = Math.min(1, Math.max(0, x)); return t * t * t * (t * (t * 6 - 15) + 10); };
 const A3 = (v: THREE.Vector3): [number, number, number] => [+v.x.toFixed(3), +v.y.toFixed(3), +v.z.toFixed(3)];
 
@@ -143,7 +143,7 @@ export const loop = (C: AutoCfg, maxIter = 5) => {
       const f0 = Math.floor(fl.t0 * C.fps) - 1, f1 = Math.ceil(fl.t1 * C.fps) + 1;
       const rwF = run(adapter(C, tr), geo, Array.from({ length: f1 - f0 + 1 }, (_, q) => f0 + q));
       if (process.env.FLYDBG) for (const r of rwF) if (r.fails.some((q) => q.critical)) console.error("[crit]", fl.to, r.f, JSON.stringify(r.fails.filter((q) => q.critical)));
-      if (critIn(rwF)) { tr.flights[k] = whipFlight(tr, fl.to - 1, C.fps, "CRITICAL frames left after the polish"); whips++; }
+      if (critIn(rwF)) { tr.flights[k] = cutFlight(tr, fl.to - 1, "CRITICAL frames left after the polish"); whips++; }
     }
     // a whip that clips (its pan sweeps the lens past a wall) pans the other way round
     let flipped = 0, cuts = 0;
@@ -160,7 +160,7 @@ export const loop = (C: AutoCfg, maxIter = 5) => {
       fl.kind = "whip"; fl.whipDir = n1 < n0 ? dir : (dir === -1 ? 1 : -1);
     }
     const rw = run(adapter(C, tr), geo), n = critIn(rw);
-    history.push(`fly transitions that still failed became whips: ${whips}; clipping whips panned the other way: ${flipped}, became cuts: ${cuts}`);
+    history.push(`fly transitions that still failed became cuts: ${whips}; clipping whips panned the other way: ${flipped}, became cuts: ${cuts}`);
     history.push(`flight polish (look timing per failing flight): ${n} frames with CRITICAL failures (${fixedN} flights cleared)`);
     if (n < best.n) best = { track: tr, rows: rw, n, round: -1 };
   }

@@ -43,12 +43,12 @@ Decisions (auto-framer + camera guard, made without asking; revised after the re
   a whip.
 
 CRITICAL: 0
-warnings: 333 frames in 156 ranges (list in camera_report.txt)
+warnings: 239 frames in 69 ranges (list in camera_report.txt)
 
 Loop:
-  round 1: 470 frames with CRITICAL failures in 11 shots (2, 5, 6, 11, 12, 14, 17, 20, 22, 23, 24)
-  round 2: 191 frames with CRITICAL failures in 5 shots (5, 11, 12, 22, 23)
-  round 3: 40 frames with CRITICAL failures in 2 shots (5, 12)
+  round 1: 492 frames with CRITICAL failures in 10 shots (2, 5, 6, 11, 12, 14, 17, 20, 22, 24)
+  round 2: 196 frames with CRITICAL failures in 4 shots (5, 11, 12, 22)
+  round 3: 45 frames with CRITICAL failures in 2 shots (5, 12)
   round 4: 0 frames with CRITICAL failures in 0 shots
   assembled the best round of every shot: 0 frames with CRITICAL failures
 
@@ -76,31 +76,31 @@ Shots (candidate chosen, score):
   shot 20   51.69- 54.45 s  medium az-30 (score 47: 2/5 blocked)
   shot 21   54.45- 57.18 s  medium az-30 (score 6)
   shot 22   57.18- 61.38 s  medium az+30 (score 3)
-  shot 23   61.38- 62.50 s  medium higher (score 3)
+  shot 23   61.38- 62.50 s  medium lower (score 2)
   shot 24   62.50- 66.00 s  close  higher (score 5)
 
 Flights:
   -> shot 1: FLY 1.06-1.99 s, 28 f, hand route (reversed), peak 0.34 m/f
   -> shot 2: FLY 4.28-5.22 s, 28 f, straight glide, peak 0.29 m/f
-  -> shot 3: WHIP 6.30-6.50 s, 6 f, one surface fills the view at 5.73 s
-  -> shot 4: WHIP 9.00-9.20 s, 6 f, a face fills the frame at 8.70 s (locke)
+  -> shot 3: CUT 6.50-6.50 s, 0 f, cut on the beat, peak undefined m/f
+  -> shot 4: CUT 9.20-9.20 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 5: FLY 10.64-11.58 s, 28 f, straight glide, peak 0.15 m/f
-  -> shot 6: WHIP 14.30-14.50 s, 6 f, route blocked (1 segments)
+  -> shot 6: CUT 14.50-14.50 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 7: FLY 16.47-17.40 s, 28 f, glide (c:herschelT shrinks to a dot at 16.80 s), peak 4.28 m/f
   -> shot 8: FLY 17.71-19.58 s, 56 f, straight glide, peak 3.97 m/f
-  -> shot 9: WHIP 21.68-21.88 s, 6 f, no subject in view at 21.08 s
+  -> shot 9: CUT 21.88-21.88 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 10: FLY 22.33-23.26 s, 28 f, straight, peak 0.2 m/f
   -> shot 11: FLY 25.57-26.50 s, 28 f, hand route (reversed), peak 0.57 m/f
   -> shot 12: FLY 28.99-29.93 s, 28 f, hand route, peak 0.55 m/f
-  -> shot 13: WHIP 31.75-31.95 s, 6 f, route blocked (1 segments)
+  -> shot 13: CUT 31.95-31.95 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 14: FLY 32.75-33.69 s, 28 f, glide (no subject in view at 33.19 s), peak 3.6 m/f
-  -> shot 15: WHIP 37.05-37.25 s, 6 f, route blocked (1 segments)
-  -> shot 16: WHIP 39.35-39.55 s, 6 f, route blocked (1 segments)
-  -> shot 17: WHIP 43.43-43.63 s, 6 f, no subject in view at 42.90 s
+  -> shot 15: CUT 37.25-37.25 s, 0 f, cut on the beat, peak undefined m/f
+  -> shot 16: CUT 39.55-39.55 s, 0 f, cut on the beat, peak undefined m/f
+  -> shot 17: CUT 43.63-43.63 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 18: FLY 46.54-47.47 s, 28 f, glide (no subject in view at 47.10 s), peak 2.12 m/f
   -> shot 19: FLY 48.14-49.07 s, 28 f, hand route, peak 0.08 m/f
-  -> shot 20: WHIP 51.49-51.69 s, 6 f, route blocked (1 segments)
-  -> shot 21: WHIP 54.25-54.45 s, 6 f, no subject in view at 53.62 s
-  -> shot 22: WHIP 56.98-57.18 s, 6 f, c:cust0 shrinks to a dot at 56.61 s
-  -> shot 23: WHIP 61.18-61.38 s, 6 f, route blocked (1 segments)
-  -> shot 24: FLY 61.70-62.50 s, 24 f, raised glide, peak 0.45 m/f
+  -> shot 20: CUT 51.69-51.69 s, 0 f, cut on the beat, peak undefined m/f
+  -> shot 21: CUT 54.45-54.45 s, 0 f, cut on the beat, peak undefined m/f
+  -> shot 22: CUT 57.18-57.18 s, 0 f, cut on the beat, peak undefined m/f
+  -> shot 23: CUT 61.38-61.38 s, 0 f, cut on the beat, peak undefined m/f
+  -> shot 24: CUT 62.50-62.50 s, 0 f, cut on the beat, peak undefined m/f

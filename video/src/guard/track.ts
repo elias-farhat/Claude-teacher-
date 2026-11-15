@@ -88,3 +88,9 @@ export const whipFlight = (T: Track, i: number, fps: number, why: string): TFlig
   const side = dA.x * toB.z - dA.z * toB.x > 0 ? 1 : -1;
   return { kind: "whip", t0, t1: N.t0, to: i + 1, path: [[A.pos.x, A.pos.y, A.pos.z], N.keys[0].pos], whipDir: side as 1 | -1, ...({ route: "whip", reason: why } as object) };
 };
+/** a straight cut on the beat (Elias, Moon run 35: where no clean glide exists, cut on the narration beat instead of a
+ *  motion-blur whip): the outgoing hold runs right up to the next shot's landing frame */
+export const cutFlight = (T: Track, i: number, why: string): TFlight => {
+  const N = T.shots[i + 1];
+  return { kind: "cut", t0: N.t0, t1: N.t0, to: i + 1, path: [N.keys[0].pos, N.keys[0].pos], ...({ route: "cut on the beat", reason: why } as object) };
+};
