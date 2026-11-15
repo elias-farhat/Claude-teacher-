@@ -16,7 +16,7 @@ import { checkSubjects } from "./core";
 import { Track, TShot, TFlight, Key, V3, pathLen, holdPose, along, smoother, trackCam, whipFlight, cutFlight } from "./track";
 
 export type Size = "wide" | "medium" | "close" | "insert";
-export type ShotSpec = { t0: number; t1?: number; subjects: string[]; size: Size; angle?: "front" | "left" | "right" | "low" | "high"; move?: "push" | "drift" | "orbit" | "sway"; place?: "centre"; note?: string };
+export type ShotSpec = { t0: number; t1?: number; subjects: string[]; size: Size; angle?: "front" | "left" | "right" | "low" | "high"; move?: "push" | "drift" | "orbit" | "sway"; place?: "centre"; enter?: "cut"; note?: string };
 export type SolveIn = {
   video: string; fps: number; total: number; geo: Geo; specs: ShotSpec[];
   stage: (t: number, eye: THREE.Vector3) => { places: Place[]; fx: FxCard[] };
@@ -173,6 +173,7 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
   // ---- flights ----
   /** first problem of a fly transition (null = fine): any frame with no real subject in view, or geometry within
    *  0.4 m / filling the view / around the camera */
+  const h0big = (open: number, same: number) => open + same >= 0.85 * 45;
   const flightProblem = (fl: TFlight, i: number, lite = false): string | null => {
     const tmp: Track = { video: I.video, shots, flights: [fl] };
     const n = Math.max(2, Math.round((fl.t1 - fl.t0) * I.fps));
@@ -211,8 +212,11 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
       // one surface filling the frame (Moon 20.2-21.9 s: the glide skimmed the Moon's white sphere): >= 85 % of the
       // view rays hit the same mesh within 25 m -> the picture is a flat colour (the proxy's FLAT check)
       { let same = 0; let first: THREE.Object3D | null = null;
-        for (let a = 0; a < 5; a++) for (let b2 = 0; b2 < 9; b2++) { const nd = new THREE.Vector3(((a + 0.5) / 5) * 2 - 1, 1 - ((b2 + 0.5) / 9) * 2, 0.5).unproject(cam).sub(c.pos).normalize(); const h = geo.cast(c.pos, nd, 25); if (h) { if (!first) first = h.object; if (h.object === first) same++; } }
-        if (same >= 0.85 * 45) return `one surface fills the view at ${t.toFixed(2)} s`; }
+        // (run 36: a glide over open sky / sea read as 92 % one colour: empty sky and far surfaces count too)
+        let open = 0;
+        for (let a = 0; a < 5; a++) for (let b2 = 0; b2 < 9; b2++) { const nd = new THREE.Vector3(((a + 0.5) / 5) * 2 - 1, 1 - ((b2 + 0.5) / 9) * 2, 0.5).unproject(cam).sub(c.pos).normalize(); const h = geo.cast(c.pos, nd, 2000); if (h) { const mk = (h.object as THREE.Mesh).material as unknown as THREE.Object3D; if (!first) first = mk; if (mk === first) same++; } else open++; }   // by material: the ground is many tiles of one material
+        if (open >= 0.8 * 45 || open + same >= 0.85 * 45 && open > 0 && same > 0 && h0big(open, same)) return `sky / one surface fills the view at ${t.toFixed(2)} s`;
+        if (same >= (lite ? 0.62 : 0.85) * 45) return `one surface fills the view at ${t.toFixed(2)} s`; }   // forced glides: near the proxy's FLAT limit (55 %)
       if (geo.inside(c.pos)) return `camera inside geometry at ${t.toFixed(2)} s`;
     }
     return null;
@@ -225,6 +229,7 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
     const Apos = new THREE.Vector3(...last.pos);
     const L0 = Apos.distanceTo(B);
     if (L0 < 0.05) continue;
+    if (specs[i + 1].enter === "cut") { flights.push(cutFlight({ video: I.video, shots, flights: [] }, i, "cut on the beat (shots.ts)")); continue; }
     const routes: { name: string; pts: THREE.Vector3[] }[] = [{ name: "straight", pts: [Apos, B] }];
     // the hand camera's own route around this landing (it passes through doors, windows, grates)
     {

@@ -43,7 +43,7 @@ Decisions (auto-framer + camera guard, made without asking; revised after the re
   a whip.
 
 CRITICAL: 0
-warnings: 239 frames in 69 ranges (list in camera_report.txt)
+warnings: 183 frames in 43 ranges (list in camera_report.txt)
 
 Loop:
   round 1: 492 frames with CRITICAL failures in 10 shots (2, 5, 6, 11, 12, 14, 17, 20, 22, 24)
@@ -93,11 +93,11 @@ Flights:
   -> shot 11: FLY 25.57-26.50 s, 28 f, hand route (reversed), peak 0.57 m/f
   -> shot 12: FLY 28.99-29.93 s, 28 f, hand route, peak 0.55 m/f
   -> shot 13: CUT 31.95-31.95 s, 0 f, cut on the beat, peak undefined m/f
-  -> shot 14: FLY 32.75-33.69 s, 28 f, glide (no subject in view at 33.19 s), peak 3.6 m/f
+  -> shot 14: CUT 33.69-33.69 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 15: CUT 37.25-37.25 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 16: CUT 39.55-39.55 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 17: CUT 43.63-43.63 s, 0 f, cut on the beat, peak undefined m/f
-  -> shot 18: FLY 46.54-47.47 s, 28 f, glide (no subject in view at 47.10 s), peak 2.12 m/f
+  -> shot 18: CUT 47.47-47.47 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 19: FLY 48.14-49.07 s, 28 f, hand route, peak 0.08 m/f
   -> shot 20: CUT 51.69-51.69 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 21: CUT 54.45-54.45 s, 0 f, cut on the beat, peak undefined m/f

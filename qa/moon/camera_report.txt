@@ -41,29 +41,3 @@ warning   26.10- 26.13 s  f783-783  FACES     c:/^bat[01]$/(bat1)  head cut at t
 warning   26.17- 26.53 s  f785-795  SUBJECT   f:goat               too small (12 % of frame height, needs 15 %)
 warning   26.20- 26.53 s  f786-795  FACES     f:goat               head cut at the right edge (animal)
 warning   29.33- 29.43 s  f880-882  SUBJECT   c:/^bat[01]$/        cut off right (0.96)
-warning   32.77- 32.83 s  f983-984  SUBJECT   c:/^pierBoy\d$/      not on stage
-warning   32.83- 33.30 s  f985-998  SUBJECT   c:/^pierBoy\d$/      out of frame (x 1.11..1.32, y -0.89..-0.72)
-warning   32.97- 33.17 s  f989-994  SUBJECT   c:town0              too small (6 % of frame height, needs 30 %)
-warning   32.97- 33.17 s  f989-994  FACES     c:town0              head centre at 69 % of the frame height
-warning   33.00- 33.20 s  f990-995  SUBJECT   c:town1              too small (6 % of frame height, needs 30 %)
-warning   33.00- 33.03 s  f990-990  FACES     c:/^town\d$/(town3)  head cut at the right edge
-warning   33.03- 33.07 s  f991-991  FACES     c:/^town\d$/(town5)  head cut at the right edge
-warning   33.10- 33.20 s  f993-995  FACES     c:town1              head centre at 71 % of the frame height
-warning   33.17- 33.40 s  f995-1001  SUBJECT   c:town0              out of frame (x -0.84..-0.59, y 2.03..2.25)
-warning   33.20- 33.40 s  f996-1001  SUBJECT   c:town1              out of frame (x -1.16..-0.79, y 2.37..2.73)
-warning   33.23- 33.30 s  f997-998  EMPTY                          none of c:town0, c:town1, ?c:/^town\d$/, ?c:fainter, c:/^pierBoy\d$/, ?f:bird in view
-warning   33.30- 33.33 s  f999-999  SUBJECT   c:/^pierBoy\d$/      cut off top (-0.02)
-warning   33.30- 33.47 s  f999-1003  SUBJECT   c:/^pierBoy\d$/      too small (20 % of frame height, needs 30 %)
-warning   33.30- 33.33 s  f999-999  FACES     c:/^pierBoy\d$/(pierBoy0) head cut at the top edge
-warning   33.40- 33.70 s  f1002-1010  SUBJECT   c:town0              behind the camera
-warning   33.40- 33.70 s  f1002-1010  SUBJECT   c:town1              behind the camera
-warning   46.57- 47.00 s  f1397-1409  SUBJECT   c:herschelB          behind the camera
-warning   46.90- 46.97 s  f1407-1408  SUBJECT   c:sailor             too small (22 % of frame height, needs 30 %)
-warning   46.97- 47.03 s  f1409-1410  SUBJECT   c:sailor             out of frame (x 3.59..4.23, y 0.26..0.57)
-warning   46.97- 47.07 s  f1409-1411  EMPTY                          none of c:sailor, ?w:ship, c:herschelB in view
-warning   47.00- 47.07 s  f1410-1411  SUBJECT   c:herschelB          out of frame (x -0.80..-0.60, y 0.20..0.40)
-warning   47.03- 47.27 s  f1411-1417  SUBJECT   c:sailor             behind the camera
-warning   47.07- 47.17 s  f1412-1414  SUBJECT   c:herschelB          too small (23 % of frame height, needs 30 %)
-warning   47.10- 47.13 s  f1413-1413  FACES     c:herschelB          face 100 % covered by something in front
-warning   47.10- 47.13 s  f1413-1413  EMPTY                          none of c:sailor, ?w:ship, c:herschelB in view
-warning   47.27- 47.50 s  f1418-1424  SUBJECT   c:sailor             out of frame (x 4.36..4.70, y 0.16..0.34)
