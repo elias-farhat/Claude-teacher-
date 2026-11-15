@@ -173,7 +173,7 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
   // ---- flights ----
   /** first problem of a fly transition (null = fine): any frame with no real subject in view, or geometry within
    *  0.4 m / filling the view / around the camera */
-  const flightProblem = (fl: TFlight, i: number): string | null => {
+  const flightProblem = (fl: TFlight, i: number, lite = false): string | null => {
     const tmp: Track = { video: I.video, shots, flights: [fl] };
     const n = Math.max(2, Math.round((fl.t1 - fl.t0) * I.fps));
     for (let k = 0; k <= n; k++) {
@@ -183,7 +183,7 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
       // flying toward a subject that is not on stage yet arrives at an empty spot (Moon run 31, 777-778: trees only on
       // "horn", the bats appeared after the flight left the goats): whip at the cut instead
       const missingN = specs[i + 1].subjects.filter((id) => !id.startsWith("?")).length > subN.filter((q) => !q.opt).length;
-      if (missingN && k > n / 3) return `the next shot's subject is not on stage yet at ${t.toFixed(2)} s`;
+      if (!lite && missingN && k > n / 3) return `the next shot's subject is not on stage yet at ${t.toFixed(2)} s`;
       {
         // a face filling the frame mid-flight (Moon run 31, 136-138 / 261-262), or the outgoing character pulled back
         // to a dot (16.7-17.2 s, at night: rule 11) -> whip instead
@@ -194,7 +194,7 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
           if (a.front && b.front && a.x > -0.1 && a.x < 1.1 && Math.abs(a.y - b.y) > 0.3 && Math.min(a.y, b.y) < 1 && Math.max(a.y, b.y) > 0)
             return `a face fills the frame at ${t.toFixed(2)} s (${hd.key.split("|")[0]})`;
         }
-        if (k > 0 && k < n * 0.6) for (const q of subjAt(specs[i], t, c.pos)) {
+        if (k > 0 && k < n * (lite ? 0.3 : 0.6)) for (const q of subjAt(specs[i], t, c.pos)) {   // a forced glide still may not shrink the subject to a dot while the look is on it
           if (q.opt || q.kind !== "char") continue;
           const ys = q.pts.map(scr); if (ys.some((v) => !v.front)) continue;
           const xs = ys.map((v) => v.x), yy = ys.map((v) => v.y);
@@ -204,7 +204,7 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
       const subs = [...subjAt(specs[i], t, c.pos), ...subN].filter((q) => !q.opt);
       const ck = checkSubjects(cam, subs, geo);
       if (process.env.FLYDBG && !ck.anyInView && i + 1 === +process.env.FLYDBG) console.error("[fly]", i + 1, t.toFixed(2), "pos", c.pos.toArray().map((x) => +x.toFixed(1)), "look", c.look.toArray().map((x) => +x.toFixed(1)), JSON.stringify(ck.fails.map((f) => f.subject + ":" + f.detail)), JSON.stringify(ck.blocked), subs.map((q) => q.id).join(","));
-      if (!ck.anyInView) return `no subject in view at ${t.toFixed(2)} s`;
+      if (!lite && !ck.anyInView) return `no subject in view at ${t.toFixed(2)} s`;
       const fwd = new THREE.Vector3(); cam.getWorldDirection(fwd); let near = Infinity, walled = 0;
       for (let a = 0; a < 5; a++) for (let b2 = 0; b2 < 9; b2++) { const nd = new THREE.Vector3(((a + 0.5) / 5) * 2 - 1, 1 - ((b2 + 0.5) / 9) * 2, 0.5).unproject(cam).sub(c.pos).normalize(); const h = geo.cast(c.pos, nd, 1.6 / Math.max(0.2, nd.dot(fwd))); if (h) { const d = h.distance * nd.dot(fwd); near = Math.min(near, d); if (d < 1.5) walled++; } }
       if (near < 0.45 || walled >= 0.8 * 45) return `geometry against the lens at ${t.toFixed(2)} s`;
@@ -342,7 +342,33 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
     if (pickedAlt) pick = { name: pickedAlt, pts: [] };
     void usedSwing;
     if (!why) flights.push({ ...fly, ...({ route: pick.name, tried: tried.join(" "), peak: +((pathLen(fly.path) * 1.875) / Math.round((fly.t1 - fly.t0) * I.fps)).toFixed(2) } as object) });
-    else flights.push(whipInto(i, why));
+    else {
+      // Elias, run 35: every transition is an eased 25-30 frame glide, no whips. When no subject can stay in view all the
+      // way (distant scenes) or the planned route is walled, glide anyway on a free route (straight, then arcs over the
+      // roofs): it must still never touch geometry, never fill the frame with a face or one surface, never exceed
+      // 6 m/frame. The look swings over the middle third. The guard reports its subject-less middle as a warning.
+      let forced: TFlight | null = null;
+      const A0v = new THREE.Vector3(...path[0]), Bv = new THREE.Vector3(...N.keys[0].pos), Ld = A0v.distanceTo(Bv), top = Math.max(A0v.y, Bv.y);
+      const opts: V3[][] = [[path[0], A3(Bv)]];
+      for (const lift of [0.3, 0.6, 1.0]) { const h = top + Math.max(3, Ld * lift); opts.push([path[0], A3(A0v.clone().setY(h)), A3(Bv.clone().setY(h)), A3(Bv)]); }
+      opts.push(path);
+      for (const pth0 of opts) {
+        const pth = pth0.length > 2 ? chaikin(pth0.map((q) => new THREE.Vector3(...q))).map(A3) : pth0;
+        let free = true; for (let k = 0; k + 1 < pth.length; k++) if (!geo.segmentFree(new THREE.Vector3(...pth[k]), new THREE.Vector3(...pth[k + 1]), 0.2)) { free = false; break; }
+        if (!free) continue;
+        const fr = Math.max(28, Math.ceil((pathLen(pth) * 1.875) / 6)), roomF = Math.floor((N.t0 - S.t0) * I.fps) - 9;
+        if (fr > roomF) continue;
+        const t0f = +(N.t0 - fr / I.fps).toFixed(3), A0f = holdPose(S, t0f, t0f).pos; pth[0] = A3(A0f);
+        if (pathLen(pth) * 1.875 / fr > 6) continue;
+        for (const sw of [[0.33, 0.67], [0.2, 0.8], [0.4, 0.6]] as [number, number][]) {
+          const cand: TFlight = { kind: "fly", t0: t0f, t1: N.t0, to: i + 1, path: pth, swing: sw, ...({ forced: true } as object) };
+          if (!flightProblem(cand, i, true)) { forced = cand; break; }
+        }
+        if (forced) break;
+      }
+      if (forced) flights.push({ ...forced, ...({ route: `glide (${why})`, peak: +((pathLen(forced.path) * 1.875) / Math.round((forced.t1 - forced.t0) * I.fps)).toFixed(2) } as object) });
+      else flights.push(whipInto(i, why));
+    }
   }
   return { video: I.video, shots, flights };
 };

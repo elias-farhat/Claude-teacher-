@@ -33,7 +33,7 @@ const adapter = (C: AutoCfg, tr: Track) => ({
     // in a flight the subjects of both shots count, and so does the prop the camera carries across (rule 2)
     const ids = [...new Set([...C.specs[p.shot].subjects, ...(flying ? C.specs[p.next].subjects : [])])];
     const fl = flying ? tr.flights.find((g) => g.to === p.next && t >= g.t0 && t < g.t1) : undefined;
-    return { ids, flight: flying, shot: flying ? p.next : p.shot, whip: fl?.kind === "whip" };
+    return { ids, flight: flying, shot: flying ? p.next : p.shot, whip: fl?.kind === "whip", forced: !!(fl as { forced?: boolean } | undefined)?.forced };
   },
 });
 export const guardOnly = (C: AutoCfg) => {

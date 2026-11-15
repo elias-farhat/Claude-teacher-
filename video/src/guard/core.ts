@@ -29,7 +29,7 @@ export type Adapter = {
   props?: Record<string, (t: number) => THREE.Box3>;
   windows?: Window[];
   /** auto-framed videos: the subjects of this moment, whether the camera is in a flight / a whip (and which shot) */
-  moment?: (t: number) => { ids: string[]; flight: boolean; shot: number; whip?: boolean };
+  moment?: (t: number) => { ids: string[]; flight: boolean; shot: number; whip?: boolean; forced?: boolean };
   /** the lens the renderer uses at this moment (focus on the subject's head, blur capped): the guard checks it */
   lens?: (t: number, cam: THREE.PerspectiveCamera, st: { places: Place[]; fx: FxCard[] }) => { focus: number; cInf: number } | null;
 };
@@ -217,11 +217,13 @@ export const run = (A: Adapter, geo = new Geo(A.root), frames?: number[]): Row[]
     cam.getWorldDirection(fwd); right.setFromMatrixColumn(cam.matrixWorld, 0); up.setFromMatrixColumn(cam.matrixWorld, 1);
     const st = A.stage(t, c, cam);
     const mo = A.moment ? A.moment(t) : { ids: [...new Set((A.windows ?? []).filter((w) => t >= w.from && t < w.to).flatMap((w) => w.ids))], flight: c.mix > 0, shot: c.shot };
-    const flight = mo.flight, ids = mo.ids, whip = !!(mo as { whip?: boolean }).whip;
+    const flight = mo.flight, ids = mo.ids, whip = !!(mo as { whip?: boolean }).whip, forced = !!(mo as { forced?: boolean }).forced;
     const fails: Fail[] = [];
     // CRITICAL: everything on held frames; in a flight CLIPPING, EMPTY and XCU; in a 6-frame motion-blurred whip only
     // CLIPPING (the picture is a blur between two subjects)
-    const add = (q: Omit<Fail, "critical">) => fails.push({ ...q, critical: whip ? q.rule === "CLIPPING" : !flight || q.rule === "CLIPPING" || q.rule === "EMPTY" || q.rule === "XCU" });
+    // a forced glide (no subject can stay in view between distant scenes; Elias run 35: glides, never whips) may pass
+    // through subject-less frames: EMPTY is a warning there
+    const add = (q: Omit<Fail, "critical">) => fails.push({ ...q, critical: whip ? q.rule === "CLIPPING" : !flight || q.rule === "CLIPPING" || (q.rule === "EMPTY" && !forced) || q.rule === "XCU" });
     const { subj, missing } = subjectsAt(ids, st, cam.position, right, up, A.props, t);
     if ((globalThis as unknown as { GUARD_DBG_OCC?: boolean }).GUARD_DBG_OCC) console.log("[subj]", f, ids.join(","), "found", subj.map((q) => q.id + "@" + q.centre.toArray().map((x) => +x.toFixed(1))).join(" "), "fx", st.fx.map((q) => q.key.split("|")[0]).filter((k) => !k.startsWith("bg")).join(","));
     for (const id of missing) add({ rule: "SUBJECT", subject: id, detail: "not on stage" });

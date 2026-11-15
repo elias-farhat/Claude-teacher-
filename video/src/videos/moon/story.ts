@@ -297,11 +297,26 @@ export const setTrack = (tr: Track | null) => { TRACK = tr; };
 export const getTrack = () => TRACK;
 /** camera at time t: the solved track when there is one; lighting / looks still follow SHOTS (the old timeline),
  *  blending into the next SHOTS look over the 0.5 s before its landing */
+const lookCache = new WeakMap<object, number[]>();
+/** the old SHOTS index whose time span covers most of track shot k (the look / sun of that hold) */
+const lookShot = (T: NonNullable<typeof TRACK>, k: number) => {
+  let a = lookCache.get(T);
+  if (!a) {
+    a = T.shots.map((sh) => {
+      const cover = SHOTS.map((S, j) => { const s0 = Math.max(S.at, sh.t0), s1 = Math.min(j + 1 < SHOTS.length ? SHOTS[j + 1].at : 1e9, sh.t1); return Math.max(0, s1 - s0); });
+      return cover.indexOf(Math.max(...cover));
+    });
+    lookCache.set(T, a);
+  }
+  return a[Math.max(0, Math.min(a.length - 1, k))];
+};
 export const camAt = (t: number): Cam => {
   if (!TRACK) return camAtHand(t);
   const p = trackCam(TRACK, t);
-  let b = 0; while (b + 1 < SHOTS.length && SHOTS[b + 1].at <= t) b++;
-  const nb = b + 1 < SHOTS.length && t > SHOTS[b + 1].at - 0.5 ? b + 1 : b, mix = nb !== b ? (t - (SHOTS[nb].at - 0.5)) / 0.5 : 0;
+  // the light (look, sun, shadow frame) follows the TRACK's own shots: every held shot keeps the look of the old SHOTS
+  // entry that covers most of it, and changes only across a transition (run 35, 1309-1318: the look switched on the old
+  // timeline in the middle of a hold -> a light pop on screen)
+  const b = lookShot(TRACK, p.shot), nb = p.flying >= 0 ? lookShot(TRACK, p.next) : b, mix = nb !== b ? Math.max(0, Math.min(1, p.flying)) : 0;
   return { pos: p.pos, look: p.look, fov: p.fov, roll: 0, dof: p.dof, shot: b, mix, next: nb, interior: !!insideRoom(p.pos), blur: p.blur, blurDir: p.blurDir };
 };
 /** carried props are gone (the review of Rats run 24): a flight only exists if a real subject stays in view, otherwise

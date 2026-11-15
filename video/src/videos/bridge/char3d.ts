@@ -60,11 +60,16 @@ const buildTop = (o: Outfit, sideburns: boolean): THREE.Group => {
   if (o.hat === "hair") {
     // a shade deeper than the card colour (pale hair washed out to bald under the key light) and with volume:
     // a thicker crown, the back, and a puff over each ear so the silhouette says "hair"
-    const hm = m("#" + new THREE.Color(hairCol).multiplyScalar(0.82).getHexString(), THREE.DoubleSide);
-    add(cap(R * 1.09, 1.0), hm, [0, R * 0.03, -R * 0.02]);           // crown, down to the forehead
-    add(shell(R * 1.07, 0.95, 2.05), hm);                            // sides and back, the face left open
-    for (const sx of [-1, 1]) add(new THREE.SphereGeometry(R * 0.36, 16, 12), hm, [sx * R * 0.86, R * 0.12, -R * 0.12]);
-    add(new THREE.SphereGeometry(R * 0.5, 16, 12).scale(1.4, 0.8, 1), hm, [0, R * 0.05, -R * 0.62]);   // the back of the head
+    // pale hair (Herschel's white) goes a darker silver grey with more volume, so it reads as hair against the skin under
+    // any key light (run 35: it washed out to a bald head); darker hair a shade deeper than the card colour
+    const pale = new THREE.Color(hairCol).getHSL({ h: 0, s: 0, l: 0 }).l > 0.72;
+    const hm = m(pale ? "#8f8d98" : "#" + new THREE.Color(hairCol).multiplyScalar(0.82).getHexString(), THREE.DoubleSide);
+    const vol = pale ? 1.25 : 1;
+    add(cap(R * (pale ? 1.13 : 1.09), 1.0), hm, [0, R * 0.05, -R * 0.02]);   // crown, down to the forehead
+    add(shell(R * 1.07, 0.95, 2.05), hm);                                       // sides and back, the face left open
+    for (const sx of [-1, 1]) add(new THREE.SphereGeometry(R * 0.36 * vol, 16, 12), hm, [sx * R * 0.88, R * 0.14, -R * 0.12]);
+    if (pale) for (const sx of [-1, 1]) add(new THREE.SphereGeometry(R * 0.3, 14, 10), hm, [sx * R * 0.55, R * 0.72, -R * 0.2]);   // tufts on the crown
+    add(new THREE.SphereGeometry(R * 0.5 * vol, 16, 12).scale(1.4, 0.8, 1), hm, [0, R * 0.05, -R * 0.62]);   // the back of the head
     // a soft fringe lip along the hairline so it reads as hair, not a swim cap
     add(new THREE.TorusGeometry(R * 0.86, R * 0.07, 8, 28, Math.PI * 0.9), hm, [0, R * 0.5, R * 0.05], [-1.1, 0, Math.PI * 0.05]);
     if (o.hair === "#6a3a22") for (let c = -3; c <= 3; c++) add(new THREE.SphereGeometry(R * 0.2, 10, 8), hm, [c * R * 0.26, R * 0.95 - Math.abs(c) * R * 0.08, R * 0.25]);   // Locke's curls
@@ -88,8 +93,7 @@ const buildTop = (o: Outfit, sideburns: boolean): THREE.Group => {
     add(new THREE.ConeGeometry(R * 1.75, R * 0.95, 32, 1, true), m("#e3cf96", THREE.DoubleSide), [0, R * 1.0, 0]);
   } else if (o.hat === "bonnet") {
     const bm = m("#e9cf8f", THREE.DoubleSide);
-    add(shell(R * 1.12, 1.15, 2.2), bm);
-    add(new THREE.TorusGeometry(R * 1.02, R * 0.09, 8, 32, Math.PI * 1.25), m("#d6b46a"), [0, R * 0.02, R * 0.25], [0, 0, -Math.PI * 0.125 + Math.PI / 2 - Math.PI * 0.625 + Math.PI * 0.5]);
+    add(shell(R * 1.12, 1.15, 2.2), bm);   // (no brim ring round the face: it read as a mask / face ring, run 35)
   } else if (o.hat === "shako" || o.hat === "shako_tall") {
     const sm = m("#2e2a36"), tall = o.hat === "shako_tall";
     add(new THREE.CylinderGeometry(R * 0.95, R * 0.85, R * (tall ? 1.4 : 1.15), 28), sm, [0, R * (tall ? 1.15 : 1.02), 0]);
