@@ -16,7 +16,7 @@ import struct
 import sys
 import zipfile
 
-ORDER = ["fantasy-town", "nature", "castle"]
+ORDER = ["fantasy-town", "nature", "castle", "modular-buildings", "factory-kit", "graveyard-kit", "pirate-kit", "survival-kit"]
 
 
 def kit_name(path):
@@ -68,8 +68,14 @@ def main():
             folder, file = n.rsplit("/", 1)
             model = file[:-4]
             if model in owner:
+                if owner[model] == kit:          # same model twice inside one kit
+                    continue
+                # a later kit's clashing model keeps its kit as a prefix (pirate-kit-barrel), so the earlier kit's
+                # model (used by existing scenes) is never overwritten and the new one is still usable
                 clashes += 1
-                continue
+                model = f"{kit}-{model}"; file = model + ".glb"
+                if model in owner:
+                    continue
             data, uris = rewrite_glb(Z.read(n), kit)
             for u in uris:
                 src = f"{folder}/{u}"
@@ -85,7 +91,7 @@ def main():
             with open(out, "wb") as fh:
                 fh.write(Z.read(src))
         print(f"kenney: {kit}: {added} models, {len(textures)} textures"
-              + (f", {clashes} name clashes kept from an earlier kit" if clashes else ""))
+              + (f", {clashes} name clashes saved as {kit}-<name>" if clashes else ""))
     print(f"kenney: {len(owner)} models in {dest}")
 
 
