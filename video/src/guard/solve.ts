@@ -350,19 +350,28 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
       let forced: TFlight | null = null;
       const A0v = new THREE.Vector3(...path[0]), Bv = new THREE.Vector3(...N.keys[0].pos), Ld = A0v.distanceTo(Bv), top = Math.max(A0v.y, Bv.y);
       const opts: V3[][] = [[path[0], A3(Bv)]];
-      for (const lift of [0.3, 0.6, 1.0]) { const h = top + Math.max(3, Ld * lift); opts.push([path[0], A3(A0v.clone().setY(h)), A3(Bv.clone().setY(h)), A3(Bv)]); }
+      for (const lift of [0.3, 0.6, 1.0, 1.6]) { const h = top + Math.max(3, Ld * lift); opts.push([path[0], A3(A0v.clone().setY(h)), A3(Bv.clone().setY(h)), A3(Bv)]); }
+      { const d = Bv.clone().sub(A0v).setY(0), side = new THREE.Vector3(-d.z, 0, d.x).normalize(), mid = A0v.clone().lerp(Bv, 0.5);
+        for (const sg of [1, -1]) for (const k2 of [0.25, 0.5]) opts.push([path[0], A3(mid.clone().addScaledVector(side, sg * Ld * k2).setY(top + 2)), A3(Bv)]); }
       opts.push(path);
+      const isFree = (q: V3[]) => { for (let k = 0; k + 1 < q.length; k++) if (!geo.segmentFree(new THREE.Vector3(...q[k]), new THREE.Vector3(...q[k + 1]), 0.2)) return false; return true; };
+      const all: V3[][] = [];
       for (const pth0 of opts) {
-        const pth = pth0.length > 2 ? chaikin(pth0.map((q) => new THREE.Vector3(...q))).map(A3) : pth0;
-        let free = true; for (let k = 0; k + 1 < pth.length; k++) if (!geo.segmentFree(new THREE.Vector3(...pth[k]), new THREE.Vector3(...pth[k + 1]), 0.2)) { free = false; break; }
-        if (!free) continue;
+        const sm = pth0.length > 2 ? chaikin(pth0.map((q) => new THREE.Vector3(...q))).map(A3) : pth0;
+        all.push(sm);
+        if (!isFree(sm)) all.push(repair(pth0.map((q) => new THREE.Vector3(...q))).map(A3));   // detour round what blocks it (doors, windows, eaves)
+      }
+      for (const pth of all) {
+        let free = isFree(pth);
+        if (!free) { if (process.env.GLIDEDBG) console.error("[glide]", i + 1, "blocked", pth.length); continue; }
         const fr = Math.max(28, Math.ceil((pathLen(pth) * 1.875) / 6)), roomF = Math.floor((N.t0 - S.t0) * I.fps) - 9;
-        if (fr > roomF) continue;
+        if (fr > roomF) { if (process.env.GLIDEDBG) console.error("[glide]", i + 1, "room", fr, roomF); continue; }
         const t0f = +(N.t0 - fr / I.fps).toFixed(3), A0f = holdPose(S, t0f, t0f).pos; pth[0] = A3(A0f);
         if (pathLen(pth) * 1.875 / fr > 6) continue;
         for (const sw of [[0.33, 0.67], [0.2, 0.8], [0.4, 0.6]] as [number, number][]) {
           const cand: TFlight = { kind: "fly", t0: t0f, t1: N.t0, to: i + 1, path: pth, swing: sw, ...({ forced: true } as object) };
-          if (!flightProblem(cand, i, true)) { forced = cand; break; }
+          const pr = flightProblem(cand, i, true); if (process.env.GLIDEDBG) console.error("[glide]", i + 1, "problem", pr);
+          if (!pr) { forced = cand; break; }
         }
         if (forced) break;
       }
