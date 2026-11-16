@@ -1,3 +1,3 @@
 warning    9.03-  9.97 s  f271-298  SUBJECT   c:/^cheerO\d$/       not on stage
 warning    9.53-  9.73 s  f286-291  FACES     c:tsar(tsar)         head cut at the right edge
-CRITICAL  44.13- 47.03 s  f1324-1410  SUBJECT   c:/^officer\d$/      cut off right (0.98)
+CRITICAL  43.07- 47.03 s  f1292-1410  STALE                          the subject barely moves on screen for more than 2 s
