@@ -1,0 +1,13 @@
+CRITICAL  12.17- 13.67 s  f365-409  FACES     bystander cheerO1    bystander's head cut at the left edge
+CRITICAL  28.03- 29.33 s  f841-879  SUBJECT   c:/^opener\d$/       too small (12 % of frame height, needs 30 %)
+CRITICAL  28.73- 29.03 s  f862-870  FACES     bystander officer1   bystander's head cut at the left edge
+CRITICAL  28.80- 29.33 s  f864-879  SUBJECT   c:/^opener\d$/       cut off left (0.03)
+warning   40.40- 41.00 s  f1212-1229  SUBJECT   c:/^officer\d$/      cut off left (-0.98)
+CRITICAL  41.00- 52.00 s  f1230-1559  SUBJECT   c:/^officer\d$/      cut off left (-0.82)
+CRITICAL  41.00- 54.30 s  f1230-1628  STALE                          the subject barely moves on screen for more than 2 s
+CRITICAL  52.00- 54.13 s  f1560-1623  FACES     bystander officer1   bystander's head cut at the left edge
+CRITICAL  54.23- 54.30 s  f1627-1628  FACES     c:napoleon           face 80 % covered by something in front
+CRITICAL  54.30- 54.37 s  f1629-1630  FACES     bystander officer1   bystander's face fills 36 % of the frame
+CRITICAL  55.20- 55.23 s  f1656-1656  SUBJECT   c:napoleon           not on stage
+CRITICAL  55.20- 55.23 s  f1656-1656  EMPTY                          none of c:napoleon in view
+CRITICAL  58.10- 58.13 s  f1743-1743  SUBJECT   c:napoleonC          cut off right (0.97)

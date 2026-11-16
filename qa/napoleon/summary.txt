@@ -1,0 +1,113 @@
+Decisions (auto-framer + camera guard, made without asking; revised after the review of Rats run 24):
+- No carried props any more. A transition is a FLIGHT only if it never touches geometry (free route, nothing within
+  0.45 m, view never walled in, camera never inside a solid) and a real subject of either shot is in view on every
+  frame; otherwise it is a 6-frame WHIP: 3 frames panning fast off the outgoing framing, 3 frames panning fast onto the
+  incoming one from its own position, smeared by a directional motion blur (strongest in the middle). A whip is used
+  rather than a hard cut (CLAUDE.md 1 keeps hard cuts for punchlines).
+- CRITICAL = any guard failure on a held frame; in a flight CLIPPING, EMPTY and XCU; in a whip only CLIPPING (its
+  frames are a motion-blurred pan between two subjects). Warnings are listed in camera_report.txt.
+- Focus: every frame focuses on the current subject's head (a prop's centre), and the blur radius is capped so that no
+  subject's head or prop centre gets a circle of confusion above 1.2 px; the guard checks the same lens (> 1.5 px =
+  "blurred"). In a flight / whip the outgoing subject is in focus for the first half, the incoming one for the second.
+- FACES now uses each character's HEAD box (chin to hat top, 0.52 m wide): head centre in the upper 55 %, the head
+  never inside the caption band (62-80 %), never cut by any frame edge, and never more than 20 % covered by geometry
+  or by another card in front of it (other characters / label cards, their transparent margins trimmed by 20 %).
+- XCU: a head taller than 30 % of the frame is an extreme close-up (CLAUDE.md 3), CRITICAL; bursts under 8 frames
+  are reported as flashes.
+- STALE: on held frames the subject must not sit still on screen for more than 2 s (within every 60 frames of a shot
+  its box moves >= 3.5 % of the frame or changes size >= 6 %). The solver gives every hold a new move every ~1.2 s:
+  push in / drift aside / pull back / drift back (or an orbit).
+- Bystanders: a named character who is not a declared subject but whose head is big in the picture (>= 6 % of the
+  frame height, at least half of it in frame, not hidden) must keep its head centre in the upper 55 % and out of the
+  caption band too (run 25, 32.0-32.5 s: the official under the captions while the sign was the subject).
+- WHIPS: two whips with less than 0.9 s of hold between them fail (run 25, 10.0-10.5 s); such shots are merged in shots.ts.
+- STALE is now a visibly new framing every 2 s: the subject's box moves >= 6 % of the frame or changes size >= 12 %
+  (run 25 passed 47.5-52.0 s with 3.5 % / 6 % wobbles), unless the subject itself travels >= 3 m in those 2 s. The solver's beats
+  are that large for standing subjects (push to x0.76, drift 5-7 % aside, turn up to 13 deg), gentle only under a fast followed one (> 4 m during the shot; Moon run 29: the slowly sailing ship read as static).
+- Before the full render the whole video is rendered at 270x480 (preview quality) and scripts/pixel-check.py fails
+  it if one flat colour fills > 55 % of a frame, if the picture (caption band masked) barely changes for > 2 s, or if
+  the subject is blurred on a held frame (SHARP: edge sharpness inside the subject's head box, from headboxes.json,
+  under 70 % of the video median for 3+ frames; see pixel-check.py for why it is contrast-normalised).
+- Subject boxes: characters are their full card figure (feet to hat, 0.62 m wide; seated: legs to head), so "close" =
+  the full figure at 75 % of the frame height, never a face close-up. Groups ("c:/re/") are one union box. Subjects
+  marked "?" are optional: they count for EMPTY but are not framed or size-checked.
+- The base camera direction is the old hand-placed camera's direction to the subject (it knows the rooms, windows and
+  streets), turned by the spec's angle; candidates when blocked: +-30 / +-60 / +-90 / 180 deg, higher, lower, overhead,
+  closer (x0.82 / 0.6 / 0.45), two higher diagonals, and the hand-placed pose itself.
+- Lighting looks, the sun direction and every on-screen action keep the old SHOTS timeline (story.ts), so the light
+  arc and all actions keep their exact voice timing; only the camera comes from shots.ts. voice.wav is untouched.
+- Shots shorter than ~1.2 s were merged into a neighbour (see shots.ts notes).
+- Loop: a failing shot drops the candidate that failed; "too small" moves 15 % closer, "cut off" 15 % farther; twice
+  blocked / too small frames it one size tighter; after 5 rounds every shot takes the settings of the round where it
+  failed least; failing flights try other look timings / bends / start shifts, and a flight that still fails becomes
+  a whip.
+
+CRITICAL: 487 frames in 12 ranges
+   12.17- 13.67 s  f365-409  FACES     bystander cheerO1    bystander's head cut at the left edge
+   28.03- 29.33 s  f841-879  SUBJECT   c:/^opener\d$/       too small (12 % of frame height, needs 30 %)
+   28.73- 29.03 s  f862-870  FACES     bystander officer1   bystander's head cut at the left edge
+   28.80- 29.33 s  f864-879  SUBJECT   c:/^opener\d$/       cut off left (0.03)
+   41.00- 52.00 s  f1230-1559  SUBJECT   c:/^officer\d$/      cut off left (-0.82)
+   41.00- 54.30 s  f1230-1628  STALE                          the subject barely moves on screen for more than 2 s
+   52.00- 54.13 s  f1560-1623  FACES     bystander officer1   bystander's head cut at the left edge
+   54.23- 54.30 s  f1627-1628  FACES     c:napoleon           face 80 % covered by something in front
+   54.30- 54.37 s  f1629-1630  FACES     bystander officer1   bystander's face fills 36 % of the frame
+   55.20- 55.23 s  f1656-1656  SUBJECT   c:napoleon           not on stage
+   55.20- 55.23 s  f1656-1656  EMPTY                          none of c:napoleon in view
+   58.10- 58.13 s  f1743-1743  SUBJECT   c:napoleonC          cut off right (0.97)
+warnings: 18 frames in 1 ranges (list in camera_report.txt)
+
+Loop:
+  round 1: 916 frames with CRITICAL failures in 12 shots (0, 2, 3, 4, 7, 8, 10, 14, 15, 16, 17, 19)
+  round 2: 587 frames with CRITICAL failures in 9 shots (2, 3, 4, 8, 14, 15, 16, 17, 19)
+  round 3: 566 frames with CRITICAL failures in 7 shots (2, 3, 8, 14, 15, 16, 17)
+  round 4: 559 frames with CRITICAL failures in 6 shots (3, 8, 14, 15, 16, 17)
+  round 5: 517 frames with CRITICAL failures in 6 shots (3, 8, 14, 15, 16, 17)
+  assembled the best round of every shot: 487 frames with CRITICAL failures
+  fly transitions that still failed became cuts: 1; clipping whips panned the other way: 0, became cuts: 0
+  flight polish (look timing per failing flight): 487 frames with CRITICAL failures (0 flights cleared)
+  kept the assembled track (487 CRITICAL frames)
+
+Shots (candidate chosen, score):
+  shot  0    0.00-  3.77 s  medium az+30 high (score 6)
+  shot  1    3.77-  6.32 s  wide   az+30 high (score 6)
+  shot  2    6.32-  9.94 s  medium base (score 44: 2/5 blocked)
+  shot  3    9.94- 13.64 s  medium az+30 high (score 75: 2/5 blocked, bystander's head cut at the left edge)
+  shot  4   13.64- 17.42 s  medium lower (score 2)
+  shot  5   17.42- 19.72 s  medium base (score 0)
+  shot  6   19.72- 24.02 s  medium az-30 high (score 6)
+  shot  7   24.02- 28.02 s  medium higher (score 3)
+  shot  8   28.02- 29.30 s  medium base (score 80: too small, cut off right)
+  shot  9   29.30- 32.02 s  medium base (score 0)
+  shot 10   32.02- 34.14 s  wide   closer (score 3)
+  shot 11   34.14- 35.90 s  medium base (score 0)
+  shot 12   35.90- 40.27 s  medium az+30 high (score 6)
+  shot 13   40.27- 40.99 s  medium base (score 0)
+  shot 14   40.99- 47.01 s  medium hand (score 46: cut off left)
+  shot 15   47.01- 51.99 s  wide   hand (score 46: cut off left)
+  shot 16   51.99- 55.21 s  close  track az180 (score 43: bystander's head cut at the left edge, bystander's face fills 33 % of the frame)
+  shot 17   55.21- 58.13 s  medium track az-30 high (score 50: 2/5 blocked)
+  shot 18   58.13- 60.25 s  medium closer 0.45 (score 11)
+  shot 19   60.25- 63.79 s  medium base (score 44: 2/5 blocked)
+  shot 20   63.79- 67.23 s  medium az-60 (score 6)
+
+Flights:
+  -> shot 1: FLY 2.84-3.77 s, 28 f, straight, peak 0.14 m/f
+  -> shot 2: CUT 6.32-6.32 s, 0 f, cut on the beat, peak undefined m/f
+  -> shot 3: FLY 9.00-9.94 s, 28 f, straight, peak 0.13 m/f
+  -> shot 4: CUT 13.64-13.64 s, 0 f, cut on the beat, peak undefined m/f
+  -> shot 5: FLY 16.48-17.42 s, 28 f, straight, peak 0.07 m/f
+  -> shot 6: CUT 19.72-19.72 s, 0 f, cut on the beat, peak undefined m/f
+  -> shot 7: CUT 24.02-24.02 s, 0 f, cut on the beat, peak undefined m/f
+  -> shot 8: CUT 28.02-28.02 s, 0 f, cut on the beat, peak undefined m/f
+  -> shot 9: CUT 29.30-29.30 s, 0 f, cut on the beat, peak undefined m/f
+  -> shot 10: FLY 31.09-32.02 s, 28 f, straight, peak 0.1 m/f
+  -> shot 11: FLY 33.21-34.14 s, 28 f, straight, peak 0.05 m/f
+  -> shot 12: CUT 35.90-35.90 s, 0 f, cut on the beat, peak undefined m/f
+  -> shot 13: CUT 40.27-40.27 s, 0 f, cut on the beat, peak undefined m/f
+  -> shot 14: FLY 40.38-40.99 s, 18 f, straight, peak 0.09 m/f
+  -> shot 16: CUT 51.99-51.99 s, 0 f, cut on the beat, peak undefined m/f
+  -> shot 17: CUT 55.21-55.21 s, 0 f, cut on the beat, peak undefined m/f
+  -> shot 18: CUT 58.13-58.13 s, 0 f, cut on the beat, peak undefined m/f
+  -> shot 19: CUT 60.25-60.25 s, 0 f, cut on the beat, peak undefined m/f
+  -> shot 20: FLY 62.86-63.79 s, 28 f, glide (no subject in view at 63.03 s), peak 0.49 m/f
