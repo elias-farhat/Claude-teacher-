@@ -2,24 +2,24 @@
  "video": "napoleon",
  "frames": 2017,
  "pass": false,
- "criticalFrames": 119,
+ "criticalFrames": 17,
  "warningFrames": 28,
- "seconds": 278.907,
+ "seconds": 258.571,
  "history": [
-  "round 1: 560 frames with CRITICAL failures in 8 shots (0, 2, 3, 4, 7, 8, 14, 19)",
-  "round 2: 338 frames with CRITICAL failures in 6 shots (2, 3, 4, 8, 14, 19)",
-  "round 3: 320 frames with CRITICAL failures in 4 shots (2, 3, 8, 14)",
+  "round 1: 458 frames with CRITICAL failures in 8 shots (0, 2, 3, 4, 7, 8, 14, 19)",
+  "round 2: 304 frames with CRITICAL failures in 6 shots (2, 3, 4, 8, 14, 19)",
+  "round 3: 229 frames with CRITICAL failures in 4 shots (2, 3, 8, 14)",
   "round 4: 119 frames with CRITICAL failures in 1 shots (14)",
-  "round 5: 119 frames with CRITICAL failures in 1 shots (14)",
-  "assembled the best round of every shot: 119 frames with CRITICAL failures",
+  "round 5: 90 frames with CRITICAL failures in 1 shots (14)",
+  "assembled the best round of every shot: 17 frames with CRITICAL failures",
   "fly transitions that still failed became cuts: 0; clipping whips panned the other way: 0, became cuts: 0",
-  "flight polish (look timing per failing flight): 119 frames with CRITICAL failures (0 flights cleared)",
-  "kept round 4 (fewest CRITICAL frames: 119)"
+  "flight polish (look timing per failing flight): 17 frames with CRITICAL failures (0 flights cleared)",
+  "kept the assembled track (17 CRITICAL frames)"
  ],
  "rules": [
   {
    "rule": "SUBJECT",
-   "critical": 0,
+   "critical": 17,
    "warning": 28
   },
   {
@@ -49,7 +49,7 @@
   },
   {
    "rule": "STALE",
-   "critical": 119,
+   "critical": 0,
    "warning": 0
   },
   {
@@ -84,16 +84,16 @@
    "t1": 9.73
   },
   {
-   "rule": "STALE",
+   "rule": "SUBJECT",
    "critical": true,
-   "subject": null,
+   "subject": "c:/^officer\\d$/",
    "shot": 14,
    "from": 1292,
-   "to": 1410,
+   "to": 1308,
    "worst": 1292,
-   "detail": "the subject barely moves on screen for more than 2 s",
+   "detail": "too small (29 % of frame height, needs 30 %)",
    "t0": 43.07,
-   "t1": 47.03
+   "t1": 43.63
   }
  ],
  "frames_failing": [
@@ -872,17 +872,18 @@
    ],
    "fails": [
     {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
+     "rule": "SUBJECT",
+     "subject": "c:/^officer\\d$/",
+     "detail": "too small (28 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
+   "score": 2,
    "box": [
-    0.156,
-    0.229,
-    0.3213,
-    0.3462
+    0.4146,
+    0.254,
+    0.5588,
+    0.3588
    ]
   },
   {
@@ -896,17 +897,18 @@
    ],
    "fails": [
     {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
+     "rule": "SUBJECT",
+     "subject": "c:/^officer\\d$/",
+     "detail": "too small (28 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
+   "score": 2,
    "box": [
-    0.1559,
-    0.229,
-    0.3213,
-    0.3462
+    0.4146,
+    0.254,
+    0.5588,
+    0.3588
    ]
   },
   {
@@ -920,17 +922,18 @@
    ],
    "fails": [
     {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
+     "rule": "SUBJECT",
+     "subject": "c:/^officer\\d$/",
+     "detail": "too small (28 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
+   "score": 2,
    "box": [
-    0.1559,
-    0.229,
-    0.3213,
-    0.3462
+    0.4146,
+    0.254,
+    0.5588,
+    0.3588
    ]
   },
   {
@@ -944,17 +947,18 @@
    ],
    "fails": [
     {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
+     "rule": "SUBJECT",
+     "subject": "c:/^officer\\d$/",
+     "detail": "too small (28 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
+   "score": 2,
    "box": [
-    0.1559,
-    0.229,
-    0.3213,
-    0.3462
+    0.4147,
+    0.2539,
+    0.5589,
+    0.3587
    ]
   },
   {
@@ -968,17 +972,18 @@
    ],
    "fails": [
     {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
+     "rule": "SUBJECT",
+     "subject": "c:/^officer\\d$/",
+     "detail": "too small (29 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
+   "score": 2,
    "box": [
-    0.1558,
-    0.2289,
-    0.3212,
-    0.3462
+    0.4148,
+    0.2537,
+    0.5591,
+    0.3586
    ]
   },
   {
@@ -992,17 +997,18 @@
    ],
    "fails": [
     {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
+     "rule": "SUBJECT",
+     "subject": "c:/^officer\\d$/",
+     "detail": "too small (29 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
+   "score": 2,
    "box": [
-    0.1556,
-    0.2289,
-    0.3211,
-    0.3462
+    0.4149,
+    0.2535,
+    0.5595,
+    0.3585
    ]
   },
   {
@@ -1016,17 +1022,18 @@
    ],
    "fails": [
     {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
+     "rule": "SUBJECT",
+     "subject": "c:/^officer\\d$/",
+     "detail": "too small (29 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
+   "score": 2,
    "box": [
-    0.1554,
-    0.2288,
-    0.321,
-    0.3462
+    0.4151,
+    0.2531,
+    0.5599,
+    0.3583
    ]
   },
   {
@@ -1040,17 +1047,18 @@
    ],
    "fails": [
     {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
+     "rule": "SUBJECT",
+     "subject": "c:/^officer\\d$/",
+     "detail": "too small (29 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
+   "score": 2,
    "box": [
-    0.1551,
-    0.2287,
-    0.3208,
-    0.3461
+    0.4154,
+    0.2526,
+    0.5605,
+    0.3581
    ]
   },
   {
@@ -1064,17 +1072,18 @@
    ],
    "fails": [
     {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
+     "rule": "SUBJECT",
+     "subject": "c:/^officer\\d$/",
+     "detail": "too small (29 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
+   "score": 2,
    "box": [
-    0.1547,
-    0.2286,
-    0.3206,
-    0.3461
+    0.4158,
+    0.252,
+    0.5612,
+    0.3577
    ]
   },
   {
@@ -1088,17 +1097,18 @@
    ],
    "fails": [
     {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
+     "rule": "SUBJECT",
+     "subject": "c:/^officer\\d$/",
+     "detail": "too small (29 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
+   "score": 2,
    "box": [
-    0.1542,
-    0.2284,
-    0.3203,
-    0.3461
+    0.4162,
+    0.2513,
+    0.5621,
+    0.3573
    ]
   },
   {
@@ -1112,17 +1122,18 @@
    ],
    "fails": [
     {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
+     "rule": "SUBJECT",
+     "subject": "c:/^officer\\d$/",
+     "detail": "too small (29 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
+   "score": 2,
    "box": [
-    0.1537,
-    0.2282,
-    0.32,
-    0.346
+    0.4167,
+    0.2504,
+    0.5632,
+    0.3569
    ]
   },
   {
@@ -1136,17 +1147,18 @@
    ],
    "fails": [
     {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
+     "rule": "SUBJECT",
+     "subject": "c:/^officer\\d$/",
+     "detail": "too small (29 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
+   "score": 2,
    "box": [
-    0.1531,
-    0.228,
-    0.3196,
-    0.346
+    0.4173,
+    0.2494,
+    0.5645,
+    0.3563
    ]
   },
   {
@@ -1160,17 +1172,18 @@
    ],
    "fails": [
     {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
+     "rule": "SUBJECT",
+     "subject": "c:/^officer\\d$/",
+     "detail": "too small (29 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
+   "score": 2,
    "box": [
-    0.1524,
-    0.2277,
-    0.3192,
-    0.3459
+    0.418,
+    0.2482,
+    0.5659,
+    0.3557
    ]
   },
   {
@@ -1184,17 +1197,18 @@
    ],
    "fails": [
     {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
+     "rule": "SUBJECT",
+     "subject": "c:/^officer\\d$/",
+     "detail": "too small (29 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
+   "score": 2,
    "box": [
-    0.1516,
-    0.2274,
-    0.3188,
-    0.3459
+    0.4188,
+    0.2469,
+    0.5675,
+    0.355
    ]
   },
   {
@@ -1208,17 +1222,18 @@
    ],
    "fails": [
     {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
+     "rule": "SUBJECT",
+     "subject": "c:/^officer\\d$/",
+     "detail": "too small (29 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
+   "score": 2,
    "box": [
-    0.1508,
-    0.2271,
-    0.3183,
-    0.3458
+    0.4197,
+    0.2454,
+    0.5693,
+    0.3542
    ]
   },
   {
@@ -1232,17 +1247,18 @@
    ],
    "fails": [
     {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
+     "rule": "SUBJECT",
+     "subject": "c:/^officer\\d$/",
+     "detail": "too small (30 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
+   "score": 2,
    "box": [
-    0.1499,
-    0.2268,
-    0.3178,
-    0.3458
+    0.4206,
+    0.2438,
+    0.5712,
+    0.3533
    ]
   },
   {
@@ -1256,2465 +1272,18 @@
    ],
    "fails": [
     {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
+     "rule": "SUBJECT",
+     "subject": "c:/^officer\\d$/",
+     "detail": "too small (30 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
+   "score": 2,
    "box": [
-    0.1489,
-    0.2265,
-    0.3173,
-    0.3457
-   ]
-  },
-  {
-   "f": 1309,
-   "t": 43.633,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1479,
-    0.2261,
-    0.3167,
-    0.3457
-   ]
-  },
-  {
-   "f": 1310,
-   "t": 43.667,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1469,
-    0.2258,
-    0.3161,
-    0.3456
-   ]
-  },
-  {
-   "f": 1311,
-   "t": 43.7,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1459,
-    0.2254,
-    0.3155,
-    0.3456
-   ]
-  },
-  {
-   "f": 1312,
-   "t": 43.733,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1448,
-    0.2251,
-    0.3149,
-    0.3455
-   ]
-  },
-  {
-   "f": 1313,
-   "t": 43.767,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1437,
-    0.2247,
-    0.3143,
-    0.3455
-   ]
-  },
-  {
-   "f": 1314,
-   "t": 43.8,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1427,
-    0.2244,
-    0.3137,
-    0.3454
-   ]
-  },
-  {
-   "f": 1315,
-   "t": 43.833,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1416,
-    0.2241,
-    0.3131,
-    0.3454
-   ]
-  },
-  {
-   "f": 1316,
-   "t": 43.867,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1406,
-    0.2237,
-    0.3125,
-    0.3454
-   ]
-  },
-  {
-   "f": 1317,
-   "t": 43.9,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1396,
-    0.2234,
-    0.3119,
-    0.3454
-   ]
-  },
-  {
-   "f": 1318,
-   "t": 43.933,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1387,
-    0.2232,
-    0.3114,
-    0.3454
-   ]
-  },
-  {
-   "f": 1319,
-   "t": 43.967,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1378,
-    0.2229,
-    0.3109,
-    0.3454
-   ]
-  },
-  {
-   "f": 1320,
-   "t": 44,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1369,
-    0.2226,
-    0.3104,
-    0.3454
-   ]
-  },
-  {
-   "f": 1321,
-   "t": 44.033,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1361,
-    0.2224,
-    0.31,
-    0.3454
-   ]
-  },
-  {
-   "f": 1322,
-   "t": 44.067,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1354,
-    0.2222,
-    0.3096,
-    0.3455
-   ]
-  },
-  {
-   "f": 1323,
-   "t": 44.1,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1347,
-    0.222,
-    0.3092,
-    0.3455
-   ]
-  },
-  {
-   "f": 1324,
-   "t": 44.133,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1341,
-    0.2219,
-    0.3089,
-    0.3455
-   ]
-  },
-  {
-   "f": 1325,
-   "t": 44.167,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1335,
-    0.2217,
-    0.3086,
-    0.3455
-   ]
-  },
-  {
-   "f": 1326,
-   "t": 44.2,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1331,
-    0.2216,
-    0.3083,
-    0.3456
-   ]
-  },
-  {
-   "f": 1327,
-   "t": 44.233,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1326,
-    0.2215,
-    0.3081,
-    0.3456
-   ]
-  },
-  {
-   "f": 1328,
-   "t": 44.267,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1323,
-    0.2214,
-    0.3079,
-    0.3456
-   ]
-  },
-  {
-   "f": 1329,
-   "t": 44.3,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.132,
-    0.2213,
-    0.3077,
-    0.3456
-   ]
-  },
-  {
-   "f": 1330,
-   "t": 44.333,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1317,
-    0.2213,
-    0.3076,
-    0.3456
-   ]
-  },
-  {
-   "f": 1331,
-   "t": 44.367,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1316,
-    0.2212,
-    0.3075,
-    0.3457
-   ]
-  },
-  {
-   "f": 1332,
-   "t": 44.4,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1314,
-    0.2212,
-    0.3074,
-    0.3457
-   ]
-  },
-  {
-   "f": 1333,
-   "t": 44.433,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1313,
-    0.2212,
-    0.3074,
-    0.3457
-   ]
-  },
-  {
-   "f": 1334,
-   "t": 44.467,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1313,
-    0.2212,
-    0.3073,
-    0.3457
-   ]
-  },
-  {
-   "f": 1335,
-   "t": 44.5,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1312,
-    0.2211,
-    0.3073,
-    0.3457
-   ]
-  },
-  {
-   "f": 1336,
-   "t": 44.533,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1312,
-    0.2211,
-    0.3073,
-    0.3457
-   ]
-  },
-  {
-   "f": 1337,
-   "t": 44.567,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1312,
-    0.2211,
-    0.3073,
-    0.3457
-   ]
-  },
-  {
-   "f": 1338,
-   "t": 44.6,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1312,
-    0.2211,
-    0.3073,
-    0.3457
-   ]
-  },
-  {
-   "f": 1339,
-   "t": 44.633,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1312,
-    0.2212,
-    0.3073,
-    0.3457
-   ]
-  },
-  {
-   "f": 1340,
-   "t": 44.667,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1313,
-    0.2212,
-    0.3073,
-    0.3457
-   ]
-  },
-  {
-   "f": 1341,
-   "t": 44.7,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1313,
-    0.2212,
-    0.3074,
-    0.3457
-   ]
-  },
-  {
-   "f": 1342,
-   "t": 44.733,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1313,
-    0.2213,
-    0.3074,
-    0.3458
-   ]
-  },
-  {
-   "f": 1343,
-   "t": 44.767,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1314,
-    0.2213,
-    0.3074,
-    0.3458
-   ]
-  },
-  {
-   "f": 1344,
-   "t": 44.8,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1315,
-    0.2214,
-    0.3075,
-    0.3459
-   ]
-  },
-  {
-   "f": 1345,
-   "t": 44.833,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1316,
-    0.2216,
-    0.3075,
-    0.346
-   ]
-  },
-  {
-   "f": 1346,
-   "t": 44.867,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1317,
-    0.2217,
-    0.3076,
-    0.3461
-   ]
-  },
-  {
-   "f": 1347,
-   "t": 44.9,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1319,
-    0.2219,
-    0.3077,
-    0.3463
-   ]
-  },
-  {
-   "f": 1348,
-   "t": 44.933,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1321,
-    0.2221,
-    0.3079,
-    0.3465
-   ]
-  },
-  {
-   "f": 1349,
-   "t": 44.967,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1323,
-    0.2224,
-    0.308,
-    0.3466
-   ]
-  },
-  {
-   "f": 1350,
-   "t": 45,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1326,
-    0.2226,
-    0.3082,
-    0.3469
-   ]
-  },
-  {
-   "f": 1351,
-   "t": 45.033,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1329,
-    0.223,
-    0.3084,
-    0.3471
-   ]
-  },
-  {
-   "f": 1352,
-   "t": 45.067,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1332,
-    0.2233,
-    0.3086,
-    0.3473
-   ]
-  },
-  {
-   "f": 1353,
-   "t": 45.1,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1337,
-    0.2237,
-    0.3089,
-    0.3476
-   ]
-  },
-  {
-   "f": 1354,
-   "t": 45.133,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1341,
-    0.2241,
-    0.3092,
-    0.3479
-   ]
-  },
-  {
-   "f": 1355,
-   "t": 45.167,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1346,
-    0.2245,
-    0.3096,
-    0.3482
-   ]
-  },
-  {
-   "f": 1356,
-   "t": 45.2,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1352,
-    0.2249,
-    0.31,
-    0.3485
-   ]
-  },
-  {
-   "f": 1357,
-   "t": 45.233,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1358,
-    0.2254,
-    0.3104,
-    0.3489
-   ]
-  },
-  {
-   "f": 1358,
-   "t": 45.267,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1364,
-    0.2259,
-    0.3108,
-    0.3492
-   ]
-  },
-  {
-   "f": 1359,
-   "t": 45.3,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1371,
-    0.2264,
-    0.3113,
-    0.3496
-   ]
-  },
-  {
-   "f": 1360,
-   "t": 45.333,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1378,
-    0.2269,
-    0.3117,
-    0.3499
-   ]
-  },
-  {
-   "f": 1361,
-   "t": 45.367,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1386,
-    0.2275,
-    0.3122,
-    0.3503
-   ]
-  },
-  {
-   "f": 1362,
-   "t": 45.4,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1393,
-    0.228,
-    0.3127,
-    0.3506
-   ]
-  },
-  {
-   "f": 1363,
-   "t": 45.433,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1401,
-    0.2285,
-    0.3133,
-    0.351
-   ]
-  },
-  {
-   "f": 1364,
-   "t": 45.467,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1408,
-    0.229,
-    0.3138,
-    0.3513
-   ]
-  },
-  {
-   "f": 1365,
-   "t": 45.5,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1415,
-    0.2295,
-    0.3143,
-    0.3517
-   ]
-  },
-  {
-   "f": 1366,
-   "t": 45.533,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1422,
-    0.2299,
-    0.3147,
-    0.352
-   ]
-  },
-  {
-   "f": 1367,
-   "t": 45.567,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1429,
-    0.2304,
-    0.3152,
-    0.3522
-   ]
-  },
-  {
-   "f": 1368,
-   "t": 45.6,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1436,
-    0.2308,
-    0.3156,
-    0.3525
-   ]
-  },
-  {
-   "f": 1369,
-   "t": 45.633,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1441,
-    0.2311,
-    0.316,
-    0.3528
-   ]
-  },
-  {
-   "f": 1370,
-   "t": 45.667,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1447,
-    0.2315,
-    0.3164,
-    0.353
-   ]
-  },
-  {
-   "f": 1371,
-   "t": 45.7,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1451,
-    0.2318,
-    0.3167,
-    0.3532
-   ]
-  },
-  {
-   "f": 1372,
-   "t": 45.733,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1456,
-    0.232,
-    0.317,
-    0.3533
-   ]
-  },
-  {
-   "f": 1373,
-   "t": 45.767,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1459,
-    0.2322,
-    0.3172,
-    0.3535
-   ]
-  },
-  {
-   "f": 1374,
-   "t": 45.8,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1462,
-    0.2324,
-    0.3174,
-    0.3536
-   ]
-  },
-  {
-   "f": 1375,
-   "t": 45.833,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1464,
-    0.2325,
-    0.3176,
-    0.3537
-   ]
-  },
-  {
-   "f": 1376,
-   "t": 45.867,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1465,
-    0.2326,
-    0.3177,
-    0.3537
-   ]
-  },
-  {
-   "f": 1377,
-   "t": 45.9,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1466,
-    0.2327,
-    0.3177,
-    0.3538
-   ]
-  },
-  {
-   "f": 1378,
-   "t": 45.933,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1379,
-   "t": 45.967,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1380,
-   "t": 46,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1381,
-   "t": 46.033,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1382,
-   "t": 46.067,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1383,
-   "t": 46.1,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1384,
-   "t": 46.133,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1385,
-   "t": 46.167,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1386,
-   "t": 46.2,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1387,
-   "t": 46.233,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1388,
-   "t": 46.267,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1389,
-   "t": 46.3,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1390,
-   "t": 46.333,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1391,
-   "t": 46.367,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1392,
-   "t": 46.4,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1393,
-   "t": 46.433,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1394,
-   "t": 46.467,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1395,
-   "t": 46.5,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1396,
-   "t": 46.533,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1397,
-   "t": 46.567,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1398,
-   "t": 46.6,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1399,
-   "t": 46.633,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1400,
-   "t": 46.667,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1401,
-   "t": 46.7,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1402,
-   "t": 46.733,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1403,
-   "t": 46.767,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1404,
-   "t": 46.8,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1405,
-   "t": 46.833,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1406,
-   "t": 46.867,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1407,
-   "t": 46.9,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1408,
-   "t": 46.933,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1409,
-   "t": 46.967,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
-   ]
-  },
-  {
-   "f": 1410,
-   "t": 47,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "STALE",
-     "detail": "the subject barely moves on screen for more than 2 s",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1467,
-    0.2327,
-    0.3178,
-    0.3538
+    0.4216,
+    0.2421,
+    0.5733,
+    0.3524
    ]
   }
  ]
