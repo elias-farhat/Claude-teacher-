@@ -2,7 +2,7 @@
 
 Style: locked Moon/Bucket look (3D cast: sphere heads with painted features only, NO face ring; 3D hair/hats;
 bean bodies; ink tube limbs; props in hands; low raking key light; Kenney props mid/background; NO speech bubbles).
-Voice: Google AI Studio (final once delivered; never retime).
+Voice: Google AI Studio, 57.040000 s, final (never retime).
 
 ## Facts (checked 2026-11-16)
 - Dexter (1747-1806), Newburyport, Massachusetts; poorly educated, mocked by merchants. (Britannica)
