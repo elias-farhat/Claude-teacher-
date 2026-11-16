@@ -1,7 +1,10 @@
 warning    9.03-  9.97 s  f271-298  SUBJECT   c:/^cheerO\d$/       not on stage
 warning    9.53-  9.73 s  f286-291  FACES     c:tsar(tsar)         head cut at the right edge
-CRITICAL  43.07- 43.43 s  f1292-1302  FACES     c:/^officer\d$/(officer0) face 24 % covered by something in front
-CRITICAL  43.07- 45.87 s  f1292-1375  FACES     c:napoleon           face 64 % covered by something in front
-CRITICAL  43.57- 43.67 s  f1307-1309  FACES     c:/^officer\d$/(officer0) face 24 % covered by something in front
-CRITICAL  47.03- 52.00 s  f1411-1559  SUBJECT   c:napoleon           too small (27 % of frame height, needs 30 %)
-CRITICAL  47.03- 52.00 s  f1411-1559  STALE                          the subject barely moves on screen for more than 2 s
+CRITICAL  40.27- 41.00 s  f1208-1229  FACES     bystander officer1   bystander's face fills 40 % of the frame
+CRITICAL  41.00- 41.43 s  f1230-1242  FACES     bystander officer1   bystander's head cut at the right edge
+CRITICAL  43.07- 43.53 s  f1292-1305  SUBJECT   c:napoleon           too small (30 % of frame height, needs 30 %)
+CRITICAL  45.07- 45.83 s  f1352-1374  FACES     bystander berthierH  bystander's head cut at the left edge
+CRITICAL  45.13- 47.73 s  f1354-1431  SUBJECT   c:napoleon           too small (25 % of frame height, needs 30 %)
+CRITICAL  47.03- 47.37 s  f1411-1420  FACES     bystander berthierH  bystander's head cut at the left edge
+CRITICAL  49.13- 50.20 s  f1474-1505  SUBJECT   c:/^officer\d$/      cut off top (0.02)
+CRITICAL  49.27- 50.10 s  f1478-1502  FACES     c:/^officer\d$/(officer0) head (hat) touches the top edge (2.8 %)
