@@ -7,12 +7,13 @@
 // draws its outline like the sets.
 import * as THREE from "three";
 import { twoTone } from "./shade";
+import { bunnyGeo } from "./bunny";
 import { Pen, Outfit, Expr, INK, SKIN, faceFront, mix } from "./toon";
 
 export type Rig3 = {
   o: Outfit;
   l: { mode?: string; expr?: Expr; gest?: string; k?: number; blink?: number; look?: number; headTilt?: number; tilt?: number; phase?: number };
-  x: { sideburns?: boolean; tea?: boolean; phone?: boolean; pen?: boolean; paper?: string; wings?: number; curls?: boolean; letter?: boolean; sweat?: boolean; bucket?: boolean; spear?: boolean; sword?: boolean; banner?: string; shield?: string; pan?: boolean; mittens?: string; sack?: boolean; coins?: boolean; ink?: boolean };
+  x: { sideburns?: boolean; tea?: boolean; phone?: boolean; pen?: boolean; paper?: string; wings?: number; curls?: boolean; letter?: boolean; sweat?: boolean; bucket?: boolean; spear?: boolean; sword?: boolean; banner?: string; shield?: string; pan?: boolean; mittens?: string; sack?: boolean; coins?: boolean; ink?: boolean; gun?: boolean; stick?: boolean; crate?: boolean; bunny?: boolean };
 };
 type V3 = [number, number, number];
 const v = (a: V3) => new THREE.Vector3(...a);
@@ -48,6 +49,17 @@ const face = (r: Rig3) => {
 const shell = (r: number, w: number, thetaEnd: number) => new THREE.SphereGeometry(r, 36, 20, Math.PI / 2 + w, Math.PI * 2 - 2 * w, 0, thetaEnd);
 const cap = (r: number, thetaEnd: number) => new THREE.SphereGeometry(r, 36, 14, 0, Math.PI * 2, 0, thetaEnd);
 const tops = new Map<string, THREE.Group>();
+/** the bicorne alone (also the hat that flies off Napoleon's head in the Napoleon short), positioned for a head of
+ *  radius HEAD_R at the origin */
+export const bicorne = (col = "#18161c") => {
+  const g = new THREE.Group(), R = HEAD_R, m = (c: string) => twoTone(new THREE.MeshLambertMaterial({ color: new THREE.Color(c), side: THREE.DoubleSide }));
+  const half = new THREE.Mesh(new THREE.CylinderGeometry(R * 1.6, R * 1.6, R * 0.2, 30, 1, false, -Math.PI / 2, Math.PI).rotateX(-Math.PI / 2).scale(1, 0.72, 1), m(col));
+  half.position.set(0, R * 0.42, 0); g.add(half);
+  const rim = new THREE.Mesh(new THREE.TorusGeometry(R * 1.6, R * 0.05, 6, 30, Math.PI).scale(1, 0.72, 1), m("#c9a04a")); rim.position.set(0, R * 0.42, R * 0.1); g.add(rim);
+  ["#2a4f9a", "#f4f1ea", "#c8313b"].forEach((c, i) => { const d = new THREE.Mesh(new THREE.CircleGeometry(R * (0.26 - i * 0.08), 18), m(c)); d.position.set(R * 0.75, R * 0.95, R * 0.11 + i * 0.002); g.add(d); });
+  g.traverse((o) => { const me = o as THREE.Mesh; if (me.isMesh) { me.castShadow = true; me.receiveShadow = true; } });
+  return g;
+};
 const buildTop = (o: Outfit, sideburns: boolean): THREE.Group => {
   const key = `${o.hat}|${o.hair}|${o.cap}|${sideburns ? 1 : 0}`;
   const cached = tops.get(key); if (cached) return cached.clone();
@@ -106,6 +118,13 @@ const buildTop = (o: Outfit, sideburns: boolean): THREE.Group => {
       add(new THREE.CylinderGeometry(R * 1.55, R * 1.6, R * 0.05, 32), im, [0, R * 0.36, 0], [0.08, 0, 0]);
     }
     add(shell(R * 1.03, 1.0, 2.0), m(hairCol, THREE.DoubleSide));
+  } else if (o.hat === "bicorne") {
+    // Napoleon's bicorne, worn sideways ("en bataille"): a black half-disc across the head with a tricolour cockade
+    const hm = m("#" + new THREE.Color(hairCol).multiplyScalar(0.82).getHexString(), THREE.DoubleSide);
+    add(shell(R * 1.06, 0.95, 2.0), hm);
+    add(new THREE.SphereGeometry(R * 0.45, 16, 12).scale(1.3, 0.8, 1), hm, [0, -R * 0.1, -R * 0.66]);
+    add(cap(R * 1.07, 1.1), m(o.cap ?? "#18161c"), [0, R * 0.12, 0]);
+    g.add(bicorne(o.cap ?? "#18161c"));
   } else if (o.hat === "tricorn" || o.hat === "fur" || o.hat === "straw") {
     // 18th-century hats: a tricorne (upturned three-cornered brim: an open triangular prism), a fur hat, a straw hat;
     // hair shows at the back (a pale colour = a powdered wig with side rolls)
@@ -162,12 +181,13 @@ const newspaper = (kind: string) => {
   const cv = document.createElement("canvas"); cv.width = 300; cv.height = 220; const g = cv.getContext("2d")!;
   g.fillStyle = "#f1e8d6"; g.fillRect(0, 0, 300, 220); g.strokeStyle = INK; g.lineWidth = 8; g.strokeRect(4, 4, 292, 212);
   g.fillStyle = INK; g.font = "900 40px Georgia, serif"; g.textAlign = "center"; g.textBaseline = "middle";
-  g.fillText(kind === "hoax" ? "HOAX!" : kind === "day1" ? "DAY 1" : "THE SUN", 150, 40);
+  g.fillText(kind === "hoax" ? "HOAX!" : kind === "day1" ? "DAY 1" : kind === "list" ? "RABBITS" : "THE SUN", 150, 40);
   g.fillRect(20, 66, 260, 5);
   if (kind === "bat") {   // the famous winged figure
     g.fillStyle = "#7a5a4a"; g.beginPath(); g.ellipse(150, 140, 16, 26, 0, 0, Math.PI * 2); g.fill();
     g.fillStyle = "#5a4034"; for (const sd of [-1, 1]) { g.beginPath(); g.moveTo(150 + sd * 10, 128); g.lineTo(150 + sd * 90, 98); g.lineTo(150 + sd * 72, 134); g.lineTo(150 + sd * 90, 168); g.lineTo(150 + sd * 16, 158); g.closePath(); g.fill(); }
-  } else { g.fillStyle = "#8a8070"; for (let k = 0; k < 6; k++) g.fillRect(24, 92 + k * 20, 252, 6); }
+  } else if (kind === "list") { g.lineWidth = 5; for (let k = 0; k < 5; k++) { g.strokeRect(26, 84 + k * 25, 16, 16); g.fillStyle = "#8a8070"; g.fillRect(54, 90 + k * 25, 180 - k * 18, 5); } g.strokeStyle = "#2a8a3a"; g.beginPath(); g.moveTo(28, 92); g.lineTo(34, 98); g.lineTo(44, 84); g.stroke(); }
+  else { g.fillStyle = "#8a8070"; for (let k = 0; k < 6; k++) g.fillRect(24, 92 + k * 20, 252, 6); }
   t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; paperTex.set(kind, t); return t;
 };
 const paperMats = new Map<string, THREE.Material>();
@@ -189,6 +209,11 @@ const pose = (gest: string, k: number): [Arm, Arm] => {
     case "clutch": return [[[-0.19, 1.07, 0], [-0.26, 0.9, 0.12], [-0.07, 1.02, 0.22]], [[0.19, 1.07, 0], [0.26, 0.9, 0.12], [0.07, 1.02, 0.22]]];
     case "tip": return [L, [[0.19, 1.07, 0], [0.38, 1.24, 0.1], [0.21, 1.5 + 0.02 * w, 0.17]]];
     case "sign": return [L, [[0.19, 1.07, 0], [0.29, 0.86, 0.16], [0.14 + 0.03 * w, 0.8, 0.34]]];
+    case "aim": return [[[-0.19, 1.07, 0], [-0.22, 1.1, 0.24], [-0.05, 1.24, 0.46]], [[0.19, 1.07, 0], [0.24, 1.0, 0.12], [0.06, 1.18, 0.16]]];
+    case "swing": { const a = k * Math.PI * 2; return [L, [[0.19, 1.07, 0], [0.34, 1.3, 0.08], [0.3 + 0.28 * Math.cos(a), 1.5 + 0.22 * Math.sin(a), 0.16]]]; }
+    case "salute": return [L, [[0.19, 1.07, 0], [0.38, 1.3, 0.12], [0.15, 1.58, 0.2]]];
+    case "clap": { const c = 0.03 + 0.1 * Math.abs(Math.sin(k * Math.PI * 2)); return [[[-0.19, 1.07, 0], [-0.3, 0.98, 0.16], [-c, 1.15, 0.34]], [[0.19, 1.07, 0], [0.3, 0.98, 0.16], [c, 1.15, 0.34]]]; }
+    case "flail": return [[[-0.19, 1.07, 0], [-0.4, 1.2 + 0.15 * w, 0.06], [-0.5 - 0.1 * w, 1.42 + 0.3 * w, 0.1]], [[0.19, 1.07, 0], [0.4, 1.2 - 0.15 * w, 0.06], [0.5 + 0.1 * w, 1.42 - 0.3 * w, 0.1]]];
     case "stir": return [[[-0.19, 1.07, 0], [-0.25, 0.9, 0.18], [-0.05, 0.95, 0.4]], [[0.19, 1.07, 0], [0.25, 0.9, 0.18], [0.05, 0.98, 0.4]]];
     case "shrug2": return [[[-0.19, 1.07, 0], [-0.4, 0.95, 0.06], [-0.5, 1.12, 0.12]], [[0.19, 1.07, 0], [0.4, 0.95, 0.06], [0.5, 1.12, 0.12]]];
     case "fist": return [L, [[0.19, 1.07, 0], [0.42, 1.3, 0.08], [0.46 + 0.04 * w, 1.6 + 0.03 * w, 0.12]]];
@@ -229,6 +254,7 @@ export class Char3D {
   private cup: THREE.Mesh; private phone: THREE.Mesh; private top: THREE.Group | null = null; private topKey = "";
   private bucket: THREE.Group; private spear: THREE.Group; private sword: THREE.Group; private banner: THREE.Group; private bannerMat: THREE.MeshLambertMaterial; private shield: THREE.Mesh; private shieldMat: THREE.MeshLambertMaterial;
   private pan: THREE.Group; private sack: THREE.Mesh; private coins: THREE.Group; private ink: THREE.Mesh;
+  private gun: THREE.Group; private stick: THREE.Mesh; private crate: THREE.Group; private bunny: THREE.Mesh;
   private paper: THREE.Mesh; private letter: THREE.Mesh; private quill: THREE.Mesh; private sweat: THREE.Mesh; private wings: THREE.Mesh[];
   constructor(parent: THREE.Object3D) {
     const add = <T extends THREE.Object3D>(o: T) => { o.traverse((m) => { const me = m as THREE.Mesh; if (me.isMesh) { me.castShadow = true; me.receiveShadow = true; } }); this.g.add(o); return o; };
@@ -274,6 +300,17 @@ export class Char3D {
     this.coins = add(new THREE.Group());
     { const b = new THREE.Mesh(new THREE.SphereGeometry(0.1, 14, 10).scale(1, 0.9, 1), mat("#8a5a2a")); this.coins.add(b);
       for (let i = 0; i < 3; i++) { const c = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 0.008, 14), mat("#f0c24a")); c.position.set(-0.03 + i * 0.03, 0.09 + i * 0.008, 0.02); c.rotation.x = 0.4; this.coins.add(c); } }
+    // Napoleon's hunt: a musket, a stick, a crate of rabbits, a single rabbit in the hands
+    this.gun = add(new THREE.Group());
+    { const br = new THREE.Mesh(new THREE.CylinderGeometry(0.016, 0.02, 1.0, 8), mat("#3a3a42")); br.position.y = 0.55; this.gun.add(br);
+      const st = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.5, 0.09), mat("#7a4a2a")); st.position.y = 0.0; this.gun.add(st); }
+    this.stick = add(new THREE.Mesh(new THREE.CylinderGeometry(0.018, 0.025, 1.0, 6).translate(0, 0.45, 0), mat("#7a5a3a")));
+    this.crate = add(new THREE.Group());
+    { const w = mat("#b78a5a"); for (const y of [0.02, 0.2]) for (const z of [-0.16, 0.16]) { const sl = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.05, 0.03), w); sl.position.set(0, y, z); this.crate.add(sl); }
+      for (const x of [-0.24, 0.24]) { const e = new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.26, 0.35), w); e.position.set(x, 0.12, 0); this.crate.add(e); }
+      const bot = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.02, 0.35), w); this.crate.add(bot);
+      for (const x of [-0.11, 0.11]) { const b = new THREE.Mesh(bunnyGeo(false), twoTone(new THREE.MeshLambertMaterial({ vertexColors: true }))); b.scale.setScalar(0.62); b.position.set(x, 0.01, 0); this.crate.add(b); } }
+    this.bunny = add(new THREE.Mesh(bunnyGeo(false), twoTone(new THREE.MeshLambertMaterial({ vertexColors: true }))));
     this.ink = add(new THREE.Mesh(new THREE.SphereGeometry(0.03, 10, 8).scale(1.3, 1, 0.5), mat("#1d2a55")));
     this.g.visible = false; parent.add(this.g);
   }
@@ -358,6 +395,15 @@ export class Char3D {
     this.coins.visible = !!x.coins;
     if (x.coins) this.coins.position.set(hR[0], hR[1] + 0.06 + dy + bob, hR[2] + 0.02);
     this.ink.visible = !!x.ink; if (x.ink) this.ink.position.set(0.05, HEAD_Y - 0.02 + dy + bob, HEAD_R * 0.99);
+    // Napoleon's hunt
+    this.gun.visible = !!x.gun;
+    if (x.gun) { const aim = l.gest === "aim"; this.gun.position.set(aim ? 0.04 : hR[0], (aim ? 1.2 : hR[1]) + dy + bob, aim ? 0.2 : hR[2]); this.gun.rotation.set(aim ? 1.5 : 0.15, 0, aim ? 0 : -0.15); }
+    this.stick.visible = !!x.stick;
+    if (x.stick) { this.stick.position.set(hR[0], hR[1] + dy + bob, hR[2]); this.stick.rotation.set(0.3, 0, l.gest === "swing" ? -0.6 - 1.4 * Math.sin(k * Math.PI * 2) : -0.4); }
+    this.crate.visible = !!x.crate;
+    if (x.crate) this.crate.position.set((hR[0] + hL[0]) / 2, Math.min(hR[1], hL[1]) - 0.06 + dy + bob, Math.max(hR[2], hL[2]) + 0.04);
+    this.bunny.visible = !!x.bunny;
+    if (x.bunny) { this.bunny.position.set((hR[0] + hL[0]) / 2, (hR[1] + hL[1]) / 2 - 0.12 + dy + bob, Math.max(hR[2], hL[2]) + 0.02); this.bunny.scale.setScalar(0.85); }
     // mittens: big knitted hands in the given colour
     this.hands.forEach((h) => { h.scale.setScalar(x.mittens ? 2.1 : 1); h.material = mat(x.mittens ?? SKIN); });
     void mix;
