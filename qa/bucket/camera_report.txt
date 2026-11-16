@@ -1,5 +1,5 @@
-warning    2.73-  3.27 s  f82-97  SUBJECT   w:bucketMid          too small (10 % of frame height, needs 15 %)
-warning    3.07-  3.27 s  f92-97  SUBJECT   w:wellMid            cut off left (-0.13)
+warning    2.73-  3.27 s  f82-97  SUBJECT   w:bucketMid          too small (9 % of frame height, needs 15 %)
+warning    3.00-  3.20 s  f90-95  SUBJECT   w:wellMid            cut off left (-0.07)
 warning   34.90- 34.93 s  f1047-1047  SUBJECT   c:knight             cut off top (0.05)
 warning   34.93- 35.03 s  f1048-1050  FACES     c:knight             face 40 % covered by something in front
 warning   34.93- 35.07 s  f1048-1051  OCCLUSION c:knight             3/5 rays blocked (start of the run)

@@ -5,7 +5,7 @@ import { land } from "./story";
 import type { ShotSpec } from "../../guard/solve";
 
 export const SHOT_SPECS: ShotSpec[] = [
-  { t0: 0, subjects: ["w:wellMid"], size: "wide", angle: "high", move: "push", note: "1 in 1325 two Italian cities went to war: the lone well on the plain, a walled town behind" },
+  { t0: 0, subjects: ["w:wellMid"], size: "wide", move: "push", note: "1 in 1325 two Italian cities went to war: the lone well on the plain, a walled town behind" },
   { t0: land(1, "over"), subjects: ["w:bucketMid"], size: "insert", move: "push", note: "1 over a bucket: the plain wooden bucket on the well" },
   { t0: land(2), subjects: ["c:/^lord[MB]$/"], size: "medium", move: "drift", place: "centre", enter: "cut", note: "2 Modena and Bologna hated each other: the lords glare" },
   { t0: land(3), subjects: ["c:/^sneak[01]$/", "?w:wellB"], size: "medium", move: "drift", enter: "cut", note: "3 night in Bologna: two Modenese tiptoe to the town well" },

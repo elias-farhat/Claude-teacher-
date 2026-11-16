@@ -33,7 +33,7 @@ const deep = (c: C3, k: number): C3 => [c[0] * k, c[1] * k, c[2] * k];
 const pass = (k: LookName, o: Partial<LightPreset>, rest: Partial<Look> = {}, shadeK = 0.6) => {
   const L = LOOKS[k]; LOOKS[k] = { ...L, ...rest, gradeK: 1, L: { ...L.L, shade: deep(L.L.shade, shadeK), lift: deep(L.L.lift, 0.7), ...o } };
 };
-pass("moonlit", { az: 80, el: 24, lit: [0.78, 0.88, 1.32], sunI: 2.2, fogNear: 160, fogFar: 1400 }, { glowK: 2.0 });
+pass("moonlit", { az: 80, el: 24, lit: [0.42, 0.52, 0.95], sunI: 1.5, fogNear: 120, fogFar: 900 }, { glowK: 2.4 }, 0.5);   // Bucket: a real night (the torches carry the thieves)
 pass("starry", { az: -75, el: 22, lit: [0.72, 0.8, 1.28], sunI: 2.1, fogNear: 200, fogFar: 1700 }, { glowK: 2.0 });
 pass("lamp", { el: 16, lit: [1.45, 0.92, 0.5] }, { glowK: 2.0 }, 0.55);
 pass("dim", { el: 14 }, { glowK: 2.0 }, 0.55);

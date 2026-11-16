@@ -9,7 +9,7 @@ import { rep, stoneHD, cobbleHD, grassHD, planksHD, roofHD, ctex } from "../brid
 import { ground, Lamp } from "../rats/hanoi";
 import { MODENA, BOLOGNA, Town, GATE_W, ROAD, WELL_MID, WELL_B, WELL_OUT, LORDS, RIDGE, ARMY, HILL, CASTLE, TOWER, ROOM_Y, ROOM_H, PIAZZA_M, CLASH } from "./layout";
 
-export type Sets = { lamps: Lamp[]; stars: THREE.Points; buckets: THREE.Group[]; army: THREE.InstancedMesh };
+export type Sets = { lamps: Lamp[]; stars: THREE.Points; buckets: THREE.Group[]; army: THREE.InstancedMesh; armyBanners: THREE.Object3D[] };
 const rng = (seed: number) => () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
 
 const dirtTex = () => ctex("bkDirt", 512, 512, (g, r) => { g.fillStyle = "#b39a76"; g.fillRect(0, 0, 512, 512); for (let i = 0; i < 2500; i++) { g.fillStyle = ["#a68c68", "#c2a984", "#9c8462"][i % 3]; g.fillRect(r() * 512, r() * 512, 3, 3); } });
@@ -30,13 +30,13 @@ export function buildSets(R: THREE.Group, kit: Kit): Sets {
   const stone = lam("bkStone", () => ({ map: rep(stoneHD("bkStone", ["#c9b89e", "#bfae94", "#d2c2a8", "#b5a48a"], "#8f806c"), 1, 1) }));
   const stoneDark = lam("bkStoneD", () => ({ map: rep(stoneHD("bkStoneD", ["#a8987f", "#9f8f77", "#b0a088", "#968670"], "#776a58"), 1, 1) }));
   const towerM = lam("bkTowerM", () => ({ map: rep(stoneHD("bkStoneD", ["#a8987f", "#9f8f77", "#b0a088", "#968670"], "#776a58"), 5, 4) }));
-  const grass = lam("bkGrass", () => ({ map: grassHD(), color: "#a9b48c" }));
+  const grass = lam("bkGrass", () => ({ map: grassHD(), color: "#9a9a76" }));
   const dirt = lam("bkDirtM", () => ({ map: rep(dirtTex(), 6, 6), color: "#b9a888" }));
   const cobble = lam("bkCobble", () => ({ map: cobbleHD(), color: "#a39588" }));
   const wood = lam("bkWood", () => ({ map: rep(planksHD(), 1, 1), color: "#a88f72" }));
   const roofT = lam("bkRoofT", () => ({ map: rep(roofHD("#b5583a"), 2, 2) }));
   const bx = (mat: THREE.Material, x0: number, y0: number, z0: number, x1: number, y1: number, z1: number) => b.add(boxGeo(V(x0, y0, z0), V(x1, y1, z1), 2.5), mat);
-  const hillG = lam("bkHill", () => ({ map: rep(grassHD(), 14, 3), color: "#a9b48c" }));
+  const hillG = lam("bkHill", () => ({ map: rep(grassHD(), 14, 3), color: "#9a9a76" }));
   const add = (name: string, x: number, y: number, z: number, s: number, rot = 0) => {
     const o = kit[name]; if (!o) return;
     b.addObject(o, new THREE.Matrix4().compose(V(x, y, z), new THREE.Quaternion().setFromEuler(new THREE.Euler(0, rot, 0)), V(s, s, s)));
@@ -136,6 +136,12 @@ export function buildSets(R: THREE.Group, kit: Kit): Sets {
   const trees = ["tree_oak", "tree_default", "tree_detailed", "tree_pineRoundE", "tree_pineTallB_detailed", "tree_fat"];
   for (let i = 0; i < 220; i++) { const x = -150 + r() * 300, z = -140 + r() * 280; if (!clearOf(x, z)) continue; add(trees[i % trees.length], x, 0, z, 3.6 + r() * 2.4, r() * 6.3); }
   for (let i = 0; i < 18; i++) { const a = (i / 18) * Math.PI * 2, d = 260 + (i % 3) * 30; b.add(new THREE.ConeGeometry(55 + (i % 4) * 12, 26 + (i % 3) * 10, 12, 1), hillG, new THREE.Matrix4().makeTranslation(Math.cos(a) * d, 10, Math.sin(a) * d)); }
+  // ground cover everywhere on the plain (bushes, grass tufts, flowers, rocks), and a little farm round the lone well
+  const cover = ["grass_large", "grass_leafsLarge", "flower_yellowA", "flower_redB", "flower_purpleA", "plant_bush", "plant_bushSmall", "rock_largeA", "grass_large", "flower_yellowC"];
+  for (let i = 0; i < 1400; i++) { const x = -140 + r() * 280, z = -130 + r() * 260; if (!clearOf(x, z) && Math.hypot(x - WELL_MID.x, z - WELL_MID.z) > 9) continue;
+    const n = cover[i % cover.length], d = Math.hypot(x - WELL_MID.x, z - WELL_MID.z); if (d < 2.2) continue; add(n, x, 0, z, n.startsWith("rock") ? 1.2 + r() : 2.2 + r() * 1.6, r() * 6.3); }
+  for (const [n, dx, dz, sc, ro] of [["hay-bale", -3.2, -2.4, 1.4, 0.3], ["hay-bale", -4.4, -1.6, 1.4, 1.2], ["log_stack", 3.6, -3.0, 2.2, 0.5], ["fence_simple", -2.6, 3.4, 2.4, 0], ["fence_simple", -0.2, 3.6, 2.4, 0.1], ["fence_simple", 2.2, 3.4, 2.4, -0.1], ["rock_largeB", 4.2, 1.6, 1.4, 0.7], ["plant_bushLarge", -5.2, 1.2, 2.6, 0]] as [string, number, number, number, number][])
+    add(n, WELL_MID.x + dx, 0, WELL_MID.z + dz, sc, ro);
   // camps on the plain (tents, siege engines) and market clutter in the towns
   for (const [n, x, z, s, ro] of [["tent_detailedOpen", 46, -22, 3.2, 0.4], ["tent_detailedClosed", 52, 26, 3.2, 1.1], ["siege-catapult", 30, -22, 2.0, 0.2], ["siege-trebuchet", 36, 24, 2.2, -0.4], ["tent_detailedClosed", -34, -14, 3.0, 2.0], ["siege-ram", -36, 14, 2.0, 1.4],
     ["cart", 66, -4, 2.2, 0.6], ["barrel", 75, -2.5, 0.6, 0], ["stall-red", 63, 10, 2.0, Math.PI], ["stall-green", -63, -10, 2.0, 0], ["cart", -75, 4, 2.2, -0.5], ["barrel", -60, 3.5, 0.6, 0]] as [string, number, number, number, number][]) add(n, x, 0.03, z, s, ro);
@@ -156,10 +162,11 @@ export function buildSets(R: THREE.Group, kit: Kit): Sets {
       m.compose(V(x, 0, z), new THREE.Quaternion().setFromEuler(new THREE.Euler(0, -Math.PI / 2 + (r() - 0.5) * 0.3, 0)), V(1, 0.95 + r() * 0.1, 1)); army.setMatrixAt(k++, m); } }
   army.castShadow = true; army.receiveShadow = true; army.frustumCulled = false; R.add(army);
   // banners above the host (Bologna red and white)
+  const armyBanners: THREE.Object3D[] = [];
   const bannerTex = ctex("bkBannerB", 128, 192, (g) => { g.fillStyle = "#f4f1ea"; g.fillRect(0, 0, 128, 192); g.fillStyle = "#b8302c"; g.fillRect(0, 0, 128, 96); g.fillRect(48, 96, 32, 96); });
   for (let i = 0; i < 9; i++) { const x = ARMY.x0 + 3 + (i % 3) * 13, z = ARMY.z0 + 4 + Math.floor(i / 3) * 12;
-    const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 4.5, 5), lam("bkPole", () => ({ color: "#5a3a24" }))); pole.position.set(x, 2.25, z); R.add(pole);
-    const fl = new THREE.Mesh(new THREE.PlaneGeometry(1.1, 1.6), lam("bkBannerBm", () => ({ map: bannerTex, side: THREE.DoubleSide }))); fl.position.set(x - 0.6, 3.6, z); fl.rotation.y = Math.PI / 2; R.add(fl); }
+    const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 4.5, 5), lam("bkPole", () => ({ color: "#5a3a24" }))); pole.position.set(x, 2.25, z); R.add(pole); pole.userData.x0 = x; armyBanners.push(pole);
+    const fl = new THREE.Mesh(new THREE.PlaneGeometry(1.1, 1.6), lam("bkBannerBm", () => ({ map: bannerTex, side: THREE.DoubleSide }))); fl.position.set(x - 0.6, 3.6, z); fl.rotation.y = Math.PI / 2; R.add(fl); fl.userData.x0 = x - 0.6; armyBanners.push(fl); }
 
   // ---- the buckets on the wells and on the plinth (world.ts shows / hides them as the story moves them) ----
   const buckets = [WELL_MID.clone().add(V(0.55, 0.81, 0.2)), WELL_B.clone().add(V(0.55, 0.81, 0.2)), WELL_OUT.clone().add(V(0.55, 0.81, 0.2)), V(TOWER.x, ROOM_Y + 1.0, TOWER.z)].map((p) => { const g = bucketMesh(); g.position.copy(p); R.add(g); return g; });
@@ -171,7 +178,8 @@ export function buildSets(R: THREE.Group, kit: Kit): Sets {
   const stars = new THREE.Points(sg, new THREE.PointsMaterial({ color: new THREE.Color(2.2, 2.2, 2.4), size: 3.0, sizeAttenuation: false, fog: false, depthWrite: false }));
   R.add(stars);
   void ROOM_H;
-  return { lamps, stars, buckets, army };
+  return { lamps, stars, buckets, army, armyBanners };
 }
 export const SET_KIT = ["castle-gate", "building-sample-house-a", "building-sample-house-b", "building-sample-house-c", "building-sample-tower-a", "flag-banner-long", "tower-complete-large",
+  "grass_large", "grass_leafsLarge", "flower_yellowA", "flower_redB", "flower_purpleA", "flower_yellowC", "plant_bush", "plant_bushSmall", "plant_bushLarge", "rock_largeA", "rock_largeB", "hay-bale", "log_stack", "fence_simple",
   "tree_oak", "tree_default", "tree_detailed", "tree_pineRoundE", "tree_pineTallB_detailed", "tree_fat", "tent_detailedOpen", "tent_detailedClosed", "siege-catapult", "siege-trebuchet", "siege-ram", "cart", "barrel", "stall-red", "stall-green"];

@@ -4,7 +4,7 @@
  "pass": true,
  "criticalFrames": 0,
  "warningFrames": 24,
- "seconds": 42.69,
+ "seconds": 45.394,
  "history": [
   "round 1: 185 frames with CRITICAL failures in 4 shots (1, 2, 13, 14)",
   "round 2: 78 frames with CRITICAL failures in 4 shots (1, 2, 13, 14)",
@@ -61,8 +61,8 @@
    "shot": 1,
    "from": 82,
    "to": 97,
-   "worst": 92,
-   "detail": "too small (10 % of frame height, needs 15 %)",
+   "worst": 90,
+   "detail": "too small (9 % of frame height, needs 15 %)",
    "t0": 2.73,
    "t1": 3.27
   },
@@ -71,12 +71,12 @@
    "critical": false,
    "subject": "w:wellMid",
    "shot": 1,
-   "from": 92,
-   "to": 97,
-   "worst": 92,
-   "detail": "cut off left (-0.13)",
-   "t0": 3.07,
-   "t1": 3.27
+   "from": 90,
+   "to": 95,
+   "worst": 90,
+   "detail": "cut off left (-0.07)",
+   "t0": 3,
+   "t1": 3.2
   },
   {
    "rule": "SUBJECT",
@@ -171,10 +171,10 @@
    ],
    "score": 0.4,
    "box": [
-    0.1769,
-    0.1367,
-    0.8243,
-    0.6003
+    0.1334,
+    0.1248,
+    0.8685,
+    0.607
    ]
   },
   {
@@ -196,10 +196,10 @@
    ],
    "score": 0.4,
    "box": [
-    0.1765,
-    0.1364,
-    0.8245,
-    0.6005
+    0.1329,
+    0.1244,
+    0.8687,
+    0.6072
    ]
   },
   {
@@ -215,16 +215,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:bucketMid",
-     "detail": "too small (9 % of frame height, needs 15 %)",
+     "detail": "too small (8 % of frame height, needs 15 %)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.1746,
-    0.1353,
-    0.8254,
-    0.6011
+    0.1308,
+    0.1229,
+    0.8697,
+    0.6079
    ]
   },
   {
@@ -240,16 +240,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:bucketMid",
-     "detail": "too small (9 % of frame height, needs 15 %)",
+     "detail": "too small (8 % of frame height, needs 15 %)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.1706,
-    0.1329,
-    0.8273,
-    0.6026
+    0.1265,
+    0.1196,
+    0.8718,
+    0.6094
    ]
   },
   {
@@ -265,16 +265,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:bucketMid",
-     "detail": "too small (9 % of frame height, needs 15 %)",
+     "detail": "too small (8 % of frame height, needs 15 %)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.1637,
-    0.1288,
-    0.8306,
-    0.6051
+    0.119,
+    0.114,
+    0.8754,
+    0.612
    ]
   },
   {
@@ -290,16 +290,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:bucketMid",
-     "detail": "too small (9 % of frame height, needs 15 %)",
+     "detail": "too small (8 % of frame height, needs 15 %)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.1533,
-    0.1228,
-    0.8354,
-    0.6088
+    0.1079,
+    0.1056,
+    0.8807,
+    0.6159
    ]
   },
   {
@@ -315,16 +315,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:bucketMid",
-     "detail": "too small (9 % of frame height, needs 15 %)",
+     "detail": "too small (8 % of frame height, needs 15 %)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.139,
-    0.1145,
-    0.8421,
-    0.614
+    0.0925,
+    0.0938,
+    0.888,
+    0.6214
    ]
   },
   {
@@ -346,10 +346,10 @@
    ],
    "score": 0.4,
    "box": [
-    0.12,
-    0.1037,
-    0.8508,
-    0.6208
+    0.0723,
+    0.0782,
+    0.8974,
+    0.6286
    ]
   },
   {
@@ -364,17 +364,23 @@
    "fails": [
     {
      "rule": "SUBJECT",
+     "subject": "w:wellMid",
+     "detail": "cut off left (0.05)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
      "subject": "w:bucketMid",
-     "detail": "too small (10 % of frame height, needs 15 %)",
+     "detail": "too small (9 % of frame height, needs 15 %)",
      "critical": false
     }
    ],
-   "score": 0.4,
+   "score": 0.8,
    "box": [
-    0.0958,
-    0.0901,
-    0.8617,
-    0.6294
+    0.0466,
+    0.0582,
+    0.9092,
+    0.6378
    ]
   },
   {
@@ -389,53 +395,28 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:bucketMid",
-     "detail": "too small (10 % of frame height, needs 15 %)",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.0656,
-    0.0737,
-    0.875,
-    0.6401
-   ]
-  },
-  {
-   "f": 92,
-   "t": 3.067,
-   "shot": 1,
-   "flight": true,
-   "subjects": [
-    "w:wellMid",
-    "w:bucketMid"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
      "subject": "w:wellMid",
-     "detail": "cut off left (0.03)",
+     "detail": "cut off left (0.01)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "w:bucketMid",
-     "detail": "too small (11 % of frame height, needs 15 %)",
+     "detail": "too small (10 % of frame height, needs 15 %)",
      "critical": false
     }
    ],
    "score": 0.8,
    "box": [
-    0.0287,
-    0.0541,
-    0.8911,
-    0.6531
+    0.0148,
+    0.033,
+    0.9235,
+    0.6494
    ]
   },
   {
-   "f": 93,
-   "t": 3.1,
+   "f": 92,
+   "t": 3.067,
    "shot": 1,
    "flight": true,
    "subjects": [
@@ -452,21 +433,21 @@
     {
      "rule": "SUBJECT",
      "subject": "w:bucketMid",
-     "detail": "too small (11 % of frame height, needs 15 %)",
+     "detail": "too small (10 % of frame height, needs 15 %)",
      "critical": false
     }
    ],
    "score": 0.8,
    "box": [
     0,
-    0.0313,
-    0.9099,
-    0.6687
+    0.0018,
+    0.9406,
+    0.6635
    ]
   },
   {
-   "f": 94,
-   "t": 3.133,
+   "f": 93,
+   "t": 3.1,
    "shot": 1,
    "flight": true,
    "subjects": [
@@ -483,6 +464,37 @@
     {
      "rule": "SUBJECT",
      "subject": "w:bucketMid",
+     "detail": "too small (11 % of frame height, needs 15 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0,
+    0,
+    0.9605,
+    0.6806
+   ]
+  },
+  {
+   "f": 94,
+   "t": 3.133,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:wellMid",
+    "w:bucketMid"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:wellMid",
+     "detail": "cut off left (-0.12)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:bucketMid",
      "detail": "too small (12 % of frame height, needs 15 %)",
      "critical": false
     }
@@ -490,9 +502,9 @@
    "score": 0.8,
    "box": [
     0,
-    0.0052,
-    0.9317,
-    0.6871
+    0,
+    0.9833,
+    0.7009
    ]
   },
   {
@@ -508,13 +520,13 @@
     {
      "rule": "SUBJECT",
      "subject": "w:wellMid",
-     "detail": "cut off left (-0.13)",
+     "detail": "cut off left (-0.18)",
      "critical": false
     },
     {
      "rule": "SUBJECT",
      "subject": "w:bucketMid",
-     "detail": "too small (13 % of frame height, needs 15 %)",
+     "detail": "too small (12 % of frame height, needs 15 %)",
      "critical": false
     }
    ],
@@ -522,8 +534,8 @@
    "box": [
     0,
     0,
-    0.9565,
-    0.7085
+    1,
+    0.7247
    ]
   },
   {
@@ -538,23 +550,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:wellMid",
-     "detail": "cut off left (-0.20)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "w:bucketMid",
-     "detail": "too small (14 % of frame height, needs 15 %)",
+     "detail": "too small (13 % of frame height, needs 15 %)",
      "critical": false
     }
    ],
-   "score": 0.8,
+   "score": 0.4,
    "box": [
     0,
     0,
-    0.9842,
-    0.7331
+    1,
+    0.7523
    ]
   },
   {
@@ -569,23 +575,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:wellMid",
-     "detail": "cut off left (-0.29)",
-     "critical": false
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "w:bucketMid",
      "detail": "too small (15 % of frame height, needs 15 %)",
      "critical": false
     }
    ],
-   "score": 0.8,
+   "score": 0.4,
    "box": [
     0,
     0,
     1,
-    0.7607
+    0.7834
    ]
   },
   {

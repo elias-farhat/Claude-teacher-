@@ -106,6 +106,8 @@ export class BucketWorld {
   /** time-driven parts of the world (also called by the camera guard): the marching host, the buckets that get taken */
   setTime(t: number) {
     this.sets.army.position.x = armyDX(t);
+    this.sets.army.visible = t >= wt(5) - 1;          // the host takes the field on line 5
+    for (const m of this.sets.armyBanners) m.visible = this.sets.army.visible, m.position.x = (m.userData.x0 as number) + armyDX(t);
     const b = this.sets.buckets;
     b[1].visible = t < wt(3, "stole") - 2 / 30;      // Bologna's town well: lifted by the thief on "stole"
     b[2].visible = t < wt(8, "grabbed") - 2 / 30;    // the well outside the walls: grabbed by the knight

@@ -53,8 +53,8 @@ const W = (dx: number, dy: number, dz: number, c: THREE.Vector3) => V(c.x + dx, 
 const lords = (t: number, s: Stage) => {
   if (!between(t, wt(1, "story") - 0.3, wt(3, "Legend") + 0.4)) return;
   const glare = after(t, 2, "hated");
-  s.places.push(P("lordM", LORD_M, { expr: glare ? "stern" : "smug", gest: glare ? "point" : "hang", blink: blinkAt(t, 3), headTilt: glare ? -4 : 0 }, {}, W(-0.85, 0, 0, LORDS), { turn: -0.6 }));
-  s.places.push(P("lordB", LORD_B, { expr: glare ? "stern" : "smug", gest: glare ? "fist" : "hang", k: q((t * 2.5) % 1, 8), blink: blinkAt(t, 4), headTilt: glare ? 4 : 0 }, {}, W(0.85, 0, 0, LORDS), { turn: 0.6 }));
+  s.places.push(P("lordM", LORD_M, { expr: glare ? "stern" : "smug", gest: glare ? "point" : "hang", blink: blinkAt(t, 3), headTilt: glare ? -4 : 0 }, {}, W(-0.85, 0, 0, LORDS), { turn: 0.6 }));
+  s.places.push(P("lordB", LORD_B, { expr: glare ? "stern" : "smug", gest: glare ? "fist" : "hang", k: q((t * 2.5) % 1, 8), blink: blinkAt(t, 4), headTilt: glare ? 4 : 0 }, {}, W(0.85, 0, 0, LORDS), { turn: -0.6 }));
   s.places.push(P("bgBannerM", MOD_SOLDIER(1), { expr: "neutral", gest: "hang", blink: blinkAt(t, 5) }, { banner: MOD_FLAG }, W(-2.4, 0, -5.5, LORDS), { size: LO, turn: -0.3 }));
   s.places.push(P("bgBannerB", BOL_SOLDIER(1), { expr: "neutral", gest: "hang", blink: blinkAt(t, 6) }, { banner: BOL_FLAG }, W(2.4, 0, -5.5, LORDS), { size: LO, turn: 0.3 }));
 };
@@ -138,7 +138,7 @@ const piazza = (t: number, s: Stage) => {
 // line 11: the tower room, today: a tourist with a phone looking at the bucket on its plinth; it glints
 const room = (t: number, s: Stage) => {
   if (t < wt(10, "kept")) return;
-  s.places.push(P("tourist", TOURIST, { expr: after(t, 11, "still") ? "laugh" : "grin", gest: after(t, 11, "still") ? "tip" : "hang", k: 1, blink: blinkAt(t, 110), look: -1 }, { phone: true }, [TOWER.x + 1.1, ROOM_Y, TOWER.z + 0.9], { turn: -0.5 }));
+  s.places.push(P("tourist", TOURIST, { expr: after(t, 11, "still") ? "smile" : "grin", gest: after(t, 11, "years") ? "palm" : "hang", k: 1, blink: blinkAt(t, 110), look: -1 }, { phone: true }, [TOWER.x + 1.1, ROOM_Y, TOWER.z + 0.9], { turn: 0.7 }));
   const u = q((Math.sin(t * 2.4) + 1) / 2, 6);
   if (after(t, 11, "still")) s.fx.push(card(`glint${u}`, 300, 300, glint(u), [TOWER.x + 0.12, ROOM_Y + 1.32, TOWER.z + 0.15], 0.3, 0.3));
   s.lights.push(warm(V(TOWER.x + 0.6, ROOM_Y + 2.4, TOWER.z + 1.2), 1.0));

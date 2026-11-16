@@ -164,9 +164,9 @@ const pose = (gest: string, k: number): [Arm, Arm] => {
     case "clutch": return [[[-0.19, 1.07, 0], [-0.26, 0.9, 0.12], [-0.07, 1.02, 0.22]], [[0.19, 1.07, 0], [0.26, 0.9, 0.12], [0.07, 1.02, 0.22]]];
     case "tip": return [L, [[0.19, 1.07, 0], [0.38, 1.24, 0.1], [0.21, 1.5 + 0.02 * w, 0.17]]];
     case "sign": return [L, [[0.19, 1.07, 0], [0.29, 0.86, 0.16], [0.14 + 0.03 * w, 0.8, 0.34]]];
-    case "fist": return [L, [[0.19, 1.07, 0], [0.36, 1.3, 0.08], [0.3 + 0.04 * w, 1.62 + 0.03 * w, 0.12]]];
+    case "fist": return [L, [[0.19, 1.07, 0], [0.42, 1.3, 0.08], [0.46 + 0.04 * w, 1.6 + 0.03 * w, 0.12]]];
     case "hug": return [[[-0.19, 1.07, 0], [-0.3, 0.86, 0.12], [-0.13, 0.84, 0.3]], [[0.19, 1.07, 0], [0.3, 0.86, 0.12], [0.13, 0.84, 0.3]]];
-    case "lift": return [[[-0.19, 1.07, 0], [-0.3, 1.36, 0.06], [-0.15, 1.86 + 0.02 * w, 0.1]], [[0.19, 1.07, 0], [0.3, 1.36, 0.06], [0.15, 1.86 + 0.02 * w, 0.1]]];
+    case "lift": return [[[-0.19, 1.07, 0], [-0.36, 1.45, 0.04], [-0.2, 2.06 + 0.02 * w, 0.06]], [[0.19, 1.07, 0], [0.36, 1.45, 0.04], [0.2, 2.06 + 0.02 * w, 0.06]]];
     case "charge": return [[[-0.19, 1.07, 0], [-0.3, 0.9, 0.16], [-0.12, 0.98, 0.36]], [[0.19, 1.07, 0], [0.3, 0.9, 0.12], [0.22, 0.98, 0.3]]];
     case "run": return [[[-0.19, 1.07, 0], [-0.27, 0.86, -0.12 * w], [-0.24, 0.98, 0.2 * w]], [[0.19, 1.07, 0], [0.27, 0.86, 0.12 * w], [0.24, 0.98, -0.2 * w]]];
     case "flee": return [[[-0.19, 1.07, 0], [-0.36, 1.28, 0.02], [-0.4 - 0.05 * w, 1.55, 0.0]], [[0.19, 1.07, 0], [0.36, 1.28, 0.02], [0.4 + 0.05 * w, 1.55, 0.0]]];
@@ -297,14 +297,14 @@ export class Char3D {
     const two2 = Math.abs(hR[0] - hL[0]) < 0.4;
     this.bucket.visible = !!x.bucket;
     if (x.bucket) {
-      if (two2) this.bucket.position.set((hR[0] + hL[0]) / 2, (hR[1] + hL[1]) / 2 - 0.12 + dy + bob, Math.max(hR[2], hL[2]) - 0.02);
+      if (two2) this.bucket.position.set((hR[0] + hL[0]) / 2, (hR[1] + hL[1]) / 2 - (l.gest === "lift" ? 0.02 : 0.12) + dy + bob, Math.max(hR[2], hL[2]) - 0.02);
       else this.bucket.position.set(hR[0], hR[1] - 0.29 + dy + bob, hR[2]);
       this.bucket.scale.setScalar(two2 ? 1.15 : 1);
     }
     this.spear.visible = !!x.spear;
     if (x.spear) { this.spear.position.set(hR[0], hR[1] + dy + bob, hR[2]); this.spear.rotation.set(l.gest === "charge" ? 1.25 : 0.05, 0, l.gest === "charge" ? 0 : -0.06); }
     this.sword.visible = !!x.sword;
-    if (x.sword) { this.sword.position.set(hR[0], hR[1] + dy + bob, hR[2]); this.sword.rotation.set(0.2, 0, l.gest === "fist" || l.gest === "cheer" ? -0.25 : -0.5); }
+    if (x.sword) { this.sword.position.set(hR[0], hR[1] + dy + bob, hR[2]); this.sword.rotation.set(0.2, 0, l.gest === "fist" || l.gest === "cheer" ? -0.75 : -0.5); }
     this.banner.visible = !!x.banner;
     if (x.banner) { this.banner.position.set(hL[0], hL[1] + dy + bob, hL[2]); this.bannerMat.map = bannerTex(x.banner); this.banner.children[1].rotation.y = 0.25 * Math.sin(ph + k * 6.283); }
     this.shield.visible = !!x.shield;
