@@ -51,7 +51,7 @@ const treaty = (t: number, s: Stage) => {
   s.places.push(P("napoleonT", NAPOLEON, party ? { expr: "laugh", gest: hunt ? "cheer" : "clap", k: q((t * 3) % 1, 8), blink: blinkAt(t, 1), headTilt: 6 * Math.sin(t * 7) } : { mode: "sit", expr: "smug", gest: "sign", k: q((t * 4) % 1, 8), blink: blinkAt(t, 1) },
     { pen: !party }, W(T, -0.3, party ? 0 : 0.4, -2.1), { turn: party ? 0 : 0.1 }));
   s.places.push(P("tsar", RUSSIAN, { expr: party ? "nervous" : "smile_closed", gest: party ? "palm" : "hang", blink: blinkAt(t, 2) }, {}, W(T, 1.6, 0, -1.9), { turn: -0.3 }));
-  for (let i = 0; i < 2; i++) if (party) s.places.push(P(`cheerO${i}`, OFFICER(i), { expr: "laugh", gest: "cheer", k: q((t * 2.6 + i * 0.4) % 1, 8), blink: blinkAt(t, 3 + i) }, {}, W(T, -2.2 + i * 0.6, 0, -1.2 - i * 0.9), { turn: 0.3, size: LO }));
+  for (let i = 0; i < 2; i++) if (party) s.places.push(P(`cheerO${i}`, OFFICER(i), { expr: "laugh", gest: "cheer", k: q((t * 2.6 + i * 0.4) % 1, 8), blink: blinkAt(t, 3 + i) }, {}, W(T, -1.6 - i * 0.7, 0, -1.6 - i * 0.6), { turn: 0.3, size: LO }));
   s.lights.push(warm(W(T, 0, 1.3, -0.6), 1.0));
 };
 // line 3: Berthier salutes, sweating, then holds up his checklist: Get. Rabbits.
@@ -74,10 +74,10 @@ const hunt = (t: number, s: Stage) => {
   if (!between(t, wt(4, "Pets") + 0.4, wt(11) + 0.3)) return;
   const open = after(t, 5, "open"), aim = after(t, 5, "raises"), at = after(t, 6, "AT"), beg = after(t, 7, 0), swarm = after(t, 8, 0), sticks = after(t, 8, "His"), nope = after(t, 8, "didn't"), split = after(t, 9, "split"), flee = t >= T_RUN0();
   // the men at the cages: they pull the doors and jump back
-  if (t < wt(6, "run")) for (let i = 0; i < 2; i++) { const c = CAGES[i ? 5 : 2];
-    s.places.push(P(`opener${i}`, OFFICER(i + 4), { expr: open ? "shock" : "grin", gest: open ? "flail" : "point", k: q((t * 3 + i * 0.5) % 1, 8), blink: blinkAt(t, 20 + i), headTilt: open ? 8 * Math.sin(t * 8 + i) : 0 }, {}, V(c.x + (i ? 0.9 : -0.9), 0, c.z + 1.6 + (open ? 0.6 * smooth((t - wt(5, "open")) / 0.4) : 0)), { turn: i ? -0.3 : 0.3 })); }
+  if (t < wt(6, "run")) for (let i = 0; i < 2; i++) { const c = CAGES[i ? 4 : 3];
+    s.places.push(P(`opener${i}`, OFFICER(i + 4), { expr: open ? "shock" : "grin", gest: open ? "flail" : "point", k: q((t * 3 + i * 0.5) % 1, 8), blink: blinkAt(t, 20 + i), headTilt: open ? 8 * Math.sin(t * 8 + i) : 0 }, {}, V(c.x + (i ? 0.3 : -0.3), 0, c.z + 1.6 + (open ? 0.6 * smooth((t - wt(5, "open")) / 0.4) : 0)), { turn: i ? -0.3 : 0.3 })); }
   // Napoleon: aims (squinting), gapes on "AT him", puzzled while they beg, flails while they climb, sprints for the carriage
-  const np = napAt(t), onBox = t > T_RUN0() + 1.25;
+  const np = napAt(t), onBox = t >= wt(10, "And") - LEAD;
   if (!onBox) {
     const look: Look = flee ? { mode: "run", phase: q((t * 2.8) % 1, 12), expr: "shock", gest: "flail", k: q((t * 4) % 1, 8), blink: 0 }
       : swarm ? { expr: nope ? "dazed" : "shock", gest: "flail", k: q((t * 3.2) % 1, 8), blink: 0, headTilt: 10 * Math.sin(t * 9) }
@@ -91,10 +91,10 @@ const hunt = (t: number, s: Stage) => {
   }
   // his officers and Berthier: swing sticks and whips at the swarm (the rabbits dodge), then give up; back to back on
   // the flanks; Berthier sweats throughout
-  if (t < T_RUN0() + 0.8) {
+  if (t < wt(10) - LEAD) {
     for (let i = 0; i < 2; i++) s.places.push(P(`officer${i}`, OFFICER(i), sticks && !nope ? { expr: "stern", gest: "swing", k: q((t * 2.4 + i * 0.5) % 1, 10), blink: blinkAt(t, 30 + i) } : nope ? { expr: "dazed", gest: "shrug2", blink: blinkAt(t, 30 + i) } : { expr: at ? "shock" : "grin", gest: at ? "flail" : "hang", k: q((t * 3 + i) % 1, 8), blink: blinkAt(t, 30 + i) },
-      { stick: sticks }, W(NAP, i ? 1.9 : -1.9, 0, split ? 0.6 : 1.3), { turn: i ? -0.4 : 0.4 }));
-    s.places.push(P("berthierH", BERTHIER, { expr: at || swarm ? "shock" : "nervous", gest: swarm ? "flail" : "clutch", k: q((t * 3.5) % 1, 8), blink: blinkAt(t, 4) }, { paper: swarm ? undefined : "list", sweat: true }, W(NAP, -1.0, 0, 2.6), { turn: 0.2, size: LO }));
+      { stick: sticks }, W(NAP, i ? 1.3 : -1.3, 0, split ? 0.5 : 1.0), { turn: i ? -0.4 : 0.4 }));
+    s.places.push(P("berthierH", BERTHIER, { expr: at || swarm ? "shock" : "nervous", gest: swarm ? "flail" : "clutch", k: q((t * 3.5) % 1, 8), blink: blinkAt(t, 4) }, { paper: swarm ? undefined : "list", sweat: true }, W(NAP, -0.6, 0, 2.4), { turn: 0.2, size: LO }));
   }
 };
 // line 12: Thiébault at his desk, writing, smirking; looks up at Berthier's portrait on "didn't like Berthier"

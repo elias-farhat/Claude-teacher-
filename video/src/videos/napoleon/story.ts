@@ -42,7 +42,7 @@ const at = (c: THREE.Vector3, dx: number, dy: number, dz: number): V3 => [c.x + 
 export const T_RUN0 = () => wt(10, "ran") - 0.12;
 export const napAt = (t: number) => NAP.clone().lerp(CARR_DOOR, smooth((t - T_RUN0()) / 1.25));
 /** the carriage drives off east once the rabbits have jumped in */
-export const carriageAt = (t: number) => { const u = Math.max(0, t - wt(10, "him") - 0.3); return new THREE.Vector3(CARRIAGE.x + 2.5 * u * u, 0, CARRIAGE.z); };
+export const carriageAt = (t: number) => { const u = Math.max(0, t - wt(10, "him") - 0.3); return new THREE.Vector3(CARRIAGE.x + 1.6 * u * u, 0, CARRIAGE.z); };
 /** the bicorne flies off as he runs and lands where the king rabbit will sit (line 11) */
 export const HAT_REST = new THREE.Vector3(5.2, 0, 12.2);
 export const hatAt = (t: number) => {
