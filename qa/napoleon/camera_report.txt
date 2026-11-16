@@ -1,10 +1,7 @@
 warning    9.03-  9.97 s  f271-298  SUBJECT   c:/^cheerO\d$/       not on stage
 warning    9.53-  9.73 s  f286-291  FACES     c:tsar(tsar)         head cut at the right edge
-CRITICAL  44.43- 44.73 s  f1333-1341  SUBJECT   c:napoleon           cut off top (0.05)
-CRITICAL  45.67- 46.10 s  f1370-1382  SUBJECT   c:/^officer\d$/      too small (30 % of frame height, needs 30 %)
-warning   46.10- 46.30 s  f1383-1388  SUBJECT   c:/^officer\d$/      too small (30 % of frame height, needs 30 %)
-warning   46.10- 46.67 s  f1383-1399  SUBJECT   w:swarm              cut off left (-1.02)
-warning   46.53- 46.70 s  f1396-1400  SUBJECT   c:/^officer\d$/      cut off right (0.99)
-warning   46.67- 47.03 s  f1400-1410  FACES     c:/^officer\d$/(officer1) head cut at the right edge
-warning   46.70- 47.03 s  f1401-1410  SUBJECT   c:/^officer\d$/      cut off left (0.02)
-CRITICAL  47.03- 52.00 s  f1411-1559  STALE                          the subject barely moves on screen for more than 2 s
+CRITICAL  47.03- 52.00 s  f1411-1559  SUBJECT   c:napoleon           too small (10 % of frame height, needs 30 %)
+CRITICAL  47.03- 47.40 s  f1411-1421  SUBJECT   w:swarm              cut off left (-0.03)
+CRITICAL  47.40- 47.77 s  f1422-1432  SUBJECT   w:swarm              cut off right (0.98)
+CRITICAL  47.97- 48.27 s  f1439-1447  SUBJECT   w:swarm              cut off right (1.02)
+CRITICAL  48.27- 52.00 s  f1448-1559  SUBJECT   w:swarm              cut off left (-0.05)
