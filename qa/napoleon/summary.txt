@@ -42,57 +42,42 @@ Decisions (auto-framer + camera guard, made without asking; revised after the re
   failed least; failing flights try other look timings / bends / start shifts, and a flight that still fails becomes
   a whip.
 
-CRITICAL: 310 frames in 20 ranges
-    9.97- 13.67 s  f299-409  FACES     c:/^cheerO\d$/(cheerO0) face 100 % covered by something in front
-   10.50- 10.57 s  f315-316  FACES     bystander tsar       bystander's head cut at the left edge
-   10.57- 13.67 s  f317-409  FACES     bystander tsar       bystander's face fills 33 % of the frame
-   10.83- 13.67 s  f325-409  FACES     c:/^cheerO\d$/(cheerO1) face 100 % covered by something in front
-   11.93- 13.67 s  f358-409  FACES     c:napoleonT          face 100 % covered by something in front
-   32.60- 33.23 s  f978-996  FACES     bystander officer1   bystander's head cut at the right edge
-   37.77- 38.80 s  f1133-1163  FACES     bystander officer0   bystander's head cut at the left edge
-   43.07- 45.07 s  f1292-1351  FACES     c:/^officer\d$/(officer0) face 48 % covered by something in front
-   47.03- 48.63 s  f1411-1458  SUBJECT   c:napoleon           cut off left (-0.01)
-   47.03- 47.73 s  f1411-1431  FACES     c:napoleon           head cut at the left edge
-   47.03- 47.50 s  f1411-1424  SUBJECT   c:/^officer\d$/      cut off top (0.04)
-   47.43- 47.83 s  f1423-1434  FACES     c:/^officer\d$/(officer1) head (hat) touches the top edge (2.8 %)
-   47.50- 47.83 s  f1425-1434  SUBJECT   c:/^officer\d$/      cut off right (1.01)
-   47.73- 47.83 s  f1432-1434  FACES     c:/^officer\d$/(officer1) head cut at the right edge
-   47.83- 48.67 s  f1435-1459  SUBJECT   c:/^officer\d$/      cut off left (0.01)
-   47.83- 47.97 s  f1435-1438  FACES     c:/^officer\d$/(officer0) head cut at the left edge
-   47.83- 48.87 s  f1435-1465  FACES     c:/^officer\d$/(officer1) head cut at the top edge
-   48.67- 49.93 s  f1460-1497  SUBJECT   c:/^officer\d$/      cut off top (0.04)
-   48.87- 49.33 s  f1466-1479  FACES     c:/^officer\d$/(officer1) head (hat) touches the top edge (2.7 %)
-   55.17- 55.23 s  f1655-1656  SUBJECT   c:napoleon           cut off left (0.04)
-warnings: 28 frames in 3 ranges (list in camera_report.txt)
+CRITICAL: 233 frames in 5 ranges
+   43.07- 43.43 s  f1292-1302  FACES     c:/^officer\d$/(officer0) face 24 % covered by something in front
+   43.07- 45.87 s  f1292-1375  FACES     c:napoleon           face 64 % covered by something in front
+   43.57- 43.67 s  f1307-1309  FACES     c:/^officer\d$/(officer0) face 24 % covered by something in front
+   47.03- 52.00 s  f1411-1559  SUBJECT   c:napoleon           too small (27 % of frame height, needs 30 %)
+   47.03- 52.00 s  f1411-1559  STALE                          the subject barely moves on screen for more than 2 s
+warnings: 28 frames in 2 ranges (list in camera_report.txt)
 
 Loop:
-  round 1: 835 frames with CRITICAL failures in 12 shots (0, 2, 3, 4, 7, 8, 10, 12, 14, 15, 16, 19)
-  round 2: 489 frames with CRITICAL failures in 10 shots (2, 3, 4, 8, 10, 12, 14, 15, 16, 19)
-  round 3: 678 frames with CRITICAL failures in 8 shots (2, 3, 8, 10, 12, 14, 15, 16)
-  round 4: 550 frames with CRITICAL failures in 6 shots (3, 10, 12, 14, 15, 16)
-  round 5: 632 frames with CRITICAL failures in 6 shots (3, 10, 12, 14, 15, 16)
-  assembled the best round of every shot: 310 frames with CRITICAL failures
-  fly transitions that still failed became cuts: 2; clipping whips panned the other way: 0, became cuts: 0
-  flight polish (look timing per failing flight): 325 frames with CRITICAL failures (3 flights cleared)
-  kept the assembled track (310 CRITICAL frames)
+  round 1: 742 frames with CRITICAL failures in 9 shots (0, 2, 3, 4, 7, 8, 14, 15, 19)
+  round 2: 487 frames with CRITICAL failures in 7 shots (2, 3, 4, 8, 14, 15, 19)
+  round 3: 434 frames with CRITICAL failures in 5 shots (2, 3, 8, 14, 15)
+  round 4: 250 frames with CRITICAL failures in 2 shots (14, 15)
+  round 5: 268 frames with CRITICAL failures in 2 shots (14, 15)
+  assembled the best round of every shot: 233 frames with CRITICAL failures
+  fly transitions that still failed became cuts: 0; clipping whips panned the other way: 0, became cuts: 0
+  flight polish (look timing per failing flight): 233 frames with CRITICAL failures (0 flights cleared)
+  kept the assembled track (233 CRITICAL frames)
 
 Shots (candidate chosen, score):
   shot  0    0.00-  3.77 s  medium az+30 high (score 6)
   shot  1    3.77-  6.32 s  wide   az+30 high (score 6)
   shot  2    6.32-  9.94 s  medium base (score 44: 2/5 blocked)
-  shot  3    9.94- 13.64 s  medium az-90 (score 56: 1/5 blocked, bystander's face fills 40 % of the frame, bystander's face fills 30 % of the frame)
+  shot  3    9.94- 13.64 s  medium az-30 (score 91: 2/5 blocked)
   shot  4   13.64- 17.42 s  medium lower (score 2)
   shot  5   17.42- 19.72 s  medium base (score 0)
   shot  6   19.72- 24.02 s  medium az-30 high (score 6)
   shot  7   24.02- 28.02 s  medium higher (score 3)
   shot  8   28.02- 29.30 s  medium az+90 (score 9)
-  shot  9   29.30- 32.02 s  medium az-90 (score 9)
-  shot 10   32.02- 34.14 s  wide   lower (score 27: bystander's head cut at the right edge)
-  shot 11   34.14- 35.90 s  medium higher (score 3)
-  shot 12   35.90- 40.27 s  medium az+30 high (score 31: bystander's head cut at the left edge)
-  shot 13   40.27- 43.07 s  medium higher (score 3)
+  shot  9   29.30- 32.02 s  medium base (score 0)
+  shot 10   32.02- 34.14 s  wide   az-30 (score 3)
+  shot 11   34.14- 35.90 s  medium base (score 0)
+  shot 12   35.90- 40.27 s  medium az-30 (score 3)
+  shot 13   40.27- 43.07 s  medium base (score 0)
   shot 14   43.07- 47.01 s  medium az-60 (score 6)
-  shot 15   47.01- 51.99 s  close  az+90 (score 114: cut off left, head cut at the left edge, cut off top, head cut at the top edge)
+  shot 15   47.01- 51.99 s  medium az-60 (score 46: too small)
   shot 16   51.99- 55.21 s  medium track az-60 (score 6)
   shot 17   55.21- 58.13 s  medium track az180 (score 40: 1/5 blocked)
   shot 18   58.13- 60.25 s  medium closer 0.45 (score 11)
@@ -102,7 +87,7 @@ Shots (candidate chosen, score):
 Flights:
   -> shot 1: FLY 2.84-3.77 s, 28 f, straight, peak 0.14 m/f
   -> shot 2: CUT 6.32-6.32 s, 0 f, cut on the beat, peak undefined m/f
-  -> shot 3: FLY 9.00-9.94 s, 28 f, glide (the next shot's subject is not on stage yet at 9.34 s), peak 0.52 m/f
+  -> shot 3: FLY 9.00-9.94 s, 28 f, glide (the next shot's subject is not on stage yet at 9.34 s), peak 0.33 m/f
   -> shot 4: CUT 13.64-13.64 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 5: FLY 16.48-17.42 s, 28 f, straight, peak 0.07 m/f
   -> shot 6: CUT 19.72-19.72 s, 0 f, cut on the beat, peak undefined m/f
@@ -110,7 +95,7 @@ Flights:
   -> shot 8: CUT 28.02-28.02 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 9: CUT 29.30-29.30 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 10: CUT 32.02-32.02 s, 0 f, cut on the beat, peak undefined m/f
-  -> shot 11: FLY 33.21-34.14 s, 28 f, straight, peak 0.14 m/f
+  -> shot 11: CUT 34.14-34.14 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 12: CUT 35.90-35.90 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 13: CUT 40.27-40.27 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 14: CUT 43.07-43.07 s, 0 f, cut on the beat, peak undefined m/f

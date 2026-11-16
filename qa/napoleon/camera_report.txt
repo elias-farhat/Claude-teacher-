@@ -1,23 +1,7 @@
 warning    9.03-  9.97 s  f271-298  SUBJECT   c:/^cheerO\d$/       not on stage
-warning    9.50-  9.57 s  f285-286  FACES     c:tsar(tsar)         head cut at the right edge
-warning    9.63-  9.80 s  f289-293  FACES     c:tsar(tsar)         head cut at the left edge
-CRITICAL   9.97- 13.67 s  f299-409  FACES     c:/^cheerO\d$/(cheerO0) face 100 % covered by something in front
-CRITICAL  10.50- 10.57 s  f315-316  FACES     bystander tsar       bystander's head cut at the left edge
-CRITICAL  10.57- 13.67 s  f317-409  FACES     bystander tsar       bystander's face fills 33 % of the frame
-CRITICAL  10.83- 13.67 s  f325-409  FACES     c:/^cheerO\d$/(cheerO1) face 100 % covered by something in front
-CRITICAL  11.93- 13.67 s  f358-409  FACES     c:napoleonT          face 100 % covered by something in front
-CRITICAL  32.60- 33.23 s  f978-996  FACES     bystander officer1   bystander's head cut at the right edge
-CRITICAL  37.77- 38.80 s  f1133-1163  FACES     bystander officer0   bystander's head cut at the left edge
-CRITICAL  43.07- 45.07 s  f1292-1351  FACES     c:/^officer\d$/(officer0) face 48 % covered by something in front
-CRITICAL  47.03- 48.63 s  f1411-1458  SUBJECT   c:napoleon           cut off left (-0.01)
-CRITICAL  47.03- 47.73 s  f1411-1431  FACES     c:napoleon           head cut at the left edge
-CRITICAL  47.03- 47.50 s  f1411-1424  SUBJECT   c:/^officer\d$/      cut off top (0.04)
-CRITICAL  47.43- 47.83 s  f1423-1434  FACES     c:/^officer\d$/(officer1) head (hat) touches the top edge (2.8 %)
-CRITICAL  47.50- 47.83 s  f1425-1434  SUBJECT   c:/^officer\d$/      cut off right (1.01)
-CRITICAL  47.73- 47.83 s  f1432-1434  FACES     c:/^officer\d$/(officer1) head cut at the right edge
-CRITICAL  47.83- 48.67 s  f1435-1459  SUBJECT   c:/^officer\d$/      cut off left (0.01)
-CRITICAL  47.83- 47.97 s  f1435-1438  FACES     c:/^officer\d$/(officer0) head cut at the left edge
-CRITICAL  47.83- 48.87 s  f1435-1465  FACES     c:/^officer\d$/(officer1) head cut at the top edge
-CRITICAL  48.67- 49.93 s  f1460-1497  SUBJECT   c:/^officer\d$/      cut off top (0.04)
-CRITICAL  48.87- 49.33 s  f1466-1479  FACES     c:/^officer\d$/(officer1) head (hat) touches the top edge (2.7 %)
-CRITICAL  55.17- 55.23 s  f1655-1656  SUBJECT   c:napoleon           cut off left (0.04)
+warning    9.53-  9.73 s  f286-291  FACES     c:tsar(tsar)         head cut at the right edge
+CRITICAL  43.07- 43.43 s  f1292-1302  FACES     c:/^officer\d$/(officer0) face 24 % covered by something in front
+CRITICAL  43.07- 45.87 s  f1292-1375  FACES     c:napoleon           face 64 % covered by something in front
+CRITICAL  43.57- 43.67 s  f1307-1309  FACES     c:/^officer\d$/(officer0) face 24 % covered by something in front
+CRITICAL  47.03- 52.00 s  f1411-1559  SUBJECT   c:napoleon           too small (27 % of frame height, needs 30 %)
+CRITICAL  47.03- 52.00 s  f1411-1559  STALE                          the subject barely moves on screen for more than 2 s

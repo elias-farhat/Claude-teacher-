@@ -20,7 +20,7 @@ export const SHOT_SPECS: ShotSpec[] = [
   { t0: land(7), subjects: ["c:napoleon", "?w:swarm"], size: "medium", angle: "high", move: "drift", note: "7 they weren't scared, they were hungry: begging at his boots" },
   { t0: land(8), subjects: ["c:napoleon"], size: "medium", move: "push", note: "8 they swarmed his boots, climbed up his legs" },
   { t0: land(8, "men") - 0.2, subjects: ["c:/^officer\\d$/", "c:napoleon"], size: "medium", move: "drift", note: "8 his men swung whips and sticks... didn't work" },
-  { t0: land(9), subjects: ["c:napoleon", "c:/^officer\\d$/", "?w:swarm"], size: "medium", angle: "high", move: "sway", place: "centre", note: "9 the rabbits split up and attacked from the flanks (battle-map angle)" },
+  { t0: land(9), subjects: ["c:napoleon", "c:/^officer\\d$/", "?w:swarm"], size: "medium", angle: "high", move: "push", place: "centre", note: "9 the rabbits split up and attacked from the flanks (battle-map angle)" },
   { t0: land(10), subjects: ["c:napoleon"], size: "medium", move: "drift", enter: "cut", note: "10 the Emperor of France ran for his carriage (hat flying)" },
   { t0: land(10, "And"), subjects: ["c:napoleonC", "?w:carriage"], size: "medium", move: "drift", enter: "cut", note: "10 some rabbits jumped in after him: on the carriage, driving off" },
   { t0: land(11), subjects: ["w:king", "?w:swarm"], size: "medium", move: "push", enter: "cut", note: "11 the rabbits won: one wears the bicorne" },
