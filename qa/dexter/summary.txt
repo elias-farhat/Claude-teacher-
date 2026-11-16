@@ -43,18 +43,18 @@ Decisions (auto-framer + camera guard, made without asking; revised after the re
   a whip.
 
 CRITICAL: 0
-warnings: 100 frames in 23 ranges (list in camera_report.txt)
+warnings: 116 frames in 28 ranges (list in camera_report.txt)
 
 Loop:
-  round 1: 627 frames with CRITICAL failures in 8 shots (1, 2, 4, 6, 8, 12, 14, 16)
+  round 1: 599 frames with CRITICAL failures in 7 shots (2, 4, 6, 8, 12, 14, 16)
   round 2: 388 frames with CRITICAL failures in 5 shots (2, 6, 8, 14, 16)
   round 3: 62 frames with CRITICAL failures in 1 shots (8)
   round 4: 0 frames with CRITICAL failures in 0 shots
   assembled the best round of every shot: 0 frames with CRITICAL failures
 
 Shots (candidate chosen, score):
-  shot  0    0.00-  3.87 s  medium track base (score 0)
-  shot  1    3.87-  6.80 s  medium track lower (score 2)
+  shot  0    0.00-  3.87 s  wide   track az180 (score 18)
+  shot  1    3.87-  6.80 s  medium az+30 high (score 6)
   shot  2    6.80-  9.96 s  medium az+30 (score 47: 2/5 blocked)
   shot  3    9.96- 12.72 s  medium hand (score 6)
   shot  4   12.72- 14.16 s  medium base (score 0)
@@ -76,7 +76,7 @@ Shots (candidate chosen, score):
   shot 20   55.73- 58.10 s  medium az+30 (score 3)
 
 Flights:
-  -> shot 1: CUT 3.87-3.87 s, 0 f, cut on the beat, peak undefined m/f
+  -> shot 1: FLY 2.94-3.87 s, 28 f, glide (a face fills the frame at 3.31 s (dexter)), peak 1.15 m/f
   -> shot 2: CUT 6.80-6.80 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 3: CUT 9.96-9.96 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 4: FLY 11.78-12.72 s, 28 f, hand route (reversed), peak 0.15 m/f

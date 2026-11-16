@@ -352,7 +352,7 @@ export class Char3D {
     if (x.shield) { this.shield.position.set(-0.3, 0.92 + dy + bob, 0.12); this.shield.rotation.set(0, -0.5, 0); this.shieldMat.map = bannerTex(x.shield); }
     // Dexter's cargo
     this.pan.visible = !!x.pan;
-    if (x.pan) { this.pan.position.set(hR[0], hR[1] - 0.25 + dy + bob, hR[2]); this.pan.rotation.set(l.gest === "stir" ? 2.4 : 0.35, 0, l.gest === "stir" ? 0 : -0.35); }
+    if (x.pan) { const st = l.gest === "stir"; this.pan.position.set(hR[0], hR[1] - (st ? 0.25 : 0.5) + dy + bob, hR[2]); this.pan.rotation.set(st ? 2.4 : 0.25, 0, st ? 0 : -0.75); }
     this.sack.visible = !!x.sack;
     if (x.sack) { if (two2 && l.gest !== "hang") this.sack.position.set((hR[0] + hL[0]) / 2, (hR[1] + hL[1]) / 2 - 0.05 + dy + bob, Math.max(hR[2], hL[2]) + 0.06); else this.sack.position.set(-0.24, 1.2 + dy + bob, -0.08); }
     this.coins.visible = !!x.coins;

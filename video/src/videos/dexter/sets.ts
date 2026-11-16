@@ -70,6 +70,7 @@ export function buildSets(R: THREE.Group, kit: Kit): Sets {
     for (let z = D.z0 + 3; z <= D.z1 - 1; z += 6) for (const s of [-1, 1]) b.add(new THREE.CylinderGeometry(0.16, 0.2, 0.7, 8).translate(D.x + s * (D.w / 2 - 0.3), 0.35, z), dark);   // bollards
   };
   for (const D of [DOCK_NB, DOCK_TR, DOCK_SN, DOCK_NC]) dock(D);
+  bx(snow, DOCK_SN.x - DOCK_SN.w / 2 + 0.1, 0.02, DOCK_SN.z0, DOCK_SN.x + DOCK_SN.w / 2 - 0.1, 0.06, DOCK_SN.z1 - 0.4, 3);   // snow lies on the pier
 
   // ---- Newburyport: two rows of houses along the harbour street, the square kept clear, lamp posts ----
   const houses = ["building-sample-house-a", "building-sample-house-b", "building-sample-house-c"];
@@ -80,7 +81,7 @@ export function buildSets(R: THREE.Group, kit: Kit): Sets {
   row(NB, STREET_Z - 21, (x) => Math.abs(x - SQUARE.x) < 6, r);
   for (let x = NB.x0 + 6; x < NB.x1; x += 14) { const lp = V(x, 3.0, STREET_Z + 3.2); lamps.push({ p: lp, k: 0.8 }); b.add(new THREE.CylinderGeometry(0.07, 0.09, 3.0, 8).translate(x, 1.5, lp.z), dark); }
   for (const [n, x, z, s, ro] of [["ship-large", -14, 22, 1.5, 0], ["ship-medium", 16, 24, 1.5, 0.05], ["ship-small", 34, 30, 1.4, -0.3], ["boat-row-large", -6, 12, 1.6, 0.4],
-    ["barrel", 2.6, 12, 0.6, 0], ["crate", -2.8, 15, 1.1, 0.3], ["crate", -2.6, 16.4, 0.9, 1.0], ["cart", 9, 4, 2.2, 0.4], ["stall-red", -40, 2, 2.0, Math.PI], ["barrel", -21, 1, 0.6, 0], ["cart", -18, -4, 2.2, -0.6], ["crate", 22, 3, 1.0, 0.2]] as [string, number, number, number, number][])
+    ["barrel", 2.9, 24.5, 0.6, 0], ["crate", -2.8, 25, 1.1, 0.3], ["crate", -2.6, 26.4, 0.9, 1.0], ["cart", 9, 4, 2.2, 0.4], ["stall-red", -40, 2, 2.0, Math.PI], ["barrel", -21, 1, 0.6, 0], ["cart", -18, -4, 2.2, -0.6], ["crate", 22, 3, 1.0, 0.2]] as [string, number, number, number, number][])
     add(n, x, n.startsWith("ship") || n.startsWith("boat") ? WATER_Y - 0.4 : 0.02, z, s, ro);
   // the square: a crate to stand on, a well-head pump, benches
   bx(wood, SQUARE.x - 0.6, 0, SQUARE.z - 0.5, SQUARE.x + 0.6, 0.75, SQUARE.z + 0.5, 1);

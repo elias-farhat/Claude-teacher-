@@ -1,3 +1,8 @@
+warning    2.97-  3.27 s  f89-97  SUBJECT   c:/^laugher[23]$/    cut off left (0.02)
+warning    3.20-  3.27 s  f96-97  FACES     c:/^laugher[23]$/(laugher3) head cut at the right edge
+warning    3.27-  3.50 s  f98-104  SUBJECT   c:/^laugher[23]$/    cut off right (1.27)
+warning    3.40-  3.50 s  f102-104  SUBJECT   c:dexter             too small (29 % of frame height, needs 30 %)
+warning    3.40-  3.47 s  f102-103  FACES     c:/^laugher[23]$/(laugher3) head cut at the right edge
 warning   11.80- 12.00 s  f354-359  SUBJECT   c:dexterC            out of frame (x 1.06..1.34, y 0.35..0.78)
 warning   12.00- 12.27 s  f360-367  SUBJECT   c:dexterC            cut off right (1.14)
 warning   12.03- 12.23 s  f361-366  FACES     c:dexterC            head cut at the right edge

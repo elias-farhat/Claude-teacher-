@@ -5,8 +5,8 @@ import { land } from "./story";
 import type { ShotSpec } from "../../guard/solve";
 
 export const SHOT_SPECS: ShotSpec[] = [
-  { t0: 0, subjects: ["c:dexter", "?c:/^laugher\\d$/"], size: "medium", move: "drift", note: "1 1790s Massachusetts: Dexter strolls up the dock" },
-  { t0: land(1, "everyone"), subjects: ["c:dexter", "?c:/^laugher\\d$/"], size: "medium", move: "push", note: "1 a man everyone laughed at: the town points and laughs" },
+  { t0: 0, subjects: ["c:dexter", "?c:/^laugher[23]$/"], size: "wide", move: "drift", note: "1 1790s Massachusetts: Dexter strolls up the dock" },
+  { t0: land(1, "everyone"), subjects: ["c:dexter", "c:/^laugher[23]$/"], size: "medium", move: "orbit", place: "centre", note: "1 a man everyone laughed at: the town points and laughs" },
   { t0: land(2), subjects: ["c:dexterD"], size: "medium", move: "push", enter: "cut", note: "2 he couldn't spell: scribbling, ink on his nose" },
   { t0: land(3), subjects: ["c:/^merch\\d$/"], size: "medium", move: "drift", enter: "cut", note: "3 the town's merchants gave him advice (huddled, smug)" },
   { t0: land(3, "to"), subjects: ["c:dexterC", "c:/^merch[12]$/"], size: "medium", move: "drift", note: "3 to ruin him: they smile sweetly at Dexter" },

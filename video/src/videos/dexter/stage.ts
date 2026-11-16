@@ -54,13 +54,14 @@ const DECK = (s: THREE.Vector3, dx: number, dz: number) => V(s.x + dx, SHIP_DECK
 // line 1: Dexter strolls up the dock grinning; townsfolk on both sides point and laugh
 const dock = (t: number, s: Stage) => {
   if (t >= wt(2) + 0.3) return;
-  const z = dexterDockZ(t), walking = t < 5.6;
-  s.places.push(P("dexter", DEXTER, { mode: walking ? "stroll" : "stand", phase: q((t * 1.3) % 1, 12), expr: "grin", gest: after(t, 1, "Timothy") ? "wave" : "hang", k: q((t * 2) % 1, 8), blink: blinkAt(t, 1) }, {}, [DOCK_NB.x + 0.3, 0, z], { yaw: 0.15 }));
+  const z = dexterDockZ(t), walking = t < 3.7;
+  s.places.push(P("dexter", DEXTER, { mode: walking ? "stroll" : "stand", phase: q((t * 1.3) % 1, 12), expr: "grin", gest: after(t, 1, "Timothy") ? "wave" : "hang", k: q((t * 2) % 1, 8), blink: blinkAt(t, 1) }, {}, [DOCK_NB.x + 0.3, 0, z], { yaw: Math.PI - 0.15 }));
   const laugh = after(t, 1, "everyone");
   for (let i = 0; i < 4; i++) {
-    const side = i % 2 ? 1 : -1, pz = DOCK_NB.z0 + 3 + i * 2.4;
-    s.places.push(P(`laugher${i}`, TOWN(i), { expr: laugh ? "laugh" : "smile_closed", gest: laugh ? (i % 2 ? "point" : "palm") : "hang", k: q((t * 3 + i * 0.3) % 1, 8), blink: blinkAt(t, 10 + i), headTilt: laugh ? 6 * Math.sin(t * 9 + i) : 0 }, {},
-      [DOCK_NB.x + side * 2.6, 0, pz], { turn: -side * 0.6, size: LO }));
+    // laughers 2-3 wait right where Dexter stops (the "everyone laughed" shot holds all three); 0-1 further up
+    const side = i % 2 ? 1 : -1, pz = i >= 2 ? DOCK_NB.z1 - 12.0 + (i === 2 ? 0.85 : -0.7) : DOCK_NB.z0 - 3 - i;
+    s.places.push(P(i >= 2 ? `laugher${i}` : `bgLaugher${i}`, TOWN(i), { expr: laugh ? "laugh" : "smile_closed", gest: laugh ? (i % 2 ? "point" : "palm") : "hang", k: q((t * 3 + i * 0.3) % 1, 8), blink: blinkAt(t, 10 + i), headTilt: laugh ? 6 * Math.sin(t * 9 + i) : 0 }, {},
+      [DOCK_NB.x + 0.3 + side * (i >= 2 ? 1.1 : 6.5), 0, pz], { turn: -side * 0.6, size: LO }));
   }
 };
 // line 2: at his desk by the window, scribbling a letter; an ink blot on his nose
@@ -122,7 +123,7 @@ const snowport = (t: number, s: Stage) => {
   const bought = after(t, 6, "bought");
   s.places.push(P("captain", CAPTAIN, { expr: bought ? "laugh" : "grin", gest: bought ? "cheer" : "palm", k: q((t * 2.4) % 1, 8), blink: blinkAt(t, 50) }, { mittens: "#c8313b", coins: !bought }, [DOCK_SN.x + 0.2, 0, 14.2], { turn: 0.1 }));
   for (let i = 0; i < 2; i++) s.places.push(P(`fur${i}`, FURSAILOR(i), { expr: "laugh", gest: i ? "wave" : "clutch", k: q((t * 2 + i * 0.5) % 1, 8), blink: blinkAt(t, 51 + i) }, { mittens: i ? "#2a6a3a" : "#c8313b" }, [DOCK_SN.x + (i ? 1.6 : -1.7), 0, 12.6 - i * 0.5], { turn: (i ? -0.3 : 0.3), size: LO }));
-  for (let i = 0; i < 26; i++) { const u = ((t * 0.35 + i * 0.137) % 1), x = DOCK_SN.x - 5 + ((i * 3.7) % 10), z = 9 + ((i * 2.3) % 9); s.fx.push(card("snowflake", 100, 100, flake, [x + Math.sin(t + i) * 0.4, 5.5 - 5.2 * u, z], 0.07, 0.07, { soft: true })); }
+  for (let i = 0; i < 26; i++) { const u = ((t * 0.35 + i * 0.137) % 1), x = DOCK_SN.x - 5 + ((i * 3.7) % 10), z = 9 + ((i * 2.3) % 9); s.fx.push(card("snowflake", 100, 100, flake, [x + Math.sin(t + i) * 0.4, 5.5 - 5.2 * u, z], 0.14, 0.14, { soft: true })); }
 };
 // lines 7-8: Newcastle: Dexter waving at the bow as his coal ship sails in; the strike; the town runs to buy the coal
 const newcastle = (t: number, s: Stage) => {

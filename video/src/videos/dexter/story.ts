@@ -39,7 +39,7 @@ const at = (c: THREE.Vector3, dx: number, dy: number, dz: number): V3 => [c.x + 
 
 // ---------------- moving subjects ----------------
 /** line 1: Dexter strolls up the dock toward the town */
-export const dexterDockZ = (t: number) => DOCK_NB.z1 - 3 - 9 * smooth(t / 5.6);
+export const dexterDockZ = (t: number) => DOCK_NB.z1 - 3 - 9 * smooth(t / 3.7);
 /** line 7-8: the coal ship sails into Newcastle from the south and lies alongside the dock */
 export const coalShipAt = (t: number) => new THREE.Vector3(SHIP_NC.x, 0, SHIP_NC.z + 34 * (1 - smooth((t - wt(7, "Fine") - 0.6) / (wt(8) - wt(7, "Fine") - 0.4))));
 
