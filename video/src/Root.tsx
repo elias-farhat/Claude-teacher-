@@ -5,6 +5,7 @@ import { BridgeShort, BRIDGE_FRAMES } from "./videos/bridge/Bridge";
 import { EiffelShort, EIFFEL_FRAMES } from "./videos/eiffel/Eiffel";
 import { RatShort, RAT_FRAMES } from "./videos/rats/Rats";
 import { MoonShort, MOON_FRAMES } from "./videos/moon/Moon";
+import { BucketShort, BUCKET_FRAMES } from "./videos/bucket/Bucket";
 
 // Register new shorts here (e.g. a copy of the skill's templates/bridge/ as src/videos/<name>/).
 export const Root: React.FC = () => (
@@ -14,6 +15,7 @@ export const Root: React.FC = () => (
     <Composition id="EiffelShort" component={EiffelShort} durationInFrames={EIFFEL_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="RatShort" component={RatShort} durationInFrames={RAT_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="MoonShort" component={MoonShort} durationInFrames={MOON_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="BucketShort" component={BucketShort} durationInFrames={BUCKET_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="BridgeShort" component={BridgeShort} durationInFrames={BRIDGE_FRAMES} fps={30} width={1080} height={1920} />
   </>
 );

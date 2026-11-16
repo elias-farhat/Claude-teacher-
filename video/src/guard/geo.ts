@@ -17,7 +17,7 @@ export class Geo {
     root.updateMatrixWorld(true);
     root.traverse((o) => {
       const m = o as THREE.Mesh;
-      if (!m.isMesh || (m as unknown as THREE.Points).isPoints || m.layers.mask === 1 << NOINK) return;
+      if (!m.isMesh || (m as unknown as THREE.Points).isPoints || m.layers.mask === 1 << NOINK || (m as unknown as THREE.InstancedMesh).isInstancedMesh) return;   // (an instanced crowd's base geometry is not where its instances stand)
       const mat = (Array.isArray(m.material) ? m.material[0] : m.material) as THREE.Material;
       if (mat && mat.transparent && !mat.depthWrite) return;
       if (!m.geometry.attributes.position) return;

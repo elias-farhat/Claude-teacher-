@@ -121,7 +121,10 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
     if (sp.angle === "low") el0 = (-4 * Math.PI) / 180; if (sp.angle === "high") el0 = (30 * Math.PI) / 180;
     // moving subjects: how far does the union centre travel during the hold?
     let subsB = subjAt(sp, tB, hc.pos);
-    const travel = subs0.length && subsB.length ? subsB[0].centre.distanceTo(subjAt(sp, tA, hc.pos)[0]?.centre ?? subsB[0].centre) : 0;
+    // measured over the whole shot (Bucket, 2026-11-16: a group that only starts running in the last second was held
+    // with two static keys and ran out of the frame)
+    const subsE = subjAt(sp, t1 - 0.05, hc.pos);
+    const travel = subs0.length && subsB.length ? Math.max(subsB[0].centre.distanceTo(subjAt(sp, tA, hc.pos)[0]?.centre ?? subsB[0].centre), subsE.length ? subsE[0].centre.distanceTo(subjAt(sp, tA, hc.pos)[0]?.centre ?? subsE[0].centre) : 0) : 0;
     if (travel > 1) { tA = t0 + 0.001; tB = Math.max(tA + 0.2, t1 - 0.2); subsB = subjAt(sp, tB, hc.pos); }   // tracking: keys reach the whip start (a moving subject is followed until the transition)
     const nK = Math.max(3, Math.ceil((tB - tA) / (travel > 3 ? 0.05 : 0.2)) + 1);
     // a new camera move every ~1.2 s (CLAUDE.md 1): static subjects get one eased move per beat (keys at the beats);

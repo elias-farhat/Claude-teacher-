@@ -1,0 +1,822 @@
+{
+ "video": "bucket",
+ "frames": 1572,
+ "pass": true,
+ "criticalFrames": 0,
+ "warningFrames": 24,
+ "seconds": 42.69,
+ "history": [
+  "round 1: 185 frames with CRITICAL failures in 4 shots (1, 2, 13, 14)",
+  "round 2: 78 frames with CRITICAL failures in 4 shots (1, 2, 13, 14)",
+  "round 3: 0 frames with CRITICAL failures in 0 shots",
+  "assembled the best round of every shot: 0 frames with CRITICAL failures"
+ ],
+ "rules": [
+  {
+   "rule": "SUBJECT",
+   "critical": 0,
+   "warning": 20
+  },
+  {
+   "rule": "OCCLUSION",
+   "critical": 0,
+   "warning": 4
+  },
+  {
+   "rule": "CLIPPING",
+   "critical": 0,
+   "warning": 0
+  },
+  {
+   "rule": "EMPTY",
+   "critical": 0,
+   "warning": 0
+  },
+  {
+   "rule": "FACES",
+   "critical": 0,
+   "warning": 5
+  },
+  {
+   "rule": "XCU",
+   "critical": 0,
+   "warning": 0
+  },
+  {
+   "rule": "STALE",
+   "critical": 0,
+   "warning": 0
+  },
+  {
+   "rule": "WHIPS",
+   "critical": 0,
+   "warning": 0
+  }
+ ],
+ "ranges": [
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "w:bucketMid",
+   "shot": 1,
+   "from": 82,
+   "to": 97,
+   "worst": 92,
+   "detail": "too small (10 % of frame height, needs 15 %)",
+   "t0": 2.73,
+   "t1": 3.27
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "w:wellMid",
+   "shot": 1,
+   "from": 92,
+   "to": 97,
+   "worst": 92,
+   "detail": "cut off left (-0.13)",
+   "t0": 3.07,
+   "t1": 3.27
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:knight",
+   "shot": 14,
+   "from": 1047,
+   "to": 1047,
+   "worst": 1047,
+   "detail": "cut off top (0.05)",
+   "t0": 34.9,
+   "t1": 34.93
+  },
+  {
+   "rule": "FACES",
+   "critical": false,
+   "subject": "c:knight",
+   "shot": 14,
+   "from": 1048,
+   "to": 1050,
+   "worst": 1048,
+   "detail": "face 40 % covered by something in front",
+   "t0": 34.93,
+   "t1": 35.03
+  },
+  {
+   "rule": "OCCLUSION",
+   "critical": false,
+   "subject": "c:knight",
+   "shot": 14,
+   "from": 1048,
+   "to": 1051,
+   "worst": 1048,
+   "detail": "3/5 rays blocked (start of the run)",
+   "t0": 34.93,
+   "t1": 35.07
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:knight",
+   "shot": 14,
+   "from": 1052,
+   "to": 1054,
+   "worst": 1052,
+   "detail": "cut off top (-0.01)",
+   "t0": 35.07,
+   "t1": 35.17
+  },
+  {
+   "rule": "FACES",
+   "critical": false,
+   "subject": "c:knight",
+   "shot": 14,
+   "from": 1052,
+   "to": 1052,
+   "worst": 1052,
+   "detail": "head (hat) touches the top edge (4.1 %)",
+   "t0": 35.07,
+   "t1": 35.1
+  },
+  {
+   "rule": "FACES",
+   "critical": false,
+   "subject": "c:knight",
+   "shot": 14,
+   "from": 1053,
+   "to": 1053,
+   "worst": 1053,
+   "detail": "head cut at the top edge",
+   "t0": 35.1,
+   "t1": 35.13
+  }
+ ],
+ "frames_failing": [
+  {
+   "f": 82,
+   "t": 2.733,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:wellMid",
+    "w:bucketMid"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:bucketMid",
+     "detail": "too small (8 % of frame height, needs 15 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.1769,
+    0.1367,
+    0.8243,
+    0.6003
+   ]
+  },
+  {
+   "f": 83,
+   "t": 2.767,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:wellMid",
+    "w:bucketMid"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:bucketMid",
+     "detail": "too small (8 % of frame height, needs 15 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.1765,
+    0.1364,
+    0.8245,
+    0.6005
+   ]
+  },
+  {
+   "f": 84,
+   "t": 2.8,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:wellMid",
+    "w:bucketMid"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:bucketMid",
+     "detail": "too small (9 % of frame height, needs 15 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.1746,
+    0.1353,
+    0.8254,
+    0.6011
+   ]
+  },
+  {
+   "f": 85,
+   "t": 2.833,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:wellMid",
+    "w:bucketMid"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:bucketMid",
+     "detail": "too small (9 % of frame height, needs 15 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.1706,
+    0.1329,
+    0.8273,
+    0.6026
+   ]
+  },
+  {
+   "f": 86,
+   "t": 2.867,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:wellMid",
+    "w:bucketMid"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:bucketMid",
+     "detail": "too small (9 % of frame height, needs 15 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.1637,
+    0.1288,
+    0.8306,
+    0.6051
+   ]
+  },
+  {
+   "f": 87,
+   "t": 2.9,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:wellMid",
+    "w:bucketMid"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:bucketMid",
+     "detail": "too small (9 % of frame height, needs 15 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.1533,
+    0.1228,
+    0.8354,
+    0.6088
+   ]
+  },
+  {
+   "f": 88,
+   "t": 2.933,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:wellMid",
+    "w:bucketMid"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:bucketMid",
+     "detail": "too small (9 % of frame height, needs 15 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.139,
+    0.1145,
+    0.8421,
+    0.614
+   ]
+  },
+  {
+   "f": 89,
+   "t": 2.967,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:wellMid",
+    "w:bucketMid"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:bucketMid",
+     "detail": "too small (9 % of frame height, needs 15 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.12,
+    0.1037,
+    0.8508,
+    0.6208
+   ]
+  },
+  {
+   "f": 90,
+   "t": 3,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:wellMid",
+    "w:bucketMid"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:bucketMid",
+     "detail": "too small (10 % of frame height, needs 15 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.0958,
+    0.0901,
+    0.8617,
+    0.6294
+   ]
+  },
+  {
+   "f": 91,
+   "t": 3.033,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:wellMid",
+    "w:bucketMid"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:bucketMid",
+     "detail": "too small (10 % of frame height, needs 15 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.0656,
+    0.0737,
+    0.875,
+    0.6401
+   ]
+  },
+  {
+   "f": 92,
+   "t": 3.067,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:wellMid",
+    "w:bucketMid"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:wellMid",
+     "detail": "cut off left (0.03)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:bucketMid",
+     "detail": "too small (11 % of frame height, needs 15 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0.0287,
+    0.0541,
+    0.8911,
+    0.6531
+   ]
+  },
+  {
+   "f": 93,
+   "t": 3.1,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:wellMid",
+    "w:bucketMid"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:wellMid",
+     "detail": "cut off left (-0.02)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:bucketMid",
+     "detail": "too small (11 % of frame height, needs 15 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0,
+    0.0313,
+    0.9099,
+    0.6687
+   ]
+  },
+  {
+   "f": 94,
+   "t": 3.133,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:wellMid",
+    "w:bucketMid"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:wellMid",
+     "detail": "cut off left (-0.07)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:bucketMid",
+     "detail": "too small (12 % of frame height, needs 15 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0,
+    0.0052,
+    0.9317,
+    0.6871
+   ]
+  },
+  {
+   "f": 95,
+   "t": 3.167,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:wellMid",
+    "w:bucketMid"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:wellMid",
+     "detail": "cut off left (-0.13)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:bucketMid",
+     "detail": "too small (13 % of frame height, needs 15 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0,
+    0,
+    0.9565,
+    0.7085
+   ]
+  },
+  {
+   "f": 96,
+   "t": 3.2,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:wellMid",
+    "w:bucketMid"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:wellMid",
+     "detail": "cut off left (-0.20)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:bucketMid",
+     "detail": "too small (14 % of frame height, needs 15 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0,
+    0,
+    0.9842,
+    0.7331
+   ]
+  },
+  {
+   "f": 97,
+   "t": 3.233,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:wellMid",
+    "w:bucketMid"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:wellMid",
+     "detail": "cut off left (-0.29)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:bucketMid",
+     "detail": "too small (15 % of frame height, needs 15 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0,
+    0,
+    1,
+    0.7607
+   ]
+  },
+  {
+   "f": 1047,
+   "t": 34.9,
+   "shot": 14,
+   "flight": true,
+   "subjects": [
+    "c:knight",
+    "?w:wellOut"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:knight",
+     "detail": "cut off top (0.05)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.1497,
+    0.055,
+    0.4455,
+    0.2713
+   ]
+  },
+  {
+   "f": 1048,
+   "t": 34.933,
+   "shot": 14,
+   "flight": true,
+   "subjects": [
+    "c:knight",
+    "?w:wellOut"
+   ],
+   "fails": [
+    {
+     "rule": "FACES",
+     "subject": "c:knight",
+     "detail": "face 40 % covered by something in front",
+     "critical": false
+    },
+    {
+     "rule": "OCCLUSION",
+     "subject": "c:knight",
+     "detail": "3/5 rays blocked (start of the run)",
+     "critical": false
+    }
+   ],
+   "score": 3.2,
+   "box": [
+    0.1088,
+    0.0648,
+    0.3873,
+    0.2673
+   ]
+  },
+  {
+   "f": 1049,
+   "t": 34.967,
+   "shot": 14,
+   "flight": true,
+   "subjects": [
+    "c:knight",
+    "?w:wellOut"
+   ],
+   "fails": [
+    {
+     "rule": "FACES",
+     "subject": "c:knight",
+     "detail": "face 40 % covered by something in front",
+     "critical": false
+    },
+    {
+     "rule": "OCCLUSION",
+     "subject": "c:knight",
+     "detail": "3/5 rays blocked (start of the run)",
+     "critical": false
+    }
+   ],
+   "score": 3.2,
+   "box": [
+    0.1224,
+    0.0922,
+    0.3781,
+    0.2778
+   ]
+  },
+  {
+   "f": 1050,
+   "t": 35,
+   "shot": 14,
+   "flight": true,
+   "subjects": [
+    "c:knight",
+    "?w:wellOut"
+   ],
+   "fails": [
+    {
+     "rule": "FACES",
+     "subject": "c:knight",
+     "detail": "face 60 % covered by something in front",
+     "critical": false
+    },
+    {
+     "rule": "OCCLUSION",
+     "subject": "c:knight",
+     "detail": "3/5 rays blocked (start of the run)",
+     "critical": false
+    }
+   ],
+   "score": 3.2,
+   "box": [
+    0.1698,
+    0.1298,
+    0.4012,
+    0.2979
+   ]
+  },
+  {
+   "f": 1051,
+   "t": 35.033,
+   "shot": 14,
+   "flight": true,
+   "subjects": [
+    "c:knight",
+    "?w:wellOut"
+   ],
+   "fails": [
+    {
+     "rule": "OCCLUSION",
+     "subject": "c:knight",
+     "detail": "3/5 rays blocked for 4 frames",
+     "critical": false
+    }
+   ],
+   "score": 0.6000000000000001,
+   "box": [
+    0.226,
+    0.1131,
+    0.4609,
+    0.2848
+   ]
+  },
+  {
+   "f": 1052,
+   "t": 35.067,
+   "shot": 14,
+   "flight": true,
+   "subjects": [
+    "c:knight",
+    "?w:wellOut"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:knight",
+     "detail": "cut off top (0.03)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:knight",
+     "detail": "head (hat) touches the top edge (4.1 %)",
+     "critical": false
+    }
+   ],
+   "score": 0.6000000000000001,
+   "box": [
+    0.3286,
+    0.041,
+    0.5958,
+    0.2379
+   ]
+  },
+  {
+   "f": 1053,
+   "t": 35.1,
+   "shot": 14,
+   "flight": true,
+   "subjects": [
+    "c:knight",
+    "?w:wellOut"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:knight",
+     "detail": "cut off top (-0.01)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:knight",
+     "detail": "head cut at the top edge",
+     "critical": false
+    }
+   ],
+   "score": 0.6000000000000001,
+   "box": [
+    0.4729,
+    0,
+    0.7698,
+    0.2111
+   ]
+  },
+  {
+   "f": 1054,
+   "t": 35.133,
+   "shot": 14,
+   "flight": true,
+   "subjects": [
+    "c:knight",
+    "?w:wellOut"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:knight",
+     "detail": "cut off top (0.05)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.5283,
+    0.0524,
+    0.8059,
+    0.2543
+   ]
+  }
+ ]
+}

@@ -12,7 +12,7 @@ import { Pen, Outfit, Expr, INK, SKIN, faceFront, mix } from "./toon";
 export type Rig3 = {
   o: Outfit;
   l: { mode?: string; expr?: Expr; gest?: string; k?: number; blink?: number; look?: number; headTilt?: number; tilt?: number; phase?: number };
-  x: { sideburns?: boolean; tea?: boolean; phone?: boolean; pen?: boolean; paper?: string; wings?: number; curls?: boolean; letter?: boolean; sweat?: boolean };
+  x: { sideburns?: boolean; tea?: boolean; phone?: boolean; pen?: boolean; paper?: string; wings?: number; curls?: boolean; letter?: boolean; sweat?: boolean; bucket?: boolean; spear?: boolean; sword?: boolean; banner?: string; shield?: string };
 };
 type V3 = [number, number, number];
 const v = (a: V3) => new THREE.Vector3(...a);
@@ -94,6 +94,33 @@ const buildTop = (o: Outfit, sideburns: boolean): THREE.Group => {
   } else if (o.hat === "bonnet") {
     const bm = m("#e9cf8f", THREE.DoubleSide);
     add(shell(R * 1.12, 1.15, 2.2), bm);   // (no brim ring round the face: it read as a mask / face ring, run 35)
+  } else if (o.hat === "bascinet" || o.hat === "kettle") {
+    // medieval iron: a bascinet (pointed skull cap, nasal bar) for Modena's knights, a wide-brimmed kettle hat for Bologna
+    const im = m(o.cap ?? "#9aa0ab");
+    if (o.hat === "bascinet") {
+      add(cap(R * 1.12, 1.35).scale(1, 1.18, 1), im, [0, R * 0.04, 0]);
+      add(new THREE.BoxGeometry(R * 0.09, R * 0.5, R * 0.06), im, [0, R * 0.2, R * 1.08]);
+      add(new THREE.ConeGeometry(R * 0.2, R * 0.4, 10), im, [0, R * 1.32, -R * 0.05]);
+    } else {
+      add(cap(R * 1.1, 1.3), im, [0, R * 0.06, 0]);
+      add(new THREE.CylinderGeometry(R * 1.55, R * 1.6, R * 0.05, 32), im, [0, R * 0.36, 0], [0.08, 0, 0]);
+    }
+    add(shell(R * 1.03, 1.0, 2.0), m(hairCol, THREE.DoubleSide));
+  } else if (o.hat === "beret" || o.hat === "crown") {
+    // a lord: a soft velvet cap with a feather (Modena's podestà) or a gold circlet over hair (Bologna's)
+    const hm = m("#" + new THREE.Color(hairCol).multiplyScalar(0.82).getHexString(), THREE.DoubleSide);
+    add(shell(R * 1.06, 0.95, 2.05), hm);
+    add(new THREE.SphereGeometry(R * 0.5, 16, 12).scale(1.4, 0.8, 1), hm, [0, R * 0.05, -R * 0.62]);
+    if (o.hat === "beret") {
+      const bm = m(o.cap ?? "#2f5f3a");
+      add(new THREE.SphereGeometry(R * 1.2, 28, 12, 0, Math.PI * 2, 0, 1.2).scale(1.08, 0.62, 1.08), bm, [0.04 * R, R * 0.62, -R * 0.04], [0, 0, -0.18]);
+      add(new THREE.CapsuleGeometry(R * 0.06, R * 0.9, 4, 8), m("#f4f1ea"), [R * 0.7, R * 1.05, -R * 0.2], [0, 0, -0.7]);
+    } else {
+      add(cap(R * 1.08, 1.0), hm, [0, R * 0.05, -R * 0.02]);
+      const gm = m(o.cap ?? "#e0b04a");
+      add(new THREE.CylinderGeometry(R * 0.9, R * 0.94, R * 0.3, 28, 1, true), m(o.cap ?? "#e0b04a", THREE.DoubleSide), [0, R * 0.78, 0]);
+      for (let i = 0; i < 6; i++) { const a = (i / 6) * Math.PI * 2; add(new THREE.ConeGeometry(R * 0.1, R * 0.28, 6), gm, [Math.sin(a) * R * 0.92, R * 1.04, Math.cos(a) * R * 0.92]); }
+    }
   } else if (o.hat === "shako" || o.hat === "shako_tall") {
     const sm = m("#2e2a36"), tall = o.hat === "shako_tall";
     add(new THREE.CylinderGeometry(R * 0.95, R * 0.85, R * (tall ? 1.4 : 1.15), 28), sm, [0, R * (tall ? 1.15 : 1.02), 0]);
@@ -137,6 +164,12 @@ const pose = (gest: string, k: number): [Arm, Arm] => {
     case "clutch": return [[[-0.19, 1.07, 0], [-0.26, 0.9, 0.12], [-0.07, 1.02, 0.22]], [[0.19, 1.07, 0], [0.26, 0.9, 0.12], [0.07, 1.02, 0.22]]];
     case "tip": return [L, [[0.19, 1.07, 0], [0.38, 1.24, 0.1], [0.21, 1.5 + 0.02 * w, 0.17]]];
     case "sign": return [L, [[0.19, 1.07, 0], [0.29, 0.86, 0.16], [0.14 + 0.03 * w, 0.8, 0.34]]];
+    case "fist": return [L, [[0.19, 1.07, 0], [0.36, 1.3, 0.08], [0.3 + 0.04 * w, 1.62 + 0.03 * w, 0.12]]];
+    case "hug": return [[[-0.19, 1.07, 0], [-0.3, 0.86, 0.12], [-0.13, 0.84, 0.3]], [[0.19, 1.07, 0], [0.3, 0.86, 0.12], [0.13, 0.84, 0.3]]];
+    case "lift": return [[[-0.19, 1.07, 0], [-0.3, 1.36, 0.06], [-0.15, 1.86 + 0.02 * w, 0.1]], [[0.19, 1.07, 0], [0.3, 1.36, 0.06], [0.15, 1.86 + 0.02 * w, 0.1]]];
+    case "charge": return [[[-0.19, 1.07, 0], [-0.3, 0.9, 0.16], [-0.12, 0.98, 0.36]], [[0.19, 1.07, 0], [0.3, 0.9, 0.12], [0.22, 0.98, 0.3]]];
+    case "run": return [[[-0.19, 1.07, 0], [-0.27, 0.86, -0.12 * w], [-0.24, 0.98, 0.2 * w]], [[0.19, 1.07, 0], [0.27, 0.86, 0.12 * w], [0.24, 0.98, -0.2 * w]]];
+    case "flee": return [[[-0.19, 1.07, 0], [-0.36, 1.28, 0.02], [-0.4 - 0.05 * w, 1.55, 0.0]], [[0.19, 1.07, 0], [0.36, 1.28, 0.02], [0.4 + 0.05 * w, 1.55, 0.0]]];
     default: return [L, hang(1, k)];
   }
 };
@@ -148,10 +181,23 @@ const limb = (pts: V3[], r = LIMB_R) => {
   return g;
 };
 
+/** a town colour field for banners and shields: "#col1/#col2" = two halves, one colour = plain with a cross */
+const banTex = new Map<string, THREE.CanvasTexture>();
+const bannerTex = (spec: string) => {
+  let t = banTex.get(spec); if (t) return t;
+  const cv = document.createElement("canvas"); cv.width = 128; cv.height = 160; const g = cv.getContext("2d")!;
+  const [a, b] = spec.split("/");
+  g.fillStyle = a; g.fillRect(0, 0, 128, 160);
+  if (b) { g.fillStyle = b; g.fillRect(0, 80, 128, 80); } else { g.fillStyle = "#f4f1ea"; g.fillRect(52, 0, 24, 160); g.fillRect(0, 56, 128, 24); }
+  g.strokeStyle = INK; g.lineWidth = 8; g.strokeRect(4, 4, 120, 152);
+  t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; banTex.set(spec, t); return t;
+};
+
 export class Char3D {
   g = new THREE.Group(); private head: THREE.Mesh; private headMat: THREE.MeshLambertMaterial; private body: THREE.Mesh;
   private arms: THREE.Mesh[]; private legs: THREE.Mesh[]; private hands: THREE.Mesh[]; private feet: THREE.Mesh[]; private buttons: THREE.Mesh[] = [];
   private cup: THREE.Mesh; private phone: THREE.Mesh; private top: THREE.Group | null = null; private topKey = "";
+  private bucket: THREE.Group; private spear: THREE.Group; private sword: THREE.Group; private banner: THREE.Group; private bannerMat: THREE.MeshLambertMaterial; private shield: THREE.Mesh; private shieldMat: THREE.MeshLambertMaterial;
   private paper: THREE.Mesh; private letter: THREE.Mesh; private quill: THREE.Mesh; private sweat: THREE.Mesh; private wings: THREE.Mesh[];
   constructor(parent: THREE.Object3D) {
     const add = <T extends THREE.Object3D>(o: T) => { o.traverse((m) => { const me = m as THREE.Mesh; if (me.isMesh) { me.castShadow = true; me.receiveShadow = true; } }); this.g.add(o); return o; };
@@ -170,6 +216,24 @@ export class Char3D {
     this.quill = add(new THREE.Mesh(new THREE.ConeGeometry(0.018, 0.26, 6).translate(0, 0.13, 0), mat("#f4f1ea")));
     this.sweat = add(new THREE.Mesh(new THREE.SphereGeometry(0.03, 10, 8).scale(0.8, 1.3, 0.8), mat("#9fd4ff")));
     this.wings = [0, 1].map(() => add(new THREE.Mesh(wingGeo, twoTone(new THREE.MeshLambertMaterial({ color: "#5a4034", side: THREE.DoubleSide })))));
+    // medieval props: the wooden bucket, a spear, a sword, a town banner on a pole, a round shield (town colour)
+    this.bucket = add(new THREE.Group());
+    { const wm = mat("#9a6a3e"), im = mat("#3a3a42");
+      const bd = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.12, 0.27, 16), wm); bd.position.y = 0.135; this.bucket.add(bd);
+      for (const y of [0.05, 0.22]) { const h = new THREE.Mesh(new THREE.TorusGeometry(0.128 + y * 0.11, 0.01, 6, 20).rotateX(Math.PI / 2), im); h.position.y = y; this.bucket.add(h); }
+      const hd = new THREE.Mesh(new THREE.TorusGeometry(0.145, 0.01, 6, 16, Math.PI), im); hd.position.y = 0.27; this.bucket.add(hd); }
+    this.spear = add(new THREE.Group());
+    { const sh = new THREE.Mesh(new THREE.CylinderGeometry(0.016, 0.016, 2.3, 6), mat("#6a4a2a")); sh.position.y = 0.6; this.spear.add(sh);
+      const tip = new THREE.Mesh(new THREE.ConeGeometry(0.04, 0.2, 6), mat("#c9ccd4")); tip.position.y = 1.85; this.spear.add(tip); }
+    this.sword = add(new THREE.Group());
+    { const bl = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.7, 0.012), mat("#d6d9e0")); bl.position.y = 0.42; this.sword.add(bl);
+      const gd = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.03, 0.03), mat("#8a6a3a")); gd.position.y = 0.07; this.sword.add(gd); }
+    this.bannerMat = twoTone(new THREE.MeshLambertMaterial({ color: "#ffffff", side: THREE.DoubleSide })) as THREE.MeshLambertMaterial;
+    this.banner = add(new THREE.Group());
+    { const pl = new THREE.Mesh(new THREE.CylinderGeometry(0.018, 0.018, 2.4, 6), mat("#5a3a24")); pl.position.y = 0.7; this.banner.add(pl);
+      const fl = new THREE.Mesh(new THREE.PlaneGeometry(0.62, 0.8), this.bannerMat); fl.position.set(0.32, 1.5, 0); this.banner.add(fl); }
+    this.shieldMat = twoTone(new THREE.MeshLambertMaterial({ color: "#ffffff" })) as THREE.MeshLambertMaterial;
+    this.shield = add(new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.24, 0.04, 20).rotateX(Math.PI / 2), this.shieldMat));
     this.g.visible = false; parent.add(this.g);
   }
   /** pose at (x, y, z), turned toward the camera (yaw), scale s */
@@ -180,8 +244,10 @@ export class Char3D {
     // sitting: the stage raises a sitter by the seat height (0.4 m), so the hips sit at the group origin and the shins
     // reach down to the floor; fainting: the whole figure tips over sideways from the feet
     if (sit) this.g.position.y -= 0.4 * s;
-    this.g.rotation.set(0, yaw, fall ? -((l.tilt ?? 0) * Math.PI) / 180 : ((l.tilt ?? 0) * Math.PI) / 180 * -0.5); this.g.scale.setScalar(s * (kid ? 0.82 : 1));
-    const dy = sit ? -0.18 : 0, ph = (l.phase ?? 0) * Math.PI * 2, bob = (l.mode === "stroll" ? 0.015 * Math.cos(ph * 2) : 0);
+    const run = l.mode === "run";
+    this.g.rotation.order = "YXZ";
+    this.g.rotation.set(run ? 0.16 : 0, yaw, fall ? -((l.tilt ?? 0) * Math.PI) / 180 : ((l.tilt ?? 0) * Math.PI) / 180 * -0.5); this.g.scale.setScalar(s * (kid ? 0.82 : 1));
+    const dy = sit ? -0.18 : 0, ph = (l.phase ?? 0) * Math.PI * 2, bob = (l.mode === "stroll" ? 0.015 * Math.cos(ph * 2) : run ? 0.035 * Math.abs(Math.cos(ph)) : 0);
     // head: the face texture on the front, tilted with headTilt, turned a little toward where it looks
     this.headMat.map = face(r); this.headMat.needsUpdate = false;
     this.head.position.set(0, HEAD_Y + dy + bob, 0.01); this.head.rotation.set(0, (l.look ?? 0) * 0.25, ((l.headTilt ?? 0) * Math.PI) / 180);
@@ -202,7 +268,8 @@ export class Char3D {
     });
     // legs + feet (sitting: thighs forward, shins down)
     [-1, 1].forEach((side, i) => {
-      const step = l.mode === "stroll" ? 0.16 * Math.sin(ph + (i ? Math.PI : 0)) : 0, lift = l.mode === "stroll" ? 0.06 * Math.max(0, Math.sin(ph + (i ? Math.PI : 0))) : 0;
+      const sa = l.mode === "stroll" ? 0.16 : run ? 0.3 : 0, la = l.mode === "stroll" ? 0.06 : run ? 0.14 : 0;
+      const step = sa * Math.sin(ph + (i ? Math.PI : 0)), lift = la * Math.max(0, Math.sin(ph + (i ? Math.PI : 0)));
       const pts: V3[] = sit ? [[side * 0.09, HIP_Y + dy, 0], [side * 0.11, HIP_Y + dy - 0.02, 0.36], [side * 0.12, 0.08, 0.4]]
         : [[side * 0.09, HIP_Y + bob, 0], [side * 0.1, 0.33 + lift, 0.02 + step * 0.6], [side * 0.11, 0.06 + lift, step]];
       this.legs[i].geometry = limb(pts, LIMB_R * 1.1);
@@ -226,6 +293,22 @@ export class Char3D {
     // props in the right hand
     this.cup.visible = !!x.tea; if (x.tea) this.cup.position.set(AR[2][0], AR[2][1] + 0.05 + dy, AR[2][2] + 0.02);
     this.phone.visible = !!x.phone; if (x.phone) { this.phone.position.set(AR[2][0], AR[2][1] + 0.07 + dy, AR[2][2] + 0.02); this.phone.rotation.set(-0.2, 0, 0); }
+    // medieval props
+    const two2 = Math.abs(hR[0] - hL[0]) < 0.4;
+    this.bucket.visible = !!x.bucket;
+    if (x.bucket) {
+      if (two2) this.bucket.position.set((hR[0] + hL[0]) / 2, (hR[1] + hL[1]) / 2 - 0.12 + dy + bob, Math.max(hR[2], hL[2]) - 0.02);
+      else this.bucket.position.set(hR[0], hR[1] - 0.29 + dy + bob, hR[2]);
+      this.bucket.scale.setScalar(two2 ? 1.15 : 1);
+    }
+    this.spear.visible = !!x.spear;
+    if (x.spear) { this.spear.position.set(hR[0], hR[1] + dy + bob, hR[2]); this.spear.rotation.set(l.gest === "charge" ? 1.25 : 0.05, 0, l.gest === "charge" ? 0 : -0.06); }
+    this.sword.visible = !!x.sword;
+    if (x.sword) { this.sword.position.set(hR[0], hR[1] + dy + bob, hR[2]); this.sword.rotation.set(0.2, 0, l.gest === "fist" || l.gest === "cheer" ? -0.25 : -0.5); }
+    this.banner.visible = !!x.banner;
+    if (x.banner) { this.banner.position.set(hL[0], hL[1] + dy + bob, hL[2]); this.bannerMat.map = bannerTex(x.banner); this.banner.children[1].rotation.y = 0.25 * Math.sin(ph + k * 6.283); }
+    this.shield.visible = !!x.shield;
+    if (x.shield) { this.shield.position.set(-0.3, 0.92 + dy + bob, 0.12); this.shield.rotation.set(0, -0.5, 0); this.shieldMat.map = bannerTex(x.shield); }
     void mix;
   }
   hide() { this.g.visible = false; }
