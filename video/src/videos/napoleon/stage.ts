@@ -93,7 +93,7 @@ const hunt = (t: number, s: Stage) => {
   // the flanks; Berthier sweats throughout
   if (t >= wt(8, "men") - LEAD - 0.2 - 0.001 && t < wt(9) - LEAD) {   // they come running with sticks, then flee before the flanking
     for (let i = 0; i < 2; i++) s.places.push(P(`officer${i}`, OFFICER(i), sticks && !nope ? { expr: "stern", gest: "swing", k: q((t * 2.4 + i * 0.5) % 1, 10), blink: blinkAt(t, 30 + i) } : nope ? { expr: "dazed", gest: "shrug2", blink: blinkAt(t, 30 + i) } : { expr: at ? "shock" : "grin", gest: at ? "flail" : "hang", k: q((t * 3 + i) % 1, 8), blink: blinkAt(t, 30 + i) },
-      { stick: sticks }, W(NAP, 0.2 + (i ? 0.25 : 0), 0, i ? 1.6 : 0.8), { turn: i ? -0.4 : 0.4 }));
+      { stick: sticks }, W(NAP, 0.2 + (i ? 0.25 : 0), 0, i ? 1.4 : 0.75), { turn: i ? -0.4 : 0.4 }));
     if (false) s.places.push(P("berthierH", BERTHIER, { expr: at || swarm ? "shock" : "nervous", gest: swarm ? "flail" : "clutch", k: q((t * 3.5) % 1, 8), blink: blinkAt(t, 4) }, { paper: swarm ? undefined : "list", sweat: true }, W(NAP, -0.6, 0, 2.4), { turn: 0.2, size: LO }));
   }
 };
