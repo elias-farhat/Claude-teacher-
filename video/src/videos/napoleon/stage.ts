@@ -50,8 +50,8 @@ const treaty = (t: number, s: Stage) => {
   const party = after(t, 2, "Time"), hunt = after(t, 2, "rabbit");
   s.places.push(P("napoleonT", NAPOLEON, party ? { expr: "laugh", gest: hunt ? "cheer" : "clap", k: q((t * 3) % 1, 8), blink: blinkAt(t, 1), headTilt: 6 * Math.sin(t * 7) } : { mode: "sit", expr: "smug", gest: "sign", k: q((t * 4) % 1, 8), blink: blinkAt(t, 1) },
     { pen: !party }, W(T, -0.3, party ? 0 : 0.4, -2.1), { turn: party ? 0 : 0.1 }));
-  s.places.push(P("tsar", RUSSIAN, { expr: party ? "nervous" : "smile_closed", gest: party ? "palm" : "hang", blink: blinkAt(t, 2) }, {}, W(T, 1.6, 0, -1.9), { turn: -0.3 }));
-  for (let i = 0; i < 2; i++) if (party) s.places.push(P(`cheerO${i}`, OFFICER(i), { expr: "laugh", gest: "cheer", k: q((t * 2.6 + i * 0.4) % 1, 8), blink: blinkAt(t, 3 + i) }, {}, W(T, -1.6 - i * 0.7, 0, -1.6 - i * 0.6), { turn: 0.3, size: LO }));
+  s.places.push(P("tsar", RUSSIAN, { expr: party ? "nervous" : "smile_closed", gest: party ? "palm" : "hang", blink: blinkAt(t, 2) }, {}, W(T, party ? 2.6 : 1.6, 0, party ? -2.9 : -1.9), { turn: -0.3, size: party ? LO : HI }));
+  for (let i = 0; i < 2; i++) if (party) s.places.push(P(`cheerO${i}`, OFFICER(i), { expr: "laugh", gest: "cheer", k: q((t * 2.6 + i * 0.4) % 1, 8), blink: blinkAt(t, 3 + i) }, {}, W(T, i ? 0.75 : -1.25, 0, -2.25), { turn: 0.3, size: LO }));
   s.lights.push(warm(W(T, 0, 1.3, -0.6), 1.0));
 };
 // line 3: Berthier salutes, sweating, then holds up his checklist: Get. Rabbits.
@@ -93,7 +93,7 @@ const hunt = (t: number, s: Stage) => {
   // the flanks; Berthier sweats throughout
   if (t < wt(10) - LEAD) {
     for (let i = 0; i < 2; i++) s.places.push(P(`officer${i}`, OFFICER(i), sticks && !nope ? { expr: "stern", gest: "swing", k: q((t * 2.4 + i * 0.5) % 1, 10), blink: blinkAt(t, 30 + i) } : nope ? { expr: "dazed", gest: "shrug2", blink: blinkAt(t, 30 + i) } : { expr: at ? "shock" : "grin", gest: at ? "flail" : "hang", k: q((t * 3 + i) % 1, 8), blink: blinkAt(t, 30 + i) },
-      { stick: sticks }, W(NAP, i ? 1.3 : -1.3, 0, split ? 0.5 : 1.0), { turn: i ? -0.4 : 0.4 }));
+      { stick: sticks }, W(NAP, i ? 1.5 : -1.5, 0, sticks || split ? 0.3 : 2.8), { turn: i ? -0.4 : 0.4 }));
     s.places.push(P("berthierH", BERTHIER, { expr: at || swarm ? "shock" : "nervous", gest: swarm ? "flail" : "clutch", k: q((t * 3.5) % 1, 8), blink: blinkAt(t, 4) }, { paper: swarm ? undefined : "list", sweat: true }, W(NAP, -0.6, 0, 2.4), { turn: 0.2, size: LO }));
   }
 };
