@@ -75,10 +75,12 @@ const counting = (t: number, s: Stage) => {
   if (!L3 && !L6 && !L7) return;
   // where each merchant stands: huddled; spread when Dexter is there; the two others step back behind the table
   // while one hands him the pan; aside while merch1 holds up the mittens
+  const sweetNow = L3 && after(t, 3, "to") && !after(t, 4, 0);
   const mPos = (i: number, huddled: boolean, handing: boolean, mitt: boolean) => {
     if (handing && i !== 2) return W(TABLE, -1.6 + i * 1.2, 0, -1.0);
+    if (sweetNow && i === 0) return W(TABLE, -0.4, 0, -1.0);   // to ruin him: merch0 smiles from behind the table
     if (mitt && i !== 1) return W(TABLE, i ? 1.7 : -1.7, 0, 0.5);
-    return W(TABLE, (huddled ? -0.7 : -0.85) + i * (huddled ? 0.7 : 0.85), 0, 1.0);
+    return W(TABLE, -0.7 + i * 0.7, 0, 1.0);
   };
   const sweet = L3 && after(t, 3, "to"), hand = L3 && after(t, 4, 0), laughing = L7;
   for (let i = 0; i < 3; i++) {
@@ -91,7 +93,7 @@ const counting = (t: number, s: Stage) => {
   if (L3 && after(t, 3, "advice")) {   // Dexter comes in on "advice"; on "Sell warming pans" he is handed one
     const k = smooth((t - wt(3, "advice") + 0.4) / 0.9);
     const has = after(t, 4, "they");
-    s.places.push(P("dexterC", DEXTER, { mode: k < 1 ? "stroll" : "stand", phase: q((t * 1.3) % 1, 12), expr: has ? "laugh" : "grin", gest: has ? "lift" : "hang", k: q((t * 2) % 1, 8), blink: blinkAt(t, 1) }, { pan: has }, W(TABLE, 1.5 + 1.6 * (1 - k), 0, 1.05), { turn: -0.35 }));
+    s.places.push(P("dexterC", DEXTER, { mode: k < 1 ? "stroll" : "stand", phase: q((t * 1.3) % 1, 12), expr: has ? "laugh" : "grin", gest: has ? "lift" : "hang", k: q((t * 2) % 1, 8), blink: blinkAt(t, 1) }, { pan: has }, W(TABLE, 1.45 + 1.6 * (1 - k), 0, 1.0), { turn: -0.35 }));
   }
 };
 // lines 4-6: the West Indies dock (the heat), the sugar farm's vats
@@ -108,7 +110,7 @@ const tropics = (t: number, s: Stage) => {
   }
   if (between(t, wt(5, "farms") - 0.6, wt(6) + 0.3)) {   // the planters stir the molasses with the pans, delighted
     for (let i = 0; i < 3; i++) s.places.push(P(`planter${i}`, PLANTER(i), { expr: after(t, 5, "ladles") ? "laugh" : "grin", gest: "stir", k: q((t * 2 + i * 0.3) % 1, 8), blink: blinkAt(t, 40 + i), headTilt: 5 * Math.sin(t * 4 + i) }, { pan: true },
-      [VATS.x - 0.75 + i * 0.75 + 0.06 * Math.sin(t * 3 + i), 0, VATS.z - 0.95 - (i === 1 ? 0.2 : 0)], { yaw: 0.25 * (1 - i) }));
+      [VATS.x - 0.75 + i * 0.75 + 0.04 * Math.sin(t * 3 + i), 0, VATS.z - 0.95], { yaw: 0.25 * (1 - i) }));
   }
   if (between(t, wt(6, "Send") + 0.3, wt(6, "A") + 0.3)) {   // "He did.": Dexter on the hot dock in red mittens, sweating
     s.places.push(P("dexterM", DEXTER, { expr: "nervous", gest: "shrug2", k: q((t * 2) % 1, 8), blink: blinkAt(t, 1), headTilt: 6 * Math.sin(t * 3) }, { mittens: "#c8313b", sweat: true }, [DOCK_TR.x - 0.6, 0, 14], { turn: 0.15 }));
@@ -130,8 +132,8 @@ const newcastle = (t: number, s: Stage) => {
   }
   if (between(t, wt(7, "England") + 0.2, wt(9) + 0.3)) {
     const rush = smooth((t - wt(8, "Sold") + 0.9) / 1.6);
-    for (let i = 0; i < 3; i++) s.places.push(P(`miner${i}`, MINER(i), { expr: rush > 0.3 ? "shock" : "stern", gest: rush > 0.3 ? "hang" : i === 1 ? "fist" : "hang", k: q((t * 2.5 + i * 0.4) % 1, 8), blink: blinkAt(t, 60 + i) },
-      { banner: rush > 0.3 ? undefined : "T:STRIKE" }, W(STRIKE, -0.85 + i * 0.85, 0, 0), { turn: (1 - i) * 0.2 }));
+    for (let i = 0; i < 3; i++) s.places.push(P(i === 2 ? "bgMiner2" : `miner${i}`, MINER(i), { expr: rush > 0.3 ? "shock" : "stern", gest: rush > 0.3 ? "hang" : i === 1 ? "fist" : "hang", k: q((t * 2.5 + i * 0.4) % 1, 8), blink: blinkAt(t, 60 + i) },
+      { banner: rush > 0.3 ? undefined : "T:STRIKE" }, (i === 2 ? W(STRIKE, 2.2, 0, -3.5) : W(STRIKE, -0.55 + i * 1.1, 0, 0)), { turn: (1 - i) * 0.2 }));
     // "Sold out": the townsfolk run from the street to the dock where Dexter sells the coal by the sackful
     const rush2 = smooth((t - wt(8, "Sold") + LEAD) / 1.15);
     if (t >= wt(8, "Sold") - LEAD) for (let i = 0; i < 4; i++) {
