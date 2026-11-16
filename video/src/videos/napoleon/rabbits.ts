@@ -17,8 +17,10 @@ const CLIMB = 6, JUMP = 6, KING = 12;
 // fixed spots per rabbit
 const home = (i: number) => { const c = CAGES[i % CAGES.length], k = Math.floor(i / CAGES.length); return V(c.x - 0.55 + (k % 4) * 0.37, 0.08, c.z - 0.3 + Math.floor(k / 4) * 0.3); };
 const mill = (i: number) => V(-10 + rnd(i, 1) * 20, 0, -3 + rnd(i, 2) * 4);
-const ringAt = (i: number, r0: number, r1: number) => { const a = rnd(i, 3) * Math.PI * 2, r = r0 + (r1 - r0) * Math.sqrt(rnd(i, 4)); return V(NAP.x + Math.cos(a) * r, 0, NAP.z + Math.sin(a) * r); };
-const flank = (i: number) => { const west = Math.cos(rnd(i, 3) * Math.PI * 2) < 0; return V(NAP.x + (west ? -4.6 : 4.6) + (rnd(i, 5) - 0.5) * 2.4, 0, NAP.z - 0.5 + (rnd(i, 6) - 0.5) * 5); };
+// the ring leaves out the east side (where the camera stands to see his face): no rabbits between him and the lens
+const ringAt = (i: number, r0: number, r1: number) => { const a = Math.PI / 3 + rnd(i, 3) * Math.PI * 4 / 3, r = r0 + (r1 - r0) * Math.sqrt(rnd(i, 4)); return V(NAP.x + Math.cos(a) * r, 0, NAP.z + Math.sin(a) * r); };
+// the two flanks: north and south of him (left and right as the camera sees it from the east)
+const flank = (i: number) => { const north = rnd(i, 3) < 0.5; return V(NAP.x - 1.0 + (rnd(i, 5) - 0.5) * 5, 0, NAP.z + (north ? -4.6 : 4.6) + (rnd(i, 6) - 0.5) * 2.4); };
 const victory = (i: number) => { const a = rnd(i, 7) * Math.PI * 2, r = 1.2 + 6 * Math.sqrt(rnd(i, 8)); return V(HAT_REST.x + Math.cos(a) * r, 0, HAT_REST.z + Math.sin(a) * r * 0.7 - 1.5); };
 /** where a climber clings to Napoleon (front of the legs and coat, never above the chest) */
 const climbSpot = (k: number, at: THREE.Vector3) => V(at.x + (k % 2 ? 0.16 : -0.16), 0.25 + Math.floor(k / 2) * 0.28, at.z - 0.16);
@@ -77,7 +79,7 @@ export class Swarm {
   }
   update(t: number, cam?: THREE.Vector3) {
     for (let i = 0; i < N; i++) {
-      const r = rabbitAt(i, t), near = cam ? cam.distanceTo(r.p) < 2.4 : false;
+      const r = rabbitAt(i, t), near = cam ? cam.distanceTo(r.p) < 3.2 : false;
       this.m.compose(r.p, this.q.setFromEuler(this.e.set(0, r.yaw, 0)), new THREE.Vector3(r.s, r.s, r.s));
       this.sit.setMatrixAt(i, near || r.beg ? this.zero : this.m); this.beg.setMatrixAt(i, near || !r.beg ? this.zero : this.m);
     }

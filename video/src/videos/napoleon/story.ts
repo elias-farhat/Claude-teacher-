@@ -69,7 +69,7 @@ export const SHOTS: Shot[] = [
   { name: "farm", at: land(4), look: "seaday", keys: K(at(FARM, 1.5, 1.7, 7), at(FARM, 0, 1.2, 0)) },
   // 5-10 the château park: the cages open, the charge, the begging, the swarm, the flanks, the dash to the carriage
   { name: "park", at: land(5), look: "tropical", keys: K([CAGES[3].x + 3, 1.8, CAGES[3].z + 7], [CAGES[3].x, 0.8, CAGES[3].z]) },
-  { name: "nap", at: land(5, "Napoleon"), look: "tropical", keys: K(at(NAP, 1.5, 1.7, 5.5), at(NAP, 0, 1.2, 0)) },
+  { name: "nap", at: land(5, "Napoleon"), look: "tropical", keys: K(at(NAP, 6, 1.8, -1.6), at(NAP, 0, 1.1, 0)) },
   { name: "carriage", at: land(10), look: "tropical", keys: K(at(CARRIAGE, -2, 1.8, 8), at(CARRIAGE, -2, 1.2, 0)) },
   // 11 "The rabbits won." golden light on the empty lawn, one rabbit in the bicorne
   { name: "won", at: land(11), look: "golden", keys: K(at(HAT_REST, 1, 1.4, 6), at(HAT_REST, 0, 0.4, 0)) },

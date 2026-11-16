@@ -98,7 +98,7 @@ export function buildSets(R: THREE.Group, kit: Kit): Sets {
   // ---- the hill: a broad plateau, Napoleon's white horse at its east edge, the army and flags behind ----
   b.add(new THREE.CylinderGeometry(HILL.top, HILL.r, HILL.h, 36, 1), lam("npHill", () => ({ map: rep(grassHD(), 16, 3), color: "#9ab070" })), new THREE.Matrix4().makeTranslation(HILL.x, HILL.h / 2, HILL.z));
   ground(b, lam("npHillTop", () => ({ map: grassHD(), color: "#9ab070" })), HILL.x - HILL.top * 0.7, HILL.x + HILL.top * 0.7, HILL.z - HILL.top * 0.7, HILL.z + HILL.top * 0.7, HILL.h + 0.01, 10);
-  { const horse = buildHorse("#f2efe8", "#d8d2c8", "#a8261e"); horse.position.set(RIDER.x - 0.1, RIDER.y, RIDER.z); horse.rotation.y = 0.35; R.add(horse); }
+  { const horse = buildHorse("#f2efe8", "#d8d2c8", "#a8261e"); horse.position.set(RIDER.x - 0.1, RIDER.y, RIDER.z); horse.rotation.y = -0.6; R.add(horse); }
   { // the army: an instanced block of blue-coated soldiers in shakos behind him, tricolour flags above
     const parts = [new THREE.CapsuleGeometry(0.2, 0.5, 4, 10).translate(0, 0.85, 0), new THREE.SphereGeometry(0.2, 12, 8).translate(0, 1.42, 0), new THREE.CylinderGeometry(0.17, 0.15, 0.32, 10).translate(0, 1.72, 0), new THREE.CylinderGeometry(0.02, 0.02, 1.9, 5).translate(0.28, 1.4, 0)].map((p) => { const q = p.index ? p.toNonIndexed() : p; q.deleteAttribute("uv"); return q; });
     const nX = 22, nZ = 26, army = new THREE.InstancedMesh(mergeGeometries(parts, false)!, lam("npArmy", () => ({ color: "#2a3f8a" })), nX * nZ), m = new THREE.Matrix4();

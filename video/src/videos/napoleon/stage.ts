@@ -42,7 +42,7 @@ const T = RC(ROOMS.treaty), S = RC(ROOMS.study);
 // line 1: on the white horse at the edge of the hill, pointing ahead; the army behind
 const hill = (t: number, s: Stage) => {
   if (t >= wt(2) + 0.3) return;
-  s.places.push(P("napoleonH", NAPOLEON, { mode: "sit", expr: after(t, 1, "Feared") ? "smug" : "stern", gest: after(t, 1, "Conqueror") ? "point" : "hang", blink: blinkAt(t, 1), headTilt: after(t, 1, "Feared") ? -6 : 0 }, {}, W(RIDER, 0.0, 1.47, 0), { yaw: Math.PI / 2 + 0.35 }));
+  s.places.push(P("napoleonH", NAPOLEON, { mode: "sit", expr: after(t, 1, "Feared") ? "smug" : "stern", gest: after(t, 1, "Conqueror") ? "point" : "hang", blink: blinkAt(t, 1), headTilt: after(t, 1, "Feared") ? -6 : 0 }, {}, W(RIDER, 0.0, 1.47, 0), { yaw: Math.PI / 2 - 0.6 }));
 };
 // line 2: Tilsit: he signs; on "Time to celebrate" he jumps up and claps; on "rabbit hunt" both arms up; officers cheer
 const treaty = (t: number, s: Stage) => {
@@ -84,7 +84,7 @@ const hunt = (t: number, s: Stage) => {
       : beg ? { expr: "nervous", gest: "palm", k: 0, blink: blinkAt(t, 1), headTilt: -12, look: 0 }
       : at ? { expr: "shock", gest: "flail", k: q((t * 3) % 1, 8), blink: 0, headTilt: 6 * Math.sin(t * 11) }
       : aim ? { expr: "wink", gest: "aim", blink: 0 } : { expr: "smug", gest: "hang", blink: blinkAt(t, 1) };
-    s.places.push(P("napoleon", flee ? NAPOLEON_BARE : NAPOLEON, look, { gun: !swarm && !at && open }, np, flee ? { yaw: Math.atan2(15 - np.x, 13 - np.z) } : { yaw: Math.PI + 0.35 }));
+    s.places.push(P("napoleon", flee ? NAPOLEON_BARE : NAPOLEON, look, { gun: !swarm && !at && open }, np, flee ? { yaw: Math.atan2(15 - np.x, 13 - np.z) } : { yaw: Math.PI - 0.9 }));
   } else {
     const c = carriageAt(t);
     s.places.push(P("napoleonC", NAPOLEON_BARE, { mode: "sit", expr: "shock", gest: "flail", k: q((t * 4) % 1, 8), blink: 0, headTilt: 8 * Math.sin(t * 10) }, {}, V(c.x + 1.6, 1.47, c.z), { yaw: Math.PI / 2 - 0.6 }));
