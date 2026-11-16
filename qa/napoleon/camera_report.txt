@@ -1,2 +1,5 @@
 warning    9.03-  9.97 s  f271-298  SUBJECT   c:/^cheerO\d$/       not on stage
 warning    9.53-  9.73 s  f286-291  FACES     c:tsar(tsar)         head cut at the right edge
+CRITICAL  42.93- 43.07 s  f1288-1291  FACES     bystander officer1   bystander's head cut at the right edge
+CRITICAL  45.00- 47.03 s  f1350-1410  STALE                          the subject barely moves on screen for more than 2 s
+CRITICAL  45.53- 47.03 s  f1366-1410  FACES     c:napoleon           face 32 % covered by something in front
