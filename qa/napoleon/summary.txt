@@ -42,22 +42,20 @@ Decisions (auto-framer + camera guard, made without asking; revised after the re
   failed least; failing flights try other look timings / bends / start shifts, and a flight that still fails becomes
   a whip.
 
-CRITICAL: 67 frames in 4 ranges
-   43.07- 43.13 s  f1292-1293  SUBJECT   c:/^officer\d$/      not on stage
-   43.13- 43.47 s  f1294-1303  SUBJECT   c:/^officer\d$/      cut off left (0.03)
-   43.47- 43.80 s  f1304-1313  SUBJECT   c:/^officer\d$/      cut off right (0.96)
-   45.53- 47.03 s  f1366-1410  SUBJECT   c:/^officer\d$/      cut off right (0.96)
+CRITICAL: 46 frames in 2 ranges
+   43.00- 43.07 s  f1290-1291  FACES     bystander officer1   bystander's head cut at the left edge
+   45.57- 47.03 s  f1367-1410  SUBJECT   c:/^officer\d$/      cut off right (0.96)
 warnings: 28 frames in 2 ranges (list in camera_report.txt)
 
 Loop:
-  round 1: 560 frames with CRITICAL failures in 8 shots (0, 2, 3, 4, 7, 8, 14, 19)
-  round 2: 338 frames with CRITICAL failures in 6 shots (2, 3, 4, 8, 14, 19)
-  round 3: 320 frames with CRITICAL failures in 4 shots (2, 3, 8, 14)
-  round 4: 119 frames with CRITICAL failures in 1 shots (14)
-  round 5: 67 frames with CRITICAL failures in 1 shots (14)
-  assembled the best round of every shot: 67 frames with CRITICAL failures
+  round 1: 562 frames with CRITICAL failures in 9 shots (0, 2, 3, 4, 7, 8, 13, 14, 19)
+  round 2: 340 frames with CRITICAL failures in 7 shots (2, 3, 4, 8, 13, 14, 19)
+  round 3: 322 frames with CRITICAL failures in 5 shots (2, 3, 8, 13, 14)
+  round 4: 121 frames with CRITICAL failures in 2 shots (13, 14)
+  round 5: 46 frames with CRITICAL failures in 2 shots (13, 14)
+  assembled the best round of every shot: 46 frames with CRITICAL failures
   fly transitions that still failed became cuts: 0; clipping whips panned the other way: 0, became cuts: 0
-  flight polish (look timing per failing flight): 67 frames with CRITICAL failures (0 flights cleared)
+  flight polish (look timing per failing flight): 46 frames with CRITICAL failures (0 flights cleared)
 
 Shots (candidate chosen, score):
   shot  0    0.00-  3.77 s  medium az-30 (score 25: 1/5 blocked)
@@ -73,7 +71,7 @@ Shots (candidate chosen, score):
   shot 10   32.02- 34.14 s  wide   base (score 0)
   shot 11   34.14- 35.90 s  medium base (score 0)
   shot 12   35.90- 40.27 s  medium az+30 (score 3)
-  shot 13   40.27- 43.07 s  medium base (score 0)
+  shot 13   40.27- 43.07 s  medium higher (score 3)
   shot 14   43.07- 47.01 s  medium az-30 (score 43: cut off right)
   shot 15   47.01- 51.99 s  wide   base (score 0)
   shot 16   51.99- 55.21 s  medium track az-60 (score 6)

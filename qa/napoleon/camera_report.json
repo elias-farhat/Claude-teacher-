@@ -2,23 +2,23 @@
  "video": "napoleon",
  "frames": 2017,
  "pass": false,
- "criticalFrames": 67,
+ "criticalFrames": 46,
  "warningFrames": 28,
- "seconds": 302.016,
+ "seconds": 267.791,
  "history": [
-  "round 1: 560 frames with CRITICAL failures in 8 shots (0, 2, 3, 4, 7, 8, 14, 19)",
-  "round 2: 338 frames with CRITICAL failures in 6 shots (2, 3, 4, 8, 14, 19)",
-  "round 3: 320 frames with CRITICAL failures in 4 shots (2, 3, 8, 14)",
-  "round 4: 119 frames with CRITICAL failures in 1 shots (14)",
-  "round 5: 67 frames with CRITICAL failures in 1 shots (14)",
-  "assembled the best round of every shot: 67 frames with CRITICAL failures",
+  "round 1: 562 frames with CRITICAL failures in 9 shots (0, 2, 3, 4, 7, 8, 13, 14, 19)",
+  "round 2: 340 frames with CRITICAL failures in 7 shots (2, 3, 4, 8, 13, 14, 19)",
+  "round 3: 322 frames with CRITICAL failures in 5 shots (2, 3, 8, 13, 14)",
+  "round 4: 121 frames with CRITICAL failures in 2 shots (13, 14)",
+  "round 5: 46 frames with CRITICAL failures in 2 shots (13, 14)",
+  "assembled the best round of every shot: 46 frames with CRITICAL failures",
   "fly transitions that still failed became cuts: 0; clipping whips panned the other way: 0, became cuts: 0",
-  "flight polish (look timing per failing flight): 67 frames with CRITICAL failures (0 flights cleared)"
+  "flight polish (look timing per failing flight): 46 frames with CRITICAL failures (0 flights cleared)"
  ],
  "rules": [
   {
    "rule": "SUBJECT",
-   "critical": 67,
+   "critical": 44,
    "warning": 28
   },
   {
@@ -38,7 +38,7 @@
   },
   {
    "rule": "FACES",
-   "critical": 0,
+   "critical": 2,
    "warning": 6
   },
   {
@@ -83,51 +83,27 @@
    "t1": 9.73
   },
   {
-   "rule": "SUBJECT",
+   "rule": "FACES",
    "critical": true,
-   "subject": "c:/^officer\\d$/",
-   "shot": 14,
-   "from": 1292,
-   "to": 1293,
-   "worst": 1292,
-   "detail": "not on stage",
-   "t0": 43.07,
-   "t1": 43.13
+   "subject": "bystander officer1",
+   "shot": 13,
+   "from": 1290,
+   "to": 1291,
+   "worst": 1290,
+   "detail": "bystander's head cut at the left edge",
+   "t0": 43,
+   "t1": 43.07
   },
   {
    "rule": "SUBJECT",
    "critical": true,
    "subject": "c:/^officer\\d$/",
    "shot": 14,
-   "from": 1294,
-   "to": 1303,
-   "worst": 1294,
-   "detail": "cut off left (0.03)",
-   "t0": 43.13,
-   "t1": 43.47
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": true,
-   "subject": "c:/^officer\\d$/",
-   "shot": 14,
-   "from": 1304,
-   "to": 1313,
-   "worst": 1304,
-   "detail": "cut off right (0.96)",
-   "t0": 43.47,
-   "t1": 43.8
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": true,
-   "subject": "c:/^officer\\d$/",
-   "shot": 14,
-   "from": 1366,
+   "from": 1367,
    "to": 1410,
-   "worst": 1366,
+   "worst": 1367,
    "detail": "cut off right (0.96)",
-   "t0": 45.53,
+   "t0": 45.57,
    "t1": 47.03
   }
  ],
@@ -897,578 +873,51 @@
    ]
   },
   {
-   "f": 1292,
-   "t": 43.067,
-   "shot": 14,
+   "f": 1290,
+   "t": 43,
+   "shot": 13,
    "flight": false,
    "subjects": [
-    "c:/^officer\\d$/",
     "c:napoleon"
    ],
    "fails": [
     {
-     "rule": "SUBJECT",
-     "subject": "c:/^officer\\d$/",
-     "detail": "not on stage",
+     "rule": "FACES",
+     "subject": "bystander officer1",
+     "detail": "bystander's head cut at the left edge",
      "critical": true
     }
    ],
-   "score": 2,
+   "score": 1,
    "box": [
-    0.3886,
-    0.2139,
-    0.6034,
-    0.3695
+    0.3757,
+    0.0886,
+    0.739,
+    0.3371
    ]
   },
   {
-   "f": 1293,
-   "t": 43.1,
-   "shot": 14,
+   "f": 1291,
+   "t": 43.033,
+   "shot": 13,
    "flight": false,
    "subjects": [
-    "c:/^officer\\d$/",
     "c:napoleon"
    ],
    "fails": [
     {
-     "rule": "SUBJECT",
-     "subject": "c:/^officer\\d$/",
-     "detail": "not on stage",
+     "rule": "FACES",
+     "subject": "bystander officer1",
+     "detail": "bystander's head cut at the left edge",
      "critical": true
     }
    ],
-   "score": 2,
+   "score": 1,
    "box": [
-    0.3886,
-    0.2139,
-    0.6034,
-    0.3695
-   ]
-  },
-  {
-   "f": 1294,
-   "t": 43.133,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^officer\\d$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.6921,
-    0.2103,
-    0.9556,
-    0.3964
-   ]
-  },
-  {
-   "f": 1295,
-   "t": 43.167,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^officer\\d$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.6922,
-    0.2104,
-    0.9554,
-    0.3963
-   ]
-  },
-  {
-   "f": 1296,
-   "t": 43.2,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^officer\\d$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.6924,
-    0.2105,
-    0.9552,
-    0.3961
-   ]
-  },
-  {
-   "f": 1297,
-   "t": 43.233,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^officer\\d$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.6928,
-    0.2108,
-    0.9549,
-    0.3958
-   ]
-  },
-  {
-   "f": 1298,
-   "t": 43.267,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^officer\\d$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.6932,
-    0.2111,
-    0.9544,
-    0.3955
-   ]
-  },
-  {
-   "f": 1299,
-   "t": 43.3,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^officer\\d$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.6938,
-    0.2115,
-    0.9537,
-    0.395
-   ]
-  },
-  {
-   "f": 1300,
-   "t": 43.333,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^officer\\d$/",
-     "detail": "cut off left (0.04)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.6945,
-    0.212,
-    0.9529,
-    0.3944
-   ]
-  },
-  {
-   "f": 1301,
-   "t": 43.367,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^officer\\d$/",
-     "detail": "cut off left (0.04)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.6954,
-    0.2126,
-    0.9519,
-    0.3937
-   ]
-  },
-  {
-   "f": 1302,
-   "t": 43.4,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^officer\\d$/",
-     "detail": "cut off left (0.04)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.6964,
-    0.2133,
-    0.9507,
-    0.3928
-   ]
-  },
-  {
-   "f": 1303,
-   "t": 43.433,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^officer\\d$/",
-     "detail": "cut off left (0.05)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.6975,
-    0.2141,
-    0.9494,
-    0.3918
-   ]
-  },
-  {
-   "f": 1304,
-   "t": 43.467,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^officer\\d$/",
-     "detail": "cut off right (0.97)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.6987,
-    0.215,
-    0.9478,
-    0.3908
-   ]
-  },
-  {
-   "f": 1305,
-   "t": 43.5,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^officer\\d$/",
-     "detail": "cut off right (0.97)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.6999,
-    0.2159,
-    0.9461,
-    0.3896
-   ]
-  },
-  {
-   "f": 1306,
-   "t": 43.533,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^officer\\d$/",
-     "detail": "cut off right (0.97)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.7012,
-    0.2169,
-    0.9442,
-    0.3883
-   ]
-  },
-  {
-   "f": 1307,
-   "t": 43.567,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^officer\\d$/",
-     "detail": "cut off right (0.97)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.7025,
-    0.218,
-    0.9422,
-    0.387
-   ]
-  },
-  {
-   "f": 1308,
-   "t": 43.6,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^officer\\d$/",
-     "detail": "cut off right (0.97)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.7038,
-    0.219,
-    0.9401,
-    0.3856
-   ]
-  },
-  {
-   "f": 1309,
-   "t": 43.633,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^officer\\d$/",
-     "detail": "cut off right (0.96)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.7051,
-    0.2201,
-    0.9378,
-    0.3841
-   ]
-  },
-  {
-   "f": 1310,
-   "t": 43.667,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^officer\\d$/",
-     "detail": "cut off right (0.96)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.7064,
-    0.2213,
-    0.9355,
-    0.3827
-   ]
-  },
-  {
-   "f": 1311,
-   "t": 43.7,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^officer\\d$/",
-     "detail": "cut off right (0.96)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.7076,
-    0.2224,
-    0.933,
-    0.3812
-   ]
-  },
-  {
-   "f": 1312,
-   "t": 43.733,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^officer\\d$/",
-     "detail": "cut off right (0.95)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.7088,
-    0.2235,
-    0.9306,
-    0.3797
-   ]
-  },
-  {
-   "f": 1313,
-   "t": 43.767,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^officer\\d$/",
-     "detail": "cut off right (0.95)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.7099,
-    0.2245,
-    0.9281,
-    0.3782
-   ]
-  },
-  {
-   "f": 1366,
-   "t": 45.533,
-   "shot": 14,
-   "flight": false,
-   "subjects": [
-    "c:/^officer\\d$/",
-    "c:napoleon"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^officer\\d$/",
-     "detail": "cut off right (0.95)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.7001,
-    0.1768,
-    0.9263,
-    0.3364
+    0.3757,
+    0.0886,
+    0.739,
+    0.3371
    ]
   },
   {
@@ -1490,10 +939,10 @@
    ],
    "score": 2,
    "box": [
-    0.699,
-    0.1739,
-    0.9276,
-    0.3352
+    0.6636,
+    0.1409,
+    0.924,
+    0.3258
    ]
   },
   {
@@ -1515,10 +964,10 @@
    ],
    "score": 2,
    "box": [
-    0.6979,
-    0.1711,
-    0.9288,
-    0.334
+    0.6622,
+    0.1378,
+    0.9252,
+    0.3246
    ]
   },
   {
@@ -1540,10 +989,10 @@
    ],
    "score": 2,
    "box": [
-    0.6969,
-    0.1686,
-    0.9298,
-    0.333
+    0.661,
+    0.135,
+    0.9263,
+    0.3235
    ]
   },
   {
@@ -1565,10 +1014,10 @@
    ],
    "score": 2,
    "box": [
-    0.696,
-    0.1663,
-    0.9308,
-    0.332
+    0.6598,
+    0.1325,
+    0.9272,
+    0.3225
    ]
   },
   {
@@ -1590,10 +1039,10 @@
    ],
    "score": 2,
    "box": [
-    0.6952,
-    0.1643,
-    0.9316,
-    0.3312
+    0.6588,
+    0.1302,
+    0.928,
+    0.3216
    ]
   },
   {
@@ -1615,10 +1064,10 @@
    ],
    "score": 2,
    "box": [
-    0.6945,
-    0.1625,
-    0.9323,
-    0.3305
+    0.6579,
+    0.1283,
+    0.9288,
+    0.3209
    ]
   },
   {
@@ -1640,10 +1089,10 @@
    ],
    "score": 2,
    "box": [
-    0.6939,
-    0.161,
-    0.9329,
-    0.3299
+    0.6571,
+    0.1267,
+    0.9293,
+    0.3203
    ]
   },
   {
@@ -1665,10 +1114,10 @@
    ],
    "score": 2,
    "box": [
-    0.6934,
-    0.1598,
-    0.9334,
-    0.3294
+    0.6565,
+    0.1254,
+    0.9298,
+    0.3197
    ]
   },
   {
@@ -1690,10 +1139,10 @@
    ],
    "score": 2,
    "box": [
-    0.693,
-    0.1589,
-    0.9338,
-    0.329
+    0.656,
+    0.1244,
+    0.9302,
+    0.3193
    ]
   },
   {
@@ -1715,10 +1164,10 @@
    ],
    "score": 2,
    "box": [
-    0.6927,
-    0.1583,
-    0.934,
-    0.3287
+    0.6557,
+    0.1236,
+    0.9304,
+    0.3191
    ]
   },
   {
@@ -1740,10 +1189,10 @@
    ],
    "score": 2,
    "box": [
-    0.6925,
-    0.1578,
-    0.9342,
-    0.3286
+    0.6555,
+    0.1232,
+    0.9306,
+    0.3189
    ]
   },
   {
@@ -1765,10 +1214,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1576,
-    0.9343,
-    0.3285
+    0.6553,
+    0.1229,
+    0.9307,
+    0.3188
    ]
   },
   {
@@ -1790,10 +1239,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9343,
-    0.3284
+    0.6553,
+    0.1228,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -1815,10 +1264,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -1840,10 +1289,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -1865,10 +1314,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -1890,10 +1339,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -1915,10 +1364,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -1940,10 +1389,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -1965,10 +1414,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -1990,10 +1439,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -2015,10 +1464,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -2040,10 +1489,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -2065,10 +1514,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -2090,10 +1539,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -2115,10 +1564,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -2140,10 +1589,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -2165,10 +1614,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -2190,10 +1639,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -2215,10 +1664,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -2240,10 +1689,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -2265,10 +1714,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -2290,10 +1739,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -2315,10 +1764,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -2340,10 +1789,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -2365,10 +1814,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -2390,10 +1839,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -2415,10 +1864,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -2440,10 +1889,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -2465,10 +1914,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -2490,10 +1939,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -2515,10 +1964,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -2540,10 +1989,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   },
   {
@@ -2565,10 +2014,10 @@
    ],
    "score": 2,
    "box": [
-    0.6924,
-    0.1575,
-    0.9344,
-    0.3284
+    0.6553,
+    0.1227,
+    0.9307,
+    0.3187
    ]
   }
  ]
