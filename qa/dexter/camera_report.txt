@@ -1,0 +1,33 @@
+warning   11.80- 12.03 s  f354-360  SUBJECT   c:dexterC            out of frame (x 1.09..1.37, y 0.35..0.78)
+warning   12.03- 12.37 s  f361-370  SUBJECT   c:dexterC            cut off right (1.10)
+warning   12.07- 12.30 s  f362-368  FACES     c:dexterC            head cut at the right edge
+warning   12.37- 12.73 s  f371-381  SUBJECT   c:dexterC            too small (26 % of frame height, needs 30 %)
+warning   12.70- 12.73 s  f381-381  SUBJECT   c:/^merch\d$/        too small (30 % of frame height, needs 30 %)
+CRITICAL  12.73- 13.20 s  f382-395  SUBJECT   c:dexterC            too small (27 % of frame height, needs 30 %)
+warning   13.40- 13.70 s  f402-410  SUBJECT   c:dexterC            cut off right (1.05)
+warning   13.53- 13.67 s  f406-409  FACES     c:dexterC            head cut at the right edge
+warning   13.57- 14.17 s  f407-424  SUBJECT   c:/^merch\d$/        cut off left (-0.60)
+warning   13.60- 13.70 s  f408-410  FACES     c:/^merch\d$/(merch0) head cut at the left edge
+warning   13.77- 13.97 s  f413-418  FACES     c:/^merch\d$/(merch1) head cut at the left edge
+warning   19.93- 20.87 s  f598-625  SUBJECT   c:dexterU            not on stage
+warning   20.33- 20.37 s  f610-610  SUBJECT   c:dexterT            cut off right (1.34)
+warning   20.33- 20.37 s  f610-610  FACES     c:dexterT            head cut at the right edge
+warning   20.37- 20.47 s  f611-613  SUBJECT   c:dexterT            out of frame (x 3.14..4.47, y -0.27..0.76)
+warning   20.37- 20.43 s  f611-612  EMPTY                          none of c:dexterT, c:dexterU, ?c:/^sailor\d$/ in view
+warning   20.47- 20.87 s  f614-625  SUBJECT   c:dexterT            behind the camera
+warning   20.47- 20.50 s  f614-614  FACES     c:/^sailor\d$/(sailor0) head cut at the right edge
+warning   20.50- 20.87 s  f615-625  EMPTY                          none of c:dexterT, c:dexterU, ?c:/^sailor\d$/ in view
+CRITICAL  22.93- 23.47 s  f688-703  SUBJECT   c:/^planter\d$/      too small (28 % of frame height, needs 30 %)
+CRITICAL  24.70- 24.90 s  f741-746  SUBJECT   c:/^planter\d$/      cut off right (0.95)
+CRITICAL  40.53- 41.30 s  f1216-1238  FACES     c:/^miner\d$/(miner0) face 32 % covered by something in front
+CRITICAL  40.53- 40.87 s  f1216-1225  FACES     c:/^miner\d$/(miner1) face 32 % covered by something in front
+CRITICAL  42.13- 43.87 s  f1264-1315  FACES     c:/^miner\d$/(miner0) face 40 % covered by something in front
+CRITICAL  42.63- 43.87 s  f1279-1315  FACES     c:/^miner\d$/(miner1) face 40 % covered by something in front
+warning   54.80- 55.27 s  f1644-1657  SUBJECT   c:dexterP            too small (23 % of frame height, needs 30 %)
+warning   55.03- 55.57 s  f1651-1666  SUBJECT   c:/^mourner\d$/      cut off right (1.69)
+warning   55.10- 55.20 s  f1653-1655  FACES     c:/^mourner\d$/(mourner1) head cut at the right edge
+warning   55.17- 55.30 s  f1655-1658  FACES     c:dexterP            face 60 % covered by something in front
+warning   55.17- 55.43 s  f1655-1662  OCCLUSION c:/^mourner\d$/      3/5 rays blocked for 5 frames
+warning   55.27- 55.37 s  f1658-1660  FACES     c:/^mourner\d$/(mourner2) head cut at the right edge
+warning   55.40- 55.53 s  f1662-1665  FACES     c:/^mourner\d$/(mourner0) head cut at the right edge
+warning   55.57- 55.73 s  f1667-1671  SUBJECT   c:/^mourner\d$/      out of frame (x 1.13..2.94, y 0.07..0.89)

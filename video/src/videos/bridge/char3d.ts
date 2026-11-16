@@ -12,7 +12,7 @@ import { Pen, Outfit, Expr, INK, SKIN, faceFront, mix } from "./toon";
 export type Rig3 = {
   o: Outfit;
   l: { mode?: string; expr?: Expr; gest?: string; k?: number; blink?: number; look?: number; headTilt?: number; tilt?: number; phase?: number };
-  x: { sideburns?: boolean; tea?: boolean; phone?: boolean; pen?: boolean; paper?: string; wings?: number; curls?: boolean; letter?: boolean; sweat?: boolean; bucket?: boolean; spear?: boolean; sword?: boolean; banner?: string; shield?: string };
+  x: { sideburns?: boolean; tea?: boolean; phone?: boolean; pen?: boolean; paper?: string; wings?: number; curls?: boolean; letter?: boolean; sweat?: boolean; bucket?: boolean; spear?: boolean; sword?: boolean; banner?: string; shield?: string; pan?: boolean; mittens?: string; sack?: boolean; coins?: boolean; ink?: boolean };
 };
 type V3 = [number, number, number];
 const v = (a: V3) => new THREE.Vector3(...a);
@@ -106,6 +106,31 @@ const buildTop = (o: Outfit, sideburns: boolean): THREE.Group => {
       add(new THREE.CylinderGeometry(R * 1.55, R * 1.6, R * 0.05, 32), im, [0, R * 0.36, 0], [0.08, 0, 0]);
     }
     add(shell(R * 1.03, 1.0, 2.0), m(hairCol, THREE.DoubleSide));
+  } else if (o.hat === "tricorn" || o.hat === "fur" || o.hat === "straw") {
+    // 18th-century hats: a tricorne (upturned three-cornered brim: an open triangular prism), a fur hat, a straw hat;
+    // hair shows at the back (a pale colour = a powdered wig with side rolls)
+    const pale = new THREE.Color(hairCol).getHSL({ h: 0, s: 0, l: 0 }).l > 0.72;
+    const hm = m(pale ? "#d8d4cc" : "#" + new THREE.Color(hairCol).multiplyScalar(0.82).getHexString(), THREE.DoubleSide);
+    add(shell(R * 1.06, 0.95, 2.05), hm);
+    add(new THREE.SphereGeometry(R * 0.45, 16, 12).scale(1.3, 0.8, 1), hm, [0, -R * 0.1, -R * 0.66]);
+    if (pale) for (const sx of [-1, 1]) add(new THREE.CapsuleGeometry(R * 0.13, R * 0.3, 4, 10).rotateZ(Math.PI / 2), hm, [sx * R * 0.9, -R * 0.05, -R * 0.15], [0, sx * 0.4, 0]);
+    if (o.hat === "tricorn") {
+      const tm = m(o.cap ?? "#1d1b22", THREE.DoubleSide);
+      add(cap(R * 1.07, 1.15), tm, [0, R * 0.12, 0]);
+      add(new THREE.CylinderGeometry(R * 1.75, R * 1.6, R * 0.42, 3, 1, true), tm, [0, R * 0.62, 0], [0, Math.PI, 0]);
+      add(new THREE.CylinderGeometry(R * 1.6, R * 1.6, R * 0.04, 3), tm, [0, R * 0.42, 0], [0, Math.PI, 0]);
+      add(new THREE.SphereGeometry(R * 0.12, 10, 8), m("#d9b45a"), [R * 0.9, R * 0.75, R * 0.55]);
+    } else if (o.hat === "fur") {
+      const fm = m(o.cap ?? "#6a4a32");
+      add(new THREE.CylinderGeometry(R * 1.12, R * 1.08, R * 0.9, 24), fm, [0, R * 0.78, 0]);
+      add(new THREE.TorusGeometry(R * 1.08, R * 0.18, 10, 28).rotateX(Math.PI / 2), fm, [0, R * 0.35, 0]);
+      for (const sx of [-1, 1]) add(new THREE.SphereGeometry(R * 0.32, 12, 10).scale(0.6, 1.2, 1), fm, [sx * R * 0.98, -R * 0.15, 0]);
+    } else {
+      const sm = m(o.cap ?? "#e3cf96", THREE.DoubleSide);
+      add(cap(R * 1.08, 1.25), sm, [0, R * 0.1, 0]);
+      add(new THREE.CylinderGeometry(R * 1.95, R * 2.05, R * 0.05, 32), sm, [0, R * 0.42, 0]);
+      add(new THREE.CylinderGeometry(R * 1.1, R * 1.1, R * 0.14, 28), m("#a8432c"), [0, R * 0.55, 0]);
+    }
   } else if (o.hat === "beret" || o.hat === "crown") {
     // a lord: a soft velvet cap with a feather (Modena's podestà) or a gold circlet over hair (Bologna's)
     const hm = m("#" + new THREE.Color(hairCol).multiplyScalar(0.82).getHexString(), THREE.DoubleSide);
@@ -164,6 +189,8 @@ const pose = (gest: string, k: number): [Arm, Arm] => {
     case "clutch": return [[[-0.19, 1.07, 0], [-0.26, 0.9, 0.12], [-0.07, 1.02, 0.22]], [[0.19, 1.07, 0], [0.26, 0.9, 0.12], [0.07, 1.02, 0.22]]];
     case "tip": return [L, [[0.19, 1.07, 0], [0.38, 1.24, 0.1], [0.21, 1.5 + 0.02 * w, 0.17]]];
     case "sign": return [L, [[0.19, 1.07, 0], [0.29, 0.86, 0.16], [0.14 + 0.03 * w, 0.8, 0.34]]];
+    case "stir": return [[[-0.19, 1.07, 0], [-0.25, 0.9, 0.18], [-0.05, 0.95, 0.4]], [[0.19, 1.07, 0], [0.25, 0.9, 0.18], [0.05, 0.98, 0.4]]];
+    case "shrug2": return [[[-0.19, 1.07, 0], [-0.4, 0.95, 0.06], [-0.5, 1.12, 0.12]], [[0.19, 1.07, 0], [0.4, 0.95, 0.06], [0.5, 1.12, 0.12]]];
     case "fist": return [L, [[0.19, 1.07, 0], [0.42, 1.3, 0.08], [0.46 + 0.04 * w, 1.6 + 0.03 * w, 0.12]]];
     case "hug": return [[[-0.19, 1.07, 0], [-0.3, 0.86, 0.12], [-0.13, 0.84, 0.3]], [[0.19, 1.07, 0], [0.3, 0.86, 0.12], [0.13, 0.84, 0.3]]];
     case "lift": return [[[-0.19, 1.07, 0], [-0.36, 1.45, 0.04], [-0.2, 2.06 + 0.02 * w, 0.06]], [[0.19, 1.07, 0], [0.36, 1.45, 0.04], [0.2, 2.06 + 0.02 * w, 0.06]]];
@@ -188,7 +215,10 @@ const bannerTex = (spec: string) => {
   const cv = document.createElement("canvas"); cv.width = 128; cv.height = 160; const g = cv.getContext("2d")!;
   const [a, b] = spec.split("/");
   g.fillStyle = a; g.fillRect(0, 0, 128, 160);
-  if (b) { g.fillStyle = b; g.fillRect(0, 80, 128, 80); } else { g.fillStyle = "#f4f1ea"; g.fillRect(52, 0, 24, 160); g.fillRect(0, 56, 128, 24); }
+  if (a.startsWith("T:")) {   // a painted placard: "T:STRIKE" = black letters on a cream cloth
+    g.fillStyle = "#efe6d2"; g.fillRect(0, 0, 128, 160); g.fillStyle = "#a8261e"; g.font = "900 30px Georgia, serif"; g.textAlign = "center"; g.textBaseline = "middle";
+    const w = a.slice(2); g.save(); g.translate(64, 80); g.rotate(-Math.PI / 2); g.fillText(w, 0, 0, 150); g.restore();
+  } else if (b) { g.fillStyle = b; g.fillRect(0, 80, 128, 80); } else { g.fillStyle = "#f4f1ea"; g.fillRect(52, 0, 24, 160); g.fillRect(0, 56, 128, 24); }
   g.strokeStyle = INK; g.lineWidth = 8; g.strokeRect(4, 4, 120, 152);
   t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; banTex.set(spec, t); return t;
 };
@@ -198,6 +228,7 @@ export class Char3D {
   private arms: THREE.Mesh[]; private legs: THREE.Mesh[]; private hands: THREE.Mesh[]; private feet: THREE.Mesh[]; private buttons: THREE.Mesh[] = [];
   private cup: THREE.Mesh; private phone: THREE.Mesh; private top: THREE.Group | null = null; private topKey = "";
   private bucket: THREE.Group; private spear: THREE.Group; private sword: THREE.Group; private banner: THREE.Group; private bannerMat: THREE.MeshLambertMaterial; private shield: THREE.Mesh; private shieldMat: THREE.MeshLambertMaterial;
+  private pan: THREE.Group; private sack: THREE.Mesh; private coins: THREE.Group; private ink: THREE.Mesh;
   private paper: THREE.Mesh; private letter: THREE.Mesh; private quill: THREE.Mesh; private sweat: THREE.Mesh; private wings: THREE.Mesh[];
   constructor(parent: THREE.Object3D) {
     const add = <T extends THREE.Object3D>(o: T) => { o.traverse((m) => { const me = m as THREE.Mesh; if (me.isMesh) { me.castShadow = true; me.receiveShadow = true; } }); this.g.add(o); return o; };
@@ -234,6 +265,16 @@ export class Char3D {
       const fl = new THREE.Mesh(new THREE.PlaneGeometry(0.62, 0.8), this.bannerMat); fl.position.set(0.32, 1.5, 0); this.banner.add(fl); }
     this.shieldMat = twoTone(new THREE.MeshLambertMaterial({ color: "#ffffff" })) as THREE.MeshLambertMaterial;
     this.shield = add(new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.24, 0.04, 20).rotateX(Math.PI / 2), this.shieldMat));
+    // Dexter's cargo: a long-handled brass warming pan, a coal sack, a purse of gold coins; an ink blot on the nose
+    this.pan = add(new THREE.Group());
+    { const h = new THREE.Mesh(new THREE.CylinderGeometry(0.016, 0.02, 1.0, 6), mat("#6a4a2a")); h.position.y = 0.4; this.pan.add(h);
+      const d = new THREE.Mesh(new THREE.CylinderGeometry(0.17, 0.15, 0.07, 22), mat("#d99a3a")); d.position.y = 0.95; d.rotation.x = Math.PI / 2; this.pan.add(d);
+      const lid = new THREE.Mesh(new THREE.SphereGeometry(0.16, 18, 8, 0, Math.PI * 2, 0, 1.0), mat("#e8b04a")); lid.position.set(0, 0.95, 0.03); lid.rotation.x = Math.PI / 2; this.pan.add(lid); }
+    this.sack = add(new THREE.Mesh(new THREE.SphereGeometry(0.2, 16, 12).scale(1, 1.25, 0.85), mat("#5a4a3a")));
+    this.coins = add(new THREE.Group());
+    { const b = new THREE.Mesh(new THREE.SphereGeometry(0.1, 14, 10).scale(1, 0.9, 1), mat("#8a5a2a")); this.coins.add(b);
+      for (let i = 0; i < 3; i++) { const c = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 0.008, 14), mat("#f0c24a")); c.position.set(-0.03 + i * 0.03, 0.09 + i * 0.008, 0.02); c.rotation.x = 0.4; this.coins.add(c); } }
+    this.ink = add(new THREE.Mesh(new THREE.SphereGeometry(0.03, 10, 8).scale(1.3, 1, 0.5), mat("#1d2a55")));
     this.g.visible = false; parent.add(this.g);
   }
   /** pose at (x, y, z), turned toward the camera (yaw), scale s */
@@ -309,6 +350,16 @@ export class Char3D {
     if (x.banner) { this.banner.position.set(hL[0], hL[1] + dy + bob, hL[2]); this.bannerMat.map = bannerTex(x.banner); this.banner.children[1].rotation.y = 0.25 * Math.sin(ph + k * 6.283); }
     this.shield.visible = !!x.shield;
     if (x.shield) { this.shield.position.set(-0.3, 0.92 + dy + bob, 0.12); this.shield.rotation.set(0, -0.5, 0); this.shieldMat.map = bannerTex(x.shield); }
+    // Dexter's cargo
+    this.pan.visible = !!x.pan;
+    if (x.pan) { this.pan.position.set(hR[0], hR[1] - 0.25 + dy + bob, hR[2]); this.pan.rotation.set(l.gest === "stir" ? 2.4 : 0.35, 0, l.gest === "stir" ? 0 : -0.35); }
+    this.sack.visible = !!x.sack;
+    if (x.sack) { if (two2 && l.gest !== "hang") this.sack.position.set((hR[0] + hL[0]) / 2, (hR[1] + hL[1]) / 2 - 0.05 + dy + bob, Math.max(hR[2], hL[2]) + 0.06); else this.sack.position.set(-0.24, 1.2 + dy + bob, -0.08); }
+    this.coins.visible = !!x.coins;
+    if (x.coins) this.coins.position.set(hR[0], hR[1] + 0.06 + dy + bob, hR[2] + 0.02);
+    this.ink.visible = !!x.ink; if (x.ink) this.ink.position.set(0.05, HEAD_Y - 0.02 + dy + bob, HEAD_R * 0.99);
+    // mittens: big knitted hands in the given colour
+    this.hands.forEach((h) => { h.scale.setScalar(x.mittens ? 2.1 : 1); h.material = mat(x.mittens ?? SKIN); });
     void mix;
   }
   hide() { this.g.visible = false; }
