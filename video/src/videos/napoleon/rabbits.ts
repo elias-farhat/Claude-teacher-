@@ -18,7 +18,7 @@ const CLIMB = 6, JUMP = 6, KING = 12;
 const home = (i: number) => { const c = CAGES[i % CAGES.length], k = Math.floor(i / CAGES.length); return V(c.x - 0.55 + (k % 4) * 0.37, 0.08, c.z - 0.3 + Math.floor(k / 4) * 0.3); };
 const mill = (i: number) => V(-10 + rnd(i, 1) * 20, 0, -3 + rnd(i, 2) * 4);
 const ringAt = (i: number, r0: number, r1: number) => { const a = rnd(i, 3) * Math.PI * 2, r = r0 + (r1 - r0) * Math.sqrt(rnd(i, 4)); return V(NAP.x + Math.cos(a) * r, 0, NAP.z + Math.sin(a) * r); };
-const flank = (i: number) => { const west = Math.cos(rnd(i, 3) * Math.PI * 2) < 0; return V(NAP.x + (west ? -7.5 : 7.5) + (rnd(i, 5) - 0.5) * 3, 0, NAP.z - 1 + (rnd(i, 6) - 0.5) * 7); };
+const flank = (i: number) => { const west = Math.cos(rnd(i, 3) * Math.PI * 2) < 0; return V(NAP.x + (west ? -4.6 : 4.6) + (rnd(i, 5) - 0.5) * 2.4, 0, NAP.z - 0.5 + (rnd(i, 6) - 0.5) * 5); };
 const victory = (i: number) => { const a = rnd(i, 7) * Math.PI * 2, r = 1.2 + 6 * Math.sqrt(rnd(i, 8)); return V(HAT_REST.x + Math.cos(a) * r, 0, HAT_REST.z + Math.sin(a) * r * 0.7 - 1.5); };
 /** where a climber clings to Napoleon (front of the legs and coat, never above the chest) */
 const climbSpot = (k: number, at: THREE.Vector3) => V(at.x + (k % 2 ? 0.16 : -0.16), 0.25 + Math.floor(k / 2) * 0.28, at.z - 0.16);
