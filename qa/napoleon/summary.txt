@@ -42,26 +42,22 @@ Decisions (auto-framer + camera guard, made without asking; revised after the re
   failed least; failing flights try other look timings / bends / start shifts, and a flight that still fails becomes
   a whip.
 
-CRITICAL: 120 frames in 7 ranges
-   43.07- 43.10 s  f1292-1292  SUBJECT   c:/^officer\d$/      not on stage
-   43.10- 45.13 s  f1293-1353  FACES     c:/^officer\d$/(officer0) face 48 % covered by something in front
-   47.57- 49.17 s  f1427-1474  SUBJECT   c:/^officer\d$/      cut off top (-0.01)
-   47.70- 48.20 s  f1431-1445  FACES     c:/^officer\d$/(officer0) head (hat) touches the top edge (1.6 %)
-   48.20- 48.57 s  f1446-1456  FACES     c:/^officer\d$/(officer0) head cut at the top edge
-   48.57- 49.07 s  f1457-1471  FACES     c:/^officer\d$/(officer0) head (hat) touches the top edge (1.7 %)
-   49.47- 49.80 s  f1484-1493  SUBJECT   c:napoleon           cut off right (0.95)
-warnings: 28 frames in 2 ranges (list in camera_report.txt)
+CRITICAL: 171 frames in 3 ranges
+   44.43- 44.73 s  f1333-1341  SUBJECT   c:napoleon           cut off top (0.05)
+   45.67- 46.10 s  f1370-1382  SUBJECT   c:/^officer\d$/      too small (30 % of frame height, needs 30 %)
+   47.03- 52.00 s  f1411-1559  STALE                          the subject barely moves on screen for more than 2 s
+warnings: 56 frames in 7 ranges (list in camera_report.txt)
 
 Loop:
-  round 1: 697 frames with CRITICAL failures in 9 shots (0, 2, 3, 4, 7, 8, 14, 15, 19)
-  round 2: 396 frames with CRITICAL failures in 7 shots (2, 3, 4, 8, 14, 15, 19)
-  round 3: 426 frames with CRITICAL failures in 5 shots (2, 3, 8, 14, 15)
-  round 4: 244 frames with CRITICAL failures in 2 shots (14, 15)
-  round 5: 197 frames with CRITICAL failures in 2 shots (14, 15)
-  assembled the best round of every shot: 120 frames with CRITICAL failures
-  fly transitions that still failed became cuts: 0; clipping whips panned the other way: 0, became cuts: 0
-  flight polish (look timing per failing flight): 120 frames with CRITICAL failures (0 flights cleared)
-  kept the assembled track (120 CRITICAL frames)
+  round 1: 746 frames with CRITICAL failures in 10 shots (0, 2, 3, 4, 7, 8, 13, 14, 15, 19)
+  round 2: 491 frames with CRITICAL failures in 8 shots (2, 3, 4, 8, 13, 14, 15, 19)
+  round 3: 473 frames with CRITICAL failures in 6 shots (2, 3, 8, 13, 14, 15)
+  round 4: 199 frames with CRITICAL failures in 2 shots (14, 15)
+  round 5: 268 frames with CRITICAL failures in 2 shots (14, 15)
+  assembled the best round of every shot: 171 frames with CRITICAL failures
+  fly transitions that still failed became cuts: 1; clipping whips panned the other way: 0, became cuts: 0
+  flight polish (look timing per failing flight): 199 frames with CRITICAL failures (3 flights cleared)
+  kept the assembled track (171 CRITICAL frames)
 
 Shots (candidate chosen, score):
   shot  0    0.00-  3.77 s  medium az+30 high (score 6)
@@ -77,9 +73,9 @@ Shots (candidate chosen, score):
   shot 10   32.02- 34.14 s  wide   base (score 0)
   shot 11   34.14- 35.90 s  medium base (score 0)
   shot 12   35.90- 40.27 s  medium az+30 (score 3)
-  shot 13   40.27- 43.07 s  medium base (score 0)
-  shot 14   43.07- 47.01 s  medium az-60 (score 6)
-  shot 15   47.01- 51.99 s  medium az-60 (score 71: cut off top, head cut at the top edge, cut off right)
+  shot 13   40.27- 43.07 s  medium az-30 (score 3)
+  shot 14   43.07- 47.01 s  medium lower (score 42: cut off top, too small)
+  shot 15   47.01- 51.99 s  wide   hand (score 6)
   shot 16   51.99- 55.21 s  medium track az-60 (score 6)
   shot 17   55.21- 58.13 s  medium track az180 (score 40: 1/5 blocked)
   shot 18   58.13- 60.25 s  medium closer 0.45 (score 11)
@@ -101,7 +97,7 @@ Flights:
   -> shot 12: CUT 35.90-35.90 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 13: CUT 40.27-40.27 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 14: CUT 43.07-43.07 s, 0 f, cut on the beat, peak undefined m/f
-  -> shot 15: CUT 47.01-47.01 s, 0 f, cut on the beat, peak undefined m/f
+  -> shot 15: FLY 46.07-47.01 s, 28 f, straight, peak 0.24 m/f
   -> shot 16: CUT 51.99-51.99 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 17: CUT 55.21-55.21 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 18: CUT 58.13-58.13 s, 0 f, cut on the beat, peak undefined m/f
