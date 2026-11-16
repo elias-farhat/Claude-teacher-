@@ -1,3 +1,3 @@
 warning    9.03-  9.97 s  f271-298  SUBJECT   c:/^cheerO\d$/       not on stage
 warning    9.53-  9.73 s  f286-291  FACES     c:tsar(tsar)         head cut at the right edge
-CRITICAL  43.07- 43.63 s  f1292-1308  SUBJECT   c:/^officer\d$/      too small (29 % of frame height, needs 30 %)
+CRITICAL  45.60- 47.03 s  f1368-1410  SUBJECT   c:napoleon           cut off right (0.95)

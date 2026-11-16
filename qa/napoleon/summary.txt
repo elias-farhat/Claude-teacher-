@@ -42,20 +42,20 @@ Decisions (auto-framer + camera guard, made without asking; revised after the re
   failed least; failing flights try other look timings / bends / start shifts, and a flight that still fails becomes
   a whip.
 
-CRITICAL: 17 frames in 1 ranges
-   43.07- 43.63 s  f1292-1308  SUBJECT   c:/^officer\d$/      too small (29 % of frame height, needs 30 %)
+CRITICAL: 43 frames in 1 ranges
+   45.60- 47.03 s  f1368-1410  SUBJECT   c:napoleon           cut off right (0.95)
 warnings: 28 frames in 2 ranges (list in camera_report.txt)
 
 Loop:
-  round 1: 458 frames with CRITICAL failures in 8 shots (0, 2, 3, 4, 7, 8, 14, 19)
-  round 2: 304 frames with CRITICAL failures in 6 shots (2, 3, 4, 8, 14, 19)
-  round 3: 229 frames with CRITICAL failures in 4 shots (2, 3, 8, 14)
+  round 1: 484 frames with CRITICAL failures in 8 shots (0, 2, 3, 4, 7, 8, 14, 19)
+  round 2: 338 frames with CRITICAL failures in 6 shots (2, 3, 4, 8, 14, 19)
+  round 3: 262 frames with CRITICAL failures in 4 shots (2, 3, 8, 14)
   round 4: 119 frames with CRITICAL failures in 1 shots (14)
-  round 5: 90 frames with CRITICAL failures in 1 shots (14)
-  assembled the best round of every shot: 17 frames with CRITICAL failures
+  round 5: 119 frames with CRITICAL failures in 1 shots (14)
+  assembled the best round of every shot: 43 frames with CRITICAL failures
   fly transitions that still failed became cuts: 0; clipping whips panned the other way: 0, became cuts: 0
-  flight polish (look timing per failing flight): 17 frames with CRITICAL failures (0 flights cleared)
-  kept the assembled track (17 CRITICAL frames)
+  flight polish (look timing per failing flight): 43 frames with CRITICAL failures (0 flights cleared)
+  kept the assembled track (43 CRITICAL frames)
 
 Shots (candidate chosen, score):
   shot  0    0.00-  3.77 s  medium az-30 (score 25: 1/5 blocked)
@@ -72,7 +72,7 @@ Shots (candidate chosen, score):
   shot 11   34.14- 35.90 s  medium base (score 0)
   shot 12   35.90- 40.27 s  medium az+30 (score 3)
   shot 13   40.27- 43.07 s  medium base (score 0)
-  shot 14   43.07- 47.01 s  wide   az-30 (score 43: too small)
+  shot 14   43.07- 47.01 s  wide   lower (score 42: cut off right)
   shot 15   47.01- 51.99 s  wide   base (score 0)
   shot 16   51.99- 55.21 s  medium track az-60 (score 6)
   shot 17   55.21- 58.13 s  medium track az180 (score 40: 1/5 blocked)
