@@ -76,7 +76,7 @@ const S = STEPHEN_AT, F = FORMOSUS_AT;
 
 export const SHOTS: Shot[] = [
   // 1 "Rome. 897. The strangest trial in history is about to begin." the nave, the bishops filing in, the empty throne
-  { name: "hall", at: 0, look: "cool", keys: K([2.2, 2.6, BENCH_Z - 2.5], [0, 1.3, -9]) },   // from behind the bench: the bishops walk toward us
+  { name: "hall", at: 0, look: "cool", keys: K([1.8, 2.4, BENCH_Z + 4], [0, 1.3, -8]) },   // in front of the bench, looking down the nave: the bishops walk toward us
   // 2 "The judge? Pope Stephen the Sixth." Stephen on his high seat
   { name: "stephen", at: land(2), look: "lamp", keys: K(at(S, 4.5, 1.0, 3.2), at(S, 0, 1.3, 0)) },
   // 3 "The defendant? The pope before him... Formosus. Who had been dead... for months." the reveal; the bishops recoil

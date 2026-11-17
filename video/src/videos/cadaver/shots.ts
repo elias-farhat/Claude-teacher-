@@ -12,7 +12,7 @@ export const SHOT_SPECS: ShotSpec[] = [
   { t0: wtn(3, "The", 1) - 2 / 30, subjects: ["c:formosus"], size: "wide", move: "push", enter: "cut", note: "3 the pope before him... Formosus (the reveal)" },
   { t0: land(3, "dead"), subjects: ["c:/^bishop[12]$/"], size: "medium", move: "push", enter: "cut", note: "3 dead for months: the bishops recoil" },
   { t0: land(4), subjects: ["c:stephen"], size: "medium", move: "drift", enter: "cut", note: "4 but Stephen didn't care" },
-  { t0: land(4, "He"), subjects: ["c:/^monk[01]$/"], size: "medium", move: "push", enter: "cut", note: "4 he had the body dug up: the monks at the grave" },
+  { t0: land(4, "He"), subjects: ["c:/^monk[01]$/"], size: "wide", move: "push", enter: "cut", note: "4 he had the body dug up: the monks at the grave" },
   { t0: land(5), subjects: ["c:formosus", "c:/^monkD[01]$/"], size: "medium", move: "push", enter: "cut", note: "5 they dressed the corpse and sat him on a throne" },
   { t0: land(6), subjects: ["c:stephen"], size: "medium", move: "push", enter: "cut", note: "6 the charge? (Stephen points with the scroll)" },
   { t0: land(6, "Becoming"), subjects: ["c:/^bishop[12]$/"], size: "medium", move: "push", enter: "cut", note: "6 becoming pope illegally: the bishops whisper" },

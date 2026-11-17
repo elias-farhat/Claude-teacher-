@@ -59,7 +59,8 @@ export const mitre = (col = "#f4f0e6") => {
   const g = new THREE.Group(), R = HEAD_R, m = (c: string) => twoTone(new THREE.MeshLambertMaterial({ color: new THREE.Color(c), side: THREE.DoubleSide }));
   const w = R * 0.92, h = R * 2.3, sh = new THREE.Shape();
   for (const [px, py] of [[-w, 0], [w, 0], [w * 0.97, h * 0.42], [w * 0.8, h * 0.68], [w * 0.5, h * 0.88], [0, h], [-w * 0.5, h * 0.88], [-w * 0.8, h * 0.68], [-w * 0.97, h * 0.42]] as [number, number][]) { if (px === -w && py === 0) sh.moveTo(px, py); else sh.lineTo(px, py); } sh.closePath();   // a plain polygon (the curved outline lost its caps when triangulated: hollow mitres)
-  const body = new THREE.Mesh(new THREE.ExtrudeGeometry(sh, { depth: R * 0.9, bevelEnabled: false }).translate(0, 0, -R * 0.45), m(col)); g.add(body);
+  const body = new THREE.Mesh(new THREE.BoxGeometry(w * 2, h * 0.5, R * 0.9), m(col)); body.position.y = h * 0.25; g.add(body);
+  const top = new THREE.Mesh(new THREE.ConeGeometry(w * Math.SQRT2, h * 0.5, 4, 1).rotateY(Math.PI / 4).scale(1, 1, (R * 0.9) / (w * 2)), m(col)); top.position.y = h * 0.75; g.add(top); void sh;
   const band = new THREE.Mesh(new THREE.BoxGeometry(w * 2.06, R * 0.18, R * 0.96), m("#d9a43a")); band.position.y = R * 0.09; g.add(band);
   const cr = new THREE.Mesh(new THREE.BoxGeometry(R * 0.14, h * 0.5, R * 0.04), m("#d9a43a")); cr.position.set(0, h * 0.45, R * 0.47); g.add(cr);
   g.traverse((o) => { const me = o as THREE.Mesh; if (me.isMesh) { me.castShadow = true; me.receiveShadow = true; } });
@@ -142,7 +143,9 @@ const buildTop = (o: Outfit, sideburns: boolean): THREE.Group => {
       const w = R * 0.92, h = R * 2.3, sh = new THREE.Shape();
       for (const [px, py] of [[-w, 0], [w, 0], [w * 0.97, h * 0.42], [w * 0.8, h * 0.68], [w * 0.5, h * 0.88], [0, h], [-w * 0.5, h * 0.88], [-w * 0.8, h * 0.68], [-w * 0.97, h * 0.42]] as [number, number][]) { if (px === -w && py === 0) sh.moveTo(px, py); else sh.lineTo(px, py); } sh.closePath();   // a plain polygon (the curved outline lost its caps when triangulated: hollow mitres)
       const mm = m(o.cap ?? "#f4f0e6", THREE.DoubleSide), gold = m("#d9a43a");
-      add(new THREE.ExtrudeGeometry(sh, { depth: R * 0.9, bevelEnabled: false }).translate(0, 0, -R * 0.45), mm, [0, R * 0.55, 0]);
+      // solid geometry (an extruded outline rendered hollow): a body box and a four-sided pointed top
+      add(new THREE.BoxGeometry(w * 2, h * 0.5, R * 0.9), mm, [0, R * 0.55 + h * 0.25, 0]);
+      add(new THREE.ConeGeometry(w * Math.SQRT2, h * 0.5, 4, 1).rotateY(Math.PI / 4).scale(1, 1, (R * 0.9) / (w * 2)), mm, [0, R * 0.55 + h * 0.75, 0]);
       add(new THREE.BoxGeometry(w * 2.06, R * 0.18, R * 0.96), gold, [0, R * 0.64, 0]);
       add(new THREE.BoxGeometry(R * 0.14, h * 0.5, R * 0.04), gold, [0, R * 0.55 + h * 0.45, R * 0.47]);
       add(new THREE.BoxGeometry(R * 0.5, R * 0.12, R * 0.04), gold, [0, R * 0.55 + h * 0.55, R * 0.47]);
