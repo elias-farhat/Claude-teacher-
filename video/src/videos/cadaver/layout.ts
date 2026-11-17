@@ -16,7 +16,7 @@ export const BENCH_Z = -23;                                 // the bishops' benc
 export const DOOR = V(0, 0, NAVE.z1);
 export const PIAZZA = V(0, 0, 24);
 export const GRAVE = V(-200, 0, 0);
-export const RIVER = { x: 203, bankX: 200, y: -1.4 };        // the Tiber: the bank edge at x 200, water beyond
+export const RIVER = { x: 203, bankX: 200, y: 0.01 };        // the Tiber: the bank edge at x 200, water beyond   // above the world grass (y -0.02), which hid the water in run 42
 export const BANK = V(198, 0, 0);
 export const insideRoom = (p: THREE.Vector3): string | null =>
   p.x > NAVE.x0 && p.x < NAVE.x1 && p.z > NAVE.z0 && p.z < NAVE.z1 && p.y < NAVE.h ? "nave" : null;

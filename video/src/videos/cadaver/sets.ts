@@ -108,10 +108,13 @@ export function buildSets(R: THREE.Group, kit: Kit): Sets {
   // ---- the Tiber: the stone bank, the river, the far bank with houses ----
   { bx(stoneD, RIVER.bankX - 30, -3, -40, RIVER.bankX, -0.01, 40, 2.5);
     ground(b, cobble, RIVER.bankX - 30, RIVER.bankX, -40, 40, 0.0, 6);
-    b.add(new THREE.PlaneGeometry(60, 80).rotateX(-Math.PI / 2).translate(RIVER.bankX + 30, RIVER.y, 0), lam("cdRiver", () => ({ map: rep(waterTex(), 10, 14), color: "#9ab4b0" })));
-    bx(stoneD, RIVER.bankX + 60, -3, -40, RIVER.bankX + 90, 0, 40, 2.5);
-    for (let z = -36; z < 40; z += 7.5) add(houses[Math.floor(r() * 3)], RIVER.bankX + 66, 0, z, 3.2, -Math.PI / 2);
-    for (let z = -30; z < 32; z += 3) add("iron-fence", RIVER.bankX - 0.3, 0, z, 1.6, Math.PI / 2);
+    // the far bank sits 14 m across (run 42 / first fix: 60 m away it faded into an empty grey sky behind the monks)
+    b.add(new THREE.PlaneGeometry(14, 80).rotateX(-Math.PI / 2).translate(RIVER.bankX + 7, RIVER.y, 0), lam("cdRiver", () => ({ map: rep(waterTex(), 3, 14), color: "#9ab4b0" })));
+    bx(stoneD, RIVER.bankX + 14, -3, -40, RIVER.bankX + 44, 0.5, 40, 2.5);
+    for (let z = -36; z < 40; z += 5.5) add(houses[Math.floor(r() * 3)], RIVER.bankX + 18.5, 0.5, z, 3.2, -Math.PI / 2);
+    for (let z = -33; z < 40; z += 6.5) add(houses[Math.floor(r() * 3)], RIVER.bankX + 25, 0.5, z, 3.8, -Math.PI / 2);
+    for (let z = -30; z < 40; z += 9) add("tree_pineTallA_detailed", RIVER.bankX + 15.5, 0.5, z + 2, 2.4, 0);
+    // (no railing on the bank edge: in run 42 it stood between the camera and the monks)
     for (const [n, x, z, s, ro] of [["barrel", BANK.x - 3, -4, 0.6, 0], ["cart", BANK.x - 6, 5, 2.2, 1.2], ["crate", BANK.x - 4, 3.2, 1.0, 0.4]] as [string, number, number, number, number][]) add(n, x, 0.02, z, s, ro); }
   b.build(R);
 

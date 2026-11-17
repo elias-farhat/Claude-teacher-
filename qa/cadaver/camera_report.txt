@@ -1,11 +1,12 @@
-warning    3.40-  3.83 s  f102-114  SUBJECT   c:/^bishop[12]$/     cut off right (1.35)
-warning    3.47-  3.67 s  f104-109  FACES     c:/^bishop[12]$/(bishop1) head cut at the right edge
-warning    3.67-  3.77 s  f110-112  FACES     c:/^bishop[12]$/(bishop2) head cut at the right edge
-warning    3.80-  3.83 s  f114-114  FACES     c:/^bishop[12]$/(bishop1) head cut at the right edge
-warning    3.80-  3.87 s  f114-115  FACES     c:/^bishop[12]$/(bishop1) head (hat) touches the top edge (4.1 %)
-warning    3.83-  3.87 s  f115-115  SUBJECT   c:/^bishop[12]$/     cut off top (0.03)
-warning    3.87-  3.90 s  f116-116  SUBJECT   c:/^bishop[12]$/     cut off left (0.05)
-warning   33.90- 34.83 s  f1017-1044  SUBJECT   c:deacon             not on stage
-warning   34.50- 34.83 s  f1035-1044  FACES     c:formosus           face 100 % covered by something in front
-warning   34.60- 34.83 s  f1038-1044  OCCLUSION c:formosus           4/5 rays blocked for 11 frames
-warning   34.73- 34.83 s  f1042-1044  EMPTY                          none of c:formosus, c:deacon, ?c:formosus in view
+warning    1.63-  1.93 s  f49-57  SUBJECT   c:/^bishop[12]$/     out of frame (x 1.58..2.12, y 0.23..0.59)
+warning    1.87-  1.97 s  f56-58  SUBJECT   w:throne             cut off left (-0.45)
+warning    1.93-  2.00 s  f58-59  SUBJECT   c:/^bishop[12]$/     cut off right (1.38)
+warning    1.93-  2.13 s  f58-63  SUBJECT   c:/^bishop[12]$/     too small (5 % of frame height, needs 30 %)
+warning    1.97-  2.17 s  f59-64  SUBJECT   w:throne             out of frame (x -5.66..-0.65, y -0.09..1.38)
+warning    2.00-  2.50 s  f60-74  SUBJECT   c:/^bishop[12]$/     cut off left (-0.73)
+warning    2.13-  2.23 s  f64-66  FACES     c:/^bishop[12]$/(bishop1) head cut at the left edge
+warning    2.17-  2.57 s  f65-76  SUBJECT   w:throne             cut off left (-0.26)
+warning    2.23-  2.27 s  f67-67  FACES     c:/^bishop[12]$/(bishop1) head (hat) touches the top edge (2.3 %)
+warning    2.40-  2.47 s  f72-73  FACES     c:/^bishop[12]$/(bishop2) head cut at the left edge
+warning    3.27-  3.47 s  f98-103  SUBJECT   c:/^bishop[12]$/     cut off right (1.00)
+warning    3.73-  3.90 s  f112-116  FACES     c:/^bishop[12]$/(bishop1) face 48 % covered by something in front

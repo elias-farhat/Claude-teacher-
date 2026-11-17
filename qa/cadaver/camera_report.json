@@ -3,13 +3,13 @@
  "frames": 2052,
  "pass": true,
  "criticalFrames": 0,
- "warningFrames": 43,
- "seconds": 39.102,
+ "warningFrames": 39,
+ "seconds": 37.975,
  "history": [
-  "round 1: 668 frames with CRITICAL failures in 10 shots (0, 1, 2, 4, 5, 8, 10, 12, 16, 19)",
-  "round 2: 298 frames with CRITICAL failures in 7 shots (0, 1, 2, 4, 5, 10, 16)",
-  "round 3: 25 frames with CRITICAL failures in 2 shots (4, 16)",
-  "round 4: 29 frames with CRITICAL failures in 2 shots (4, 16)",
+  "round 1: 777 frames with CRITICAL failures in 10 shots (1, 3, 5, 6, 9, 11, 13, 17, 20, 25)",
+  "round 2: 271 frames with CRITICAL failures in 6 shots (1, 3, 5, 6, 11, 17)",
+  "round 3: 43 frames with CRITICAL failures in 3 shots (1, 5, 17)",
+  "round 4: 48 frames with CRITICAL failures in 3 shots (1, 5, 17)",
   "round 5: 0 frames with CRITICAL failures in 0 shots",
   "assembled the best round of every shot: 0 frames with CRITICAL failures"
  ],
@@ -17,12 +17,12 @@
   {
    "rule": "SUBJECT",
    "critical": 0,
-   "warning": 43
+   "warning": 34
   },
   {
    "rule": "OCCLUSION",
    "critical": 0,
-   "warning": 7
+   "warning": 0
   },
   {
    "rule": "CLIPPING",
@@ -32,12 +32,12 @@
   {
    "rule": "EMPTY",
    "critical": 0,
-   "warning": 3
+   "warning": 0
   },
   {
    "rule": "FACES",
    "critical": 0,
-   "warning": 21
+   "warning": 11
   },
   {
    "rule": "XCU",
@@ -61,1405 +61,1362 @@
    "critical": false,
    "subject": "c:/^bishop[12]$/",
    "shot": 1,
-   "from": 102,
-   "to": 114,
-   "worst": 114,
-   "detail": "cut off right (1.35)",
-   "t0": 3.4,
-   "t1": 3.83
+   "from": 49,
+   "to": 57,
+   "worst": 56,
+   "detail": "out of frame (x 1.58..2.12, y 0.23..0.59)",
+   "t0": 1.63,
+   "t1": 1.93
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "w:throne",
+   "shot": 1,
+   "from": 56,
+   "to": 58,
+   "worst": 58,
+   "detail": "cut off left (-0.45)",
+   "t0": 1.87,
+   "t1": 1.97
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:/^bishop[12]$/",
+   "shot": 1,
+   "from": 58,
+   "to": 59,
+   "worst": 58,
+   "detail": "cut off right (1.38)",
+   "t0": 1.93,
+   "t1": 2
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:/^bishop[12]$/",
+   "shot": 1,
+   "from": 58,
+   "to": 63,
+   "worst": 58,
+   "detail": "too small (5 % of frame height, needs 30 %)",
+   "t0": 1.93,
+   "t1": 2.13
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "w:throne",
+   "shot": 1,
+   "from": 59,
+   "to": 64,
+   "worst": 59,
+   "detail": "out of frame (x -5.66..-0.65, y -0.09..1.38)",
+   "t0": 1.97,
+   "t1": 2.17
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "c:/^bishop[12]$/",
+   "shot": 1,
+   "from": 60,
+   "to": 74,
+   "worst": 60,
+   "detail": "cut off left (-0.73)",
+   "t0": 2,
+   "t1": 2.5
   },
   {
    "rule": "FACES",
    "critical": false,
    "subject": "c:/^bishop[12]$/(bishop1)",
    "shot": 1,
-   "from": 104,
-   "to": 109,
-   "worst": 104,
-   "detail": "head cut at the right edge",
-   "t0": 3.47,
-   "t1": 3.67
+   "from": 64,
+   "to": 66,
+   "worst": 64,
+   "detail": "head cut at the left edge",
+   "t0": 2.13,
+   "t1": 2.23
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "w:throne",
+   "shot": 1,
+   "from": 65,
+   "to": 76,
+   "worst": 65,
+   "detail": "cut off left (-0.26)",
+   "t0": 2.17,
+   "t1": 2.57
+  },
+  {
+   "rule": "FACES",
+   "critical": false,
+   "subject": "c:/^bishop[12]$/(bishop1)",
+   "shot": 1,
+   "from": 67,
+   "to": 67,
+   "worst": 67,
+   "detail": "head (hat) touches the top edge (2.3 %)",
+   "t0": 2.23,
+   "t1": 2.27
   },
   {
    "rule": "FACES",
    "critical": false,
    "subject": "c:/^bishop[12]$/(bishop2)",
    "shot": 1,
-   "from": 110,
-   "to": 112,
-   "worst": 110,
-   "detail": "head cut at the right edge",
-   "t0": 3.67,
-   "t1": 3.77
-  },
-  {
-   "rule": "FACES",
-   "critical": false,
-   "subject": "c:/^bishop[12]$/(bishop1)",
-   "shot": 1,
-   "from": 114,
-   "to": 114,
-   "worst": 114,
-   "detail": "head cut at the right edge",
-   "t0": 3.8,
-   "t1": 3.83
-  },
-  {
-   "rule": "FACES",
-   "critical": false,
-   "subject": "c:/^bishop[12]$/(bishop1)",
-   "shot": 1,
-   "from": 114,
-   "to": 115,
-   "worst": 114,
-   "detail": "head (hat) touches the top edge (4.1 %)",
-   "t0": 3.8,
-   "t1": 3.87
+   "from": 72,
+   "to": 73,
+   "worst": 72,
+   "detail": "head cut at the left edge",
+   "t0": 2.4,
+   "t1": 2.47
   },
   {
    "rule": "SUBJECT",
    "critical": false,
    "subject": "c:/^bishop[12]$/",
-   "shot": 1,
-   "from": 115,
-   "to": 115,
-   "worst": 115,
-   "detail": "cut off top (0.03)",
-   "t0": 3.83,
-   "t1": 3.87
+   "shot": 2,
+   "from": 98,
+   "to": 103,
+   "worst": 98,
+   "detail": "cut off right (1.00)",
+   "t0": 3.27,
+   "t1": 3.47
   },
   {
-   "rule": "SUBJECT",
+   "rule": "FACES",
    "critical": false,
-   "subject": "c:/^bishop[12]$/",
-   "shot": 1,
-   "from": 116,
+   "subject": "c:/^bishop[12]$/(bishop1)",
+   "shot": 2,
+   "from": 112,
    "to": 116,
-   "worst": 116,
-   "detail": "cut off left (0.05)",
-   "t0": 3.87,
+   "worst": 112,
+   "detail": "face 48 % covered by something in front",
+   "t0": 3.73,
    "t1": 3.9
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:deacon",
-   "shot": 12,
-   "from": 1017,
-   "to": 1044,
-   "worst": 1042,
-   "detail": "not on stage",
-   "t0": 33.9,
-   "t1": 34.83
-  },
-  {
-   "rule": "FACES",
-   "critical": false,
-   "subject": "c:formosus",
-   "shot": 12,
-   "from": 1035,
-   "to": 1044,
-   "worst": 1042,
-   "detail": "face 100 % covered by something in front",
-   "t0": 34.5,
-   "t1": 34.83
-  },
-  {
-   "rule": "OCCLUSION",
-   "critical": false,
-   "subject": "c:formosus",
-   "shot": 12,
-   "from": 1038,
-   "to": 1044,
-   "worst": 1042,
-   "detail": "4/5 rays blocked for 11 frames",
-   "t0": 34.6,
-   "t1": 34.83
-  },
-  {
-   "rule": "EMPTY",
-   "critical": false,
-   "subject": null,
-   "shot": 12,
-   "from": 1042,
-   "to": 1044,
-   "worst": 1042,
-   "detail": "none of c:formosus, c:deacon, ?c:formosus in view",
-   "t0": 34.73,
-   "t1": 34.83
   }
  ],
  "frames_failing": [
   {
-   "f": 102,
-   "t": 3.4,
+   "f": 49,
+   "t": 1.633,
    "shot": 1,
    "flight": true,
    "subjects": [
-    "c:/^bishop[12]$/"
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "c:/^bishop[12]$/",
-     "detail": "cut off right (0.96)",
+     "detail": "out of frame (x 1.59..2.05, y 0.24..0.56)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.7028,
-    0.2676,
-    0.941,
-    0.4581
+    0.339,
+    0.1944,
+    0.7723,
+    0.5844
    ]
   },
   {
-   "f": 103,
-   "t": 3.433,
+   "f": 50,
+   "t": 1.667,
    "shot": 1,
    "flight": true,
    "subjects": [
-    "c:/^bishop[12]$/"
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "c:/^bishop[12]$/",
-     "detail": "cut off right (1.01)",
+     "detail": "out of frame (x 1.58..2.06, y 0.24..0.57)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.7289,
-    0.2653,
-    0.9823,
-    0.4632
+    0.3386,
+    0.1937,
+    0.773,
+    0.5846
    ]
   },
   {
-   "f": 104,
-   "t": 3.467,
+   "f": 51,
+   "t": 1.7,
    "shot": 1,
    "flight": true,
    "subjects": [
-    "c:/^bishop[12]$/"
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "c:/^bishop[12]$/",
-     "detail": "cut off right (1.06)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:/^bishop[12]$/(bishop1)",
-     "detail": "head cut at the right edge",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0.7606,
-    0.2609,
-    1,
-    0.4673
-   ]
-  },
-  {
-   "f": 105,
-   "t": 3.5,
-   "shot": 1,
-   "flight": true,
-   "subjects": [
-    "c:/^bishop[12]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^bishop[12]$/",
-     "detail": "cut off right (1.12)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:/^bishop[12]$/(bishop1)",
-     "detail": "head cut at the right edge",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0.7986,
-    0.2541,
-    1,
-    0.4697
-   ]
-  },
-  {
-   "f": 106,
-   "t": 3.533,
-   "shot": 1,
-   "flight": true,
-   "subjects": [
-    "c:/^bishop[12]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^bishop[12]$/",
-     "detail": "cut off right (1.19)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:/^bishop[12]$/(bishop1)",
-     "detail": "head cut at the right edge",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0.8426,
-    0.244,
-    1,
-    0.4694
-   ]
-  },
-  {
-   "f": 107,
-   "t": 3.567,
-   "shot": 1,
-   "flight": true,
-   "subjects": [
-    "c:/^bishop[12]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^bishop[12]$/",
-     "detail": "cut off right (1.27)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:/^bishop[12]$/(bishop1)",
-     "detail": "head cut at the right edge",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0.8912,
-    0.2295,
-    1,
-    0.4648
-   ]
-  },
-  {
-   "f": 108,
-   "t": 3.6,
-   "shot": 1,
-   "flight": true,
-   "subjects": [
-    "c:/^bishop[12]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^bishop[12]$/",
-     "detail": "cut off right (1.35)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:/^bishop[12]$/(bishop1)",
-     "detail": "head cut at the right edge",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0.9408,
-    0.2092,
-    1,
-    0.4541
-   ]
-  },
-  {
-   "f": 109,
-   "t": 3.633,
-   "shot": 1,
-   "flight": true,
-   "subjects": [
-    "c:/^bishop[12]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^bishop[12]$/",
-     "detail": "cut off right (1.43)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:/^bishop[12]$/(bishop1)",
-     "detail": "head cut at the right edge",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": null
-  },
-  {
-   "f": 110,
-   "t": 3.667,
-   "shot": 1,
-   "flight": true,
-   "subjects": [
-    "c:/^bishop[12]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^bishop[12]$/",
-     "detail": "cut off right (2.03)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:/^bishop[12]$/(bishop2)",
-     "detail": "head cut at the right edge",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0.6408,
-    0.2392,
-    1,
-    0.5107
-   ]
-  },
-  {
-   "f": 111,
-   "t": 3.7,
-   "shot": 1,
-   "flight": true,
-   "subjects": [
-    "c:/^bishop[12]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^bishop[12]$/",
-     "detail": "cut off right (1.98)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:/^bishop[12]$/(bishop2)",
-     "detail": "head cut at the right edge",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0.6701,
-    0.2057,
-    1,
-    0.4854
-   ]
-  },
-  {
-   "f": 112,
-   "t": 3.733,
-   "shot": 1,
-   "flight": true,
-   "subjects": [
-    "c:/^bishop[12]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^bishop[12]$/",
-     "detail": "cut off right (1.79)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:/^bishop[12]$/(bishop2)",
-     "detail": "head cut at the right edge",
-     "critical": false
-    }
-   ],
-   "score": 0.6000000000000001,
-   "box": [
-    0.6349,
-    0.1606,
-    1,
-    0.4463
-   ]
-  },
-  {
-   "f": 113,
-   "t": 3.767,
-   "shot": 1,
-   "flight": true,
-   "subjects": [
-    "c:/^bishop[12]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^bishop[12]$/",
-     "detail": "cut off right (1.50)",
+     "detail": "out of frame (x 1.58..2.07, y 0.24..0.58)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.5348,
-    0.124,
-    0.9152,
-    0.4121
+    0.3371,
+    0.1911,
+    0.7754,
+    0.5854
    ]
   },
   {
-   "f": 114,
-   "t": 3.8,
+   "f": 52,
+   "t": 1.733,
    "shot": 1,
    "flight": true,
    "subjects": [
-    "c:/^bishop[12]$/"
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "c:/^bishop[12]$/",
-     "detail": "cut off right (1.18)",
+     "detail": "out of frame (x 1.59..2.10, y 0.24..0.59)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.3324,
+    0.1849,
+    0.779,
+    0.5865
+   ]
+  },
+  {
+   "f": 53,
+   "t": 1.767,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "out of frame (x 1.58..2.12, y 0.23..0.59)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.3078,
+    0.167,
+    0.7693,
+    0.5812
+   ]
+  },
+  {
+   "f": 54,
+   "t": 1.8,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "out of frame (x 1.55..2.12, y 0.19..0.58)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.2431,
+    0.1278,
+    0.7293,
+    0.5627
+   ]
+  },
+  {
+   "f": 55,
+   "t": 1.833,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "out of frame (x 1.48..2.09, y 0.13..0.54)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.1196,
+    0.0603,
+    0.6458,
+    0.5279
+   ]
+  },
+  {
+   "f": 56,
+   "t": 1.867,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:throne",
+     "detail": "cut off left (-0.09)",
      "critical": false
     },
     {
-     "rule": "FACES",
-     "subject": "c:/^bishop[12]$/(bishop1)",
-     "detail": "head cut at the right edge",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:/^bishop[12]$/(bishop1)",
-     "detail": "head (hat) touches the top edge (2.9 %)",
+     "rule": "SUBJECT",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "out of frame (x 1.37..2.03, y 0.04..0.47)",
      "critical": false
     }
    ],
    "score": 0.8,
    "box": [
-    0.8129,
-    0.0295,
-    1,
-    0.2774
+    0,
+    0,
+    0.5026,
+    0.4774
    ]
   },
   {
-   "f": 115,
-   "t": 3.833,
+   "f": 57,
+   "t": 1.9,
    "shot": 1,
    "flight": true,
    "subjects": [
-    "c:/^bishop[12]$/"
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
+     "subject": "w:throne",
+     "detail": "cut off left (-0.45)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
      "subject": "c:/^bishop[12]$/",
-     "detail": "cut off top (0.03)",
+     "detail": "out of frame (x 1.21..1.92, y -0.10..0.38)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0,
+    0,
+    0.3134,
+    0.4166
+   ]
+  },
+  {
+   "f": 58,
+   "t": 1.933,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:throne",
+     "detail": "cut off left (-1.11)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "cut off right (1.74)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "too small (26 % of frame height, needs 30 %)",
+     "critical": false
+    }
+   ],
+   "score": 1.2000000000000002,
+   "box": [
+    0,
+    0,
+    0.0265,
+    0.3629
+   ]
+  },
+  {
+   "f": 59,
+   "t": 1.967,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:throne",
+     "detail": "out of frame (x -2.45..-0.41, y -0.63..0.40)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "cut off right (1.38)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "too small (11 % of frame height, needs 30 %)",
+     "critical": false
+    }
+   ],
+   "score": 1.2000000000000002,
+   "box": null
+  },
+  {
+   "f": 60,
+   "t": 2,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:throne",
+     "detail": "out of frame (x -4.98..-0.90, y -0.73..0.68)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "cut off left (-0.20)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "too small (2 % of frame height, needs 30 %)",
+     "critical": false
+    }
+   ],
+   "score": 1.2000000000000002,
+   "box": null
+  },
+  {
+   "f": 61,
+   "t": 2.033,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:throne",
+     "detail": "out of frame (x -7.45..-0.93, y -0.48..1.13)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "cut off left (-1.00)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "too small (5 % of frame height, needs 30 %)",
+     "critical": false
+    }
+   ],
+   "score": 1.2000000000000002,
+   "box": null
+  },
+  {
+   "f": 62,
+   "t": 2.067,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:throne",
+     "detail": "out of frame (x -5.66..-0.65, y -0.09..1.38)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "cut off left (-1.39)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "too small (14 % of frame height, needs 30 %)",
+     "critical": false
+    }
+   ],
+   "score": 1.2000000000000002,
+   "box": null
+  },
+  {
+   "f": 63,
+   "t": 2.1,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:throne",
+     "detail": "out of frame (x -4.14..-0.33, y 0.18..1.40)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "cut off left (-1.43)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "too small (27 % of frame height, needs 30 %)",
+     "critical": false
+    }
+   ],
+   "score": 1.2000000000000002,
+   "box": null
+  },
+  {
+   "f": 64,
+   "t": 2.133,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:throne",
+     "detail": "out of frame (x -2.69..-0.09, y 0.31..1.32)",
      "critical": false
     },
     {
      "rule": "FACES",
      "subject": "c:/^bishop[12]$/(bishop1)",
-     "detail": "head (hat) touches the top edge (4.1 %)",
+     "detail": "head cut at the left edge",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "cut off left (-1.30)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:/^bishop[12]$/(bishop1)",
+     "detail": "head cut at the left edge",
      "critical": false
     }
    ],
-   "score": 0.6000000000000001,
-   "box": [
-    0.5894,
-    0.0406,
-    0.8738,
-    0.2797
-   ]
+   "score": 1.2,
+   "box": null
   },
   {
-   "f": 116,
-   "t": 3.867,
+   "f": 65,
+   "t": 2.167,
    "shot": 1,
    "flight": true,
    "subjects": [
-    "c:/^bishop[12]$/"
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:throne",
+     "detail": "cut off left (-1.75)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:/^bishop[12]$/(bishop1)",
+     "detail": "head cut at the left edge",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "cut off left (-1.10)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:/^bishop[12]$/(bishop1)",
+     "detail": "head cut at the left edge",
+     "critical": false
+    }
+   ],
+   "score": 1.2,
+   "box": [
+    0,
+    0.3735,
+    0.073,
+    1
+   ]
+  },
+  {
+   "f": 66,
+   "t": 2.2,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:throne",
+     "detail": "cut off left (-1.18)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:/^bishop[12]$/(bishop1)",
+     "detail": "head cut at the left edge",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "cut off left (-0.90)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:/^bishop[12]$/(bishop1)",
+     "detail": "head cut at the left edge",
+     "critical": false
+    }
+   ],
+   "score": 1.2,
+   "box": [
+    0,
+    0.4035,
+    0.1815,
+    1
+   ]
+  },
+  {
+   "f": 67,
+   "t": 2.233,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:throne",
+     "detail": "cut off left (-0.83)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "cut off left (-0.73)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:/^bishop[12]$/(bishop1)",
+     "detail": "head (hat) touches the top edge (2.3 %)",
+     "critical": false
+    }
+   ],
+   "score": 1,
+   "box": [
+    0,
+    0.4186,
+    0.2548,
+    1
+   ]
+  },
+  {
+   "f": 68,
+   "t": 2.267,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:throne",
+     "detail": "cut off left (-0.60)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "cut off left (-0.58)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0,
+    0.4229,
+    0.3049,
+    1
+   ]
+  },
+  {
+   "f": 69,
+   "t": 2.3,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:throne",
+     "detail": "cut off left (-0.44)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "cut off left (-0.45)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0,
+    0.4218,
+    0.3397,
+    0.9963
+   ]
+  },
+  {
+   "f": 70,
+   "t": 2.333,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:throne",
+     "detail": "cut off left (-0.33)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "cut off left (-0.33)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0,
+    0.421,
+    0.3736,
+    0.9718
+   ]
+  },
+  {
+   "f": 71,
+   "t": 2.367,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:throne",
+     "detail": "cut off left (-0.26)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "cut off left (-0.23)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0,
+    0.4206,
+    0.3976,
+    0.9535
+   ]
+  },
+  {
+   "f": 72,
+   "t": 2.4,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:throne",
+     "detail": "cut off left (-0.21)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:/^bishop[12]$/(bishop2)",
+     "detail": "head cut at the left edge",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "cut off left (-0.15)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:/^bishop[12]$/(bishop2)",
+     "detail": "head cut at the left edge",
+     "critical": false
+    }
+   ],
+   "score": 1.2,
+   "box": [
+    0,
+    0.4203,
+    0.4136,
+    0.9404
+   ]
+  },
+  {
+   "f": 73,
+   "t": 2.433,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:throne",
+     "detail": "cut off left (-0.18)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:/^bishop[12]$/(bishop2)",
+     "detail": "head cut at the left edge",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "cut off left (-0.07)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:/^bishop[12]$/(bishop2)",
+     "detail": "head cut at the left edge",
+     "critical": false
+    }
+   ],
+   "score": 1.2,
+   "box": [
+    0,
+    0.4201,
+    0.4237,
+    0.9316
+   ]
+  },
+  {
+   "f": 74,
+   "t": 2.467,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:throne",
+     "detail": "cut off left (-0.17)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "cut off left (0.01)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0,
+    0.42,
+    0.4296,
+    0.9264
+   ]
+  },
+  {
+   "f": 75,
+   "t": 2.5,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:throne",
+     "detail": "cut off left (-0.16)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0,
+    0.42,
+    0.4323,
+    0.9239
+   ]
+  },
+  {
+   "f": 76,
+   "t": 2.533,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "w:throne",
+    "?c:/^bishop[12]$/",
+    "c:/^bishop[12]$/",
+    "?w:throne"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:throne",
+     "detail": "cut off left (-0.16)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0,
+    0.42,
+    0.4331,
+    0.9232
+   ]
+  },
+  {
+   "f": 98,
+   "t": 3.267,
+   "shot": 2,
+   "flight": true,
+   "subjects": [
+    "c:/^bishop[12]$/",
+    "?w:throne"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
      "subject": "c:/^bishop[12]$/",
-     "detail": "cut off left (0.05)",
+     "detail": "cut off right (0.98)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.4049,
-    0.0701,
-    0.6645,
-    0.301
+    0.7057,
+    0.1294,
+    0.9518,
+    0.3225
    ]
   },
   {
-   "f": 1017,
-   "t": 33.9,
-   "shot": 12,
+   "f": 99,
+   "t": 3.3,
+   "shot": 2,
    "flight": true,
    "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
+    "c:/^bishop[12]$/",
+    "?w:throne"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "cut off right (1.00)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.4232,
-    0.1009,
-    0.6964,
-    0.3767
+    0.7243,
+    0.1255,
+    0.9721,
+    0.319
    ]
   },
   {
-   "f": 1018,
-   "t": 33.933,
-   "shot": 12,
+   "f": 100,
+   "t": 3.333,
+   "shot": 2,
    "flight": true,
    "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
+    "c:/^bishop[12]$/",
+    "?w:throne"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "cut off right (1.00)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.4232,
-    0.1008,
-    0.6964,
-    0.3767
+    0.7321,
+    0.1204,
+    0.9807,
+    0.3145
    ]
   },
   {
-   "f": 1019,
-   "t": 33.967,
-   "shot": 12,
+   "f": 101,
+   "t": 3.367,
+   "shot": 2,
    "flight": true,
    "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
+    "c:/^bishop[12]$/",
+    "?w:throne"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "cut off right (1.00)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.423,
-    0.1005,
-    0.6965,
-    0.3766
+    0.7284,
+    0.1141,
+    0.9764,
+    0.3091
    ]
   },
   {
-   "f": 1020,
-   "t": 34,
-   "shot": 12,
+   "f": 102,
+   "t": 3.4,
+   "shot": 2,
    "flight": true,
    "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
+    "c:/^bishop[12]$/",
+    "?w:throne"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "cut off right (0.98)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.4226,
-    0.1,
-    0.6966,
-    0.3766
+    0.7128,
+    0.1072,
+    0.959,
+    0.3031
    ]
   },
   {
-   "f": 1021,
-   "t": 34.033,
-   "shot": 12,
+   "f": 103,
+   "t": 3.433,
+   "shot": 2,
    "flight": true,
    "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
+    "c:/^bishop[12]$/",
+    "?w:throne"
    ],
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
+     "subject": "c:/^bishop[12]$/",
+     "detail": "cut off right (0.95)",
      "critical": false
     }
    ],
    "score": 0.4,
    "box": [
-    0.4219,
-    0.0998,
-    0.6963,
-    0.3766
+    0.6854,
+    0.1003,
+    0.9283,
+    0.2972
    ]
   },
   {
-   "f": 1022,
-   "t": 34.067,
-   "shot": 12,
+   "f": 112,
+   "t": 3.733,
+   "shot": 2,
    "flight": true,
    "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
+    "c:/^bishop[12]$/",
+    "?w:throne"
    ],
    "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.421,
-    0.1007,
-    0.6952,
-    0.377
-   ]
-  },
-  {
-   "f": 1023,
-   "t": 34.1,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.42,
-    0.1042,
-    0.6924,
-    0.3781
-   ]
-  },
-  {
-   "f": 1024,
-   "t": 34.133,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.4191,
-    0.112,
-    0.6869,
-    0.3804
-   ]
-  },
-  {
-   "f": 1025,
-   "t": 34.167,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.4186,
-    0.1254,
-    0.6779,
-    0.3842
-   ]
-  },
-  {
-   "f": 1026,
-   "t": 34.2,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.4189,
-    0.1445,
-    0.6657,
-    0.3896
-   ]
-  },
-  {
-   "f": 1027,
-   "t": 34.233,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.4264,
-    0.1679,
-    0.6574,
-    0.396
-   ]
-  },
-  {
-   "f": 1028,
-   "t": 34.267,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.457,
-    0.1919,
-    0.6703,
-    0.4015
-   ]
-  },
-  {
-   "f": 1029,
-   "t": 34.3,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.5068,
-    0.2066,
-    0.7068,
-    0.4022
-   ]
-  },
-  {
-   "f": 1030,
-   "t": 34.333,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.5612,
-    0.2159,
-    0.7514,
-    0.3991
-   ]
-  },
-  {
-   "f": 1031,
-   "t": 34.367,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.6094,
-    0.2084,
-    0.7986,
-    0.3887
-   ]
-  },
-  {
-   "f": 1032,
-   "t": 34.4,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.6411,
-    0.1936,
-    0.8325,
-    0.3755
-   ]
-  },
-  {
-   "f": 1033,
-   "t": 34.433,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.6453,
-    0.1781,
-    0.839,
-    0.3632
-   ]
-  },
-  {
-   "f": 1034,
-   "t": 34.467,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.6265,
-    0.1603,
-    0.8255,
-    0.3529
-   ]
-  },
-  {
-   "f": 1035,
-   "t": 34.5,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
-     "critical": false
-    },
     {
      "rule": "FACES",
-     "subject": "c:formosus",
+     "subject": "c:/^bishop[12]$/(bishop1)",
      "detail": "face 40 % covered by something in front",
      "critical": false
     }
    ],
-   "score": 0.6000000000000001,
+   "score": 0.2,
    "box": [
-    0.5826,
-    0.1528,
-    0.7828,
-    0.3499
+    0.4126,
+    0.1555,
+    0.5937,
+    0.3292
    ]
   },
   {
-   "f": 1036,
-   "t": 34.533,
-   "shot": 12,
+   "f": 113,
+   "t": 3.767,
+   "shot": 2,
    "flight": true,
    "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
+    "c:/^bishop[12]$/",
+    "?w:throne"
    ],
    "fails": [
     {
-     "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
-     "critical": false
-    },
-    {
      "rule": "FACES",
-     "subject": "c:formosus",
+     "subject": "c:/^bishop[12]$/(bishop1)",
      "detail": "face 60 % covered by something in front",
      "critical": false
     }
    ],
-   "score": 0.6000000000000001,
+   "score": 0.2,
    "box": [
-    0.5299,
-    0.1542,
-    0.7288,
-    0.3528
+    0.3642,
+    0.1707,
+    0.5414,
+    0.3416
    ]
   },
   {
-   "f": 1037,
-   "t": 34.567,
-   "shot": 12,
+   "f": 114,
+   "t": 3.8,
+   "shot": 2,
    "flight": true,
    "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
+    "c:/^bishop[12]$/",
+    "?w:throne"
    ],
    "fails": [
     {
-     "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
-     "critical": false
-    },
-    {
      "rule": "FACES",
-     "subject": "c:formosus",
-     "detail": "face 60 % covered by something in front",
+     "subject": "c:/^bishop[12]$/(bishop1)",
+     "detail": "face 48 % covered by something in front",
      "critical": false
     }
    ],
-   "score": 0.6000000000000001,
+   "score": 0.2,
    "box": [
-    0.4797,
-    0.1608,
-    0.6764,
-    0.3589
+    0.3253,
+    0.1845,
+    0.499,
+    0.3529
    ]
   },
   {
-   "f": 1038,
-   "t": 34.6,
-   "shot": 12,
+   "f": 115,
+   "t": 3.833,
+   "shot": 2,
    "flight": true,
    "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
+    "c:/^bishop[12]$/",
+    "?w:throne"
    ],
    "fails": [
     {
-     "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
-     "critical": false
-    },
-    {
-     "rule": "OCCLUSION",
-     "subject": "c:formosus",
-     "detail": "4/5 rays blocked for 5 frames",
-     "critical": false
-    },
-    {
      "rule": "FACES",
-     "subject": "c:formosus",
-     "detail": "face 80 % covered by something in front",
+     "subject": "c:/^bishop[12]$/(bishop1)",
+     "detail": "face 36 % covered by something in front",
      "critical": false
     }
    ],
-   "score": 1.2,
+   "score": 0.2,
    "box": [
-    0.4365,
-    0.1699,
-    0.6311,
-    0.3661
+    0.2949,
+    0.1965,
+    0.4672,
+    0.3625
    ]
   },
   {
-   "f": 1039,
-   "t": 34.633,
-   "shot": 12,
+   "f": 116,
+   "t": 3.867,
+   "shot": 2,
    "flight": true,
    "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
+    "c:/^bishop[12]$/",
+    "?w:throne"
    ],
    "fails": [
     {
-     "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
-     "critical": false
-    },
-    {
-     "rule": "OCCLUSION",
-     "subject": "c:formosus",
-     "detail": "4/5 rays blocked for 7 frames",
-     "critical": false
-    },
-    {
      "rule": "FACES",
-     "subject": "c:formosus",
-     "detail": "face 80 % covered by something in front",
+     "subject": "c:/^bishop[12]$/(bishop1)",
+     "detail": "face 48 % covered by something in front",
      "critical": false
     }
    ],
-   "score": 1.2,
+   "score": 0.2,
    "box": [
-    0.4029,
-    0.1793,
-    0.5949,
-    0.3731
-   ]
-  },
-  {
-   "f": 1040,
-   "t": 34.667,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
-     "critical": false
-    },
-    {
-     "rule": "OCCLUSION",
-     "subject": "c:formosus",
-     "detail": "4/5 rays blocked for 9 frames",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:formosus",
-     "detail": "face 100 % covered by something in front",
-     "critical": false
-    }
-   ],
-   "score": 1.2,
-   "box": [
-    0.3785,
-    0.1875,
-    0.5682,
-    0.3789
-   ]
-  },
-  {
-   "f": 1041,
-   "t": 34.7,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
-     "critical": false
-    },
-    {
-     "rule": "OCCLUSION",
-     "subject": "c:formosus",
-     "detail": "4/5 rays blocked for 11 frames",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:formosus",
-     "detail": "face 100 % covered by something in front",
-     "critical": false
-    }
-   ],
-   "score": 1.2,
-   "box": [
-    0.3622,
-    0.1936,
-    0.55,
-    0.3832
-   ]
-  },
-  {
-   "f": 1042,
-   "t": 34.733,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
-     "critical": false
-    },
-    {
-     "rule": "OCCLUSION",
-     "subject": "c:formosus",
-     "detail": "5/5 rays blocked for 13 frames",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:formosus",
-     "detail": "face 100 % covered by something in front",
-     "critical": false
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of c:formosus, c:deacon, ?c:formosus in view",
-     "critical": false
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.3523,
-    0.1977,
-    0.5388,
-    0.3859
-   ]
-  },
-  {
-   "f": 1043,
-   "t": 34.767,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
-     "critical": false
-    },
-    {
-     "rule": "OCCLUSION",
-     "subject": "c:formosus",
-     "detail": "5/5 rays blocked for 15 frames",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:formosus",
-     "detail": "face 100 % covered by something in front",
-     "critical": false
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of c:formosus, c:deacon, ?c:formosus in view",
-     "critical": false
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.3474,
-    0.1998,
-    0.5332,
-    0.3874
-   ]
-  },
-  {
-   "f": 1044,
-   "t": 34.8,
-   "shot": 12,
-   "flight": true,
-   "subjects": [
-    "c:formosus",
-    "c:deacon",
-    "?c:formosus"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:deacon",
-     "detail": "not on stage",
-     "critical": false
-    },
-    {
-     "rule": "OCCLUSION",
-     "subject": "c:formosus",
-     "detail": "5/5 rays blocked for 17 frames",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:formosus",
-     "detail": "face 100 % covered by something in front",
-     "critical": false
-    },
-    {
-     "rule": "EMPTY",
-     "detail": "none of c:formosus, c:deacon, ?c:formosus in view",
-     "critical": false
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.3458,
-    0.2005,
-    0.5314,
-    0.3878
+    0.2719,
+    0.2065,
+    0.4426,
+    0.3703
    ]
   }
  ]

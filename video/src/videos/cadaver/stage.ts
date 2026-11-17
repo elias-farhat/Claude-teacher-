@@ -56,6 +56,7 @@ const bishops = (t: number, s: Stage) => {
     const k = i === 0 || i === 3 ? 1 : fileIn(t, i), seat = benchSeat(i), start = i === 1 || i === 2 ? V(i === 1 ? -0.45 : 0.45, 0, -7) : V(i ? 1.2 : -1.2, 0, -4.2);   // 1 and 2 lead, 0 and 3 follow wider
     const toward = Math.atan2(F.x - seat.x, F.z - seat.z);
     if (k < 1) { const p = start.clone().lerp(V(seat.x, 0, seat.z + 0.9), k); s.places.push(P(`bishop${i}`, BISHOP(i), { mode: "stroll", phase: q((t * 1.3 + i * 0.25) % 1, 12), expr: "neutral", gest: "hang", blink: blinkAt(t, 10 + i) }, {}, p, { yaw: Math.PI + 0.1 * (i % 2 ? -1 : 1) })); continue; }
+    if (i === 1 && (t < 7.3 || recoil || whisper)) s.lights.push(warm(V(0, 1.9, BENCH_Z + 2.6), 1.1));   // front key on the bench (run 42: silhouettes against the window)
     s.places.push(P(`bishop${i}`, BISHOP(i), recoil ? { mode: "sit", expr: "shock", gest: "recoil", k: q((t * 3 + i * 0.3) % 1, 8), blink: 0, headTilt: 8 * Math.sin(t * 9 + i) }
       : whisper ? { mode: "sit", expr: i % 2 ? "smug" : "nervous", gest: i % 2 ? "whisper" : "hang", blink: blinkAt(t, 10 + i), headTilt: (i % 2 ? -1 : 1) * 12, look: i % 2 ? -1 : 1 }
       : { mode: "sit", expr: "neutral", gest: "hang", blink: blinkAt(t, 10 + i) }, {}, seat, { yaw: recoil ? toward * 0.6 : 0.15 * (1.5 - i) }));
@@ -104,12 +105,13 @@ const grave = (t: number, s: Stage) => {
   s.places.push(P("monk1", MONK(1), { expr: dug ? "pained" : "nervous", gest: dug ? "nose" : "hang", blink: dug ? 1 : blinkAt(t, 41) }, { lantern: true }, W(GRAVE, 1.0, 0, 0.7), { turn: -0.3 }));
   s.lights.push(warm(W(GRAVE, 1.25, 0.7, 1.0), 0.9));
 };
-// line 11: the Tiber: the two monks swing the wrapped body and throw it; a big splash
+// line 11: the Tiber: the two monks, backs to the river and facing the camera, heave the wrapped body over their heads
+// into the water behind them; a big splash (run 42: the river and the splash were behind the camera)
 const tiber = (t: number, s: Stage) => {
   if (!between(t, wt(10, "bishop") + 0.3, wt(12) + 0.2)) return;
   const thrown = after(t, 11, "threw");
-  for (let i = 0; i < 2; i++) s.places.push(P(`monkR${i}`, MONK(i), { expr: thrown ? "laugh" : "grin", gest: thrown ? "cheer" : "hold", k: q((t * 2 + i * 0.4) % 1, 8), blink: blinkAt(t, 40 + i) }, {}, W(BANK, -0.1, 0, i ? 0.75 : -0.75), { yaw: EAST + (i ? 0.45 : -0.45) }));
-  const u = (t - T_SPLASH()) / 0.9; if (u > 0 && u < 1) s.fx.push(card(`splash${q(u, 8)}`, 300, 300, splash(q(u, 8)), [RIVER.x + 4, RIVER.y + 0.8, BANK.z + 1], 3.0, 3.0, { soft: true }));
+  for (let i = 0; i < 2; i++) s.places.push(P(`monkR${i}`, MONK(i), { expr: thrown ? "laugh" : "grin", gest: "cheer", k: q((t * 2 + i * 0.4) % 1, 8), blink: blinkAt(t, 40 + i) }, {}, W(BANK, -0.1, 0, i ? 0.75 : -0.75), { yaw: WEST + (i ? -0.35 : 0.35) }));
+  const u = (t - T_SPLASH()) / 0.9; if (u > 0 && u < 1) s.fx.push(card(`splash${q(u, 8)}`, 300, 300, splash(q(u, 8)), [RIVER.x - 0.3, RIVER.y + 0.8, BANK.z + 0.2], 2.6, 2.6, { soft: true }));
 };
 // line 12: the piazza at dusk: the crowd boos; the guards march Stephen out; his mitre is knocked off on "lost"
 const piazza = (t: number, s: Stage) => {
@@ -127,11 +129,17 @@ const piazza = (t: number, s: Stage) => {
   }
 };
 
+// line 13: Stephen, mitre gone, sulks beside the empty throne (the punchline needs a face, not an empty chair)
+const sulk = (t: number, s: Stage) => {
+  if (t < wt(13) - 0.3) return;
+  s.places.push(P("stephenS", STEPHEN_BARE, { expr: "pained", gest: "hang", blink: blinkAt(t, 1), headTilt: -12 + 3 * Math.sin(t * 1.5) }, {}, V(THRONE.x - 1.25, 0, THRONE.z + 1.0), { turn: 0.15 }));
+  s.lights.push(warm(V(THRONE.x - 0.6, 1.8, THRONE.z + 3.0), 0.9));
+};
 /** everything on stage at time t */
 export const stage = (t: number, c: Cam, cam: THREE.Camera): Stage => {
   CAM = new THREE.Vector3().setFromMatrixPosition(cam.matrixWorld);
   const s: Stage = { places: [], fx: [], lights: [] };
-  bishops(t, s); stephen(t, s); formosus(t, s); grave(t, s); tiber(t, s); piazza(t, s);
+  bishops(t, s); stephen(t, s); formosus(t, s); grave(t, s); tiber(t, s); piazza(t, s); sulk(t, s);
   void c;
   return s;
 };

@@ -54,9 +54,9 @@ export const lidOpen = (t: number) => -2.0 * smooth((t - wt(4, "dug") + 0.1) / 0
 /** line 11: the monks swing the wrapped body and throw it in the river */
 export const bundleAt = (t: number) => {
   const t0 = wt(11, "threw") - 0.05, sw = Math.sin((t - wt(11)) * 7) * 0.35;
-  if (t < t0) return { p: V3v(BANK.x + 0.4, 0.95 + 0.15 * Math.abs(sw), BANK.z + sw * 0.4), vis: true, roll: 0 };
-  const u = Math.min(1, (t - t0) / 0.85), a = V3v(BANK.x + 0.4, 1.0, BANK.z), b = V3v(RIVER.x + 4, RIVER.y - 0.1, BANK.z + 1);
-  const p = a.clone().lerp(b, u); p.y = a.y + (b.y - a.y) * u + 2.2 * Math.sin(Math.PI * u);
+  if (t < t0) return { p: V3v(BANK.x + 0.5, 2.45 + 0.1 * Math.abs(sw), BANK.z + sw * 0.4), vis: true, roll: 0 };
+  const u = Math.min(1, (t - t0) / 0.85), a = V3v(BANK.x + 0.5, 2.5, BANK.z), b = V3v(RIVER.x - 0.3, RIVER.y - 0.1, BANK.z + 0.2);
+  const p = a.clone().lerp(b, u); p.y = a.y + (b.y - a.y) * u + 2.0 * Math.sin(Math.PI * u);
   return { p, vis: t < t0 + 1.6, roll: u * 3 };
 };
 export const T_SPLASH = () => wt(11, "threw") + 0.8;
@@ -95,7 +95,7 @@ export const SHOTS: Shot[] = [
   { name: "nothing", at: land(9), look: "lamp", keys: K(at(F, -4.2, 0.8, 2.6), at(F, 0, 0.6, 0)) },
   { name: "verdict", at: land(10), look: "lamp", keys: K(at(S, 4.5, 1.0, 3.2), at(S, 0, 1.3, 0)) },
   // 11 "Then they threw the body in the river!" the Tiber bank, grey day
-  { name: "tiber", at: land(11), look: "smoky", keys: K(at(BANK, 5.5, 1.6, 3.5), at(BANK, 0, 1.0, 0)) },
+  { name: "tiber", at: land(11), look: "smoky", keys: K(at(BANK, -5.5, 1.8, 3.0), at(BANK, 0, 1.2, 0)) },
   // 12 "But Rome was disgusted. And the same year... Stephen lost his job." the piazza at dusk
   { name: "piazza", at: land(12), look: "sunrise", keys: K([2.5, 2.0, NAVE.z1 + 16], [0, 1.4, NAVE.z1 + 6]) },
   // 13 "Turns out... putting a corpse on trial... wasn't a great career move." the empty throne, one candle
