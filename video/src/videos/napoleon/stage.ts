@@ -52,7 +52,7 @@ const treaty = (t: number, s: Stage) => {
     { pen: !party }, W(T, -0.3, party ? 0 : 0.4, -2.1), { turn: party ? 0 : 0.1 }));
   s.places.push(P("tsar", RUSSIAN, { expr: party ? "nervous" : "smile_closed", gest: party ? "palm" : "hang", blink: blinkAt(t, 2) }, {}, W(T, party ? 2.6 : 1.6, 0, party ? -2.9 : -1.9), { turn: -0.3, size: party ? LO : HI }));
   for (let i = 0; i < 2; i++) if (party) s.places.push(P(`cheerO${i}`, OFFICER(i), { expr: "laugh", gest: "cheer", k: q((t * 2.6 + i * 0.4) % 1, 8), blink: blinkAt(t, 3 + i) }, {}, W(T, i ? 0.75 : -1.25, 0, -2.25), { turn: 0.3, size: LO }));
-  s.lights.push(warm(W(T, 1.45, 1.0, -0.6), 0.7));
+  s.lights.push(warm(W(T, 0.2, 0.95, 0.4), 0.6));
 };
 // line 3: Berthier salutes, sweating, then holds up his checklist: Get. Rabbits.
 const berthier3 = (t: number, s: Stage) => {

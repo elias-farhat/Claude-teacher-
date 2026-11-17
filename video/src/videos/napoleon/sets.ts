@@ -133,7 +133,7 @@ export function buildSets(R: THREE.Group, kit: Kit): Sets {
     const ru = ctex("npFlagRU", 192, 128, (g) => { ["#f4f1ea", "#2a4f9a", "#c8313b"].forEach((col, i) => { g.fillStyle = col; g.fillRect(0, i * 43, 192, 43); }); });
     [fr, ru].forEach((tx, i) => { const x = c.x + (i ? 2.6 : -2.6), z = ROOMS.treaty.z0 + 0.8; bx(dark, x - 0.04, 0, z - 0.04, x + 0.04, 2.6, z + 0.04, 1);
       const fl = new THREE.Mesh(new THREE.PlaneGeometry(1.2, 0.8), twoTone(new THREE.MeshLambertMaterial({ map: tx, side: THREE.DoubleSide }))); fl.position.set(x + 0.62, 2.2, z); R.add(fl); });
-    lamps.push({ p: V(c.x + 1.45, 1.0, c.z - 0.6), k: 0.7 }); }   // the desk lamp at the table's end, off the faces (run 40: its glow sat on Napoleon's face)
+    }   // no desk lamp: its glow sat on Napoleon's and an officer's face (run 40); the stage light warms the table without a bulb
   { const R0 = ROOMS.study, c = RC(R0);   // Thiébault's desk; Berthier's portrait on the back wall
     bx(dark, c.x - 0.9, 0, c.z - 1.35, c.x + 0.9, 0.78, c.z - 0.45, 1); bx(wood, c.x - 0.95, 0.78, c.z - 1.4, c.x + 0.95, 0.84, c.z - 0.4, 1);
     bx(lam("npPage", () => ({ color: "#f4ecd8" })), c.x - 0.25, 0.84, c.z - 0.95, c.x + 0.2, 0.85, c.z - 0.62, 1);
