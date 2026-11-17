@@ -9,7 +9,7 @@ export const SHOT_SPECS: ShotSpec[] = [
   { t0: land(1, "trial"), subjects: ["c:/^bishop[12]$/"], size: "medium", move: "drift", note: "1 the strangest trial in history: the bishops reach their bench, the empty throne" },
   { t0: land(2), subjects: ["c:stephen"], size: "medium", angle: "low", move: "push", enter: "cut", note: "2 the judge? Pope Stephen VI slams his crozier" },
   { t0: land(3), subjects: ["c:stephen"], size: "wide", move: "sway", note: "3 the defendant?" },
-  { t0: wtn(3, "The", 1) - 2 / 30, subjects: ["c:formosus"], size: "wide", move: "push", enter: "cut", note: "3 the pope before him... Formosus (the reveal)" },
+  { t0: wtn(3, "The", 1) - 2 / 30, subjects: ["c:formosus"], size: "medium", move: "orbit", enter: "cut", note: "3 the pope before him... Formosus (the reveal)" },
   { t0: land(3, "dead"), subjects: ["c:/^bishop[12]$/"], size: "medium", move: "push", enter: "cut", note: "3 dead for months: the bishops recoil" },
   { t0: land(4), subjects: ["c:stephen"], size: "medium", move: "drift", enter: "cut", note: "4 but Stephen didn't care" },
   { t0: land(4, "He"), subjects: ["c:/^monk[01]$/"], size: "wide", move: "push", enter: "cut", note: "4 he had the body dug up: the monks at the grave" },
@@ -28,5 +28,6 @@ export const SHOT_SPECS: ShotSpec[] = [
   { t0: land(11), subjects: ["c:/^monkR[01]$/", "?w:bundle"], size: "medium", move: "drift", enter: "cut", note: "11 they threw the body in the river" },
   { t0: land(12), subjects: ["c:/^roman[01]$/", "?c:roman2"], size: "medium", move: "push", enter: "cut", note: "12 Rome was disgusted: the crowd boos" },
   { t0: land(12, "And"), subjects: ["c:stephenX", "c:/^guard\\d$/"], size: "medium", move: "drift", enter: "cut", note: "12 Stephen lost his job: marched out, mitre knocked off" },
+  { t0: land(12, "lost"), subjects: ["c:stephenX", "?w:smitre"], size: "medium", move: "push", enter: "cut", note: "12 Stephen lost his job: medium on him as his mitre is knocked off" },
   { t0: land(13), subjects: ["w:throne"], size: "medium", move: "push", enter: "cut", note: "13 the empty throne, one candle" },
 ];
