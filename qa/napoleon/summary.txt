@@ -71,7 +71,7 @@ Shots (candidate chosen, score):
   shot 15   47.01- 51.99 s  wide   base (score 0)
   shot 16   51.99- 55.21 s  medium track az-60 (score 6)
   shot 17   55.21- 58.13 s  medium track az180 (score 40: 1/5 blocked)
-  shot 18   58.13- 60.25 s  medium overhead (score 12)
+  shot 18   58.13- 60.25 s  wide   base (score 0)
   shot 19   60.25- 63.79 s  medium base (score 44: 2/5 blocked)
   shot 20   63.79- 67.23 s  medium base (score 44: 2/5 blocked)
 
