@@ -42,23 +42,16 @@ Decisions (auto-framer + camera guard, made without asking; revised after the re
   failed least; failing flights try other look timings / bends / start shifts, and a flight that still fails becomes
   a whip.
 
-CRITICAL: 8 frames in 4 ranges
-   61.00- 61.17 s  f1830-1834  SUBJECT   c:stephenX           cut off top (0.04)
-   61.10- 61.17 s  f1833-1834  FACES     c:stephenX           head (hat) touches the top edge (4.1 %)
-   61.10- 61.17 s  f1833-1834  SUBJECT   c:/^guard\d$/        cut off right (1.00)
-   62.87- 62.97 s  f1886-1888  FACES     bystander roman2     bystander's head cut at the right edge
+CRITICAL: 0
 warnings: 43 frames in 11 ranges (list in camera_report.txt)
 
 Loop:
-  round 1: 676 frames with CRITICAL failures in 12 shots (0, 1, 2, 4, 5, 8, 10, 12, 16, 19, 22, 23)
-  round 2: 347 frames with CRITICAL failures in 9 shots (0, 1, 2, 4, 5, 10, 16, 22, 23)
-  round 3: 83 frames with CRITICAL failures in 4 shots (4, 16, 22, 23)
-  round 4: 73 frames with CRITICAL failures in 4 shots (4, 16, 22, 23)
-  round 5: 78 frames with CRITICAL failures in 2 shots (22, 23)
-  assembled the best round of every shot: 8 frames with CRITICAL failures
-  fly transitions that still failed became cuts: 0; clipping whips panned the other way: 0, became cuts: 0
-  flight polish (look timing per failing flight): 8 frames with CRITICAL failures (0 flights cleared)
-  kept the assembled track (8 CRITICAL frames)
+  round 1: 668 frames with CRITICAL failures in 10 shots (0, 1, 2, 4, 5, 8, 10, 12, 16, 19)
+  round 2: 298 frames with CRITICAL failures in 7 shots (0, 1, 2, 4, 5, 10, 16)
+  round 3: 25 frames with CRITICAL failures in 2 shots (4, 16)
+  round 4: 29 frames with CRITICAL failures in 2 shots (4, 16)
+  round 5: 0 frames with CRITICAL failures in 0 shots
+  assembled the best round of every shot: 0 frames with CRITICAL failures
 
 Shots (candidate chosen, score):
   shot  0    0.00-  4.09 s  medium track higher (score 47: 1/5 blocked, 2/5 blocked)
@@ -83,8 +76,8 @@ Shots (candidate chosen, score):
   shot 19   50.67- 53.97 s  medium lower (score 2)
   shot 20   53.97- 57.43 s  medium az+30 high (score 6)
   shot 21   57.43- 60.09 s  medium az+60 (score 6)
-  shot 22   60.09- 61.16 s  medium track az+30 (score 3)
-  shot 23   61.16- 62.95 s  medium track lower (score 2)
+  shot 22   60.09- 61.16 s  medium track base (score 0)
+  shot 23   61.16- 62.95 s  medium lower (score 2)
   shot 24   62.95- 68.40 s  medium closer 0.6 (score 3)
 
 Flights:
