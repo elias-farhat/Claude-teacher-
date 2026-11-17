@@ -122,6 +122,7 @@ const piazza = (t: number, s: Stage) => {
   const marched = t >= wt(12, "And") - LEAD, p = stephenOut(t);
   const spots: [number, number][] = marched ? [[-0.5, -3.6], [0.15, -4.0], [0.65, -3.7]] : [[-0.65, 4.2], [0.65, 4.2], [0.0, 3.1]];
   spots.forEach(([dx, dz], i) => s.places.push(P(`roman${i}`, ROMAN(i), marched ? { ...boo(i), mode: t < wt(12, "And") + 1.25 ? "stroll" : "stand", phase: q((t * 1.3 + i * 0.3) % 1, 12) } : boo(i), {}, marched ? V(p.x + dx, 0, p.z + dz) : V(dx, 0, NAVE.z1 + dz), { turn: dx < 0 ? 0.35 : -0.35, size: marched ? LO : HI })));
+  if (!marched) s.lights.push(warm(V(0, 1.9, NAVE.z1 + 7.0), 1.2));   // key on the booing Romans (run 43: faces near black)
   if (marched) {
     const out = t >= T_KNOCK(), walking = t < wt(12, "And") + 1.25;
     s.places.push(P("stephenX", out ? STEPHEN_BARE : STEPHEN, { mode: walking ? "stroll" : "stand", phase: q((t * 1.3) % 1, 12), expr: out ? "shock" : "nervous", gest: out ? "recoil" : "clutch", k: q((t * 3) % 1, 8), blink: 0, headTilt: out ? 10 * Math.sin(t * 9) : 0 }, { sweat: true }, p, { turn: 0 }));
