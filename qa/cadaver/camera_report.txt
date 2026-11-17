@@ -10,8 +10,7 @@ warning   34.50- 34.83 s  f1035-1044  FACES     c:formosus           face 100 % 
 warning   34.60- 34.83 s  f1038-1044  OCCLUSION c:formosus           4/5 rays blocked for 11 frames
 warning   34.73- 34.83 s  f1042-1044  EMPTY                          none of c:formosus, c:deacon, ?c:formosus in view
 CRITICAL  61.27- 61.43 s  f1838-1842  SUBJECT   c:stephenX           cut off top (0.04)
-CRITICAL  61.33- 61.43 s  f1840-1842  SUBJECT   c:/^guard\d$/        cut off right (1.02)
+CRITICAL  61.33- 61.43 s  f1840-1842  SUBJECT   c:/^guard\d$/        cut off right (0.99)
 CRITICAL  61.33- 61.40 s  f1840-1841  FACES     bystander roman0     bystander's head cut at the left edge
 CRITICAL  61.37- 61.43 s  f1841-1842  FACES     c:stephenX           head (hat) touches the top edge (3.8 %)
-CRITICAL  61.40- 61.43 s  f1842-1842  FACES     c:/^guard\d$/(guard1) head cut at the right edge
-CRITICAL  61.47- 62.13 s  f1844-1863  FACES     bystander guard1     bystander's head cut at the right edge
+CRITICAL  61.43- 62.13 s  f1843-1863  FACES     bystander roman0     bystander's head cut at the left edge
