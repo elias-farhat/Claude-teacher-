@@ -9,7 +9,7 @@ export const SHOT_SPECS: ShotSpec[] = [
   { t0: land(1, "trial"), subjects: ["c:/^bishop[12]$/"], size: "medium", move: "push", note: "1 the strangest trial in history: the bishops reach their bench, the empty throne" },
   { t0: land(2), subjects: ["c:stephen"], size: "medium", angle: "low", move: "push", enter: "cut", note: "2 the judge? Pope Stephen VI slams his crozier" },
   { t0: land(3), subjects: ["c:stephen"], size: "wide", move: "sway", note: "3 the defendant?" },
-  { t0: wtn(3, "The", 1) - 2 / 30, subjects: ["c:formosus"], size: "medium", move: "sway", enter: "cut", note: "3 the pope before him... Formosus (the reveal)" },
+  { t0: wtn(3, "The", 1) - 2 / 30, subjects: ["c:formosus"], size: "wide", move: "push", enter: "cut", note: "3 the pope before him... Formosus (the reveal)" },
   { t0: land(3, "dead"), subjects: ["c:/^bishop[12]$/"], size: "medium", move: "push", enter: "cut", note: "3 dead for months: the bishops recoil" },
   { t0: land(4), subjects: ["c:stephen"], size: "medium", move: "drift", enter: "cut", note: "4 but Stephen didn't care" },
   { t0: land(4, "He"), subjects: ["c:/^monk[01]$/"], size: "medium", move: "push", enter: "cut", note: "4 he had the body dug up: the monks at the grave" },
