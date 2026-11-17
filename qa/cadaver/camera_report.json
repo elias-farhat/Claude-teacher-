@@ -1,26 +1,23 @@
 {
  "video": "cadaver",
  "frames": 2052,
- "pass": false,
- "criticalFrames": 77,
- "warningFrames": 41,
- "seconds": 47.254,
+ "pass": true,
+ "criticalFrames": 0,
+ "warningFrames": 42,
+ "seconds": 45.626,
  "history": [
-  "round 1: 649 frames with CRITICAL failures in 9 shots (0, 2, 5, 7, 8, 10, 12, 16, 19)",
-  "round 2: 360 frames with CRITICAL failures in 5 shots (2, 5, 7, 10, 16)",
-  "round 3: 86 frames with CRITICAL failures in 2 shots (7, 16)",
-  "round 4: 113 frames with CRITICAL failures in 2 shots (7, 16)",
-  "round 5: 112 frames with CRITICAL failures in 1 shots (7)",
-  "assembled the best round of every shot: 77 frames with CRITICAL failures",
-  "fly transitions that still failed became cuts: 0; clipping whips panned the other way: 0, became cuts: 0",
-  "flight polish (look timing per failing flight): 77 frames with CRITICAL failures (0 flights cleared)",
-  "kept the assembled track (77 CRITICAL frames)"
+  "round 1: 545 frames with CRITICAL failures in 8 shots (0, 2, 5, 8, 10, 12, 16, 19)",
+  "round 2: 248 frames with CRITICAL failures in 4 shots (2, 5, 10, 16)",
+  "round 3: 9 frames with CRITICAL failures in 1 shots (16)",
+  "round 4: 1 frames with CRITICAL failures in 1 shots (16)",
+  "round 5: 0 frames with CRITICAL failures in 0 shots",
+  "assembled the best round of every shot: 0 frames with CRITICAL failures"
  ],
  "rules": [
   {
    "rule": "SUBJECT",
-   "critical": 77,
-   "warning": 41
+   "critical": 0,
+   "warning": 33
   },
   {
    "rule": "OCCLUSION",
@@ -40,7 +37,7 @@
   {
    "rule": "FACES",
    "critical": 0,
-   "warning": 14
+   "warning": 23
   },
   {
    "rule": "XCU",
@@ -60,76 +57,40 @@
  ],
  "ranges": [
   {
+   "rule": "FACES",
+   "critical": false,
+   "subject": "c:/^bishop[12]$/(bishop1)",
+   "shot": 1,
+   "from": 102,
+   "to": 108,
+   "worst": 107,
+   "detail": "head centre at 66 % of the frame height",
+   "t0": 3.4,
+   "t1": 3.63
+  },
+  {
    "rule": "SUBJECT",
    "critical": false,
    "subject": "c:/^bishop[12]$/",
    "shot": 1,
-   "from": 104,
+   "from": 107,
    "to": 111,
-   "worst": 106,
-   "detail": "cut off left (-0.08)",
-   "t0": 3.47,
+   "worst": 107,
+   "detail": "too small (8 % of frame height, needs 30 %)",
+   "t0": 3.57,
    "t1": 3.73
   },
   {
    "rule": "FACES",
    "critical": false,
-   "subject": "c:/^bishop[12]$/(bishop1)",
+   "subject": "c:/^bishop[12]$/(bishop2)",
    "shot": 1,
-   "from": 106,
-   "to": 109,
-   "worst": 106,
-   "detail": "head cut at the left edge",
-   "t0": 3.53,
-   "t1": 3.67
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": false,
-   "subject": "c:/^bishop[12]$/",
-   "shot": 1,
-   "from": 112,
-   "to": 116,
-   "worst": 112,
-   "detail": "cut off right (0.99)",
-   "t0": 3.73,
-   "t1": 3.9
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": true,
-   "subject": "c:/^monk[01]$/",
-   "shot": 7,
-   "from": 578,
-   "to": 602,
-   "worst": 578,
-   "detail": "too small (28 % of frame height, needs 30 %)",
-   "t0": 19.27,
-   "t1": 20.1
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": true,
-   "subject": "c:/^monk[01]$/",
-   "shot": 7,
-   "from": 638,
-   "to": 650,
-   "worst": 638,
-   "detail": "cut off right (0.98)",
-   "t0": 21.27,
-   "t1": 21.7
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": true,
-   "subject": "c:/^monk[01]$/",
-   "shot": 7,
-   "from": 651,
-   "to": 689,
-   "worst": 651,
-   "detail": "cut off left (0.03)",
-   "t0": 21.7,
-   "t1": 23
+   "from": 110,
+   "to": 115,
+   "worst": 110,
+   "detail": "head centre at 65 % of the frame height",
+   "t0": 3.67,
+   "t1": 3.87
   },
   {
    "rule": "SUBJECT",
@@ -182,6 +143,54 @@
  ],
  "frames_failing": [
   {
+   "f": 102,
+   "t": 3.4,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "c:/^bishop[12]$/"
+   ],
+   "fails": [
+    {
+     "rule": "FACES",
+     "subject": "c:/^bishop[12]$/(bishop1)",
+     "detail": "head centre at 57 % of the frame height",
+     "critical": false
+    }
+   ],
+   "score": 0.2,
+   "box": [
+    0.3435,
+    0.466,
+    0.5476,
+    0.6075
+   ]
+  },
+  {
+   "f": 103,
+   "t": 3.433,
+   "shot": 1,
+   "flight": true,
+   "subjects": [
+    "c:/^bishop[12]$/"
+   ],
+   "fails": [
+    {
+     "rule": "FACES",
+     "subject": "c:/^bishop[12]$/(bishop1)",
+     "detail": "head centre at 61 % of the frame height",
+     "critical": false
+    }
+   ],
+   "score": 0.2,
+   "box": [
+    0.3406,
+    0.525,
+    0.5269,
+    0.6395
+   ]
+  },
+  {
    "f": 104,
    "t": 3.467,
    "shot": 1,
@@ -191,18 +200,18 @@
    ],
    "fails": [
     {
-     "rule": "SUBJECT",
-     "subject": "c:/^bishop[12]$/",
-     "detail": "cut off left (0.05)",
+     "rule": "FACES",
+     "subject": "c:/^bishop[12]$/(bishop1)",
+     "detail": "head centre at 64 % of the frame height",
      "critical": false
     }
    ],
-   "score": 0.4,
+   "score": 0.2,
    "box": [
-    0.0798,
-    0.3354,
-    0.401,
-    0.5435
+    0.3425,
+    0.5742,
+    0.5092,
+    0.6635
    ]
   },
   {
@@ -215,18 +224,18 @@
    ],
    "fails": [
     {
-     "rule": "SUBJECT",
-     "subject": "c:/^bishop[12]$/",
-     "detail": "cut off left (-0.02)",
+     "rule": "FACES",
+     "subject": "c:/^bishop[12]$/(bishop1)",
+     "detail": "head centre at 66 % of the frame height",
      "critical": false
     }
    ],
-   "score": 0.4,
+   "score": 0.2,
    "box": [
-    0.0146,
-    0.3681,
-    0.3427,
-    0.5513
+    0.3458,
+    0.6135,
+    0.4957,
+    0.6805
    ]
   },
   {
@@ -239,24 +248,18 @@
    ],
    "fails": [
     {
-     "rule": "SUBJECT",
-     "subject": "c:/^bishop[12]$/",
-     "detail": "cut off left (-0.07)",
-     "critical": false
-    },
-    {
      "rule": "FACES",
      "subject": "c:/^bishop[12]$/(bishop1)",
-     "detail": "head cut at the left edge",
+     "detail": "head centre at 67 % of the frame height",
      "critical": false
     }
    ],
-   "score": 0.6000000000000001,
+   "score": 0.2,
    "box": [
-    0,
-    0.3872,
-    0.2874,
-    0.5441
+    0.3538,
+    0.634,
+    0.4903,
+    0.6806
    ]
   },
   {
@@ -271,22 +274,22 @@
     {
      "rule": "SUBJECT",
      "subject": "c:/^bishop[12]$/",
-     "detail": "cut off left (-0.09)",
+     "detail": "too small (28 % of frame height, needs 30 %)",
      "critical": false
     },
     {
      "rule": "FACES",
      "subject": "c:/^bishop[12]$/(bishop1)",
-     "detail": "head cut at the left edge",
+     "detail": "head centre at 66 % of the frame height",
      "critical": false
     }
    ],
    "score": 0.6000000000000001,
    "box": [
-    0,
-    0.3844,
-    0.2473,
-    0.5194
+    0.3549,
+    0.6354,
+    0.484,
+    0.6628
    ]
   },
   {
@@ -301,23 +304,18 @@
     {
      "rule": "SUBJECT",
      "subject": "c:/^bishop[12]$/",
-     "detail": "cut off left (-0.08)",
+     "detail": "too small (26 % of frame height, needs 30 %)",
      "critical": false
     },
     {
      "rule": "FACES",
      "subject": "c:/^bishop[12]$/(bishop1)",
-     "detail": "head cut at the left edge",
+     "detail": "head centre at 62 % of the frame height",
      "critical": false
     }
    ],
    "score": 0.6000000000000001,
-   "box": [
-    0,
-    0.3625,
-    0.2336,
-    0.4822
-   ]
+   "box": null
   },
   {
    "f": 109,
@@ -331,23 +329,12 @@
     {
      "rule": "SUBJECT",
      "subject": "c:/^bishop[12]$/",
-     "detail": "cut off left (-0.03)",
-     "critical": false
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:/^bishop[12]$/(bishop1)",
-     "detail": "head cut at the left edge",
+     "detail": "too small (8 % of frame height, needs 30 %)",
      "critical": false
     }
    ],
-   "score": 0.6000000000000001,
-   "box": [
-    0,
-    0.3336,
-    0.2488,
-    0.4435
-   ]
+   "score": 0.4,
+   "box": null
   },
   {
    "f": 110,
@@ -361,16 +348,22 @@
     {
      "rule": "SUBJECT",
      "subject": "c:/^bishop[12]$/",
-     "detail": "cut off left (0.00)",
+     "detail": "too small (21 % of frame height, needs 30 %)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:/^bishop[12]$/(bishop2)",
+     "detail": "head centre at 61 % of the frame height",
      "critical": false
     }
    ],
-   "score": 0.4,
+   "score": 0.6000000000000001,
    "box": [
-    0.022,
-    0.2785,
-    0.2662,
-    0.3983
+    0.3151,
+    0.4502,
+    0.443,
+    0.4828
    ]
   },
   {
@@ -385,16 +378,22 @@
     {
      "rule": "SUBJECT",
      "subject": "c:/^bishop[12]$/",
-     "detail": "cut off left (0.03)",
+     "detail": "too small (26 % of frame height, needs 30 %)",
+     "critical": false
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:/^bishop[12]$/(bishop2)",
+     "detail": "head centre at 65 % of the frame height",
      "critical": false
     }
    ],
-   "score": 0.4,
+   "score": 0.6000000000000001,
    "box": [
-    0.0563,
-    0.2232,
-    0.2915,
-    0.3581
+    0.3211,
+    0.4547,
+    0.451,
+    0.5048
    ]
   },
   {
@@ -407,18 +406,18 @@
    ],
    "fails": [
     {
-     "rule": "SUBJECT",
-     "subject": "c:/^bishop[12]$/",
-     "detail": "cut off right (0.98)",
+     "rule": "FACES",
+     "subject": "c:/^bishop[12]$/(bishop2)",
+     "detail": "head centre at 66 % of the frame height",
      "critical": false
     }
    ],
-   "score": 0.4,
+   "score": 0.2,
    "box": [
-    0.1015,
-    0.1851,
-    0.3234,
-    0.3304
+    0.3071,
+    0.445,
+    0.4454,
+    0.5133
    ]
   },
   {
@@ -431,18 +430,18 @@
    ],
    "fails": [
     {
-     "rule": "SUBJECT",
-     "subject": "c:/^bishop[12]$/",
-     "detail": "cut off right (0.99)",
+     "rule": "FACES",
+     "subject": "c:/^bishop[12]$/(bishop2)",
+     "detail": "head centre at 65 % of the frame height",
      "critical": false
     }
    ],
-   "score": 0.4,
+   "score": 0.2,
    "box": [
-    0.1477,
-    0.163,
-    0.355,
-    0.3137
+    0.2861,
+    0.4126,
+    0.4367,
+    0.5008
    ]
   },
   {
@@ -455,18 +454,18 @@
    ],
    "fails": [
     {
-     "rule": "SUBJECT",
-     "subject": "c:/^bishop[12]$/",
-     "detail": "cut off right (0.99)",
+     "rule": "FACES",
+     "subject": "c:/^bishop[12]$/(bishop2)",
+     "detail": "head centre at 63 % of the frame height",
      "critical": false
     }
    ],
-   "score": 0.4,
+   "score": 0.2,
    "box": [
-    0.189,
-    0.1525,
-    0.3825,
-    0.3046
+    0.2606,
+    0.3658,
+    0.4271,
+    0.4755
    ]
   },
   {
@@ -479,1890 +478,18 @@
    ],
    "fails": [
     {
-     "rule": "SUBJECT",
-     "subject": "c:/^bishop[12]$/",
-     "detail": "cut off right (0.98)",
+     "rule": "FACES",
+     "subject": "c:/^bishop[12]$/(bishop2)",
+     "detail": "head centre at 59 % of the frame height",
      "critical": false
     }
    ],
-   "score": 0.4,
-   "box": [
-    0.2227,
-    0.1494,
-    0.404,
-    0.3002
-   ]
-  },
-  {
-   "f": 116,
-   "t": 3.867,
-   "shot": 1,
-   "flight": true,
-   "subjects": [
-    "c:/^bishop[12]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^bishop[12]$/",
-     "detail": "cut off right (0.96)",
-     "critical": false
-    }
-   ],
-   "score": 0.4,
-   "box": [
-    0.2476,
-    0.1498,
-    0.4189,
-    0.2981
-   ]
-  },
-  {
-   "f": 578,
-   "t": 19.267,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "too small (27 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2124,
-    0.2083,
-    0.3406,
-    0.2865
-   ]
-  },
-  {
-   "f": 579,
-   "t": 19.3,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "too small (27 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2124,
-    0.2083,
-    0.3406,
-    0.2864
-   ]
-  },
-  {
-   "f": 580,
-   "t": 19.333,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "too small (27 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2123,
-    0.2082,
-    0.3406,
-    0.2863
-   ]
-  },
-  {
-   "f": 581,
-   "t": 19.367,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "too small (27 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2123,
-    0.2079,
-    0.3407,
-    0.2862
-   ]
-  },
-  {
-   "f": 582,
-   "t": 19.4,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "too small (27 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2122,
-    0.2076,
-    0.3407,
-    0.2859
-   ]
-  },
-  {
-   "f": 583,
-   "t": 19.433,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "too small (27 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2122,
-    0.2071,
-    0.3408,
-    0.2855
-   ]
-  },
-  {
-   "f": 584,
-   "t": 19.467,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "too small (27 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.212,
-    0.2064,
-    0.3409,
-    0.2849
-   ]
-  },
-  {
-   "f": 585,
-   "t": 19.5,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "too small (27 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2119,
-    0.2055,
-    0.3411,
-    0.2843
-   ]
-  },
-  {
-   "f": 586,
-   "t": 19.533,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "too small (27 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2117,
-    0.2044,
-    0.3413,
-    0.2834
-   ]
-  },
-  {
-   "f": 587,
-   "t": 19.567,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "too small (27 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2115,
-    0.2032,
-    0.3415,
-    0.2824
-   ]
-  },
-  {
-   "f": 588,
-   "t": 19.6,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "too small (28 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2112,
-    0.2017,
-    0.3417,
-    0.2813
-   ]
-  },
-  {
-   "f": 589,
-   "t": 19.633,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "too small (28 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.211,
-    0.2,
-    0.342,
-    0.28
-   ]
-  },
-  {
-   "f": 590,
-   "t": 19.667,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "too small (28 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2106,
-    0.1982,
-    0.3423,
-    0.2785
-   ]
-  },
-  {
-   "f": 591,
-   "t": 19.7,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "too small (28 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2103,
-    0.1961,
-    0.3427,
-    0.2769
-   ]
-  },
-  {
-   "f": 592,
-   "t": 19.733,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "too small (28 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2099,
-    0.1939,
-    0.343,
-    0.2751
-   ]
-  },
-  {
-   "f": 593,
-   "t": 19.767,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "too small (28 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2095,
-    0.1915,
-    0.3434,
-    0.2733
-   ]
-  },
-  {
-   "f": 594,
-   "t": 19.8,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "too small (28 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.209,
-    0.189,
-    0.3438,
-    0.2713
-   ]
-  },
-  {
-   "f": 595,
-   "t": 19.833,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "too small (29 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2085,
-    0.1863,
-    0.3443,
-    0.2692
-   ]
-  },
-  {
-   "f": 596,
-   "t": 19.867,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "too small (29 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.208,
-    0.1835,
-    0.3447,
-    0.267
-   ]
-  },
-  {
-   "f": 597,
-   "t": 19.9,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "too small (29 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2075,
-    0.1806,
-    0.3451,
-    0.2647
-   ]
-  },
-  {
-   "f": 598,
-   "t": 19.933,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "too small (29 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2069,
-    0.1777,
-    0.3456,
-    0.2624
-   ]
-  },
-  {
-   "f": 599,
-   "t": 19.967,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "too small (29 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2064,
-    0.1747,
-    0.346,
-    0.2601
-   ]
-  },
-  {
-   "f": 600,
-   "t": 20,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "too small (30 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2058,
-    0.1717,
-    0.3465,
-    0.2577
-   ]
-  },
-  {
-   "f": 601,
-   "t": 20.033,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "too small (30 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2052,
-    0.1687,
-    0.3469,
-    0.2554
-   ]
-  },
-  {
-   "f": 602,
-   "t": 20.067,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "too small (30 % of frame height, needs 30 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2046,
-    0.1658,
-    0.3473,
-    0.2531
-   ]
-  },
-  {
-   "f": 638,
-   "t": 21.267,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off right (0.95)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.1441,
-    0.1166,
-    0.316,
-    0.2219
-   ]
-  },
-  {
-   "f": 639,
-   "t": 21.3,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off right (0.96)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.1376,
-    0.1136,
-    0.3121,
-    0.2203
-   ]
-  },
-  {
-   "f": 640,
-   "t": 21.333,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off right (0.96)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.131,
-    0.1105,
-    0.308,
-    0.2188
-   ]
-  },
-  {
-   "f": 641,
-   "t": 21.367,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off right (0.97)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.1243,
-    0.1074,
-    0.3039,
-    0.2172
-   ]
-  },
-  {
-   "f": 642,
-   "t": 21.4,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off right (0.97)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.1175,
-    0.1042,
-    0.2998,
-    0.2156
-   ]
-  },
-  {
-   "f": 643,
-   "t": 21.433,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off right (0.98)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.1108,
-    0.101,
-    0.2958,
-    0.214
-   ]
-  },
-  {
-   "f": 644,
-   "t": 21.467,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off right (0.98)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.1043,
-    0.0979,
-    0.2918,
-    0.2124
-   ]
-  },
-  {
-   "f": 645,
-   "t": 21.5,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off right (0.99)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.0979,
-    0.0948,
-    0.2879,
-    0.2109
-   ]
-  },
-  {
-   "f": 646,
-   "t": 21.533,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off right (0.99)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.0917,
-    0.0919,
-    0.2842,
-    0.2094
-   ]
-  },
-  {
-   "f": 647,
-   "t": 21.567,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off right (1.00)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.0859,
-    0.0891,
-    0.2808,
-    0.208
-   ]
-  },
-  {
-   "f": 648,
-   "t": 21.6,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off right (1.00)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.0806,
-    0.0865,
-    0.2776,
-    0.2067
-   ]
-  },
-  {
-   "f": 649,
-   "t": 21.633,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off right (1.01)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.0757,
-    0.0841,
-    0.2746,
-    0.2055
-   ]
-  },
-  {
-   "f": 650,
-   "t": 21.667,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off right (1.01)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.0713,
-    0.082,
-    0.272,
-    0.2045
-   ]
-  },
-  {
-   "f": 651,
-   "t": 21.7,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.05)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.0675,
-    0.0801,
-    0.2697,
-    0.2035
-   ]
-  },
-  {
-   "f": 652,
-   "t": 21.733,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.04)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.0642,
-    0.0785,
-    0.2678,
-    0.2027
-   ]
-  },
-  {
-   "f": 653,
-   "t": 21.767,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.04)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.0616,
-    0.0772,
-    0.2663,
-    0.2021
-   ]
-  },
-  {
-   "f": 654,
-   "t": 21.8,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.04)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.0595,
-    0.0762,
-    0.265,
-    0.2015
-   ]
-  },
-  {
-   "f": 655,
-   "t": 21.833,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.04)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.058,
-    0.0755,
-    0.2641,
-    0.2012
-   ]
-  },
-  {
-   "f": 656,
-   "t": 21.867,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.04)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.057,
-    0.0749,
-    0.2635,
-    0.2009
-   ]
-  },
-  {
-   "f": 657,
-   "t": 21.9,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.0564,
-    0.0747,
-    0.2632,
-    0.2008
-   ]
-  },
-  {
-   "f": 658,
-   "t": 21.933,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.0561,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 659,
-   "t": 21.967,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 660,
-   "t": 22,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 661,
-   "t": 22.033,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 662,
-   "t": 22.067,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 663,
-   "t": 22.1,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 664,
-   "t": 22.133,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 665,
-   "t": 22.167,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 666,
-   "t": 22.2,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 667,
-   "t": 22.233,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 668,
-   "t": 22.267,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 669,
-   "t": 22.3,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 670,
-   "t": 22.333,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 671,
-   "t": 22.367,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 672,
-   "t": 22.4,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 673,
-   "t": 22.433,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 674,
-   "t": 22.467,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 675,
-   "t": 22.5,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 676,
-   "t": 22.533,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 677,
-   "t": 22.567,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 678,
-   "t": 22.6,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 679,
-   "t": 22.633,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 680,
-   "t": 22.667,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 681,
-   "t": 22.7,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 682,
-   "t": 22.733,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 683,
-   "t": 22.767,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 684,
-   "t": 22.8,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 685,
-   "t": 22.833,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 686,
-   "t": 22.867,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 687,
-   "t": 22.9,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 688,
-   "t": 22.933,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
-   ]
-  },
-  {
-   "f": 689,
-   "t": 22.967,
-   "shot": 7,
-   "flight": false,
-   "subjects": [
-    "c:/^monk[01]$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^monk[01]$/",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.056,
-    0.0745,
-    0.263,
-    0.2007
+   "score": 0.2,
+   "box": [
+    0.2365,
+    0.3149,
+    0.4174,
+    0.4468
    ]
   },
   {
