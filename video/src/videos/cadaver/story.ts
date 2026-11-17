@@ -80,7 +80,7 @@ export const SHOTS: Shot[] = [
   // 2 "The judge? Pope Stephen the Sixth." Stephen on his high seat
   { name: "stephen", at: land(2), look: "lamp", keys: K(at(S, 4.5, 1.0, 3.2), at(S, 0, 1.3, 0)) },
   // 3 "The defendant? The pope before him... Formosus. Who had been dead... for months." the reveal; the bishops recoil
-  { name: "formosus", at: land(3, "The"), look: "lamp", keys: K(at(F, -4.2, 0.8, 2.6), at(F, 0, 0.6, 0)) },
+  { name: "formosus", at: wtn(3, "The", 1) - 2 / 30, look: "lamp", keys: K(at(F, -4.2, 0.8, 2.6), at(F, 0, 0.6, 0)) },
   { name: "bishops", at: land(3, "dead"), look: "lamp", keys: K([0.6, 1.8, BENCH_Z + 6], [0, 1.1, BENCH_Z]) },
   { name: "stephen2", at: land(4), look: "lamp", keys: K(at(S, 4.5, 1.0, 3.2), at(S, 0, 1.3, 0)) },
   // 4 "He had the body dug up!" the graveyard at night, the monks, a lantern
