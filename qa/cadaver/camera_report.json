@@ -2,19 +2,19 @@
  "video": "cadaver",
  "frames": 2052,
  "pass": false,
- "criticalFrames": 26,
+ "criticalFrames": 8,
  "warningFrames": 43,
- "seconds": 47.153,
+ "seconds": 46.88,
  "history": [
-  "round 1: 718 frames with CRITICAL failures in 12 shots (0, 1, 2, 4, 5, 8, 10, 12, 16, 19, 22, 23)",
-  "round 2: 367 frames with CRITICAL failures in 9 shots (0, 1, 2, 4, 5, 10, 16, 22, 23)",
-  "round 3: 74 frames with CRITICAL failures in 4 shots (4, 16, 22, 23)",
-  "round 4: 100 frames with CRITICAL failures in 4 shots (4, 16, 22, 23)",
-  "round 5: 61 frames with CRITICAL failures in 2 shots (22, 23)",
-  "assembled the best round of every shot: 26 frames with CRITICAL failures",
+  "round 1: 676 frames with CRITICAL failures in 12 shots (0, 1, 2, 4, 5, 8, 10, 12, 16, 19, 22, 23)",
+  "round 2: 347 frames with CRITICAL failures in 9 shots (0, 1, 2, 4, 5, 10, 16, 22, 23)",
+  "round 3: 83 frames with CRITICAL failures in 4 shots (4, 16, 22, 23)",
+  "round 4: 73 frames with CRITICAL failures in 4 shots (4, 16, 22, 23)",
+  "round 5: 78 frames with CRITICAL failures in 2 shots (22, 23)",
+  "assembled the best round of every shot: 8 frames with CRITICAL failures",
   "fly transitions that still failed became cuts: 0; clipping whips panned the other way: 0, became cuts: 0",
-  "flight polish (look timing per failing flight): 26 frames with CRITICAL failures (0 flights cleared)",
-  "kept the assembled track (26 CRITICAL frames)"
+  "flight polish (look timing per failing flight): 8 frames with CRITICAL failures (0 flights cleared)",
+  "kept the assembled track (8 CRITICAL frames)"
  ],
  "rules": [
   {
@@ -39,7 +39,7 @@
   },
   {
    "rule": "FACES",
-   "critical": 24,
+   "critical": 5,
    "warning": 21
   },
   {
@@ -196,60 +196,48 @@
    "critical": true,
    "subject": "c:stephenX",
    "shot": 22,
-   "from": 1838,
-   "to": 1842,
-   "worst": 1841,
+   "from": 1830,
+   "to": 1834,
+   "worst": 1833,
    "detail": "cut off top (0.04)",
-   "t0": 61.27,
-   "t1": 61.43
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": true,
-   "subject": "c:/^guard\\d$/",
-   "shot": 22,
-   "from": 1840,
-   "to": 1842,
-   "worst": 1841,
-   "detail": "cut off right (0.99)",
-   "t0": 61.33,
-   "t1": 61.43
-  },
-  {
-   "rule": "FACES",
-   "critical": true,
-   "subject": "bystander roman0",
-   "shot": 22,
-   "from": 1840,
-   "to": 1841,
-   "worst": 1841,
-   "detail": "bystander's head cut at the left edge",
-   "t0": 61.33,
-   "t1": 61.4
+   "t0": 61,
+   "t1": 61.17
   },
   {
    "rule": "FACES",
    "critical": true,
    "subject": "c:stephenX",
    "shot": 22,
-   "from": 1841,
-   "to": 1842,
-   "worst": 1841,
-   "detail": "head (hat) touches the top edge (3.8 %)",
-   "t0": 61.37,
-   "t1": 61.43
+   "from": 1833,
+   "to": 1834,
+   "worst": 1833,
+   "detail": "head (hat) touches the top edge (4.1 %)",
+   "t0": 61.1,
+   "t1": 61.17
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": true,
+   "subject": "c:/^guard\\d$/",
+   "shot": 22,
+   "from": 1833,
+   "to": 1834,
+   "worst": 1833,
+   "detail": "cut off right (1.00)",
+   "t0": 61.1,
+   "t1": 61.17
   },
   {
    "rule": "FACES",
    "critical": true,
-   "subject": "bystander roman0",
+   "subject": "bystander roman2",
    "shot": 23,
-   "from": 1843,
-   "to": 1863,
-   "worst": 1843,
-   "detail": "bystander's head cut at the left edge",
-   "t0": 61.43,
-   "t1": 62.13
+   "from": 1886,
+   "to": 1888,
+   "worst": 1886,
+   "detail": "bystander's head cut at the right edge",
+   "t0": 62.87,
+   "t1": 62.97
   }
  ],
  "frames_failing": [
@@ -1526,8 +1514,8 @@
    ]
   },
   {
-   "f": 1838,
-   "t": 61.267,
+   "f": 1830,
+   "t": 61,
    "shot": 22,
    "flight": false,
    "subjects": [
@@ -1544,15 +1532,40 @@
    ],
    "score": 2,
    "box": [
-    0.4757,
-    0.0523,
-    0.6966,
-    0.2774
+    0.4664,
+    0.0538,
+    0.6844,
+    0.2762
    ]
   },
   {
-   "f": 1839,
-   "t": 61.3,
+   "f": 1831,
+   "t": 61.033,
+   "shot": 22,
+   "flight": false,
+   "subjects": [
+    "c:stephenX",
+    "c:/^guard\\d$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:stephenX",
+     "detail": "cut off top (0.05)",
+     "critical": true
+    }
+   ],
+   "score": 2,
+   "box": [
+    0.4828,
+    0.0508,
+    0.7049,
+    0.2773
+   ]
+  },
+  {
+   "f": 1832,
+   "t": 61.067,
    "shot": 22,
    "flight": false,
    "subjects": [
@@ -1569,15 +1582,15 @@
    ],
    "score": 2,
    "box": [
-    0.4934,
-    0.049,
-    0.7186,
-    0.2786
+    0.5,
+    0.0477,
+    0.7263,
+    0.2784
    ]
   },
   {
-   "f": 1840,
-   "t": 61.333,
+   "f": 1833,
+   "t": 61.1,
    "shot": 22,
    "flight": false,
    "subjects": [
@@ -1589,6 +1602,12 @@
      "rule": "SUBJECT",
      "subject": "c:stephenX",
      "detail": "cut off top (0.04)",
+     "critical": true
+    },
+    {
+     "rule": "FACES",
+     "subject": "c:stephenX",
+     "detail": "head (hat) touches the top edge (4.4 %)",
      "critical": true
     },
     {
@@ -1596,68 +1615,19 @@
      "subject": "c:/^guard\\d$/",
      "detail": "cut off right (0.97)",
      "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander roman0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
     }
    ],
    "score": 5,
    "box": [
-    0.5114,
-    0.0456,
-    0.7416,
-    0.2798
+    0.5174,
+    0.0444,
+    0.7489,
+    0.2796
    ]
   },
   {
-   "f": 1841,
-   "t": 61.367,
-   "shot": 22,
-   "flight": false,
-   "subjects": [
-    "c:stephenX",
-    "c:/^guard\\d$/"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:stephenX",
-     "detail": "cut off top (0.04)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:stephenX",
-     "detail": "head (hat) touches the top edge (4.2 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:/^guard\\d$/",
-     "detail": "cut off right (0.99)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander roman0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 6,
-   "box": [
-    0.5299,
-    0.0421,
-    0.7656,
-    0.2811
-   ]
-  },
-  {
-   "f": 1842,
-   "t": 61.4,
+   "f": 1834,
+   "t": 61.133,
    "shot": 22,
    "flight": false,
    "subjects": [
@@ -1674,27 +1644,27 @@
     {
      "rule": "FACES",
      "subject": "c:stephenX",
-     "detail": "head (hat) touches the top edge (3.8 %)",
+     "detail": "head (hat) touches the top edge (4.1 %)",
      "critical": true
     },
     {
      "rule": "SUBJECT",
      "subject": "c:/^guard\\d$/",
-     "detail": "cut off right (1.02)",
+     "detail": "cut off right (1.00)",
      "critical": true
     }
    ],
    "score": 5,
    "box": [
-    0.5491,
-    0.0384,
-    0.7905,
-    0.2824
+    0.5356,
+    0.0409,
+    0.7725,
+    0.2809
    ]
   },
   {
-   "f": 1843,
-   "t": 61.433,
+   "f": 1886,
+   "t": 62.867,
    "shot": 23,
    "flight": false,
    "subjects": [
@@ -1704,22 +1674,22 @@
    "fails": [
     {
      "rule": "FACES",
-     "subject": "bystander roman0",
-     "detail": "bystander's head cut at the left edge",
+     "subject": "bystander roman2",
+     "detail": "bystander's head cut at the right edge",
      "critical": true
     }
    ],
    "score": 1,
    "box": [
-    0.3795,
-    0.2293,
-    0.6284,
-    0.3757
+    0.3737,
+    0.119,
+    0.6698,
+    0.3023
    ]
   },
   {
-   "f": 1844,
-   "t": 61.467,
+   "f": 1887,
+   "t": 62.9,
    "shot": 23,
    "flight": false,
    "subjects": [
@@ -1729,22 +1699,22 @@
    "fails": [
     {
      "rule": "FACES",
-     "subject": "bystander roman0",
-     "detail": "bystander's head cut at the left edge",
+     "subject": "bystander roman2",
+     "detail": "bystander's head cut at the right edge",
      "critical": true
     }
    ],
    "score": 1,
    "box": [
-    0.3651,
-    0.1749,
-    0.6456,
-    0.3416
+    0.3737,
+    0.119,
+    0.6698,
+    0.3023
    ]
   },
   {
-   "f": 1845,
-   "t": 61.5,
+   "f": 1888,
+   "t": 62.933,
    "shot": 23,
    "flight": false,
    "subjects": [
@@ -1754,467 +1724,17 @@
    "fails": [
     {
      "rule": "FACES",
-     "subject": "bystander roman0",
-     "detail": "bystander's head cut at the left edge",
+     "subject": "bystander roman2",
+     "detail": "bystander's head cut at the right edge",
      "critical": true
     }
    ],
    "score": 1,
    "box": [
-    0.3652,
-    0.1747,
-    0.6458,
-    0.3415
-   ]
-  },
-  {
-   "f": 1846,
-   "t": 61.533,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "c:stephenX",
-    "?w:smitre"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander roman0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3653,
-    0.1744,
-    0.646,
-    0.3413
-   ]
-  },
-  {
-   "f": 1847,
-   "t": 61.567,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "c:stephenX",
-    "?w:smitre"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander roman0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3654,
-    0.174,
-    0.6463,
-    0.3411
-   ]
-  },
-  {
-   "f": 1848,
-   "t": 61.6,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "c:stephenX",
-    "?w:smitre"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander roman0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3656,
-    0.1735,
-    0.647,
-    0.3409
-   ]
-  },
-  {
-   "f": 1849,
-   "t": 61.633,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "c:stephenX",
-    "?w:smitre"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander roman0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3658,
-    0.1727,
-    0.6478,
-    0.3403
-   ]
-  },
-  {
-   "f": 1850,
-   "t": 61.667,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "c:stephenX",
-    "?w:smitre"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander roman0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.366,
-    0.1715,
-    0.6487,
-    0.3397
-   ]
-  },
-  {
-   "f": 1851,
-   "t": 61.7,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "c:stephenX",
-    "?w:smitre"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander roman0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3667,
-    0.1704,
-    0.6504,
-    0.3392
-   ]
-  },
-  {
-   "f": 1852,
-   "t": 61.733,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "c:stephenX",
-    "?w:smitre"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander roman0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3673,
-    0.169,
-    0.6523,
-    0.3385
-   ]
-  },
-  {
-   "f": 1853,
-   "t": 61.767,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "c:stephenX",
-    "?w:smitre"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander roman0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3678,
-    0.1673,
-    0.6542,
-    0.3376
-   ]
-  },
-  {
-   "f": 1854,
-   "t": 61.8,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "c:stephenX",
-    "?w:smitre"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander roman0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3683,
-    0.1653,
-    0.6563,
-    0.3367
-   ]
-  },
-  {
-   "f": 1855,
-   "t": 61.833,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "c:stephenX",
-    "?w:smitre"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander roman0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3692,
-    0.1631,
-    0.659,
-    0.3356
-   ]
-  },
-  {
-   "f": 1856,
-   "t": 61.867,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "c:stephenX",
-    "?w:smitre"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander roman0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3702,
-    0.1607,
-    0.662,
-    0.3345
-   ]
-  },
-  {
-   "f": 1857,
-   "t": 61.9,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "c:stephenX",
-    "?w:smitre"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander roman0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3713,
-    0.1583,
-    0.6653,
-    0.3334
-   ]
-  },
-  {
-   "f": 1858,
-   "t": 61.933,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "c:stephenX",
-    "?w:smitre"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander roman0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.372,
-    0.1553,
-    0.6684,
-    0.3319
-   ]
-  },
-  {
-   "f": 1859,
-   "t": 61.967,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "c:stephenX",
-    "?w:smitre"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander roman0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3726,
-    0.1521,
-    0.6716,
-    0.3303
-   ]
-  },
-  {
-   "f": 1860,
-   "t": 62,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "c:stephenX",
-    "?w:smitre"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander roman0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3739,
-    0.149,
-    0.6756,
-    0.3288
-   ]
-  },
-  {
-   "f": 1861,
-   "t": 62.033,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "c:stephenX",
-    "?w:smitre"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander roman0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3753,
-    0.1457,
-    0.6798,
-    0.3272
-   ]
-  },
-  {
-   "f": 1862,
-   "t": 62.067,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "c:stephenX",
-    "?w:smitre"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander roman0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3764,
-    0.1422,
-    0.6839,
-    0.3256
-   ]
-  },
-  {
-   "f": 1863,
-   "t": 62.1,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "c:stephenX",
-    "?w:smitre"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander roman0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3774,
-    0.1387,
-    0.6878,
-    0.3239
+    0.3737,
+    0.119,
+    0.6698,
+    0.3023
    ]
   }
  ]
