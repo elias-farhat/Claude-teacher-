@@ -28,6 +28,6 @@ export const SHOT_SPECS: ShotSpec[] = [
   { t0: land(11), subjects: ["c:/^monkR[01]$/", "?w:bundle"], size: "medium", move: "drift", enter: "cut", note: "11 they threw the body in the river" },
   { t0: land(12), subjects: ["c:/^roman[01]$/", "?c:roman2"], size: "medium", move: "push", enter: "cut", note: "12 Rome was disgusted: the crowd boos" },
   { t0: land(12, "And"), subjects: ["c:stephenX", "c:/^guard\\d$/"], size: "medium", move: "drift", enter: "cut", note: "12 Stephen lost his job: marched out, mitre knocked off" },
-  { t0: land(12, "lost"), subjects: ["c:stephenX", "?w:smitre"], size: "medium", move: "push", enter: "cut", note: "12 Stephen lost his job: medium on him as his mitre is knocked off" },
+  { t0: land(12, "lost") - 0.25, subjects: ["c:stephenX", "?w:smitre"], size: "medium", move: "push", enter: "cut", note: "12 Stephen lost his job: medium on him as his mitre is knocked off" },
   { t0: land(13), subjects: ["w:throne"], size: "medium", move: "push", enter: "cut", note: "13 the empty throne, one candle" },
 ];
