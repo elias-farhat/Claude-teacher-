@@ -40,7 +40,7 @@ const at = (c: THREE.Vector3, dx: number, dy: number, dz: number): V3 => [c.x + 
 // ---------------- moving subjects ----------------
 const V3v = (x: number, y: number, z: number) => new THREE.Vector3(x, y, z);
 /** line 1: the bishops file up the nave to their bench (k = 0 at the door, 1 seated) */
-export const fileIn = (t: number, i: number) => smooth((t - 0.2 - i * 0.35) / 5.2);
+export const fileIn = (t: number, i: number) => smooth((t - 0.1 - i * 0.25) / 3.3);   // all seated (facing us) before the 4.1 s shot
 /** Formosus' mitre slides as the trial goes on, then tips off on "said nothing" (line 9) */
 export const formMitreTilt = (t: number) => 0.06 + 0.32 * smooth((t - wt(5, "sat")) / 0.6) + 0.2 * smooth((t - wt(8)) / 2.5);
 export const T_MITRE = () => wt(9, "nothing") - 0.05;

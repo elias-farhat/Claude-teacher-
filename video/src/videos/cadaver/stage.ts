@@ -102,7 +102,7 @@ const grave = (t: number, s: Stage) => {
   const dug = after(t, 4, "dug");
   s.places.push(P("monk0", MONK(0), dug ? { expr: "pained", gest: "nose", blink: 1 } : { expr: "grin", gest: "hold", blink: blinkAt(t, 40) }, { shovel: !dug }, W(GRAVE, -1.0, 0, 0.7), { turn: 0.3 }));
   s.places.push(P("monk1", MONK(1), { expr: dug ? "pained" : "nervous", gest: dug ? "nose" : "hang", blink: dug ? 1 : blinkAt(t, 41) }, { lantern: true }, W(GRAVE, 1.0, 0, 0.7), { turn: -0.3 }));
-  s.lights.push(warm(W(GRAVE, 1.25, 0.7, 1.0), 1.4));
+  s.lights.push(warm(W(GRAVE, 1.25, 0.7, 1.0), 0.9));
 };
 // line 11: the Tiber: the two monks swing the wrapped body and throw it; a big splash
 const tiber = (t: number, s: Stage) => {
