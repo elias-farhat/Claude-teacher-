@@ -1,5 +1,7 @@
 warning    9.03-  9.97 s  f271-298  SUBJECT   c:/^cheerO\d$/       not on stage
 warning    9.53-  9.73 s  f286-291  FACES     c:tsar(tsar)         head cut at the right edge
+CRITICAL  58.13- 60.27 s  f1744-1807  SUBJECT   w:king               cut off right (1.10)
+CRITICAL  58.13- 60.27 s  f1744-1807  SUBJECT   w:victory            cut off left (-0.15)
 warning   62.87- 62.93 s  f1886-1887  SUBJECT   w:portrait           cut off right (0.95)
 warning   62.87- 63.03 s  f1886-1890  SUBJECT   w:portrait           blurred (circle of confusion 1.8 px)
 warning   62.93- 63.27 s  f1888-1897  SUBJECT   w:portrait           cut off top (-0.03)

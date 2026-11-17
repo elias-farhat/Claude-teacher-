@@ -1,21 +1,25 @@
 {
  "video": "napoleon",
  "frames": 2017,
- "pass": true,
- "criticalFrames": 0,
+ "pass": false,
+ "criticalFrames": 64,
  "warningFrames": 40,
- "seconds": 207.774,
+ "seconds": 278.933,
  "history": [
-  "round 1: 441 frames with CRITICAL failures in 7 shots (0, 2, 3, 4, 7, 8, 19)",
-  "round 2: 191 frames with CRITICAL failures in 5 shots (2, 3, 4, 8, 19)",
-  "round 3: 201 frames with CRITICAL failures in 3 shots (2, 3, 8)",
-  "round 4: 0 frames with CRITICAL failures in 0 shots",
-  "assembled the best round of every shot: 0 frames with CRITICAL failures"
+  "round 1: 505 frames with CRITICAL failures in 8 shots (0, 2, 3, 4, 7, 8, 18, 19)",
+  "round 2: 255 frames with CRITICAL failures in 6 shots (2, 3, 4, 8, 18, 19)",
+  "round 3: 265 frames with CRITICAL failures in 4 shots (2, 3, 8, 18)",
+  "round 4: 64 frames with CRITICAL failures in 1 shots (18)",
+  "round 5: 64 frames with CRITICAL failures in 1 shots (18)",
+  "assembled the best round of every shot: 64 frames with CRITICAL failures",
+  "fly transitions that still failed became cuts: 0; clipping whips panned the other way: 0, became cuts: 0",
+  "flight polish (look timing per failing flight): 64 frames with CRITICAL failures (0 flights cleared)",
+  "kept round 4 (fewest CRITICAL frames: 64)"
  ],
  "rules": [
   {
    "rule": "SUBJECT",
-   "critical": 0,
+   "critical": 64,
    "warning": 40
   },
   {
@@ -78,6 +82,30 @@
    "detail": "head cut at the right edge",
    "t0": 9.53,
    "t1": 9.73
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": true,
+   "subject": "w:king",
+   "shot": 18,
+   "from": 1744,
+   "to": 1807,
+   "worst": 1744,
+   "detail": "cut off right (1.10)",
+   "t0": 58.13,
+   "t1": 60.27
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": true,
+   "subject": "w:victory",
+   "shot": 18,
+   "from": 1744,
+   "to": 1807,
+   "worst": 1744,
+   "detail": "cut off left (-0.15)",
+   "t0": 58.13,
+   "t1": 60.27
   },
   {
    "rule": "SUBJECT",
@@ -879,6 +907,1990 @@
     0.2276,
     0.4467,
     0.354
+   ]
+  },
+  {
+   "f": 1744,
+   "t": 58.133,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (0.99)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.10)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.7642,
+    0.067,
+    0.989,
+    0.2454
+   ]
+  },
+  {
+   "f": 1745,
+   "t": 58.167,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (0.99)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.10)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.7642,
+    0.067,
+    0.989,
+    0.2454
+   ]
+  },
+  {
+   "f": 1746,
+   "t": 58.2,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (0.99)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.10)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.7642,
+    0.0669,
+    0.9891,
+    0.2454
+   ]
+  },
+  {
+   "f": 1747,
+   "t": 58.233,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (0.99)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.10)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.7643,
+    0.0669,
+    0.9892,
+    0.2453
+   ]
+  },
+  {
+   "f": 1748,
+   "t": 58.267,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (0.99)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.10)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.7645,
+    0.0668,
+    0.9895,
+    0.2453
+   ]
+  },
+  {
+   "f": 1749,
+   "t": 58.3,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (0.99)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.10)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.7648,
+    0.0667,
+    0.9899,
+    0.2453
+   ]
+  },
+  {
+   "f": 1750,
+   "t": 58.333,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (0.99)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.10)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.7652,
+    0.0665,
+    0.9905,
+    0.2452
+   ]
+  },
+  {
+   "f": 1751,
+   "t": 58.367,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (0.99)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.10)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.7657,
+    0.0662,
+    0.9913,
+    0.2452
+   ]
+  },
+  {
+   "f": 1752,
+   "t": 58.4,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (0.99)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.10)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.7664,
+    0.0659,
+    0.9923,
+    0.2451
+   ]
+  },
+  {
+   "f": 1753,
+   "t": 58.433,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (0.99)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.10)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.7673,
+    0.0655,
+    0.9935,
+    0.245
+   ]
+  },
+  {
+   "f": 1754,
+   "t": 58.467,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.00)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.10)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.7684,
+    0.065,
+    0.995,
+    0.2449
+   ]
+  },
+  {
+   "f": 1755,
+   "t": 58.5,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.00)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.10)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.7696,
+    0.0644,
+    0.9968,
+    0.2447
+   ]
+  },
+  {
+   "f": 1756,
+   "t": 58.533,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.00)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.10)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.7711,
+    0.0638,
+    0.9989,
+    0.2446
+   ]
+  },
+  {
+   "f": 1757,
+   "t": 58.567,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.00)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.10)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.7727,
+    0.063,
+    1,
+    0.2444
+   ]
+  },
+  {
+   "f": 1758,
+   "t": 58.6,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.00)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.11)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.7746,
+    0.0622,
+    1,
+    0.2441
+   ]
+  },
+  {
+   "f": 1759,
+   "t": 58.633,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.01)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.11)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.7767,
+    0.0612,
+    1,
+    0.2439
+   ]
+  },
+  {
+   "f": 1760,
+   "t": 58.667,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.01)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.11)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.779,
+    0.0601,
+    1,
+    0.2436
+   ]
+  },
+  {
+   "f": 1761,
+   "t": 58.7,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.01)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.11)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.7816,
+    0.059,
+    1,
+    0.2433
+   ]
+  },
+  {
+   "f": 1762,
+   "t": 58.733,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.02)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.11)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.7843,
+    0.0577,
+    1,
+    0.243
+   ]
+  },
+  {
+   "f": 1763,
+   "t": 58.767,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.02)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.11)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.7873,
+    0.0563,
+    1,
+    0.2426
+   ]
+  },
+  {
+   "f": 1764,
+   "t": 58.8,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.03)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.12)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.7905,
+    0.0549,
+    1,
+    0.2423
+   ]
+  },
+  {
+   "f": 1765,
+   "t": 58.833,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.03)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.12)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.7939,
+    0.0533,
+    1,
+    0.2419
+   ]
+  },
+  {
+   "f": 1766,
+   "t": 58.867,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.04)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.12)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.7976,
+    0.0516,
+    1,
+    0.2414
+   ]
+  },
+  {
+   "f": 1767,
+   "t": 58.9,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.04)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.12)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.8014,
+    0.0499,
+    1,
+    0.241
+   ]
+  },
+  {
+   "f": 1768,
+   "t": 58.933,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.05)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.13)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.8055,
+    0.048,
+    1,
+    0.2405
+   ]
+  },
+  {
+   "f": 1769,
+   "t": 58.967,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.05)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.13)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.8097,
+    0.0461,
+    1,
+    0.24
+   ]
+  },
+  {
+   "f": 1770,
+   "t": 59,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.06)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.13)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.8142,
+    0.0441,
+    1,
+    0.2395
+   ]
+  },
+  {
+   "f": 1771,
+   "t": 59.033,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.07)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.13)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.8188,
+    0.0419,
+    1,
+    0.2389
+   ]
+  },
+  {
+   "f": 1772,
+   "t": 59.067,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.07)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.14)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.8236,
+    0.0397,
+    1,
+    0.2383
+   ]
+  },
+  {
+   "f": 1773,
+   "t": 59.1,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.08)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.14)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.8285,
+    0.0375,
+    1,
+    0.2377
+   ]
+  },
+  {
+   "f": 1774,
+   "t": 59.133,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.09)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.14)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.8336,
+    0.0352,
+    1,
+    0.2371
+   ]
+  },
+  {
+   "f": 1775,
+   "t": 59.167,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.09)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.15)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.8388,
+    0.0328,
+    1,
+    0.2365
+   ]
+  },
+  {
+   "f": 1776,
+   "t": 59.2,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.10)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.15)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.8442,
+    0.0303,
+    1,
+    0.2358
+   ]
+  },
+  {
+   "f": 1777,
+   "t": 59.233,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.11)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.15)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.8496,
+    0.0279,
+    1,
+    0.2352
+   ]
+  },
+  {
+   "f": 1778,
+   "t": 59.267,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.12)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.16)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.8551,
+    0.0254,
+    1,
+    0.2345
+   ]
+  },
+  {
+   "f": 1779,
+   "t": 59.3,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.13)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.16)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.8606,
+    0.0228,
+    1,
+    0.2338
+   ]
+  },
+  {
+   "f": 1780,
+   "t": 59.333,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.13)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.16)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.8662,
+    0.0203,
+    1,
+    0.2331
+   ]
+  },
+  {
+   "f": 1781,
+   "t": 59.367,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.14)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.17)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.8718,
+    0.0177,
+    1,
+    0.2324
+   ]
+  },
+  {
+   "f": 1782,
+   "t": 59.4,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.15)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.17)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.8773,
+    0.0152,
+    1,
+    0.2317
+   ]
+  },
+  {
+   "f": 1783,
+   "t": 59.433,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.16)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.17)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.8828,
+    0.0127,
+    1,
+    0.2311
+   ]
+  },
+  {
+   "f": 1784,
+   "t": 59.467,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.17)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.18)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.8883,
+    0.0102,
+    1,
+    0.2304
+   ]
+  },
+  {
+   "f": 1785,
+   "t": 59.5,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.18)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.18)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.8936,
+    0.0077,
+    1,
+    0.2297
+   ]
+  },
+  {
+   "f": 1786,
+   "t": 59.533,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.19)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.18)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.8988,
+    0.0054,
+    1,
+    0.229
+   ]
+  },
+  {
+   "f": 1787,
+   "t": 59.567,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.19)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.19)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.9039,
+    0.003,
+    1,
+    0.2284
+   ]
+  },
+  {
+   "f": 1788,
+   "t": 59.6,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.20)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.19)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.9088,
+    0.0008,
+    1,
+    0.2278
+   ]
+  },
+  {
+   "f": 1789,
+   "t": 59.633,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.21)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.19)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.9134,
+    0,
+    1,
+    0.2272
+   ]
+  },
+  {
+   "f": 1790,
+   "t": 59.667,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.22)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.19)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.9179,
+    0,
+    1,
+    0.2266
+   ]
+  },
+  {
+   "f": 1791,
+   "t": 59.7,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.22)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.20)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.9221,
+    0,
+    1,
+    0.2261
+   ]
+  },
+  {
+   "f": 1792,
+   "t": 59.733,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.23)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.20)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.926,
+    0,
+    1,
+    0.2255
+   ]
+  },
+  {
+   "f": 1793,
+   "t": 59.767,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.23)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.20)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.9297,
+    0,
+    1,
+    0.2251
+   ]
+  },
+  {
+   "f": 1794,
+   "t": 59.8,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.24)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.20)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.933,
+    0,
+    1,
+    0.2246
+   ]
+  },
+  {
+   "f": 1795,
+   "t": 59.833,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.24)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.20)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.936,
+    0,
+    1,
+    0.2242
+   ]
+  },
+  {
+   "f": 1796,
+   "t": 59.867,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.25)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.21)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.9387,
+    0,
+    1,
+    0.2239
+   ]
+  },
+  {
+   "f": 1797,
+   "t": 59.9,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.25)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.21)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.9411,
+    0,
+    1,
+    0.2236
+   ]
+  },
+  {
+   "f": 1798,
+   "t": 59.933,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.26)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.21)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.9432,
+    0,
+    1,
+    0.2233
+   ]
+  },
+  {
+   "f": 1799,
+   "t": 59.967,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.26)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.21)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.9449,
+    0,
+    1,
+    0.2231
+   ]
+  },
+  {
+   "f": 1800,
+   "t": 60,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.26)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.21)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.9463,
+    0,
+    1,
+    0.2229
+   ]
+  },
+  {
+   "f": 1801,
+   "t": 60.033,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.26)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.21)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.9475,
+    0,
+    1,
+    0.2227
+   ]
+  },
+  {
+   "f": 1802,
+   "t": 60.067,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.26)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.21)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.9484,
+    0,
+    1,
+    0.2226
+   ]
+  },
+  {
+   "f": 1803,
+   "t": 60.1,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.26)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.21)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.949,
+    0,
+    1,
+    0.2225
+   ]
+  },
+  {
+   "f": 1804,
+   "t": 60.133,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.27)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.21)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.9494,
+    0,
+    1,
+    0.2225
+   ]
+  },
+  {
+   "f": 1805,
+   "t": 60.167,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.27)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.21)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.9497,
+    0,
+    1,
+    0.2225
+   ]
+  },
+  {
+   "f": 1806,
+   "t": 60.2,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.27)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.21)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.9498,
+    0,
+    1,
+    0.2224
+   ]
+  },
+  {
+   "f": 1807,
+   "t": 60.233,
+   "shot": 18,
+   "flight": false,
+   "subjects": [
+    "w:king",
+    "w:victory"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:king",
+     "detail": "cut off right (1.27)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:victory",
+     "detail": "cut off left (-0.21)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": [
+    0.9498,
+    0,
+    1,
+    0.2224
    ]
   },
   {

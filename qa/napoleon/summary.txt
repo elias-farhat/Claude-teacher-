@@ -42,15 +42,21 @@ Decisions (auto-framer + camera guard, made without asking; revised after the re
   failed least; failing flights try other look timings / bends / start shifts, and a flight that still fails becomes
   a whip.
 
-CRITICAL: 0
+CRITICAL: 64 frames in 2 ranges
+   58.13- 60.27 s  f1744-1807  SUBJECT   w:king               cut off right (1.10)
+   58.13- 60.27 s  f1744-1807  SUBJECT   w:victory            cut off left (-0.15)
 warnings: 40 frames in 5 ranges (list in camera_report.txt)
 
 Loop:
-  round 1: 441 frames with CRITICAL failures in 7 shots (0, 2, 3, 4, 7, 8, 19)
-  round 2: 191 frames with CRITICAL failures in 5 shots (2, 3, 4, 8, 19)
-  round 3: 201 frames with CRITICAL failures in 3 shots (2, 3, 8)
-  round 4: 0 frames with CRITICAL failures in 0 shots
-  assembled the best round of every shot: 0 frames with CRITICAL failures
+  round 1: 505 frames with CRITICAL failures in 8 shots (0, 2, 3, 4, 7, 8, 18, 19)
+  round 2: 255 frames with CRITICAL failures in 6 shots (2, 3, 4, 8, 18, 19)
+  round 3: 265 frames with CRITICAL failures in 4 shots (2, 3, 8, 18)
+  round 4: 64 frames with CRITICAL failures in 1 shots (18)
+  round 5: 64 frames with CRITICAL failures in 1 shots (18)
+  assembled the best round of every shot: 64 frames with CRITICAL failures
+  fly transitions that still failed became cuts: 0; clipping whips panned the other way: 0, became cuts: 0
+  flight polish (look timing per failing flight): 64 frames with CRITICAL failures (0 flights cleared)
+  kept round 4 (fewest CRITICAL frames: 64)
 
 Shots (candidate chosen, score):
   shot  0    0.00-  3.77 s  medium az-30 (score 25: 1/5 blocked)
@@ -71,7 +77,7 @@ Shots (candidate chosen, score):
   shot 15   47.01- 51.99 s  wide   base (score 0)
   shot 16   51.99- 55.21 s  medium track az-60 (score 6)
   shot 17   55.21- 58.13 s  medium track az180 (score 40: 1/5 blocked)
-  shot 18   58.13- 60.25 s  medium closer 0.45 (score 11)
+  shot 18   58.13- 60.25 s  close  az+90 (score 89: cut off right, cut off left)
   shot 19   60.25- 63.79 s  medium base (score 44: 2/5 blocked)
   shot 20   63.79- 67.23 s  medium base (score 44: 2/5 blocked)
 
