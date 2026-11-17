@@ -24,7 +24,7 @@ const ringAt = (i: number, r0: number, r1: number) => { const a = Math.PI / 3 + 
 // (close enough that both groups stay on screen beside him through the split: run 40 lost them for ~1 s)
 const flank = (i: number) => { const north = rnd(i, 3) < 0.5; return V(NAP.x - 1.2 + (rnd(i, 5) - 0.5) * 3, 0, NAP.z + (north ? -1.9 : 1.9) + (rnd(i, 6) - 0.5) * 0.9); };
 // the winners sit in one tight crowd round the king rabbit in the bicorne (run 40: spread wide, the shot found bare grass)
-const victory = (i: number) => { const a = rnd(i, 7) * Math.PI * 2, r = 0.45 + 1.9 * Math.sqrt(rnd(i, 8)); return V(HAT_REST.x + Math.cos(a) * r, 0, HAT_REST.z + Math.sin(a) * r * 0.7 - 1.0); };
+const victory = (i: number) => { const a = rnd(i, 7) * Math.PI * 2, r = 0.45 + 1.3 * Math.sqrt(rnd(i, 8)); return V(HAT_REST.x + Math.cos(a) * r, 0, HAT_REST.z + Math.sin(a) * r * 0.75 - 0.6); };
 /** where a climber clings to Napoleon (front of the legs and coat, never above the chest) */
 const climbSpot = (k: number, at: THREE.Vector3) => V(at.x + (k % 2 ? 0.16 : -0.16), 0.25 + Math.floor(k / 2) * 0.28, at.z - 0.16);
 
