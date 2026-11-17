@@ -159,6 +159,7 @@ export const solve = (I: SolveIn, hints: Hint[] = []): Track => {
       if (!ok) continue;
       void 0;
       const total = sc + pen;
+      if ((globalThis as unknown as { process?: { env: Record<string, string | undefined> } }).process?.env.GUARD_CANDS === String(i)) console.error(`[cand] shot ${i} ${name}: ${total.toFixed(1)} ${[...new Set(why)].join("; ")}`);
       if (!best || total < best.sc) best = { name: (travel > 1 ? "track " : "") + name, sc: total, keys, why: [...new Set(why)] };
       if (best && best.sc < 8 && name === "base") break;
     }
