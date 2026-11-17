@@ -16,7 +16,8 @@ const CLIMB = 6, JUMP = 6, KING = 12;
 
 // fixed spots per rabbit
 const home = (i: number) => { const c = CAGES[i % CAGES.length], k = Math.floor(i / CAGES.length); return V(c.x - 0.55 + (k % 4) * 0.37, 0.08, c.z - 0.3 + Math.floor(k / 4) * 0.3); };
-const mill = (i: number) => V(-10 + rnd(i, 1) * 20, 0, -3 + rnd(i, 2) * 4);
+// they gather west of him (behind him as the camera sees it from the east), then charge straight at him and the lens
+const mill = (i: number) => V(-14 + rnd(i, 1) * 7, 0, 1 + rnd(i, 2) * 11);
 // the ring leaves out the east side (where the camera stands to see his face): no rabbits between him and the lens
 const ringAt = (i: number, r0: number, r1: number) => { const a = Math.PI / 3 + rnd(i, 3) * Math.PI * 4 / 3, r = r0 + (r1 - r0) * Math.sqrt(rnd(i, 4)); return V(NAP.x + Math.cos(a) * r, 0, NAP.z + Math.sin(a) * r); };
 // the two flanks: north and south of him (left and right as the camera sees it from the east)

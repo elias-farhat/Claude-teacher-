@@ -15,7 +15,7 @@ export const SHOT_SPECS: ShotSpec[] = [
   { t0: land(4, "Tame"), subjects: ["c:farmer1"], size: "medium", move: "push", note: "4 tame rabbits. pets: a farmer kisses a bunny goodbye" },
   { t0: land(5), subjects: ["c:/^opener\\d$/", "?w:cages"], size: "medium", move: "drift", enter: "cut", note: "5 the cages open: the men jump back as the doors fly up" },
   { t0: land(5, "Napoleon"), subjects: ["c:napoleon"], size: "medium", move: "push", enter: "cut", note: "5 Napoleon raises his gun, squinting" },
-  { t0: land(6), subjects: ["c:napoleon", "?w:swarm"], size: "wide", move: "drift", note: "6 and the rabbits run straight AT him" },
+  { t0: land(6), subjects: ["c:napoleon", "?w:swarm"], size: "wide", move: "push", note: "6 and the rabbits run straight AT him" },
   { t0: land(6, "AT"), subjects: ["c:napoleon"], size: "medium", move: "push", note: "6 AT him: his eyes go wide" },
   { t0: land(7), subjects: ["c:napoleon", "?w:swarm"], size: "medium", angle: "high", move: "drift", note: "7 they weren't scared, they were hungry: begging at his boots" },
   { t0: land(8), subjects: ["c:napoleon"], size: "medium", move: "push", note: "8 they swarmed his boots, climbed up his legs" },
@@ -25,5 +25,5 @@ export const SHOT_SPECS: ShotSpec[] = [
   { t0: land(10, "And"), subjects: ["c:napoleonC", "?w:carriage"], size: "medium", move: "drift", enter: "cut", note: "10 some rabbits jumped in after him: on the carriage, driving off" },
   { t0: land(11), subjects: ["w:king", "?w:swarm"], size: "medium", move: "push", enter: "cut", note: "11 the rabbits won: one wears the bicorne" },
   { t0: land(12), subjects: ["c:thiebault"], size: "medium", move: "push", enter: "cut", note: "12 that's what one of his generals wrote" },
-  { t0: land(12, "And"), subjects: ["c:thiebault"], size: "medium", angle: "left", move: "drift", note: "12 and he really didn't like Berthier (the portrait behind)" },
+  { t0: land(12, "And"), subjects: ["c:thiebault", "w:portrait"], size: "medium", move: "drift", note: "12 and he really didn't like Berthier (the portrait behind)" },
 ];
