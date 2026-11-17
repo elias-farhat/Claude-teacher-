@@ -118,7 +118,7 @@ const piazza = (t: number, s: Stage) => {
   // before Stephen comes out: three Romans boo at the doors (turned to the camera); once he is marched out (a cut) they
   // follow right behind him, still booing, inside the same frame
   const marched = t >= wt(12, "And") - LEAD, p = stephenOut(t);
-  const spots: [number, number][] = marched ? [[-0.75, -1.7], [0.25, -2.2], [1.05, -1.8]] : [[-1.15, 4.2], [0.1, 4.2], [1.35, 4.2]];
+  const spots: [number, number][] = marched ? [[-0.75, -1.7], [0.25, -2.2], [1.05, -1.8]] : [[-0.65, 4.2], [0.65, 4.2], [0.0, 3.1]];
   spots.forEach(([dx, dz], i) => s.places.push(P(`roman${i}`, ROMAN(i), marched ? { ...boo(i), mode: t < wt(12, "And") + 2.7 ? "stroll" : "stand", phase: q((t * 1.3 + i * 0.3) % 1, 12) } : boo(i), {}, marched ? V(p.x + dx, 0, p.z + dz) : V(dx, 0, NAVE.z1 + dz), { turn: dx < 0 ? 0.35 : -0.35, size: marched ? LO : HI })));
   if (marched) {
     const out = t >= T_KNOCK(), walking = t < wt(12, "And") + 2.7;
