@@ -4,7 +4,7 @@
  "pass": false,
  "criticalFrames": 64,
  "warningFrames": 40,
- "seconds": 278.933,
+ "seconds": 277.595,
  "history": [
   "round 1: 505 frames with CRITICAL failures in 8 shots (0, 2, 3, 4, 7, 8, 18, 19)",
   "round 2: 255 frames with CRITICAL failures in 6 shots (2, 3, 4, 8, 18, 19)",
@@ -91,19 +91,7 @@
    "from": 1744,
    "to": 1807,
    "worst": 1744,
-   "detail": "cut off right (1.10)",
-   "t0": 58.13,
-   "t1": 60.27
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": true,
-   "subject": "w:victory",
-   "shot": 18,
-   "from": 1744,
-   "to": 1807,
-   "worst": 1744,
-   "detail": "cut off left (-0.15)",
+   "detail": "out of frame (x 0.38..1.09, y -0.73..-0.13)",
    "t0": 58.13,
    "t1": 60.27
   },
@@ -922,22 +910,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (0.99)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.10)",
+     "detail": "out of frame (x 0.23..0.83, y -0.61..-0.11)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.7642,
-    0.067,
-    0.989,
-    0.2454
+    0,
+    0,
+    1,
+    0.1539
    ]
   },
   {
@@ -953,22 +935,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (0.99)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.10)",
+     "detail": "out of frame (x 0.23..0.83, y -0.61..-0.11)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.7642,
-    0.067,
-    0.989,
-    0.2454
+    0,
+    0,
+    1,
+    0.1539
    ]
   },
   {
@@ -984,22 +960,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (0.99)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.10)",
+     "detail": "out of frame (x 0.23..0.83, y -0.61..-0.11)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.7642,
-    0.0669,
-    0.9891,
-    0.2454
+    0,
+    0,
+    1,
+    0.1539
    ]
   },
   {
@@ -1015,22 +985,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (0.99)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.10)",
+     "detail": "out of frame (x 0.23..0.83, y -0.61..-0.11)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.7643,
-    0.0669,
-    0.9892,
-    0.2453
+    0,
+    0,
+    1,
+    0.154
    ]
   },
   {
@@ -1046,22 +1010,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (0.99)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.10)",
+     "detail": "out of frame (x 0.23..0.83, y -0.61..-0.11)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.7645,
-    0.0668,
-    0.9895,
-    0.2453
+    0,
+    0,
+    1,
+    0.154
    ]
   },
   {
@@ -1077,22 +1035,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (0.99)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.10)",
+     "detail": "out of frame (x 0.23..0.83, y -0.61..-0.11)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.7648,
-    0.0667,
-    0.9899,
-    0.2453
+    0,
+    0,
+    1,
+    0.1542
    ]
   },
   {
@@ -1108,22 +1060,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (0.99)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.10)",
+     "detail": "out of frame (x 0.23..0.83, y -0.61..-0.11)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.7652,
-    0.0665,
-    0.9905,
-    0.2452
+    0,
+    0,
+    1,
+    0.1543
    ]
   },
   {
@@ -1139,22 +1085,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (0.99)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.10)",
+     "detail": "out of frame (x 0.23..0.83, y -0.61..-0.11)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.7657,
-    0.0662,
-    0.9913,
-    0.2452
+    0,
+    0,
+    1,
+    0.1546
    ]
   },
   {
@@ -1170,22 +1110,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (0.99)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.10)",
+     "detail": "out of frame (x 0.23..0.83, y -0.62..-0.11)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.7664,
-    0.0659,
-    0.9923,
-    0.2451
+    0,
+    0,
+    1,
+    0.1549
    ]
   },
   {
@@ -1201,22 +1135,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (0.99)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.10)",
+     "detail": "out of frame (x 0.23..0.84, y -0.62..-0.11)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.7673,
-    0.0655,
-    0.9935,
-    0.245
+    0,
+    0,
+    1,
+    0.1553
    ]
   },
   {
@@ -1232,22 +1160,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.00)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.10)",
+     "detail": "out of frame (x 0.24..0.84, y -0.62..-0.11)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.7684,
-    0.065,
-    0.995,
-    0.2449
+    0,
+    0,
+    1,
+    0.1558
    ]
   },
   {
@@ -1263,22 +1185,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.00)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.10)",
+     "detail": "out of frame (x 0.24..0.85, y -0.62..-0.11)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.7696,
-    0.0644,
-    0.9968,
-    0.2447
+    0,
+    0,
+    1,
+    0.1564
    ]
   },
   {
@@ -1294,22 +1210,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.00)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.10)",
+     "detail": "out of frame (x 0.24..0.85, y -0.62..-0.11)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.7711,
-    0.0638,
-    0.9989,
-    0.2446
+    0,
+    0,
+    1,
+    0.157
    ]
   },
   {
@@ -1325,22 +1235,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.00)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.10)",
+     "detail": "out of frame (x 0.24..0.85, y -0.63..-0.11)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.7727,
-    0.063,
+    0,
+    0,
     1,
-    0.2444
+    0.1578
    ]
   },
   {
@@ -1356,22 +1260,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.00)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.11)",
+     "detail": "out of frame (x 0.25..0.86, y -0.63..-0.11)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.7746,
-    0.0622,
+    0,
+    0,
     1,
-    0.2441
+    0.1587
    ]
   },
   {
@@ -1387,22 +1285,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.01)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.11)",
+     "detail": "out of frame (x 0.25..0.87, y -0.63..-0.11)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.7767,
-    0.0612,
+    0,
+    0,
     1,
-    0.2439
+    0.1597
    ]
   },
   {
@@ -1418,22 +1310,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.01)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.11)",
+     "detail": "out of frame (x 0.26..0.87, y -0.63..-0.11)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.779,
-    0.0601,
+    0,
+    0,
     1,
-    0.2436
+    0.1608
    ]
   },
   {
@@ -1449,22 +1335,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.01)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.11)",
+     "detail": "out of frame (x 0.26..0.88, y -0.64..-0.11)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.7816,
-    0.059,
+    0,
+    0,
     1,
-    0.2433
+    0.162
    ]
   },
   {
@@ -1480,22 +1360,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.02)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.11)",
+     "detail": "out of frame (x 0.27..0.89, y -0.64..-0.11)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.7843,
-    0.0577,
+    0,
+    0,
     1,
-    0.243
+    0.1634
    ]
   },
   {
@@ -1511,22 +1385,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.02)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.11)",
+     "detail": "out of frame (x 0.27..0.90, y -0.65..-0.11)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.7873,
-    0.0563,
+    0,
+    0,
     1,
-    0.2426
+    0.1649
    ]
   },
   {
@@ -1542,22 +1410,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.03)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.12)",
+     "detail": "out of frame (x 0.28..0.91, y -0.65..-0.11)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.7905,
-    0.0549,
+    0,
+    0,
     1,
-    0.2423
+    0.1666
    ]
   },
   {
@@ -1573,22 +1435,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.03)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.12)",
+     "detail": "out of frame (x 0.28..0.92, y -0.66..-0.11)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.7939,
-    0.0533,
+    0,
+    0,
     1,
-    0.2419
+    0.1683
    ]
   },
   {
@@ -1604,22 +1460,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.04)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.12)",
+     "detail": "out of frame (x 0.29..0.93, y -0.66..-0.12)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.7976,
-    0.0516,
+    0,
+    0,
     1,
-    0.2414
+    0.1703
    ]
   },
   {
@@ -1635,22 +1485,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.04)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.12)",
+     "detail": "out of frame (x 0.30..0.95, y -0.67..-0.12)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.8014,
-    0.0499,
+    0,
+    0,
     1,
-    0.241
+    0.1724
    ]
   },
   {
@@ -1666,22 +1510,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.05)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.13)",
+     "detail": "out of frame (x 0.31..0.96, y -0.67..-0.12)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.8055,
-    0.048,
+    0,
+    0,
     1,
-    0.2405
+    0.1747
    ]
   },
   {
@@ -1697,22 +1535,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.05)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.13)",
+     "detail": "out of frame (x 0.31..0.97, y -0.68..-0.12)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.8097,
-    0.0461,
+    0,
+    0,
     1,
-    0.24
+    0.1771
    ]
   },
   {
@@ -1728,22 +1560,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.06)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.13)",
+     "detail": "out of frame (x 0.32..0.99, y -0.69..-0.12)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.8142,
-    0.0441,
+    0,
+    0,
     1,
-    0.2395
+    0.1797
    ]
   },
   {
@@ -1759,22 +1585,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.07)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.13)",
+     "detail": "out of frame (x 0.33..1.00, y -0.69..-0.12)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.8188,
-    0.0419,
+    0,
+    0,
     1,
-    0.2389
+    0.1824
    ]
   },
   {
@@ -1790,22 +1610,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.07)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.14)",
+     "detail": "out of frame (x 0.34..1.02, y -0.70..-0.12)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.8236,
-    0.0397,
+    0,
+    0,
     1,
-    0.2383
+    0.1853
    ]
   },
   {
@@ -1821,22 +1635,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.08)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.14)",
+     "detail": "out of frame (x 0.35..1.04, y -0.71..-0.12)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.8285,
-    0.0375,
+    0,
+    0,
     1,
-    0.2377
+    0.1884
    ]
   },
   {
@@ -1852,22 +1660,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.14)",
+     "detail": "out of frame (x 0.36..1.05, y -0.72..-0.12)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.8336,
-    0.0352,
+    0,
+    0,
     1,
-    0.2371
+    0.1917
    ]
   },
   {
@@ -1883,22 +1685,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.15)",
+     "detail": "out of frame (x 0.37..1.07, y -0.72..-0.12)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.8388,
-    0.0328,
+    0,
+    0,
     1,
-    0.2365
+    0.195
    ]
   },
   {
@@ -1914,22 +1710,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.10)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.15)",
+     "detail": "out of frame (x 0.38..1.09, y -0.73..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.8442,
-    0.0303,
+    0,
+    0,
     1,
-    0.2358
+    0.1986
    ]
   },
   {
@@ -1945,22 +1735,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.11)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.15)",
+     "detail": "out of frame (x 0.39..1.11, y -0.74..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.8496,
-    0.0279,
+    0,
+    0,
     1,
-    0.2352
+    0.2023
    ]
   },
   {
@@ -1976,22 +1760,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.12)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.16)",
+     "detail": "out of frame (x 0.40..1.12, y -0.75..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.8551,
-    0.0254,
+    0,
+    0,
     1,
-    0.2345
+    0.2061
    ]
   },
   {
@@ -2007,22 +1785,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.13)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.16)",
+     "detail": "out of frame (x 0.41..1.14, y -0.75..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.8606,
-    0.0228,
+    0,
+    0,
     1,
-    0.2338
+    0.2101
    ]
   },
   {
@@ -2038,22 +1810,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.13)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.16)",
+     "detail": "out of frame (x 0.42..1.16, y -0.76..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.8662,
-    0.0203,
+    0,
+    0,
     1,
-    0.2331
+    0.2141
    ]
   },
   {
@@ -2069,22 +1835,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.14)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.17)",
+     "detail": "out of frame (x 0.43..1.18, y -0.77..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.8718,
-    0.0177,
+    0,
+    0,
     1,
-    0.2324
+    0.2183
    ]
   },
   {
@@ -2100,22 +1860,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.15)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.17)",
+     "detail": "out of frame (x 0.45..1.20, y -0.78..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.8773,
-    0.0152,
+    0,
+    0,
     1,
-    0.2317
+    0.2225
    ]
   },
   {
@@ -2131,22 +1885,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.16)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.17)",
+     "detail": "out of frame (x 0.46..1.22, y -0.79..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.8828,
-    0.0127,
+    0,
+    0,
     1,
-    0.2311
+    0.2267
    ]
   },
   {
@@ -2162,22 +1910,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.17)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.18)",
+     "detail": "out of frame (x 0.47..1.24, y -0.79..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.8883,
-    0.0102,
+    0,
+    0,
     1,
-    0.2304
+    0.231
    ]
   },
   {
@@ -2193,22 +1935,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.18)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.18)",
+     "detail": "out of frame (x 0.48..1.26, y -0.80..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.8936,
-    0.0077,
+    0,
+    0,
     1,
-    0.2297
+    0.2353
    ]
   },
   {
@@ -2224,22 +1960,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.19)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.18)",
+     "detail": "out of frame (x 0.49..1.28, y -0.81..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.8988,
-    0.0054,
+    0,
+    0,
     1,
-    0.229
+    0.2396
    ]
   },
   {
@@ -2255,22 +1985,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.19)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.19)",
+     "detail": "out of frame (x 0.50..1.29, y -0.82..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.9039,
-    0.003,
+    0,
+    0,
     1,
-    0.2284
+    0.2438
    ]
   },
   {
@@ -2286,22 +2010,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.20)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.19)",
+     "detail": "out of frame (x 0.51..1.31, y -0.82..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.9088,
-    0.0008,
+    0,
+    0,
     1,
-    0.2278
+    0.2479
    ]
   },
   {
@@ -2317,22 +2035,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.21)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.19)",
+     "detail": "out of frame (x 0.52..1.33, y -0.83..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.9134,
+    0,
     0,
     1,
-    0.2272
+    0.2519
    ]
   },
   {
@@ -2348,22 +2060,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.22)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.19)",
+     "detail": "out of frame (x 0.52..1.34, y -0.83..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.9179,
+    0,
     0,
     1,
-    0.2266
+    0.2558
    ]
   },
   {
@@ -2379,22 +2085,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.22)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.20)",
+     "detail": "out of frame (x 0.53..1.36, y -0.84..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.9221,
+    0,
     0,
     1,
-    0.2261
+    0.2595
    ]
   },
   {
@@ -2410,22 +2110,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.23)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.20)",
+     "detail": "out of frame (x 0.54..1.37, y -0.85..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.926,
+    0,
     0,
     1,
-    0.2255
+    0.263
    ]
   },
   {
@@ -2441,22 +2135,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.23)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.20)",
+     "detail": "out of frame (x 0.54..1.39, y -0.85..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.9297,
+    0,
     0,
     1,
-    0.2251
+    0.2663
    ]
   },
   {
@@ -2472,22 +2160,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.24)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.20)",
+     "detail": "out of frame (x 0.55..1.40, y -0.85..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.933,
+    0,
     0,
     1,
-    0.2246
+    0.2693
    ]
   },
   {
@@ -2503,22 +2185,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.24)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.20)",
+     "detail": "out of frame (x 0.55..1.41, y -0.86..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.936,
+    0,
     0,
     1,
-    0.2242
+    0.2721
    ]
   },
   {
@@ -2534,22 +2210,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.25)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.21)",
+     "detail": "out of frame (x 0.56..1.42, y -0.86..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.9387,
+    0,
     0,
     1,
-    0.2239
+    0.2746
    ]
   },
   {
@@ -2565,22 +2235,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.25)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.21)",
+     "detail": "out of frame (x 0.56..1.43, y -0.87..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.9411,
+    0,
     0,
     1,
-    0.2236
+    0.2768
    ]
   },
   {
@@ -2596,22 +2260,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.26)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.21)",
+     "detail": "out of frame (x 0.56..1.44, y -0.87..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.9432,
+    0,
     0,
     1,
-    0.2233
+    0.2788
    ]
   },
   {
@@ -2627,22 +2285,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.26)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.21)",
+     "detail": "out of frame (x 0.56..1.44, y -0.87..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.9449,
+    0,
     0,
     1,
-    0.2231
+    0.2804
    ]
   },
   {
@@ -2658,22 +2310,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.26)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.21)",
+     "detail": "out of frame (x 0.57..1.45, y -0.87..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.9463,
+    0,
     0,
     1,
-    0.2229
+    0.2818
    ]
   },
   {
@@ -2689,22 +2335,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.26)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.21)",
+     "detail": "out of frame (x 0.57..1.45, y -0.87..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.9475,
+    0,
     0,
     1,
-    0.2227
+    0.2829
    ]
   },
   {
@@ -2720,22 +2360,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.26)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.21)",
+     "detail": "out of frame (x 0.57..1.46, y -0.87..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.9484,
+    0,
     0,
     1,
-    0.2226
+    0.2837
    ]
   },
   {
@@ -2751,22 +2385,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.26)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.21)",
+     "detail": "out of frame (x 0.57..1.46, y -0.88..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.949,
+    0,
     0,
     1,
-    0.2225
+    0.2843
    ]
   },
   {
@@ -2782,22 +2410,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.27)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.21)",
+     "detail": "out of frame (x 0.57..1.46, y -0.88..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.9494,
+    0,
     0,
     1,
-    0.2225
+    0.2847
    ]
   },
   {
@@ -2813,22 +2435,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.27)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.21)",
+     "detail": "out of frame (x 0.57..1.46, y -0.88..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.9497,
+    0,
     0,
     1,
-    0.2225
+    0.2849
    ]
   },
   {
@@ -2844,22 +2460,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.27)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.21)",
+     "detail": "out of frame (x 0.57..1.46, y -0.88..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.9498,
+    0,
     0,
     1,
-    0.2224
+    0.2851
    ]
   },
   {
@@ -2875,22 +2485,16 @@
     {
      "rule": "SUBJECT",
      "subject": "w:king",
-     "detail": "cut off right (1.27)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:victory",
-     "detail": "cut off left (-0.21)",
+     "detail": "out of frame (x 0.57..1.46, y -0.88..-0.13)",
      "critical": true
     }
    ],
-   "score": 4,
+   "score": 2,
    "box": [
-    0.9498,
+    0,
     0,
     1,
-    0.2224
+    0.2851
    ]
   },
   {
