@@ -82,7 +82,7 @@ export class Swarm {
   }
   update(t: number, cam?: THREE.Vector3) {
     for (let i = 0; i < N; i++) {
-      const r = rabbitAt(i, t), near = cam ? cam.distanceTo(r.p) < 3.2 : false;
+      const r = rabbitAt(i, t), near = cam ? cam.distanceTo(r.p) < (t >= wt(11) - 1 ? 1.8 : 3.2) : false;   // the last shot frames the king rabbit up close
       this.m.compose(r.p, this.q.setFromEuler(this.e.set(0, r.yaw, 0)), new THREE.Vector3(r.s, r.s, r.s));
       this.sit.setMatrixAt(i, near || r.beg ? this.zero : this.m); this.beg.setMatrixAt(i, near || !r.beg ? this.zero : this.m);
     }

@@ -23,7 +23,7 @@ export const SHOT_SPECS: ShotSpec[] = [
   { t0: land(9), subjects: ["c:napoleon", "?w:swarm"], size: "wide", angle: "high", move: "orbit", place: "centre", note: "9 the rabbits split up and attacked from the flanks (battle-map angle)" },
   { t0: land(10), subjects: ["c:napoleon"], size: "medium", move: "drift", enter: "cut", note: "10 the Emperor of France ran for his carriage (hat flying)" },
   { t0: land(10, "And"), subjects: ["c:napoleonC", "?w:carriage"], size: "medium", move: "drift", enter: "cut", note: "10 some rabbits jumped in after him: on the carriage, driving off" },
-  { t0: land(11), subjects: ["w:victory"], size: "medium", move: "push", enter: "cut", note: "11 the rabbits won: one wears the bicorne" },
+  { t0: land(11), subjects: ["w:king", "?w:victory"], size: "medium", move: "push", enter: "cut", note: "11 the rabbits won: one wears the bicorne" },
   { t0: land(12), subjects: ["c:thiebault"], size: "medium", move: "push", enter: "cut", note: "12 that's what one of his generals wrote" },
   { t0: land(12, "And"), subjects: ["c:thiebault", "w:portrait"], size: "medium", move: "drift", note: "12 and he really didn't like Berthier (the portrait behind)" },
 ];
