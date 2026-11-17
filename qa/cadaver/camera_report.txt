@@ -1,6 +1,14 @@
-warning    3.40-  3.63 s  f102-108  FACES     c:/^bishop[12]$/(bishop1) head centre at 66 % of the frame height
-warning    3.57-  3.73 s  f107-111  SUBJECT   c:/^bishop[12]$/     too small (8 % of frame height, needs 30 %)
-warning    3.67-  3.87 s  f110-115  FACES     c:/^bishop[12]$/(bishop2) head centre at 65 % of the frame height
+CRITICAL   1.47-  1.90 s  f44-56  FACES     bystander bishop0    bystander's head cut at the right edge
+warning    3.20-  3.63 s  f96-108  SUBJECT   c:/^bishop[12]$/     cut off right (1.14)
+warning    3.27-  3.60 s  f98-107  FACES     c:/^bishop[12]$/(bishop1) head cut at the right edge
+warning    3.53-  3.57 s  f106-106  FACES     c:/^bishop[12]$/(bishop1) head (hat) touches the top edge (2.5 %)
+warning    3.60-  3.67 s  f108-109  FACES     c:/^bishop[12]$/(bishop1) head cut at the top edge
+warning    3.63-  3.67 s  f109-109  SUBJECT   c:/^bishop[12]$/     cut off top (-0.06)
+warning    3.67-  3.70 s  f110-110  SUBJECT   c:/^bishop[12]$/     cut off right (1.13)
+warning    3.67-  3.70 s  f110-110  FACES     c:/^bishop[12]$/(bishop1) head cut at the right edge
+warning    3.70-  3.80 s  f111-113  SUBJECT   c:/^bishop[12]$/     cut off top (-0.00)
+warning    3.70-  3.73 s  f111-111  FACES     c:/^bishop[12]$/(bishop1) head cut at the top edge
+warning    3.73-  3.77 s  f112-112  FACES     c:/^bishop[12]$/(bishop1) head (hat) touches the top edge (0.5 %)
 warning   33.90- 34.83 s  f1017-1044  SUBJECT   c:deacon             not on stage
 warning   34.50- 34.83 s  f1035-1044  FACES     c:formosus           face 100 % covered by something in front
 warning   34.60- 34.83 s  f1038-1044  OCCLUSION c:formosus           4/5 rays blocked for 11 frames
