@@ -4,7 +4,7 @@ warning    3.53-  3.77 s  f106-112  FACES     c:/^bishop[12]$/(bishop1) head cut
 warning    3.67-  3.70 s  f110-110  SUBJECT   c:/^bishop[12]$/     too small (29 % of frame height, needs 30 %)
 warning    3.67-  3.83 s  f110-114  FACES     c:/^bishop[12]$/(bishop2) head cut at the right edge
 warning    3.80-  3.93 s  f114-117  SUBJECT   c:/^bishop[12]$/     cut off right (0.99)
-CRITICAL  14.30- 14.80 s  f429-443  XCU                            extreme close-up (head 30 % of the frame)
+CRITICAL  12.00- 14.80 s  f360-443  STALE                          the subject barely moves on screen for more than 2 s
 warning   33.90- 34.83 s  f1017-1044  SUBJECT   c:deacon             not on stage
 warning   34.50- 34.83 s  f1035-1044  FACES     c:formosus           face 100 % covered by something in front
 warning   34.60- 34.83 s  f1038-1044  OCCLUSION c:formosus           4/5 rays blocked for 11 frames

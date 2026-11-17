@@ -42,26 +42,26 @@ Decisions (auto-framer + camera guard, made without asking; revised after the re
   failed least; failing flights try other look timings / bends / start shifts, and a flight that still fails becomes
   a whip.
 
-CRITICAL: 15 frames in 1 ranges
-   14.30- 14.80 s  f429-443  XCU                            extreme close-up (head 30 % of the frame)
+CRITICAL: 84 frames in 1 ranges
+   12.00- 14.80 s  f360-443  STALE                          the subject barely moves on screen for more than 2 s
 warnings: 41 frames in 10 ranges (list in camera_report.txt)
 
 Loop:
   round 1: 809 frames with CRITICAL failures in 10 shots (1, 2, 4, 5, 7, 8, 10, 12, 16, 19)
-  round 2: 267 frames with CRITICAL failures in 5 shots (2, 4, 5, 10, 16)
-  round 3: 43 frames with CRITICAL failures in 2 shots (4, 16)
-  round 4: 30 frames with CRITICAL failures in 2 shots (4, 16)
-  round 5: 15 frames with CRITICAL failures in 1 shots (4)
-  assembled the best round of every shot: 15 frames with CRITICAL failures
+  round 2: 332 frames with CRITICAL failures in 5 shots (2, 4, 5, 10, 16)
+  round 3: 93 frames with CRITICAL failures in 2 shots (4, 16)
+  round 4: 85 frames with CRITICAL failures in 2 shots (4, 16)
+  round 5: 84 frames with CRITICAL failures in 1 shots (4)
+  assembled the best round of every shot: 84 frames with CRITICAL failures
   fly transitions that still failed became cuts: 0; clipping whips panned the other way: 0, became cuts: 0
-  flight polish (look timing per failing flight): 15 frames with CRITICAL failures (0 flights cleared)
+  flight polish (look timing per failing flight): 84 frames with CRITICAL failures (0 flights cleared)
 
 Shots (candidate chosen, score):
   shot  0    0.00-  4.09 s  medium track az-60 (score 6)
   shot  1    4.09-  7.24 s  medium track az+30 high (score 6)
   shot  2    7.24- 10.68 s  medium lower (score 2)
   shot  3   10.68- 12.00 s  wide   base (score 0)
-  shot  4   12.00- 14.78 s  medium lower (score 64: 1/5 blocked, head 30 %)
+  shot  4   12.00- 14.78 s  medium az-30 (score 25: 1/5 blocked)
   shot  5   14.78- 17.78 s  medium lower (score 42: head 30 %)
   shot  6   17.78- 19.24 s  medium base (score 0)
   shot  7   19.24- 22.98 s  medium az-60 (score 6)
