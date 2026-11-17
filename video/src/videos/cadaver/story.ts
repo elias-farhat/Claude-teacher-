@@ -76,7 +76,7 @@ const S = STEPHEN_AT, F = FORMOSUS_AT;
 
 export const SHOTS: Shot[] = [
   // 1 "Rome. 897. The strangest trial in history is about to begin." the nave, the bishops filing in, the empty throne
-  { name: "hall", at: 0, look: "cool", keys: K([3, 3.0, BENCH_Z + 9], [0, 1.2, 2]) },
+  { name: "hall", at: 0, look: "cool", keys: K([2.2, 2.6, BENCH_Z - 2.5], [0, 1.3, -9]) },   // from behind the bench: the bishops walk toward us
   // 2 "The judge? Pope Stephen the Sixth." Stephen on his high seat
   { name: "stephen", at: land(2), look: "lamp", keys: K(at(S, 4.5, 1.0, 3.2), at(S, 0, 1.3, 0)) },
   // 3 "The defendant? The pope before him... Formosus. Who had been dead... for months." the reveal; the bishops recoil
@@ -84,7 +84,7 @@ export const SHOTS: Shot[] = [
   { name: "bishops", at: land(3, "dead"), look: "lamp", keys: K([0.6, 1.8, BENCH_Z + 6], [0, 1.1, BENCH_Z]) },
   { name: "stephen2", at: land(4), look: "lamp", keys: K(at(S, 4.5, 1.0, 3.2), at(S, 0, 1.3, 0)) },
   // 4 "He had the body dug up!" the graveyard at night, the monks, a lantern
-  { name: "grave", at: land(4, "He"), look: "moonlit", keys: K(at(GRAVE, 1.4, 1.7, 5.5), at(GRAVE, 0, 0.9, 0)) },
+  { name: "grave", at: land(4, "He"), look: "moonlit", keys: K(at(GRAVE, 0.2, 1.7, 6.5), at(GRAVE, 0, 1.0, 0.7)) },
   // 5 "They dressed the corpse in full pope robes... and sat him on a throne." the monks fuss over him
   { name: "dress", at: land(5), look: "lamp", keys: K(at(F, -4.2, 0.8, 2.6), at(F, 0, 0.6, 0)) },
   // 6-10 the trial

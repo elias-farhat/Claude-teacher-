@@ -93,15 +93,15 @@ const formosus = (t: number, s: Stage) => {
   // line 7: the deacon peeks out from behind the throne, shaking, and answers for him
   if (between(t, wt(7, "nervous") - LEAD, wt(8) + 0.2)) {
     const ans = after(t, 7, "answered");
-    s.places.push(P("deacon", DEACON, { expr: "nervous", gest: ans ? "palm" : "shake", k: q((t * 6) % 1, 8), blink: blinkAt(t, 30), headTilt: 5 * Math.sin(t * 23) }, { sweat: true }, W(F, 0.95, THRONE.h - F.y, -0.85), { yaw: WEST + 0.35 }));
+    s.places.push(P("deacon", DEACON, { expr: "nervous", gest: ans ? "palm" : "shake", k: q((t * 6) % 1, 8), blink: blinkAt(t, 30), headTilt: 5 * Math.sin(t * 23) }, { sweat: true }, W(F, 0.95, THRONE.h - F.y, -0.85), { turn: 0.3 }));
   }
 };
 // line 4: the night graveyard: two hooded monks dig, a lantern; on "dug" the lid comes up and they hold their noses
 const grave = (t: number, s: Stage) => {
   if (!between(t, wt(4, "care") + 0.4, wt(5) + 0.2)) return;
   const dug = after(t, 4, "dug");
-  s.places.push(P("monk0", MONK(0), dug ? { expr: "pained", gest: "nose", blink: 1 } : { expr: "grin", gest: "hold", blink: blinkAt(t, 40) }, { shovel: !dug }, W(GRAVE, -0.95, 0, 0.65), { turn: 0.35 }));
-  s.places.push(P("monk1", MONK(1), { expr: dug ? "pained" : "nervous", gest: dug ? "nose" : "hang", blink: dug ? 1 : blinkAt(t, 41) }, { lantern: true }, W(GRAVE, 1.0, 0, 0.75), { turn: -0.35 }));
+  s.places.push(P("monk0", MONK(0), dug ? { expr: "pained", gest: "nose", blink: 1 } : { expr: "grin", gest: "hold", blink: blinkAt(t, 40) }, { shovel: !dug }, W(GRAVE, -1.0, 0, 0.7), { turn: 0.3 }));
+  s.places.push(P("monk1", MONK(1), { expr: dug ? "pained" : "nervous", gest: dug ? "nose" : "hang", blink: dug ? 1 : blinkAt(t, 41) }, { lantern: true }, W(GRAVE, 1.0, 0, 0.7), { turn: -0.3 }));
   s.lights.push(warm(W(GRAVE, 1.25, 0.7, 1.0), 1.4));
 };
 // line 11: the Tiber: the two monks swing the wrapped body and throw it; a big splash
