@@ -61,7 +61,7 @@ export const bundleAt = (t: number) => {
 };
 export const T_SPLASH = () => wt(11, "threw") + 0.8;
 /** line 12: the guards march Stephen out of the doors and across the piazza; his mitre is knocked off on "lost" */
-export const stephenOut = (t: number) => V3v(0.3, 0, NAVE.z1 + 1 + 7 * smooth((t - wt(12, "And") + 0.3) / 3.0));
+export const stephenOut = (t: number) => V3v(0.3, 0, NAVE.z1 + 1 + 5.5 * smooth((t - wt(12, "And") + 0.3) / 1.6));
 export const T_KNOCK = () => wt(12, "lost") - 0.05;
 export const stephenMitreAt = (t: number) => {
   const u = Math.min(1, Math.max(0, (t - T_KNOCK()) / 0.7)), s = stephenOut(T_KNOCK()), a = V3v(s.x, 1.8, s.z), b = V3v(s.x + 1.6, 0.05, s.z + 1.4);
