@@ -2,18 +2,18 @@
  "video": "cadaver",
  "frames": 2052,
  "pass": false,
- "criticalFrames": 11,
+ "criticalFrames": 15,
  "warningFrames": 41,
- "seconds": 48.341,
+ "seconds": 49.387,
  "history": [
-  "round 1: 839 frames with CRITICAL failures in 10 shots (1, 2, 4, 5, 7, 8, 10, 12, 16, 19)",
-  "round 2: 262 frames with CRITICAL failures in 5 shots (2, 4, 5, 10, 16)",
-  "round 3: 33 frames with CRITICAL failures in 2 shots (4, 16)",
-  "round 4: 23 frames with CRITICAL failures in 2 shots (4, 16)",
-  "round 5: 11 frames with CRITICAL failures in 1 shots (4)",
-  "assembled the best round of every shot: 11 frames with CRITICAL failures",
+  "round 1: 809 frames with CRITICAL failures in 10 shots (1, 2, 4, 5, 7, 8, 10, 12, 16, 19)",
+  "round 2: 267 frames with CRITICAL failures in 5 shots (2, 4, 5, 10, 16)",
+  "round 3: 43 frames with CRITICAL failures in 2 shots (4, 16)",
+  "round 4: 30 frames with CRITICAL failures in 2 shots (4, 16)",
+  "round 5: 15 frames with CRITICAL failures in 1 shots (4)",
+  "assembled the best round of every shot: 15 frames with CRITICAL failures",
   "fly transitions that still failed became cuts: 0; clipping whips panned the other way: 0, became cuts: 0",
-  "flight polish (look timing per failing flight): 11 frames with CRITICAL failures (0 flights cleared)"
+  "flight polish (look timing per failing flight): 15 frames with CRITICAL failures (0 flights cleared)"
  ],
  "rules": [
   {
@@ -43,7 +43,7 @@
   },
   {
    "rule": "XCU",
-   "critical": 11,
+   "critical": 15,
    "warning": 0
   },
   {
@@ -135,12 +135,12 @@
    "critical": true,
    "subject": null,
    "shot": 4,
-   "from": 347,
-   "to": 357,
-   "worst": 347,
+   "from": 429,
+   "to": 443,
+   "worst": 429,
    "detail": "extreme close-up (head 30 % of the frame)",
-   "t0": 11.57,
-   "t1": 11.93
+   "t0": 14.3,
+   "t1": 14.8
   },
   {
    "rule": "SUBJECT",
@@ -601,8 +601,31 @@
    ]
   },
   {
-   "f": 347,
-   "t": 11.567,
+   "f": 429,
+   "t": 14.3,
+   "shot": 4,
+   "flight": false,
+   "subjects": [
+    "c:formosus"
+   ],
+   "fails": [
+    {
+     "rule": "XCU",
+     "detail": "extreme close-up (head 30 % of the frame)",
+     "critical": true
+    }
+   ],
+   "score": 2,
+   "box": [
+    0.3469,
+    0.062,
+    0.6469,
+    0.3622
+   ]
+  },
+  {
+   "f": 430,
+   "t": 14.333,
    "shot": 4,
    "flight": false,
    "subjects": [
@@ -618,14 +641,14 @@
    "score": 2,
    "box": [
     0.3473,
-    0.0613,
+    0.0614,
     0.6477,
     0.362
    ]
   },
   {
-   "f": 348,
-   "t": 11.6,
+   "f": 431,
+   "t": 14.367,
    "shot": 4,
    "flight": false,
    "subjects": [
@@ -640,15 +663,84 @@
    ],
    "score": 2,
    "box": [
-    0.3481,
-    0.0601,
-    0.6493,
+    0.3476,
+    0.0609,
+    0.6484,
+    0.3619
+   ]
+  },
+  {
+   "f": 432,
+   "t": 14.4,
+   "shot": 4,
+   "flight": false,
+   "subjects": [
+    "c:formosus"
+   ],
+   "fails": [
+    {
+     "rule": "XCU",
+     "detail": "extreme close-up (head 30 % of the frame)",
+     "critical": true
+    }
+   ],
+   "score": 2,
+   "box": [
+    0.3479,
+    0.0604,
+    0.649,
     0.3617
    ]
   },
   {
-   "f": 349,
-   "t": 11.633,
+   "f": 433,
+   "t": 14.433,
+   "shot": 4,
+   "flight": false,
+   "subjects": [
+    "c:formosus"
+   ],
+   "fails": [
+    {
+     "rule": "XCU",
+     "detail": "extreme close-up (head 30 % of the frame)",
+     "critical": true
+    }
+   ],
+   "score": 2,
+   "box": [
+    0.3482,
+    0.06,
+    0.6495,
+    0.3616
+   ]
+  },
+  {
+   "f": 434,
+   "t": 14.467,
+   "shot": 4,
+   "flight": false,
+   "subjects": [
+    "c:formosus"
+   ],
+   "fails": [
+    {
+     "rule": "XCU",
+     "detail": "extreme close-up (head 30 % of the frame)",
+     "critical": true
+    }
+   ],
+   "score": 2,
+   "box": [
+    0.3484,
+    0.0597,
+    0.6499,
+    0.3615
+   ]
+  },
+  {
+   "f": 435,
+   "t": 14.5,
    "shot": 4,
    "flight": false,
    "subjects": [
@@ -664,14 +756,60 @@
    "score": 2,
    "box": [
     0.3486,
-    0.0593,
-    0.6504,
+    0.0594,
+    0.6503,
     0.3614
    ]
   },
   {
-   "f": 350,
-   "t": 11.667,
+   "f": 436,
+   "t": 14.533,
+   "shot": 4,
+   "flight": false,
+   "subjects": [
+    "c:formosus"
+   ],
+   "fails": [
+    {
+     "rule": "XCU",
+     "detail": "extreme close-up (head 30 % of the frame)",
+     "critical": true
+    }
+   ],
+   "score": 2,
+   "box": [
+    0.3487,
+    0.0592,
+    0.6506,
+    0.3614
+   ]
+  },
+  {
+   "f": 437,
+   "t": 14.567,
+   "shot": 4,
+   "flight": false,
+   "subjects": [
+    "c:formosus"
+   ],
+   "fails": [
+    {
+     "rule": "XCU",
+     "detail": "extreme close-up (head 30 % of the frame)",
+     "critical": true
+    }
+   ],
+   "score": 2,
+   "box": [
+    0.3488,
+    0.059,
+    0.6508,
+    0.3613
+   ]
+  },
+  {
+   "f": 438,
+   "t": 14.6,
    "shot": 4,
    "flight": false,
    "subjects": [
@@ -687,14 +825,14 @@
    "score": 2,
    "box": [
     0.3489,
-    0.0588,
+    0.0589,
     0.651,
     0.3613
    ]
   },
   {
-   "f": 351,
-   "t": 11.7,
+   "f": 439,
+   "t": 14.633,
    "shot": 4,
    "flight": false,
    "subjects": [
@@ -710,14 +848,37 @@
    "score": 2,
    "box": [
     0.349,
-    0.0586,
+    0.0588,
+    0.6511,
+    0.3612
+   ]
+  },
+  {
+   "f": 440,
+   "t": 14.667,
+   "shot": 4,
+   "flight": false,
+   "subjects": [
+    "c:formosus"
+   ],
+   "fails": [
+    {
+     "rule": "XCU",
+     "detail": "extreme close-up (head 30 % of the frame)",
+     "critical": true
+    }
+   ],
+   "score": 2,
+   "box": [
+    0.349,
+    0.0587,
     0.6512,
     0.3612
    ]
   },
   {
-   "f": 352,
-   "t": 11.733,
+   "f": 441,
+   "t": 14.7,
    "shot": 4,
    "flight": false,
    "subjects": [
@@ -733,14 +894,14 @@
    "score": 2,
    "box": [
     0.349,
-    0.0586,
-    0.6513,
+    0.0587,
+    0.6512,
     0.3612
    ]
   },
   {
-   "f": 353,
-   "t": 11.767,
+   "f": 442,
+   "t": 14.733,
    "shot": 4,
    "flight": false,
    "subjects": [
@@ -756,14 +917,14 @@
    "score": 2,
    "box": [
     0.3491,
-    0.0586,
+    0.0587,
     0.6513,
     0.3612
    ]
   },
   {
-   "f": 354,
-   "t": 11.8,
+   "f": 443,
+   "t": 14.767,
    "shot": 4,
    "flight": false,
    "subjects": [
@@ -778,79 +939,10 @@
    ],
    "score": 2,
    "box": [
-    0.3493,
-    0.0588,
-    0.6514,
-    0.3613
-   ]
-  },
-  {
-   "f": 355,
-   "t": 11.833,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "c:formosus"
-   ],
-   "fails": [
-    {
-     "rule": "XCU",
-     "detail": "extreme close-up (head 30 % of the frame)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.3499,
-    0.0592,
-    0.6517,
-    0.3614
-   ]
-  },
-  {
-   "f": 356,
-   "t": 11.867,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "c:formosus"
-   ],
-   "fails": [
-    {
-     "rule": "XCU",
-     "detail": "extreme close-up (head 30 % of the frame)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.3509,
-    0.06,
-    0.6522,
-    0.3616
-   ]
-  },
-  {
-   "f": 357,
-   "t": 11.9,
-   "shot": 4,
-   "flight": false,
-   "subjects": [
-    "c:formosus"
-   ],
-   "fails": [
-    {
-     "rule": "XCU",
-     "detail": "extreme close-up (head 30 % of the frame)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.3526,
-    0.0613,
-    0.653,
-    0.362
+    0.3491,
+    0.0587,
+    0.6513,
+    0.3612
    ]
   },
   {
