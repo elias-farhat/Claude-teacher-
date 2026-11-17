@@ -5,7 +5,6 @@ warning    3.80-  3.83 s  f114-114  FACES     c:/^bishop[12]$/(bishop1) head cut
 warning    3.80-  3.87 s  f114-115  FACES     c:/^bishop[12]$/(bishop1) head (hat) touches the top edge (4.1 %)
 warning    3.83-  3.87 s  f115-115  SUBJECT   c:/^bishop[12]$/     cut off top (0.03)
 warning    3.87-  3.90 s  f116-116  SUBJECT   c:/^bishop[12]$/     cut off left (0.05)
-CRITICAL   4.10-  4.50 s  f123-134  FACES     bystander bishop0    bystander's head cut at the left edge
 warning   33.90- 34.83 s  f1017-1044  SUBJECT   c:deacon             not on stage
 warning   34.50- 34.83 s  f1035-1044  FACES     c:formosus           face 100 % covered by something in front
 warning   34.60- 34.83 s  f1038-1044  OCCLUSION c:formosus           4/5 rays blocked for 11 frames

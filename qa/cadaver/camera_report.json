@@ -1,20 +1,17 @@
 {
  "video": "cadaver",
  "frames": 2052,
- "pass": false,
- "criticalFrames": 12,
+ "pass": true,
+ "criticalFrames": 0,
  "warningFrames": 43,
- "seconds": 89.74,
+ "seconds": 38.819,
  "history": [
-  "round 1: 586 frames with CRITICAL failures in 9 shots (0, 1, 2, 5, 8, 10, 12, 16, 19)",
-  "round 2: 262 frames with CRITICAL failures in 6 shots (0, 1, 2, 5, 10, 16)",
-  "round 3: 26 frames with CRITICAL failures in 2 shots (1, 16)",
-  "round 4: 36 frames with CRITICAL failures in 2 shots (1, 16)",
-  "round 5: 86 frames with CRITICAL failures in 1 shots (1)",
-  "assembled the best round of every shot: 12 frames with CRITICAL failures",
-  "fly transitions that still failed became cuts: 1; clipping whips panned the other way: 0, became cuts: 0",
-  "flight polish (look timing per failing flight): 12 frames with CRITICAL failures (0 flights cleared)",
-  "kept the assembled track (12 CRITICAL frames)"
+  "round 1: 584 frames with CRITICAL failures in 9 shots (0, 1, 2, 5, 8, 10, 12, 16, 19)",
+  "round 2: 278 frames with CRITICAL failures in 6 shots (0, 1, 2, 5, 10, 16)",
+  "round 3: 9 frames with CRITICAL failures in 1 shots (16)",
+  "round 4: 1 frames with CRITICAL failures in 1 shots (16)",
+  "round 5: 0 frames with CRITICAL failures in 0 shots",
+  "assembled the best round of every shot: 0 frames with CRITICAL failures"
  ],
  "rules": [
   {
@@ -39,7 +36,7 @@
   },
   {
    "rule": "FACES",
-   "critical": 12,
+   "critical": 0,
    "warning": 21
   },
   {
@@ -142,18 +139,6 @@
    "detail": "cut off left (0.05)",
    "t0": 3.87,
    "t1": 3.9
-  },
-  {
-   "rule": "FACES",
-   "critical": true,
-   "subject": "bystander bishop0",
-   "shot": 1,
-   "from": 123,
-   "to": 134,
-   "worst": 123,
-   "detail": "bystander's head cut at the left edge",
-   "t0": 4.1,
-   "t1": 4.5
   },
   {
    "rule": "SUBJECT",
@@ -630,294 +615,6 @@
     0.0701,
     0.6645,
     0.301
-   ]
-  },
-  {
-   "f": 123,
-   "t": 4.1,
-   "shot": 1,
-   "flight": false,
-   "subjects": [
-    "c:/^bishop[12]$/"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander bishop0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1906,
-    0.1416,
-    0.4312,
-    0.3546
-   ]
-  },
-  {
-   "f": 124,
-   "t": 4.133,
-   "shot": 1,
-   "flight": false,
-   "subjects": [
-    "c:/^bishop[12]$/"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander bishop0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1905,
-    0.1415,
-    0.4312,
-    0.3546
-   ]
-  },
-  {
-   "f": 125,
-   "t": 4.167,
-   "shot": 1,
-   "flight": false,
-   "subjects": [
-    "c:/^bishop[12]$/"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander bishop0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1905,
-    0.1414,
-    0.4313,
-    0.3546
-   ]
-  },
-  {
-   "f": 126,
-   "t": 4.2,
-   "shot": 1,
-   "flight": false,
-   "subjects": [
-    "c:/^bishop[12]$/"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander bishop0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1905,
-    0.1411,
-    0.4315,
-    0.3545
-   ]
-  },
-  {
-   "f": 127,
-   "t": 4.233,
-   "shot": 1,
-   "flight": false,
-   "subjects": [
-    "c:/^bishop[12]$/"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander bishop0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1904,
-    0.1405,
-    0.4318,
-    0.3543
-   ]
-  },
-  {
-   "f": 128,
-   "t": 4.267,
-   "shot": 1,
-   "flight": false,
-   "subjects": [
-    "c:/^bishop[12]$/"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander bishop0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1902,
-    0.1397,
-    0.4323,
-    0.354
-   ]
-  },
-  {
-   "f": 129,
-   "t": 4.3,
-   "shot": 1,
-   "flight": false,
-   "subjects": [
-    "c:/^bishop[12]$/"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander bishop0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.19,
-    0.1385,
-    0.4329,
-    0.3537
-   ]
-  },
-  {
-   "f": 130,
-   "t": 4.333,
-   "shot": 1,
-   "flight": false,
-   "subjects": [
-    "c:/^bishop[12]$/"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander bishop0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1898,
-    0.137,
-    0.4338,
-    0.3533
-   ]
-  },
-  {
-   "f": 131,
-   "t": 4.367,
-   "shot": 1,
-   "flight": false,
-   "subjects": [
-    "c:/^bishop[12]$/"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander bishop0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1895,
-    0.1351,
-    0.4348,
-    0.3527
-   ]
-  },
-  {
-   "f": 132,
-   "t": 4.4,
-   "shot": 1,
-   "flight": false,
-   "subjects": [
-    "c:/^bishop[12]$/"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander bishop0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1891,
-    0.1329,
-    0.4361,
-    0.352
-   ]
-  },
-  {
-   "f": 133,
-   "t": 4.433,
-   "shot": 1,
-   "flight": false,
-   "subjects": [
-    "c:/^bishop[12]$/"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander bishop0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1886,
-    0.1303,
-    0.4375,
-    0.3513
-   ]
-  },
-  {
-   "f": 134,
-   "t": 4.467,
-   "shot": 1,
-   "flight": false,
-   "subjects": [
-    "c:/^bishop[12]$/"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "bystander bishop0",
-     "detail": "bystander's head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.1881,
-    0.1273,
-    0.4391,
-    0.3504
    ]
   },
   {
