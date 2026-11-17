@@ -42,27 +42,25 @@ Decisions (auto-framer + camera guard, made without asking; revised after the re
   failed least; failing flights try other look timings / bends / start shifts, and a flight that still fails becomes
   a whip.
 
-CRITICAL: 91 frames in 3 ranges
+CRITICAL: 11 frames in 1 ranges
    11.57- 11.93 s  f347-357  XCU                            extreme close-up (head 30 % of the frame)
-   57.43- 60.10 s  f1723-1802  SUBJECT   c:/^roman[0-2]$/     cut off left (-0.41)
-   57.43- 60.10 s  f1723-1802  SUBJECT   c:/^roman[0-2]$/     too small (17 % of frame height, needs 30 %)
 warnings: 41 frames in 10 ranges (list in camera_report.txt)
 
 Loop:
-  round 1: 919 frames with CRITICAL failures in 11 shots (1, 2, 4, 5, 7, 8, 10, 12, 16, 19, 21)
-  round 2: 342 frames with CRITICAL failures in 6 shots (2, 4, 5, 10, 16, 21)
-  round 3: 113 frames with CRITICAL failures in 3 shots (4, 16, 21)
-  round 4: 103 frames with CRITICAL failures in 3 shots (4, 16, 21)
-  round 5: 91 frames with CRITICAL failures in 2 shots (4, 21)
-  assembled the best round of every shot: 91 frames with CRITICAL failures
+  round 1: 839 frames with CRITICAL failures in 10 shots (1, 2, 4, 5, 7, 8, 10, 12, 16, 19)
+  round 2: 262 frames with CRITICAL failures in 5 shots (2, 4, 5, 10, 16)
+  round 3: 33 frames with CRITICAL failures in 2 shots (4, 16)
+  round 4: 23 frames with CRITICAL failures in 2 shots (4, 16)
+  round 5: 11 frames with CRITICAL failures in 1 shots (4)
+  assembled the best round of every shot: 11 frames with CRITICAL failures
   fly transitions that still failed became cuts: 0; clipping whips panned the other way: 0, became cuts: 0
-  flight polish (look timing per failing flight): 91 frames with CRITICAL failures (0 flights cleared)
+  flight polish (look timing per failing flight): 11 frames with CRITICAL failures (0 flights cleared)
 
 Shots (candidate chosen, score):
   shot  0    0.00-  4.09 s  medium track az-60 (score 6)
   shot  1    4.09-  7.24 s  medium track az+30 high (score 6)
   shot  2    7.24- 10.68 s  medium lower (score 2)
-  shot  3   10.68- 10.68 s  medium base (score 0)
+  shot  3   10.68- 10.68 s  wide   base (score 0)
   shot  4   10.68- 14.78 s  medium lower (score 64: 1/5 blocked, head 30 %)
   shot  5   14.78- 17.78 s  medium lower (score 42: head 30 %)
   shot  6   17.78- 19.24 s  medium base (score 0)
@@ -80,14 +78,14 @@ Shots (candidate chosen, score):
   shot 18   49.35- 50.67 s  medium az-60 (score 6)
   shot 19   50.67- 53.97 s  medium lower (score 2)
   shot 20   53.97- 57.43 s  medium az+30 high (score 6)
-  shot 21   57.43- 60.09 s  close  closer 0.6 (score 83: cut off left, too small)
+  shot 21   57.43- 60.09 s  medium az+60 (score 6)
   shot 22   60.09- 62.95 s  medium track base (score 0)
   shot 23   62.95- 68.40 s  medium closer 0.6 (score 3)
 
 Flights:
   -> shot 1: FLY 3.16-4.09 s, 28 f, raised glide, peak 0.66 m/f
   -> shot 2: CUT 7.24-7.24 s, 0 f, cut on the beat, peak undefined m/f
-  -> shot 3: FLY 9.74-10.68 s, 28 f, hand route, peak 0.22 m/f
+  -> shot 3: FLY 9.74-10.68 s, 28 f, hand route, peak 0.28 m/f
   -> shot 4: CUT 10.68-10.68 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 5: CUT 14.78-14.78 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 6: CUT 17.78-17.78 s, 0 f, cut on the beat, peak undefined m/f
