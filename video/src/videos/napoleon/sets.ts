@@ -122,7 +122,8 @@ export function buildSets(R: THREE.Group, kit: Kit): Sets {
     bx(lam("npCeil", () => ({ color: "#efe6d4" })), x0, h, z0, x1, h + 0.2, z1);
     gableRoof(b, slate, white, x0, x1, z0, z1, h + 0.2, 2.2, 0.4);
     for (const [lx, lz] of [[x0 + 0.9, z0 + 0.9], [x1 - 0.9, z0 + 0.9]]) { lamps.push({ p: V(lx, 2.2, lz), k: 1.0 }); bx(dark, lx - 0.05, 1.6, lz - 0.05, lx + 0.05, 2.1, lz + 0.05); }
-    for (let i = 0; i < 14; i++) add(trees[i % 4], x0 - 10 + r() * (W + 20), 0, z1 + 8 + r() * 20, 4 + r() * 2, r() * 6);   // the view out of the windows
+    for (let i = 0; i < 14; i++) { const tx = x0 - 10 + r() * (W + 20), tz = z1 + 8 + r() * 20, sc = 4 + r() * 2, ro = r() * 6;   // the view out of the windows
+      if (Object.values(ROOMS).some((o) => tx > o.x0 - 6 && tx < o.x1 + 6 && tz > o.z0 - 6 && tz < o.z1 + 6)) continue; add(trees[i % 4], tx, 0, tz, sc, ro); }
   };
   room(ROOMS.treaty, "#3a4f7a", "#34476e"); room(ROOMS.study, "#6a4a3a", "#5e4234");
   { const c = RC(ROOMS.treaty);   // the treaty table, the treaty, two flags (French and Russian)
