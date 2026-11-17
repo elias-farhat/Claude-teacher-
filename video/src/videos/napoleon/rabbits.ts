@@ -21,8 +21,10 @@ const mill = (i: number) => V(-14 + rnd(i, 1) * 7, 0, 1 + rnd(i, 2) * 11);
 // the ring leaves out the east side (where the camera stands to see his face): no rabbits between him and the lens
 const ringAt = (i: number, r0: number, r1: number) => { const a = Math.PI / 3 + rnd(i, 3) * Math.PI * 4 / 3, r = r0 + (r1 - r0) * Math.sqrt(rnd(i, 4)); return V(NAP.x + Math.cos(a) * r, 0, NAP.z + Math.sin(a) * r); };
 // the two flanks: north and south of him (left and right as the camera sees it from the east)
-const flank = (i: number) => { const north = rnd(i, 3) < 0.5; return V(NAP.x - 1.0 + (rnd(i, 5) - 0.5) * 5, 0, NAP.z + (north ? -4.6 : 4.6) + (rnd(i, 6) - 0.5) * 2.4); };
-const victory = (i: number) => { const a = rnd(i, 7) * Math.PI * 2, r = 1.2 + 6 * Math.sqrt(rnd(i, 8)); return V(HAT_REST.x + Math.cos(a) * r, 0, HAT_REST.z + Math.sin(a) * r * 0.7 - 1.5); };
+// (close enough that both groups stay on screen beside him through the split: run 40 lost them for ~1 s)
+const flank = (i: number) => { const north = rnd(i, 3) < 0.5; return V(NAP.x - 1.2 + (rnd(i, 5) - 0.5) * 3, 0, NAP.z + (north ? -1.9 : 1.9) + (rnd(i, 6) - 0.5) * 0.9); };
+// the winners sit in one tight crowd round the king rabbit in the bicorne (run 40: spread wide, the shot found bare grass)
+const victory = (i: number) => { const a = rnd(i, 7) * Math.PI * 2, r = 0.45 + 1.9 * Math.sqrt(rnd(i, 8)); return V(HAT_REST.x + Math.cos(a) * r, 0, HAT_REST.z + Math.sin(a) * r * 0.7 - 1.0); };
 /** where a climber clings to Napoleon (front of the legs and coat, never above the chest) */
 const climbSpot = (k: number, at: THREE.Vector3) => V(at.x + (k % 2 ? 0.16 : -0.16), 0.25 + Math.floor(k / 2) * 0.28, at.z - 0.16);
 

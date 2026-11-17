@@ -52,7 +52,7 @@ const treaty = (t: number, s: Stage) => {
     { pen: !party }, W(T, -0.3, party ? 0 : 0.4, -2.1), { turn: party ? 0 : 0.1 }));
   s.places.push(P("tsar", RUSSIAN, { expr: party ? "nervous" : "smile_closed", gest: party ? "palm" : "hang", blink: blinkAt(t, 2) }, {}, W(T, party ? 2.6 : 1.6, 0, party ? -2.9 : -1.9), { turn: -0.3, size: party ? LO : HI }));
   for (let i = 0; i < 2; i++) if (party) s.places.push(P(`cheerO${i}`, OFFICER(i), { expr: "laugh", gest: "cheer", k: q((t * 2.6 + i * 0.4) % 1, 8), blink: blinkAt(t, 3 + i) }, {}, W(T, i ? 0.75 : -1.25, 0, -2.25), { turn: 0.3, size: LO }));
-  s.lights.push(warm(W(T, 0, 1.3, -0.6), 1.0));
+  s.lights.push(warm(W(T, 1.45, 1.0, -0.6), 0.7));
 };
 // line 3: Berthier salutes, sweating, then holds up his checklist: Get. Rabbits.
 const berthier3 = (t: number, s: Stage) => {
@@ -87,7 +87,7 @@ const hunt = (t: number, s: Stage) => {
     s.places.push(P("napoleon", flee ? NAPOLEON_BARE : NAPOLEON, look, { gun: !swarm && !at && open }, np, flee ? { yaw: Math.atan2(15 - np.x, 13 - np.z) } : { yaw: Math.PI - 0.9 }));
   } else {
     const c = carriageAt(t);
-    s.places.push(P("napoleonC", NAPOLEON_BARE, { mode: "sit", expr: "shock", gest: "flail", k: q((t * 4) % 1, 8), blink: 0, headTilt: 8 * Math.sin(t * 10) }, {}, V(c.x + 1.6, 1.47, c.z), { yaw: Math.PI / 2 - 0.6 }));
+    s.places.push(P("napoleonC", NAPOLEON_BARE, { mode: "sit", expr: "shock", gest: "flail", k: q((t * 4) % 1, 8), blink: 0, headTilt: 8 * Math.sin(t * 10) }, {}, V(c.x + 1.6, 1.47, c.z), { yaw: Math.PI - 0.25 }   /* sitting on the box, turned back toward the camera to watch the rabbits pile on */));
   }
   // his officers and Berthier: swing sticks and whips at the swarm (the rabbits dodge), then give up; back to back on
   // the flanks; Berthier sweats throughout
