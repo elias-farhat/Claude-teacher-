@@ -2,24 +2,23 @@
  "video": "cadaver",
  "frames": 2052,
  "pass": false,
- "criticalFrames": 72,
+ "criticalFrames": 91,
  "warningFrames": 41,
- "seconds": 49.218,
+ "seconds": 49.115,
  "history": [
   "round 1: 919 frames with CRITICAL failures in 11 shots (1, 2, 4, 5, 7, 8, 10, 12, 16, 19, 21)",
   "round 2: 342 frames with CRITICAL failures in 6 shots (2, 4, 5, 10, 16, 21)",
-  "round 3: 94 frames with CRITICAL failures in 3 shots (4, 16, 21)",
-  "round 4: 102 frames with CRITICAL failures in 3 shots (4, 16, 21)",
+  "round 3: 113 frames with CRITICAL failures in 3 shots (4, 16, 21)",
+  "round 4: 103 frames with CRITICAL failures in 3 shots (4, 16, 21)",
   "round 5: 91 frames with CRITICAL failures in 2 shots (4, 21)",
-  "assembled the best round of every shot: 72 frames with CRITICAL failures",
+  "assembled the best round of every shot: 91 frames with CRITICAL failures",
   "fly transitions that still failed became cuts: 0; clipping whips panned the other way: 0, became cuts: 0",
-  "flight polish (look timing per failing flight): 72 frames with CRITICAL failures (0 flights cleared)",
-  "kept the assembled track (72 CRITICAL frames)"
+  "flight polish (look timing per failing flight): 91 frames with CRITICAL failures (0 flights cleared)"
  ],
  "rules": [
   {
    "rule": "SUBJECT",
-   "critical": 0,
+   "critical": 80,
    "warning": 41
   },
   {
@@ -39,7 +38,7 @@
   },
   {
    "rule": "FACES",
-   "critical": 61,
+   "critical": 0,
    "warning": 20
   },
   {
@@ -192,27 +191,27 @@
    "t1": 34.83
   },
   {
-   "rule": "FACES",
+   "rule": "SUBJECT",
    "critical": true,
-   "subject": "c:/^roman[0-2]$/(roman0)",
+   "subject": "c:/^roman[0-2]$/",
    "shot": 21,
    "from": 1723,
-   "to": 1758,
+   "to": 1802,
    "worst": 1723,
-   "detail": "face 40 % covered by something in front",
+   "detail": "cut off left (-0.41)",
    "t0": 57.43,
-   "t1": 58.63
+   "t1": 60.1
   },
   {
-   "rule": "FACES",
+   "rule": "SUBJECT",
    "critical": true,
-   "subject": "c:/^roman[0-2]$/(roman0)",
+   "subject": "c:/^roman[0-2]$/",
    "shot": 21,
-   "from": 1778,
+   "from": 1723,
    "to": 1802,
-   "worst": 1778,
-   "detail": "face 40 % covered by something in front",
-   "t0": 59.27,
+   "worst": 1723,
+   "detail": "too small (17 % of frame height, needs 30 %)",
+   "t0": 57.43,
    "t1": 60.1
   }
  ],
@@ -1733,19 +1732,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.36)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (20 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4885,
-    0.2187,
-    0.6611,
-    0.326
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1724,
@@ -1757,19 +1757,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.36)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (20 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4885,
-    0.2187,
-    0.6611,
-    0.326
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1725,
@@ -1781,19 +1782,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.36)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (20 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4885,
-    0.2187,
-    0.6611,
-    0.326
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1726,
@@ -1805,19 +1807,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.36)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (20 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4885,
-    0.2186,
-    0.6611,
-    0.326
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1727,
@@ -1829,19 +1832,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.36)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (20 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4884,
-    0.2186,
-    0.6611,
-    0.3259
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1728,
@@ -1853,19 +1857,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.36)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (20 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4884,
-    0.2186,
-    0.6611,
-    0.3259
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1729,
@@ -1877,19 +1882,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.36)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (20 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4884,
-    0.2185,
-    0.6611,
-    0.3259
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1730,
@@ -1901,19 +1907,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.36)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (20 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4883,
-    0.2184,
-    0.6611,
-    0.3258
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1731,
@@ -1925,19 +1932,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.36)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (20 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4882,
-    0.2182,
-    0.6611,
-    0.3257
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1732,
@@ -1949,19 +1957,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.36)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (20 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4882,
-    0.2181,
-    0.6611,
-    0.3256
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1733,
@@ -1973,19 +1982,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.36)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (20 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.488,
-    0.2179,
-    0.6611,
-    0.3255
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1734,
@@ -1997,19 +2007,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.36)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (20 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4879,
-    0.2176,
-    0.6612,
-    0.3253
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1735,
@@ -2021,19 +2032,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.36)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (19 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4878,
-    0.2174,
-    0.6612,
-    0.3251
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1736,
@@ -2045,19 +2057,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.36)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (19 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4876,
-    0.217,
-    0.6612,
-    0.3249
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1737,
@@ -2069,19 +2082,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.36)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (19 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4874,
-    0.2167,
-    0.6612,
-    0.3247
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1738,
@@ -2093,19 +2107,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.37)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (19 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4872,
-    0.2163,
-    0.6612,
-    0.3244
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1739,
@@ -2117,19 +2132,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.37)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (19 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4869,
-    0.2158,
-    0.6612,
-    0.3242
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1740,
@@ -2141,19 +2157,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.37)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (19 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4867,
-    0.2153,
-    0.6612,
-    0.3238
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1741,
@@ -2165,19 +2182,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.37)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (19 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4864,
-    0.2148,
-    0.6612,
-    0.3235
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1742,
@@ -2189,19 +2207,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.37)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (19 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.486,
-    0.2142,
-    0.6612,
-    0.3231
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1743,
@@ -2213,19 +2232,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.37)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (19 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4857,
-    0.2135,
-    0.6612,
-    0.3227
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1744,
@@ -2237,19 +2257,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.37)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (19 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4853,
-    0.2129,
-    0.6613,
-    0.3223
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1745,
@@ -2261,19 +2282,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.37)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (19 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4849,
-    0.2121,
-    0.6613,
-    0.3218
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1746,
@@ -2285,19 +2307,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.37)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (19 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4845,
-    0.2113,
-    0.6613,
-    0.3213
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1747,
@@ -2309,19 +2332,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.38)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (19 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.484,
-    0.2105,
-    0.6613,
-    0.3208
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1748,
@@ -2333,19 +2357,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.38)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (19 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4835,
-    0.2097,
-    0.6613,
-    0.3202
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1749,
@@ -2357,19 +2382,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.38)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (19 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.483,
-    0.2088,
-    0.6613,
-    0.3197
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1750,
@@ -2381,19 +2407,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.38)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (18 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4825,
-    0.2078,
-    0.6613,
-    0.3191
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1751,
@@ -2405,19 +2432,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.38)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (18 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4819,
-    0.2068,
-    0.6613,
-    0.3184
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1752,
@@ -2429,19 +2457,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.38)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (18 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4813,
-    0.2058,
-    0.6613,
-    0.3178
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1753,
@@ -2453,19 +2482,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.39)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (18 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4807,
-    0.2047,
-    0.6613,
-    0.3171
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1754,
@@ -2477,19 +2507,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.39)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (18 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4801,
-    0.2036,
-    0.6612,
-    0.3164
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1755,
@@ -2501,19 +2532,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.39)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (18 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4794,
-    0.2025,
-    0.6612,
-    0.3157
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1756,
@@ -2525,19 +2557,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.39)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (18 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4787,
-    0.2013,
-    0.6612,
-    0.3149
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1757,
@@ -2549,19 +2582,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.39)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (18 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.478,
-    0.2001,
-    0.6612,
-    0.3142
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1758,
@@ -2573,19 +2607,495 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.40)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (17 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4773,
-    0.1989,
-    0.6611,
-    0.3134
-   ]
+   "score": 4,
+   "box": null
+  },
+  {
+   "f": 1759,
+   "t": 58.633,
+   "shot": 21,
+   "flight": false,
+   "subjects": [
+    "c:/^roman[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.40)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (17 % of frame height, needs 30 %)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": null
+  },
+  {
+   "f": 1760,
+   "t": 58.667,
+   "shot": 21,
+   "flight": false,
+   "subjects": [
+    "c:/^roman[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.40)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (17 % of frame height, needs 30 %)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": null
+  },
+  {
+   "f": 1761,
+   "t": 58.7,
+   "shot": 21,
+   "flight": false,
+   "subjects": [
+    "c:/^roman[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.40)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (17 % of frame height, needs 30 %)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": null
+  },
+  {
+   "f": 1762,
+   "t": 58.733,
+   "shot": 21,
+   "flight": false,
+   "subjects": [
+    "c:/^roman[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.41)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (17 % of frame height, needs 30 %)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": null
+  },
+  {
+   "f": 1763,
+   "t": 58.767,
+   "shot": 21,
+   "flight": false,
+   "subjects": [
+    "c:/^roman[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.41)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (17 % of frame height, needs 30 %)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": null
+  },
+  {
+   "f": 1764,
+   "t": 58.8,
+   "shot": 21,
+   "flight": false,
+   "subjects": [
+    "c:/^roman[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.41)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (17 % of frame height, needs 30 %)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": null
+  },
+  {
+   "f": 1765,
+   "t": 58.833,
+   "shot": 21,
+   "flight": false,
+   "subjects": [
+    "c:/^roman[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.41)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (16 % of frame height, needs 30 %)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": null
+  },
+  {
+   "f": 1766,
+   "t": 58.867,
+   "shot": 21,
+   "flight": false,
+   "subjects": [
+    "c:/^roman[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.42)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (16 % of frame height, needs 30 %)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": null
+  },
+  {
+   "f": 1767,
+   "t": 58.9,
+   "shot": 21,
+   "flight": false,
+   "subjects": [
+    "c:/^roman[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.42)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (16 % of frame height, needs 30 %)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": null
+  },
+  {
+   "f": 1768,
+   "t": 58.933,
+   "shot": 21,
+   "flight": false,
+   "subjects": [
+    "c:/^roman[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.42)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (16 % of frame height, needs 30 %)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": null
+  },
+  {
+   "f": 1769,
+   "t": 58.967,
+   "shot": 21,
+   "flight": false,
+   "subjects": [
+    "c:/^roman[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.42)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (16 % of frame height, needs 30 %)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": null
+  },
+  {
+   "f": 1770,
+   "t": 59,
+   "shot": 21,
+   "flight": false,
+   "subjects": [
+    "c:/^roman[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.43)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (16 % of frame height, needs 30 %)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": null
+  },
+  {
+   "f": 1771,
+   "t": 59.033,
+   "shot": 21,
+   "flight": false,
+   "subjects": [
+    "c:/^roman[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.43)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (15 % of frame height, needs 30 %)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": null
+  },
+  {
+   "f": 1772,
+   "t": 59.067,
+   "shot": 21,
+   "flight": false,
+   "subjects": [
+    "c:/^roman[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.43)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (15 % of frame height, needs 30 %)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": null
+  },
+  {
+   "f": 1773,
+   "t": 59.1,
+   "shot": 21,
+   "flight": false,
+   "subjects": [
+    "c:/^roman[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.43)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (15 % of frame height, needs 30 %)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": null
+  },
+  {
+   "f": 1774,
+   "t": 59.133,
+   "shot": 21,
+   "flight": false,
+   "subjects": [
+    "c:/^roman[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.44)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (15 % of frame height, needs 30 %)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": null
+  },
+  {
+   "f": 1775,
+   "t": 59.167,
+   "shot": 21,
+   "flight": false,
+   "subjects": [
+    "c:/^roman[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.44)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (15 % of frame height, needs 30 %)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": null
+  },
+  {
+   "f": 1776,
+   "t": 59.2,
+   "shot": 21,
+   "flight": false,
+   "subjects": [
+    "c:/^roman[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.44)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (15 % of frame height, needs 30 %)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": null
+  },
+  {
+   "f": 1777,
+   "t": 59.233,
+   "shot": 21,
+   "flight": false,
+   "subjects": [
+    "c:/^roman[0-2]$/"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.44)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (15 % of frame height, needs 30 %)",
+     "critical": true
+    }
+   ],
+   "score": 4,
+   "box": null
   },
   {
    "f": 1778,
@@ -2597,19 +3107,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.45)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (15 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.461,
-    0.1737,
-    0.6591,
-    0.2973
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1779,
@@ -2621,19 +3132,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.45)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (14 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4603,
-    0.1726,
-    0.659,
-    0.2966
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1780,
@@ -2645,19 +3157,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.45)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (14 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4596,
-    0.1716,
-    0.6588,
-    0.296
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1781,
@@ -2669,19 +3182,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.45)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (14 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4589,
-    0.1707,
-    0.6587,
-    0.2953
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1782,
@@ -2693,19 +3207,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.45)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (14 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4583,
-    0.1698,
-    0.6586,
-    0.2948
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1783,
@@ -2717,19 +3232,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.46)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (14 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4577,
-    0.1689,
-    0.6585,
-    0.2942
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1784,
@@ -2741,19 +3257,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.46)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (14 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4571,
-    0.1681,
-    0.6584,
-    0.2937
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1785,
@@ -2765,19 +3282,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.46)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (14 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4566,
-    0.1674,
-    0.6582,
-    0.2932
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1786,
@@ -2789,19 +3307,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.46)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (14 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4561,
-    0.1667,
-    0.6581,
-    0.2928
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1787,
@@ -2813,19 +3332,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.46)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (14 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4556,
-    0.1661,
-    0.658,
-    0.2924
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1788,
@@ -2837,19 +3357,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.46)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (14 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4552,
-    0.1655,
-    0.658,
-    0.292
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1789,
@@ -2861,19 +3382,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.46)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (14 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4548,
-    0.1649,
-    0.6579,
-    0.2917
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1790,
@@ -2885,19 +3407,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.47)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (13 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4545,
-    0.1645,
-    0.6578,
-    0.2914
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1791,
@@ -2909,19 +3432,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.47)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (13 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4542,
-    0.1641,
-    0.6577,
-    0.2911
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1792,
@@ -2933,19 +3457,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.47)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (13 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4539,
-    0.1637,
-    0.6577,
-    0.2909
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1793,
@@ -2957,19 +3482,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.47)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (13 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4537,
-    0.1634,
-    0.6576,
-    0.2907
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1794,
@@ -2981,19 +3507,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.47)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (13 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4535,
-    0.1631,
-    0.6576,
-    0.2905
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1795,
@@ -3005,19 +3532,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.47)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (13 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4534,
-    0.1629,
-    0.6575,
-    0.2904
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1796,
@@ -3029,19 +3557,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.47)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (13 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4533,
-    0.1628,
-    0.6575,
-    0.2903
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1797,
@@ -3053,19 +3582,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.47)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (13 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4532,
-    0.1626,
-    0.6575,
-    0.2902
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1798,
@@ -3077,19 +3607,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.47)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (13 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.4531,
-    0.1625,
-    0.6575,
-    0.2901
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1799,
@@ -3101,19 +3632,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.47)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (13 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.453,
-    0.1625,
-    0.6575,
-    0.2901
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1800,
@@ -3125,19 +3657,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.47)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (13 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.453,
-    0.1624,
-    0.6575,
-    0.2901
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1801,
@@ -3149,19 +3682,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.47)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (13 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.453,
-    0.1624,
-    0.6575,
-    0.2901
-   ]
+   "score": 4,
+   "box": null
   },
   {
    "f": 1802,
@@ -3173,19 +3707,20 @@
    ],
    "fails": [
     {
-     "rule": "FACES",
-     "subject": "c:/^roman[0-2]$/(roman0)",
-     "detail": "face 40 % covered by something in front",
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "cut off left (-0.47)",
+     "critical": true
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "c:/^roman[0-2]$/",
+     "detail": "too small (13 % of frame height, needs 30 %)",
      "critical": true
     }
    ],
-   "score": 1,
-   "box": [
-    0.453,
-    0.1624,
-    0.6575,
-    0.2901
-   ]
+   "score": 4,
+   "box": null
   }
  ]
 }

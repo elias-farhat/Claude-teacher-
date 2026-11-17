@@ -9,5 +9,5 @@ warning   33.90- 34.83 s  f1017-1044  SUBJECT   c:deacon             not on stag
 warning   34.50- 34.83 s  f1035-1044  FACES     c:formosus           face 100 % covered by something in front
 warning   34.60- 34.83 s  f1038-1044  OCCLUSION c:formosus           4/5 rays blocked for 11 frames
 warning   34.73- 34.83 s  f1042-1044  EMPTY                          none of c:formosus, c:deacon, ?c:formosus in view
-CRITICAL  57.43- 58.63 s  f1723-1758  FACES     c:/^roman[0-2]$/(roman0) face 40 % covered by something in front
-CRITICAL  59.27- 60.10 s  f1778-1802  FACES     c:/^roman[0-2]$/(roman0) face 40 % covered by something in front
+CRITICAL  57.43- 60.10 s  f1723-1802  SUBJECT   c:/^roman[0-2]$/     cut off left (-0.41)
+CRITICAL  57.43- 60.10 s  f1723-1802  SUBJECT   c:/^roman[0-2]$/     too small (17 % of frame height, needs 30 %)
