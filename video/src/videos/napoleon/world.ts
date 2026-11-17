@@ -102,6 +102,7 @@ export class NapoleonWorld {
     this.sets = buildSets(R, kit);
     this.swarm = new Swarm(R);
     this.hat = bicorne(); this.hat.visible = false; R.add(this.hat);
+    this.hat.traverse((o) => { o.userData.noGuard = true; });   // the flying hat is part of the subject (the king rabbit wears it), not a wall in front of it
     const dot = new THREE.MeshBasicMaterial({ color: new THREE.Color(4.5, 2.8, 1.1) });
     for (const l of this.sets.lamps) { const m = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 8), dot); m.position.copy(l.p); m.layers.set(NOINK); this.lampDots.push(m); R.add(m); }
     this.setTime(0);
