@@ -1,80 +1,13 @@
-CRITICAL   1.07-  1.20 s  f32-35  FACES     c:/^bishop\d$/(bishop0) face 48 % covered by something in front
-CRITICAL   1.27-  1.40 s  f38-41  FACES     c:/^bishop\d$/(bishop2) face 28 % covered by something in front
-CRITICAL   1.40-  1.53 s  f42-45  FACES     c:/^bishop\d$/(bishop1) face 48 % covered by something in front
-CRITICAL   1.60-  1.77 s  f48-52  FACES     c:/^bishop\d$/(bishop3) face 48 % covered by something in front
-warning    3.50-  3.60 s  f105-107  FACES     c:/^bishop\d$/(bishop0) head centre at 59 % of the frame height
-warning    3.53-  3.63 s  f106-108  SUBJECT   c:/^bishop\d$/       cut off right (1.12)
-warning    3.57-  3.60 s  f107-107  FACES     c:/^bishop\d$/(bishop0) head cut at the right edge
-warning    3.63-  3.87 s  f109-115  SUBJECT   c:/^bishop\d$/       cut off left (-0.63)
-warning    3.63-  3.73 s  f109-111  FACES     c:/^bishop\d$/(bishop3) head cut at the left edge
-warning    3.67-  3.73 s  f110-111  FACES     c:/^bishop\d$/(bishop1) head cut at the right edge
-warning    3.67-  3.70 s  f110-110  FACES     c:/^bishop\d$/(bishop1) head centre at 55 % of the frame height
-warning    3.80-  3.83 s  f114-114  FACES     c:/^bishop\d$/(bishop1) head cut at the right edge
-warning    3.80-  3.87 s  f114-115  FACES     c:/^bishop\d$/(bishop2) head (hat) touches the top edge (3.1 %)
-warning    3.80-  3.83 s  f114-114  FACES     c:/^bishop\d$/(bishop3) head cut at the left edge
-warning    3.80-  4.00 s  f114-119  FACES     c:/^bishop\d$/(bishop3) head centre at 58 % of the frame height
-warning    3.83-  3.87 s  f115-115  FACES     c:/^bishop\d$/(bishop1) head cut at the top edge
-warning    3.87-  3.97 s  f116-118  SUBJECT   c:/^bishop\d$/       cut off top (-0.02)
-warning    3.87-  3.93 s  f116-117  FACES     c:/^bishop\d$/(bishop0) head cut at the top edge
-warning    3.87-  3.90 s  f116-116  FACES     c:/^bishop\d$/(bishop1) head (hat) touches the top edge (1.3 %)
-warning    3.93-  3.97 s  f118-118  FACES     c:/^bishop\d$/(bishop0) head (hat) touches the top edge (4.2 %)
-CRITICAL   4.80-  7.27 s  f144-217  SUBJECT   c:/^bishop\d$/       cut off top (0.02)
-CRITICAL   4.93-  6.77 s  f148-202  FACES     c:/^bishop\d$/(bishop0) head (hat) touches the top edge (2.6 %)
-CRITICAL   5.77-  6.13 s  f173-183  FACES     c:/^bishop\d$/(bishop1) head (hat) touches the top edge (4.1 %)
-CRITICAL   6.20-  7.27 s  f186-217  SUBJECT   c:/^bishop\d$/       too small (23 % of frame height, needs 30 %)
-CRITICAL  12.63- 12.90 s  f379-386  XCU                            extreme close-up (head 30 % of the frame)
-CRITICAL  14.80- 17.80 s  f444-533  SUBJECT   c:/^bishop\d$/       cut off left (-0.40)
-CRITICAL  15.20- 17.80 s  f456-533  STALE                          the subject barely moves on screen for more than 2 s
-CRITICAL  23.00- 23.60 s  f690-707  SUBJECT   c:formosus           too small (29 % of frame height, needs 30 %)
-CRITICAL  24.83- 27.93 s  f745-837  SUBJECT   c:formosus           too small (24 % of frame height, needs 30 %)
-CRITICAL  25.07- 27.93 s  f752-837  SUBJECT   c:/^monkD[01]$/      too small (27 % of frame height, needs 30 %)
-CRITICAL  25.13- 27.93 s  f754-837  STALE                          the subject barely moves on screen for more than 2 s
-CRITICAL  29.07- 32.70 s  f872-980  SUBJECT   c:/^bishop\d$/       cut off left (-0.41)
-CRITICAL  29.57- 32.70 s  f887-980  STALE                          the subject barely moves on screen for more than 2 s
+warning    3.50-  3.80 s  f105-113  SUBJECT   c:/^bishop[12]$/     cut off left (-0.10)
+warning    3.50-  3.60 s  f105-107  FACES     c:/^bishop[12]$/(bishop1) head centre at 58 % of the frame height
+warning    3.53-  3.77 s  f106-112  FACES     c:/^bishop[12]$/(bishop1) head cut at the left edge
+warning    3.67-  3.70 s  f110-110  SUBJECT   c:/^bishop[12]$/     too small (29 % of frame height, needs 30 %)
+warning    3.67-  3.83 s  f110-114  FACES     c:/^bishop[12]$/(bishop2) head cut at the right edge
+warning    3.80-  3.93 s  f114-117  SUBJECT   c:/^bishop[12]$/     cut off right (0.99)
+CRITICAL  11.57- 11.93 s  f347-357  XCU                            extreme close-up (head 30 % of the frame)
 warning   33.90- 34.83 s  f1017-1044  SUBJECT   c:deacon             not on stage
 warning   34.50- 34.83 s  f1035-1044  FACES     c:formosus           face 100 % covered by something in front
 warning   34.60- 34.83 s  f1038-1044  OCCLUSION c:formosus           4/5 rays blocked for 11 frames
 warning   34.73- 34.83 s  f1042-1044  EMPTY                          none of c:formosus, c:deacon, ?c:formosus in view
-CRITICAL  53.87- 54.00 s  f1616-1619  SUBJECT   c:stephen            not on stage
-CRITICAL  53.87- 54.00 s  f1616-1619  EMPTY                          none of c:stephen in view
-CRITICAL  57.43- 59.17 s  f1723-1774  SUBJECT   c:/^roman[0-3]$/     too small (15 % of frame height, needs 30 %)
-CRITICAL  57.43- 58.50 s  f1723-1754  FACES     c:/^roman[0-3]$/(roman1) face 48 % covered by something in front
-CRITICAL  57.43- 59.17 s  f1723-1774  FACES     c:/^roman[0-3]$/(roman2) face 60 % covered by something in front
-CRITICAL  58.90- 59.17 s  f1767-1774  SUBJECT   c:/^roman[0-3]$/     cut off right (0.96)
-warning   59.17- 59.67 s  f1775-1789  SUBJECT   c:stephenX           not on stage
-warning   59.17- 59.67 s  f1775-1789  SUBJECT   c:/^guard\d$/        not on stage
-warning   59.17- 59.23 s  f1775-1776  SUBJECT   c:/^roman[0-3]$/     cut off right (0.96)
-warning   59.17- 59.60 s  f1775-1787  SUBJECT   c:/^roman[0-3]$/     too small (18 % of frame height, needs 30 %)
-warning   59.17- 59.53 s  f1775-1785  FACES     c:/^roman[0-3]$/(roman2) face 48 % covered by something in front
-warning   59.23- 60.10 s  f1777-1802  SUBJECT   c:/^roman[0-3]$/     cut off left (-0.61)
-warning   59.30- 59.43 s  f1779-1782  FACES     c:/^roman[0-3]$/(roman0) head (hat) touches the top edge (2.2 %)
-warning   59.33- 59.43 s  f1780-1782  FACES     c:/^roman[0-3]$/(roman1) head (hat) touches the top edge (2.5 %)
-warning   59.33- 59.43 s  f1780-1782  FACES     c:/^roman[0-3]$/(roman2) head (hat) touches the top edge (2.9 %)
-warning   59.37- 59.47 s  f1781-1783  FACES     c:/^roman[0-3]$/(roman3) head (hat) touches the top edge (2.2 %)
-warning   59.40- 59.67 s  f1782-1789  FACES     c:/^roman[0-3]$/(roman3) head cut at the right edge
-warning   59.43- 59.50 s  f1783-1784  FACES     c:/^roman[0-3]$/(roman0) head cut at the top edge
-warning   59.43- 59.50 s  f1783-1784  FACES     c:/^roman[0-3]$/(roman1) head cut at the top edge
-warning   59.43- 59.53 s  f1783-1785  FACES     c:/^roman[0-3]$/(roman2) head cut at the left edge
-warning   59.50- 59.60 s  f1785-1787  FACES     c:/^roman[0-3]$/(roman1) head cut at the right edge
-warning   59.57- 59.60 s  f1787-1787  FACES     c:/^roman[0-3]$/(roman0) head cut at the top edge
-warning   59.60- 59.63 s  f1788-1788  FACES     c:/^roman[0-3]$/(roman0) head (hat) touches the top edge (1.4 %)
-warning   59.60- 59.63 s  f1788-1788  FACES     c:/^roman[0-3]$/(roman1) head (hat) touches the top edge (2.9 %)
-warning   59.63- 59.67 s  f1789-1789  FACES     c:/^roman[0-3]$/(roman0) head cut at the left edge
-warning   59.67- 59.83 s  f1790-1794  SUBJECT   c:stephenX           too small (26 % of frame height, needs 30 %)
-warning   59.67- 59.87 s  f1790-1795  SUBJECT   c:/^guard\d$/        too small (25 % of frame height, needs 30 %)
-warning   59.80- 60.00 s  f1794-1799  FACES     c:/^roman[0-3]$/(roman3) head centre at 77 % of the frame height
-warning   59.80- 60.00 s  f1794-1799  SUBJECT   c:/^roman[0-3]$/(roman3) blurred (circle of confusion 5.2 px)
-warning   59.90- 60.10 s  f1797-1802  SUBJECT   c:/^roman[0-3]$/(roman1) blurred (circle of confusion 2.5 px)
-warning   59.90- 60.00 s  f1797-1799  FACES     c:/^roman[0-3]$/(roman3) head cut at the left edge
-CRITICAL  60.23- 60.57 s  f1807-1816  FACES     bystander roman3     bystander's head cut at the left edge
-CRITICAL  60.57- 60.97 s  f1817-1828  FACES     bystander roman3     bystander's head centre at 63 % of the frame height
-CRITICAL  60.73- 61.07 s  f1822-1831  FACES     bystander roman1     bystander's head cut at the right edge
-CRITICAL  61.03- 61.37 s  f1831-1840  FACES     bystander roman3     bystander's head cut at the right edge
-CRITICAL  61.07- 61.27 s  f1832-1837  FACES     bystander roman0     bystander's head cut at the left edge
-CRITICAL  61.20- 61.40 s  f1836-1841  FACES     bystander roman5     bystander's head cut at the left edge
-CRITICAL  61.77- 61.97 s  f1853-1858  FACES     bystander roman2     bystander's head cut at the left edge
-CRITICAL  62.10- 62.33 s  f1863-1869  FACES     bystander roman4     bystander's head cut at the left edge
-CRITICAL  62.13- 62.40 s  f1864-1871  SUBJECT   c:stephenX           too small (29 % of frame height, needs 30 %)
-CRITICAL  62.20- 62.97 s  f1866-1888  FACES     bystander roman5     bystander's head cut at the right edge
-CRITICAL  62.37- 62.47 s  f1871-1873  FACES     bystander roman4     bystander's head cut at the left edge
-CRITICAL  62.57- 62.97 s  f1877-1888  SUBJECT   c:stephenX           too small (30 % of frame height, needs 30 %)
+CRITICAL  57.43- 58.63 s  f1723-1758  FACES     c:/^roman[0-2]$/(roman0) face 40 % covered by something in front
+CRITICAL  59.27- 60.10 s  f1778-1802  FACES     c:/^roman[0-2]$/(roman0) face 40 % covered by something in front

@@ -42,67 +42,35 @@ Decisions (auto-framer + camera guard, made without asking; revised after the re
   failed least; failing flights try other look timings / bends / start shifts, and a flight that still fails becomes
   a whip.
 
-CRITICAL: 532 frames in 35 ranges
-    1.07-  1.20 s  f32-35  FACES     c:/^bishop\d$/(bishop0) face 48 % covered by something in front
-    1.27-  1.40 s  f38-41  FACES     c:/^bishop\d$/(bishop2) face 28 % covered by something in front
-    1.40-  1.53 s  f42-45  FACES     c:/^bishop\d$/(bishop1) face 48 % covered by something in front
-    1.60-  1.77 s  f48-52  FACES     c:/^bishop\d$/(bishop3) face 48 % covered by something in front
-    4.80-  7.27 s  f144-217  SUBJECT   c:/^bishop\d$/       cut off top (0.02)
-    4.93-  6.77 s  f148-202  FACES     c:/^bishop\d$/(bishop0) head (hat) touches the top edge (2.6 %)
-    5.77-  6.13 s  f173-183  FACES     c:/^bishop\d$/(bishop1) head (hat) touches the top edge (4.1 %)
-    6.20-  7.27 s  f186-217  SUBJECT   c:/^bishop\d$/       too small (23 % of frame height, needs 30 %)
-   12.63- 12.90 s  f379-386  XCU                            extreme close-up (head 30 % of the frame)
-   14.80- 17.80 s  f444-533  SUBJECT   c:/^bishop\d$/       cut off left (-0.40)
-   15.20- 17.80 s  f456-533  STALE                          the subject barely moves on screen for more than 2 s
-   23.00- 23.60 s  f690-707  SUBJECT   c:formosus           too small (29 % of frame height, needs 30 %)
-   24.83- 27.93 s  f745-837  SUBJECT   c:formosus           too small (24 % of frame height, needs 30 %)
-   25.07- 27.93 s  f752-837  SUBJECT   c:/^monkD[01]$/      too small (27 % of frame height, needs 30 %)
-   25.13- 27.93 s  f754-837  STALE                          the subject barely moves on screen for more than 2 s
-   29.07- 32.70 s  f872-980  SUBJECT   c:/^bishop\d$/       cut off left (-0.41)
-   29.57- 32.70 s  f887-980  STALE                          the subject barely moves on screen for more than 2 s
-   53.87- 54.00 s  f1616-1619  SUBJECT   c:stephen            not on stage
-   53.87- 54.00 s  f1616-1619  EMPTY                          none of c:stephen in view
-   57.43- 59.17 s  f1723-1774  SUBJECT   c:/^roman[0-3]$/     too small (15 % of frame height, needs 30 %)
-   57.43- 58.50 s  f1723-1754  FACES     c:/^roman[0-3]$/(roman1) face 48 % covered by something in front
-   57.43- 59.17 s  f1723-1774  FACES     c:/^roman[0-3]$/(roman2) face 60 % covered by something in front
-   58.90- 59.17 s  f1767-1774  SUBJECT   c:/^roman[0-3]$/     cut off right (0.96)
-   60.23- 60.57 s  f1807-1816  FACES     bystander roman3     bystander's head cut at the left edge
-   60.57- 60.97 s  f1817-1828  FACES     bystander roman3     bystander's head centre at 63 % of the frame height
-   60.73- 61.07 s  f1822-1831  FACES     bystander roman1     bystander's head cut at the right edge
-   61.03- 61.37 s  f1831-1840  FACES     bystander roman3     bystander's head cut at the right edge
-   61.07- 61.27 s  f1832-1837  FACES     bystander roman0     bystander's head cut at the left edge
-   61.20- 61.40 s  f1836-1841  FACES     bystander roman5     bystander's head cut at the left edge
-   61.77- 61.97 s  f1853-1858  FACES     bystander roman2     bystander's head cut at the left edge
-   62.10- 62.33 s  f1863-1869  FACES     bystander roman4     bystander's head cut at the left edge
-   62.13- 62.40 s  f1864-1871  SUBJECT   c:stephenX           too small (29 % of frame height, needs 30 %)
-   62.20- 62.97 s  f1866-1888  FACES     bystander roman5     bystander's head cut at the right edge
-   62.37- 62.47 s  f1871-1873  FACES     bystander roman4     bystander's head cut at the left edge
-   62.57- 62.97 s  f1877-1888  SUBJECT   c:stephenX           too small (30 % of frame height, needs 30 %)
-warnings: 71 frames in 45 ranges (list in camera_report.txt)
+CRITICAL: 72 frames in 3 ranges
+   11.57- 11.93 s  f347-357  XCU                            extreme close-up (head 30 % of the frame)
+   57.43- 58.63 s  f1723-1758  FACES     c:/^roman[0-2]$/(roman0) face 40 % covered by something in front
+   59.27- 60.10 s  f1778-1802  FACES     c:/^roman[0-2]$/(roman0) face 40 % covered by something in front
+warnings: 41 frames in 10 ranges (list in camera_report.txt)
 
 Loop:
-  round 1: 1014 frames with CRITICAL failures in 13 shots (0, 1, 2, 4, 5, 7, 8, 10, 12, 16, 19, 21, 22)
-  round 2: 736 frames with CRITICAL failures in 11 shots (0, 1, 2, 4, 5, 8, 10, 16, 19, 21, 22)
-  round 3: 753 frames with CRITICAL failures in 10 shots (0, 1, 4, 5, 8, 10, 16, 19, 21, 22)
-  round 4: 689 frames with CRITICAL failures in 10 shots (0, 1, 4, 5, 8, 10, 16, 19, 21, 22)
-  round 5: 714 frames with CRITICAL failures in 9 shots (0, 1, 4, 5, 8, 10, 19, 21, 22)
-  assembled the best round of every shot: 532 frames with CRITICAL failures
-  fly transitions that still failed became cuts: 1; clipping whips panned the other way: 0, became cuts: 0
-  flight polish (look timing per failing flight): 560 frames with CRITICAL failures (3 flights cleared)
-  kept the assembled track (532 CRITICAL frames)
+  round 1: 919 frames with CRITICAL failures in 11 shots (1, 2, 4, 5, 7, 8, 10, 12, 16, 19, 21)
+  round 2: 342 frames with CRITICAL failures in 6 shots (2, 4, 5, 10, 16, 21)
+  round 3: 94 frames with CRITICAL failures in 3 shots (4, 16, 21)
+  round 4: 102 frames with CRITICAL failures in 3 shots (4, 16, 21)
+  round 5: 91 frames with CRITICAL failures in 2 shots (4, 21)
+  assembled the best round of every shot: 72 frames with CRITICAL failures
+  fly transitions that still failed became cuts: 0; clipping whips panned the other way: 0, became cuts: 0
+  flight polish (look timing per failing flight): 72 frames with CRITICAL failures (0 flights cleared)
+  kept the assembled track (72 CRITICAL frames)
 
 Shots (candidate chosen, score):
-  shot  0    0.00-  4.09 s  wide   track az-30 high (score 6)
-  shot  1    4.09-  7.24 s  medium track higher (score 108: 2/5 blocked, 1/5 blocked, cut off top, head, too small)
+  shot  0    0.00-  4.09 s  medium track az-60 (score 6)
+  shot  1    4.09-  7.24 s  medium track az+30 high (score 6)
   shot  2    7.24- 10.68 s  medium lower (score 2)
   shot  3   10.68- 10.68 s  medium az+60 (score 6)
-  shot  4   10.68- 14.78 s  medium base (score 62: 1/5 blocked, head 30 %)
-  shot  5   14.78- 17.78 s  medium hand (score 46: cut off left)
+  shot  4   10.68- 14.78 s  medium lower (score 64: 1/5 blocked, head 30 %)
+  shot  5   14.78- 17.78 s  medium lower (score 42: head 30 %)
   shot  6   17.78- 19.24 s  medium base (score 0)
   shot  7   19.24- 22.98 s  medium az-60 (score 6)
-  shot  8   22.98- 27.92 s  medium higher (score 83: too small)
+  shot  8   22.98- 27.92 s  medium base (score 22: 1/5 blocked)
   shot  9   27.92- 29.06 s  medium base (score 0)
-  shot 10   29.06- 32.68 s  medium hand (score 46: cut off left)
+  shot 10   29.06- 32.68 s  medium lower (score 42: head 30 %)
   shot 11   32.68- 34.82 s  medium az+60 (score 28: 1/5 blocked)
   shot 12   34.82- 38.97 s  medium az180 (score 18)
   shot 13   38.97- 40.51 s  medium base (score 0)
@@ -113,12 +81,12 @@ Shots (candidate chosen, score):
   shot 18   49.35- 50.67 s  medium az-60 (score 6)
   shot 19   50.67- 53.97 s  medium lower (score 2)
   shot 20   53.97- 57.43 s  medium az+30 high (score 6)
-  shot 21   57.43- 60.09 s  medium base (score 80: too small, cut off right)
-  shot 22   60.09- 62.95 s  medium track az-30 high (score 96: bystander's head cut at the left edge, bystander's head centre at 71 % of the frame height, bystander's head centre at 69 % of the frame height, bystander's head centre at 67 % of the frame height, bystander's head cut at the right edge, bystander's head centre at 64 % of the frame height, bystander's head centre at 62 % of the frame height, bystander's head centre at 60 % of the frame height, bystander's head centre at 58 % of the frame height, bystander's head centre at 56 % of the frame height, too small)
+  shot 21   57.43- 60.09 s  medium az-90 (score 9)
+  shot 22   60.09- 62.95 s  medium track base (score 0)
   shot 23   62.95- 68.40 s  medium closer 0.6 (score 3)
 
 Flights:
-  -> shot 1: FLY 3.16-4.09 s, 28 f, hand route, peak 1.34 m/f
+  -> shot 1: FLY 3.16-4.09 s, 28 f, raised glide, peak 0.66 m/f
   -> shot 2: CUT 7.24-7.24 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 3: FLY 9.74-10.68 s, 28 f, hand route (reversed), peak 0.3 m/f
   -> shot 4: CUT 10.68-10.68 s, 0 f, cut on the beat, peak undefined m/f
@@ -139,5 +107,5 @@ Flights:
   -> shot 19: CUT 50.67-50.67 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 20: CUT 53.97-53.97 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 21: CUT 57.43-57.43 s, 0 f, cut on the beat, peak undefined m/f
-  -> shot 22: FLY 59.16-60.09 s, 28 f, glide (the next shot's subject is not on stage yet at 59.49 s), peak 1.04 m/f
+  -> shot 22: CUT 60.09-60.09 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 23: CUT 62.95-62.95 s, 0 f, cut on the beat, peak undefined m/f
