@@ -1,0 +1,11 @@
+// Camera guard props for "The Pope Who Put a Corpse on Trial": the throne, the falling mitre, the wrapped body.
+import * as THREE from "three";
+import { THRONE } from "./layout";
+import { mitreFallAt, bundleAt } from "./story";
+
+const B = (x0: number, y0: number, z0: number, x1: number, y1: number, z1: number) => new THREE.Box3(new THREE.Vector3(x0, y0, z0), new THREE.Vector3(x1, y1, z1));
+export const PROPS: Record<string, (t: number) => THREE.Box3> = {
+  throne: () => B(THRONE.x - 0.4, THRONE.h, THRONE.z - 0.6, THRONE.x + 0.6, THRONE.h + 2.2, THRONE.z + 0.6),
+  mitre: (t) => { const p = mitreFallAt(t).p; return B(p.x - 0.25, p.y, p.z - 0.25, p.x + 0.25, p.y + 0.6, p.z + 0.25); },
+  bundle: (t) => { const p = bundleAt(t).p; return B(p.x - 0.8, p.y - 0.25, p.z - 0.25, p.x + 0.8, p.y + 0.25, p.z + 0.25); },
+};
