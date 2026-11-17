@@ -45,14 +45,15 @@ const W = (c: THREE.Vector3, dx: number, dy: number, dz: number) => V(c.x + dx, 
 const splash = (u: number) => (p: Pen) => { const a = (1 - u) * 0.9; for (let k = 0; k < 7; k++) { const ang = Math.PI * (0.1 + 0.8 * k / 6), r = 40 + 110 * u; p.ell(150 + Math.cos(ang) * r, 200 - Math.sin(ang) * r * 1.3, 18 * (1 - u) + 6, 26 * (1 - u) + 8, `rgba(235,245,250,${a.toFixed(2)})`, 0); } p.ell(150, 205, 120 * u + 30, 18, `rgba(235,245,250,${(a * 0.8).toFixed(2)})`, 0); };
 const S = STEPHEN_AT, F = FORMOSUS_AT;
 const EAST = Math.PI / 2, WEST = -Math.PI / 2;
-const benchSeat = (i: number) => V(-1.8 + i * 1.2, 0.4, BENCH_Z + 0.3);
+// bishops 1 and 2 sit side by side in the middle (the reaction shots frame them); 0 and 3 sit well out at the ends
+const benchSeat = (i: number) => V([-2.6, -0.42, 0.42, 2.6][i], 0.4, BENCH_Z + 0.3);
 
 // the bishops: file in on line 1, then sit on their bench (they recoil on "dead", whisper on "Becoming pope illegally")
 const bishops = (t: number, s: Stage) => {
   if (t >= wt(11) - 0.3) return;
   const recoil = between(t, wt(3, "dead") - LEAD, wt(4) + 0.3), whisper = between(t, wt(6, "Becoming") - LEAD, wt(7) + 0.3);
   for (let i = 0; i < 4; i++) {
-    const k = fileIn(t, i), seat = benchSeat(i), start = V(i % 2 ? 0.55 : -0.55, 0, -6 - Math.floor(i / 2) * 1.4);
+    const k = fileIn(t, i), seat = benchSeat(i), start = i === 1 || i === 2 ? V(i === 1 ? -0.45 : 0.45, 0, -7) : V(i ? 1.2 : -1.2, 0, -4.2);   // 1 and 2 lead, 0 and 3 follow wider
     const toward = Math.atan2(F.x - seat.x, F.z - seat.z);
     if (k < 1) { const p = start.clone().lerp(V(seat.x, 0, seat.z + 0.9), k); s.places.push(P(`bishop${i}`, BISHOP(i), { mode: "stroll", phase: q((t * 1.3 + i * 0.25) % 1, 12), expr: "neutral", gest: "hang", blink: blinkAt(t, 10 + i) }, {}, p, { yaw: Math.PI + 0.1 * (i % 2 ? -1 : 1) })); continue; }
     s.places.push(P(`bishop${i}`, BISHOP(i), recoil ? { mode: "sit", expr: "shock", gest: "recoil", k: q((t * 3 + i * 0.3) % 1, 8), blink: 0, headTilt: 8 * Math.sin(t * 9 + i) }
@@ -63,7 +64,7 @@ const bishops = (t: number, s: Stage) => {
 // Stephen on his high seat (lines 2-10): slams the crozier, shrugs, points with the scroll, screams, tears the verdict,
 // then freezes as he works out he has just cancelled himself
 const stephen = (t: number, s: Stage) => {
-  if (!between(t, wt(1, "begin") + 0.2, wt(11) - 0.2)) return;
+  if (!between(t, wt(1, "begin") + 0.2, wt(11) + 0.15)) return;
   let l: Look = { expr: "stern", gest: "slam", k: q((t * 1.6) % 1, 10), blink: blinkAt(t, 1) }, x: Extra = { staff: true };
   if (between(t, wt(4) - LEAD, wt(5))) { l = { expr: "smug", gest: "shrug2", blink: blinkAt(t, 1), headTilt: -8 }; x = {}; }
   if (between(t, wt(6) - LEAD, wt(8))) { l = { expr: "stern", gest: "point", blink: blinkAt(t, 1) }; x = { scroll: "rolled" }; }
@@ -88,7 +89,7 @@ const formosus = (t: number, s: Stage) => {
   s.places.push(P("formosus", bare ? FORMOSUS_BARE : FORMOSUS, { mode: "sit", expr: "dazed", gest: "hang", blink: 0, headTilt: 24, tilt: 8 }, { xeyes: true, hatTilt: bare ? 0 : formMitreTilt(t) }, F, { yaw: WEST + 0.2 }));
   // line 5: the monks fuss over him, robes and mitre (on "sat him on a throne" the mitre slides)
   if (between(t, wt(4, "up") + 0.3, wt(6) + 0.2)) for (let i = 0; i < 2; i++)
-    s.places.push(P(`monkD${i}`, MONK(i), { expr: i ? "nervous" : "grin", gest: i ? "palm" : "hold", k: q((t * 2 + i * 0.5) % 1, 8), blink: blinkAt(t, 40 + i) }, {}, W(F, -0.35, THRONE.h - F.y, i ? 1.05 : -1.05), { turn: i ? -0.55 : 0.55 }));
+    s.places.push(P(`monkD${i}`, MONK(i), { expr: i ? "nervous" : "grin", gest: i ? "palm" : "hold", k: q((t * 2 + i * 0.5) % 1, 8), blink: blinkAt(t, 40 + i) }, {}, W(F, -0.3, THRONE.h - F.y, i ? 0.78 : -0.78), { turn: i ? -0.55 : 0.55 }));
   // line 7: the deacon peeks out from behind the throne, shaking, and answers for him
   if (between(t, wt(7, "nervous") - LEAD, wt(8) + 0.2)) {
     const ans = after(t, 7, "answered");
@@ -114,12 +115,15 @@ const tiber = (t: number, s: Stage) => {
 const piazza = (t: number, s: Stage) => {
   if (!between(t, wt(11, "river") + 0.3, wt(13) + 0.2)) return;
   const boo = (i: number) => ({ expr: i % 3 ? "stern" : "shock", gest: i % 2 ? "fist" : "point", k: q((t * 3 + i * 0.4) % 1, 8), blink: blinkAt(t, 60 + i), headTilt: 6 * Math.sin(t * 7 + i) } as Look);
-  const spots: [number, number][] = [[-2.2, 3.2], [2.3, 3.0], [-2.9, 5.0], [2.9, 5.2], [-1.9, 7.0], [2.0, 7.3]];
-  spots.forEach(([dx, dz], i) => s.places.push(P(`roman${i}`, ROMAN(i), boo(i), {}, V(dx, 0, NAVE.z1 + dz), { turn: dx < 0 ? 0.5 : -0.5 })));
-  if (t > wt(12, "And") - 0.5) {
-    const p = stephenOut(t), out = t >= T_KNOCK(), walking = t < wt(12, "And") + 2.7;
+  // before Stephen comes out: three Romans boo at the doors (turned to the camera); once he is marched out (a cut) they
+  // follow right behind him, still booing, inside the same frame
+  const marched = t >= wt(12, "And") - LEAD, p = stephenOut(t);
+  const spots: [number, number][] = marched ? [[-0.75, -1.7], [0.25, -2.2], [1.05, -1.8]] : [[-0.9, 4.3], [0.15, 3.8], [1.2, 4.4]];
+  spots.forEach(([dx, dz], i) => s.places.push(P(`roman${i}`, ROMAN(i), marched ? { ...boo(i), mode: t < wt(12, "And") + 2.7 ? "stroll" : "stand", phase: q((t * 1.3 + i * 0.3) % 1, 12) } : boo(i), {}, marched ? V(p.x + dx, 0, p.z + dz) : V(dx, 0, NAVE.z1 + dz), { turn: dx < 0 ? 0.35 : -0.35, size: marched ? LO : HI })));
+  if (marched) {
+    const out = t >= T_KNOCK(), walking = t < wt(12, "And") + 2.7;
     s.places.push(P("stephenX", out ? STEPHEN_BARE : STEPHEN, { mode: walking ? "stroll" : "stand", phase: q((t * 1.3) % 1, 12), expr: out ? "shock" : "nervous", gest: out ? "recoil" : "clutch", k: q((t * 3) % 1, 8), blink: 0, headTilt: out ? 10 * Math.sin(t * 9) : 0 }, { sweat: true }, p, { turn: 0 }));
-    for (let i = 0; i < 2; i++) s.places.push(P(`guard${i}`, GUARD(i), { mode: walking ? "stroll" : "stand", phase: q((t * 1.3 + 0.5) % 1, 12), expr: "stern", gest: "hang", blink: blinkAt(t, 70 + i) }, { spear: true }, V(p.x + (i ? 0.85 : -0.85), 0, p.z - 0.3), { turn: i ? -0.2 : 0.2 }));
+    for (let i = 0; i < 2; i++) s.places.push(P(`guard${i}`, GUARD(i), { mode: walking ? "stroll" : "stand", phase: q((t * 1.3 + 0.5) % 1, 12), expr: "stern", gest: "hang", blink: blinkAt(t, 70 + i) }, { spear: true }, V(p.x + (i ? 0.7 : -0.7), 0, p.z - 0.25), { turn: i ? -0.2 : 0.2 }));
   }
 };
 

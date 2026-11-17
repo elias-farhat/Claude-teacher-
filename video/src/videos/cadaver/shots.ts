@@ -5,17 +5,17 @@ import { land } from "./story";
 import type { ShotSpec } from "../../guard/solve";
 
 export const SHOT_SPECS: ShotSpec[] = [
-  { t0: 0, subjects: ["c:/^bishop\\d$/"], size: "wide", angle: "high", move: "drift", note: "1 Rome, 897: the bishops file up the nave" },
-  { t0: land(1, "trial"), subjects: ["c:/^bishop\\d$/", "?w:throne"], size: "wide", move: "drift", note: "1 the strangest trial in history: the bishops reach their bench, the empty throne" },
+  { t0: 0, subjects: ["c:/^bishop[12]$/"], size: "medium", move: "drift", note: "1 Rome, 897: the bishops file up the nave" },
+  { t0: land(1, "trial"), subjects: ["c:/^bishop[12]$/"], size: "medium", move: "push", note: "1 the strangest trial in history: the bishops reach their bench, the empty throne" },
   { t0: land(2), subjects: ["c:stephen"], size: "medium", angle: "low", move: "push", enter: "cut", note: "2 the judge? Pope Stephen VI slams his crozier" },
   { t0: land(3), subjects: ["c:stephen"], size: "medium", move: "drift", note: "3 the defendant?" },
-  { t0: land(3, "The"), subjects: ["c:formosus"], size: "medium", move: "push", enter: "cut", note: "3 the pope before him... Formosus (the reveal)" },
-  { t0: land(3, "dead"), subjects: ["c:/^bishop\\d$/"], size: "medium", move: "push", enter: "cut", note: "3 dead for months: the bishops recoil" },
+  { t0: land(3, "The"), subjects: ["c:formosus"], size: "medium", move: "drift", enter: "cut", note: "3 the pope before him... Formosus (the reveal)" },
+  { t0: land(3, "dead"), subjects: ["c:/^bishop[12]$/"], size: "medium", move: "push", enter: "cut", note: "3 dead for months: the bishops recoil" },
   { t0: land(4), subjects: ["c:stephen"], size: "medium", move: "drift", enter: "cut", note: "4 but Stephen didn't care" },
   { t0: land(4, "He"), subjects: ["c:/^monk[01]$/"], size: "medium", move: "push", enter: "cut", note: "4 he had the body dug up: the monks at the grave" },
-  { t0: land(5), subjects: ["c:formosus", "c:/^monkD[01]$/"], size: "medium", move: "drift", enter: "cut", note: "5 they dressed the corpse and sat him on a throne" },
+  { t0: land(5), subjects: ["c:formosus", "c:/^monkD[01]$/"], size: "medium", move: "push", enter: "cut", note: "5 they dressed the corpse and sat him on a throne" },
   { t0: land(6), subjects: ["c:stephen"], size: "medium", move: "push", enter: "cut", note: "6 the charge? (Stephen points with the scroll)" },
-  { t0: land(6, "Becoming"), subjects: ["c:/^bishop\\d$/"], size: "medium", move: "drift", enter: "cut", note: "6 becoming pope illegally: the bishops whisper" },
+  { t0: land(6, "Becoming"), subjects: ["c:/^bishop[12]$/"], size: "medium", move: "push", enter: "cut", note: "6 becoming pope illegally: the bishops whisper" },
   { t0: land(7), subjects: ["c:formosus"], size: "medium", move: "push", enter: "cut", note: "7 since the accused couldn't talk" },
   { t0: land(7, "nervous"), subjects: ["c:deacon", "?c:formosus"], size: "medium", move: "push", note: "7 a nervous young deacon behind him answered for him" },
   { t0: land(8), subjects: ["c:stephen"], size: "medium", angle: "low", move: "push", enter: "cut", note: "8 Stephen screamed!" },
@@ -26,7 +26,7 @@ export const SHOT_SPECS: ShotSpec[] = [
   { t0: land(10, "cancelled"), subjects: ["c:stephen"], size: "medium", move: "drift", note: "10 everything he did was cancelled: the verdict torn" },
   { t0: land(10, "including"), subjects: ["c:stephen"], size: "medium", move: "push", enter: "cut", note: "10 including making Stephen a bishop: he freezes" },
   { t0: land(11), subjects: ["c:/^monkR[01]$/", "?w:bundle"], size: "medium", move: "drift", enter: "cut", note: "11 they threw the body in the river" },
-  { t0: land(12), subjects: ["c:/^roman[0-3]$/"], size: "medium", move: "drift", enter: "cut", note: "12 Rome was disgusted: the crowd boos" },
-  { t0: land(12, "And"), subjects: ["c:stephenX", "c:/^guard\\d$/"], size: "medium", move: "drift", note: "12 Stephen lost his job: marched out, mitre knocked off" },
+  { t0: land(12), subjects: ["c:/^roman[0-2]$/"], size: "medium", move: "push", enter: "cut", note: "12 Rome was disgusted: the crowd boos" },
+  { t0: land(12, "And"), subjects: ["c:stephenX", "c:/^guard\\d$/"], size: "medium", move: "drift", enter: "cut", note: "12 Stephen lost his job: marched out, mitre knocked off" },
   { t0: land(13), subjects: ["w:throne"], size: "medium", move: "push", enter: "cut", note: "13 the empty throne, one candle" },
 ];
