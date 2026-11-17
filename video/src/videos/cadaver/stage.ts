@@ -46,7 +46,7 @@ const splash = (u: number) => (p: Pen) => { const a = (1 - u) * 0.9; for (let k 
 const S = STEPHEN_AT, F = FORMOSUS_AT;
 const EAST = Math.PI / 2, WEST = -Math.PI / 2;
 // bishops 1 and 2 sit side by side in the middle (the reaction shots frame them); 0 and 3 sit well out at the ends
-const benchSeat = (i: number) => V([-2.6, -0.42, 0.42, 2.6][i], 0.4, BENCH_Z + 0.3);
+const benchSeat = (i: number) => V([-3.0, -0.42, 0.42, 3.0][i], 0.4, BENCH_Z + 0.3);
 
 // the bishops: file in on line 1, then sit on their bench (they recoil on "dead", whisper on "Becoming pope illegally")
 const bishops = (t: number, s: Stage) => {
