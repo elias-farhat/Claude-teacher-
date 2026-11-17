@@ -3,11 +3,11 @@
  "frames": 2017,
  "pass": true,
  "criticalFrames": 0,
- "warningFrames": 28,
- "seconds": 206.58,
+ "warningFrames": 40,
+ "seconds": 207.207,
  "history": [
   "round 1: 441 frames with CRITICAL failures in 7 shots (0, 2, 3, 4, 7, 8, 19)",
-  "round 2: 219 frames with CRITICAL failures in 5 shots (2, 3, 4, 8, 19)",
+  "round 2: 191 frames with CRITICAL failures in 5 shots (2, 3, 4, 8, 19)",
   "round 3: 201 frames with CRITICAL failures in 3 shots (2, 3, 8)",
   "round 4: 0 frames with CRITICAL failures in 0 shots",
   "assembled the best round of every shot: 0 frames with CRITICAL failures"
@@ -16,7 +16,7 @@
   {
    "rule": "SUBJECT",
    "critical": 0,
-   "warning": 28
+   "warning": 40
   },
   {
    "rule": "OCCLUSION",
@@ -78,6 +78,42 @@
    "detail": "head cut at the right edge",
    "t0": 9.53,
    "t1": 9.73
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "w:portrait",
+   "shot": 20,
+   "from": 1886,
+   "to": 1887,
+   "worst": 1886,
+   "detail": "cut off right (0.95)",
+   "t0": 62.87,
+   "t1": 62.93
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "w:portrait",
+   "shot": 20,
+   "from": 1886,
+   "to": 1890,
+   "worst": 1886,
+   "detail": "blurred (circle of confusion 1.8 px)",
+   "t0": 62.87,
+   "t1": 63.03
+  },
+  {
+   "rule": "SUBJECT",
+   "critical": false,
+   "subject": "w:portrait",
+   "shot": 20,
+   "from": 1888,
+   "to": 1897,
+   "worst": 1888,
+   "detail": "cut off top (-0.03)",
+   "t0": 62.93,
+   "t1": 63.27
   }
  ],
  "frames_failing": [
@@ -843,6 +879,336 @@
     0.2276,
     0.4467,
     0.354
+   ]
+  },
+  {
+   "f": 1886,
+   "t": 62.867,
+   "shot": 20,
+   "flight": true,
+   "subjects": [
+    "c:thiebault",
+    "w:portrait"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:portrait",
+     "detail": "cut off right (0.96)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:portrait",
+     "detail": "blurred (circle of confusion 1.8 px)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0.3118,
+    0.0761,
+    0.6882,
+    0.3097
+   ]
+  },
+  {
+   "f": 1887,
+   "t": 62.9,
+   "shot": 20,
+   "flight": true,
+   "subjects": [
+    "c:thiebault",
+    "w:portrait"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:portrait",
+     "detail": "cut off right (0.95)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:portrait",
+     "detail": "blurred (circle of confusion 1.8 px)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0.31,
+    0.0773,
+    0.686,
+    0.3106
+   ]
+  },
+  {
+   "f": 1888,
+   "t": 62.933,
+   "shot": 20,
+   "flight": true,
+   "subjects": [
+    "c:thiebault",
+    "w:portrait"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:portrait",
+     "detail": "cut off top (-0.13)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:portrait",
+     "detail": "blurred (circle of confusion 1.8 px)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0.3022,
+    0.0822,
+    0.6764,
+    0.3143
+   ]
+  },
+  {
+   "f": 1889,
+   "t": 62.967,
+   "shot": 20,
+   "flight": true,
+   "subjects": [
+    "c:thiebault",
+    "w:portrait"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:portrait",
+     "detail": "cut off top (-0.12)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:portrait",
+     "detail": "blurred (circle of confusion 1.7 px)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0.2867,
+    0.0924,
+    0.6571,
+    0.322
+   ]
+  },
+  {
+   "f": 1890,
+   "t": 63,
+   "shot": 20,
+   "flight": true,
+   "subjects": [
+    "c:thiebault",
+    "w:portrait"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:portrait",
+     "detail": "cut off top (-0.10)",
+     "critical": false
+    },
+    {
+     "rule": "SUBJECT",
+     "subject": "w:portrait",
+     "detail": "blurred (circle of confusion 1.6 px)",
+     "critical": false
+    }
+   ],
+   "score": 0.8,
+   "box": [
+    0.2644,
+    0.1081,
+    0.6285,
+    0.3335
+   ]
+  },
+  {
+   "f": 1891,
+   "t": 63.033,
+   "shot": 20,
+   "flight": true,
+   "subjects": [
+    "c:thiebault",
+    "w:portrait"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:portrait",
+     "detail": "cut off top (-0.08)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.2377,
+    0.1284,
+    0.5933,
+    0.3482
+   ]
+  },
+  {
+   "f": 1892,
+   "t": 63.067,
+   "shot": 20,
+   "flight": true,
+   "subjects": [
+    "c:thiebault",
+    "w:portrait"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:portrait",
+     "detail": "cut off top (-0.05)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.2102,
+    0.1516,
+    0.5552,
+    0.3645
+   ]
+  },
+  {
+   "f": 1893,
+   "t": 63.1,
+   "shot": 20,
+   "flight": true,
+   "subjects": [
+    "c:thiebault",
+    "w:portrait"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:portrait",
+     "detail": "cut off top (-0.03)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.1856,
+    0.1758,
+    0.5183,
+    0.3808
+   ]
+  },
+  {
+   "f": 1894,
+   "t": 63.133,
+   "shot": 20,
+   "flight": true,
+   "subjects": [
+    "c:thiebault",
+    "w:portrait"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:portrait",
+     "detail": "cut off top (-0.00)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.166,
+    0.1992,
+    0.486,
+    0.396
+   ]
+  },
+  {
+   "f": 1895,
+   "t": 63.167,
+   "shot": 20,
+   "flight": true,
+   "subjects": [
+    "c:thiebault",
+    "w:portrait"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:portrait",
+     "detail": "cut off top (0.02)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.1476,
+    0.2215,
+    0.4557,
+    0.4101
+   ]
+  },
+  {
+   "f": 1896,
+   "t": 63.2,
+   "shot": 20,
+   "flight": true,
+   "subjects": [
+    "c:thiebault",
+    "w:portrait"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:portrait",
+     "detail": "cut off top (0.03)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.1354,
+    0.2411,
+    0.4315,
+    0.4216
+   ]
+  },
+  {
+   "f": 1897,
+   "t": 63.233,
+   "shot": 20,
+   "flight": true,
+   "subjects": [
+    "c:thiebault",
+    "w:portrait"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "w:portrait",
+     "detail": "cut off top (0.04)",
+     "critical": false
+    }
+   ],
+   "score": 0.4,
+   "box": [
+    0.1289,
+    0.2578,
+    0.4135,
+    0.4307
    ]
   }
  ]
