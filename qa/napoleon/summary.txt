@@ -46,7 +46,7 @@ CRITICAL: 0
 warnings: 40 frames in 5 ranges (list in camera_report.txt)
 
 Loop:
-  round 1: 458 frames with CRITICAL failures in 8 shots (0, 2, 3, 4, 7, 8, 18, 19)
+  round 1: 441 frames with CRITICAL failures in 7 shots (0, 2, 3, 4, 7, 8, 19)
   round 2: 191 frames with CRITICAL failures in 5 shots (2, 3, 4, 8, 19)
   round 3: 201 frames with CRITICAL failures in 3 shots (2, 3, 8)
   round 4: 0 frames with CRITICAL failures in 0 shots
@@ -71,7 +71,7 @@ Shots (candidate chosen, score):
   shot 15   47.01- 51.99 s  wide   base (score 0)
   shot 16   51.99- 55.21 s  medium track az-60 (score 6)
   shot 17   55.21- 58.13 s  medium track az180 (score 40: 1/5 blocked)
-  shot 18   58.13- 60.25 s  medium higher (score 3)
+  shot 18   58.13- 60.25 s  medium overhead (score 12)
   shot 19   60.25- 63.79 s  medium base (score 44: 2/5 blocked)
   shot 20   63.79- 67.23 s  medium base (score 44: 2/5 blocked)
 
