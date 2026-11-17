@@ -123,7 +123,7 @@ const piazza = (t: number, s: Stage) => {
   if (marched) {
     const out = t >= T_KNOCK(), walking = t < wt(12, "And") + 2.7;
     s.places.push(P("stephenX", out ? STEPHEN_BARE : STEPHEN, { mode: walking ? "stroll" : "stand", phase: q((t * 1.3) % 1, 12), expr: out ? "shock" : "nervous", gest: out ? "recoil" : "clutch", k: q((t * 3) % 1, 8), blink: 0, headTilt: out ? 10 * Math.sin(t * 9) : 0 }, { sweat: true }, p, { turn: 0 }));
-    for (let i = 0; i < 2; i++) s.places.push(P(`guard${i}`, GUARD(i), { mode: walking ? "stroll" : "stand", phase: q((t * 1.3 + 0.5) % 1, 12), expr: "stern", gest: "hang", blink: blinkAt(t, 70 + i) }, { spear: true }, V(p.x + (i ? 1 : -1) * (0.7 + 1.0 * smooth((t - T_KNOCK() + 0.1) / 0.25)), 0, p.z - 0.25), { turn: i ? -0.2 : 0.2 }));   // on "lost" they leap back (out of the medium shot on him)
+    for (let i = 0; i < 2; i++) s.places.push(P(`guard${i}`, GUARD(i), { mode: walking ? "stroll" : "stand", phase: q((t * 1.3 + 0.5) % 1, 12), expr: "stern", gest: "hang", blink: blinkAt(t, 70 + i) }, { spear: true }, V(p.x + (i ? 1 : -1) * (t >= wt(12, "lost") - LEAD - 0.001 ? 2.3 : 0.7), 0, p.z - 0.25), { turn: i ? -0.2 : 0.2 }));   // on "lost" they leap back (out of the medium shot on him)
   }
 };
 
