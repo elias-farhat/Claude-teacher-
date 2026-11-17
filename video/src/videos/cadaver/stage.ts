@@ -53,7 +53,7 @@ const bishops = (t: number, s: Stage) => {
   if (t >= wt(11) - 0.3) return;
   const recoil = between(t, wt(3, "dead") - LEAD, wt(4) + 0.3), whisper = between(t, wt(6, "Becoming") - LEAD, wt(7) + 0.3);
   for (let i = 0; i < 4; i++) {
-    const k = fileIn(t, i), seat = benchSeat(i), start = i === 1 || i === 2 ? V(i === 1 ? -0.45 : 0.45, 0, -7) : V(i ? 1.2 : -1.2, 0, -4.2);   // 1 and 2 lead, 0 and 3 follow wider
+    const k = i === 0 || i === 3 ? 1 : fileIn(t, i), seat = benchSeat(i), start = i === 1 || i === 2 ? V(i === 1 ? -0.45 : 0.45, 0, -7) : V(i ? 1.2 : -1.2, 0, -4.2);   // 1 and 2 lead, 0 and 3 follow wider
     const toward = Math.atan2(F.x - seat.x, F.z - seat.z);
     if (k < 1) { const p = start.clone().lerp(V(seat.x, 0, seat.z + 0.9), k); s.places.push(P(`bishop${i}`, BISHOP(i), { mode: "stroll", phase: q((t * 1.3 + i * 0.25) % 1, 12), expr: "neutral", gest: "hang", blink: blinkAt(t, 10 + i) }, {}, p, { yaw: Math.PI + 0.1 * (i % 2 ? -1 : 1) })); continue; }
     s.places.push(P(`bishop${i}`, BISHOP(i), recoil ? { mode: "sit", expr: "shock", gest: "recoil", k: q((t * 3 + i * 0.3) % 1, 8), blink: 0, headTilt: 8 * Math.sin(t * 9 + i) }
