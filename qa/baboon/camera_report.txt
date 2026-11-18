@@ -1,1 +1,3 @@
-
+CRITICAL   8.20-  8.23 s  f246-246  SUBJECT   c:jumper             cut off top (0.04)
+CRITICAL  50.57- 50.63 s  f1517-1518  FACES     c:jack               face 100 % covered by something in front
+CRITICAL  50.63- 50.67 s  f1519-1519  FACES     bystander boss1      bystander's face fills 683 % of the frame
