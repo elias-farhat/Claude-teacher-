@@ -13,7 +13,7 @@ import { Pen, Outfit, Expr, INK, SKIN, faceFront, mix } from "./toon";
 export type Rig3 = {
   o: Outfit;
   l: { mode?: string; expr?: Expr; gest?: string; k?: number; blink?: number; look?: number; headTilt?: number; tilt?: number; phase?: number };
-  x: { sideburns?: boolean; tea?: boolean; phone?: boolean; pen?: boolean; paper?: string; wings?: number; curls?: boolean; letter?: boolean; sweat?: boolean; bucket?: boolean; spear?: boolean; sword?: boolean; banner?: string; shield?: string; pan?: boolean; mittens?: string; sack?: boolean; coins?: boolean; ink?: boolean; gun?: boolean; stick?: boolean; crate?: boolean; bunny?: boolean; xeyes?: boolean; hatTilt?: number; scroll?: string; staff?: boolean; shovel?: boolean; lantern?: boolean };
+  x: { sideburns?: boolean; tea?: boolean; phone?: boolean; pen?: boolean; paper?: string; wings?: number; curls?: boolean; letter?: boolean; sweat?: boolean; bucket?: boolean; spear?: boolean; sword?: boolean; banner?: string; shield?: string; pan?: boolean; mittens?: string; sack?: boolean; coins?: boolean; ink?: boolean; gun?: boolean; stick?: boolean; crate?: boolean; bunny?: boolean; xeyes?: boolean; hatTilt?: number; scroll?: string; staff?: boolean; shovel?: boolean; lantern?: boolean; baboon?: string; pegs?: boolean; bottle?: boolean; hammer?: boolean; clipboard?: boolean };
 };
 type V3 = [number, number, number];
 const v = (a: V3) => new THREE.Vector3(...a);
@@ -239,6 +239,11 @@ const hang = (s: number, k = 0): Arm => [[s * SHOULDER[0], SHOULDER[1], 0], [s *
 const pose = (gest: string, k: number): [Arm, Arm] => {
   const L = hang(-1, k), w = Math.sin(k * Math.PI * 2);
   switch (gest) {
+    // the signal lever: both hands on a grip in front of the chest, pulled from up-and-forward (k 0) down toward the body (k 1)
+    case "pull": { const e = Math.min(1, Math.max(0, k)), y = 1.14 - 0.2 * e, z = 0.44 - 0.16 * e; return [[[-0.19, 1.07, 0], [-0.25, 0.92, 0.2], [-0.05, y, z]], [[0.19, 1.07, 0], [0.25, 0.92, 0.2], [0.05, y, z]]]; }
+    // the same lever pulled by a full-size man (the levers are cut to Jack's height): hands low, at the belt
+    case "pullLow": { const e = Math.min(1, Math.max(0, k)), y = 0.86 - 0.14 * e, z = 0.46 - 0.16 * e; return [[[-0.19, 1.07, 0], [-0.3, 0.86, 0.2], [-0.05, y, z]], [[0.19, 1.07, 0], [0.3, 0.86, 0.2], [0.05, y, z]]]; }
+    case "fold": return [[[-0.19, 1.07, 0], [-0.28, 0.9, 0.12], [0.12, 0.95, 0.2]], [[0.19, 1.07, 0], [0.28, 0.9, 0.12], [-0.12, 0.99, 0.21]]];
     case "point": return [L, [[0.19, 1.07, 0], [0.37, 1.07, 0.14], [0.57, 1.14, 0.26]]];
     case "palm": return [L, [[0.19, 1.07, 0], [0.3, 0.88, 0.12], [0.36, 0.97, 0.3]]];
     case "wave": return [L, [[0.19, 1.07, 0], [0.37, 1.22, 0.05], [0.42 + 0.06 * w, 1.5, 0.06]]];
@@ -301,6 +306,7 @@ export class Char3D {
   private gun: THREE.Group; private stick: THREE.Mesh; private crate: THREE.Group; private bunny: THREE.Mesh;
   private scroll: THREE.Group; private scroll2: THREE.Group; private staff: THREE.Group; private shovel: THREE.Group; private lantern: THREE.Group;
   private paper: THREE.Mesh; private letter: THREE.Mesh; private quill: THREE.Mesh; private sweat: THREE.Mesh; private wings: THREE.Mesh[];
+  private bab: THREE.Group; private babFur: THREE.MeshLambertMaterial; private babTail: THREE.Mesh; private bottle: THREE.Group; private hammer: THREE.Group; private clip: THREE.Group;
   constructor(parent: THREE.Object3D) {
     const add = <T extends THREE.Object3D>(o: T) => { o.traverse((m) => { const me = m as THREE.Mesh; if (me.isMesh) { me.castShadow = true; me.receiveShadow = true; } }); this.g.add(o); return o; };
     this.headMat = twoTone(new THREE.MeshLambertMaterial({ color: "#ffffff" })) as THREE.MeshLambertMaterial;
@@ -370,6 +376,31 @@ export class Char3D {
       const bot = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.02, 0.35), w); this.crate.add(bot);
       for (const x of [-0.11, 0.11]) { const b = new THREE.Mesh(bunnyGeo(false), twoTone(new THREE.MeshLambertMaterial({ vertexColors: true }))); b.scale.setScalar(0.62); b.position.set(x, 0.01, 0); this.crate.add(b); } }
     this.bunny = add(new THREE.Mesh(bunnyGeo(false), twoTone(new THREE.MeshLambertMaterial({ vertexColors: true }))));
+    // Jack the baboon (x.baboon = fur colour): a long pink-tan muzzle with nostrils, round furry ears, a curved tail.
+    // The muzzle and ears ride on the head (they turn and tilt with it); the tail hangs from the back of the body.
+    this.babFur = twoTone(new THREE.MeshLambertMaterial({ color: "#8a7a5a" })) as THREE.MeshLambertMaterial;
+    this.bab = new THREE.Group(); this.bab.visible = false;
+    { const sk = mat("#b8957a"), R = HEAD_R;
+      // a long dog-like baboon muzzle pointing forward and a little down (a short round snout read as a pig, run 0 stills)
+      const mz = new THREE.Mesh(new THREE.SphereGeometry(R * 0.5, 20, 14).scale(0.62, 0.52, 1.55), sk); mz.position.set(0, -R * 0.42, R * 0.92); mz.rotation.x = 0.28; this.bab.add(mz);
+      const tip = new THREE.Mesh(new THREE.SphereGeometry(R * 0.17, 12, 10).scale(1.25, 0.8, 0.9), mat("#3a2e2a")); tip.position.set(0, -R * 0.5, R * 1.66); this.bab.add(tip);
+      const mouth = new THREE.Mesh(new THREE.BoxGeometry(R * 0.36, R * 0.03, R * 0.6), mat(INK)); mouth.position.set(0, -R * 0.74, R * 1.3); mouth.rotation.x = 0.28; this.bab.add(mouth);
+      const brow = new THREE.Mesh(new THREE.SphereGeometry(R * 0.5, 16, 10).scale(1.5, 0.35, 0.6), this.babFur); brow.position.set(0, R * 0.42, R * 0.72); this.bab.add(brow);
+      for (const sx of [-1, 1]) { const e = new THREE.Mesh(new THREE.SphereGeometry(R * 0.26, 14, 10).scale(0.6, 1, 1), this.babFur); e.position.set(sx * R * 1.02, R * 0.12, -R * 0.05); this.bab.add(e); }
+      this.bab.traverse((m) => { const me = m as THREE.Mesh; if (me.isMesh) { me.castShadow = true; me.receiveShadow = true; } }); }
+    this.babTail = add(new THREE.Mesh(limb([[0, 0.7, -0.14], [0, 0.55, -0.42], [0, 0.85, -0.6], [0, 1.0, -0.5]], 0.035), this.babFur));
+    // the beer bottle, the hammer (for the wooden legs), the bosses' clipboard
+    this.bottle = add(new THREE.Group());
+    { const gm = mat("#3a7a3a"); const bd = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.045, 0.17, 12), gm); bd.position.y = 0.085; this.bottle.add(bd);
+      const nk = new THREE.Mesh(new THREE.CylinderGeometry(0.016, 0.04, 0.09, 10), gm); nk.position.y = 0.21; this.bottle.add(nk);
+      const lb = new THREE.Mesh(new THREE.CylinderGeometry(0.047, 0.047, 0.06, 12), mat("#f2e2b0")); lb.position.y = 0.08; this.bottle.add(lb); }
+    this.hammer = add(new THREE.Group());
+    { const h = new THREE.Mesh(new THREE.CylinderGeometry(0.016, 0.018, 0.34, 6), mat("#8a6a3a")); h.position.y = 0.12; this.hammer.add(h);
+      const hd = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.06, 0.06), mat("#5a5e66")); hd.position.y = 0.3; this.hammer.add(hd); }
+    this.clip = add(new THREE.Group());
+    { const bd = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.3, 0.012), mat("#8a5a32")); this.clip.add(bd);
+      const pg = new THREE.Mesh(new THREE.PlaneGeometry(0.18, 0.22), mat("#f4f0e2")); pg.position.set(0, -0.02, 0.008); this.clip.add(pg);
+      const cl = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.03, 0.02), mat("#9a9ea6")); cl.position.set(0, 0.14, 0.01); this.clip.add(cl); }
     this.ink = add(new THREE.Mesh(new THREE.SphereGeometry(0.03, 10, 8).scale(1.3, 1, 0.5), mat("#1d2a55")));
     this.g.visible = false; parent.add(this.g);
   }
@@ -475,8 +506,20 @@ export class Char3D {
     if (x.crate) this.crate.position.set((hR[0] + hL[0]) / 2, Math.min(hR[1], hL[1]) - 0.06 + dy + bob, Math.max(hR[2], hL[2]) + 0.04);
     this.bunny.visible = !!x.bunny;
     if (x.bunny) { this.bunny.position.set((hR[0] + hL[0]) / 2, (hR[1] + hL[1]) / 2 - 0.12 + dy + bob, Math.max(hR[2], hL[2]) + 0.02); this.bunny.scale.setScalar(0.85); }
+    // Jack the baboon: muzzle + ears on the head, the tail behind; fur hands
+    const bb = x.baboon;
+    if (bb) { this.babFur.color.set(bb); if (this.bab.parent !== this.head) this.head.add(this.bab); }
+    this.bab.visible = !!bb; this.babTail.visible = !!bb;
+    if (bb) { this.babTail.position.set(0, dy * 0.5 + bob, 0); }
+    // Jumper's wooden peg legs (after line 3): the legs turn wood, the feet become small round pegs
+    if (x.pegs) { this.legs.forEach((lg) => { lg.material = mat("#9a6a3a"); }); this.feet.forEach((f) => { f.material = mat("#6a4a2a"); f.scale.set(0.5, 1.1, 0.5); }); }
+    else { this.feet.forEach((f) => f.scale.set(1, 1, 1)); this.legs.forEach((lg) => { lg.material = mat(INK); }); }
+    this.bottle.visible = !!x.bottle; if (x.bottle) this.bottle.position.set(hL[0], hL[1] - 0.05 + dy + bob, hL[2] + 0.02);
+    this.hammer.visible = !!x.hammer; if (x.hammer) { this.hammer.position.set(hR[0], hR[1] + dy + bob, hR[2]); this.hammer.rotation.set(0.3, 0, l.gest === "swing" ? -0.6 - 1.4 * Math.sin(k * Math.PI * 2) : -0.4); }
+    this.clip.visible = !!x.clipboard; if (x.clipboard) { this.clip.position.set(hL[0] + 0.04, hL[1] + 0.12 + dy + bob, hL[2] + 0.05); this.clip.rotation.set(-0.3, 0.2, 0.1); }
     // mittens: big knitted hands in the given colour
     this.hands.forEach((h) => { h.scale.setScalar(x.mittens ? 2.1 : 1); h.material = mat(x.mittens ?? SKIN); });
+    if (bb) this.hands.forEach((h) => { h.material = mat("#4a3a2e"); h.scale.setScalar(1.3); });
     void mix;
   }
   hide() { this.g.visible = false; }

@@ -1,6 +1,6 @@
 // Camera guard runner (CLAUDE.md rule 13) and auto-framer loop. Math only, no pixels: bundles src/guard/<video>.ts and
 // runs it in Node with a stub 2D canvas.
-// usage: node scripts/camera-guard.mjs <eiffel|rats|moon|bucket|dexter|napoleon|cadaver> [--solve] [--sheet]
+// usage: node scripts/camera-guard.mjs <eiffel|rats|moon|bucket|dexter|napoleon|cadaver|baboon> [--solve] [--sheet]
 //   (default)  guard the current camera (eiffel: hand-placed; rats / moon: the committed camtrack.json)
 //   --solve    rats / moon: auto-frame from shots.ts: solve -> guard -> re-solve failing shots, up to 5 rounds;
 //              writes src/videos/<video>/camtrack.json
@@ -15,8 +15,8 @@ import { pathToFileURL } from "node:url";
 
 const video = process.argv[2];
 const doSolve = process.argv.includes("--solve"), sheet = process.argv.includes("--sheet");
-const COMP = { eiffel: "EiffelShort", rats: "RatShort", moon: "MoonShort", bucket: "BucketShort", dexter: "DexterShort", napoleon: "NapoleonShort", cadaver: "CadaverShort" };
-if (!COMP[video]) { console.error("usage: node scripts/camera-guard.mjs <eiffel|rats|moon|bucket|dexter|napoleon|cadaver> [--solve] [--sheet]"); process.exit(2); }
+const COMP = { eiffel: "EiffelShort", rats: "RatShort", moon: "MoonShort", bucket: "BucketShort", dexter: "DexterShort", napoleon: "NapoleonShort", cadaver: "CadaverShort", baboon: "BaboonShort" };
+if (!COMP[video]) { console.error("usage: node scripts/camera-guard.mjs <eiffel|rats|moon|bucket|dexter|napoleon|cadaver|baboon> [--solve] [--sheet]"); process.exit(2); }
 const qa = path.resolve("..", "qa", video); fs.mkdirSync(qa, { recursive: true });
 const work = path.resolve("out", "guard"); fs.mkdirSync(work, { recursive: true });
 await build({ entryPoints: [path.resolve(`src/guard/${video}.ts`)], bundle: true, platform: "node", format: "esm", outfile: path.join(work, `${video}.mjs`),

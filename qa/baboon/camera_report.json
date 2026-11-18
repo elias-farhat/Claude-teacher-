@@ -1,0 +1,60 @@
+{
+ "video": "baboon",
+ "frames": 2164,
+ "pass": true,
+ "criticalFrames": 0,
+ "warningFrames": 0,
+ "seconds": 69.801,
+ "history": [
+  "round 1: 259 frames with CRITICAL failures in 10 shots (1, 3, 4, 5, 18, 19, 26, 27, 32, 35)",
+  "round 2: 115 frames with CRITICAL failures in 7 shots (1, 4, 5, 19, 26, 27, 32)",
+  "round 3: 125 frames with CRITICAL failures in 4 shots (1, 26, 27, 32)",
+  "round 4: 44 frames with CRITICAL failures in 2 shots (26, 32)",
+  "round 5: 0 frames with CRITICAL failures in 0 shots",
+  "assembled the best round of every shot: 0 frames with CRITICAL failures"
+ ],
+ "rules": [
+  {
+   "rule": "SUBJECT",
+   "critical": 0,
+   "warning": 0
+  },
+  {
+   "rule": "OCCLUSION",
+   "critical": 0,
+   "warning": 0
+  },
+  {
+   "rule": "CLIPPING",
+   "critical": 0,
+   "warning": 0
+  },
+  {
+   "rule": "EMPTY",
+   "critical": 0,
+   "warning": 0
+  },
+  {
+   "rule": "FACES",
+   "critical": 0,
+   "warning": 0
+  },
+  {
+   "rule": "XCU",
+   "critical": 0,
+   "warning": 0
+  },
+  {
+   "rule": "STALE",
+   "critical": 0,
+   "warning": 0
+  },
+  {
+   "rule": "WHIPS",
+   "critical": 0,
+   "warning": 0
+  }
+ ],
+ "ranges": [],
+ "frames_failing": []
+}

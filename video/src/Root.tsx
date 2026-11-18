@@ -9,6 +9,7 @@ import { BucketShort, BUCKET_FRAMES } from "./videos/bucket/Bucket";
 import { DexterShort, DEXTER_FRAMES } from "./videos/dexter/Dexter";
 import { NapoleonShort, NAPOLEON_FRAMES } from "./videos/napoleon/Napoleon";
 import { CadaverShort, CADAVER_FRAMES } from "./videos/cadaver/Cadaver";
+import { BaboonShort, BABOON_FRAMES } from "./videos/baboon/Baboon";
 
 // Register new shorts here (e.g. a copy of the skill's templates/bridge/ as src/videos/<name>/).
 export const Root: React.FC = () => (
@@ -22,6 +23,7 @@ export const Root: React.FC = () => (
     <Composition id="DexterShort" component={DexterShort} durationInFrames={DEXTER_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="NapoleonShort" component={NapoleonShort} durationInFrames={NAPOLEON_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="CadaverShort" component={CadaverShort} durationInFrames={CADAVER_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="BaboonShort" component={BaboonShort} durationInFrames={BABOON_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="BridgeShort" component={BridgeShort} durationInFrames={BRIDGE_FRAMES} fps={30} width={1080} height={1920} />
   </>
 );
