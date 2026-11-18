@@ -1,4 +1,4 @@
-# "The Baboon Who Ran the Railway" (Jack the signalman) — script v1 (APPROVED 2026-11-18)
+# "The Baboon Who Ran the Railway" (Jack the signalman) — script v2, 45 s hook-first cut (APPROVED 2026-11-18)
 
 Style: locked Cadaver/Napoleon look (3D cast: painted eyes/brows/mouth only, NO face ring; 3D hats/hair; bean bodies;
 ink tube limbs; props in hands; one low key light per scene; Kenney props mid/background; NO speech bubbles).
@@ -17,16 +17,14 @@ Jumper simply has two wooden peg legs. Voice: Google AI Studio, 73.120000 s, fin
 
 | # | Narration | Shot / visual | Light |
 |---|---|---|---|
-| 1 | South Africa, 1881. A railway worker named James Wide had a big problem. | Dusty little station with a signal box; Jumper (cap, moustache) on the platform. | Warm afternoon sun |
-| 2 | His nickname was "Jumper"… because he loved jumping between moving train cars. | Jumper leaps from one rolling car roof to the next, arms out. | Sun |
-| 3 | Until one day… he missed. And lost both his legs. | Mid-leap he looks down, gulp; cut away before the fall (comic); then Jumper with two peg legs, arms crossed. | Sun |
-| 4 | But Jumper didn't quit. He built himself wooden legs and became a signalman, pulling the levers that switch the tracks. | Jumper hammering a peg leg; then in the signal box heaving a big lever. | Warm interior |
-| 5 | Then, at the market, he saw something unbelievable: a baboon… driving an ox cart. | Market stalls; a baboon on an ox cart holding the reins, Jumper's jaw drops. | Bright market |
-| 6 | Jumper bought him on the spot and named him Jack. | Jumper hands over coins; Jack hops into Jumper's arms. | Bright |
-| 7 | Jack pushed Jumper to work every morning… and soon, Jack was pulling the levers himself. | Jack pushing Jumper on a little trolley down the track; Jack at the levers. | Morning |
-| 8 | Train whistles once? Jack pulls lever one. Twice? Lever two. Jumper just sat back and relaxed. | Train steam puffs; Jack yanks lever 1, lever 2; Jumper in a chair with feet up. | Warm |
-| 9 | Then a passenger looked out the window and screamed: "A MONKEY is running the railway!" | Lady in a hat at a carriage window, shocked. | Sun |
-| 10 | The bosses came to fire them both. But first… they tested Jack. | Two railway bosses (top hats, clipboards) march up the platform. | Sun |
-| 11 | Whistle. Lever. Whistle. Lever. Perfect. Every. Single. Time. | Bosses watch Jack switch levers on cue; clipboard ticks. | Warm |
-| 12 | So they hired him. Officially. Twenty cents a day… and half a bottle of beer every week. | Boss hands Jack coins and a bottle; Jack salutes in a little railway cap. | Warm |
-| 13 | For nine years, Jack never made a single mistake. Which is more than you can say for Jumper. | Jack proud at the levers with cap; Jumper beside him, sheepish grin. | Golden sunset |
+| 1 | A baboon ran a railway… and never made a single mistake. | HOOK: Jack at the signal levers, pulling one, pleased with himself. | Warm |
+| 2 | South Africa, 1881. Railway worker James "Jumper" Wide loved jumping between moving trains. | Jumper leaping between freight-car roofs. | Warm |
+| 3 | Until he missed… and lost both his legs. | Hangs in the air, looks down; cut to Jumper on peg legs on the platform. | Warm |
+| 4 | So he bought a helper at the market: a baboon named Jack. | Market: Jack on the ox cart; Jumper pays; Jack hops down beside him. | Warm |
+| 5 | Jack pushed him to work every morning… then started pulling the signal levers himself. | Trolley on the line; then Jack at the levers. | Warm |
+| 6 | Whistle once? Lever one. Twice? Lever two. | Loco puff; Jack pulls lever; two puffs; lever two. | Warm |
+| 7 | One day a passenger screamed: "A MONKEY is running the railway!" | Lady on the coach balcony points; Jack waves. | Warm |
+| 8 | The bosses came to fire them. But first… they tested Jack. | Bosses march down the platform; at the box with a clipboard. | Warm |
+| 9 | Whistle. Lever. Perfect. Every. Single. Time. | Puff, lever, bosses gape then clap. | Warm |
+| 10 | So they hired him. Twenty cents a day… and half a bottle of beer a week. | Cap and salute; coins; the bottle. | Warm |
+| 11 | Nine years. Zero mistakes. Better than Jumper. | Golden: Jack proud at the levers; Jumper shrugs. | Warm |
