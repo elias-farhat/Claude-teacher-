@@ -8,7 +8,7 @@ export const SHOT_SPECS: ShotSpec[] = [
   { t0: 0, subjects: ["c:jumper", "?c:folk0"], size: "wide", move: "push", note: "1 South Africa, 1881: Uitenhage station, Jumper on the platform" },
   { t0: land(1, "A"), subjects: ["c:jumper"], size: "medium", move: "orbit", enter: "cut", note: "1 a railway worker named James Wide had a big problem" },
   { t0: land(1, "had"), subjects: ["c:jumper"], size: "medium", angle: "low", move: "push", enter: "cut", note: "1 had a big problem" },
-  { t0: land(2), subjects: ["c:jumper"], size: "wide", angle: "low", move: "drift", enter: "cut", note: "2 his nickname was Jumper: on the freight train's roofs" },
+  { t0: land(2), subjects: ["c:jumper"], size: "wide", move: "drift", enter: "cut", note: "2 his nickname was Jumper: on the freight train's roofs" },
   { t0: land(2, "because"), subjects: ["c:jumper"], size: "medium", move: "drift", enter: "cut", note: "2 because he loved jumping between moving train cars (the leap over gap 1)" },
   { t0: land(3), subjects: ["c:jumper"], size: "medium", angle: "low", move: "push", enter: "cut", note: "3 until one day... (the leap over gap 2)" },
   { t0: land(3, "missed") - 0.15, subjects: ["c:jumper"], size: "medium", angle: "high", move: "push", enter: "cut", note: "3 he missed: hanging in the air, looking down" },

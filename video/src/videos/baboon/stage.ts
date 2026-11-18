@@ -130,7 +130,7 @@ const steam = (t: number, s: Stage) => {
 const lady = (t: number, s: Stage) => {
   if (!between(t, wt(9) - LEAD, wt(10) - LEAD)) return;
   const pf = passFront(t), scream = after(t, 9, "screamed");
-  s.places.push(P("lady", LADY, { expr: scream ? "shock" : "neutral", gest: scream ? "point" : "hang", blink: scream ? 0 : blinkAt(t, 40), headTilt: scream ? 8 * Math.sin(t * 12) : 0, look: -1 }, {}, V(pf - 25.2, 1.22, RAIL_Z + 0.55), { yaw: -0.75 }));
+  s.places.push(P("lady", LADY, { expr: scream ? "shock" : "neutral", gest: scream ? "point" : "hang", blink: scream ? 0 : blinkAt(t, 40), headTilt: scream ? 8 * Math.sin(t * 12) : 0, look: -1 }, {}, V(pf - 25.2, 1.22, RAIL_Z + 0.55), { turn: 0.3 }));   // she faces the camera (run check: her back was to it)
   s.lights.push(warm(V(pf - 24, 3.0, RAIL_Z + 3.5), 0.8));
 };
 // lines 10-12: the bosses march down the platform to the box, test Jack, are won over, hire him

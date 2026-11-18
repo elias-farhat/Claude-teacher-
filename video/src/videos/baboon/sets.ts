@@ -163,9 +163,10 @@ export function buildSets(R: THREE.Group, kit: Kit): Sets {
   const levers: THREE.Group[] = [];
   for (let i = 0; i < 4; i++) {
     const g = new THREE.Group(), col = ["#c8302a", "#c8302a", "#2a5aa8", "#2a2a30"][i];
-    const rod = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.04, 0.6, 8).translate(0, 0.3, 0), M(col)); rod.castShadow = true; g.add(rod);
-    const grip = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.045, 0.16, 10).translate(0, 0.58, 0), M("#d9d9d9")); g.add(grip);
-    const tag = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.1, 0.02).translate(0, 0.34, 0.04), M("#f2ead8")); g.add(tag);
+    // shorter levers: the grip sits at Jack's chest, below his muzzle, even when pulled (it covered his face at 39 s / 50 s)
+    const rod = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.04, 0.46, 8).translate(0, 0.23, 0), M(col)); rod.castShadow = true; g.add(rod);
+    const grip = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.045, 0.14, 10).translate(0, 0.44, 0), M("#d9d9d9")); g.add(grip);
+    const tag = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.1, 0.02).translate(0, 0.26, 0.04), M("#f2ead8")); g.add(tag);
     g.position.copy(LEVER(i)).add(V(0, 0.28, 0)); R.add(g); levers.push(g);
   }
   const mkTrain = (cars: ("box" | "coach")[], gap: number): Train => {
