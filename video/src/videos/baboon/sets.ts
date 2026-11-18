@@ -41,7 +41,7 @@ const car = (b: Batch, kind: "box" | "coach", x0: number, x1: number) => {
   for (const wx of [x0 + 1.3, x1 - 1.3]) for (const s of [-1, 1]) b.add(new THREE.CylinderGeometry(0.5, 0.5, 0.22, 14).rotateX(Math.PI / 2), wheel, new THREE.Matrix4().makeTranslation(wx, 0.55, s * 1.25));
   if (kind === "box") {
     const van = lam("bbVan", () => ({ map: ctex("bbVanTex", 512, 256, (g) => { g.fillStyle = "#8a3a2a"; g.fillRect(0, 0, 512, 256); g.strokeStyle = "#5a2418"; g.lineWidth = 5; for (let x = 0; x < 512; x += 32) { g.beginPath(); g.moveTo(x, 0); g.lineTo(x, 256); g.stroke(); } g.fillStyle = "#f2e6c8"; g.font = "bold 40px serif"; g.textAlign = "center"; g.fillText("C.G.R.", 256, 140); }) }));
-    bx(van, x0, 1.15, -1.3, x1, 3.0, 1.3); bx(lam("bbVanRoof", () => ({ color: "#5a4a42" })), x0 - 0.1, 3.0, -1.4, x1 + 0.1, 3.12, 1.4);
+    bx(van, x0, 1.15, -1.3, x1, 3.0, 1.3); bx(lam("bbVanRoof", () => ({ map: rep(planksHD(), 1, 1), color: "#c09a72" })), x0 - 0.1, 3.0, -1.4, x1 + 0.1, 3.12, 1.4);   // light planks (a dark roof filled the roof shots with black)
   } else {
     const coach = lam("bbCoach", () => ({ map: ctex("bbCoachTex", 512, 256, (g) => { g.fillStyle = "#2f5a3a"; g.fillRect(0, 0, 512, 256); g.fillStyle = "#d9b45a"; g.fillRect(0, 40, 512, 6); g.fillRect(0, 210, 512, 6);
       for (let x = 30; x < 500; x += 70) { g.fillStyle = "#f6e2b0"; g.fillRect(x, 70, 44, 60); g.fillStyle = "#5a3a2a"; g.fillRect(x + 21, 70, 3, 60); } }) }));
