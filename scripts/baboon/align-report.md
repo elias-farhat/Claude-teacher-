@@ -1,60 +1,56 @@
 # Word alignment report
 
-- Voice: `scripts/baboon/voice.wav` (71.16 s) · script: `scripts/baboon/SCRIPT.md` (13 lines, 180 words)
+- Voice: `scripts/baboon/voice.wav` (58.48 s) · script: `scripts/baboon/SCRIPT.md` (11 lines, 115 words)
 - Method: torchaudio MMS_FA forced alignment of the script text; check transcript by faster-whisper medium.en
-- First word 'South' at 0.38 s · last word 'Jumper' ends at 70.757 s
-- Heard 178 words; aligned vs Whisper start time: median 0.063 s, 90th pct 0.176 s
+- First word 'A' at 0.74 s · last word 'Jumper' ends at 58.12 s
+- Heard 112 words; aligned vs Whisper start time: median 0.080 s, 90th pct 0.360 s
 
 ## Script vs heard
 - 2 difference(s) between the script and the transcript:
-  - line 1: script `eighteen eighty one` · heard `∅` (delete)
-  - line 12: script `twenty` · heard `∅` (delete)
+  - line 2: script `eighteen eighty one` · heard `∅` (delete)
+  - line 10: script `twenty cents` · heard `∅` (delete)
 
 ## Pauses longer than 0.4 s between words
-- 2.28 → 2.86 s (0.58 s)
-- 6.06 → 6.86 s (0.80 s)
-- 10.76 → 11.28 s (0.52 s)
-- 13.06 → 13.60 s (0.54 s)
-- 14.64 → 15.34 s (0.70 s)
-- 16.08 → 16.78 s (0.70 s)
-- 21.41 → 22.39 s (0.98 s)
-- 23.33 → 23.87 s (0.54 s)
-- 25.63 → 26.17 s (0.54 s)
-- 28.25 → 29.07 s (0.82 s)
-- 31.23 → 32.19 s (0.96 s)
-- 36.53 → 37.41 s (0.88 s)
-- 38.29 → 38.75 s (0.46 s)
-- 39.67 → 40.23 s (0.56 s)
-- 40.65 → 41.09 s (0.44 s)
-- 41.47 → 42.17 s (0.70 s)
-- 43.85 → 44.75 s (0.90 s)
-- 48.75 → 49.61 s (0.86 s)
-- 50.99 → 51.55 s (0.56 s)
-- 53.39 → 54.15 s (0.76 s)
-- 54.41 → 54.99 s (0.58 s)
-- 55.21 → 55.75 s (0.54 s)
-- 56.01 → 56.53 s (0.52 s)
-- 56.77 → 57.21 s (0.44 s)
-- 57.67 → 58.17 s (0.50 s)
-- 59.45 → 60.20 s (0.74 s)
-- 60.77 → 61.20 s (0.42 s)
-- 61.81 → 62.35 s (0.54 s)
-- 65.28 → 66.28 s (1.00 s)
-- 68.76 → 69.50 s (0.74 s)
+- 1.70 → 2.18 s (0.48 s)
+- 3.38 → 3.98 s (0.60 s)
+- 5.84 → 7.18 s (1.34 s)
+- 9.12 → 9.92 s (0.80 s)
+- 12.86 → 13.35 s (0.48 s)
+- 15.22 → 15.85 s (0.62 s)
+- 16.67 → 17.27 s (0.60 s)
+- 18.33 → 19.35 s (1.02 s)
+- 19.45 → 19.87 s (0.42 s)
+- 21.19 → 21.79 s (0.60 s)
+- 23.19 → 24.23 s (1.04 s)
+- 25.87 → 26.31 s (0.44 s)
+- 28.41 → 29.23 s (0.82 s)
+- 29.83 → 30.25 s (0.42 s)
+- 32.31 → 34.11 s (1.80 s)
+- 37.95 → 38.87 s (0.92 s)
+- 40.45 → 40.99 s (0.54 s)
+- 41.51 → 42.03 s (0.52 s)
+- 42.88 → 43.72 s (0.84 s)
+- 44.02 → 44.66 s (0.64 s)
+- 44.94 → 45.52 s (0.58 s)
+- 46.00 → 46.56 s (0.56 s)
+- 48.20 → 49.08 s (0.88 s)
+- 49.18 → 49.68 s (0.50 s)
+- 50.32 → 50.82 s (0.50 s)
+- 53.54 → 54.78 s (1.24 s)
+- 55.32 → 55.94 s (0.62 s)
+- 56.66 → 57.48 s (0.82 s)
 
 ## Lines
 | line | start | end | words |
 |---|---|---|---|
-| 1 | 0.38 | 6.06 | South Africa 1881 A railway worker named James Wide had a big problem |
-| 2 | 6.86 | 10.76 | His nickname was Jumper because he loved jumping between moving train cars |
-| 3 | 11.28 | 14.64 | Until one day he missed And lost both his legs |
-| 4 | 15.34 | 21.41 | But Jumper didn't quit He built himself wooden legs and became a signalman pulling the levers that switch the tracks |
-| 5 | 22.39 | 28.25 | Then at the market he saw something unbelievable a baboon driving an ox cart |
-| 6 | 29.07 | 31.23 | Jumper bought him on the spot and named him Jack |
-| 7 | 32.19 | 36.53 | Jack pushed Jumper to work every morning and soon Jack was pulling the levers himself |
-| 8 | 37.41 | 43.85 | Train whistles once Jack pulls lever one Twice Lever two Jumper just sat back and relaxed |
-| 9 | 44.75 | 48.75 | Then a passenger looked out the window and screamed A MONKEY is running the railway |
-| 10 | 49.61 | 53.39 | The bosses came to fire them both But first they tested Jack |
-| 11 | 54.15 | 59.45 | Whistle Lever Whistle Lever Perfect Every Single Time |
-| 12 | 60.20 | 65.28 | So they hired him Officially Twenty cents a day and half a bottle of beer every week |
-| 13 | 66.28 | 70.76 | For nine years Jack never made a single mistake Which is more than you can say for Jumper |
+| 1 | 0.74 | 5.84 | A baboon ran a railway and never made a single mistake |
+| 2 | 7.18 | 15.22 | South Africa 1881 Railway worker James Jumper Wide loved jumping between moving trains |
+| 3 | 15.85 | 18.33 | Until he missed and lost both legs |
+| 4 | 19.35 | 23.19 | So he bought a helper at the market a baboon named Jack |
+| 5 | 24.23 | 28.41 | Jack pushed him to work every morning then started pulling the signal levers himself |
+| 6 | 29.23 | 32.31 | Whistle once Lever one Twice Lever two |
+| 7 | 34.11 | 37.95 | One day a passenger screamed A MONKEY is running the railway |
+| 8 | 38.87 | 42.88 | The bosses came to fire them But first they tested Jack |
+| 9 | 43.72 | 48.20 | Whistle Lever Perfect Every Single Time |
+| 10 | 49.08 | 53.54 | So they hired him Twenty cents a day and half a bottle of beer a week |
+| 11 | 54.78 | 58.12 | Nine years Zero mistakes Better than Jumper |
