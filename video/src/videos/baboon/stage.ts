@@ -139,7 +139,7 @@ const bosses = (t: number, s: Stage) => {
   const k = smooth((t - wt(10) + 0.2) / 2.0), walking = k < 1;
   const perfect = after(t, 11, "Perfect"), clap = after(t, 11, "Every"), hire = t >= wt(12) - LEAD;
   for (let i = 0; i < 2; i++) {
-    const end = V(BOX.x + (i ? -2.45 : -1.75), BOX.floor, BOX.z + (i ? 0.3 : -0.2))   /* boss1 beside boss0, not between Jack and the camera */, start = V(BOX.x + 6 + i * 1.4, PLAT.h, 6.2);
+    const end = V(BOX.x + (i ? -2.55 : -1.75), BOX.floor, BOX.z + (i ? -0.25 : -0.2))   /* boss1 beside boss0, not between Jack and the camera */, start = V(BOX.x + 6 + i * 1.4, PLAT.h, 6.2);
     const p = V(start.x + (end.x - start.x) * k, PLAT.h, start.z + (end.z - start.z) * smooth((k - 0.8) / 0.2));   // side by side down the platform, then in
     const l: Look = walking ? { mode: "stroll", phase: q((t * 1.4 + i * 0.5) % 1, 12), expr: "stern", gest: "hang", blink: blinkAt(t, 50 + i) }
       : hire ? { expr: "grin", gest: i ? (after(t, 12, "Twenty") && !after(t, 12, "and") ? "palm" : "hang") : "tip", blink: blinkAt(t, 50 + i) }

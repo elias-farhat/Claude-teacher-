@@ -28,7 +28,7 @@ const loco = (b: Batch) => {
   bx(red, -0.1, 0.7, -1.45, 0.35, 1.5, 1.45);                                                              // buffer beam
   b.add(new THREE.ConeGeometry(1.2, 1.0, 4, 1).rotateZ(-Math.PI / 2).rotateX(Math.PI / 4).scale(0.6, 1, 1), red, new THREE.Matrix4().makeTranslation(0.55, 0.55, 0));   // cowcatcher
   for (const wx of [-2, -4.4, -6.8]) for (const s of [-1, 1]) b.add(new THREE.CylinderGeometry(0.85, 0.85, 0.25, 18).rotateX(Math.PI / 2), wheel, new THREE.Matrix4().makeTranslation(wx, 0.9, s * 1.3));
-  bx(black, -14.6, 0.9, -1.4, -9.4, 3.0, 1.4); bx(lam("bbCoal", () => ({ color: "#1a1a1e" })), -14.4, 3.0, -1.2, -9.6, 3.35, 1.2);   // tender with coal
+  bx(lam("bbTender", () => ({ color: "#8a3a2a" })), -14.6, 0.9, -1.4, -9.4, 3.0, 1.4); bx(lam("bbCoal", () => ({ color: "#4a4a54" })), -14.4, 3.0, -1.2, -9.6, 3.35, 1.2);   // a red tender with coal (all black read as a black band under Jumper)
   for (const wx of [-10.8, -13.2]) for (const s of [-1, 1]) b.add(new THREE.CylinderGeometry(0.5, 0.5, 0.22, 14).rotateX(Math.PI / 2), wheel, new THREE.Matrix4().makeTranslation(wx, 0.55, s * 1.3));
   return -15.2;
 };
