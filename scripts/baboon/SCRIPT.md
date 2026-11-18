@@ -19,7 +19,7 @@ Jumper simply has two wooden peg legs. Voice: Google AI Studio, 73.120000 s, fin
 |---|---|---|---|
 | 1 | A baboon ran a railway… and never made a single mistake. | HOOK: Jack at the signal levers, pulling one, pleased with himself. | Warm |
 | 2 | South Africa, 1881. Railway worker James "Jumper" Wide loved jumping between moving trains. | Jumper leaping between freight-car roofs. | Warm |
-| 3 | Until he missed… and lost both his legs. | Hangs in the air, looks down; cut to Jumper on peg legs on the platform. | Warm |
+| 3 | Until he missed… and lost both legs. | Hangs in the air, looks down; cut to Jumper on peg legs on the platform. | Warm |
 | 4 | So he bought a helper at the market: a baboon named Jack. | Market: Jack on the ox cart; Jumper pays; Jack hops down beside him. | Warm |
 | 5 | Jack pushed him to work every morning… then started pulling the signal levers himself. | Trolley on the line; then Jack at the levers. | Warm |
 | 6 | Whistle once? Lever one. Twice? Lever two. | Loco puff; Jack pulls lever; two puffs; lever two. | Warm |
