@@ -2,19 +2,19 @@
  "video": "baboon",
  "frames": 2165,
  "pass": false,
- "criticalFrames": 48,
+ "criticalFrames": 6,
  "warningFrames": 0,
- "seconds": 62.896,
+ "seconds": 59.548,
  "history": [
   "round 1: 260 frames with CRITICAL failures in 10 shots (1, 3, 4, 5, 18, 19, 26, 27, 32, 35)",
-  "round 2: 91 frames with CRITICAL failures in 8 shots (1, 3, 4, 5, 19, 26, 27, 32)",
-  "round 3: 123 frames with CRITICAL failures in 5 shots (1, 3, 26, 27, 32)",
-  "round 4: 65 frames with CRITICAL failures in 4 shots (3, 26, 27, 32)",
-  "round 5: 55 frames with CRITICAL failures in 3 shots (3, 26, 32)",
-  "assembled the best round of every shot: 48 frames with CRITICAL failures",
+  "round 2: 41 frames with CRITICAL failures in 7 shots (1, 3, 4, 5, 19, 26, 27)",
+  "round 3: 76 frames with CRITICAL failures in 4 shots (1, 3, 26, 27)",
+  "round 4: 22 frames with CRITICAL failures in 3 shots (3, 26, 27)",
+  "round 5: 14 frames with CRITICAL failures in 2 shots (3, 26)",
+  "assembled the best round of every shot: 6 frames with CRITICAL failures",
   "fly transitions that still failed became cuts: 0; clipping whips panned the other way: 0, became cuts: 0",
-  "flight polish (look timing per failing flight): 48 frames with CRITICAL failures (0 flights cleared)",
-  "kept the assembled track (48 CRITICAL frames)"
+  "flight polish (look timing per failing flight): 6 frames with CRITICAL failures (0 flights cleared)",
+  "kept the assembled track (6 CRITICAL frames)"
  ],
  "rules": [
   {
@@ -39,7 +39,7 @@
   },
   {
    "rule": "FACES",
-   "critical": 44,
+   "critical": 2,
    "warning": 0
   },
   {
@@ -79,7 +79,7 @@
    "from": 1511,
    "to": 1515,
    "worst": 1515,
-   "detail": "the two overlap by 56 % on screen",
+   "detail": "the two overlap by 63 % on screen",
    "t0": 50.37,
    "t1": 50.53
   },
@@ -88,12 +88,12 @@
    "critical": true,
    "subject": "c:boss0",
    "shot": 26,
-   "from": 1513,
-   "to": 1514,
-   "worst": 1513,
+   "from": 1512,
+   "to": 1513,
+   "worst": 1512,
    "detail": "face 60 % covered by something in front",
-   "t0": 50.43,
-   "t1": 50.5
+   "t0": 50.4,
+   "t1": 50.47
   },
   {
    "rule": "SUBJECT",
@@ -106,18 +106,6 @@
    "detail": "cut off left (0.03)",
    "t0": 50.5,
    "t1": 50.53
-  },
-  {
-   "rule": "FACES",
-   "critical": true,
-   "subject": "c:boss1(boss1)",
-   "shot": 32,
-   "from": 1762,
-   "to": 1803,
-   "worst": 1762,
-   "detail": "head cut at the left edge",
-   "t0": 58.73,
-   "t1": 60.13
   }
  ],
  "frames_failing": [
@@ -158,46 +146,21 @@
     {
      "rule": "SUBJECT",
      "subject": "c:boss0+c:boss1",
-     "detail": "the two overlap by 37 % on screen",
+     "detail": "the two overlap by 44 % on screen",
      "critical": true
     }
    ],
    "score": 2,
    "box": [
-    0.2563,
-    0.2168,
-    0.4186,
+    0.2623,
+    0.2164,
+    0.4248,
     0.3686
    ]
   },
   {
    "f": 1512,
    "t": 50.4,
-   "shot": 26,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "c:boss0+c:boss1",
-     "detail": "the two overlap by 47 % on screen",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.2017,
-    0.2175,
-    0.3639,
-    0.368
-   ]
-  },
-  {
-   "f": 1513,
-   "t": 50.433,
    "shot": 26,
    "flight": false,
    "subjects": [
@@ -214,21 +177,21 @@
     {
      "rule": "SUBJECT",
      "subject": "c:boss0+c:boss1",
-     "detail": "the two overlap by 56 % on screen",
+     "detail": "the two overlap by 54 % on screen",
      "critical": true
     }
    ],
    "score": 3,
    "box": [
-    0.148,
-    0.2183,
-    0.31,
-    0.3675
+    0.2075,
+    0.2172,
+    0.3699,
+    0.3681
    ]
   },
   {
-   "f": 1514,
-   "t": 50.467,
+   "f": 1513,
+   "t": 50.433,
    "shot": 26,
    "flight": false,
    "subjects": [
@@ -245,16 +208,41 @@
     {
      "rule": "SUBJECT",
      "subject": "c:boss0+c:boss1",
-     "detail": "the two overlap by 64 % on screen",
+     "detail": "the two overlap by 63 % on screen",
      "critical": true
     }
    ],
    "score": 3,
    "box": [
-    0.0953,
-    0.219,
-    0.2571,
-    0.367
+    0.1536,
+    0.218,
+    0.3159,
+    0.3676
+   ]
+  },
+  {
+   "f": 1514,
+   "t": 50.467,
+   "shot": 26,
+   "flight": false,
+   "subjects": [
+    "c:boss0",
+    "c:boss1"
+   ],
+   "fails": [
+    {
+     "rule": "SUBJECT",
+     "subject": "c:boss0+c:boss1",
+     "detail": "the two overlap by 71 % on screen",
+     "critical": true
+    }
+   ],
+   "score": 2,
+   "box": [
+    0.1007,
+    0.2187,
+    0.2628,
+    0.3671
    ]
   },
   {
@@ -276,1066 +264,16 @@
     {
      "rule": "SUBJECT",
      "subject": "c:boss0+c:boss1",
-     "detail": "the two overlap by 72 % on screen",
+     "detail": "the two overlap by 79 % on screen",
      "critical": true
     }
    ],
    "score": 4,
    "box": [
-    0.0436,
-    0.2197,
-    0.2053,
-    0.3665
-   ]
-  },
-  {
-   "f": 1762,
-   "t": 58.733,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3888,
-    0.1047,
-    0.6556,
-    0.3567
-   ]
-  },
-  {
-   "f": 1763,
-   "t": 58.767,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3843,
-    0.1005,
-    0.6542,
-    0.3553
-   ]
-  },
-  {
-   "f": 1764,
-   "t": 58.8,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3802,
-    0.0964,
-    0.6528,
-    0.3539
-   ]
-  },
-  {
-   "f": 1765,
-   "t": 58.833,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3763,
-    0.0928,
-    0.6515,
-    0.3527
-   ]
-  },
-  {
-   "f": 1766,
-   "t": 58.867,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3729,
-    0.0894,
-    0.6503,
-    0.3516
-   ]
-  },
-  {
-   "f": 1767,
-   "t": 58.9,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3699,
-    0.0866,
-    0.6493,
-    0.3506
-   ]
-  },
-  {
-   "f": 1768,
-   "t": 58.933,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3675,
-    0.0842,
-    0.6485,
-    0.3498
-   ]
-  },
-  {
-   "f": 1769,
-   "t": 58.967,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3656,
-    0.0824,
-    0.6479,
-    0.3492
-   ]
-  },
-  {
-   "f": 1770,
-   "t": 59,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3642,
-    0.0811,
-    0.6474,
-    0.3487
-   ]
-  },
-  {
-   "f": 1771,
-   "t": 59.033,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3633,
-    0.0802,
-    0.6471,
-    0.3485
-   ]
-  },
-  {
-   "f": 1772,
-   "t": 59.067,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3628,
-    0.0798,
-    0.6469,
-    0.3483
-   ]
-  },
-  {
-   "f": 1773,
-   "t": 59.1,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1774,
-   "t": 59.133,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1775,
-   "t": 59.167,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1776,
-   "t": 59.2,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1777,
-   "t": 59.233,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1778,
-   "t": 59.267,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1779,
-   "t": 59.3,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1780,
-   "t": 59.333,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1781,
-   "t": 59.367,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1782,
-   "t": 59.4,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1783,
-   "t": 59.433,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1784,
-   "t": 59.467,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1785,
-   "t": 59.5,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1786,
-   "t": 59.533,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1787,
-   "t": 59.567,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1788,
-   "t": 59.6,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1789,
-   "t": 59.633,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1790,
-   "t": 59.667,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1791,
-   "t": 59.7,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1792,
-   "t": 59.733,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1793,
-   "t": 59.767,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1794,
-   "t": 59.8,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1795,
-   "t": 59.833,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1796,
-   "t": 59.867,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1797,
-   "t": 59.9,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1798,
-   "t": 59.933,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1799,
-   "t": 59.967,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1800,
-   "t": 60,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1801,
-   "t": 60.033,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1802,
-   "t": 60.067,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
-   ]
-  },
-  {
-   "f": 1803,
-   "t": 60.1,
-   "shot": 32,
-   "flight": false,
-   "subjects": [
-    "c:boss0",
-    "?c:boss1"
-   ],
-   "fails": [
-    {
-     "rule": "FACES",
-     "subject": "c:boss1(boss1)",
-     "detail": "head cut at the left edge",
-     "critical": true
-    }
-   ],
-   "score": 1,
-   "box": [
-    0.3626,
-    0.0796,
-    0.6469,
-    0.3482
+    0.0489,
+    0.2194,
+    0.2108,
+    0.3666
    ]
   }
  ]

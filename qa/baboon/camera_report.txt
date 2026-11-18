@@ -1,5 +1,4 @@
 CRITICAL   8.20-  8.23 s  f246-246  SUBJECT   c:jumper             cut off top (0.04)
-CRITICAL  50.37- 50.53 s  f1511-1515  SUBJECT   c:boss0+c:boss1      the two overlap by 56 % on screen
-CRITICAL  50.43- 50.50 s  f1513-1514  FACES     c:boss0              face 60 % covered by something in front
+CRITICAL  50.37- 50.53 s  f1511-1515  SUBJECT   c:boss0+c:boss1      the two overlap by 63 % on screen
+CRITICAL  50.40- 50.47 s  f1512-1513  FACES     c:boss0              face 60 % covered by something in front
 CRITICAL  50.50- 50.53 s  f1515-1515  SUBJECT   c:boss0              cut off left (0.03)
-CRITICAL  58.73- 60.13 s  f1762-1803  FACES     c:boss1(boss1)       head cut at the left edge
