@@ -1,12 +1,12 @@
 {
  "video": "baboon",
- "frames": 2164,
+ "frames": 2165,
  "pass": true,
  "criticalFrames": 0,
  "warningFrames": 0,
- "seconds": 69.801,
+ "seconds": 55.825,
  "history": [
-  "round 1: 259 frames with CRITICAL failures in 10 shots (1, 3, 4, 5, 18, 19, 26, 27, 32, 35)",
+  "round 1: 261 frames with CRITICAL failures in 10 shots (1, 3, 4, 5, 18, 19, 26, 27, 32, 35)",
   "round 2: 115 frames with CRITICAL failures in 7 shots (1, 4, 5, 19, 26, 27, 32)",
   "round 3: 125 frames with CRITICAL failures in 4 shots (1, 26, 27, 32)",
   "round 4: 44 frames with CRITICAL failures in 2 shots (26, 32)",

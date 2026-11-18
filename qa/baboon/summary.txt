@@ -46,7 +46,7 @@ CRITICAL: 0
 warnings: 0 frames in 0 ranges (list in camera_report.txt)
 
 Loop:
-  round 1: 259 frames with CRITICAL failures in 10 shots (1, 3, 4, 5, 18, 19, 26, 27, 32, 35)
+  round 1: 261 frames with CRITICAL failures in 10 shots (1, 3, 4, 5, 18, 19, 26, 27, 32, 35)
   round 2: 115 frames with CRITICAL failures in 7 shots (1, 4, 5, 19, 26, 27, 32)
   round 3: 125 frames with CRITICAL failures in 4 shots (1, 26, 27, 32)
   round 4: 44 frames with CRITICAL failures in 2 shots (26, 32)
@@ -76,10 +76,10 @@ Shots (candidate chosen, score):
   shot 19   37.34- 38.68 s  medium track overhead (score 12)
   shot 20   38.68- 40.16 s  medium az+30 high (score 6)
   shot 21   40.16- 41.02 s  medium track overhead (score 12)
-  shot 22   41.02- 42.11 s  medium az-30 high (score 6)
-  shot 23   42.11- 44.69 s  medium az+30 high (score 28: 1/5 blocked)
-  shot 24   44.69- 46.89 s  medium base (score 44: 2/5 blocked)
-  shot 25   46.89- 49.55 s  medium az+60 (score 28: 1/5 blocked)
+  shot 22   41.02- 42.10 s  medium az-30 high (score 6)
+  shot 23   42.10- 44.68 s  medium az+30 high (score 28: 1/5 blocked)
+  shot 24   44.68- 46.88 s  medium base (score 44: 2/5 blocked)
+  shot 25   46.88- 49.55 s  medium az+60 (score 28: 1/5 blocked)
   shot 26   49.55- 50.52 s  medium track az-90 (score 9)
   shot 27   50.52- 54.09 s  medium az-30 high (score 28: 1/5 blocked)
   shot 28   54.09- 54.93 s  medium az+90 (score 9)
@@ -88,9 +88,9 @@ Shots (candidate chosen, score):
   shot 31   56.47- 57.15 s  medium az+30 (score 3)
   shot 32   57.15- 60.13 s  medium higher (score 43: head 30 %)
   shot 33   60.13- 62.29 s  medium az+30 (score 3)
-  shot 34   62.29- 66.17 s  medium az+30 (score 3)
-  shot 35   66.17- 69.39 s  medium track az+30 (score 25: 1/5 blocked)
-  shot 36   69.39- 72.13 s  medium az+30 (score 25: 1/5 blocked)
+  shot 34   62.29- 66.21 s  medium az+30 (score 3)
+  shot 35   66.21- 69.43 s  medium track az+30 (score 25: 1/5 blocked)
+  shot 36   69.43- 72.17 s  medium az+30 (score 25: 1/5 blocked)
 
 Flights:
   -> shot 1: CUT 2.79-2.79 s, 0 f, cut on the beat, peak undefined m/f
@@ -115,9 +115,9 @@ Flights:
   -> shot 20: CUT 38.68-38.68 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 21: CUT 40.16-40.16 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 22: CUT 41.02-41.02 s, 0 f, cut on the beat, peak undefined m/f
-  -> shot 23: CUT 42.11-42.11 s, 0 f, cut on the beat, peak undefined m/f
-  -> shot 24: CUT 44.69-44.69 s, 0 f, cut on the beat, peak undefined m/f
-  -> shot 25: CUT 46.89-46.89 s, 0 f, cut on the beat, peak undefined m/f
+  -> shot 23: CUT 42.10-42.10 s, 0 f, cut on the beat, peak undefined m/f
+  -> shot 24: CUT 44.68-44.68 s, 0 f, cut on the beat, peak undefined m/f
+  -> shot 25: CUT 46.88-46.88 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 26: CUT 49.55-49.55 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 27: CUT 50.52-50.52 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 28: CUT 54.09-54.09 s, 0 f, cut on the beat, peak undefined m/f
@@ -127,5 +127,5 @@ Flights:
   -> shot 32: CUT 57.15-57.15 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 33: CUT 60.13-60.13 s, 0 f, cut on the beat, peak undefined m/f
   -> shot 34: CUT 62.29-62.29 s, 0 f, cut on the beat, peak undefined m/f
-  -> shot 35: CUT 66.17-66.17 s, 0 f, cut on the beat, peak undefined m/f
-  -> shot 36: CUT 69.39-69.39 s, 0 f, cut on the beat, peak undefined m/f
+  -> shot 35: CUT 66.21-66.21 s, 0 f, cut on the beat, peak undefined m/f
+  -> shot 36: CUT 69.43-69.43 s, 0 f, cut on the beat, peak undefined m/f
