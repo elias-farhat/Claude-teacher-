@@ -24,7 +24,7 @@ export const SHOT_SPECS: ShotSpec[] = [
   { t0: wtn(6, "Lever", 1) - 2 / 30, subjects: ["c:jack"], size: "medium", move: "push", enter: "cut", note: "6 lever two" },
   { t0: land(7), subjects: ["c:lady"], size: "medium", move: "push", enter: "cut", note: "7 one day a passenger screamed" },
   { t0: wtn(7, "A", 1) - 2 / 30, subjects: ["c:jack"], size: "medium", move: "push", enter: "cut", note: "7 A MONKEY is running the railway! (Jack waves)" },
-  { t0: land(8), subjects: ["c:boss0", "c:boss1"], size: "wide", move: "drift", enter: "cut", note: "8 the bosses came to fire them" },
+  { t0: land(8), subjects: ["c:boss0", "c:boss1"], size: "wide", move: "push", enter: "cut", note: "8 the bosses came to fire them" },
   { t0: land(8, "But"), subjects: ["c:jack", "?c:boss0"], size: "medium", move: "push", enter: "cut", note: "8 but first... they tested Jack" },
   { t0: land(9), subjects: ["w:loco"], size: "medium", angle: "low", move: "push", enter: "cut", note: "9 whistle" },
   { t0: land(9, "Lever"), subjects: ["c:jack"], size: "medium", move: "push", enter: "cut", note: "9 lever" },
