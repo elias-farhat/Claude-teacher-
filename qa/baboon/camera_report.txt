@@ -1,10 +1,1 @@
-CRITICAL  39.57- 39.63 s  f1187-1188  FACES     bystander jumper     bystander's head cut at the left edge
-CRITICAL  39.60- 40.17 s  f1188-1204  SUBJECT   c:boss0+c:boss1      the two overlap by 98 % on screen
-CRITICAL  39.67- 39.70 s  f1190-1190  FACES     c:boss1              face 32 % covered by something in front
-CRITICAL  39.97- 40.03 s  f1199-1200  FACES     bystander jack       bystander's head cut at the left edge
-CRITICAL  39.97- 40.07 s  f1199-1201  FACES     bystander jumper     bystander's head cut at the right edge
-CRITICAL  40.03- 40.10 s  f1201-1202  FACES     c:boss0              face 32 % covered by something in front
-CRITICAL  40.37- 40.50 s  f1211-1214  FACES     c:boss1              face 60 % covered by something in front
-CRITICAL  40.47- 40.93 s  f1214-1227  FACES     bystander jack       bystander's head cut at the right edge
-CRITICAL  40.50- 40.93 s  f1215-1227  FACES     c:boss0              face 100 % covered by something in front
-CRITICAL  40.53- 40.93 s  f1216-1227  OCCLUSION c:boss0              3/5 rays blocked for 7 frames
+CRITICAL  40.43- 40.47 s  f1213-1213  FACES     bystander jack       bystander's head cut at the right edge

@@ -42,28 +42,20 @@ Decisions (auto-framer + camera guard, made without asking; revised after the re
   failed least; failing flights try other look timings / bends / start shifts, and a flight that still fails becomes
   a whip.
 
-CRITICAL: 35 frames in 10 ranges
-   39.57- 39.63 s  f1187-1188  FACES     bystander jumper     bystander's head cut at the left edge
-   39.60- 40.17 s  f1188-1204  SUBJECT   c:boss0+c:boss1      the two overlap by 98 % on screen
-   39.67- 39.70 s  f1190-1190  FACES     c:boss1              face 32 % covered by something in front
-   39.97- 40.03 s  f1199-1200  FACES     bystander jack       bystander's head cut at the left edge
-   39.97- 40.07 s  f1199-1201  FACES     bystander jumper     bystander's head cut at the right edge
-   40.03- 40.10 s  f1201-1202  FACES     c:boss0              face 32 % covered by something in front
-   40.37- 40.50 s  f1211-1214  FACES     c:boss1              face 60 % covered by something in front
-   40.47- 40.93 s  f1214-1227  FACES     bystander jack       bystander's head cut at the right edge
-   40.50- 40.93 s  f1215-1227  FACES     c:boss0              face 100 % covered by something in front
-   40.53- 40.93 s  f1216-1227  OCCLUSION c:boss0              3/5 rays blocked for 7 frames
+CRITICAL: 1 frames in 1 ranges
+   40.43- 40.47 s  f1213-1213  FACES     bystander jack       bystander's head cut at the right edge
 warnings: 0 frames in 0 ranges (list in camera_report.txt)
 
 Loop:
-  round 1: 456 frames with CRITICAL failures in 10 shots (0, 1, 3, 4, 5, 12, 13, 19, 23, 26)
-  round 2: 295 frames with CRITICAL failures in 7 shots (0, 1, 3, 5, 13, 19, 26)
-  round 3: 164 frames with CRITICAL failures in 6 shots (0, 1, 3, 13, 19, 26)
-  round 4: 42 frames with CRITICAL failures in 2 shots (3, 19)
-  round 5: 35 frames with CRITICAL failures in 1 shots (19)
-  assembled the best round of every shot: 35 frames with CRITICAL failures
+  round 1: 450 frames with CRITICAL failures in 10 shots (0, 1, 3, 4, 5, 12, 13, 19, 23, 26)
+  round 2: 260 frames with CRITICAL failures in 7 shots (0, 1, 3, 5, 13, 19, 26)
+  round 3: 148 frames with CRITICAL failures in 6 shots (0, 1, 3, 13, 19, 26)
+  round 4: 29 frames with CRITICAL failures in 2 shots (3, 19)
+  round 5: 63 frames with CRITICAL failures in 1 shots (19)
+  assembled the best round of every shot: 1 frames with CRITICAL failures
   fly transitions that still failed became cuts: 0; clipping whips panned the other way: 0, became cuts: 0
-  flight polish (look timing per failing flight): 35 frames with CRITICAL failures (0 flights cleared)
+  flight polish (look timing per failing flight): 1 frames with CRITICAL failures (0 flights cleared)
+  kept the assembled track (1 CRITICAL frames)
 
 Shots (candidate chosen, score):
   shot  0    0.00-  3.91 s  medium base (score 22: 1/5 blocked)
@@ -85,7 +77,7 @@ Shots (candidate chosen, score):
   shot 16   31.74- 34.05 s  medium base (score 22: 1/5 blocked)
   shot 17   34.05- 36.03 s  medium base (score 44: 2/5 blocked)
   shot 18   36.03- 38.81 s  medium az+60 (score 28: 1/5 blocked)
-  shot 19   38.81- 40.93 s  medium track higher (score 119: bystander's head cut at the left edge, the two overlap by 46 % on screen, the two overlap by 59 % on screen, the two overlap by 71 % on screen, the two overlap by 84 % on screen, the two overlap by 96 % on screen, the two overlap by 92 % on screen, bystander's head cut at the right edge, the two overlap by 80 % on screen, the two overlap by 69 % on screen, the two overlap by 58 % on screen, the two overlap by 47 % on screen, the two overlap by 37 % on screen, 1/5 blocked, face 80 % covered by something in front, face 60 % covered by something in front, 2/5 blocked, 3/5 blocked, face 100 % covered by something in front)
+  shot 19   38.81- 40.93 s  wide   track az-60 (score 31: 1/5 blocked, bystander's head cut at the right edge)
   shot 20   40.93- 43.65 s  medium az-30 high (score 6)
   shot 21   43.65- 44.59 s  medium az+90 (score 9)
   shot 22   44.59- 45.45 s  medium base (score 0)
