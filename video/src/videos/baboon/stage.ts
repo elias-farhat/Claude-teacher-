@@ -140,8 +140,9 @@ const bosses = (t: number, s: Stage) => {
   const k = smooth((t - wt(8) + 0.2) / 2.0), walking = k < 1;
   const perfect = after(t, 9, "Perfect"), clap = after(t, 9, "Every"), hire = t >= wt(10) - LEAD;
   for (let i = 0; i < 2; i++) {
-    const end = V(BOX.x + (i ? -2.55 : -1.75), BOX.floor, BOX.z + (i ? -0.25 : -0.2))   /* boss1 beside boss0, not between Jack and the camera */, start = V(BOX.x + 6 + i * 1.4, PLAT.h, 6.2);
-    const p = V(start.x + (end.x - start.x) * k, PLAT.h, start.z + (end.z - start.z) * smooth((k - 0.8) / 0.2));   // side by side down the platform, then in
+    const end = V(BOX.x + (i ? -2.55 : -1.75), BOX.floor, BOX.z + (i ? -0.25 : -0.2))   /* boss1 beside boss0, not between Jack and the camera */, start = V(BOX.x + 6, PLAT.h, 5.6 + i * 1.2);
+    // side by side (abreast, not in file) down the platform; they step into the box only on the cut to "But first"
+    const kin = smooth((t - wt(8, "But") + LEAD) / 0.45), p = V(start.x + (end.x + 1.2 - start.x) * k - 1.2 * kin, PLAT.h, start.z + (end.z - start.z) * kin);
     const l: Look = walking ? { mode: "stroll", phase: q((t * 1.4 + i * 0.5) % 1, 12), expr: "stern", gest: "hang", blink: blinkAt(t, 50 + i) }
       : hire ? { expr: "grin", gest: i ? (after(t, 10, "Twenty") && !after(t, 10, "and") ? "palm" : "hang") : "tip", blink: blinkAt(t, 50 + i) }
       : clap ? { expr: "laugh", gest: "clap", k: q((t * 3 + i * 0.3) % 1, 8), blink: blinkAt(t, 50 + i) }
