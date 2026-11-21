@@ -148,14 +148,19 @@ const bosses = (t: number, s: Stage) => {
       : clap ? { expr: "laugh", gest: "clap", k: q((t * 3 + i * 0.3) % 1, 8), blink: blinkAt(t, 50 + i) }
       : perfect ? { expr: "shock", gest: "recoil", k: q((t * 2) % 1, 8), blink: 0 }
       : { expr: "stern", gest: i ? "fold" : "hold", blink: blinkAt(t, 50 + i), headTilt: 6 };
-    s.places.push(P(`boss${i}`, BOSS(i), l, { clipboard: i === 0 && !hire, coins: i === 1 && hire && after(t, 10, "Twenty") && !after(t, 10, "and") }, p, { turn: i ? -0.55 : 0.55 }));
+    s.places.push(P(`boss${i}`, BOSS(i), l, { clipboard: i === 0 && !hire && !perfect, coins: i === 1 && hire && after(t, 10, "Twenty") && !after(t, 10, "and") }, p, { turn: i ? -0.55 : 0.55 }));
   }
+};
+// line 11: the golden ending: low warm sun pouring into the box
+const golden = (t: number, s: Stage) => {
+  if (t < wt(11) - LEAD) return;
+  for (const [dx, dz, k] of [[1.6, 1.8, 1.6], [-1.4, 1.6, 1.3], [0.2, 2.6, 1.2]] as [number, number, number][]) s.lights.push({ p: V(BOX.x + dx, BOX.floor + 1.6, BOX.z + dz), k, col: [1.25, 0.85, 0.35] });
 };
 /** everything on stage at time t */
 export const stage = (t: number, c: Cam, cam: THREE.Camera): Stage => {
   CAM = new THREE.Vector3().setFromMatrixPosition(cam.matrixWorld);
   const s: Stage = { places: [], fx: [], lights: [] };
-  station(t, s); roofs(t, s); pegs(t, s); box(t, s); market(t, s); trolley(t, s); steam(t, s); lady(t, s); bosses(t, s);
+  golden(t, s); station(t, s); roofs(t, s); pegs(t, s); box(t, s); market(t, s); trolley(t, s); steam(t, s); lady(t, s); bosses(t, s);
   void c; void wtn;
   return s;
 };
