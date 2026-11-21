@@ -11,7 +11,7 @@ import { insideRoom, LINE, MARKET, BOX, LEVER, JACK_AT, CHAIR, PLAT, RAIL_Z } fr
 export const FPS = 30;
 type Word = { i: number; w: string; s: number; e: number; line: number };
 export const WORDLIST = WORDS as Word[];
-export const VOICE_LEN = 71.157;   // scripts/baboon/voice.wav (AI Studio; the spoken stage direction cut out, 2026-11-18)
+export const VOICE_LEN = 58.48;   // scripts/baboon/voice.wav (v2 script, AI Studio, final)
 /** the last frame holds Jack and Jumper >= 1.4 s after the last word */
 export const TOTAL = Math.ceil(Math.max(VOICE_LEN + 0.6, (WORDS as Word[])[(WORDS as Word[]).length - 1].e + 1.4) * FPS);
 const norm = (w: string) => w.toLowerCase().replace(/[^a-z0-9']/g, "");
@@ -46,8 +46,8 @@ const after = (t: number, x: number) => t >= x;
 export const JX = LINE.x;
 const GAP = (k: number) => -15.9 - 8.9 * k;
 const TRAIN_V = 4;
-/** the freight train's front x at time t (gap 0 passes under Jumper at 8.3 s; gap 2 on "missed") */
-export const freightFront = (t: number) => JX - GAP(0) + TRAIN_V * (t - 8.3);
+/** the freight train's front x at time t (gap 2 passes under Jumper on "missed", gap 1 2.2 s before, gap 0 4.45 s before) */
+export const freightFront = (t: number) => JX - GAP(0) + TRAIN_V * (t - (wt(3, "missed") - 4.45));
 /** the moment Jumper hangs in the air over gap 2 (on "missed"): the cartoon freeze before the fall */
 export const T_HANG = () => wt(3, "missed") - 0.12;
 export const jumperOnTrain = (t: number) => {
@@ -58,21 +58,20 @@ export const jumperOnTrain = (t: number) => {
   return { p: V3v(JX, y, RAIL_Z), air };
 };
 // ---- line 7: Jack pushes Jumper's trolley east along the line toward the station ----
-export const trolleyX = (t: number) => -62 + 8 * smooth((t - wt(7) + 0.3) / 2.2);
+export const trolleyX = (t: number) => -62 + 8 * smooth((t - wt(5) + 0.3) / 2.2);
 // ---- lines 8-13: the passenger train runs in from the east and stops along the platform (front at x 20) ----
-export const passFront = (t: number) => { const a = wt(8) - 0.6, b = wt(8, "Jumper"); return t < a - 1 ? 2000 : 20 + 70 * (1 - smooth((t - a) / (b - a))) ** 2; };
+export const passFront = (t: number) => { const a = wt(6) - 0.6, b = wt(6, "two") + 0.3; return t < a - 1 ? 2000 : 20 + 70 * (1 - smooth((t - a) / (b - a))) ** 2; };
 /** whistle puffs (the loco's chimney): line 8 once, then twice; line 11 twice */
-export const whistles = () => [wt(8), wt(8, "Twice"), wt(8, "Twice") + 0.38, wtn(11, "Whistle", 0), wtn(11, "Whistle", 1)];
+export const whistles = () => [wt(6), wt(6, "Twice"), wt(6, "Twice") + 0.38, wt(9)];
 // ---- the lever pulls: [lever, start time, who] (a pull takes 0.35 s, holds, then the lever springs back) ----
 export type Pull = { i: number; t: number; who: "jumper" | "jack" };
 export const PULLS = (): Pull[] => [
-  { i: 2, t: wt(4, "pulling") - 0.1, who: "jumper" },
-  { i: 1, t: wt(7, "pulling") - 0.1, who: "jack" },
-  { i: 0, t: wt(8, "pulls") - 0.1, who: "jack" },
-  { i: 1, t: wtn(8, "Lever", 1) - 0.1, who: "jack" },
-  { i: 2, t: wt(11, "Lever") - 0.1, who: "jack" },
-  { i: 3, t: wtn(11, "Lever", 1) - 0.1, who: "jack" },
-  { i: 1, t: wt(13, "never") - 0.1, who: "jack" },
+  { i: 1, t: wt(1, "ran") - 0.1, who: "jack" },            // the hook: Jack at the levers
+  { i: 1, t: wt(5, "pulling") - 0.1, who: "jack" },
+  { i: 0, t: wt(6, "Lever") - 0.1, who: "jack" },
+  { i: 1, t: wtn(6, "Lever", 1) - 0.1, who: "jack" },
+  { i: 2, t: wt(9, "Lever") - 0.1, who: "jack" },
+  { i: 1, t: wt(11, "Zero") - 0.1, who: "jack" },
 ];
 export const pullE = (dt: number) => (dt < 0 ? 0 : dt < 0.35 ? smooth(dt / 0.35) : dt < 1.6 ? 1 : 1 - smooth((dt - 1.6) / 0.5));
 /** how far lever i is pulled at t (0..1) */
@@ -88,28 +87,26 @@ const PL = V3v(-2, PLAT.h, 5);   // Jumper's spot on the platform (lines 1, 3)
 void LEVER; void CHAIR; void MARKET; void after;
 
 export const SHOTS: Shot[] = [
-  // 1 "South Africa, 1881. A railway worker named James Wide had a big problem." the station; Jumper on the platform
-  { name: "station", at: 0, look: "afternoon", keys: K(at(PL, 3.0, 1.8, 9), at(PL, 0, 1.3, 0)) },
-  // 2-3 "His nickname was Jumper... jumping between moving train cars. Until one day... he missed." the open line
-  { name: "line", at: land(2), look: "tropical", keys: K([JX + 3, 4.5, RAIL_Z + 9], [JX, 3.9, RAIL_Z]) },
-  // 3 "And lost both his legs." back on the platform, peg legs
-  { name: "pegs", at: land(3, "And"), look: "afternoon", keys: K(at(PL, 2.2, 1.4, 6), at(PL, 0, 1.0, 0)) },
-  // 4 "But Jumper didn't quit. He built himself wooden legs and became a signalman, pulling the levers..."
-  { name: "quit", at: land(4), look: "afternoon", keys: K(at(PL, 2.2, 1.4, 6), at(PL, 0, 1.0, 0)) },
-  { name: "box4", at: land(4, "became"), look: "afternoon", keys: K(at(B, 1.6, 1.9, 6.5), at(J, 0, 1.3, 0)) },
-  // 5-6 the market: the ox cart, Jack holding the reins; Jumper buys him
-  { name: "market", at: land(5), look: "morning", keys: K(at(MARKET, 2, 2.2, 11), at(MARKET, 0, 1.4, 0)) },
-  // 7 "Jack pushed Jumper to work every morning..." the trolley on the line; "...pulling the levers himself"
-  { name: "trolley", at: land(7), look: "morning", keys: K([-55, 1.8, RAIL_Z + 7.5], [-60, 1.0, RAIL_Z]) },
-  { name: "box7", at: land(7, "and"), look: "afternoon", keys: K(at(B, 1.6, 1.9, 6.5), at(J, 0, 1.3, 0)) },
-  // 8-12 the station: whistles, levers, the lady, the bosses, the test, the hiring
-  { name: "box8", at: land(8), look: "afternoon", keys: K(at(B, 1.6, 1.9, 6.5), at(J, 0, 1.3, 0)) },
-  { name: "lady", at: land(9), look: "afternoon", keys: K([-4.5, 2.4, 7.5], [-7.2, 2.4, 0.6]) },
-  { name: "bosses", at: land(10), look: "afternoon", keys: K([BOX.x + 2.5, 2.0, 9.5], [BOX.x + 8, 1.4, 6.2]) },   // from the box end, the bosses marching toward us
-  { name: "test", at: land(10, "But"), look: "afternoon", keys: K(at(B, 1.6, 1.9, 7.5), at(J, 0, 1.3, 0.6)) },
-  { name: "hired", at: land(12), look: "afternoon", keys: K(at(B, 1.6, 1.9, 7.5), at(J, 0, 1.3, 0.6)) },
-  // 13 golden sunset: Jack proud at the levers, Jumper beside him
-  { name: "end", at: land(13), look: "golden", keys: K(at(B, 1.2, 1.8, 6.8), at(J, 0.6, 1.2, 0.4)) },
+  // 1 (hook) "A baboon ran a railway... and never made a single mistake." Jack at the levers, cap on
+  { name: "hook", at: 0, look: "afternoon", keys: K(at(B, 1.6, 1.9, 6.5), at(J, 0, 1.3, 0)) },
+  // 2 "South Africa, 1881. Railway worker James 'Jumper' Wide..." the station; "...loved jumping between moving trains"
+  { name: "station", at: land(2), look: "afternoon", keys: K(at(PL, 3.0, 1.8, 9), at(PL, 0, 1.3, 0)) },
+  { name: "line", at: land(2, "loved"), look: "tropical", keys: K([JX + 3, 4.5, RAIL_Z + 9], [JX, 3.9, RAIL_Z]) },
+  // 3 "...and lost both legs." on the platform, peg legs
+  { name: "pegs", at: land(3, "and"), look: "afternoon", keys: K(at(PL, 2.2, 1.4, 6), at(PL, 0, 1.0, 0)) },
+  // 4 "So he bought a helper at the market: a baboon named Jack." the ox cart
+  { name: "market", at: land(4), look: "morning", keys: K(at(MARKET, 2, 2.2, 11), at(MARKET, 0, 1.4, 0)) },
+  // 5 "Jack pushed him to work every morning... then started pulling the signal levers himself."
+  { name: "trolley", at: land(5), look: "morning", keys: K([-55, 1.8, RAIL_Z + 7.5], [-60, 1.0, RAIL_Z]) },
+  { name: "box5", at: land(5, "then"), look: "afternoon", keys: K(at(B, 1.6, 1.9, 6.5), at(J, 0, 1.3, 0)) },
+  // 6-10 the station: whistles, levers, the lady, the bosses, the test, the hiring
+  { name: "box6", at: land(6), look: "afternoon", keys: K(at(B, 1.6, 1.9, 6.5), at(J, 0, 1.3, 0)) },
+  { name: "lady", at: land(7), look: "afternoon", keys: K([-4.5, 2.4, 7.5], [-7.2, 2.4, 0.6]) },
+  { name: "bosses", at: land(8), look: "afternoon", keys: K([BOX.x + 2.5, 2.0, 9.5], [BOX.x + 8, 1.4, 6.2]) },   // from the box end, the bosses marching toward us
+  { name: "test", at: land(8, "But"), look: "afternoon", keys: K(at(B, 1.6, 1.9, 7.5), at(J, 0, 1.3, 0.6)) },
+  { name: "hired", at: land(10), look: "afternoon", keys: K(at(B, 1.6, 1.9, 7.5), at(J, 0, 1.3, 0.6)) },
+  // 11 golden: Jack proud at the levers, Jumper beside him
+  { name: "end", at: land(11), look: "golden", keys: K(at(B, 1.2, 1.8, 6.8), at(J, 0.6, 1.2, 0.4)) },
 ];
 
 // ---------------- camera evaluation ----------------
