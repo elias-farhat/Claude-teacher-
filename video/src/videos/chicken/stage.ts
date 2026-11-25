@@ -83,7 +83,7 @@ const diagram = (t: number, s: Stage) => {
 const kitchen = (t: number, s: Stage) => {
   if (!between(t, wt(6) - LEAD, wt(7) - LEAD)) return;
   const feed = after(t, 6, "fed"), named = after(t, 6, "named");
-  s.places.push(P("lloyd", LLOYD, { expr: feed ? "smile" : named ? "grin" : "smile", gest: feed ? "point" : named ? "palm" : "hang", blink: blinkAt(t, 1), headTilt: feed ? 10 : 0, look: 1 }, { dropper: feed }, V(TABLE.x - 0.7, 0, TABLE.z - 0.55), { yaw: 0.6 }));
+  s.places.push(P("lloyd", LLOYD, { expr: feed ? "smile" : named ? "grin" : "smile", gest: feed ? "point" : named ? "palm" : "hang", blink: blinkAt(t, 1), headTilt: feed ? 10 : 0, look: 1 }, { dropper: feed }, V(TABLE.x - 0.7, 0, TABLE.z - 0.55), { turn: 0.35 }));
   s.places.push(P("clara", CLARA, { expr: feed ? "laugh" : "smile", gest: feed ? "clutch" : "hang", blink: blinkAt(t, 2), headTilt: -8, look: 1 }, {}, V(TABLE.x + 1.0, 0, TABLE.z - 0.8), { yaw: -0.45 }));
   fill(s, V(TABLE.x, TABLE_TOP, TABLE.z), 1.1);
 };
