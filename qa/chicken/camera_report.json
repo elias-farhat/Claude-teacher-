@@ -4,10 +4,11 @@
  "pass": true,
  "criticalFrames": 0,
  "warningFrames": 0,
- "seconds": 7.132,
+ "seconds": 10.437,
  "history": [
-  "round 1: 150 frames with CRITICAL failures in 5 shots (1, 6, 16, 18, 23)",
-  "round 2: 0 frames with CRITICAL failures in 0 shots",
+  "round 1: 172 frames with CRITICAL failures in 4 shots (1, 6, 18, 23)",
+  "round 2: 71 frames with CRITICAL failures in 1 shots (23)",
+  "round 3: 0 frames with CRITICAL failures in 0 shots",
   "assembled the best round of every shot: 0 frames with CRITICAL failures"
  ],
  "rules": [
