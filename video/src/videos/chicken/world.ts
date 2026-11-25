@@ -101,7 +101,7 @@ export class ChickenWorld {
       this.clouds.push(m); R.add(m);
     }
     this.sets = buildSets(R, kit);
-    this.mike = buildRooster(); R.add(this.mike.g);
+    this.mike = buildRooster("#f6f2ea", "#2a2a30", 1.15); R.add(this.mike.g);
     this.hens = ["#d8a868", "#a8643a", "#e8d0a0"].map((c, i) => { const h = buildRooster(c, "#6a3a1a", 0.82 - i * 0.04); R.add(h.g); return h; });
     const dot = new THREE.MeshBasicMaterial({ color: new THREE.Color(4.5, 2.8, 1.1) });
     for (const l of this.sets.lamps) { const m = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 8), dot); m.position.copy(l.p); m.layers.set(NOINK); this.lampDots.push(m); R.add(m); }
