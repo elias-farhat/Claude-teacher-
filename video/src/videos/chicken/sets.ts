@@ -88,12 +88,12 @@ export function buildSets(R: THREE.Group, kit: Kit): Sets {
     bx(woodD, x1 - 2.6, 0, z0 + 0.05, x1 - 0.4, 1.9, z0 + 0.55, 1);
     for (let i = 0; i < 5; i++) b.add(new THREE.CylinderGeometry(0.16, 0.16, 0.02, 14).rotateX(Math.PI / 2).translate(x1 - 2.35 + i * 0.42, 1.55, z0 + 0.6), lam("ckPlate", () => ({ color: "#f4f8ff" })));
     // the easel with the neck diagram
-    const e = EASEL; for (const s of [-1, 1]) bx(woodD, e.x + s * 0.5 - 0.04, 0, e.z - 0.04, e.x + s * 0.5 + 0.04, 2.3, e.z + 0.04, 1);
-    const dm = new THREE.Mesh(new THREE.PlaneGeometry(1.2, 1.5), twoTone(new THREE.MeshLambertMaterial({ map: diagramTex() }))); dm.position.set(e.x, 1.45, e.z + 0.06); R.add(dm);
+    const e = EASEL; for (const s of [-1, 1]) bx(woodD, e.x + s * 0.8 - 0.05, 0, e.z - 0.05, e.x + s * 0.8 + 0.05, 2.85, e.z + 0.05, 1);
+    const dm = new THREE.Mesh(new THREE.PlaneGeometry(1.8, 2.25), twoTone(new THREE.MeshLambertMaterial({ map: diagramTex() }))); dm.position.set(e.x, 1.6, e.z + 0.08); R.add(dm);
     lamps.push({ p: V(t.x, 2.6, t.z), k: 1.0 }, { p: V(x0 + 1, 2.2, z0 + 0.4), k: 0.7 }); }
   // the brain-stem glow on the diagram (pulses on "keeps you breathing")
-  const glow = new THREE.Mesh(new THREE.CircleGeometry(0.075, 20), new THREE.MeshBasicMaterial({ color: new THREE.Color(3.0, 2.4, 0.6), transparent: true, opacity: 0.0, depthWrite: false }));
-  glow.position.set(EASEL.x + 0.02, 1.45 + 0.75 - (262 / 800) * 1.5, EASEL.z + 0.075); glow.layers.set(NOINK); R.add(glow);
+  const glow = new THREE.Mesh(new THREE.CircleGeometry(0.11, 20), new THREE.MeshBasicMaterial({ color: new THREE.Color(3.0, 2.4, 0.6), transparent: true, opacity: 0.0, depthWrite: false }));
+  glow.position.set(EASEL.x + (332 / 640 - 0.5) * 1.8, 1.6 + 1.125 - (262 / 800) * 2.25, EASEL.z + 0.095); glow.layers.set(NOINK); R.add(glow);
 
   // ---- the sideshow: the striped tent, the banner, the ticket booth, Mike's crate ----
   { const c = TENT, stripes = lam("ckTent", () => ({ map: rep(stripeTex(), 4, 1) }));

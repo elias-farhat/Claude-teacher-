@@ -534,7 +534,7 @@ export class Char3D {
     if (x.pegs) { this.legs.forEach((lg) => { lg.material = mat("#9a6a3a"); }); this.feet.forEach((f) => { f.material = mat("#6a4a2a"); f.scale.set(0.5, 1.1, 0.5); }); }
     else { this.feet.forEach((f) => f.scale.set(1, 1, 1)); this.legs.forEach((lg) => { lg.material = mat(INK); }); }
     this.axe.visible = !!x.axe; if (x.axe) { this.axe.position.set(hR[0], hR[1] + dy + bob, hR[2]); this.axe.rotation.set(0.2, 0, l.gest === "swing" ? -0.4 - 1.2 * Math.sin(k * Math.PI * 2) : -0.25); }
-    this.dropper.visible = !!x.dropper; if (x.dropper) { this.dropper.position.set(hR[0], hR[1] + 0.02 + dy + bob, hR[2] + 0.02); this.dropper.rotation.set(0.6, 0, 0); }
+    this.dropper.visible = !!x.dropper; if (x.dropper) { this.dropper.position.set(hR[0], hR[1] + 0.02 + dy + bob, hR[2] + 0.02); this.dropper.rotation.set(0.6, 0, 0); this.dropper.scale.setScalar(2.4); }
     this.bottle.visible = !!x.bottle; if (x.bottle) this.bottle.position.set(hL[0], hL[1] - 0.05 + dy + bob, hL[2] + 0.02);
     this.hammer.visible = !!x.hammer; if (x.hammer) { this.hammer.position.set(hR[0], hR[1] + dy + bob, hR[2]); this.hammer.rotation.set(0.3, 0, l.gest === "swing" ? -0.6 - 1.4 * Math.sin(k * Math.PI * 2) : -0.4); }
     this.clip.visible = !!x.clipboard; if (x.clipboard) { this.clip.position.set(hL[0] + 0.04, hL[1] + 0.12 + dy + bob, hL[2] + 0.05); this.clip.rotation.set(-0.3, 0.2, 0.1); }

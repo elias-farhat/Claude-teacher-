@@ -75,7 +75,7 @@ const porch = (t: number, s: Stage) => {
 // line 5: the neck diagram: Clara points at it; the brain stem glows (world.ts)
 const diagram = (t: number, s: Stage) => {
   if (!between(t, wt(5) - LEAD, wt(6) - LEAD)) return;
-  const at = V(EASEL.x - 0.95, 0, EASEL.z + 0.45), point = after(t, 5, "brain");
+  const at = V(EASEL.x - 1.2, 0, EASEL.z + 0.5), point = after(t, 5, "brain");
   s.places.push(P("clara", CLARA, { expr: point ? "grin" : "smile", gest: point ? "point" : "palm", blink: blinkAt(t, 2), headTilt: -6, look: 1 }, {}, at, { turn: 0.25 }));
   fill(s, V(EASEL.x - 0.4, 0, EASEL.z), 1.1);
 };
@@ -83,8 +83,8 @@ const diagram = (t: number, s: Stage) => {
 const kitchen = (t: number, s: Stage) => {
   if (!between(t, wt(6) - LEAD, wt(7) - LEAD)) return;
   const feed = after(t, 6, "fed"), named = after(t, 6, "named");
-  s.places.push(P("lloyd", LLOYD, { expr: feed ? "smile" : named ? "grin" : "smile", gest: feed ? "tip" : named ? "palm" : "hang", blink: blinkAt(t, 1), headTilt: feed ? 10 : 0, look: 1 }, { dropper: feed }, V(TABLE.x + 0.95, 0, TABLE.z - 0.75), { yaw: -0.55 }));
-  s.places.push(P("clara", CLARA, { expr: feed ? "laugh" : "smile", gest: feed ? "clutch" : "hang", blink: blinkAt(t, 2), headTilt: -8, look: 1 }, {}, V(TABLE.x - 1.0, 0, TABLE.z - 0.8), { yaw: 0.45 }));
+  s.places.push(P("lloyd", LLOYD, { expr: feed ? "smile" : named ? "grin" : "smile", gest: feed ? "point" : named ? "palm" : "hang", blink: blinkAt(t, 1), headTilt: feed ? 10 : 0, look: 1 }, { dropper: feed }, V(TABLE.x - 0.7, 0, TABLE.z - 0.55), { yaw: 0.6 }));
+  s.places.push(P("clara", CLARA, { expr: feed ? "laugh" : "smile", gest: feed ? "clutch" : "hang", blink: blinkAt(t, 2), headTilt: -8, look: 1 }, {}, V(TABLE.x + 1.0, 0, TABLE.z - 0.8), { yaw: -0.45 }));
   fill(s, V(TABLE.x, TABLE_TOP, TABLE.z), 1.1);
 };
 // line 7: the star: fans waving magazines by the truck; it drives off on "a national tour"
