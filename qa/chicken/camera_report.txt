@@ -1,3 +1,1 @@
-CRITICAL  44.23- 44.90 s  f1327-1346  SUBJECT   w:mike               too small (13 % of frame height, needs 15 %)
-CRITICAL  44.23- 44.70 s  f1327-1340  SUBJECT   c:crowd1             too small (27 % of frame height, needs 30 %)
-CRITICAL  45.07- 45.33 s  f1352-1359  SUBJECT   c:crowd1             cut off right (0.95)
+
