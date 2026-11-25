@@ -113,13 +113,13 @@ export function buildSets(R: THREE.Group, kit: Kit): Sets {
   // ---- the spotlight stage ----
   { const c = RING;
     ground(b, lam("ckRingGround", () => ({ color: "#b89a70" })), c.x - 14, c.x + 14, c.z - 10, c.z + 14, 0.02, 6);
-    b.add(new THREE.CylinderGeometry(4.5, 4.6, 0.4, 36).translate(c.x, 0.2, c.z), lam("ckStage", () => ({ color: "#c8302a" })));
-    b.add(new THREE.TorusGeometry(4.55, 0.06, 6, 48).rotateX(Math.PI / 2).translate(c.x, 0.4, c.z), gold);
+    b.add(new THREE.CylinderGeometry(2.2, 2.3, 0.4, 36).translate(c.x, 0.2, c.z), lam("ckStage", () => ({ color: "#c8302a" })));
+    b.add(new THREE.TorusGeometry(2.25, 0.06, 6, 48).rotateX(Math.PI / 2).translate(c.x, 0.4, c.z), gold);
     b.add(new THREE.CylinderGeometry(0.42, 0.5, 1.0, 20).translate(c.x, 0.9, c.z), gold);
     // a red curtain behind, string lights on posts round the back
     const cur = lam("ckCurtain", () => ({ color: "#a8202a", side: THREE.DoubleSide })), cg = new THREE.PlaneGeometry(14, 6, 40, 1); { const p = cg.attributes.position; for (let i = 0; i < p.count; i++) p.setZ(i, 0.18 * Math.sin(p.getX(i) * 4)); }
-    b.add(cg.translate(c.x, 3, c.z - 6), cur);
-    for (let i = 0; i < 7; i++) { const x = c.x - 6 + i * 2; lamps.push({ p: V(x, 4.6 + 0.2 * Math.sin(i), c.z - 5.2), k: 0.6 }); } }
+    b.add(cg.translate(c.x, 3, c.z - 3.6), cur);
+    for (let i = 0; i < 7; i++) { const x = c.x - 6 + i * 2; lamps.push({ p: V(x, 4.6 + 0.2 * Math.sin(i), c.z - 3.0), k: 0.6 }); } }
   b.build(R);
 
   // ---- moving / switchable parts ----

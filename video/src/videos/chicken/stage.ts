@@ -34,7 +34,7 @@ let CAM = new THREE.Vector3();
 const P = (name: string, o: Outfit, l: Look, x: Extra, at: V3 | THREE.Vector3, opt: { scale?: number; turn?: number; yaw?: number } = {}): Place => {
   const a = at instanceof THREE.Vector3 ? at : V(...at);
   const yaw = opt.yaw ?? (opt.turn !== undefined ? Math.atan2(CAM.x - a.x, CAM.z - a.z) + opt.turn : undefined);
-  return { key: personKey(name, l, x), draw: person(o, l, x), x: a.x, y: a.y, z: a.z, size: HI, scale: opt.scale, tall: o.hat === "tophat" ? 0.3 : 0, rig: { o, l, x }, yaw };
+  return { key: personKey(name, l, x), draw: person(o, l, x), x: a.x, y: a.y, z: a.z, size: HI, scale: opt.scale, tall: o.hat === "tophat" ? 0.3 : o.hat === "fedora" || o.hat === "straw" ? 0.15 : 0, rig: { o, l, x }, yaw };
 };
 const card = (key: string, cw: number, ch: number, draw: (p: Pen) => void, at: V3 | THREE.Vector3, w: number, h: number, o: Partial<FxCard> = {}): FxCard => {
   const a = at instanceof THREE.Vector3 ? at : V(...at);
@@ -91,7 +91,7 @@ const kitchen = (t: number, s: Stage) => {
 const truck = (t: number, s: Stage) => {
   if (!between(t, wt(7) - LEAD, wt(8) - LEAD)) return;
   const mags = after(t, 7, "Magazines"), x = truckX(t);
-  for (let i = 0; i < 3; i++) s.places.push(P(`fan${i}`, FOLK(i), { expr: mags ? "laugh" : "grin", gest: mags ? (i === 1 ? "cheer" : "paper") : "cheer", k: q((t * 2 + i * 0.3) % 1, 8), blink: blinkAt(t, 10 + i) }, mags && i !== 1 ? { paper: "mag" } : {}, V(TRUCK.x - 1.4 + i * 1.3, 0, TRUCK.z + 2.4 + (i % 2) * 0.5), { turn: (i - 1) * 0.3 }));
+  for (let i = 0; i < 3; i++) s.places.push(P(`fan${i}`, FOLK(i), { expr: mags ? "laugh" : "grin", gest: mags ? (i === 1 ? "cheer" : "paper") : "cheer", k: q((t * 2 + i * 0.3) % 1, 8), blink: blinkAt(t, 10 + i) }, mags && i !== 1 ? { paper: "mag" } : {}, V(TRUCK.x - 0.2 + i * 0.8, 0, TRUCK.z + 2.3 + (i % 2) * 0.45), { turn: (i - 1) * 0.3 }));
   s.places.push(P("lloyd", LLOYD, { expr: "grin", gest: "wave", k: q((t * 2.5) % 1, 10), blink: blinkAt(t, 1) }, {}, V(x + 2.2, 1.0, TRUCK.z + 0.75), { yaw: 0.5 }));   // waving from the cab window
   fill(s, V(x, 1.4, TRUCK.z), 1.0);
 };
@@ -99,16 +99,16 @@ const truck = (t: number, s: Stage) => {
 const booth = (t: number, s: Stage) => {
   if (!between(t, wt(8) - LEAD, wt(9) - LEAD)) return;
   const ins = after(t, 8, "Insured"), b = BOOTH;
-  s.places.push(P("hope", HOPE, { expr: ins ? "smug" : "grin", gest: ins ? "paper" : "palm", blink: blinkAt(t, 5), headTilt: ins ? -6 : 4, look: -1 }, ins ? { paper: "contract" } : { coins: true }, V(b.x, 0, b.z - 1.05), { turn: 0.1 }));
+  s.places.push(P("hope", HOPE, { expr: ins ? "smug" : "grin", gest: ins ? "paper" : "palm", blink: blinkAt(t, 5), headTilt: ins ? -6 : 4, look: -1 }, ins ? { paper: "contract" } : { coins: true }, V(b.x + 0.75, 0, b.z + 0.75), { turn: -0.35 }));
   for (let i = 0; i < 4; i++) { const pay = i === 0;
-    s.places.push(P(`folk${i}`, FOLK(i + 2), { expr: pay ? "grin" : i % 2 ? "shock" : "smile", gest: pay ? "palm" : i % 2 ? "point" : "hang", blink: blinkAt(t, 20 + i) }, { coins: pay }, V(b.x - 1.25 - i * 0.85, 0, b.z + 0.55 + i * 0.55), { turn: 0.15 + i * 0.1 })); }
+    s.places.push(P(`folk${i}`, FOLK(i + 2), { expr: pay ? "grin" : i % 2 ? "shock" : "smile", gest: pay ? "palm" : i % 2 ? "point" : "hang", blink: blinkAt(t, 20 + i) }, { coins: pay }, V(b.x - 0.35 - i * 0.45, 0, b.z + 0.95 - i * 0.75), { turn: 0.35 + i * 0.05 })); }
   fill(s, V(b.x - 0.6, 0, b.z), 1.1); void TENT;
 };
 // line 9: Lloyd counting the money on the porch table, Clara amazed; the farmhouse behind
 const money = (t: number, s: Stage) => {
   if (!between(t, wt(9) - LEAD, wt(10) - LEAD)) return;
-  s.places.push(P("lloyd", LLOYD, { expr: after(t, 9, "worth") ? "laugh" : "grin", gest: "palm", k: q((t * 2) % 1, 8), blink: blinkAt(t, 1), headTilt: 8, look: -1 }, { coins: true }, V(3.4, PORCH.h, -7.45), { yaw: 0.1 }));
-  s.places.push(P("clara", CLARA, { expr: after(t, 9, "farm") ? "shock" : "smile", gest: "clutch", blink: blinkAt(t, 2), look: 1 }, {}, V(2.0, PORCH.h, -7.1), { yaw: 0.45 }));
+  s.places.push(P("lloyd", LLOYD, { expr: after(t, 9, "worth") ? "laugh" : "grin", gest: "palm", k: q((t * 2) % 1, 8), blink: blinkAt(t, 1), headTilt: 8, look: -1 }, { coins: true }, V(2.2, PORCH.h, -6.45), { yaw: 0.35 }));
+  s.places.push(P("clara", CLARA, { expr: after(t, 9, "farm") ? "shock" : "smile", gest: "clutch", blink: blinkAt(t, 2), look: 1 }, {}, V(1.35, PORCH.h, -6.9), { yaw: 0.5 }));
   fill(s, V(3.4, PORCH.h, -6.6), 1.1);
 };
 // line 10: the spotlight: Lloyd and Clara beside the pedestal, the crowd cheering below the stage
@@ -118,7 +118,7 @@ const ring = (t: number, s: Stage) => {
   s.places.push(P("lloyd", LLOYD, { expr: cheer ? "laugh" : "grin", gest: cheer ? "cheer" : "palm", k: q((t * 2) % 1, 8), blink: blinkAt(t, 1), look: 1 }, {}, V(r.x - 1.5, 0.4, r.z - 0.3), { turn: 0.15 }));
   s.places.push(P("clara", CLARA, { expr: cheer ? "laugh" : "smile", gest: cheer ? "cheer" : "clutch", k: q((t * 2 + 0.4) % 1, 8), blink: blinkAt(t, 2), look: -1 }, {}, V(r.x + 1.5, 0.4, r.z - 0.3), { turn: -0.15 }));
   for (let i = 0; i < 6; i++) { const sd = i % 2 ? 1 : -1, row = Math.floor(i / 2);
-    s.places.push(P(`crowd${i}`, FOLK(i), { expr: cheer ? "laugh" : clap ? "grin" : "shock", gest: cheer ? "cheer" : clap ? "clap" : "hang", k: q((t * 2.6 + i * 0.27) % 1, 8), blink: blinkAt(t, 30 + i), look: 0 }, {}, V(r.x + sd * (1.2 + row * 0.9), 0, r.z + 4.9 + row * 0.5), { turn: Math.PI + sd * 0.35 })); }
+    s.places.push(P(`crowd${i}`, FOLK(i), { expr: cheer ? "laugh" : clap ? "grin" : "shock", gest: cheer ? "cheer" : clap ? "clap" : "hang", k: q((t * 2.6 + i * 0.27) % 1, 8), blink: blinkAt(t, 30 + i), look: 0 }, {}, V(r.x + sd * (0.95 + row * 0.65), 0, r.z + 2.85 + row * 0.45), { turn: -sd * 1.1 })); }
   warmK(s, V(r.x, 4.2, r.z + 1.2), 1.6); fill(s, V(r.x, 0.4, r.z), 1.0);
 };
 /** everything on stage at time t */
