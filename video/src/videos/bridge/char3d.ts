@@ -13,7 +13,7 @@ import { Pen, Outfit, Expr, INK, SKIN, faceFront, mix } from "./toon";
 export type Rig3 = {
   o: Outfit;
   l: { mode?: string; expr?: Expr; gest?: string; k?: number; blink?: number; look?: number; headTilt?: number; tilt?: number; phase?: number };
-  x: { sideburns?: boolean; tea?: boolean; phone?: boolean; pen?: boolean; paper?: string; wings?: number; curls?: boolean; letter?: boolean; sweat?: boolean; bucket?: boolean; spear?: boolean; sword?: boolean; banner?: string; shield?: string; pan?: boolean; mittens?: string; sack?: boolean; coins?: boolean; ink?: boolean; gun?: boolean; stick?: boolean; crate?: boolean; bunny?: boolean; xeyes?: boolean; hatTilt?: number; scroll?: string; staff?: boolean; shovel?: boolean; lantern?: boolean; baboon?: string; pegs?: boolean; bottle?: boolean; hammer?: boolean; clipboard?: boolean };
+  x: { sideburns?: boolean; tea?: boolean; phone?: boolean; pen?: boolean; paper?: string; wings?: number; curls?: boolean; letter?: boolean; sweat?: boolean; bucket?: boolean; spear?: boolean; sword?: boolean; banner?: string; shield?: string; pan?: boolean; mittens?: string; sack?: boolean; coins?: boolean; ink?: boolean; gun?: boolean; stick?: boolean; crate?: boolean; bunny?: boolean; xeyes?: boolean; hatTilt?: number; scroll?: string; staff?: boolean; shovel?: boolean; lantern?: boolean; baboon?: string; pegs?: boolean; bottle?: boolean; hammer?: boolean; clipboard?: boolean; axe?: boolean; dropper?: boolean };
 };
 type V3 = [number, number, number];
 const v = (a: V3) => new THREE.Vector3(...a);
@@ -135,6 +135,14 @@ const buildTop = (o: Outfit, sideburns: boolean): THREE.Group => {
       add(new THREE.CylinderGeometry(R * 1.55, R * 1.6, R * 0.05, 32), im, [0, R * 0.36, 0], [0.08, 0, 0]);
     }
     add(shell(R * 1.03, 1.0, 2.0), m(hairCol, THREE.DoubleSide));
+  } else if (o.hat === "fedora") {
+    // a 1940s felt fedora: a pinched crown, a dark band, a snap brim
+    const hm = m("#" + new THREE.Color(hairCol).multiplyScalar(0.82).getHexString(), THREE.DoubleSide);
+    add(shell(R * 1.05, 0.95, 2.0), hm);
+    const fm = m(o.cap ?? "#5a4a3a");
+    add(new THREE.CylinderGeometry(R * 0.78, R * 0.95, R * 0.78, 24).scale(1, 1, 0.92), fm, [0, R * 0.9, 0]);
+    add(new THREE.CylinderGeometry(R * 1.55, R * 1.6, R * 0.05, 32), fm, [0, R * 0.52, 0], [0.06, 0, 0]);
+    add(new THREE.CylinderGeometry(R * 0.96, R * 0.97, R * 0.14, 24).scale(1, 1, 0.92), m("#1e1a1a"), [0, R * 0.6, 0]);
   } else if (o.hat === "mitre" || o.hat === "hood") {
     if (o.hat === "mitre") {
       // a bishop's mitre: a tall pointed arch, front and back panels with a gold band and a gold cross on the front
@@ -219,11 +227,15 @@ const newspaper = (kind: string) => {
   const cv = document.createElement("canvas"); cv.width = 300; cv.height = 220; const g = cv.getContext("2d")!;
   g.fillStyle = "#f1e8d6"; g.fillRect(0, 0, 300, 220); g.strokeStyle = INK; g.lineWidth = 8; g.strokeRect(4, 4, 292, 212);
   g.fillStyle = INK; g.font = "900 40px Georgia, serif"; g.textAlign = "center"; g.textBaseline = "middle";
-  g.fillText(kind === "hoax" ? "HOAX!" : kind === "day1" ? "DAY 1" : kind === "list" ? "RABBITS" : "THE SUN", 150, 40);
+  g.fillText(kind === "hoax" ? "HOAX!" : kind === "day1" ? "DAY 1" : kind === "list" ? "RABBITS" : kind === "contract" ? "CONTRACT" : kind === "mag" ? "WEEKLY" : "THE SUN", 150, 40);
   g.fillRect(20, 66, 260, 5);
   if (kind === "bat") {   // the famous winged figure
     g.fillStyle = "#7a5a4a"; g.beginPath(); g.ellipse(150, 140, 16, 26, 0, 0, Math.PI * 2); g.fill();
     g.fillStyle = "#5a4034"; for (const sd of [-1, 1]) { g.beginPath(); g.moveTo(150 + sd * 10, 128); g.lineTo(150 + sd * 90, 98); g.lineTo(150 + sd * 72, 134); g.lineTo(150 + sd * 90, 168); g.lineTo(150 + sd * 16, 158); g.closePath(); g.fill(); }
+  } else if (kind === "mag") {   // a magazine cover: a white headless rooster on red
+    g.fillStyle = "#c8302a"; g.fillRect(20, 76, 260, 132); g.fillStyle = "#ffffff"; g.beginPath(); g.ellipse(150, 150, 46, 34, 0, 0, Math.PI * 2); g.fill();
+    g.fillRect(170, 104, 18, 30); g.fillStyle = "#f2a030"; g.fillRect(138, 182, 6, 22); g.fillRect(158, 182, 6, 22);
+  } else if (kind === "contract") { g.fillStyle = "#8a8070"; for (let k = 0; k < 5; k++) g.fillRect(24, 92 + k * 18, 252 - (k % 2) * 40, 5); g.fillStyle = "#2a4a8a"; g.font = "italic 900 26px Georgia, serif"; g.fillText("$10,000", 150, 196);
   } else if (kind === "list") { g.lineWidth = 5; for (let k = 0; k < 5; k++) { g.strokeRect(26, 84 + k * 25, 16, 16); g.fillStyle = "#8a8070"; g.fillRect(54, 90 + k * 25, 180 - k * 18, 5); } g.strokeStyle = "#2a8a3a"; g.beginPath(); g.moveTo(28, 92); g.lineTo(34, 98); g.lineTo(44, 84); g.stroke(); }
   else { g.fillStyle = "#8a8070"; for (let k = 0; k < 6; k++) g.fillRect(24, 92 + k * 20, 252, 6); }
   t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; paperTex.set(kind, t); return t;
@@ -306,7 +318,7 @@ export class Char3D {
   private gun: THREE.Group; private stick: THREE.Mesh; private crate: THREE.Group; private bunny: THREE.Mesh;
   private scroll: THREE.Group; private scroll2: THREE.Group; private staff: THREE.Group; private shovel: THREE.Group; private lantern: THREE.Group;
   private paper: THREE.Mesh; private letter: THREE.Mesh; private quill: THREE.Mesh; private sweat: THREE.Mesh; private wings: THREE.Mesh[];
-  private bab: THREE.Group; private babFur: THREE.MeshLambertMaterial; private babTail: THREE.Mesh; private bottle: THREE.Group; private hammer: THREE.Group; private clip: THREE.Group;
+  private bab: THREE.Group; private babFur: THREE.MeshLambertMaterial; private babTail: THREE.Mesh; private bottle: THREE.Group; private hammer: THREE.Group; private clip: THREE.Group; private axe: THREE.Group; private dropper: THREE.Group;
   constructor(parent: THREE.Object3D) {
     const add = <T extends THREE.Object3D>(o: T) => { o.traverse((m) => { const me = m as THREE.Mesh; if (me.isMesh) { me.castShadow = true; me.receiveShadow = true; } }); this.g.add(o); return o; };
     this.headMat = twoTone(new THREE.MeshLambertMaterial({ color: "#ffffff" })) as THREE.MeshLambertMaterial;
@@ -390,6 +402,13 @@ export class Char3D {
       this.bab.traverse((m) => { const me = m as THREE.Mesh; if (me.isMesh) { me.castShadow = true; me.receiveShadow = true; } }); }
     this.babTail = add(new THREE.Mesh(limb([[0, 0.7, -0.14], [0, 0.55, -0.42], [0, 0.85, -0.6], [0, 1.0, -0.5]], 0.035), this.babFur));
     // the beer bottle, the hammer (for the wooden legs), the bosses' clipboard
+    // Lloyd's axe (the swing is never shown landing) and the eyedropper he feeds Mike with
+    this.axe = add(new THREE.Group());
+    { const h = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.024, 0.8, 8), mat("#9a6a3a")); h.position.y = 0.25; this.axe.add(h);
+      const hd = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.13, 0.03), mat("#8a8e96")); hd.position.set(0.08, 0.6, 0); this.axe.add(hd); }
+    this.dropper = add(new THREE.Group());
+    { const tube = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.006, 0.14, 10), twoTone(new THREE.MeshLambertMaterial({ color: "#cfe6f0", transparent: true, opacity: 0.85 }))); tube.position.y = -0.05; this.dropper.add(tube);
+      const bulb = new THREE.Mesh(new THREE.SphereGeometry(0.024, 10, 8).scale(1, 1.3, 1), mat("#c8302a")); bulb.position.y = 0.04; this.dropper.add(bulb); }
     this.bottle = add(new THREE.Group());
     { const gm = mat("#3a7a3a"); const bd = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.045, 0.17, 12), gm); bd.position.y = 0.085; this.bottle.add(bd);
       const nk = new THREE.Mesh(new THREE.CylinderGeometry(0.016, 0.04, 0.09, 10), gm); nk.position.y = 0.21; this.bottle.add(nk);
@@ -514,6 +533,8 @@ export class Char3D {
     // Jumper's wooden peg legs (after line 3): the legs turn wood, the feet become small round pegs
     if (x.pegs) { this.legs.forEach((lg) => { lg.material = mat("#9a6a3a"); }); this.feet.forEach((f) => { f.material = mat("#6a4a2a"); f.scale.set(0.5, 1.1, 0.5); }); }
     else { this.feet.forEach((f) => f.scale.set(1, 1, 1)); this.legs.forEach((lg) => { lg.material = mat(INK); }); }
+    this.axe.visible = !!x.axe; if (x.axe) { this.axe.position.set(hR[0], hR[1] + dy + bob, hR[2]); this.axe.rotation.set(0.2, 0, l.gest === "swing" ? -0.4 - 1.2 * Math.sin(k * Math.PI * 2) : -0.25); }
+    this.dropper.visible = !!x.dropper; if (x.dropper) { this.dropper.position.set(hR[0], hR[1] + 0.02 + dy + bob, hR[2] + 0.02); this.dropper.rotation.set(0.6, 0, 0); }
     this.bottle.visible = !!x.bottle; if (x.bottle) this.bottle.position.set(hL[0], hL[1] - 0.05 + dy + bob, hL[2] + 0.02);
     this.hammer.visible = !!x.hammer; if (x.hammer) { this.hammer.position.set(hR[0], hR[1] + dy + bob, hR[2]); this.hammer.rotation.set(0.3, 0, l.gest === "swing" ? -0.6 - 1.4 * Math.sin(k * Math.PI * 2) : -0.4); }
     this.clip.visible = !!x.clipboard; if (x.clipboard) { this.clip.position.set(hL[0] + 0.04, hL[1] + 0.12 + dy + bob, hL[2] + 0.05); this.clip.rotation.set(-0.3, 0.2, 0.1); }
