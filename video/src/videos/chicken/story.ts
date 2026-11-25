@@ -55,7 +55,7 @@ export const mikeAt = (t: number): MikePose => {
   // line 3: by the block; after the (unseen) chop he walks off toward the camera-left, wings out
   if (t < wt(4) - LD) {
     if (t < T_CHOP()) return { p: V3v(CHOP.x - 0.6, 0, CHOP.z + 0.5), yaw: 0.2, phase: 0, walk: 0, peck: 0, headless: false, flap: 0 };
-    const u = clamp01((t - wt(3, "and") + 0.2) / 3.0), p = V3v(CHOP.x - 0.6 - 1.1 * u, 0, CHOP.z + 0.5 + 0.6 * u);
+    const u = clamp01((t - wt(3, "and") + 0.2) / 3.0), p = V3v(CHOP.x - 0.6 - 0.75 * u, 0, CHOP.z + 0.5 + 0.6 * u);
     return { p, yaw: -Math.PI / 2 + 0.7, phase: t * 1.7, walk: u > 0 && u < 1 ? 1 : 0.4, peck: -0.15, headless: true, flap: 0.25 + 0.15 * Math.sin(t * 6) };
   }
   // line 4: the next morning, pecking at the grain in front of the porch
