@@ -114,10 +114,10 @@ const money = (t: number, s: Stage) => {
 const ring = (t: number, s: Stage) => {
   if (t < wt(10) - LEAD) return;
   const r = RING, cheer = after(t, 10, "and"), clap = after(t, 10, "Chicken");
-  s.places.push(P("lloyd", LLOYD, { expr: cheer ? "laugh" : "grin", gest: cheer ? "cheer" : "palm", k: q((t * 2) % 1, 8), blink: blinkAt(t, 1), look: 1 }, {}, V(r.x - 1.5, 0.4, r.z - 0.3), { turn: 0.15 }));
-  s.places.push(P("clara", CLARA, { expr: cheer ? "laugh" : "smile", gest: cheer ? "cheer" : "clutch", k: q((t * 2 + 0.4) % 1, 8), blink: blinkAt(t, 2), look: -1 }, {}, V(r.x + 1.5, 0.4, r.z - 0.3), { turn: -0.15 }));
-  for (let i = 0; i < 2; i++) { const sd = i % 2 ? 1 : -1;
-    s.places.push(P(`crowd${i}`, FOLK(i), { expr: cheer ? "laugh" : clap ? "grin" : "shock", gest: cheer ? "cheer" : clap ? "clap" : "hang", k: q((t * 2.6 + i * 0.27) % 1, 8), blink: blinkAt(t, 30 + i), look: 0 }, {}, V(r.x + sd * 0.7, 0, r.z + 2.45), { turn: -sd * 0.9 })); }
+  if (!cheer) s.places.push(P("lloyd", LLOYD, { expr: cheer ? "laugh" : "grin", gest: cheer ? "cheer" : "palm", k: q((t * 2) % 1, 8), blink: blinkAt(t, 1), look: 1 }, {}, V(r.x - 1.5, 0.4, r.z - 0.3), { turn: 0.15 }));
+  if (!cheer) s.places.push(P("clara", CLARA, { expr: cheer ? "laugh" : "smile", gest: cheer ? "cheer" : "clutch", k: q((t * 2 + 0.4) % 1, 8), blink: blinkAt(t, 2), look: -1 }, {}, V(r.x + 1.5, 0.4, r.z - 0.3), { turn: -0.15 }));
+  if (cheer) for (let i = 0; i < 2; i++) { const sd = i % 2 ? 1 : -1;
+    s.places.push(P(`crowd${i}`, FOLK(i), { expr: cheer ? "laugh" : clap ? "grin" : "shock", gest: cheer ? "cheer" : clap ? "clap" : "hang", k: q((t * 2.6 + i * 0.27) % 1, 8), blink: blinkAt(t, 30 + i), look: 0 }, {}, V(r.x + sd * 0.95, 0.4, r.z + 0.85), { turn: -sd * 0.6 })); }
   warmK(s, V(r.x, 4.2, r.z + 1.2), 1.6); fill(s, V(r.x, 0.4, r.z), 1.0);
 };
 /** everything on stage at time t */

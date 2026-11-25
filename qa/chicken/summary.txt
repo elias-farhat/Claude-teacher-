@@ -42,24 +42,26 @@ Decisions (auto-framer + camera guard, made without asking; revised after the re
   failed least; failing flights try other look timings / bends / start shifts, and a flight that still fails becomes
   a whip.
 
-CRITICAL: 86 frames in 5 ranges
-   44.23- 44.77 s  f1327-1342  SUBJECT   w:mike               too small (14 % of frame height, needs 15 %)
-   44.23- 45.80 s  f1327-1373  FACES     bystander crowd2     bystander's head cut at the left edge
-   45.83- 46.00 s  f1375-1379  SUBJECT   c:crowd0             cut off top (0.04)
-   45.97- 47.13 s  f1379-1413  FACES     c:crowd0             head (hat) touches the top edge (4.0 %)
-   46.00- 47.13 s  f1380-1413  SUBJECT   c:crowd0             cut off left (0.04)
+CRITICAL: 81 frames in 7 ranges
+   44.23- 44.47 s  f1327-1333  SUBJECT   w:mike               too small (15 % of frame height, needs 15 %)
+   44.67- 47.13 s  f1340-1413  SUBJECT   w:mike               cut off right (1.08)
+   44.83- 47.13 s  f1345-1413  SUBJECT   c:crowd0             cut off left (-0.15)
+   44.90- 47.13 s  f1347-1413  FACES     bystander lloyd      bystander's head cut at the top edge
+   45.07- 45.40 s  f1352-1361  SUBJECT   c:crowd1             cut off right (0.96)
+   45.60- 47.13 s  f1368-1413  FACES     c:crowd0             head cut at the left edge
+   45.87- 47.13 s  f1376-1413  SUBJECT   w:mike               too small (14 % of frame height, needs 15 %)
 warnings: 0 frames in 0 ranges (list in camera_report.txt)
 
 Loop:
-  round 1: 225 frames with CRITICAL failures in 6 shots (0, 1, 2, 6, 18, 23)
-  round 2: 116 frames with CRITICAL failures in 2 shots (6, 23)
+  round 1: 226 frames with CRITICAL failures in 6 shots (0, 1, 2, 6, 18, 23)
+  round 2: 110 frames with CRITICAL failures in 2 shots (6, 23)
   round 3: 101 frames with CRITICAL failures in 2 shots (6, 23)
   round 4: 99 frames with CRITICAL failures in 2 shots (6, 23)
   round 5: 87 frames with CRITICAL failures in 1 shots (23)
-  assembled the best round of every shot: 86 frames with CRITICAL failures
+  assembled the best round of every shot: 81 frames with CRITICAL failures
   fly transitions that still failed became cuts: 0; clipping whips panned the other way: 0, became cuts: 0
-  flight polish (look timing per failing flight): 86 frames with CRITICAL failures (0 flights cleared)
-  kept the assembled track (86 CRITICAL frames)
+  flight polish (look timing per failing flight): 81 frames with CRITICAL failures (0 flights cleared)
+  kept the assembled track (81 CRITICAL frames)
 
 Shots (candidate chosen, score):
   shot  0    0.00-  3.07 s  medium track base (score 3)
@@ -85,7 +87,7 @@ Shots (candidate chosen, score):
   shot 20   39.26- 40.86 s  medium base (score 0)
   shot 21   40.86- 42.74 s  medium base (score 0)
   shot 22   42.74- 44.20 s  close  closer 0.6 (score 9)
-  shot 23   44.20- 47.13 s  medium lower (score 70: too small, bystander's head cut at the left edge, cut off left, head)
+  shot 23   44.20- 47.13 s  medium az-30 high (score 176: too small, cut off right, cut off left, bystander's head cut at the top edge, head cut at the left edge)
 
 Flights:
   -> shot 1: CUT 3.07-3.07 s, 0 f, cut on the beat, peak undefined m/f

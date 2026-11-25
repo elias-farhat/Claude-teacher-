@@ -1,5 +1,7 @@
-CRITICAL  44.23- 44.77 s  f1327-1342  SUBJECT   w:mike               too small (14 % of frame height, needs 15 %)
-CRITICAL  44.23- 45.80 s  f1327-1373  FACES     bystander crowd2     bystander's head cut at the left edge
-CRITICAL  45.83- 46.00 s  f1375-1379  SUBJECT   c:crowd0             cut off top (0.04)
-CRITICAL  45.97- 47.13 s  f1379-1413  FACES     c:crowd0             head (hat) touches the top edge (4.0 %)
-CRITICAL  46.00- 47.13 s  f1380-1413  SUBJECT   c:crowd0             cut off left (0.04)
+CRITICAL  44.23- 44.47 s  f1327-1333  SUBJECT   w:mike               too small (15 % of frame height, needs 15 %)
+CRITICAL  44.67- 47.13 s  f1340-1413  SUBJECT   w:mike               cut off right (1.08)
+CRITICAL  44.83- 47.13 s  f1345-1413  SUBJECT   c:crowd0             cut off left (-0.15)
+CRITICAL  44.90- 47.13 s  f1347-1413  FACES     bystander lloyd      bystander's head cut at the top edge
+CRITICAL  45.07- 45.40 s  f1352-1361  SUBJECT   c:crowd1             cut off right (0.96)
+CRITICAL  45.60- 47.13 s  f1368-1413  FACES     c:crowd0             head cut at the left edge
+CRITICAL  45.87- 47.13 s  f1376-1413  SUBJECT   w:mike               too small (14 % of frame height, needs 15 %)
