@@ -1,0 +1,25 @@
+CRITICAL  12.17- 13.07 s  f365-391  SUBJECT   w:mike               cut off left (-0.19)
+CRITICAL  30.00- 31.63 s  f900-948  SUBJECT   w:mike               too small (12 % of frame height, needs 15 %)
+CRITICAL  30.37- 30.40 s  f911-911  FACES     bystander fan2       bystander half cut at the left edge (79 % in frame)
+CRITICAL  30.40- 31.07 s  f912-931  FACES     bystander fan2       bystander's head cut at the left edge
+CRITICAL  30.47- 30.83 s  f914-924  FACES     bystander fan1       bystander's head cut at the left edge
+CRITICAL  31.10- 31.63 s  f933-948  FACES     bystander fan0       bystander's head cut at the left edge
+CRITICAL  32.57- 33.93 s  f977-1017  SUBJECT   w:mike               too small (6 % of frame height, needs 15 %)
+CRITICAL  33.77- 33.93 s  f1013-1017  SUBJECT   w:truck              cut off right (1.08)
+CRITICAL  33.90- 33.93 s  f1017-1017  SUBJECT   w:mike               cut off right (0.95)
+CRITICAL  33.93- 35.40 s  f1018-1061  FACES     bystander folk1      bystander's head cut at the left edge
+CRITICAL  33.93- 35.40 s  f1018-1061  OCCLUSION c:hope               3/5 rays blocked for 23 frames
+CRITICAL  36.90- 38.30 s  f1107-1148  SUBJECT   c:hope               cut off top (0.01)
+CRITICAL  36.97- 38.30 s  f1109-1148  FACES     c:hope               head (hat) touches the top edge (1.7 %)
+CRITICAL  38.30- 38.47 s  f1149-1153  SUBJECT   w:money              too small (15 % of frame height, needs 15 %)
+CRITICAL  39.00- 39.27 s  f1170-1177  SUBJECT   w:money              cut off right (0.97)
+CRITICAL  39.27- 39.53 s  f1178-1185  FACES     bystander clara      bystander's head cut at the left edge
+CRITICAL  39.27- 39.47 s  f1178-1183  OCCLUSION w:house              3/5 rays blocked for 4 frames
+CRITICAL  39.57- 40.87 s  f1187-1225  SUBJECT   c:lloyd              too small (6 % of frame height, needs 30 %)
+CRITICAL  39.63- 40.87 s  f1189-1225  OCCLUSION c:lloyd              3/5 rays blocked for 19 frames
+CRITICAL  39.67- 40.07 s  f1190-1201  SUBJECT   w:house              cut off left (-0.32)
+CRITICAL  40.07- 40.33 s  f1202-1209  SUBJECT   w:house              cut off right (0.97)
+CRITICAL  44.23- 47.13 s  f1327-1413  SUBJECT   w:mike               too small (7 % of frame height, needs 15 %)
+CRITICAL  44.23- 47.13 s  f1327-1413  SUBJECT   c:crowd0             too small (14 % of frame height, needs 30 %)
+CRITICAL  44.23- 47.13 s  f1327-1413  SUBJECT   c:crowd1             too small (14 % of frame height, needs 30 %)
+CRITICAL  44.60- 46.90 s  f1338-1406  STALE                          the subject barely moves on screen for more than 2 s
