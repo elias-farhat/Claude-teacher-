@@ -4,7 +4,7 @@
  "pass": true,
  "criticalFrames": 0,
  "warningFrames": 0,
- "seconds": 7.695,
+ "seconds": 7.982,
  "history": [
   "round 1: 187 frames with CRITICAL failures in 6 shots (1, 6, 12, 13, 18, 23)",
   "round 2: 0 frames with CRITICAL failures in 0 shots",
