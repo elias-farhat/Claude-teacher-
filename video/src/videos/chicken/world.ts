@@ -113,7 +113,7 @@ export class ChickenWorld {
     void cam;
     const S = this.sets;
     poseRooster(this.mike, mikeAt(t));
-    const yard = t < wt(5) - 0.1;
+    const yard = t < wt(4) - 0.1;   // the hens leave before the morning (run 47: a hen with a head read as Mike)
     this.hens.forEach((h, i) => { const hp = henAt(i, t); poseRooster(h, { ...hp, visible: yard }); });
     // the axe leans on the block except while Lloyd holds it (line 3); after the chop it is back on the block
     S.axe.visible = !(t >= wt(3) - 0.07 && t < wt(3, "kept") - 0.07);

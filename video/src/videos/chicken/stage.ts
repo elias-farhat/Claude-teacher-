@@ -99,7 +99,7 @@ const booth = (t: number, s: Stage) => {
   if (!between(t, wt(8) - LEAD, wt(9) - LEAD)) return;
   const ins = after(t, 8, "Insured"), b = BOOTH;
   s.places.push(P("hope", HOPE, { expr: ins ? "smug" : "grin", gest: ins ? "paper" : "palm", blink: blinkAt(t, 5), headTilt: ins ? -6 : 4, look: -1 }, ins ? { paper: "contract" } : { coins: true }, V(b.x + 0.75, 0, b.z + 0.75), { turn: -0.35 }));
-  for (let i = 0; i < 4; i++) { const pay = i === 0;
+  for (let i = ins ? 1 : 0; i < 4; i++) { const pay = i === 0;   // run 47: the payer stood in front of Hope on "Insured"; he has gone in
     s.places.push(P(`folk${i}`, FOLK(i + 2), { expr: pay ? "grin" : i % 2 ? "shock" : "smile", gest: pay ? "palm" : i % 2 ? "point" : "hang", blink: blinkAt(t, 20 + i) }, { coins: pay }, V(b.x + 0.05 - i * 0.45 - (i ? 0.35 : 0), 0, b.z + 1.0 - i * 0.75), { turn: 0.35 + i * 0.05 })); }
   fill(s, V(b.x - 0.6, 0, b.z), 1.1); void TENT;
 };
