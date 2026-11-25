@@ -2,24 +2,24 @@
  "video": "chicken",
  "frames": 1414,
  "pass": false,
- "criticalFrames": 81,
+ "criticalFrames": 41,
  "warningFrames": 0,
- "seconds": 17.383,
+ "seconds": 15.495,
  "history": [
   "round 1: 226 frames with CRITICAL failures in 6 shots (0, 1, 2, 6, 18, 23)",
-  "round 2: 110 frames with CRITICAL failures in 2 shots (6, 23)",
+  "round 2: 70 frames with CRITICAL failures in 2 shots (6, 23)",
   "round 3: 101 frames with CRITICAL failures in 2 shots (6, 23)",
   "round 4: 99 frames with CRITICAL failures in 2 shots (6, 23)",
   "round 5: 87 frames with CRITICAL failures in 1 shots (23)",
-  "assembled the best round of every shot: 81 frames with CRITICAL failures",
+  "assembled the best round of every shot: 41 frames with CRITICAL failures",
   "fly transitions that still failed became cuts: 0; clipping whips panned the other way: 0, became cuts: 0",
-  "flight polish (look timing per failing flight): 81 frames with CRITICAL failures (0 flights cleared)",
-  "kept the assembled track (81 CRITICAL frames)"
+  "flight polish (look timing per failing flight): 41 frames with CRITICAL failures (0 flights cleared)",
+  "kept the assembled track (41 CRITICAL frames)"
  ],
  "rules": [
   {
    "rule": "SUBJECT",
-   "critical": 81,
+   "critical": 41,
    "warning": 0
   },
   {
@@ -39,7 +39,7 @@
   },
   {
    "rule": "FACES",
-   "critical": 67,
+   "critical": 0,
    "warning": 0
   },
   {
@@ -65,82 +65,22 @@
    "subject": "w:mike",
    "shot": 23,
    "from": 1327,
-   "to": 1333,
+   "to": 1330,
    "worst": 1327,
    "detail": "too small (15 % of frame height, needs 15 %)",
    "t0": 44.23,
-   "t1": 44.47
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": true,
-   "subject": "w:mike",
-   "shot": 23,
-   "from": 1340,
-   "to": 1413,
-   "worst": 1376,
-   "detail": "cut off right (1.08)",
-   "t0": 44.67,
-   "t1": 47.13
+   "t1": 44.37
   },
   {
    "rule": "SUBJECT",
    "critical": true,
    "subject": "c:crowd0",
    "shot": 23,
-   "from": 1345,
+   "from": 1377,
    "to": 1413,
-   "worst": 1376,
-   "detail": "cut off left (-0.15)",
-   "t0": 44.83,
-   "t1": 47.13
-  },
-  {
-   "rule": "FACES",
-   "critical": true,
-   "subject": "bystander lloyd",
-   "shot": 23,
-   "from": 1347,
-   "to": 1413,
-   "worst": 1376,
-   "detail": "bystander's head cut at the top edge",
-   "t0": 44.9,
-   "t1": 47.13
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": true,
-   "subject": "c:crowd1",
-   "shot": 23,
-   "from": 1352,
-   "to": 1361,
-   "worst": 1352,
-   "detail": "cut off right (0.96)",
-   "t0": 45.07,
-   "t1": 45.4
-  },
-  {
-   "rule": "FACES",
-   "critical": true,
-   "subject": "c:crowd0",
-   "shot": 23,
-   "from": 1368,
-   "to": 1413,
-   "worst": 1376,
-   "detail": "head cut at the left edge",
-   "t0": 45.6,
-   "t1": 47.13
-  },
-  {
-   "rule": "SUBJECT",
-   "critical": true,
-   "subject": "w:mike",
-   "shot": 23,
-   "from": 1376,
-   "to": 1413,
-   "worst": 1376,
-   "detail": "too small (14 % of frame height, needs 15 %)",
-   "t0": 45.87,
+   "worst": 1377,
+   "detail": "cut off left (0.04)",
+   "t0": 45.9,
    "t1": 47.13
   }
  ],
@@ -165,10 +105,10 @@
    ],
    "score": 2,
    "box": [
-    0.6749,
-    0.1021,
-    0.8962,
-    0.2487
+    0.5204,
+    0.2486,
+    0.7698,
+    0.398
    ]
   },
   {
@@ -191,10 +131,10 @@
    ],
    "score": 2,
    "box": [
-    0.6751,
-    0.102,
-    0.8965,
-    0.2486
+    0.5205,
+    0.2485,
+    0.77,
+    0.398
    ]
   },
   {
@@ -217,10 +157,10 @@
    ],
    "score": 2,
    "box": [
-    0.6755,
-    0.1016,
-    0.8972,
-    0.2484
+    0.5207,
+    0.2482,
+    0.7706,
+    0.3979
    ]
   },
   {
@@ -243,1542 +183,10 @@
    ],
    "score": 2,
    "box": [
-    0.6764,
-    0.1009,
-    0.8986,
-    0.2481
-   ]
-  },
-  {
-   "f": 1331,
-   "t": 44.367,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (15 % of frame height, needs 15 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.6777,
-    0.0998,
-    0.9007,
-    0.2475
-   ]
-  },
-  {
-   "f": 1332,
-   "t": 44.4,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (15 % of frame height, needs 15 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.6796,
-    0.0984,
-    0.9037,
-    0.2467
-   ]
-  },
-  {
-   "f": 1333,
-   "t": 44.433,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (15 % of frame height, needs 15 %)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.682,
-    0.0964,
-    0.9076,
-    0.2457
-   ]
-  },
-  {
-   "f": 1340,
-   "t": 44.667,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (0.96)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.7142,
-    0.0703,
-    0.959,
-    0.232
-   ]
-  },
-  {
-   "f": 1341,
-   "t": 44.7,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (0.97)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.7204,
-    0.0653,
-    0.9689,
-    0.2293
-   ]
-  },
-  {
-   "f": 1342,
-   "t": 44.733,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (0.98)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.7267,
-    0.06,
-    0.9791,
-    0.2266
-   ]
-  },
-  {
-   "f": 1343,
-   "t": 44.767,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (0.99)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.7331,
-    0.0547,
-    0.9893,
-    0.2237
-   ]
-  },
-  {
-   "f": 1344,
-   "t": 44.8,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.00)",
-     "critical": true
-    }
-   ],
-   "score": 2,
-   "box": [
-    0.7394,
-    0.0495,
-    0.9994,
-    0.2209
-   ]
-  },
-  {
-   "f": 1345,
-   "t": 44.833,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.01)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (0.05)",
-     "critical": true
-    }
-   ],
-   "score": 4,
-   "box": [
-    0.7455,
-    0.0444,
-    1,
-    0.2182
-   ]
-  },
-  {
-   "f": 1346,
-   "t": 44.867,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.02)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (0.05)",
-     "critical": true
-    }
-   ],
-   "score": 4,
-   "box": [
-    0.7513,
-    0.0396,
-    1,
-    0.2156
-   ]
-  },
-  {
-   "f": 1347,
-   "t": 44.9,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.03)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (0.04)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 5,
-   "box": [
-    0.7565,
-    0.0351,
-    1,
-    0.2133
-   ]
-  },
-  {
-   "f": 1348,
-   "t": 44.933,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.03)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (0.04)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 5,
-   "box": [
-    0.7612,
-    0.0312,
-    1,
-    0.2111
-   ]
-  },
-  {
-   "f": 1349,
-   "t": 44.967,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.04)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (0.04)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 5,
-   "box": [
-    0.7653,
-    0.0278,
-    1,
-    0.2093
-   ]
-  },
-  {
-   "f": 1350,
-   "t": 45,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.05)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (0.04)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 5,
-   "box": [
-    0.7686,
-    0.025,
-    1,
-    0.2078
-   ]
-  },
-  {
-   "f": 1351,
-   "t": 45.033,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.05)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (0.04)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 5,
-   "box": [
-    0.7711,
-    0.0228,
-    1,
-    0.2066
-   ]
-  },
-  {
-   "f": 1352,
-   "t": 45.067,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.05)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd1",
-     "detail": "cut off right (0.95)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 7,
-   "box": [
-    0.7729,
-    0.0213,
-    1,
-    0.2058
-   ]
-  },
-  {
-   "f": 1353,
-   "t": 45.1,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.05)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd1",
-     "detail": "cut off right (0.95)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 7,
-   "box": [
-    0.774,
-    0.0203,
-    1,
-    0.2052
-   ]
-  },
-  {
-   "f": 1354,
-   "t": 45.133,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.06)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd1",
-     "detail": "cut off right (0.96)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 7,
-   "box": [
-    0.7746,
-    0.0198,
-    1,
-    0.205
-   ]
-  },
-  {
-   "f": 1355,
-   "t": 45.167,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.06)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd1",
-     "detail": "cut off right (0.96)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 7,
-   "box": [
-    0.7748,
-    0.0197,
-    1,
-    0.2049
-   ]
-  },
-  {
-   "f": 1356,
-   "t": 45.2,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.06)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd1",
-     "detail": "cut off right (0.96)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 7,
-   "box": [
-    0.7748,
-    0.0197,
-    1,
-    0.2049
-   ]
-  },
-  {
-   "f": 1357,
-   "t": 45.233,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.06)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd1",
-     "detail": "cut off right (0.96)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 7,
-   "box": [
-    0.7748,
-    0.0196,
-    1,
-    0.2048
-   ]
-  },
-  {
-   "f": 1358,
-   "t": 45.267,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.06)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd1",
-     "detail": "cut off right (0.96)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 7,
-   "box": [
-    0.7747,
-    0.0192,
-    1,
-    0.2046
-   ]
-  },
-  {
-   "f": 1359,
-   "t": 45.3,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.06)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd1",
-     "detail": "cut off right (0.96)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 7,
-   "box": [
-    0.7745,
-    0.0185,
-    1,
-    0.2041
-   ]
-  },
-  {
-   "f": 1360,
-   "t": 45.333,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.06)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (0.03)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd1",
-     "detail": "cut off right (0.95)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 7,
-   "box": [
-    0.7743,
-    0.0173,
-    1,
-    0.2032
-   ]
-  },
-  {
-   "f": 1361,
-   "t": 45.367,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.06)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (0.02)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd1",
-     "detail": "cut off right (0.95)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 7,
-   "box": [
-    0.7739,
-    0.0155,
-    1,
-    0.2019
-   ]
-  },
-  {
-   "f": 1362,
-   "t": 45.4,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.06)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (0.02)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 5,
-   "box": [
-    0.7733,
-    0.0132,
-    1,
-    0.2002
-   ]
-  },
-  {
-   "f": 1363,
-   "t": 45.433,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.06)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (0.01)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 5,
-   "box": [
-    0.7727,
-    0.0102,
-    1,
-    0.198
-   ]
-  },
-  {
-   "f": 1364,
-   "t": 45.467,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.06)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (0.01)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 5,
-   "box": [
-    0.7719,
-    0.0065,
-    1,
-    0.1954
-   ]
-  },
-  {
-   "f": 1365,
-   "t": 45.5,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.06)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (-0.00)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 5,
-   "box": [
-    0.7711,
-    0.0024,
-    1,
-    0.1924
-   ]
-  },
-  {
-   "f": 1366,
-   "t": 45.533,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.06)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (-0.01)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 5,
-   "box": [
-    0.7701,
-    0,
-    1,
-    0.189
-   ]
-  },
-  {
-   "f": 1367,
-   "t": 45.567,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.06)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (-0.03)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 5,
-   "box": [
-    0.7692,
-    0,
-    1,
-    0.1853
-   ]
-  },
-  {
-   "f": 1368,
-   "t": 45.6,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.07)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (-0.04)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 6,
-   "box": [
-    0.7681,
-    0,
-    1,
-    0.1812
-   ]
-  },
-  {
-   "f": 1369,
-   "t": 45.633,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.07)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (-0.05)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 6,
-   "box": [
-    0.7671,
-    0,
-    1,
-    0.177
-   ]
-  },
-  {
-   "f": 1370,
-   "t": 45.667,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.07)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (-0.06)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 6,
-   "box": [
-    0.7661,
-    0,
-    1,
-    0.1727
-   ]
-  },
-  {
-   "f": 1371,
-   "t": 45.7,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.07)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (-0.08)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 6,
-   "box": [
-    0.7652,
-    0,
-    1,
-    0.1682
-   ]
-  },
-  {
-   "f": 1372,
-   "t": 45.733,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.07)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (-0.09)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 6,
-   "box": [
-    0.7643,
-    0,
-    1,
-    0.1639
-   ]
-  },
-  {
-   "f": 1373,
-   "t": 45.767,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.08)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (-0.10)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 6,
-   "box": [
-    0.7634,
-    0,
-    1,
-    0.1596
-   ]
-  },
-  {
-   "f": 1374,
-   "t": 45.8,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.08)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (-0.11)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 6,
-   "box": [
-    0.7627,
-    0,
-    1,
-    0.1556
-   ]
-  },
-  {
-   "f": 1375,
-   "t": 45.833,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.08)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (-0.12)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 6,
-   "box": [
-    0.7621,
-    0,
-    1,
-    0.1519
-   ]
-  },
-  {
-   "f": 1376,
-   "t": 45.867,
-   "shot": 23,
-   "flight": false,
-   "subjects": [
-    "w:mike",
-    "c:crowd0",
-    "c:crowd1"
-   ],
-   "fails": [
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.08)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (15 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "c:crowd0",
-     "detail": "cut off left (-0.13)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
-     "critical": true
-    }
-   ],
-   "score": 8,
-   "box": [
-    0.7616,
-    0,
-    1,
-    0.1486
+    0.5213,
+    0.2477,
+    0.7717,
+    0.3976
    ]
   },
   {
@@ -1794,41 +202,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.08)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (15 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.14)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.05)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7612,
-    0,
-    1,
-    0.1457
+    0.5353,
+    0.1364,
+    0.8955,
+    0.3559
    ]
   },
   {
@@ -1844,41 +228,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.15)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.05)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7608,
-    0,
-    1,
-    0.1433
+    0.5335,
+    0.1344,
+    0.8955,
+    0.3553
    ]
   },
   {
@@ -1894,41 +254,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.15)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7606,
-    0,
-    1,
-    0.1414
+    0.532,
+    0.1327,
+    0.8954,
+    0.3547
    ]
   },
   {
@@ -1944,41 +280,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7604,
-    0,
-    1,
-    0.14
+    0.5309,
+    0.1315,
+    0.8954,
+    0.3543
    ]
   },
   {
@@ -1994,41 +306,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7603,
-    0,
-    1,
-    0.1391
+    0.5302,
+    0.1307,
+    0.8954,
+    0.3541
    ]
   },
   {
@@ -2044,41 +332,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1386
+    0.5298,
+    0.1303,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -2094,41 +358,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -2144,41 +384,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -2194,41 +410,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -2244,41 +436,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -2294,41 +462,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -2344,41 +488,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -2394,41 +514,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -2444,41 +540,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -2494,41 +566,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -2544,41 +592,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -2594,41 +618,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -2644,41 +644,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -2694,41 +670,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -2744,41 +696,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -2794,41 +722,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -2844,41 +748,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -2894,41 +774,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -2944,41 +800,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -2994,41 +826,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -3044,41 +852,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -3094,41 +878,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -3144,41 +904,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -3194,41 +930,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -3244,41 +956,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -3294,41 +982,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -3344,41 +1008,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -3394,41 +1034,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -3444,41 +1060,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -3494,41 +1086,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -3544,41 +1112,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   },
   {
@@ -3594,41 +1138,17 @@
    "fails": [
     {
      "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "cut off right (1.09)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
-     "subject": "w:mike",
-     "detail": "too small (14 % of frame height, needs 15 %)",
-     "critical": true
-    },
-    {
-     "rule": "SUBJECT",
      "subject": "c:crowd0",
-     "detail": "cut off left (-0.16)",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "c:crowd0",
-     "detail": "head cut at the left edge",
-     "critical": true
-    },
-    {
-     "rule": "FACES",
-     "subject": "bystander lloyd",
-     "detail": "bystander's head cut at the top edge",
+     "detail": "cut off left (0.04)",
      "critical": true
     }
    ],
-   "score": 8,
+   "score": 2,
    "box": [
-    0.7602,
-    0,
-    1,
-    0.1384
+    0.5296,
+    0.1301,
+    0.8954,
+    0.3539
    ]
   }
  ]
