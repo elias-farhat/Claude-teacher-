@@ -1,2 +1,9 @@
-CRITICAL  44.23- 44.37 s  f1327-1330  SUBJECT   w:mike               too small (15 % of frame height, needs 15 %)
-CRITICAL  45.90- 47.13 s  f1377-1413  SUBJECT   c:crowd0             cut off left (0.04)
+CRITICAL  44.53- 47.13 s  f1336-1413  SUBJECT   c:crowd1             cut off right (1.16)
+CRITICAL  44.60- 45.33 s  f1338-1359  SUBJECT   c:crowd0             cut off top (-0.02)
+CRITICAL  44.67- 47.13 s  f1340-1413  SUBJECT   w:mike               cut off top (-0.09)
+CRITICAL  44.67- 44.90 s  f1340-1346  FACES     c:crowd0             head (hat) touches the top edge (1.9 %)
+CRITICAL  44.80- 47.13 s  f1344-1413  FACES     c:crowd1             head cut at the right edge
+CRITICAL  44.90- 45.67 s  f1347-1369  FACES     c:crowd0             head cut at the top edge
+CRITICAL  45.33- 47.13 s  f1360-1413  SUBJECT   c:crowd0             cut off left (-0.13)
+CRITICAL  45.50- 45.80 s  f1365-1373  FACES     c:crowd1             head (hat) touches the top edge (2.6 %)
+CRITICAL  45.67- 47.13 s  f1370-1413  FACES     c:crowd0             head cut at the left edge
