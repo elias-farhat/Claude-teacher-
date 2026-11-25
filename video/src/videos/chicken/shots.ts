@@ -19,7 +19,7 @@ export const SHOT_SPECS: ShotSpec[] = [
   { t0: wtn(5, "the", 2) - 2 / 30, subjects: ["w:diagram", "c:clara"], size: "medium", move: "push", enter: "cut", note: "5 the part that keeps you breathing (the glow)" },
   { t0: land(6), subjects: ["c:lloyd", "w:mike", "?c:clara"], size: "medium", move: "push", enter: "cut", note: "6 so Lloyd named him Mike" },
   { t0: land(6, "fed"), subjects: ["c:lloyd", "w:mike"], size: "medium", move: "push", enter: "cut", note: "6 fed him with an eyedropper, right down the neck" },
-  { t0: land(7), subjects: ["w:mike", "?w:truck"], size: "wide", angle: "low", move: "push", enter: "cut", note: "7 soon Mike was a star (on the truck)" },
+  { t0: land(7), subjects: ["w:mike", "?w:truck"], size: "wide", move: "push", enter: "cut", note: "7 soon Mike was a star (on the truck)" },
   { t0: land(7, "Magazines"), subjects: ["c:fan0", "c:fan1"], size: "medium", move: "push", enter: "cut", note: "7 magazines (fans wave them)" },
   { t0: wtn(7, "A", 1) - 2 / 30, subjects: ["w:mike", "?w:truck"], size: "wide", move: "drift", enter: "cut", note: "7 a national tour (the truck drives off)" },
   { t0: land(8), subjects: ["c:folk0", "c:hope"], size: "medium", move: "push", enter: "cut", note: "8 twenty-five cents a look: the queue paying" },

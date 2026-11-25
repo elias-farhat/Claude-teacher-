@@ -136,6 +136,7 @@ export function buildSets(R: THREE.Group, kit: Kit): Sets {
     addT(new THREE.BoxGeometry(3.6, 0.3, 2.0), body, [-0.8, 0.85, 0]);
     for (const s of [-1, 1]) { const sg = addT(new THREE.BoxGeometry(3.4, 0.9, 0.06), body, [-0.8, 1.45, s * 0.98]); void sg;
       const ban = new THREE.Mesh(new THREE.PlaneGeometry(3.2, 0.8), twoTone(new THREE.MeshLambertMaterial({ map: sign("ckBanner", "MIRACLE MIKE", "#f2d060", "#a8261e") }))); ban.position.set(-0.8, 1.45, s * 1.02); ban.rotation.y = s > 0 ? 0 : Math.PI; truck.add(ban); }
+    addT(new THREE.BoxGeometry(3.4, 0.08, 2.0), lam("ckLid", () => ({ color: "#f2d060" })), [-0.8, 1.92, 0]);   // the lid Mike stands on
     for (const x of [-1.8, 0.4, 3.2]) for (const s of [-1, 1]) addT(new THREE.CylinderGeometry(0.42, 0.42, 0.25, 16).rotateX(Math.PI / 2), blk, [x, 0.42, s * 0.95]);
     truck.position.copy(TRUCK); truck.traverse((o) => { o.userData.noGuard = true; }); R.add(truck); }
   // the spotlight beam on the pedestal (soft, additive, no ink)

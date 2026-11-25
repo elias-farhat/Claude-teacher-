@@ -63,7 +63,7 @@ export const mikeAt = (t: number): MikePose => {
   // lines 5-6: on the kitchen table (the eyedropper)
   if (t < wt(7) - LD) return { p: V3v(TABLE.x + 0.15, TABLE_TOP, TABLE.z + 0.05), yaw: -0.2, phase: 0, walk: 0, peck: 0, headless: true, flap: t > wt(6, "neck") ? 0.4 * Math.abs(Math.sin(t * 5)) : 0 };
   // line 7: the star, riding on the truck's cab roof
-  if (t < wt(8) - LD) return { p: V3v(truckX(t) + 1.9, 1.9, TRUCK.z), yaw: 0.25, phase: 0, walk: 0, peck: -0.2, headless: true, flap: t > wt(7, "star") - LD ? 0.5 + 0.4 * Math.sin(t * 7) : 0 };
+  if (t < wt(8) - LD) return { p: V3v(truckX(t) - 0.8, 1.96, TRUCK.z + 0.5), yaw: 0.25, phase: 0, walk: 0, peck: -0.2, headless: true, flap: t > wt(7, "star") - LD ? 0.5 + 0.4 * Math.sin(t * 7) : 0 };
   // line 8: on his crate by the ticket booth
   if (t < wt(9) - LD) return { p: V3v(BOOTH.x + 1.9, 0.7, BOOTH.z), yaw: -0.25, phase: t * 1.4, walk: 0, peck: peckOf(0.6) * 0.5, headless: true, flap: 0 };
   // line 9: strutting on the porch beside Lloyd's money
