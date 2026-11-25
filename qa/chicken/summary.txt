@@ -46,37 +46,34 @@ CRITICAL: 0
 warnings: 0 frames in 0 ranges (list in camera_report.txt)
 
 Loop:
-  round 1: 226 frames with CRITICAL failures in 6 shots (0, 1, 2, 6, 18, 23)
-  round 2: 29 frames with CRITICAL failures in 1 shots (6)
-  round 3: 14 frames with CRITICAL failures in 1 shots (6)
-  round 4: 12 frames with CRITICAL failures in 1 shots (6)
-  round 5: 0 frames with CRITICAL failures in 0 shots
+  round 1: 150 frames with CRITICAL failures in 5 shots (1, 6, 16, 18, 23)
+  round 2: 0 frames with CRITICAL failures in 0 shots
   assembled the best round of every shot: 0 frames with CRITICAL failures
 
 Shots (candidate chosen, score):
-  shot  0    0.00-  3.07 s  medium track base (score 3)
-  shot  1    3.07-  4.65 s  close  track az+30 high (score 6)
-  shot  2    4.65-  7.00 s  wide   az-90 (score 31: 1/5 blocked)
+  shot  0    0.00-  3.07 s  wide   track base (score 1)
+  shot  1    3.07-  4.65 s  medium track higher (score 3)
+  shot  2    4.65-  7.00 s  wide   az+60 (score 6)
   shot  3    7.00-  8.38 s  medium base (score 0)
   shot  4    8.38- 10.16 s  medium az-30 (score 3)
   shot  5   10.16- 11.78 s  medium base (score 0)
-  shot  6   11.78- 13.04 s  medium az-30 (score 3)
+  shot  6   11.78- 13.04 s  wide   lower (score 2)
   shot  7   13.04- 14.54 s  medium base (score 0)
   shot  8   14.54- 15.86 s  medium base (score 0)
-  shot  9   15.86- 19.98 s  medium closer 0.45 (score 35: walled 67 %)
+  shot  9   15.86- 19.98 s  wide   az+30 (score 3)
   shot 10   19.98- 22.60 s  medium az+30 high (score 6)
-  shot 11   22.60- 25.36 s  medium closer 0.45 (score 4)
+  shot 11   22.60- 25.36 s  medium az+30 high (score 6)
   shot 12   25.36- 27.20 s  medium lower (score 46: 2/5 blocked)
-  shot 13   27.20- 29.98 s  medium az+30 high (score 6)
-  shot 14   29.98- 31.62 s  medium closer 0.6 (score 3)
+  shot 13   27.20- 29.98 s  medium lower (score 46: 2/5 blocked)
+  shot 14   29.98- 31.62 s  wide   base (score 0)
   shot 15   31.62- 32.54 s  medium base (score 0)
-  shot 16   32.54- 33.90 s  medium track closer 0.45 (score 3)
+  shot 16   32.54- 33.90 s  wide   track lower (score 2)
   shot 17   33.90- 35.38 s  medium az-60 (score 6)
   shot 18   35.38- 38.28 s  medium az+30 (score 3)
   shot 19   38.28- 39.26 s  medium base (score 0)
   shot 20   39.26- 40.86 s  medium base (score 0)
-  shot 21   40.86- 42.74 s  medium base (score 0)
-  shot 22   42.74- 44.20 s  close  closer 0.6 (score 9)
+  shot 21   40.86- 42.74 s  wide   base (score 0)
+  shot 22   42.74- 44.20 s  medium base (score 0)
   shot 23   44.20- 47.13 s  medium az-60 (score 6)
 
 Flights:
