@@ -42,33 +42,24 @@ Decisions (auto-framer + camera guard, made without asking; revised after the re
   failed least; failing flights try other look timings / bends / start shifts, and a flight that still fails becomes
   a whip.
 
-CRITICAL: 203 frames in 14 ranges
-   12.97- 13.07 s  f389-391  SUBJECT   w:mike               cut off left (0.04)
-   30.00- 30.93 s  f900-927  FACES     bystander lloyd      bystander's face fills 437 % of the frame
-   31.63- 32.10 s  f949-962  FACES     c:fan2(fan2)         head cut at the right edge
-   35.93- 38.30 s  f1078-1148  FACES     bystander folk0      bystander's head cut at the left edge
-   44.23- 45.53 s  f1327-1365  SUBJECT   w:mike               too small (14 % of frame height, needs 15 %)
-   44.23- 45.77 s  f1327-1372  SUBJECT   c:crowd0             too small (25 % of frame height, needs 30 %)
-   44.23- 47.13 s  f1327-1413  SUBJECT   c:crowd1             too small (26 % of frame height, needs 30 %)
-   44.23- 44.93 s  f1327-1347  FACES     bystander crowd3     bystander's head cut at the right edge
-   44.23- 45.77 s  f1327-1372  FACES     bystander crowd4     bystander's head centre at 59 % of the frame height
-   44.87- 47.13 s  f1346-1413  SUBJECT   c:crowd1             cut off right (1.02)
-   45.70- 45.77 s  f1371-1372  SUBJECT   w:mike               cut off top (0.04)
-   45.77- 47.13 s  f1373-1413  SUBJECT   w:mike               cut off left (0.00)
-   45.77- 47.13 s  f1373-1413  FACES     bystander crowd4     bystander's head cut at the left edge
-   45.80- 47.13 s  f1374-1413  FACES     bystander clara      bystander's head cut at the top edge
+CRITICAL: 86 frames in 5 ranges
+   44.23- 44.77 s  f1327-1342  SUBJECT   w:mike               too small (14 % of frame height, needs 15 %)
+   44.23- 45.80 s  f1327-1373  FACES     bystander crowd2     bystander's head cut at the left edge
+   45.83- 46.00 s  f1375-1379  SUBJECT   c:crowd0             cut off top (0.04)
+   45.97- 47.13 s  f1379-1413  FACES     c:crowd0             head (hat) touches the top edge (4.0 %)
+   46.00- 47.13 s  f1380-1413  SUBJECT   c:crowd0             cut off left (0.04)
 warnings: 0 frames in 0 ranges (list in camera_report.txt)
 
 Loop:
-  round 1: 328 frames with CRITICAL failures in 9 shots (0, 1, 2, 6, 14, 15, 16, 18, 23)
-  round 2: 288 frames with CRITICAL failures in 6 shots (6, 14, 15, 16, 18, 23)
-  round 3: 281 frames with CRITICAL failures in 6 shots (6, 14, 15, 16, 18, 23)
-  round 4: 309 frames with CRITICAL failures in 6 shots (6, 14, 15, 16, 18, 23)
-  round 5: 254 frames with CRITICAL failures in 5 shots (6, 14, 15, 18, 23)
-  assembled the best round of every shot: 203 frames with CRITICAL failures
+  round 1: 225 frames with CRITICAL failures in 6 shots (0, 1, 2, 6, 18, 23)
+  round 2: 116 frames with CRITICAL failures in 2 shots (6, 23)
+  round 3: 101 frames with CRITICAL failures in 2 shots (6, 23)
+  round 4: 99 frames with CRITICAL failures in 2 shots (6, 23)
+  round 5: 87 frames with CRITICAL failures in 1 shots (23)
+  assembled the best round of every shot: 86 frames with CRITICAL failures
   fly transitions that still failed became cuts: 0; clipping whips panned the other way: 0, became cuts: 0
-  flight polish (look timing per failing flight): 203 frames with CRITICAL failures (0 flights cleared)
-  kept the assembled track (203 CRITICAL frames)
+  flight polish (look timing per failing flight): 86 frames with CRITICAL failures (0 flights cleared)
+  kept the assembled track (86 CRITICAL frames)
 
 Shots (candidate chosen, score):
   shot  0    0.00-  3.07 s  medium track base (score 3)
@@ -85,16 +76,16 @@ Shots (candidate chosen, score):
   shot 11   22.60- 25.36 s  medium closer 0.45 (score 4)
   shot 12   25.36- 27.20 s  medium lower (score 46: 2/5 blocked)
   shot 13   27.20- 29.98 s  medium az+30 high (score 6)
-  shot 14   29.98- 31.62 s  medium closer 0.45 (score 28: bystander's face fills 379 % of the frame)
-  shot 15   31.62- 32.54 s  medium lower (score 27: head cut at the right edge)
-  shot 16   32.54- 33.90 s  medium track az-30 high (score 6)
+  shot 14   29.98- 31.62 s  medium closer 0.6 (score 3)
+  shot 15   31.62- 32.54 s  medium base (score 0)
+  shot 16   32.54- 33.90 s  medium track closer 0.45 (score 3)
   shot 17   33.90- 35.38 s  medium az-60 (score 6)
-  shot 18   35.38- 38.28 s  medium az+30 (score 28: bystander's head cut at the left edge)
+  shot 18   35.38- 38.28 s  medium az+30 (score 3)
   shot 19   38.28- 39.26 s  medium base (score 0)
   shot 20   39.26- 40.86 s  medium base (score 0)
   shot 21   40.86- 42.74 s  medium base (score 0)
   shot 22   42.74- 44.20 s  close  closer 0.6 (score 9)
-  shot 23   44.20- 47.13 s  medium az+30 (score 188: too small, bystander's head cut at the right edge, bystander's head centre at 57 % of the frame height, cut off right, bystander's head centre at 59 % of the frame height, cut off left, bystander's head cut at the top edge, bystander's head cut at the left edge)
+  shot 23   44.20- 47.13 s  medium lower (score 70: too small, bystander's head cut at the left edge, cut off left, head)
 
 Flights:
   -> shot 1: CUT 3.07-3.07 s, 0 f, cut on the beat, peak undefined m/f

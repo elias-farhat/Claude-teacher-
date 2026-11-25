@@ -28,5 +28,5 @@ export const SHOT_SPECS: ShotSpec[] = [
   { t0: land(9, "than"), subjects: ["c:lloyd", "?c:clara", "?w:mike"], size: "medium", angle: "low", move: "push", enter: "cut", note: "9 than the farm (the farmhouse behind)" },
   { t0: land(10), subjects: ["w:mike", "?c:lloyd", "?c:clara"], size: "medium", angle: "low", move: "push", enter: "cut", note: "10 Mike the Headless Chicken, in the spotlight" },
   { t0: land(10, "He"), subjects: ["w:mike"], size: "close", move: "push", enter: "cut", note: "10 he had no brain" },
-  { t0: land(10, "and"), subjects: ["w:mike", "c:crowd0", "?c:crowd1"], size: "medium", move: "push", enter: "cut", note: "10 and still did better than most of us (crowd cheers)" },
+  { t0: land(10, "and"), subjects: ["w:mike", "c:crowd0", "c:crowd1"], size: "medium", move: "push", enter: "cut", note: "10 and still did better than most of us (crowd cheers)" },
 ];
