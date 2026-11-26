@@ -94,7 +94,7 @@ const wagon = (t: number, s: Stage) => {
 const panic = (t: number, s: Stage) => {
   if (t < wt(6) - LEAD || t >= wt(7) - LEAD) return;
   const what = after(t, 6, "What");
-  const at = [V(-2.1, 0, -3.7), V(-1.05, 0, -3.3), V(0.0, 0, -3.9)];
+  const at = [V(-1.85, 0, -3.7), V(-1.0, 0, -3.3), V(-0.15, 0, -3.8)];
   for (let i = 0; i < 3; i++) s.places.push(P(`tutor${i}`, TUTOR(i), what ? { expr: i === 1 ? "nervous" : "shock", gest: i === 1 ? "shrug2" : "flail", k: q((t * 3 + i * 0.3) % 1, 8), blink: 0, headTilt: (i - 1) * 8 }
     : { expr: "shock", gest: "recoil", k: q((t * 2 + i * 0.2) % 1, 8), blink: 0, headTilt: (i - 1) * 6 }, { cape: GOWN, sweat: what }, at[i], { turn: 0.3 - i * 0.25 }));
   fill(s, V(-1.0, 0, -3.6), 1.2);

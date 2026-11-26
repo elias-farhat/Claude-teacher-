@@ -1,0 +1,13 @@
+CRITICAL   0.00-  0.67 s  f0-19  SUBJECT   c:byron              too small (26 % of frame height, needs 30 %)
+CRITICAL   0.90-  1.00 s  f27-29  SUBJECT   c:byron              cut off top (0.05)
+CRITICAL   1.33-  2.10 s  f40-62  SUBJECT   c:byron              too small (28 % of frame height, needs 30 %)
+CRITICAL  12.50- 12.67 s  f375-379  SUBJECT   w:sign               too small (5 % of frame height, needs 15 %)
+CRITICAL  13.93- 14.60 s  f418-437  SUBJECT   w:sign               cut off right (0.97)
+CRITICAL  24.37- 24.90 s  f731-746  SUBJECT   c:byron              too small (29 % of frame height, needs 30 %)
+CRITICAL  25.73- 25.80 s  f772-773  SUBJECT   w:bear               cut off top (0.05)
+CRITICAL  26.07- 27.23 s  f782-816  SUBJECT   c:byron              too small (27 % of frame height, needs 30 %)
+CRITICAL  28.93- 29.50 s  f868-884  FACES     bystander tutor2     bystander's head cut at the right edge
+CRITICAL  38.57- 40.00 s  f1157-1199  SUBJECT   c:byron              too small (27 % of frame height, needs 30 %)
+CRITICAL  40.20- 41.03 s  f1206-1230  SUBJECT   w:bear               cut off right (0.99)
+CRITICAL  40.43- 41.03 s  f1213-1230  SUBJECT   c:byron              cut off right (0.96)
+CRITICAL  41.03- 45.03 s  f1231-1350  SUBJECT   c:byron              too small (26 % of frame height, needs 30 %)
