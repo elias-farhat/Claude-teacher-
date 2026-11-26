@@ -1,1 +1,1 @@
-CRITICAL  41.93- 43.17 s  f1258-1294  SUBJECT   w:bear               cut off top (0.02)
+CRITICAL  41.90- 43.17 s  f1257-1294  SUBJECT   w:bear               cut off top (0.02)
