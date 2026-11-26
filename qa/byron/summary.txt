@@ -42,23 +42,18 @@ Decisions (auto-framer + camera guard, made without asking; revised after the re
   failed least; failing flights try other look timings / bends / start shifts, and a flight that still fails becomes
   a whip.
 
-CRITICAL: 22 frames in 1 ranges
-    0.00-  0.73 s  f0-21  SUBJECT   c:byron              too small (27 % of frame height, needs 30 %)
+CRITICAL: 0
 warnings: 0 frames in 0 ranges (list in camera_report.txt)
 
 Loop:
-  round 1: 295 frames with CRITICAL failures in 5 shots (0, 3, 7, 8, 12)
-  round 2: 163 frames with CRITICAL failures in 3 shots (0, 7, 8)
-  round 3: 64 frames with CRITICAL failures in 2 shots (0, 8)
-  round 4: 22 frames with CRITICAL failures in 1 shots (0)
-  round 5: 42 frames with CRITICAL failures in 1 shots (0)
-  assembled the best round of every shot: 22 frames with CRITICAL failures
-  fly transitions that still failed became cuts: 0; clipping whips panned the other way: 0, became cuts: 0
-  flight polish (look timing per failing flight): 22 frames with CRITICAL failures (0 flights cleared)
-  kept round 4 (fewest CRITICAL frames: 22)
+  round 1: 273 frames with CRITICAL failures in 4 shots (3, 7, 8, 12)
+  round 2: 100 frames with CRITICAL failures in 2 shots (7, 8)
+  round 3: 41 frames with CRITICAL failures in 1 shots (8)
+  round 4: 0 frames with CRITICAL failures in 0 shots
+  assembled the best round of every shot: 0 frames with CRITICAL failures
 
 Shots (candidate chosen, score):
-  shot  0    0.00-  2.07 s  medium track base (score 40: too small)
+  shot  0    0.00-  2.07 s  medium track az+30 high (score 6)
   shot  1    2.07-  4.37 s  medium track closer 0.45 (score 6)
   shot  2    4.37-  6.51 s  wide   track closer (score 3)
   shot  3    6.51-  9.02 s  medium track lower (score 2)

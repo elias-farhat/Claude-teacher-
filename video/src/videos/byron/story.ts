@@ -42,7 +42,7 @@ const V3v = (x: number, y: number, z: number) => new THREE.Vector3(x, y, z);
 const LD = 2 / FPS;
 /** Byron's place and walk at time t (the stage poses him; the bear / dog walk beside him) */
 export const byronAt = (t: number): { p: THREE.Vector3; walk: boolean } => {
-  if (t < wt(2) - LD) return { p: V3v(-0.45, 0, GATE_Z + 0.6 + 1.05 * t), walk: true };                       // hook: through the gate with the bear
+  if (t < wt(2) - LD) return { p: V3v(-0.38, 0, GATE_Z + 0.6 + 1.05 * t), walk: true };                       // hook: through the gate with the bear
   if (t < wt(3) - LD) { const u = clamp01((t - wt(2) + 0.1) / (wt(2, "with") - wt(2))); return { p: V3v(-0.7, 0, GATE_Z + 1.2 + 4.2 * u), walk: u > 0 && u < 1 }; }
   if (t < wt(4) - LD) return { p: V3v(-2.5, 0, GATE_Z + 3.4), walk: false };                                 // at the lodge with Boatswain
   if (t < wt(5) - LD) return { p: V3v(2.0, 0, -6.0), walk: false };                                          // reading the rules
@@ -53,7 +53,7 @@ export const byronAt = (t: number): { p: THREE.Vector3; walk: boolean } => {
 export type BearPose = { p: THREE.Vector3; yaw: number; phase: number; walk: number; up: number; wave: number; gown: boolean; visible: boolean };
 export const bearAt = (t: number): BearPose => {
   const base = { phase: 0, walk: 0, up: 0, wave: 0, gown: false, visible: true, yaw: 0 };
-  if (t < wt(2) - LD) return { ...base, p: V3v(0.55, 0, GATE_Z + 0.3 + 1.05 * t), phase: t * 1.1, walk: 1 };
+  if (t < wt(2) - LD) return { ...base, p: V3v(0.45, 0, GATE_Z + 0.3 + 1.05 * t), phase: t * 1.1, walk: 1 };
   if (t < wt(5) - LD) return { ...base, p: V3v(0, 0, 900), visible: false };
   if (t < wt(6) - LD) {   // in the cage wagon, then out on "A real, live, tame bear", ambling up to Byron
     const out = smooth((t - wtn(5, "A", 1) + 0.1) / 1.4), inC = V3v(WAGON.x + 0.2, 0.8, WAGON.z), down = V3v(WAGON.x - 0.55, 0, WAGON.z + 1.7);

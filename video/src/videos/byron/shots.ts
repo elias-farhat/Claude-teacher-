@@ -5,7 +5,7 @@ import { land, wtn } from "./story";
 import type { ShotSpec } from "../../guard/solve";
 
 export const SHOT_SPECS: ShotSpec[] = [
-  { t0: 0, subjects: ["c:byron", "w:bear"], size: "medium", move: "push", note: "1 (hook) his college banned dogs: Byron strolls through the gate with the bear, frame 1" },
+  { t0: 0, subjects: ["c:byron", "w:bear"], size: "medium", move: "drift", note: "1 (hook) his college banned dogs: Byron strolls through the gate with the bear, frame 1" },
   { t0: land(1, "so"), subjects: ["w:bear", "?c:byron"], size: "medium", angle: "low", move: "push", enter: "cut", note: "1 so he brought a bear" },
   { t0: land(2), subjects: ["c:byron", "w:dog", "?w:gate"], size: "wide", move: "push", enter: "cut", note: "2 Cambridge, 1805: the Great Court" },
   { t0: land(2, "Young"), subjects: ["c:byron"], size: "medium", move: "push", enter: "cut", note: "2 young Lord Byron arrives at Trinity College" },
