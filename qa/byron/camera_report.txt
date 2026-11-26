@@ -1,1 +1,2 @@
-
+CRITICAL  38.57- 38.80 s  f1157-1163  SUBJECT   w:bear               cut off top (-0.05)
+CRITICAL  38.80- 39.20 s  f1164-1175  SUBJECT   w:bear               cut off left (0.05)
