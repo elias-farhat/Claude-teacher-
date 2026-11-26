@@ -548,7 +548,11 @@ jobs:
             # loudness: two-pass EBU R128 normalisation; target -12.3 lands at about -14.5 LUFS after the true-peak limiter (Shorts target -14; earlier renders sat at -20.7)
             m=$(ffmpeg -hide_banner -i "$audio" -af loudnorm=I=-12.3:TP=-1:LRA=11:print_format=json -f null - 2>&1 | sed -n '/^{/,/^}/p')
             mi=$(echo "$m" | jq -r .input_i); mtp=$(echo "$m" | jq -r .input_tp); mlra=$(echo "$m" | jq -r .input_lra); mth=$(echo "$m" | jq -r .input_thresh); off=$(echo "$m" | jq -r .target_offset)
-            ffmpeg -v error -y -i "$audio" -af "loudnorm=I=-12.3:TP=-1:LRA=11:measured_I=$mi:measured_TP=$mtp:measured_LRA=$mlra:measured_thresh=$mth:offset=$off,aresample=48000" -c:a pcm_s16le voice_norm.wav
+            if awk "BEGIN{exit !($mi > -14.7 && $mi < -13.3)}"; then   # already mastered (e.g. a mix.flac at -14): keep it as is
+              ffmpeg -v error -y -i "$audio" -af aresample=48000 -c:a pcm_s16le voice_norm.wav
+            else
+              ffmpeg -v error -y -i "$audio" -af "loudnorm=I=-12.3:TP=-1:LRA=11:measured_I=$mi:measured_TP=$mtp:measured_LRA=$mlra:measured_thresh=$mth:offset=$off,aresample=48000" -c:a pcm_s16le voice_norm.wav
+            fi
             ffmpeg -v error -y -i video_only.mp4 -i voice_norm.wav -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -b:a 320k -t "$dur" "$NAME"
             lufs=$(ffmpeg -hide_banner -i "$NAME" -map 0:a:0 -af ebur128 -f null - 2>&1 | awk '/Integrated loudness/{f=1} f&&/I:/{print $2; exit}')
             echo "AUDIO_NOTE=${{ inputs.audio }} (normalised from $mi to $lufs LUFS)" >> "$GITHUB_ENV"
