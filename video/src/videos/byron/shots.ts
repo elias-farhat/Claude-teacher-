@@ -5,7 +5,7 @@ import { land, wtn } from "./story";
 import type { ShotSpec } from "../../guard/solve";
 
 export const SHOT_SPECS: ShotSpec[] = [
-  { t0: 0, subjects: ["c:byron", "w:bear"], size: "medium", move: "drift", note: "1 (hook) his college banned dogs: Byron strolls through the gate with the bear, frame 1" },
+  { t0: 0, subjects: ["c:byron", "w:bear"], size: "medium", move: "push", note: "1 (hook) his college banned dogs: Byron strolls through the gate with the bear, frame 1" },
   { t0: land(1, "so"), subjects: ["w:bear", "?c:byron"], size: "medium", angle: "low", move: "push", enter: "cut", note: "1 so he brought a bear" },
   { t0: land(2), subjects: ["c:byron", "w:dog", "?w:gate"], size: "wide", move: "push", enter: "cut", note: "2 Cambridge, 1805: the Great Court" },
   { t0: land(2, "Young"), subjects: ["c:byron"], size: "medium", move: "push", enter: "cut", note: "2 young Lord Byron arrives at Trinity College" },
@@ -17,7 +17,7 @@ export const SHOT_SPECS: ShotSpec[] = [
   { t0: land(5), subjects: ["w:wagon", "?c:byron"], size: "medium", move: "push", enter: "cut", note: "5 so he gets a bear (the wagon)" },
   { t0: wtn(5, "A", 1) - 2 / 30, subjects: ["w:bear", "c:byron"], size: "medium", move: "drift", enter: "cut", note: "5 a real, live, tame bear" },
   { t0: land(6), subjects: ["c:tutor0", "c:tutor1", "?c:tutor2"], size: "medium", move: "push", enter: "cut", note: "6 the college is horrified" },
-  { t0: land(6, "What"), subjects: ["c:tutor1", "?w:bear"], size: "medium", move: "push", enter: "cut", note: "6 what do we do with it?" },
+  { t0: land(6, "What"), subjects: ["c:tutor1", "c:tutor0", "?w:bear"], size: "medium", move: "push", enter: "cut", note: "6 what do we do with it?" },
   { t0: land(7), subjects: ["c:byron"], size: "medium", angle: "low", move: "push", enter: "cut", note: "7 Byron has an answer" },
   { t0: land(7, "He"), subjects: ["w:bear", "?c:byron"], size: "medium", move: "push", enter: "cut", note: "7 he should sit for a fellowship (the bear at the desk in gown and cap)" },
   { t0: land(8), subjects: ["c:tutor0", "c:tutor1"], size: "medium", move: "push", enter: "cut", note: "8 they couldn't throw it out (flipping the rule book)" },
