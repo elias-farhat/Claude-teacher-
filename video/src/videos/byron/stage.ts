@@ -45,7 +45,7 @@ const warmK = (s: Stage, p: THREE.Vector3, k: number) => s.lights.push(warm(p, k
 /** a soft warm fill in front of the faces of a scene (every face clearly lit) */
 const fill = (s: Stage, at: THREE.Vector3, k = 0.9) => warmK(s, V(at.x + 0.6, at.y + 2.0, at.z + 2.6), k);
 const BX: Extra = { cape: BYRON_CAPE };
-const byron = (s: Stage, l: Look, x: Extra = {}, opt: { turn?: number; yaw?: number } = { turn: 0.15 }) => { const b = byronAt(T); s.places.push(P("byron", BYRON, l, { ...BX, ...x }, b.p, opt)); };
+const byron = (s: Stage, l: Look, x: Extra = {}, opt: { turn?: number; yaw?: number } = { turn: 0.15 }, at?: THREE.Vector3) => { const b = byronAt(T); s.places.push(P("byron", BYRON, l, { ...BX, ...x }, at ?? b.p, opt)); };
 let T = 0;
 const walkL = (t: number, expr: Look["expr"], seed = 1): Look => ({ mode: "stroll", phase: q((t * 1.1) % 1, 12), expr, gest: "hang", blink: blinkAt(t, seed) });
 
@@ -105,14 +105,16 @@ const desk = (t: number, s: Stage) => {
   if (t < wt(7) - LEAD || t >= wt(9) - LEAD) return;
   const ans = after(t, 7, "He"), l8 = t >= wt(8) - LEAD;
   byron(s, { expr: ans ? "smug" : "wink", gest: ans ? "palm" : "tip", blink: blinkAt(t, 1), headTilt: -8, look: -1 }, {}, { turn: -0.3 });
-  if (l8) for (let i = 0; i < 2; i++) s.places.push(P(`tutor${i}`, TUTOR(i), { expr: after(t, 8, "never") ? "dazed" : "nervous", gest: "paper", k: q((t * 2) % 1, 8), blink: blinkAt(t, 60 + i), headTilt: i ? 10 : -10, look: 1 }, { cape: GOWN, paper: "rules", sweat: true }, V(DESK.x - 1.3 - i * 0.95, 0, DESK.z + 1.0 - i * 0.4), { turn: 0.35 }));
+  if (l8) for (let i = 0; i < 2; i++) s.places.push(P(`tutor${i}`, TUTOR(i), { expr: after(t, 8, "never") ? "dazed" : "nervous", gest: "paper", k: q((t * 2) % 1, 8), blink: blinkAt(t, 60 + i), headTilt: i ? 10 : -10, look: 1 }, { cape: GOWN, paper: "rules", sweat: true }, V(DESK.x - 1.55 - i * 0.85, 0, DESK.z + 0.7 - i * 0.3), { turn: 0.35 }));
   fill(s, V(DESK.x, 0.9, DESK.z + 0.8), 1.2);
 };
 // line 9: his rooms in warm lamp light: Byron in the armchair, the bear sitting up beside him, both smug
 const rooms = (t: number, s: Stage) => {
   if (t < wt(9) - LEAD) return;
   const claws = after(t, 9, "claws");
-  byron(s, { mode: "sit", expr: claws ? "laugh" : "smug", gest: claws ? "palm" : "fold", blink: blinkAt(t, 1), headTilt: -8, look: -1 }, {}, { turn: -0.2 });
+  // seated for "poet, rebel"; on "and the only student..." he stands up beside the bear, arm round its shoulder
+  if (after(t, 9, "and")) byron(s, { expr: claws ? "laugh" : "smug", gest: claws ? "palm" : "hug", blink: blinkAt(t, 1), headTilt: -8, look: -1 }, {}, { turn: -0.2 }, V(ARMCHAIR.x - 0.35, 0, ARMCHAIR.z + 0.55));
+  else byron(s, { mode: "sit", expr: "smug", gest: "fold", blink: blinkAt(t, 1), headTilt: -8, look: -1 }, {}, { turn: -0.2 });
   warmK(s, V(ARMCHAIR.x + 1.15, 1.1, ARMCHAIR.z + 0.2), 1.4); fill(s, V(ROOMS.x - 0.3, 0, ROOMS.z - 1), 1.2);
 };
 /** everything on stage at time t */
