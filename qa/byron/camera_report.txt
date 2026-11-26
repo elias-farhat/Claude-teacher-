@@ -1,3 +1,1 @@
-CRITICAL  41.03- 41.37 s  f1231-1240  SUBJECT   c:byron              too small (30 % of frame height, needs 30 %)
-CRITICAL  41.93- 43.13 s  f1258-1293  SUBJECT   w:bear               cut off top (0.02)
-CRITICAL  43.53- 45.03 s  f1306-1350  SUBJECT   c:byron              too small (29 % of frame height, needs 30 %)
+CRITICAL  41.93- 43.17 s  f1258-1294  SUBJECT   w:bear               cut off top (0.02)

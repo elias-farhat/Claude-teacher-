@@ -105,7 +105,7 @@ const desk = (t: number, s: Stage) => {
   if (t < wt(7) - LEAD || t >= wt(9) - LEAD) return;
   const ans = after(t, 7, "He"), l8 = t >= wt(8) - LEAD;
   byron(s, { expr: ans ? "smug" : "wink", gest: ans ? "palm" : "tip", blink: blinkAt(t, 1), headTilt: -8, look: -1 }, {}, { turn: -0.3 });
-  if (l8) for (let i = 0; i < 2; i++) s.places.push(P(`tutor${i}`, TUTOR(i), { expr: after(t, 8, "never") ? "dazed" : "nervous", gest: "paper", k: q((t * 2) % 1, 8), blink: blinkAt(t, 60 + i), headTilt: i ? 10 : -10, look: 1 }, { cape: GOWN, paper: "rules", sweat: true }, V(DESK.x - 1.55 - i * 0.85, 0, DESK.z + 0.7 - i * 0.3), { turn: 0.35 }));
+  if (l8) for (let i = 0; i < 2; i++) s.places.push(P(`tutor${i}`, TUTOR(i), { expr: after(t, 8, "never") ? "dazed" : "nervous", gest: "paper", k: q((t * 2) % 1, 8), blink: blinkAt(t, 60 + i), headTilt: i ? 10 : -10, look: 1 }, { cape: GOWN, paper: "rules", sweat: true }, V(DESK.x - 1.35 - i * 0.8, 0, DESK.z + 0.05 - i * 0.25), { turn: 0.35 }));
   fill(s, V(DESK.x, 0.9, DESK.z + 0.8), 1.2);
 };
 // line 9: his rooms in warm lamp light: Byron in the armchair, the bear sitting up beside him, both smug
