@@ -16,7 +16,7 @@ import { quality } from "../../quality";
 import type { Lamp } from "../rats/hanoi";
 import { buildSets, Sets, SET_KIT } from "./sets";
 import { LOOKS, Look, LAMP } from "./looks";
-import { SHOTS, camAt, Cam, FPS, bearAt, dogAt, signK } from "./story";
+import { SHOTS, camAt, Cam, FPS, bearAt, dogAt, signK, wt } from "./story";
 import { buildBear, buildDog, poseBeast, Beast } from "./animals";
 import { stage, Stage } from "./stage";
 
@@ -113,6 +113,7 @@ export class ByronWorld {
     const S = this.sets;
     poseBeast(this.bear, bearAt(t));
     poseBeast(this.dog, dogAt(t));
+    S.wagon.visible = !(t >= wt(2) - 0.1 && t < wt(5) - 0.1);   // run 49: the TAME BEAR wagon showed behind Byron before the bear arrived
     const k = signK(t); S.sign.visible = k > 0.01; S.sign.scale.set(1, Math.max(0.01, k), 1);
   }
 

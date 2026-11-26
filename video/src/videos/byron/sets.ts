@@ -103,7 +103,7 @@ export function buildSets(R: THREE.Group, kit: Kit): Sets {
     desk.position.copy(DESK); desk.traverse((o) => { o.userData.noGuard = true; }); R.add(desk); }
 
   // ---- Byron's rooms: panelled walls, bookshelves, fireplace, windows onto the court, armchair; open to the sky ----
-  { const rb = new Batch(), k = ROOMS, x0 = k.x - 5, x1 = k.x + 5, z0 = k.z - 4.2, z1 = k.z + 3, h = 3.4;
+  { const rb = new Batch(), k = ROOMS, x0 = k.x - 5, x1 = k.x + 5, z0 = k.z - 4.2, z1 = k.z + 9, h = 3.4;   // the floor runs on past the camera (run 49: grass showed below the room)
     const RB = (mat: THREE.Material, a: number, y0: number, c: number, d: number, y1: number, e: number, t = 2) => rb.add(boxGeo(V(a, y0, c), V(d, y1, e), t), mat);
     const panel = lam("byPanelM", () => ({ map: rep(panelTex(), 1, 1) })), plaster = lam("byPlaster", () => ({ color: "#f2e2c0" }));
     ground(rb, lam("byRug", () => ({ map: ctex("byRugT", 256, 256, (g) => { g.fillStyle = "#b83a3a"; g.fillRect(0, 0, 256, 256); g.strokeStyle = "#f2c44a"; g.lineWidth = 10; g.strokeRect(20, 20, 216, 216); g.strokeRect(50, 50, 156, 156); }) })), k.x - 2.4, k.x + 2.4, k.z - 2.6, k.z + 1.4, 0.03, 4.8);
