@@ -11,6 +11,7 @@ import { NapoleonShort, NAPOLEON_FRAMES } from "./videos/napoleon/Napoleon";
 import { CadaverShort, CADAVER_FRAMES } from "./videos/cadaver/Cadaver";
 import { BaboonShort, BABOON_FRAMES } from "./videos/baboon/Baboon";
 import { ChickenShort, CHICKEN_FRAMES } from "./videos/chicken/Chicken";
+import { ByronShort, BYRON_FRAMES } from "./videos/byron/Byron";
 
 // Register new shorts here (e.g. a copy of the skill's templates/bridge/ as src/videos/<name>/).
 export const Root: React.FC = () => (
@@ -26,6 +27,7 @@ export const Root: React.FC = () => (
     <Composition id="CadaverShort" component={CadaverShort} durationInFrames={CADAVER_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="BaboonShort" component={BaboonShort} durationInFrames={BABOON_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="ChickenShort" component={ChickenShort} durationInFrames={CHICKEN_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="ByronShort" component={ByronShort} durationInFrames={BYRON_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="BridgeShort" component={BridgeShort} durationInFrames={BRIDGE_FRAMES} fps={30} width={1080} height={1920} />
   </>
 );

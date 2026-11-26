@@ -142,7 +142,7 @@ jobs:
       - name: Camera guard on every frame (subject, occlusion, clipping, empty, faces); auto-frame Rats / Moon first
         if: inputs.composition == 'EiffelShort' || inputs.composition == 'RatShort' || inputs.composition == 'MoonShort'
         run: |
-          v=$(case "${{ inputs.composition }}" in EiffelShort) echo eiffel;; RatShort) echo rats;; MoonShort) echo moon;; BucketShort) echo bucket;; DexterShort) echo dexter;; NapoleonShort) echo napoleon;; CadaverShort) echo cadaver;; BaboonShort) echo baboon;; ChickenShort) echo chicken;; esac)
+          v=$(case "${{ inputs.composition }}" in EiffelShort) echo eiffel;; RatShort) echo rats;; MoonShort) echo moon;; BucketShort) echo bucket;; DexterShort) echo dexter;; NapoleonShort) echo napoleon;; CadaverShort) echo cadaver;; BaboonShort) echo baboon;; ChickenShort) echo chicken;; ByronShort) echo byron;; esac)
           if [ "$v" = eiffel ]; then node scripts/camera-guard.mjs "$v" | tee out/camera-guard.txt; exit "${PIPESTATUS[0]}"; fi
           timeout 300 pip install -q pillow || true
           set -o pipefail
@@ -258,7 +258,7 @@ jobs:
           test "${{ needs.proxy.result }}" = success || { echo "proxy render failed"; exit 1; }
           timeout 600 sudo apt-get install -y -qq ffmpeg >/dev/null 2>&1 || (sudo sed -i 's|http://azure.archive.ubuntu.com|http://archive.ubuntu.com|g' /etc/apt/sources.list.d/*.sources /etc/apt/sources.list 2>/dev/null; sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
           pip install -q numpy
-          v=$(case "${{ inputs.composition }}" in RatShort) echo rats;; MoonShort) echo moon;; BucketShort) echo bucket;; DexterShort) echo dexter;; NapoleonShort) echo napoleon;; CadaverShort) echo cadaver;; BaboonShort) echo baboon;; ChickenShort) echo chicken;; esac)
+          v=$(case "${{ inputs.composition }}" in RatShort) echo rats;; MoonShort) echo moon;; BucketShort) echo bucket;; DexterShort) echo dexter;; NapoleonShort) echo napoleon;; CadaverShort) echo cadaver;; BaboonShort) echo baboon;; ChickenShort) echo chicken;; ByronShort) echo byron;; esac)
           ls out/proxy/*.mp4 | sort -t- -k2 -n | sed "s|^out/proxy/|file '|; s|$|'|" > out/proxy/list.txt
           ffmpeg -v error -y -f concat -safe 0 -i out/proxy/list.txt -c copy out/proxy.mp4
           ls out/lensoff/*.mp4 | sort -t- -k2 -n | sed "s|^out/lensoff/|file '|; s|$|'|" > out/lensoff/list.txt
@@ -603,7 +603,7 @@ jobs:
       - name: Commit the MP4 to qa/<video>/preview.mp4
         if: (inputs.composition == 'RatShort' || inputs.composition == 'MoonShort') && inputs.mode == 'full'
         run: |
-          v=$(case "$COMP" in RatShort) echo rats;; MoonShort) echo moon;; BucketShort) echo bucket;; DexterShort) echo dexter;; NapoleonShort) echo napoleon;; CadaverShort) echo cadaver;; BaboonShort) echo baboon;; ChickenShort) echo chicken;; esac)
+          v=$(case "$COMP" in RatShort) echo rats;; MoonShort) echo moon;; BucketShort) echo bucket;; DexterShort) echo dexter;; NapoleonShort) echo napoleon;; CadaverShort) echo cadaver;; BaboonShort) echo baboon;; ChickenShort) echo chicken;; ByronShort) echo byron;; esac)
           [ -f "out/$NAME" ] || { echo "no MP4"; exit 0; }
           git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           for k in 1 2 3 4; do
