@@ -46,8 +46,8 @@ CRITICAL: 0
 warnings: 0 frames in 0 ranges (list in camera_report.txt)
 
 Loop:
-  round 1: 278 frames with CRITICAL failures in 5 shots (3, 7, 8, 10, 12)
-  round 2: 100 frames with CRITICAL failures in 2 shots (7, 8)
+  round 1: 371 frames with CRITICAL failures in 6 shots (3, 7, 8, 10, 12, 18)
+  round 2: 220 frames with CRITICAL failures in 3 shots (7, 8, 18)
   round 3: 41 frames with CRITICAL failures in 1 shots (8)
   round 4: 0 frames with CRITICAL failures in 0 shots
   assembled the best round of every shot: 0 frames with CRITICAL failures
@@ -67,11 +67,11 @@ Shots (candidate chosen, score):
   shot 11   27.22- 28.92 s  medium az+90 (score 9)
   shot 12   28.92- 30.52 s  medium az+90 (score 9)
   shot 13   30.52- 32.08 s  medium base (score 0)
-  shot 14   32.08- 34.70 s  wide   az-30 (score 3)
+  shot 14   32.08- 34.70 s  medium az-30 (score 3)
   shot 15   34.70- 36.16 s  medium lower (score 2)
-  shot 16   36.16- 38.56 s  wide   az+60 (score 6)
+  shot 16   36.16- 38.56 s  medium closer 0.45 (score 3)
   shot 17   38.56- 41.00 s  wide   higher (score 3)
-  shot 18   41.00- 45.03 s  wide   base (score 0)
+  shot 18   41.00- 45.03 s  close  az+60 (score 50: 2/5 blocked)
 
 Flights:
   -> shot 1: CUT 2.07-2.07 s, 0 f, cut on the beat, peak undefined m/f
