@@ -1,2 +1,1 @@
-CRITICAL   0.93-  1.00 s  f28-29  SUBJECT   c:byron              cut off top (0.05)
-CRITICAL  30.13- 30.53 s  f904-915  FACES     bystander tutor0     bystander's head cut at the left edge
+CRITICAL   0.00-  0.73 s  f0-21  SUBJECT   c:byron              too small (27 % of frame height, needs 30 %)
