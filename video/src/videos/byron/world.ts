@@ -113,7 +113,7 @@ export class ByronWorld {
     const S = this.sets;
     poseBeast(this.bear, bearAt(t));
     poseBeast(this.dog, dogAt(t));
-    S.wagon.visible = !(t >= wt(2) - 0.1 && t < wt(5) - 0.1);   // run 49: the TAME BEAR wagon showed behind Byron before the bear arrived
+    S.wagon.visible = !(t >= wt(2) - 0.1 && t < wt(5) - 2 / 30);   // shows on the cut to line 5 (run 50: 1 frame early at 682)   // run 49: the TAME BEAR wagon showed behind Byron before the bear arrived
     const k = signK(t); S.sign.visible = k > 0.01; S.sign.scale.set(1, Math.max(0.01, k), 1);
   }
 
