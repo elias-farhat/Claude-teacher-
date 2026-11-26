@@ -42,20 +42,15 @@ Decisions (auto-framer + camera guard, made without asking; revised after the re
   failed least; failing flights try other look timings / bends / start shifts, and a flight that still fails becomes
   a whip.
 
-CRITICAL: 17 frames in 1 ranges
-   38.00- 38.57 s  f1140-1156  FACES     bystander tutor1     bystander's head cut at the left edge
+CRITICAL: 0
 warnings: 0 frames in 0 ranges (list in camera_report.txt)
 
 Loop:
   round 1: 349 frames with CRITICAL failures in 6 shots (3, 7, 8, 10, 12, 16)
-  round 2: 117 frames with CRITICAL failures in 3 shots (7, 8, 16)
-  round 3: 58 frames with CRITICAL failures in 2 shots (8, 16)
-  round 4: 35 frames with CRITICAL failures in 1 shots (16)
-  round 5: 57 frames with CRITICAL failures in 1 shots (16)
-  assembled the best round of every shot: 17 frames with CRITICAL failures
-  fly transitions that still failed became cuts: 0; clipping whips panned the other way: 0, became cuts: 0
-  flight polish (look timing per failing flight): 17 frames with CRITICAL failures (0 flights cleared)
-  kept the assembled track (17 CRITICAL frames)
+  round 2: 100 frames with CRITICAL failures in 2 shots (7, 8)
+  round 3: 41 frames with CRITICAL failures in 1 shots (8)
+  round 4: 0 frames with CRITICAL failures in 0 shots
+  assembled the best round of every shot: 0 frames with CRITICAL failures
 
 Shots (candidate chosen, score):
   shot  0    0.00-  2.07 s  medium track higher (score 3)
@@ -74,7 +69,7 @@ Shots (candidate chosen, score):
   shot 13   30.52- 32.08 s  medium base (score 0)
   shot 14   32.08- 34.70 s  medium az+30 (score 3)
   shot 15   34.70- 36.16 s  medium base (score 0)
-  shot 16   36.16- 38.56 s  medium az-30 (score 28: bystander's head cut at the left edge)
+  shot 16   36.16- 38.56 s  medium az-30 (score 3)
   shot 17   38.56- 41.00 s  wide   higher (score 3)
   shot 18   41.00- 45.03 s  wide   closer (score 3)
 
