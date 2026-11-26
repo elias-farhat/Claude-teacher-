@@ -42,20 +42,15 @@ Decisions (auto-framer + camera guard, made without asking; revised after the re
   failed least; failing flights try other look timings / bends / start shifts, and a flight that still fails becomes
   a whip.
 
-CRITICAL: 19 frames in 2 ranges
-   38.57- 38.80 s  f1157-1163  SUBJECT   w:bear               cut off top (-0.05)
-   38.80- 39.20 s  f1164-1175  SUBJECT   w:bear               cut off left (0.05)
+CRITICAL: 0
 warnings: 0 frames in 0 ranges (list in camera_report.txt)
 
 Loop:
-  round 1: 352 frames with CRITICAL failures in 6 shots (3, 7, 8, 10, 12, 17)
-  round 2: 174 frames with CRITICAL failures in 3 shots (7, 8, 17)
-  round 3: 115 frames with CRITICAL failures in 2 shots (8, 17)
-  round 4: 74 frames with CRITICAL failures in 1 shots (17)
-  round 5: 19 frames with CRITICAL failures in 1 shots (17)
-  assembled the best round of every shot: 19 frames with CRITICAL failures
-  fly transitions that still failed became cuts: 0; clipping whips panned the other way: 0, became cuts: 0
-  flight polish (look timing per failing flight): 19 frames with CRITICAL failures (0 flights cleared)
+  round 1: 278 frames with CRITICAL failures in 5 shots (3, 7, 8, 10, 12)
+  round 2: 100 frames with CRITICAL failures in 2 shots (7, 8)
+  round 3: 41 frames with CRITICAL failures in 1 shots (8)
+  round 4: 0 frames with CRITICAL failures in 0 shots
+  assembled the best round of every shot: 0 frames with CRITICAL failures
 
 Shots (candidate chosen, score):
   shot  0    0.00-  2.07 s  medium track higher (score 3)
@@ -75,7 +70,7 @@ Shots (candidate chosen, score):
   shot 14   32.08- 34.70 s  wide   az-30 (score 3)
   shot 15   34.70- 36.16 s  medium lower (score 2)
   shot 16   36.16- 38.56 s  wide   az+60 (score 6)
-  shot 17   38.56- 41.00 s  close  az+60 (score 90: cut off top, 2/5 blocked)
+  shot 17   38.56- 41.00 s  wide   higher (score 3)
   shot 18   41.00- 45.03 s  wide   base (score 0)
 
 Flights:
